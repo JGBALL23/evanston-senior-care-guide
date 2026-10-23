@@ -50,6 +50,8 @@ F = {
     "hfs_double": "$625.50",
     "ccp_assets": "$17,500",
     "ccp_line": "1-800-252-8966",
+    "csra_2026": "$143,172",
+    "csmna_2026": "$4,066.50",
 }
 
 SRC = {
@@ -77,6 +79,14 @@ SRC = {
                  'https://ilaging.illinois.gov/programs/ccp.html'),
     "hfs_elderly": ('Illinois HFS — Persons who are Elderly waiver',
                     'https://hfs.illinois.gov/medicalclients/hcbs/elderly.html'),
+    "hfs_ltc_clients": ('Illinois HFS — Long Term Care (for clients)',
+                        'https://hfs.illinois.gov/medicalclients/ltc'),
+    "hfs_ltc_providers": ('Illinois HFS — Long Term Care provider programs',
+                          'https://hfs.illinois.gov/medicalproviders/providerprograms/longtermcare.html'),
+    "hfs_spenddown": ('Illinois HFS — Spenddown brochure (HFS 591SP)',
+                      'https://hfs.illinois.gov/info/brochures-and-forms/brochures/hfs591sp.html'),
+    "hfs_spousal2026": ('Illinois HFS Provider Notice, 22 January 2026 — 2026 spousal impoverishment standards',
+                        'https://hfs.illinois.gov/medicalproviders/notices/notice.prn260122a.html'),
 }
 
 
@@ -631,6 +641,130 @@ GUIDES = [
             ]),
         ],
     },
+
+    {
+        "slug": "illinois-medicaid-long-term-care",
+        "title": "How Illinois Medicaid Pays for Long-Term Care (and What Spend-Down Means)",
+        "h1": "How Illinois Medicaid pays for long-term care, and what spend-down means",
+        "desc": ("Illinois Medicaid can pay for nursing home and other long-term care. "
+                 "Here is what it actually covers, how to apply, and what a "
+                 "&ldquo;spend-down&rdquo; is for a family whose income or assets are "
+                 "too high to qualify outright."),
+        "intent": "paying for care",
+        "answer": ("Yes, through the state's Medical Assistance Program. Illinois HFS "
+                   "states plainly that &ldquo;payment for long-term nursing home "
+                   "services may be available from the state of Illinois.&rdquo; To get "
+                   "it, you apply for medical benefits through the <strong>Department of "
+                   "Human Services (DHS)</strong> and get a needs screening through the "
+                   "<strong>Department on Aging</strong> or DHS. If your income or assets "
+                   "are above the limit, you may still qualify through "
+                   "<strong>spenddown</strong> &mdash; a program HFS describes as working "
+                   "&ldquo;a little like an insurance deductible,&rdquo; where medical "
+                   "bills above a set monthly amount count toward eligibility."),
+        "sources": srcs("hfs_ltc_clients", "hfs_ltc_providers", "hfs_spenddown",
+                        "hfs_spousal2026", "hfs_elderly"),
+        "body": [
+            ("What Illinois Medicaid actually pays for", [
+                "<p>Medicaid is not one single long-term-care benefit. The Illinois "
+                "Medical Assistance Program reimburses long-term care facilities for "
+                "specific categories of service, which HFS lists as: skilled nursing "
+                "facility services, intermediate care facility services, intermediate "
+                "care for people with developmental disabilities (including specialized "
+                "living centers), pediatric skilled nursing, and supportive living "
+                "facility services.</p>",
+                "<p>In plain terms, that spans a licensed nursing home at one end and the "
+                "state's assisted-living-style Supportive Living Program at the other. "
+                "They are not interchangeable, and not every building accepts every "
+                "category. "
+                '<a href="/guides/illinois-supportive-living-program/">Illinois '
+                "Supportive Living Program, explained</a> covers that middle option in "
+                "its own right, and Illinois also pays for care at home through the "
+                '<a href="/guides/illinois-community-care-program/">Community Care '
+                "Program and the Persons who are Elderly waiver</a> rather than in a "
+                "facility at all.</p>",
+            ]),
+            ("How to apply", [
+                "<p>HFS sets out two separate steps, and both have to happen. You "
+                "<strong>apply for medical benefits through the Department of Human "
+                "Services (DHS)</strong>, and you <strong>obtain a needs screening "
+                "through the Department on Aging (DoA) or DHS</strong>. One is the "
+                "financial side of eligibility; the other confirms the person actually "
+                "needs the level of care being paid for. HFS points applicants to its "
+                "HFS 3191 brochure for the detailed eligibility steps.</p>",
+                "<p>This is a state process run by caseworkers, not an online form you "
+                "fill in once and forget. Expect to provide income and asset "
+                "documentation, and expect a caseworker, not a website, to tell you "
+                "exactly what is required in your parent's case.</p>",
+            ]),
+            ("What &ldquo;spend-down&rdquo; actually means", [
+                "<p>Spend-down exists for people who would otherwise be turned away for "
+                "having too much income or too many assets. HFS describes it this way: "
+                "&ldquo;Spenddown works a little like an insurance deductible.&rdquo; "
+                "Each month, you are responsible for the cost of medical care up to a "
+                "set amount, based on your income and assets, before Medicaid coverage "
+                "for that month applies.</p>",
+                "<p>You do not necessarily have to pay that amount out of pocket in "
+                "cash. HFS says a person can meet the monthly spenddown by showing a DHS "
+                "caseworker <strong>unpaid medical bills</strong> &mdash; the bills "
+                "themselves count toward the figure. Some recipients can also use "
+                "&ldquo;pay-in&rdquo; spenddown, paying the amount directly to HFS "
+                "instead of submitting bills; HFS describes this option as available to "
+                "people enrolled in spenddown who are aged, blind, or have a disability "
+                "and live in the community.</p>",
+                "<p>This is the detail families miss: nursing home care is expensive "
+                "enough that the monthly spend-down amount for someone in a facility is "
+                "often met immediately by the facility's own bill. Spenddown is "
+                "frequently the route by which a long nursing home stay ends up "
+                "Medicaid-covered even when the same person would not have qualified for "
+                "Medicaid the month before they were admitted.</p>",
+            ]),
+            ("Protecting a spouse who stays at home", [
+                "<p>Federal and state rules exist specifically so that one spouse "
+                "entering a nursing home does not force the other into poverty. Illinois "
+                "HFS publishes updated dollar figures for this every year. For 2026, "
+                "effective January 1, 2026, the <strong>Community Spouse Resource "
+                "Allowance</strong> is <strong>" + F["csra_2026"] + "</strong> &mdash; "
+                "the HFS notice describes this as the maximum amount of resources a "
+                "resident may transfer to a community spouse, or to another for that "
+                "spouse's sole benefit, before the resident's own eligibility is "
+                "assessed. Alongside it, HFS sets a <strong>Community Spouse "
+                "Maintenance Needs Allowance</strong> of <strong>" + F["csmna_2026"] +
+                " a month</strong>, which protects a share of income for the spouse "
+                "still living at home.</p>",
+                "<p>These two figures change every year, and HFS reissues the notice "
+                "each time. Do not rely on a figure copied from any article, including "
+                "this one, once a year has passed &mdash; check the current HFS notice "
+                "or ask the DHS caseworker handling the case.</p>",
+            ]),
+            ("A figure this guide will not publish", [
+                "<p>Illinois law sets a monthly personal needs allowance for Medicaid "
+                "nursing facility residents &mdash; a small amount of their own income "
+                "protected for personal spending rather than put toward the cost of "
+                "care. This guide went looking for the current figure on the HFS public "
+                "notice that sets it, and could not read a verifiable number off that "
+                "document. Rather than repeat a figure picked up secondhand, this guide "
+                "leaves it out. Ask the nursing facility's business office or the DHS "
+                "caseworker what the current personal needs allowance is before "
+                "assuming any number you have seen elsewhere.</p>",
+            ]),
+            ("Where to go from here", [
+                "<p>If the person you are helping is not yet in a facility and the "
+                "question is whether they need to be, start with "
+                '<a href="/guides/levels-of-senior-care-explained/">Assisted living, '
+                "memory care, skilled nursing and rehabilitation &mdash; what is the "
+                "difference?</a> If the question is what care costs before Medicaid "
+                'enters the picture at all, see <a href="/guides/assisted-living-cost-illinois/">'
+                "What assisted living actually costs in Evanston and Illinois</a> and "
+                "Medicare's own limited role in "
+                '<a href="/guides/does-medicare-pay-for-senior-care/">Does Medicare pay '
+                "for senior care?</a></p>",
+                "<p>If you are not sure which of those questions you are actually asking, "
+                'the <a href="/">free six-question assessment</a> on this site walks '
+                "through the specifics and shows the reasoning behind its answer. It "
+                "asks for no name, no email and no phone number to see your results.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -841,6 +975,12 @@ CARDS = {
         "Can my parent get paid help at home in Illinois?",
         "Illinois pays for homemaker help, adult day service and emergency "
         "response for some older adults. Who qualifies, and how to start."),
+    "illinois-medicaid-long-term-care": (
+        "Paying with Medicaid",
+        "How Illinois Medicaid pays for long-term care",
+        "What Medicaid actually covers, how to apply, and what "
+        "“spend-down” means if income or assets are too high to "
+        "qualify outright."),
 }
 
 
