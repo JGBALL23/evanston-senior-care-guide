@@ -35,7 +35,8 @@ date -u '+%Y-%m-%dT%H:%M:%SZ'
 
     CLOCK GATE: skipping. Chicago local time is <time>, not 06:xx.
 
-and end the run. Do not fetch, do not research, do not write, do not commit.
+and end the run. Do not fetch, do not research, do not write, do not commit,
+**and send no notification** — see Step 7.
 
 This is not a nicety. The schedule is a fixed UTC cron and the trigger API
 stores no timezone, so the only way to hold 6 AM Chicago across daylight
@@ -203,6 +204,72 @@ git rev-parse --short main origin/main    # must be unchanged and equal
 git log --oneline origin/drafts -3
 ```
 
+## Step 7 — notify the owner
+
+Send **exactly one** push with the `PushNotification` tool, at the very end,
+after the push to `drafts` has succeeded or definitively failed.
+
+**Keep the message under 200 characters.** Mobile operating systems truncate
+longer text, and a truncated notification that loses the link is useless. If
+the guide titles will not fit, shorten the titles — never the link, never the
+pass/fail word.
+
+The link is always:
+
+    https://github.com/JGBALL23/evanston-senior-care-guide/compare/main...drafts
+
+That link is **76 characters**, so you have about **123 characters** for
+everything else. Two full guide titles will not fit — shorten them to the
+distinguishing words ("Illinois Medicaid long-term care", not "How Illinois
+Medicaid pays for long-term care, and what spend-down means"). Count the
+characters before sending. A notification that fits is worth more than one
+that is complete and cut off mid-URL.
+
+### When a run created guides
+
+Say how many, name them, state whether everything passed, give the link.
+
+    Evanston: 2 new drafts — Illinois Medicaid long-term care; Reporting a
+    care facility. All checks + citations passed. <link>
+
+If any check or citation failed, you did not push the guide — so that case is
+a failure notification, not this one. Never write "all checks passed" unless
+every suite returned zero failures and every citation resolved. A SKIPPED
+browser suite is not a failure; say "checks passed (browser suite skipped)".
+
+### When a run created nothing
+
+Still notify, and say why in plain words — not a stack trace.
+
+    Evanston: 0 drafts today. HFS page for the figure would not load, so the
+    claim could not be verified. Nothing pushed. <link>
+
+Zero guides is a legitimate outcome. The notification exists so the owner
+knows the routine ran and chose not to ship, rather than wondering whether it
+is broken.
+
+### When the run itself failed
+
+Same rule. Name the step that broke and what it said.
+
+    Evanston: run FAILED at the citation check — 2 dead URLs. Nothing pushed,
+    main untouched. <link>
+
+### NEVER notify for the clock-gate skip
+
+If Step 0 ended the run because the Chicago hour was not `06`, **send no
+notification at all.** That firing is scheduling plumbing — the cron fires at
+two UTC hours so one of them lands at 6 AM, and the owner must never be
+pinged about the one that gets discarded. A silent skip is the correct and
+complete behaviour.
+
+### Report what delivery actually did
+
+`PushNotification` returns delivery details, including whether a push was
+really sent or why it was skipped. Quote that result verbatim in the final
+report. "Mobile push requested" is a request, not a delivery — never describe
+it as a notification the owner received.
+
 ## Final report — under 250 words
 
 - The clock-gate result (Chicago local time, and that it was 06:xx).
@@ -213,5 +280,8 @@ git log --oneline origin/drafts -3
   nothing, say that explicitly — it is unusual and worth the owner knowing.
 - The five suite result lines, verbatim.
 - The pushed commit hash, and the `main` hash proving it did not move.
+- The notification you sent, quoted, and the delivery result the
+  `PushNotification` tool returned — or, for a clock-gate skip, nothing at
+  all, because that run ends at Step 0.
 
 Never claim you read a page unless a tool returned its text to you.
