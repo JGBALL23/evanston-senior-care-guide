@@ -24,7 +24,11 @@ import sys
 import time
 import urllib.request
 
-import websockets
+# websockets is NOT imported at module level on purpose. The cloud
+# runner does not have it, and a top-level import crashes with a
+# traceback before any guard can run - which is exactly what happened
+# on the first cloud test. A missing dependency is a SKIP, not a
+# failing site. It is imported inside main(), after the guards.
 
 def _find_chrome():
     """The cloud routine runs on Linux, where this path does not exist.
@@ -216,7 +220,13 @@ async def run_page(cdp, label, path, width):
           await cdp.js("document.getElementById('navToggle').offsetParent===null"))
 
 
+def _have_websockets():
+    import importlib.util
+    return importlib.util.find_spec("websockets") is not None
+
+
 async def main():
+    import websockets
     if not os.path.isdir(SHOTS):
         os.makedirs(SHOTS)
     proc = launch()
@@ -234,6 +244,13 @@ async def main():
     print("\n  %d passed, %d failed   (%d assertions)" % (passed, failed, passed + failed))
     sys.exit(0 if failed == 0 else 1)
 
+
+if not _have_websockets():
+    print("  SKIPPED: the `websockets` package is not installed here.")
+    print("  This suite drives a real browser over the DevTools Protocol;")
+    print("  the portable suites are test.js, check-guides.js and")
+    print("  build-guides.py.")
+    sys.exit(0)
 
 if CHROME is None:
     print("  SKIPPED: no Chrome or Chromium on this machine.")
