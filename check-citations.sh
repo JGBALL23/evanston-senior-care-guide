@@ -13,6 +13,19 @@
 set -u
 cd "$(dirname "$0")" || exit 1
 
+# Git Bash on Windows aliases `curl` to Invoke-WebRequest in some shells,
+# so this project has always called curl.exe explicitly. That name does
+# not exist on Linux, where the cloud routine runs. Pick whichever is
+# actually present instead of hardcoding either.
+if command -v curl.exe >/dev/null 2>&1; then
+  CURL() { curl.exe "$@"; }
+elif command -v curl >/dev/null 2>&1; then
+  CURL() { curl "$@"; }
+else
+  echo "  no curl available - cannot resolve citations"
+  exit 1
+fi
+
 python -c "
 import io, re, os
 S = ['assisted-living-cost-illinois', 'does-medicare-pay-for-senior-care',
@@ -37,7 +50,7 @@ echo "  resolving $total unique citations"
 
 while IFS= read -r u; do
   [ -z "$u" ] && continue
-  code=$(curl.exe -s -o /dev/null -L --max-time 35 -A "Mozilla/5.0" -w '%{http_code}' "$u")
+  code=$(CURL -s -o /dev/null -L --max-time 35 -A "Mozilla/5.0" -w '%{http_code}' "$u")
   case "$code" in
     200|301|302) printf "  %-4s %s\n" "$code" "$u" ;;
     *) printf "  FAIL %-4s %s\n" "$code" "$u"; fail=$((fail + 1)) ;;

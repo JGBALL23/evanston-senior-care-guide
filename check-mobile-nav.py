@@ -26,7 +26,25 @@ import urllib.request
 
 import websockets
 
-CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+def _find_chrome():
+    """The cloud routine runs on Linux, where this path does not exist.
+    Check the usual Linux binaries and the two Windows install
+    locations, and say so plainly rather than failing on a missing
+    file."""
+    import shutil
+    for name in ("google-chrome", "google-chrome-stable", "chromium",
+                 "chromium-browser", "chrome"):
+        found = shutil.which(name)
+        if found:
+            return found
+    for p in (r"C:\Program Files\Google\Chrome\Application\chrome.exe",
+              r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"):
+        if os.path.isfile(p):
+            return p
+    return None
+
+
+CHROME = _find_chrome()
 PORT = 9333
 BASE = sys.argv[1] if len(sys.argv) > 1 else "http://localhost:8731"
 SHOTS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "shots")
@@ -216,5 +234,11 @@ async def main():
     print("\n  %d passed, %d failed   (%d assertions)" % (passed, failed, passed + failed))
     sys.exit(0 if failed == 0 else 1)
 
+
+if CHROME is None:
+    print("  SKIPPED: no Chrome or Chromium on this machine.")
+    print("  This suite drives a real browser; the portable suites are")
+    print("  test.js, check-guides.js and build-guides.py.")
+    sys.exit(0)
 
 asyncio.run(main())
