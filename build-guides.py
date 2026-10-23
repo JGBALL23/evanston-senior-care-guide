@@ -119,6 +119,12 @@ SRC = {
                       'https://hfs.illinois.gov/info/brochures-and-forms/brochures/hfs591sp.html'),
     "hfs_spousal2026": ('Illinois HFS Provider Notice, 22 January 2026 — 2026 spousal impoverishment standards',
                         'https://hfs.illinois.gov/medicalproviders/notices/notice.prn260122a.html'),
+    "idoa_ombudsman": ('Illinois Department on Aging — Long-Term Care Ombudsman Program',
+                       'https://ilaging.illinois.gov/programs/ltcombudsman.html'),
+    "idoa_ombudsman_contact": ('Illinois Department on Aging — Office of the State Long-Term Care Ombudsman, contact information',
+                               'https://ilaging.illinois.gov/programs/ltcombudsman/contact-information--office-of-the-state-long-term-care-ombudsma.html'),
+    "idph_ccr": ('Illinois Department of Public Health — Health care facility complaints',
+                'https://dph.illinois.gov/topics-services/health-care-regulation/complaints.html'),
 }
 
 
@@ -819,6 +825,105 @@ GUIDES = [
             ]),
         ],
     },
+
+    {
+        "slug": "illinois-care-facility-complaint",
+        "reviewed": "2026-10-23",
+        "title": "How to Report a Problem at an Illinois Nursing Home or Assisted Living Facility",
+        "h1": "How to report a problem at an Illinois care facility",
+        "desc": ("Illinois runs two separate channels for a concern about a nursing home "
+                 "or assisted living community: a resident advocate who works the problem "
+                 "with you, and a state regulator who investigates it. Here is which to "
+                 "call, and when."),
+        "intent": "how-to / advocacy",
+        "answer": ("Two different state contacts, for two different jobs. The "
+                   "<strong>Long-Term Care Ombudsman Program</strong>, run by the Illinois "
+                   "Department on Aging, is a free, confidential, resident-directed "
+                   "advocate &mdash; call the Senior HelpLine at <strong>1-800-252-8966 "
+                   "(711 TRS)</strong>. The <strong>Illinois Department of Public Health's "
+                   "Central Complaint Registry</strong> is the state regulator that "
+                   "investigates facilities &mdash; call <strong>800-252-4343</strong>, "
+                   "Monday&ndash;Friday 8:30 a.m. to 4:30 p.m. You do not have to choose "
+                   "just one."),
+        "sources": srcs("idoa_ombudsman", "idoa_ombudsman_contact", "idph_ccr"),
+        "body": [
+            ("Two kinds of help, and when to use each", [
+                "<p>Families searching for how to complain about a care community "
+                "usually find one of two very different state contacts, and the "
+                "difference matters. One is an <strong>advocate</strong> who works for "
+                "the resident and tries to resolve the problem informally. The other is "
+                "a <strong>regulator</strong> who investigates and can act against the "
+                "facility's licence. Neither replaces the other, and you can use both at "
+                "once.</p>",
+            ]),
+            ("The Long-Term Care Ombudsman Program", [
+                "<p>The Illinois Department on Aging describes its Long-Term Care "
+                "Ombudsman Program as a &ldquo;resident-directed advocacy program,&rdquo; "
+                "mandated by the federal Older Americans Act and the Illinois Act on "
+                "Aging. Ombudsmen advocate for better care in Illinois long-term care "
+                "facilities, help residents speak up for themselves, explain residents' "
+                "rights, and investigate complaints to try to resolve them to the "
+                "resident's satisfaction.</p>",
+                "<p>Two things are worth knowing before you call. First, the program "
+                "states plainly that its work is <em>directed by the resident</em> "
+                "&mdash; it is not a service a family member sets in motion and then "
+                "runs. Second, it keeps information confidential and will not disclose "
+                "it without the individual's permission. The department's page lists "
+                "current and former residents, their friends and relatives, facility "
+                "staff, and anyone considering placement as people who may contact an "
+                "ombudsman, and the service is free.</p>",
+                "<p>To reach the program, call the Senior HelpLine at "
+                "<strong>1-800-252-8966 (711 TRS)</strong> or email "
+                "<strong>Aging.SLTCOProgram@illinois.gov</strong>. The department's "
+                "contact page also lists direct numbers for the State Long-Term Care "
+                "Ombudsman and deputy staff, but a family with a new concern should start "
+                "with the HelpLine rather than guessing which named contact to use.</p>",
+            ]),
+            ("The Illinois Department of Public Health's Central Complaint Registry", [
+                "<p>IDPH licenses and regulates health care facilities in Illinois, and "
+                "its Central Complaint Registry is the channel for reporting a concern "
+                "that may call for a state investigation rather than informal advocacy. "
+                "The department's complaints page gives the hotline as "
+                "<strong>800-252-4343</strong>, with hours of "
+                "<strong>Monday&ndash;Friday 8:30 a.m. to 4:30 p.m.</strong></p>",
+                "<p>The same page states that for a long-term care complaint "
+                "specifically, that same number reaches the department's Bureau of "
+                "Long-Term Care. Besides the phone line, the page lists three other ways "
+                "to file: online through the OHCR Portal, by fax at 217-524-8885, or by "
+                "e-mail to DPH.CCR@illinois.gov using the Health Care Facilities "
+                "Complaint Form. Written complaints can also go by mail to the Illinois "
+                "Department of Public Health, Office of Health Care Regulation, Central "
+                "Complaint Registry, 525 W. Jefferson St., Ground Floor, Springfield, IL "
+                "62761-0001.</p>",
+                "<p>IDPH says your identity is not disclosed to the facility, and you "
+                "may file anonymously or leave contact information to receive written "
+                "notice of the outcome. Describing who, what, when, where and how gives "
+                "investigators the most to work with.</p>",
+            ]),
+            ("A number this guide will not publish", [
+                "<p>The Ombudsman Program's own page carries a separate navigation link "
+                "reading &ldquo;Report Abuse: 1-866-800-1409,&rdquo; but the page itself "
+                "never states what that line reaches or how it relates to the HelpLine "
+                "number above it. Rather than guess at an unexplained number on a "
+                "government page, this guide leaves it out. If you come across it "
+                "elsewhere, confirm what it connects to with the Department on Aging "
+                "before relying on it.</p>",
+            ]),
+            ("If someone is in immediate danger", [
+                "<p>None of the above is the right channel for an emergency. If a "
+                "resident's life or safety is at risk right now, call 911 first and make "
+                "the state reports afterward.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>Reporting a live concern is a different task from researching a "
+                "community before you move in. For the latter, see "
+                '<a href="/guides/check-illinois-inspection-records/">How to check an '
+                "Illinois care community's inspection record</a>, which covers the public "
+                "tools that publish a facility's inspection history before you need to "
+                "report anything yourself.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -1035,6 +1140,11 @@ CARDS = {
         "What Medicaid actually covers, how to apply, and what "
         "“spend-down” means if income or assets are too high to "
         "qualify outright."),
+    "illinois-care-facility-complaint": (
+        "Checking a community",
+        "How to report a problem at an Illinois care facility",
+        "The resident advocate who works the problem with you, and the "
+        "state regulator who investigates it — and which to call first."),
 }
 
 
