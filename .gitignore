@@ -1,0 +1,48 @@
+# Evanston Senior Care Guide — what never enters the repository
+#
+# The rule: a clean clone must build and verify. Anything that is a
+# working artefact, a backup, a screenshot, a credential or a throwaway
+# test bundle stays out.
+
+# --- credentials. Nothing here is ever committed. ---
+.env
+.env.*
+*.token
+*secret*
+*credential*
+.netlify/
+
+# --- editor / OS / language noise ---
+__pycache__/
+*.pyc
+node_modules/
+.DS_Store
+Thumbs.db
+
+# --- backups taken while editing. The history is the backup. ---
+*.bak
+*.pre-*
+*.orig
+*.zip
+
+# --- screenshots and verification images (regenerate them) ---
+shots/
+brand-desktop.png
+brand-hero.png
+brand-mobile.png
+
+# --- throwaway test bundles and previews ---
+.navtest/
+.isotest/
+_preview/
+in
+
+# --- scratch files from one-off investigations ---
+.cites*
+.wm.json
+.patch_*.py
+.audit_*.py
+.measure.py
+.shot375.py
+.overflow.py
+.mem*.py

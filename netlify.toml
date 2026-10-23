@@ -1,0 +1,45 @@
+# Evanston Senior Care Guide — deploy configuration
+#
+# The site is static. The one piece of server code is the
+# visit-attribution endpoint, which exists because a client-side
+# "submission" proves nothing: the timestamp has to come from a
+# server the visitor does not control.
+
+# _dist holds exactly the files a visitor can reach. Keeping the
+# deploy source separate from the working directory is what stops
+# test harnesses and screenshots being published by accident.
+[build]
+  publish = "_dist"
+  functions = "netlify/functions"
+
+[[headers]]
+  for = "/t/*"
+  [headers.values]
+    Cache-Control = "no-store, max-age=0"
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Cache-Control = "no-store, max-age=0"
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# The .netlify.app subdomain serves the same site, which is a duplicate
+# in Google's eyes and splits ranking between two hosts. Netlify
+# redirects other custom domains to the primary automatically but never
+# this one, so it is done explicitly.
+#
+# The `from` is a full URL, so it matches that exact host only —
+# deploy-preview subdomains (<hash>--site.netlify.app) are untouched and
+# keep working for testing.
+[[redirects]]
+  from = "https://evanston-senior-care-guide.netlify.app/*"
+  to = "https://evanstonseniorcareguide.com/:splat"
+  status = 301
+  force = true
