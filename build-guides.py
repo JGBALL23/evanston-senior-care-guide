@@ -48,6 +48,8 @@ F = {
     "pna": "$120",
     "hfs_room_board": "$874",
     "hfs_double": "$625.50",
+    "ccp_assets": "$17,500",
+    "ccp_line": "1-800-252-8966",
 }
 
 SRC = {
@@ -71,6 +73,10 @@ SRC = {
                       'https://hfs.illinois.gov/medicalproviders/medicaidreimbursement/supportivelivinging.html'),
     "idph": ('Illinois Department of Public Health — Health Care Report Card',
              'https://healthcarereportcard.illinois.gov/'),
+    "idoa_ccp": ('Illinois Department on Aging — Community Care Program',
+                 'https://ilaging.illinois.gov/programs/ccp.html'),
+    "hfs_elderly": ('Illinois HFS — Persons who are Elderly waiver',
+                    'https://hfs.illinois.gov/medicalclients/hcbs/elderly.html'),
 }
 
 
@@ -509,6 +515,122 @@ GUIDES = [
             ]),
         ],
     },
+
+    {
+        "slug": "illinois-community-care-program",
+        "title": "Can My Parent Get Paid Help at Home in Illinois?",
+        "h1": "Can my parent get paid help at home in Illinois?",
+        "desc": ("Illinois pays for homemaker help, adult day service and emergency "
+                 "response for some older adults who would otherwise need a nursing "
+                 "home. Here is who qualifies and how to start."),
+        "intent": "staying at home",
+        "answer": ("Possibly. Illinois runs the <strong>Community Care Program</strong>, "
+                   "which the Department on Aging describes as helping older adults "
+                   "&ldquo;who might otherwise need nursing home care to remain in their "
+                   "homes.&rdquo; It is for people <strong>60 or older</strong> with "
+                   "<strong>non-exempt assets of " + F["ccp_assets"] + " or less</strong> "
+                   "and an assessed need for long-term care. A house, a car and personal "
+                   "furnishings are exempt from that asset figure. You start by calling "
+                   "the Senior HelpLine on <strong>" + F["ccp_line"] + "</strong>."),
+        "sources": srcs("idoa_ccp", "hfs_elderly"),
+        "body": [
+            ("What the programme actually provides", [
+                "<p>The Community Care Program was established in 1979 by Public Act "
+                "81-202. The Illinois Department on Aging lists five services under it: "
+                "comprehensive care coordination, in-home service, adult day service, "
+                "emergency home response service, and automated medication dispenser "
+                "service.</p>",
+                "<p><strong>In-home service</strong> is the one most families are "
+                "picturing. The state describes it as help with household tasks — "
+                "cleaning, planning and preparing meals, laundry, shopping and errands — "
+                "and says homecare aides also assist with personal care such as "
+                "dressing, bathing, grooming and following special diets.</p>",
+                "<p><strong>Adult day service</strong> is for someone who wants to stay "
+                "in the community but cannot be home alone during the day. It also gives "
+                "a family caregiver hours back, which matters if you are the one holding "
+                "this together from a job.</p>",
+                "<p><strong>Emergency home response</strong> is a 24-hour link to help "
+                "outside the home, for people with documented health and safety needs "
+                "and mobility limitations. <strong>Automated medication dispenser "
+                "service</strong> dispenses or prompts non-liquid oral medication and "
+                "notifies a responsible party about a missed dose.</p>",
+            ]),
+            ("Who qualifies", [
+                "<p>The Department on Aging lists these requirements. A person must be "
+                "60 years old or older; a resident of Illinois; either a U.S. citizen or "
+                "an eligible non-citizen within the specific categories; have non-exempt "
+                "assets of <strong>" + F["ccp_assets"] + " or less</strong>; have an "
+                "assessed need for long-term care; and apply for Medicaid and enrol if "
+                "eligible.</p>",
+                "<p>The asset figure is narrower than it sounds. The state states "
+                "plainly that a home, a car and personal furnishings are classified as "
+                "<em>exempt</em> assets, so owning the house your parent lives in does "
+                "not by itself put them over the line.</p>",
+                "<p>The need test is run with a state tool called the Determination of "
+                "Need, or DON, which measures whether someone is at risk of nursing "
+                "facility placement. This guide does not publish a passing score. The "
+                "threshold is set by the state and applied by an assessor, and a number "
+                "copied off a website is not the number that will decide your parent's "
+                "case. Ask the assessor what the current threshold is.</p>",
+            ]),
+            ("The part that confuses everyone: two agencies, one programme", [
+                "<p>You will see this called the Community Care Program in one place and "
+                "the <strong>Persons who are Elderly waiver</strong> in another. They are "
+                "not two programmes. Illinois HFS — the state Medicaid agency — states "
+                "that the Persons who are Elderly waiver &ldquo;is a component of the "
+                "Community Care Program (CCP) provided through the Illinois Department on "
+                "Aging.&rdquo; HFS administers and oversees it; the Department on Aging "
+                "runs it day to day.</p>",
+                "<p>HFS also names the target groups inside that waiver: people who are "
+                "aged, 65 and older, and people who are physically disabled, ages 60 "
+                "through 64. And it lists two conditions the Aging page does not — that "
+                "the estimated cost to the state for home care is less than the estimated "
+                "cost of institutional care, and that the person can be safely maintained "
+                "at home with the services in the plan of care.</p>",
+                "<p>Read that second condition carefully, because it is the honest limit "
+                "of this programme. It pays for help at home while home is still safe. It "
+                "is not a promise that home will always be the answer.</p>",
+            ]),
+            ("How to start", [
+                "<p>Call the <strong>Senior HelpLine</strong> on <strong>"
+                + F["ccp_line"] + "</strong>. HFS instructs callers to choose a language "
+                "and then press 4. Office hours are Monday to Friday, 8:30 to 5:00. For "
+                "deaf and speech-impaired callers, Illinois Relay is <strong>711</strong>."
+                "</p>",
+                "<p>Assessments are carried out locally by organisations the state calls "
+                "<strong>Care Coordination Units</strong>. The Department on Aging "
+                "publishes a map tool for finding the one that covers your area, and that "
+                "unit is who actually visits and scores the assessment. If your parent is "
+                "already in a Medicaid managed care plan, HFS says to contact that plan's "
+                "care coordinator about in-home services rather than going around them — "
+                "and if you do call the local unit directly, tell them the plan name and "
+                "have the identification number ready.</p>",
+                "<p>One thing to know before you plan around any of this: HFS lists a "
+                "proposed amendment to the waiver with an effective date of 1 January "
+                "2027. Rules in this programme change. Confirm the current ones on the "
+                "call rather than trusting a page — including this one.</p>",
+            ]),
+            ("When home help is not enough", [
+                "<p>This programme and a move are not rivals, and plenty of families use "
+                "one then the other. If the concern has shifted from <em>help</em> to "
+                "<em>safety</em> — wandering, the stove, not recognising the house — "
+                "homemaker hours are not the tool. "
+                '<a href="/guides/levels-of-senior-care-explained/">Assisted living, '
+                "memory care, skilled nursing and rehabilitation &mdash; what is the "
+                "difference?</a> sets out what each setting actually provides.</p>",
+                "<p>If the money is the obstacle rather than the care level, Illinois also "
+                "pays for assisted-living-style care in approved buildings through a "
+                "separate programme, explained in "
+                '<a href="/guides/illinois-supportive-living-program/">Illinois '
+                "Supportive Living Program, explained</a>.</p>",
+                "<p>If you are not sure which of those two sentences describes your "
+                'parent, the <a href="/">free six-question assessment</a> on this site '
+                "walks through the specifics and shows you the reasoning behind its "
+                "answer. It asks for no name, no email and no phone number to see your "
+                "results.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -714,6 +836,11 @@ CARDS = {
         "What is the difference between each level of care?",
         "Assisted living, memory care, skilled nursing and rehabilitation in "
         "plain English, so you know what you are comparing."),
+    "illinois-community-care-program": (
+        "Staying at home",
+        "Can my parent get paid help at home in Illinois?",
+        "Illinois pays for homemaker help, adult day service and emergency "
+        "response for some older adults. Who qualifies, and how to start."),
 }
 
 

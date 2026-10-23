@@ -9,13 +9,26 @@ const fs = require("fs");
 const path = require("path");
 
 const DIST = path.join(__dirname, "_dist");
-const SLUGS = [
-  "assisted-living-cost-illinois",
-  "does-medicare-pay-for-senior-care",
-  "illinois-supportive-living-program",
-  "check-illinois-inspection-records",
-  "levels-of-senior-care-explained",
-];
+
+/* SLUGS is DERIVED from build-guides.py, not typed out here.
+   It used to be a hand-written list of five, and so were the card
+   count and the sitemap URL count. That meant the act of adding a
+   sixth guide broke the suite that was supposed to approve it - the
+   author would have had to edit three numbers in this file to make a
+   correct change pass. A daily routine cannot be asked to maintain
+   its own grading constants; it would either fail forever or learn to
+   edit the gate.
+   Reading the generator keeps build-guides.py the single source of
+   truth for what SHOULD exist, so the gate still catches a guide that
+   quietly vanished from _dist - it just no longer hardcodes how many
+   there are. */
+const GEN = fs.readFileSync(path.join(__dirname, "build-guides.py"), "utf8");
+const SLUGS = (GEN.match(/^\s*"slug":\s*"([a-z0-9-]+)"/gm) || [])
+  .map((m) => m.replace(/.*"slug":\s*"/, "").replace(/"$/, ""));
+if (SLUGS.length < 5) {
+  console.log("  FAIL  could not read the slug list out of build-guides.py");
+  process.exit(1);
+}
 
 let pass = 0, fail = 0;
 function check(name, ok, detail) {
@@ -279,14 +292,15 @@ check("the lead has its own readable style", indexPage.indexOf('class="topics__l
 
 /* the cards */
 check("cards are a semantic list", /<ul class="topics">[\s\S]*<\/ul>/.test(indexPage));
-check("there are exactly five cards",
-  (indexPage.match(/<li class="topic">/g) || []).length === 5,
-  String((indexPage.match(/<li class="topic">/g) || []).length));
+check("there is one card per guide, no more and no fewer",
+  (indexPage.match(/<li class="topic">/g) || []).length === SLUGS.length,
+  (indexPage.match(/<li class="topic">/g) || []).length + " cards for "
+    + SLUGS.length + " guides");
 check("the old faint-label title style is gone from the index",
   indexPage.indexOf('res__h"><a') === -1);
 
 var cardBlocks = indexPage.split('<li class="topic">').slice(1);
-check("card blocks parsed", cardBlocks.length === 5);
+check("card blocks parsed", cardBlocks.length === SLUGS.length);
 cardBlocks.forEach(function (c, i) {
   var n = i + 1;
   check("card " + n + " has a category label", /class="topic__cat">[^<]{3,}</.test(c));
@@ -563,9 +577,12 @@ check("no broken internal links", bad.length === 0, bad.join(", "));
 SLUGS.forEach((s) => {
   check("sitemap lists " + s, sitemap.indexOf("/guides/" + s + "/") !== -1);
 });
-check("sitemap has 8 urls", (sitemap.match(/<url>/g) || []).length === 8,
-  String((sitemap.match(/<url>/g) || []).length));
-check("guides index links all five",
+/* home + /guides/ + one per guide + /privacy.html */
+check("sitemap has one url per page",
+  (sitemap.match(/<url>/g) || []).length === SLUGS.length + 3,
+  (sitemap.match(/<url>/g) || []).length + " urls for "
+    + SLUGS.length + " guides");
+check("guides index links every guide",
   SLUGS.every((s) => indexPage.indexOf("/guides/" + s + "/") !== -1));
 check("Guides is in the main nav",
   read(path.join(DIST, "index.html")).indexOf("/guides/") !== -1);
