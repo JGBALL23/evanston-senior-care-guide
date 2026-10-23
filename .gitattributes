@@ -1,0 +1,21 @@
+# Line endings are LF everywhere, in the repository AND in the working
+# tree, on every platform.
+#
+# Why this file exists: this machine has core.autocrlf=true, so git
+# rewrote LF to CRLF on checkout while build-guides.py writes LF. A
+# clean clone followed by a regeneration therefore showed all five
+# guides as modified when nothing had actually changed. A daily cloud
+# routine would have buried its real diff in that noise on every run.
+#
+# `eol=lf` overrides autocrlf for these paths, so the Linux cloud runner
+# and this Windows machine produce byte-identical output.
+
+*           text=auto eol=lf
+
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.webp      binary
+*.ico       binary
+*.pdf       binary
+*.zip       binary
