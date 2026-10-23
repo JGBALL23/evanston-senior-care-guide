@@ -12,13 +12,19 @@ Here, each guide is a dict. Adding one means adding a dict. The sitemap,
 the /guides/ index, the internal links and the "last reviewed" dates all
 follow automatically.
 
-EVERY FIGURE IN THIS FILE WAS READ FROM THE PRIMARY SOURCE on 2026-10-18:
+EVERY FIGURE IN THIS FILE WAS READ FROM A PRIMARY SOURCE. The original five
+guides were verified on 2026-10-18 against:
   - medicare.gov/basics/costs/medicare-costs        (Part A deductible, SNF)
   - medicare.gov/coverage/skilled-nursing-facility-snf-care
   - hfs.illinois.gov/medicalprograms/slf/residentfactsheet.html  (PNA, GCC)
   - CareScout 2025 Cost of Care Survey, published 2026 — the same PDF the
     assessment already cites, so the guides and the result pages can never
     disagree about a number.
+
+Guides added later carry their own "reviewed" date and their own sources;
+2026-10-23 added the Community Care Program and the Medicaid long-term-care
+guide, the latter verified against four HFS pages including the 22 January
+2026 spousal impoverishment notice.
 
 Nothing here is from a lead-generation aggregator. If a figure cannot be
 read from a government or survey primary source, it does not go on a page.
@@ -30,9 +36,35 @@ Writes: _dist/guides/*.html, _dist/guides/index.html, _dist/sitemap.xml
 import io, os, re, datetime
 
 SITE = "https://evanstonseniorcareguide.com"
+OUT = "_dist/guides"
+
+# REVIEWED is the date the ORIGINAL five were verified against their sources.
+# It is the default, not a global stamp. A guide written later carries its own
+# "reviewed" key and prints its own date.
+#
+# Why this is per-guide: the date on a page is a factual claim about when a
+# human or a tool last read the source. Bumping one global constant because
+# ONE new guide was researched today would silently re-date six pages that
+# nobody re-checked - exactly the kind of quiet, confident falsehood the rest
+# of this file exists to prevent. A daily routine adding a guide must stamp
+# only the guide it actually researched.
 REVIEWED = "2026-10-18"
 REVIEWED_HUMAN = "18 October 2026"
-OUT = "_dist/guides"
+
+
+def reviewed_iso(g):
+    return g.get("reviewed", REVIEWED)
+
+
+def reviewed_human(g):
+    d = datetime.date(*[int(x) for x in reviewed_iso(g).split("-")])
+    return "%d %s %d" % (d.day, d.strftime("%B"), d.year)
+
+
+def newest_reviewed():
+    """The index and the sitemap describe the whole library, so they carry the
+    most recent review date in it, not the oldest."""
+    return max(reviewed_iso(g) for g in GUIDES)
 
 # --------------------------------------------------------------------------
 # VERIFIED FIGURES — one definition each, reused everywhere.
@@ -528,6 +560,8 @@ GUIDES = [
 
     {
         "slug": "illinois-community-care-program",
+        # Researched on this date, not on the library's original review date.
+        "reviewed": "2026-10-23",
         "title": "Can My Parent Get Paid Help at Home in Illinois?",
         "h1": "Can my parent get paid help at home in Illinois?",
         "desc": ("Illinois pays for homemaker help, adult day service and emergency "
@@ -644,6 +678,9 @@ GUIDES = [
 
     {
         "slug": "illinois-medicaid-long-term-care",
+        # Researched and verified in the cloud routine's own run on this date,
+        # not on the library's original 2026-10-18 review date.
+        "reviewed": "2026-10-23",
         "title": "How Illinois Medicaid Pays for Long-Term Care (and What Spend-Down Means)",
         "h1": "How Illinois Medicaid pays for long-term care, and what spend-down means",
         "desc": ("Illinois Medicaid can pay for nursing home and other long-term care. "
@@ -721,20 +758,37 @@ GUIDES = [
             ("Protecting a spouse who stays at home", [
                 "<p>Federal and state rules exist specifically so that one spouse "
                 "entering a nursing home does not force the other into poverty. Illinois "
-                "HFS publishes updated dollar figures for this every year. For 2026, "
-                "effective January 1, 2026, the <strong>Community Spouse Resource "
-                "Allowance</strong> is <strong>" + F["csra_2026"] + "</strong> &mdash; "
-                "the HFS notice describes this as the maximum amount of resources a "
-                "resident may transfer to a community spouse, or to another for that "
-                "spouse's sole benefit, before the resident's own eligibility is "
-                "assessed. Alongside it, HFS sets a <strong>Community Spouse "
-                "Maintenance Needs Allowance</strong> of <strong>" + F["csmna_2026"] +
-                " a month</strong>, which protects a share of income for the spouse "
-                "still living at home.</p>",
-                "<p>These two figures change every year, and HFS reissues the notice "
-                "each time. Do not rely on a figure copied from any article, including "
-                "this one, once a year has passed &mdash; check the current HFS notice "
-                "or ask the DHS caseworker handling the case.</p>",
+                "HFS publishes updated dollar figures for this every year, and for 2026, "
+                "effective 1 January 2026, it sets two of them.</p>",
+                "<p><strong>Neither figure is an amount anyone is promised.</strong> "
+                "Both are ceilings. HFS calls each one a <em>standard</em> and a "
+                "<em>maximum</em>, and in both cases the amount that actually applies to "
+                "a particular couple is worked out by subtracting what the at-home "
+                "spouse already has.</p>",
+                "<p>The <strong>Community Spouse Resource Allowance</strong> standard is "
+                "<strong>" + F["csra_2026"] + "</strong>. HFS describes it as the "
+                "maximum amount of resources a resident may transfer to a community "
+                "spouse, or to another for that spouse's sole benefit, and states that "
+                "<q>the actual amount a resident may transfer is determined by deducting "
+                "nonexempt resources of the community spouse from the standard</q>. So a "
+                "spouse who already holds countable resources of their own can transfer "
+                "less than " + F["csra_2026"] + " &mdash; possibly much less.</p>",
+                "<p>The <strong>Community Spouse Maintenance Needs Allowance</strong> "
+                "standard is <strong>" + F["csmna_2026"] + " a month</strong>. HFS "
+                "describes it as the maximum monthly income a resident may give to a "
+                "community spouse, and states that <q>the actual amount a resident may "
+                "give is determined by deducting any gross income of the community "
+                "spouse from the standard</q>. A spouse with their own pension or Social "
+                "Security therefore receives the difference, not the full "
+                + F["csmna_2026"] + ".</p>",
+                "<p>This guide deliberately does not do that subtraction for you. It "
+                "depends on which of a household's resources and income the state counts "
+                "and which it exempts, and that determination belongs to the DHS "
+                "caseworker, not to a website.</p>",
+                "<p>Both standards change every year, and HFS reissues the notice each "
+                "time. Do not rely on a figure copied from any article, including this "
+                "one, once a year has passed &mdash; check the current HFS notice or ask "
+                "the DHS caseworker handling the case.</p>",
             ]),
             ("A figure this guide will not publish", [
                 "<p>Illinois law sets a monthly personal needs allowance for Medicaid "
@@ -877,7 +931,7 @@ def article_jsonld(g, canon):
             '  "publisher": { "@type": "Person", "name": "Joseph Gonzales" },\n'
             '  "about": { "@type": "Thing", "name": "Senior care in Evanston, Illinois" }\n'
             '}\n</script>') % (
-        js(g["title"]), js(strip_tags(g["desc"])), js(canon), REVIEWED)
+        js(g["title"]), js(strip_tags(g["desc"])), js(canon), reviewed_iso(g))
 
 
 def js(s):
@@ -907,7 +961,7 @@ def sources_block(g):
             '<ul class="res__list">%s</ul>\n'
             '<p class="visit__fine">Every figure on this page was read from the '
             'source listed above on %s. Figures change; the review date tells you '
-            'how fresh this page is.</p>\n</section>' % (items, REVIEWED_HUMAN))
+            'how fresh this page is.</p>\n</section>' % (items, reviewed_human(g)))
 
 
 def build_guide(g):
@@ -936,7 +990,7 @@ def build_guide(g):
                  'device.</p>\n'
                  '<p><a class="btn btn--primary" href="/#assessment">Take the free '
                  'assessment</a></p>\n</section>\n')
-    parts.append('<p class="visit__fine">Last reviewed %s.</p>\n' % REVIEWED_HUMAN)
+    parts.append('<p class="visit__fine">Last reviewed %s.</p>\n' % reviewed_human(g))
     parts.append(FOOT)
     return "".join(parts)
 
@@ -1026,20 +1080,26 @@ def build_index():
               'government or survey source and dated, so you can see how current it '
               'is.</p>\n'
             + cards
-            + '<p class="visit__fine">Last reviewed %s.</p>\n' % REVIEWED_HUMAN
+            + '<p class="visit__fine">Last reviewed %s.</p>\n' % reviewed_human({"reviewed": newest_reviewed()})
             + FOOT)
 
 
 def build_sitemap():
     """Generated from the GUIDES list — adding a guide updates the sitemap."""
-    urls = [(SITE + "/", "1.0", "monthly"),
-            (SITE + "/guides/", "0.8", "monthly")]
-    urls += [(SITE + "/guides/%s/" % g["slug"], "0.7", "yearly") for g in GUIDES]
-    urls.append((SITE + "/privacy.html", "0.3", "yearly"))
+    # lastmod is PER URL. Stamping every page with today's date because one
+    # guide changed tells a crawler that six unchanged pages were rewritten -
+    # untrue, and the fastest way to teach it to ignore the field entirely.
+    # A guide's lastmod is its own review date.
+    newest = newest_reviewed()
+    urls = [(SITE + "/", "1.0", "monthly", newest),
+            (SITE + "/guides/", "0.8", "monthly", newest)]
+    urls += [(SITE + "/guides/%s/" % g["slug"], "0.7", "yearly", reviewed_iso(g))
+             for g in GUIDES]
+    urls.append((SITE + "/privacy.html", "0.3", "yearly", newest))
     body = "".join(
         "  <url>\n    <loc>%s</loc>\n    <lastmod>%s</lastmod>\n"
         "    <changefreq>%s</changefreq>\n    <priority>%s</priority>\n  </url>\n"
-        % (loc, REVIEWED, freq, pri) for loc, pri, freq in urls)
+        % (loc, mod, freq, pri) for loc, pri, freq, mod in urls)
     return ('<?xml version="1.0" encoding="UTF-8"?>\n'
             '<!-- Generated by build-guides.py. Do not hand-edit: adding a guide to\n'
             '     the GUIDES list regenerates this file. -->\n'

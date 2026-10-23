@@ -185,23 +185,58 @@ check("CMS Jimmo fact sheet is cited",
 
 /* ---- OWNER FINDING 5, 2026-10-18: dates must be the real date ----
    Pages claimed a 19 October 2026 review date on 18 October 2026. A review
-   date is a factual claim about when a human looked, and it is the one
-   claim a reader uses to judge every other figure. */
-const TODAY_H = "18 October 2026", TODAY_M = "2026-10-18";
+   date is a factual claim about when a human or a tool looked, and it is the
+   one claim a reader uses to judge every other figure.
+
+   REWRITTEN 2026-10-23. This gate used to pin a literal "18 October 2026"
+   and demand every page carry it. That made the date a constant someone had
+   to hand-edit, and it forced one global stamp onto pages researched on
+   different days - so the only way to add a guide dated today was to re-date
+   six pages nobody had re-checked. The intent survives; the implementation
+   does not. What actually matters is: a date exists, it is not in the
+   future, and the page's three renderings of it agree with each other. */
+const MONTHS = ["January", "February", "March", "April", "May", "June", "July",
+  "August", "September", "October", "November", "December"];
+function isoOf(human) {
+  const m = /^([0-9]{1,2}) ([A-Za-z]+) ([0-9]{4})$/.exec(human || "");
+  if (!m) return null;
+  const mi = MONTHS.indexOf(m[2]);
+  if (mi < 0) return null;
+  return m[3] + "-" + String(mi + 1).padStart(2, "0")
+    + "-" + m[1].padStart(2, "0");
+}
+const BUILD_DAY = new Date().toISOString().slice(0, 10);
+const reviewedOf = {};
 SLUGS.concat(["__index"]).forEach((s) => {
   const h = s === "__index" ? indexPage : page[s];
-  check("review date is today: " + s, lc(h).indexOf("last reviewed " + TODAY_H.toLowerCase()) !== -1);
+  const human = (h.match(/Last reviewed ([0-9]{1,2} [A-Za-z]+ [0-9]{4})\./) || [])[1];
+  const iso = isoOf(human);
+  reviewedOf[s] = iso;
+  check("prints a parseable review date: " + s, !!iso, String(human));
+  check("review date is not in the future: " + s, !!iso && iso <= BUILD_DAY,
+    iso + " vs build day " + BUILD_DAY);
 });
 SLUGS.forEach((s) => {
-  check("verification date is today: " + s,
-    lc(page[s]).indexOf("read from the source listed above on " + TODAY_H.toLowerCase()) !== -1);
-  check("dateModified is today: " + s,
-    page[s].indexOf('"dateModified": "' + TODAY_M + '"') !== -1);
+  const human = (page[s].match(
+    /read from the source listed above on ([0-9]{1,2} [A-Za-z]+ [0-9]{4})\./) || [])[1];
+  check("verification date matches the review date: " + s,
+    isoOf(human) === reviewedOf[s], human + " vs " + reviewedOf[s]);
+  check("dateModified matches the review date: " + s,
+    page[s].indexOf('"dateModified": "' + reviewedOf[s] + '"') !== -1,
+    reviewedOf[s]);
 });
-check("no future-dated review claim anywhere",
-  (all + indexPage).indexOf("19 October 2026") === -1 &&
-  (all + indexPage).indexOf("2026-10-19") === -1);
-check("sitemap lastmod is today", sitemap.indexOf(TODAY_M) !== -1);
+/* The index and the sitemap describe the whole library, so they carry the
+   newest date in it - never an older one, which would understate freshness,
+   and never a newer one, which would be a claim about a page that does not
+   exist. */
+const NEWEST = SLUGS.map((s) => reviewedOf[s]).sort().slice(-1)[0];
+check("the guides index carries the newest review date in the library",
+  reviewedOf["__index"] === NEWEST, reviewedOf["__index"] + " vs " + NEWEST);
+check("sitemap lastmod is the newest review date",
+  sitemap.indexOf(NEWEST) !== -1, NEWEST);
+check("no sitemap lastmod is in the future",
+  (sitemap.match(/<lastmod>([0-9-]+)<\/lastmod>/g) || [])
+    .every((m) => m.replace(/<\/?lastmod>/g, "") <= BUILD_DAY));
 
 /* ---- OWNER FINDING 6, 2026-10-18: turnover is a question, not a prophecy ----
    The page predicted a resident "meets a new caregiver every few weeks" in
@@ -578,6 +613,50 @@ SLUGS.forEach((s) => {
   check("sitemap lists " + s, sitemap.indexOf("/guides/" + s + "/") !== -1);
 });
 /* home + /guides/ + one per guide + /privacy.html */
+/* ---- OWNER FINDING 5, 2026-10-23: a ceiling is not an entitlement ----
+   The first cloud-written draft said the CSRA was the maximum transferable
+   "before the resident's own eligibility is assessed". HFS says no such
+   thing. What HFS does say is that the ACTUAL amount is the standard MINUS
+   what the at-home spouse already holds - so a reader who treats $143,172
+   or $4,066.50 as an amount they will receive is reading a ceiling as a
+   promise, and plans a parent's finances around it. */
+const mcd = page["illinois-medicaid-long-term-care"];
+check("the unsupported eligibility-sequencing phrase is gone",
+  all.indexOf("before the resident's own eligibility is") === -1 &&
+  all.indexOf("before the resident&rsquo;s own eligibility is") === -1);
+check("both spousal figures are labelled standards, not entitlements",
+  /neither figure is an amount anyone is promised/i.test(flat(mcd)) &&
+  lc(mcd).indexOf("both are ceilings") !== -1);
+check("the CSRA deduction rule is quoted from HFS",
+  lc(mcd).indexOf("deducting nonexempt resources of the community spouse "
+    + "from the standard") !== -1);
+check("the CSMNA deduction rule is quoted from HFS",
+  lc(mcd).indexOf("deducting any gross income of the community spouse "
+    + "from the standard") !== -1);
+check("the guide refuses to do the spousal subtraction itself",
+  lc(mcd).indexOf("does not do that subtraction for you") !== -1);
+check("the personal needs allowance is still refused",
+  lc(mcd).indexOf("could not read a verifiable number") !== -1);
+
+/* ---- OWNER FINDING 6, 2026-10-23: a review date is a factual claim ----
+   REVIEWED used to be one global constant stamped onto every page. Adding a
+   guide researched today would have re-dated six pages nobody re-checked.
+   Dates are per-guide now; this gate proves they did not collapse back into
+   one. */
+const dates = SLUGS.map((s) =>
+  (page[s].match(/Last reviewed ([0-9]+ [A-Za-z]+ [0-9]{4})\./) || [])[1]);
+check("every guide prints a review date", dates.every(Boolean), String(dates));
+check("review dates are per-guide, not one global stamp",
+  new Set(dates).size > 1, dates.join(" | "));
+check("the Medicaid guide is dated the day it was researched",
+  dates[SLUGS.indexOf("illinois-medicaid-long-term-care")] === "23 October 2026",
+  String(dates[SLUGS.indexOf("illinois-medicaid-long-term-care")]));
+check("its JSON-LD dateModified agrees with its printed date",
+  mcd.indexOf('"dateModified": "2026-10-23"') !== -1);
+check("the original five keep their own 2026-10-18 date",
+  dates[SLUGS.indexOf("assisted-living-cost-illinois")] === "18 October 2026",
+  String(dates[SLUGS.indexOf("assisted-living-cost-illinois")]));
+
 check("sitemap has one url per page",
   (sitemap.match(/<url>/g) || []).length === SLUGS.length + 3,
   (sitemap.match(/<url>/g) || []).length + " urls for "
