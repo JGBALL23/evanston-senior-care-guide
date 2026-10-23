@@ -107,6 +107,24 @@ read off a government page, not absorbed from a search result.
 - No claims about Westminster Place. No invented local figures. No marketing
   language. Plain British-English prose, matching the existing guides.
 
+## The conversion goal
+
+The six-question assessment is **the** conversion goal of this site. Every
+guide has two jobs: answer the question honestly, and leave the reader better
+placed to take the assessment.
+
+- `build_guide` already appends the assessment block to every page, and
+  `check-guides.js` now fails if it is missing from any guide. Do not remove,
+  reword or relocate it.
+- Where the guide's subject naturally raises "which level of care does my
+  parent actually need?", link to `/` in the body too — the existing guides do
+  this in their closing section. Once is right. Do not stuff it.
+- The assessment's promise is fixed: no name, no email and no phone number to
+  see results, and answers never leave the device. Never soften, never
+  contradict, never add a condition to it.
+- Never invent a different call to action. No newsletter, no "contact us", no
+  phone capture, no gated download.
+
 ## Step 4 — write it
 
 Add a dict at the end of `GUIDES` in `build-guides.py`, matching the existing
@@ -137,6 +155,23 @@ owner's review. Both are irreplaceable; neither is yours to discard.
 - Before committing, run `git status --porcelain` and read it. Anything with
   `D` (deleted) or an unexpected `M` on a file you did not intend to touch is
   a mistake — restore it before committing.
+
+## Report failures. Never route around them.
+
+A failed check is information the owner needs, not an obstacle to clear.
+
+- If research fails — a source will not load, a page does not say what you
+  needed, a figure cannot be verified — **cut the claim, or cut the guide.**
+  Report what failed and why.
+- If a citation will not resolve, the guide does not ship with it. Find a
+  live primary source or drop the section.
+- If a suite fails and you cannot fix the *content* to pass honestly, **push
+  nothing** and report the failure verbatim.
+- A run that ships nothing and explains exactly what stopped it is a good
+  run. A run that ships something questionable is a bad one, every time.
+
+Never weaken a claim just enough to slip past a gate. If the evidence is not
+there, say the evidence is not there.
 
 ## Step 5 — run every check
 

@@ -657,6 +657,23 @@ check("the original five keep their own 2026-10-18 date",
   dates[SLUGS.indexOf("assisted-living-cost-illinois")] === "18 October 2026",
   String(dates[SLUGS.indexOf("assisted-living-cost-illinois")]));
 
+/* ---- OWNER RULE, 2026-10-23: the assessment is the conversion goal ----
+   Every guide exists to answer a question honestly AND to put the
+   six-question assessment in front of someone who now realises they do not
+   know which level of care applies. A guide that teaches and then dead-ends
+   is a leak. The daily routine writes guides unsupervised, so this is a gate
+   rather than a note in a file: a new guide cannot reach the owner without
+   the assessment block on it. */
+SLUGS.forEach((s) => {
+  const h = page[s];
+  check("assessment CTA block present: " + s,
+    h.indexOf('class="res__block plan plan--primary"') !== -1);
+  check("assessment CTA is a real link: " + s,
+    /<a class="btn btn--primary" href="\/#assessment">Take the free\s+assessment<\/a>/.test(flat(h)));
+  check("assessment promise is repeated at the CTA: " + s,
+    lc(h).indexOf("no name, no email and no phone number") !== -1);
+});
+
 check("sitemap has one url per page",
   (sitemap.match(/<url>/g) || []).length === SLUGS.length + 3,
   (sitemap.match(/<url>/g) || []).length + " urls for "
