@@ -674,6 +674,99 @@ SLUGS.forEach((s) => {
     lc(h).indexOf("no name, no email and no phone number") !== -1);
 });
 
+/* ---- OWNER RULE, 2026-10-24: the article must bridge to the assessment ----
+   Measured before this change: the first mention of the assessment sat in
+   section 6 of 7, 7 of 8 and 8 of 9 across the library. A reader whose
+   question was answered in section 2 left having never seen it. Every guide
+   now carries ONE bridge after the first section, and the generator refuses
+   to build a guide without one - so these gates check the shape and the
+   restraint, not whether somebody remembered. */
+SLUGS.forEach((s) => {
+  const h = page[s];
+  const f = flat(h);
+
+  check("has exactly one mid-article bridge: " + s,
+    (h.match(/<aside class="bridge">/g) || []).length === 1,
+    String((h.match(/<aside class="bridge">/g) || []).length));
+
+  /* It must come BEFORE the sources block, i.e. inside the article, not
+     bolted on at the end next to the CTA that already exists. */
+  const iBridge = h.indexOf('<aside class="bridge">');
+  const iSources = h.indexOf('<h2 class="res__h">Sources</h2>');
+  const iCta = h.indexOf('class="res__block plan plan--primary"');
+  check("bridge sits inside the article, above Sources: " + s,
+    iBridge > 0 && iBridge < iSources, iBridge + " vs " + iSources);
+  check("bridge comes before the final CTA: " + s,
+    iBridge > 0 && iCta > 0 && iBridge < iCta);
+
+  /* A link, never a second button. Two buttons reads as a sales page. */
+  const bridgeHtml = h.slice(iBridge, h.indexOf("</aside>", iBridge));
+  check("bridge offers a link, not a button: " + s,
+    bridgeHtml.indexOf('class="btn') === -1 && /<a href="\/#assessment">/.test(bridgeHtml));
+  check("bridge links to the assessment exactly once: " + s,
+    (bridgeHtml.match(/href="\/#assessment"/g) || []).length === 1);
+
+  /* The promise must be identical everywhere it appears. */
+  check("bridge repeats the full privacy promise: " + s,
+    lc(bridgeHtml).indexOf("no name, no email and no phone number") !== -1 &&
+    lc(bridgeHtml).indexOf("never leave your device") !== -1);
+  check("bridge says it is not a diagnosis: " + s,
+    lc(bridgeHtml).indexOf("not a diagnosis") !== -1);
+  check("bridge states the time cost: " + s,
+    lc(bridgeHtml).indexOf("about two minutes") !== -1);
+
+  /* Each bridge must be written for ITS topic, not pasted. */
+  const lead = (bridgeHtml.match(/<p class="bridge__p">([\s\S]*?)<\/p>/) || [])[1] || "";
+  check("bridge has its own opening sentence: " + s, lead.trim().length >= 40,
+    String(lead.trim().length));
+
+  /* EXACTLY two routes to the assessment inside the article: the bridge
+     and the final CTA. Fewer means a reader can finish without a next step;
+     more is a repeated sales pitch. The site nav carries its own "Start
+     assessment" link in both the desktop bar and the mobile menu - those are
+     navigation, not persuasion, so the count is scoped to the article. */
+  const aStart = h.indexOf("<h1");
+  const aEnd = h.indexOf("<footer") === -1 ? h.length : h.indexOf("<footer");
+  const inArticle = (h.slice(aStart, aEnd).match(/href="\/#assessment"/g) || []).length;
+  check("exactly two assessment links in the article: " + s, inArticle === 2,
+    String(inArticle));
+
+  check("no sticky or popup CTA: " + s,
+    !/position:\s*(fixed|sticky)/i.test(h) && h.indexOf("<dialog") === -1 &&
+    lc(h).indexOf("modal") === -1);
+});
+
+/* Every bridge opening must be unique across the library. */
+const leads = SLUGS.map((s) => {
+  const h = page[s];
+  const i = h.indexOf('<aside class="bridge">');
+  return ((h.slice(i).match(/<p class="bridge__p">([\s\S]*?)<\/p>/) || [])[1] || "").trim();
+});
+check("every bridge is written for its own topic",
+  new Set(leads).size === SLUGS.length,
+  new Set(leads).size + " unique of " + SLUGS.length);
+
+/* No manufactured urgency, anywhere on any page. */
+[/\bact now\b/i, /\bdon'?t miss\b/i, /\blimited time\b/i, /\bhurry\b/i,
+ /\bonly \d+ (spots?|places?|left)\b/i, /\bbefore it'?s too late\b/i,
+ /\bspaces? (are )?filling\b/i, /\burgent(ly)?\b/i,
+ /\bdon'?t wait\b/i, /\brisk (losing|missing)\b/i].forEach((re, i) => {
+  check("no manufactured urgency, pattern " + (i + 1),
+    !re.test(all + indexPage), String(re));
+});
+
+/* ---- ASSET DRIFT, 2026-10-24 ----
+   styles.css, app.js, assessment.js and nav.js each exist at the repo root
+   AND in _dist. Netlify publishes _dist, so a root-only edit reaches nobody.
+   They drifted 43 lines the first time a rule was added. build-guides.py now
+   copies them; this proves the copy actually happened. */
+["styles.css", "app.js", "assessment.js", "nav.js"].forEach((a) => {
+  const root = path.join(__dirname, a), dist = path.join(DIST, a);
+  const both = fs.existsSync(root) && fs.existsSync(dist);
+  check("published copy matches source: " + a,
+    both && read(root) === read(dist));
+});
+
 check("sitemap has one url per page",
   (sitemap.match(/<url>/g) || []).length === SLUGS.length + 3,
   (sitemap.match(/<url>/g) || []).length + " urls for "

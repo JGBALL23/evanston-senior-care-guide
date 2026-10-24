@@ -144,6 +144,10 @@ def srcs(*keys):
 GUIDES = [
     {
         "slug": "assisted-living-cost-illinois",
+        "bridge": ("A price only means something once you know which kind of care "
+               "you are pricing. The same parent can be quoted wildly different "
+               "monthly figures depending on the level of care a community "
+               "assesses them into."),
         "title": "What Assisted Living Actually Costs in Evanston and Illinois",
         "h1": "What assisted living actually costs in Evanston and Illinois",
         "desc": ("Illinois assisted living runs a median of " + F["al_median"] +
@@ -217,6 +221,9 @@ GUIDES = [
 
     {
         "slug": "does-medicare-pay-for-senior-care",
+        "bridge": ("Knowing what Medicare covers is a different question from knowing "
+               "what kind of care your parent actually needs. Coverage follows the "
+               "care; it does not decide it."),
         "title": "Does Medicare Pay for Assisted Living or Nursing Home Care?",
         "h1": "Does Medicare pay for assisted living or nursing home care?",
         "desc": ("Medicare does not pay for assisted living. It pays for a qualifying "
@@ -345,6 +352,9 @@ GUIDES = [
 
     {
         "slug": "illinois-supportive-living-program",
+        "bridge": ("Supportive Living is one setting among several, and it only helps "
+               "if it is the setting your parent needs. The programme cannot tell "
+               "you whether it is."),
         "title": "Illinois Supportive Living Program Explained",
         "h1": "Illinois Supportive Living Program, explained",
         "desc": ("Illinois Medicaid pays for care in approved Supportive Living "
@@ -425,6 +435,9 @@ GUIDES = [
 
     {
         "slug": "check-illinois-inspection-records",
+        "bridge": ("An inspection record tells you how well a community does its job. "
+               "It cannot tell you whether that is the job your parent needs doing "
+               "in the first place."),
         "title": "How to Check Illinois Nursing Home Inspection Records",
         "h1": "How to check an Illinois care community's inspection record",
         "desc": ("Illinois publishes inspection and complaint records for licensed "
@@ -500,6 +513,9 @@ GUIDES = [
 
     {
         "slug": "levels-of-senior-care-explained",
+        "bridge": ("Definitions are the easy half. Working out which of these four "
+               "describes your own parent, with their particular habits and recent "
+               "changes, is the harder one."),
         "title": "Assisted Living vs. Memory Care vs. Skilled Nursing vs. Rehabilitation",
         "h1": "Assisted living, memory care, skilled nursing and rehabilitation &mdash; what is the difference?",
         "desc": ("Four phrases used as if they mean the same thing. They do not. Here is "
@@ -572,6 +588,9 @@ GUIDES = [
 
     {
         "slug": "illinois-community-care-program",
+        "bridge": ("This programme is built around staying at home, which is the right "
+               "answer right up until it is not. The hard part is noticing which "
+               "side of that line your parent is on."),
         # Researched on this date, not on the library's original review date.
         "reviewed": "2026-10-23",
         "title": "Can My Parent Get Paid Help at Home in Illinois?",
@@ -690,6 +709,9 @@ GUIDES = [
 
     {
         "slug": "illinois-medicaid-long-term-care",
+        "bridge": ("Working out who pays is a separate problem from working out what "
+               "your parent needs paying for. Most families end up doing both, and "
+               "the second one usually comes first."),
         # Researched and verified in the cloud routine's own run on this date,
         # not on the library's original 2026-10-18 review date.
         "reviewed": "2026-10-23",
@@ -834,6 +856,9 @@ GUIDES = [
 
     {
         "slug": "illinois-care-facility-complaint",
+        "bridge": ("Some concerns are a problem with the care being given. Others are a "
+               "sign the setting itself no longer matches what your parent needs. "
+               "Those two look alike from the outside."),
         "reviewed": "2026-10-23",
         "title": "How to Report a Problem at an Illinois Nursing Home or Assisted Living Facility",
         "h1": "How to report a problem at an Illinois care facility",
@@ -933,6 +958,9 @@ GUIDES = [
 
     {
         "slug": "illinois-medicaid-estate-recovery",
+        "bridge": ("Estate recovery is a question about money after the fact. It sits "
+               "downstream of a more immediate one: what level of care your parent "
+               "needs now."),
         "reviewed": "2026-10-24",
         "title": "Will Illinois Take My Parent's House After Medicaid Pays for Care?",
         "h1": "Will Illinois take my parent&rsquo;s house after Medicaid pays for care?",
@@ -1222,6 +1250,49 @@ def sources_block(g):
             'how fresh this page is.</p>\n</section>' % (items, reviewed_human(g)))
 
 
+BRIDGE_MISSING = """
+build-guides.py: the guide "%s" has no "bridge".
+
+Every guide needs ONE short, topic-specific invitation to the assessment,
+placed after the first section - the moment the reader has their answer and
+is most likely to leave. It is not a sales pitch and not a second button: it
+is one sentence naming the question THIS article cannot answer, then a link.
+
+Add a "bridge" key to the guide dict, for example:
+
+    "bridge": ("Knowing what Medicare covers is a different question from "
+               "knowing what kind of care your parent actually needs."),
+
+Write it fresh for the topic. Never reuse another guide's wording. No
+urgency, no scarcity, no "act now", no promise about what the result will
+say. Name the gap the article leaves, then step back.
+"""
+
+
+def bridge_block(g):
+    """The mid-article invitation.
+
+    Required on every guide. A missing one stops the build rather than
+    silently shipping a page whose only route to the assessment is a CTA at
+    the bottom that most readers never scroll to - measured 2026-10-24: the
+    first assessment mention sat in section 6 of 7, 7 of 8 and 8 of 9 across
+    the library, so a reader whose question was answered in section 2 left
+    without ever seeing it.
+
+    The invitation is a link, not a button. The page already ends with one
+    button; a second would read as a sales page rather than a guide."""
+    text = g.get("bridge")
+    if not text or len(strip_tags(text).strip()) < 40:
+        raise SystemExit(BRIDGE_MISSING % g["slug"])
+    return ('<aside class="bridge">\n'
+            '<p class="bridge__p">%s</p>\n'
+            '<p class="bridge__go"><a href="/#assessment">Try the free '
+            'six-question assessment</a> &mdash; about two minutes, no name, '
+            'no email and no phone number, and your answers never leave your '
+            'device. It is educational guidance, not a diagnosis.</p>\n'
+            '</aside>' % text)
+
+
 def build_guide(g):
     canon = "%s/guides/%s/" % (SITE, g["slug"])
     parts = [HEAD.format(title=g["title"], desc=strip_tags(g["desc"]),
@@ -1234,11 +1305,16 @@ def build_guide(g):
     lead = DIAGRAMS.get((g["slug"], None))
     if lead:
         parts.append(lead + "\n")
-    for heading, paras in g["body"]:
+    for i, (heading, paras) in enumerate(g["body"]):
         dia = DIAGRAMS.get((g["slug"], strip_tags(heading)))
         body = "\n".join(paras) + (("\n" + dia) if dia else "")
         parts.append('<section class="res__block">\n<h2 class="res__h">%s</h2>\n%s\n</section>\n'
                      % (heading, body))
+        # The bridge sits after the FIRST section — the moment the reader
+        # has their answer and is most likely to leave. One quiet link,
+        # never a second button.
+        if i == 0:
+            parts.append(bridge_block(g) + "\n")
     parts.append(sources_block(g) + "\n")
     parts.append(related(g) + "\n")
     parts.append('<section class="res__block plan plan--primary">\n'
@@ -1376,8 +1452,38 @@ def build_sitemap():
             + body + '</urlset>\n')
 
 
+SHARED_ASSETS = ["styles.css", "app.js", "assessment.js", "nav.js"]
+
+
+def sync_assets():
+    """Copy the hand-edited root assets into _dist.
+
+    Why this exists: styles.css, app.js, assessment.js and nav.js each
+    existed TWICE - once at the repo root and once in _dist - with nothing
+    keeping them in step. Netlify publishes _dist, so a change to the root
+    copy reached nobody. Found 2026-10-24 when styles.css drifted 43 lines
+    out of sync the moment a stylesheet rule was added.
+
+    A daily routine cannot be expected to remember to copy a file. The
+    build does it, and check-guides.js fails if the two ever differ."""
+    import shutil
+    copied = []
+    for name in SHARED_ASSETS:
+        if not os.path.isfile(name):
+            continue
+        dest = os.path.join("_dist", name)
+        a = io.open(name, encoding="utf-8").read()
+        b = io.open(dest, encoding="utf-8").read() if os.path.isfile(dest) else None
+        if a != b:
+            shutil.copyfile(name, dest)
+            copied.append(name)
+    return copied
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
+    for name in sync_assets():
+        print("  synced to _dist: %s" % name)
     for g in GUIDES:
         d = os.path.join(OUT, g["slug"])
         os.makedirs(d, exist_ok=True)

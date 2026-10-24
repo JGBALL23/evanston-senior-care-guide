@@ -114,6 +114,11 @@ The six-question assessment is **the** conversion goal of this site. Every
 guide has two jobs: answer the question honestly, and leave the reader better
 placed to take the assessment.
 
+There are exactly **two** routes to it inside an article: the `bridge` after
+the first section, and the CTA at the end. A gate enforces that count. Do not
+add a third, do not make the bridge a button, and never add a pop-up, a
+sticky bar or a modal — gates fail on all of those.
+
 - `build_guide` already appends the assessment block to every page, and
   `check-guides.js` now fails if it is missing from any guide. Do not remove,
   reword or relocate it.
@@ -134,6 +139,19 @@ shape: `slug`, `title`, `h1`, `desc`, `intent`, `answer`, `sources`, `body`.
 - Add `"reviewed": "<today's date, YYYY-MM-DD>"`. This is a factual claim
   about the day you read the sources. Never reuse another guide's date and
   never touch the global `REVIEWED` default.
+- **Add a `"bridge"`.** This is required — the build refuses to produce a
+  guide without one and prints instructions if you forget. It is ONE sentence
+  naming the question *this* article cannot answer, shown after the first
+  section, where a reader who has their answer is most likely to leave. The
+  generator appends the link, the timing, the privacy promise and the
+  not-a-diagnosis line itself; you write only the sentence.
+  - Write it fresh for the topic. Never reuse or lightly reword another
+    guide's bridge — a gate fails if two are identical.
+  - Name the gap, then step back. No urgency, no scarcity, no "act now", no
+    promise about what the result will say.
+  - Good: *"Knowing what Medicare covers is a different question from knowing
+    what kind of care your parent actually needs."*
+  - Bad: *"Don't wait — find out what your parent needs today!"*
 - Add the `CARDS` entry.
 - Register any new source in `SRC`.
 
