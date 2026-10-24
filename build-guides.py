@@ -125,6 +125,12 @@ SRC = {
                                'https://ilaging.illinois.gov/programs/ltcombudsman/contact-information--office-of-the-state-long-term-care-ombudsma.html'),
     "idph_ccr": ('Illinois Department of Public Health — Health care facility complaints',
                 'https://dph.illinois.gov/topics-services/health-care-regulation/complaints.html'),
+    "hfs_estate_guide": ('Illinois HFS — Guide to the Medicaid Estate Recovery Program',
+                        'https://hfs.illinois.gov/medicalclients/medicaidestaterecovery/guidetothemedicaidestaterecoveryprogram.html'),
+    "hfs_estate_faq": ('Illinois HFS — Medicaid Estate Recovery, Frequently Asked Questions',
+                       'https://hfs.illinois.gov/medicalclients/medicaidestaterecovery/faqs.html'),
+    "hfs_estate_liens": ('Illinois HFS — Liens and Estate Recovery',
+                        'https://hfs.illinois.gov/medicalclients/medicaidestaterecovery/liensandestaterecovery.html'),
 }
 
 
@@ -924,6 +930,153 @@ GUIDES = [
             ]),
         ],
     },
+
+    {
+        "slug": "illinois-medicaid-estate-recovery",
+        "reviewed": "2026-10-24",
+        "title": "Will Illinois Take My Parent's House After Medicaid Pays for Care?",
+        "h1": "Will Illinois take my parent&rsquo;s house after Medicaid pays for care?",
+        "desc": ("Illinois can file a claim against a Medicaid recipient's estate after "
+                 "they die, but only against the estate &mdash; never against heirs "
+                 "personally &mdash; and the first $25,000 of every estate is protected "
+                 "by law. Here is what the state can and cannot reach."),
+        "intent": "worry / paying for care",
+        "answer": ("Not automatically, and never from your own pocket. Illinois HFS can "
+                   "file a claim against a Medicaid recipient's <strong>estate</strong> "
+                   "after death to recover what it paid for long-term care &mdash; "
+                   "but it &ldquo;will never ask for more money than it paid for "
+                   "services,&rdquo; it cannot touch the "
+                   "<strong>first $25,000</strong> of any estate with a death on or "
+                   "after 1 July 2022, and it does not pursue a claim at all while a "
+                   "spouse, a child under 21, or a disabled child survives. Heirs are "
+                   "never required to pay a claim from their own money."),
+        "sources": srcs("hfs_estate_guide", "hfs_estate_faq", "hfs_estate_liens"),
+        "body": [
+            ("What estate recovery actually is", [
+                "<p>Every state's Medicaid program is required to run an estate recovery "
+                "program, and Illinois HFS describes why plainly: Medicaid is "
+                "&ldquo;a State and Federally funded program,&rdquo; and after a "
+                "recipient of long-term services and supports &mdash; care at home or in "
+                "a long-term care facility &mdash; dies, the state asks their "
+                "<strong>estate</strong> to repay what it spent. HFS's Bureau of "
+                "Collections runs the program together with the Illinois Department of "
+                "Human Services.</p>",
+                "<p>One limit holds regardless of anything else: HFS states it "
+                "&ldquo;will never ask for more money than it paid for services.&rdquo; "
+                "A claim is always capped at what the state actually spent on that "
+                "person's care &mdash; it is never a penalty, and it is never calculated "
+                "any other way.</p>",
+                "<p>The claim is against the <strong>estate</strong>, not against any "
+                "living person. HFS is direct about this: family members &ldquo;are not "
+                "required to pay from their own money.&rdquo; Nobody inherits a Medicaid "
+                "bill.</p>",
+            ]),
+            ("The protections that apply automatically", [
+                "<p>HFS lists several situations in which it will not seek recovery at "
+                "all, without anyone having to ask:</p>",
+                "<ul class=\"res__list\">"
+                "<li>A <strong>surviving spouse</strong> is alive</li>"
+                "<li>There is a <strong>child under 21</strong></li>"
+                "<li>There is a <strong>child of any age</strong> who is blind or "
+                "permanently and totally disabled under Social Security's rules</li>"
+                "<li>The estate is worth <strong>$25,000 or less</strong></li>"
+                "<li>Selling the property would <strong>cost more than it is "
+                "worth</strong></li>"
+                "<li>Recovery would cause the heirs <strong>undue hardship</strong></li>"
+                "</ul>",
+                "<p>On top of that list, a separate rule protects part of "
+                "<em>every</em> estate, regardless of who survives. For deaths on or "
+                "after <strong>1 July 2022</strong>, HFS will not collect against the "
+                "first <strong>$25,000</strong> of estate value at all. HFS illustrates "
+                "this with its own figures: a $40,000 estate exposes only the $15,000 "
+                "above that threshold to a claim. If a claim is larger than the estate can "
+                "cover, the unpaid balance simply stays open in case more assets turn up "
+                "later &mdash; nobody is chased for the difference.</p>",
+                "<p>Debts come out of the estate before a Medicaid claim does, too: HFS "
+                "says funeral costs, legal costs and any mortgage on the home are paid "
+                "first. And HFS does not offer instalments on what remains &mdash; "
+                "its own FAQ states flatly, &ldquo;HFS does not allow payment "
+                "plans.&rdquo;</p>",
+            ]),
+            ("What counts as the estate &mdash; and what does not", [
+                "<p>HFS defines the estate as property &mdash; money, a house, other "
+                "valuables &mdash; that a person leaves to heirs at death, which in "
+                "practice means the <strong>probate</strong> estate. Anything that "
+                "passes to a named beneficiary outside probate is outside the state's "
+                "reach. HFS gives two examples directly: a life insurance policy that "
+                "names who receives the payment, and a bank account that is payable on "
+                "death to someone else. Its FAQ adds more of the same kind: IRAs, "
+                "pension plans, jointly held accounts with survivorship rights, mutual "
+                "funds and deferred compensation plans are generally outside the probate "
+                "estate and outside a claim.</p>",
+                "<p>Property anywhere counts, not just in Illinois &mdash; HFS says a "
+                "claim can reach estate property regardless of location. And if the "
+                "same person received Medicaid in more than one state, more than one "
+                "state can file a claim; HFS says the probate court decides how the "
+                "estate is divided between them.</p>",
+            ]),
+            ("Liens are a separate, narrower tool", [
+                "<p>A <strong>lien</strong> is not the same thing as an estate claim. A "
+                "lien attaches to real property &mdash; land and whatever is built on it "
+                "&mdash; while someone is still alive, rather than after death. HFS "
+                "describes two situations where one can be filed: cash assistance "
+                "combined with medical assistance produces a lien equal to the cash "
+                "assistance received, and medical-assistance-only recipients in a "
+                "long-term care facility can face a lien, equal to all medical "
+                "assistance paid before and during the stay, but only after "
+                "<strong>120 consecutive days</strong> in the facility. No lien is filed "
+                "if the home is occupied by a spouse, a child under 21, a disabled "
+                "child of any age, or in some cases a sibling, and a lien is released if "
+                "the resident is discharged home.</p>",
+                "<p>This tool has also been narrowed by law. HFS states that "
+                "<strong>Public Act 102-1037</strong>, effective <strong>2 June "
+                "2022</strong>, restricts the filing of <em>new</em> liens on real "
+                "property as a collection method. Liens already filed before that date "
+                "are still pursued &mdash; the change is forward-looking, not "
+                "retroactive.</p>",
+            ]),
+            ("Will the home actually have to be sold?", [
+                "<p>HFS says the state does not take physical possession of a home. But "
+                "it is equally direct that the property &ldquo;may have to be sold in "
+                "order to satisfy the HFS' claim&rdquo; once a claim is filed and no "
+                "exemption applies. Heirs who want to keep the property can instead pay "
+                "the claim from other funds. And as above, if selling would cost more "
+                "than the property is worth, HFS will not pursue a sale at all.</p>",
+            ]),
+            ("The hardship waiver, and a deadline this guide could not verify", [
+                "<p>Heirs can ask HFS to waive a claim on grounds of undue hardship. Its "
+                "guide gives examples of what that can look like: the property was a "
+                "family business, farm or ranch that provided the heirs' main income for "
+                "at least 12 months before death; paying the claim would mean the heirs "
+                "need government financial help they do not currently need; or paying it "
+                "would cause them to lose government help they currently receive. The "
+                "application is available on the HFS site in six languages, and the "
+                "heir must request the waiver and supply the proof HFS asks for.</p>",
+                "<p><strong>This guide went looking for how long heirs have to request "
+                "that waiver after being notified, and could not find a deadline stated "
+                "on either HFS page it read.</strong> Secondary sources online quote a "
+                "60-day window, but that figure was not read off a primary HFS page, so "
+                "it does not appear here. If a hardship waiver matters to your family, "
+                "ask HFS directly &mdash; the Department of Human Services Helpline is "
+                "<strong>1-800-843-6154</strong> (TTY 1-866-324-5553), Monday to Friday "
+                "&mdash; or ask an elder law attorney, rather than relying on a deadline "
+                "repeated secondhand.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>Estate recovery is a question about what happens <em>after</em> "
+                "Medicaid has already been paying for care, not about whether it will. "
+                "For how Illinois Medicaid qualifies someone for long-term care in the "
+                "first place, including what &ldquo;spend-down&rdquo; means, see "
+                '<a href="/guides/illinois-medicaid-long-term-care/">How Illinois '
+                "Medicaid pays for long-term care, and what spend-down means</a>.</p>",
+                "<p>If you are still working out which level of care your parent "
+                'actually needs, the <a href="/">free six-question assessment</a> on '
+                "this site walks through that question and shows its reasoning. It asks "
+                "for no name, no email and no phone number, and your answers never leave "
+                "your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -1145,6 +1298,12 @@ CARDS = {
         "How to report a problem at an Illinois care facility",
         "The resident advocate who works the problem with you, and the "
         "state regulator who investigates it — and which to call first."),
+    "illinois-medicaid-estate-recovery": (
+        "Paying with Medicaid",
+        "Will Illinois take my parent’s house after Medicaid pays?",
+        "What the state can and cannot reach after a Medicaid recipient "
+        "dies, the automatic protections, and the $25,000 every estate "
+        "keeps."),
 }
 
 
