@@ -52,3 +52,7 @@ in
 
 # push-gate scratch from the 2026-10-23 cloud tests; never again
 ACCESS-TEST.md
+
+# IndexNow submission ledger is DATA, not scratch - it is what stops
+# duplicate submissions. It is committed on purpose.
+!data/indexnow-ledger.json
