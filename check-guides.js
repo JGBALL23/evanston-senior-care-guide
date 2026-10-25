@@ -30,6 +30,39 @@ if (SLUGS.length < 5) {
   process.exit(1);
 }
 
+/* ---- WHAT COUNTS AS A PRIMARY SOURCE ----
+   va.gov added 2026-10-25 on the owner's approval, after the daily routine
+   researched VA Aid & Attendance, fetched five va.gov pages successfully,
+   and then THREW THE TOPIC AWAY because this gate would have rejected the
+   citations. It refused to edit the gate. Correct call - so the owner
+   widened the list instead.
+
+   The old test was a bare regex run against the whole href:
+       /(medicare\.gov|cms\.gov|hfs\.illinois\.gov|illinois\.gov|...)/
+   That matches anywhere in the string, so `https://evil.example.com/
+   ?ref=illinois.gov` passed it. Adding a domain to that pattern would have
+   widened a hole as well as a list. This parses the HOST and matches it
+   exactly or as a true subdomain, which is strictly tighter than before
+   even though it now allows more sources.
+
+   Everything else about evidence is unchanged: the source must still be
+   fetched and READ, the claim must still come off the page, and
+   check-citations.sh must still resolve the URL over the network. A wider
+   allowlist is not a lower bar. */
+const PRIMARY_HOSTS = [
+  "medicare.gov",      // Medicare coverage and cost pages
+  "cms.gov",           // CMS rules, fact sheets, manuals
+  "illinois.gov",      // HFS, Dept on Aging, IDPH, report card
+  "va.gov",            // VA pension, Aid & Attendance, survivors
+  "assets.carescout.com", // the Cost of Care Survey PDF, exact host only
+];
+function isPrimarySource(href) {
+  const m = /^https?:\/\/([^/"?#]+)/.exec(String(href).replace(/^href="/, ""));
+  if (!m) return false;
+  const host = m[1].toLowerCase().replace(/:\d+$/, "");
+  return PRIMARY_HOSTS.some((d) => host === d || host.endsWith("." + d));
+}
+
 let pass = 0, fail = 0;
 function check(name, ok, detail) {
   if (ok) { pass++; }
@@ -271,8 +304,7 @@ SLUGS.forEach((s) => {
   check("every citation opens safely: " + s,
     ((m ? m[1] : "").match(/rel="noopener" target="_blank"/g) || []).length === hrefs.length);
   check("every citation is a primary source: " + s,
-    hrefs.every((h) => /(medicare\.gov|cms\.gov|hfs\.illinois\.gov|illinois\.gov|carescout\.com)/.test(h)),
-    hrefs.join(" "));
+    hrefs.every((h) => isPrimarySource(h)), hrefs.join(" "));
   check("no lead-generation citation: " + s,
     !/(caring\.com|aplaceformom|seniorly|seniorliving\.org|brevy|realcostreport)/i.test(page[s]));
 });

@@ -95,8 +95,16 @@ read off a government page, not absorbed from a search result.
 - Every factual claim must come from a page you **fetched and read** with
   WebFetch. A WebSearch snippet is **not** a source — use search only to find
   a URL, then fetch that URL and read it.
-- Prefer `hfs.illinois.gov`, `medicare.gov`, `cms.gov`, `ilaging.illinois.gov`,
-  `dph.illinois.gov`.
+- Allowed citation hosts, enforced by a gate in `check-guides.js`:
+  `medicare.gov`, `cms.gov`, any `*.illinois.gov` (HFS, Department on Aging,
+  IDPH, the Health Care Report Card), any `*.va.gov`, and `assets.carescout.com`.
+  Nothing else may appear in a Sources block.
+- **`va.gov` is open as of 2026-10-25**, so VA Aid & Attendance, Veterans
+  Pension, Survivors Pension and related veterans' senior-care benefits are
+  researchable topics. Many Evanston families have a veteran parent and no
+  idea the benefit exists. Cite the va.gov pages you actually read; rate
+  tables carry an effective date range, so quote the date with the figure
+  and never carry a rate past its stated period.
 - **If a figure cannot be read off a primary page, do not publish it.** Say
   the figure is set by the state and tell the reader who to ask. Omitting an
   unverifiable number is a pass, not a gap. Saying "this guide could not

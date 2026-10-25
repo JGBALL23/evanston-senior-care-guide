@@ -1207,12 +1207,19 @@ GUIDES = [
                 "</li>"
                 "<li><strong>Room and board</strong> in a facility: not paid by the "
                 "hospice benefit at all</li></ul>",
+                "<p><strong>There is a ceiling on the respite copayment.</strong> "
+                "Medicare states that for inpatient respite care, <q>your copayment "
+                "can&rsquo;t be more than the inpatient deductible amount</q>. The Part A "
+                "inpatient hospital deductible is <strong>" + F["partA_deductible"] +
+                "</strong> for each benefit period, so that is the most 5% can add up to "
+                "&mdash; not a figure most respite stays will come near, but a real limit "
+                "rather than an open bill.</p>",
                 "<p><strong>A figure this guide will not publish.</strong> Secondary sites "
-                "describe the respite-care coinsurance as capped at a specific dollar "
-                "amount per day. The Medicare.gov page this guide read states the 5% "
-                "coinsurance rate but does not itself state a daily dollar cap, so no cap "
-                "appears here. Ask the hospice provider, or Medicare directly, what a "
-                "respite stay will actually cost before agreeing to one.</p>",
+                "describe the respite coinsurance as capped at a specific dollar amount "
+                "<em>per day</em>. That is a different claim from the limit above, and the "
+                "Medicare page this guide read states no daily figure, so none appears "
+                "here. Ask the hospice provider what a respite stay will actually cost "
+                "before agreeing to one.</p>",
             ]),
             ("Where care happens, and how long it can continue", [
                 "<p>Hospice is a service, not a building. Medicare says it is usually "
