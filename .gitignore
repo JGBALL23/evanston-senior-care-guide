@@ -46,3 +46,9 @@ in
 .shot375.py
 .overflow.py
 .mem*.py
+
+# research scratch from a drafting run
+.research/
+
+# push-gate scratch from the 2026-10-23 cloud tests; never again
+ACCESS-TEST.md

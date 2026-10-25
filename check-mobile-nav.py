@@ -54,11 +54,20 @@ BASE = sys.argv[1] if len(sys.argv) > 1 else "http://localhost:8731"
 SHOTS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "shots")
 
 WIDTHS = [375, 390]
-PAGES = [
-    ("home", "/"),
-    ("guides", "/guides/"),
-    ("article", "/guides/does-medicare-pay-for-senior-care/"),
-]
+# Every guide is checked, not a sample of one. A routine that adds a guide
+# a day would otherwise never test the page it just wrote. The list comes
+# from build-guides.py so it grows on its own.
+def _slugs():
+    import io
+    import re
+    gen = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                       "build-guides.py")
+    src = io.open(gen, encoding="utf-8").read()
+    return re.findall(r'^\s+"slug": "([a-z0-9-]+)"', src, re.M)
+
+
+PAGES = ([("home", "/"), ("guides", "/guides/")]
+         + [(s, "/guides/%s/" % s) for s in _slugs()])
 EXPECTED_LINKS = ["/", "/guides/", "/#assessment"]
 
 passed = 0

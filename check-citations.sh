@@ -26,11 +26,18 @@ else
   exit 1
 fi
 
+# The slug list is DERIVED from build-guides.py. It used to be five names
+# typed in here, which meant a sixth guide's citations were silently never
+# resolved - the suite printed 'all 10 citations resolve' while two new
+# government URLs went unchecked. A gate that does not grow with the
+# library is a gate that stops being a gate.
 python -c "
 import io, re, os
-S = ['assisted-living-cost-illinois', 'does-medicare-pay-for-senior-care',
-     'illinois-supportive-living-program', 'check-illinois-inspection-records',
-     'levels-of-senior-care-explained']
+GEN = io.open('build-guides.py', encoding='utf-8').read()
+S = re.findall(r'^\s+\"slug\": \"([a-z0-9-]+)\"', GEN, re.M)
+if len(S) < 5:
+    raise SystemExit('could not read the slug list out of build-guides.py')
+print('SLUGS %d' % len(S), file=__import__('sys').stderr)
 seen = []
 for s in S:
     t = io.open(os.path.join('_dist', 'guides', s, 'index.html'), encoding='utf-8').read()

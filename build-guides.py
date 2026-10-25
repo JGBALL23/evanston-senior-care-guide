@@ -12,13 +12,19 @@ Here, each guide is a dict. Adding one means adding a dict. The sitemap,
 the /guides/ index, the internal links and the "last reviewed" dates all
 follow automatically.
 
-EVERY FIGURE IN THIS FILE WAS READ FROM THE PRIMARY SOURCE on 2026-10-18:
+EVERY FIGURE IN THIS FILE WAS READ FROM A PRIMARY SOURCE. The original five
+guides were verified on 2026-10-18 against:
   - medicare.gov/basics/costs/medicare-costs        (Part A deductible, SNF)
   - medicare.gov/coverage/skilled-nursing-facility-snf-care
   - hfs.illinois.gov/medicalprograms/slf/residentfactsheet.html  (PNA, GCC)
   - CareScout 2025 Cost of Care Survey, published 2026 — the same PDF the
     assessment already cites, so the guides and the result pages can never
     disagree about a number.
+
+Guides added later carry their own "reviewed" date and their own sources;
+2026-10-23 added the Community Care Program and the Medicaid long-term-care
+guide, the latter verified against four HFS pages including the 22 January
+2026 spousal impoverishment notice.
 
 Nothing here is from a lead-generation aggregator. If a figure cannot be
 read from a government or survey primary source, it does not go on a page.
@@ -30,9 +36,35 @@ Writes: _dist/guides/*.html, _dist/guides/index.html, _dist/sitemap.xml
 import io, os, re, datetime
 
 SITE = "https://evanstonseniorcareguide.com"
+OUT = "_dist/guides"
+
+# REVIEWED is the date the ORIGINAL five were verified against their sources.
+# It is the default, not a global stamp. A guide written later carries its own
+# "reviewed" key and prints its own date.
+#
+# Why this is per-guide: the date on a page is a factual claim about when a
+# human or a tool last read the source. Bumping one global constant because
+# ONE new guide was researched today would silently re-date six pages that
+# nobody re-checked - exactly the kind of quiet, confident falsehood the rest
+# of this file exists to prevent. A daily routine adding a guide must stamp
+# only the guide it actually researched.
 REVIEWED = "2026-10-18"
 REVIEWED_HUMAN = "18 October 2026"
-OUT = "_dist/guides"
+
+
+def reviewed_iso(g):
+    return g.get("reviewed", REVIEWED)
+
+
+def reviewed_human(g):
+    d = datetime.date(*[int(x) for x in reviewed_iso(g).split("-")])
+    return "%d %s %d" % (d.day, d.strftime("%B"), d.year)
+
+
+def newest_reviewed():
+    """The index and the sitemap describe the whole library, so they carry the
+    most recent review date in it, not the oldest."""
+    return max(reviewed_iso(g) for g in GUIDES)
 
 # --------------------------------------------------------------------------
 # VERIFIED FIGURES — one definition each, reused everywhere.
@@ -48,6 +80,10 @@ F = {
     "pna": "$120",
     "hfs_room_board": "$874",
     "hfs_double": "$625.50",
+    "ccp_assets": "$17,500",
+    "ccp_line": "1-800-252-8966",
+    "csra_2026": "$143,172",
+    "csmna_2026": "$4,066.50",
 }
 
 SRC = {
@@ -71,6 +107,30 @@ SRC = {
                       'https://hfs.illinois.gov/medicalproviders/medicaidreimbursement/supportivelivinging.html'),
     "idph": ('Illinois Department of Public Health — Health Care Report Card',
              'https://healthcarereportcard.illinois.gov/'),
+    "idoa_ccp": ('Illinois Department on Aging — Community Care Program',
+                 'https://ilaging.illinois.gov/programs/ccp.html'),
+    "hfs_elderly": ('Illinois HFS — Persons who are Elderly waiver',
+                    'https://hfs.illinois.gov/medicalclients/hcbs/elderly.html'),
+    "hfs_ltc_clients": ('Illinois HFS — Long Term Care (for clients)',
+                        'https://hfs.illinois.gov/medicalclients/ltc'),
+    "hfs_ltc_providers": ('Illinois HFS — Long Term Care provider programs',
+                          'https://hfs.illinois.gov/medicalproviders/providerprograms/longtermcare.html'),
+    "hfs_spenddown": ('Illinois HFS — Spenddown brochure (HFS 591SP)',
+                      'https://hfs.illinois.gov/info/brochures-and-forms/brochures/hfs591sp.html'),
+    "hfs_spousal2026": ('Illinois HFS Provider Notice, 22 January 2026 — 2026 spousal impoverishment standards',
+                        'https://hfs.illinois.gov/medicalproviders/notices/notice.prn260122a.html'),
+    "idoa_ombudsman": ('Illinois Department on Aging — Long-Term Care Ombudsman Program',
+                       'https://ilaging.illinois.gov/programs/ltcombudsman.html'),
+    "idoa_ombudsman_contact": ('Illinois Department on Aging — Office of the State Long-Term Care Ombudsman, contact information',
+                               'https://ilaging.illinois.gov/programs/ltcombudsman/contact-information--office-of-the-state-long-term-care-ombudsma.html'),
+    "idph_ccr": ('Illinois Department of Public Health — Health care facility complaints',
+                'https://dph.illinois.gov/topics-services/health-care-regulation/complaints.html'),
+    "hfs_estate_guide": ('Illinois HFS — Guide to the Medicaid Estate Recovery Program',
+                        'https://hfs.illinois.gov/medicalclients/medicaidestaterecovery/guidetothemedicaidestaterecoveryprogram.html'),
+    "hfs_estate_faq": ('Illinois HFS — Medicaid Estate Recovery, Frequently Asked Questions',
+                       'https://hfs.illinois.gov/medicalclients/medicaidestaterecovery/faqs.html'),
+    "hfs_estate_liens": ('Illinois HFS — Liens and Estate Recovery',
+                        'https://hfs.illinois.gov/medicalclients/medicaidestaterecovery/liensandestaterecovery.html'),
 }
 
 
@@ -84,6 +144,10 @@ def srcs(*keys):
 GUIDES = [
     {
         "slug": "assisted-living-cost-illinois",
+        "bridge": ("A price only means something once you know which kind of care "
+               "you are pricing. The same parent can be quoted wildly different "
+               "monthly figures depending on the level of care a community "
+               "assesses them into."),
         "title": "What Assisted Living Actually Costs in Evanston and Illinois",
         "h1": "What assisted living actually costs in Evanston and Illinois",
         "desc": ("Illinois assisted living runs a median of " + F["al_median"] +
@@ -157,6 +221,9 @@ GUIDES = [
 
     {
         "slug": "does-medicare-pay-for-senior-care",
+        "bridge": ("Knowing what Medicare covers is a different question from knowing "
+               "what kind of care your parent actually needs. Coverage follows the "
+               "care; it does not decide it."),
         "title": "Does Medicare Pay for Assisted Living or Nursing Home Care?",
         "h1": "Does Medicare pay for assisted living or nursing home care?",
         "desc": ("Medicare does not pay for assisted living. It pays for a qualifying "
@@ -285,6 +352,9 @@ GUIDES = [
 
     {
         "slug": "illinois-supportive-living-program",
+        "bridge": ("Supportive Living is one setting among several, and it only helps "
+               "if it is the setting your parent needs. The programme cannot tell "
+               "you whether it is."),
         "title": "Illinois Supportive Living Program Explained",
         "h1": "Illinois Supportive Living Program, explained",
         "desc": ("Illinois Medicaid pays for care in approved Supportive Living "
@@ -365,6 +435,9 @@ GUIDES = [
 
     {
         "slug": "check-illinois-inspection-records",
+        "bridge": ("An inspection record tells you how well a community does its job. "
+               "It cannot tell you whether that is the job your parent needs doing "
+               "in the first place."),
         "title": "How to Check Illinois Nursing Home Inspection Records",
         "h1": "How to check an Illinois care community's inspection record",
         "desc": ("Illinois publishes inspection and complaint records for licensed "
@@ -440,6 +513,9 @@ GUIDES = [
 
     {
         "slug": "levels-of-senior-care-explained",
+        "bridge": ("Definitions are the easy half. Working out which of these four "
+               "describes your own parent, with their particular habits and recent "
+               "changes, is the harder one."),
         "title": "Assisted Living vs. Memory Care vs. Skilled Nursing vs. Rehabilitation",
         "h1": "Assisted living, memory care, skilled nursing and rehabilitation &mdash; what is the difference?",
         "desc": ("Four phrases used as if they mean the same thing. They do not. Here is "
@@ -506,6 +582,526 @@ GUIDES = [
                 "<p>It is an educational starting point, not a diagnosis. A doctor, a "
                 "hospital discharge planner or a geriatric care manager can assess things "
                 "no website can.</p>",
+            ]),
+        ],
+    },
+
+    {
+        "slug": "illinois-community-care-program",
+        "bridge": ("This programme is built around staying at home, which is the right "
+               "answer right up until it is not. The hard part is noticing which "
+               "side of that line your parent is on."),
+        # Researched on this date, not on the library's original review date.
+        "reviewed": "2026-10-23",
+        "title": "Can My Parent Get Paid Help at Home in Illinois?",
+        "h1": "Can my parent get paid help at home in Illinois?",
+        "desc": ("Illinois pays for homemaker help, adult day service and emergency "
+                 "response for some older adults who would otherwise need a nursing "
+                 "home. Here is who qualifies and how to start."),
+        "intent": "staying at home",
+        "answer": ("Possibly. Illinois runs the <strong>Community Care Program</strong>, "
+                   "which the Department on Aging describes as helping older adults "
+                   "&ldquo;who might otherwise need nursing home care to remain in their "
+                   "homes.&rdquo; It is for people <strong>60 or older</strong> with "
+                   "<strong>non-exempt assets of " + F["ccp_assets"] + " or less</strong> "
+                   "and an assessed need for long-term care. A house, a car and personal "
+                   "furnishings are exempt from that asset figure. You start by calling "
+                   "the Senior HelpLine on <strong>" + F["ccp_line"] + "</strong>."),
+        "sources": srcs("idoa_ccp", "hfs_elderly"),
+        "body": [
+            ("What the programme actually provides", [
+                "<p>The Community Care Program was established in 1979 by Public Act "
+                "81-202. The Illinois Department on Aging lists five services under it: "
+                "comprehensive care coordination, in-home service, adult day service, "
+                "emergency home response service, and automated medication dispenser "
+                "service.</p>",
+                "<p><strong>In-home service</strong> is the one most families are "
+                "picturing. The state describes it as help with household tasks — "
+                "cleaning, planning and preparing meals, laundry, shopping and errands — "
+                "and says homecare aides also assist with personal care such as "
+                "dressing, bathing, grooming and following special diets.</p>",
+                "<p><strong>Adult day service</strong> is for someone who wants to stay "
+                "in the community but cannot be home alone during the day. It also gives "
+                "a family caregiver hours back, which matters if you are the one holding "
+                "this together from a job.</p>",
+                "<p><strong>Emergency home response</strong> is a 24-hour link to help "
+                "outside the home, for people with documented health and safety needs "
+                "and mobility limitations. <strong>Automated medication dispenser "
+                "service</strong> dispenses or prompts non-liquid oral medication and "
+                "notifies a responsible party about a missed dose.</p>",
+            ]),
+            ("Who qualifies", [
+                "<p>The Department on Aging lists these requirements. A person must be "
+                "60 years old or older; a resident of Illinois; either a U.S. citizen or "
+                "an eligible non-citizen within the specific categories; have non-exempt "
+                "assets of <strong>" + F["ccp_assets"] + " or less</strong>; have an "
+                "assessed need for long-term care; and apply for Medicaid and enrol if "
+                "eligible.</p>",
+                "<p>The asset figure is narrower than it sounds. The state states "
+                "plainly that a home, a car and personal furnishings are classified as "
+                "<em>exempt</em> assets, so owning the house your parent lives in does "
+                "not by itself put them over the line.</p>",
+                "<p>The need test is run with a state tool called the Determination of "
+                "Need, or DON, which measures whether someone is at risk of nursing "
+                "facility placement. This guide does not publish a passing score. The "
+                "threshold is set by the state and applied by an assessor, and a number "
+                "copied off a website is not the number that will decide your parent's "
+                "case. Ask the assessor what the current threshold is.</p>",
+            ]),
+            ("The part that confuses everyone: two agencies, one programme", [
+                "<p>You will see this called the Community Care Program in one place and "
+                "the <strong>Persons who are Elderly waiver</strong> in another. They are "
+                "not two programmes. Illinois HFS — the state Medicaid agency — states "
+                "that the Persons who are Elderly waiver &ldquo;is a component of the "
+                "Community Care Program (CCP) provided through the Illinois Department on "
+                "Aging.&rdquo; HFS administers and oversees it; the Department on Aging "
+                "runs it day to day.</p>",
+                "<p>HFS also names the target groups inside that waiver: people who are "
+                "aged, 65 and older, and people who are physically disabled, ages 60 "
+                "through 64. And it lists two conditions the Aging page does not — that "
+                "the estimated cost to the state for home care is less than the estimated "
+                "cost of institutional care, and that the person can be safely maintained "
+                "at home with the services in the plan of care.</p>",
+                "<p>Read that second condition carefully, because it is the honest limit "
+                "of this programme. It pays for help at home while home is still safe. It "
+                "is not a promise that home will always be the answer.</p>",
+            ]),
+            ("How to start", [
+                "<p>Call the <strong>Senior HelpLine</strong> on <strong>"
+                + F["ccp_line"] + "</strong>. HFS instructs callers to choose a language "
+                "and then press 4. Office hours are Monday to Friday, 8:30 to 5:00. For "
+                "deaf and speech-impaired callers, Illinois Relay is <strong>711</strong>."
+                "</p>",
+                "<p>Assessments are carried out locally by organisations the state calls "
+                "<strong>Care Coordination Units</strong>. The Department on Aging "
+                "publishes a map tool for finding the one that covers your area, and that "
+                "unit is who actually visits and scores the assessment. If your parent is "
+                "already in a Medicaid managed care plan, HFS says to contact that plan's "
+                "care coordinator about in-home services rather than going around them — "
+                "and if you do call the local unit directly, tell them the plan name and "
+                "have the identification number ready.</p>",
+                "<p>One thing to know before you plan around any of this: HFS lists a "
+                "proposed amendment to the waiver with an effective date of 1 January "
+                "2027. Rules in this programme change. Confirm the current ones on the "
+                "call rather than trusting a page — including this one.</p>",
+            ]),
+            ("When home help is not enough", [
+                "<p>This programme and a move are not rivals, and plenty of families use "
+                "one then the other. If the concern has shifted from <em>help</em> to "
+                "<em>safety</em> — wandering, the stove, not recognising the house — "
+                "homemaker hours are not the tool. "
+                '<a href="/guides/levels-of-senior-care-explained/">Assisted living, '
+                "memory care, skilled nursing and rehabilitation &mdash; what is the "
+                "difference?</a> sets out what each setting actually provides.</p>",
+                "<p>If the money is the obstacle rather than the care level, Illinois also "
+                "pays for assisted-living-style care in approved buildings through a "
+                "separate programme, explained in "
+                '<a href="/guides/illinois-supportive-living-program/">Illinois '
+                "Supportive Living Program, explained</a>.</p>",
+                "<p>If you are not sure which of those two sentences describes your "
+                'parent, the <a href="/">free six-question assessment</a> on this site '
+                "walks through the specifics and shows you the reasoning behind its "
+                "answer. It asks for no name, no email and no phone number to see your "
+                "results.</p>",
+            ]),
+        ],
+    },
+
+    {
+        "slug": "illinois-medicaid-long-term-care",
+        "bridge": ("Working out who pays is a separate problem from working out what "
+               "your parent needs paying for. Most families end up doing both, and "
+               "the second one usually comes first."),
+        # Researched and verified in the cloud routine's own run on this date,
+        # not on the library's original 2026-10-18 review date.
+        "reviewed": "2026-10-23",
+        "title": "How Illinois Medicaid Pays for Long-Term Care (and What Spend-Down Means)",
+        "h1": "How Illinois Medicaid pays for long-term care, and what spend-down means",
+        "desc": ("Illinois Medicaid can pay for nursing home and other long-term care. "
+                 "Here is what it actually covers, how to apply, and what a "
+                 "&ldquo;spend-down&rdquo; is for a family whose income or assets are "
+                 "too high to qualify outright."),
+        "intent": "paying for care",
+        "answer": ("Yes, through the state's Medical Assistance Program. Illinois HFS "
+                   "states plainly that &ldquo;payment for long-term nursing home "
+                   "services may be available from the state of Illinois.&rdquo; To get "
+                   "it, you apply for medical benefits through the <strong>Department of "
+                   "Human Services (DHS)</strong> and get a needs screening through the "
+                   "<strong>Department on Aging</strong> or DHS. If your income or assets "
+                   "are above the limit, you may still qualify through "
+                   "<strong>spenddown</strong> &mdash; a program HFS describes as working "
+                   "&ldquo;a little like an insurance deductible,&rdquo; where medical "
+                   "bills above a set monthly amount count toward eligibility."),
+        "sources": srcs("hfs_ltc_clients", "hfs_ltc_providers", "hfs_spenddown",
+                        "hfs_spousal2026", "hfs_elderly"),
+        "body": [
+            ("What Illinois Medicaid actually pays for", [
+                "<p>Medicaid is not one single long-term-care benefit. The Illinois "
+                "Medical Assistance Program reimburses long-term care facilities for "
+                "specific categories of service, which HFS lists as: skilled nursing "
+                "facility services, intermediate care facility services, intermediate "
+                "care for people with developmental disabilities (including specialized "
+                "living centers), pediatric skilled nursing, and supportive living "
+                "facility services.</p>",
+                "<p>In plain terms, that spans a licensed nursing home at one end and the "
+                "state's assisted-living-style Supportive Living Program at the other. "
+                "They are not interchangeable, and not every building accepts every "
+                "category. "
+                '<a href="/guides/illinois-supportive-living-program/">Illinois '
+                "Supportive Living Program, explained</a> covers that middle option in "
+                "its own right, and Illinois also pays for care at home through the "
+                '<a href="/guides/illinois-community-care-program/">Community Care '
+                "Program and the Persons who are Elderly waiver</a> rather than in a "
+                "facility at all.</p>",
+            ]),
+            ("How to apply", [
+                "<p>HFS sets out two separate steps, and both have to happen. You "
+                "<strong>apply for medical benefits through the Department of Human "
+                "Services (DHS)</strong>, and you <strong>obtain a needs screening "
+                "through the Department on Aging (DoA) or DHS</strong>. One is the "
+                "financial side of eligibility; the other confirms the person actually "
+                "needs the level of care being paid for. HFS points applicants to its "
+                "HFS 3191 brochure for the detailed eligibility steps.</p>",
+                "<p>This is a state process run by caseworkers, not an online form you "
+                "fill in once and forget. Expect to provide income and asset "
+                "documentation, and expect a caseworker, not a website, to tell you "
+                "exactly what is required in your parent's case.</p>",
+            ]),
+            ("What &ldquo;spend-down&rdquo; actually means", [
+                "<p>Spend-down exists for people who would otherwise be turned away for "
+                "having too much income or too many assets. HFS describes it this way: "
+                "&ldquo;Spenddown works a little like an insurance deductible.&rdquo; "
+                "Each month, you are responsible for the cost of medical care up to a "
+                "set amount, based on your income and assets, before Medicaid coverage "
+                "for that month applies.</p>",
+                "<p>You do not necessarily have to pay that amount out of pocket in "
+                "cash. HFS says a person can meet the monthly spenddown by showing a DHS "
+                "caseworker <strong>unpaid medical bills</strong> &mdash; the bills "
+                "themselves count toward the figure. Some recipients can also use "
+                "&ldquo;pay-in&rdquo; spenddown, paying the amount directly to HFS "
+                "instead of submitting bills; HFS describes this option as available to "
+                "people enrolled in spenddown who are aged, blind, or have a disability "
+                "and live in the community.</p>",
+                "<p>This is the detail families miss: nursing home care is expensive "
+                "enough that the monthly spend-down amount for someone in a facility is "
+                "often met immediately by the facility's own bill. Spenddown is "
+                "frequently the route by which a long nursing home stay ends up "
+                "Medicaid-covered even when the same person would not have qualified for "
+                "Medicaid the month before they were admitted.</p>",
+            ]),
+            ("Protecting a spouse who stays at home", [
+                "<p>Federal and state rules exist specifically so that one spouse "
+                "entering a nursing home does not force the other into poverty. Illinois "
+                "HFS publishes updated dollar figures for this every year, and for 2026, "
+                "effective 1 January 2026, it sets two of them.</p>",
+                "<p><strong>Neither figure is an amount anyone is promised.</strong> "
+                "Both are ceilings. HFS calls each one a <em>standard</em> and a "
+                "<em>maximum</em>, and in both cases the amount that actually applies to "
+                "a particular couple is worked out by subtracting what the at-home "
+                "spouse already has.</p>",
+                "<p>The <strong>Community Spouse Resource Allowance</strong> standard is "
+                "<strong>" + F["csra_2026"] + "</strong>. HFS describes it as the "
+                "maximum amount of resources a resident may transfer to a community "
+                "spouse, or to another for that spouse's sole benefit, and states that "
+                "<q>the actual amount a resident may transfer is determined by deducting "
+                "nonexempt resources of the community spouse from the standard</q>. So a "
+                "spouse who already holds countable resources of their own can transfer "
+                "less than " + F["csra_2026"] + " &mdash; possibly much less.</p>",
+                "<p>The <strong>Community Spouse Maintenance Needs Allowance</strong> "
+                "standard is <strong>" + F["csmna_2026"] + " a month</strong>. HFS "
+                "describes it as the maximum monthly income a resident may give to a "
+                "community spouse, and states that <q>the actual amount a resident may "
+                "give is determined by deducting any gross income of the community "
+                "spouse from the standard</q>. A spouse with their own pension or Social "
+                "Security therefore receives the difference, not the full "
+                + F["csmna_2026"] + ".</p>",
+                "<p>This guide deliberately does not do that subtraction for you. It "
+                "depends on which of a household's resources and income the state counts "
+                "and which it exempts, and that determination belongs to the DHS "
+                "caseworker, not to a website.</p>",
+                "<p>Both standards change every year, and HFS reissues the notice each "
+                "time. Do not rely on a figure copied from any article, including this "
+                "one, once a year has passed &mdash; check the current HFS notice or ask "
+                "the DHS caseworker handling the case.</p>",
+            ]),
+            ("A figure this guide will not publish", [
+                "<p>Illinois law sets a monthly personal needs allowance for Medicaid "
+                "nursing facility residents &mdash; a small amount of their own income "
+                "protected for personal spending rather than put toward the cost of "
+                "care. This guide went looking for the current figure on the HFS public "
+                "notice that sets it, and could not read a verifiable number off that "
+                "document. Rather than repeat a figure picked up secondhand, this guide "
+                "leaves it out. Ask the nursing facility's business office or the DHS "
+                "caseworker what the current personal needs allowance is before "
+                "assuming any number you have seen elsewhere.</p>",
+            ]),
+            ("Where to go from here", [
+                "<p>If the person you are helping is not yet in a facility and the "
+                "question is whether they need to be, start with "
+                '<a href="/guides/levels-of-senior-care-explained/">Assisted living, '
+                "memory care, skilled nursing and rehabilitation &mdash; what is the "
+                "difference?</a> If the question is what care costs before Medicaid "
+                'enters the picture at all, see <a href="/guides/assisted-living-cost-illinois/">'
+                "What assisted living actually costs in Evanston and Illinois</a> and "
+                "Medicare's own limited role in "
+                '<a href="/guides/does-medicare-pay-for-senior-care/">Does Medicare pay '
+                "for senior care?</a></p>",
+                "<p>If you are not sure which of those questions you are actually asking, "
+                'the <a href="/">free six-question assessment</a> on this site walks '
+                "through the specifics and shows the reasoning behind its answer. It "
+                "asks for no name, no email and no phone number to see your results.</p>",
+            ]),
+        ],
+    },
+
+    {
+        "slug": "illinois-care-facility-complaint",
+        "bridge": ("Some concerns are a problem with the care being given. Others are a "
+               "sign the setting itself no longer matches what your parent needs. "
+               "Those two look alike from the outside."),
+        "reviewed": "2026-10-23",
+        "title": "How to Report a Problem at an Illinois Nursing Home or Assisted Living Facility",
+        "h1": "How to report a problem at an Illinois care facility",
+        "desc": ("Illinois runs two separate channels for a concern about a nursing home "
+                 "or assisted living community: a resident advocate who works the problem "
+                 "with you, and a state regulator who investigates it. Here is which to "
+                 "call, and when."),
+        "intent": "how-to / advocacy",
+        "answer": ("Two different state contacts, for two different jobs. The "
+                   "<strong>Long-Term Care Ombudsman Program</strong>, run by the Illinois "
+                   "Department on Aging, is a free, confidential, resident-directed "
+                   "advocate &mdash; call the Senior HelpLine at <strong>1-800-252-8966 "
+                   "(711 TRS)</strong>. The <strong>Illinois Department of Public Health's "
+                   "Central Complaint Registry</strong> is the state regulator that "
+                   "investigates facilities &mdash; call <strong>800-252-4343</strong>, "
+                   "Monday&ndash;Friday 8:30 a.m. to 4:30 p.m. You do not have to choose "
+                   "just one."),
+        "sources": srcs("idoa_ombudsman", "idoa_ombudsman_contact", "idph_ccr"),
+        "body": [
+            ("Two kinds of help, and when to use each", [
+                "<p>Families searching for how to complain about a care community "
+                "usually find one of two very different state contacts, and the "
+                "difference matters. One is an <strong>advocate</strong> who works for "
+                "the resident and tries to resolve the problem informally. The other is "
+                "a <strong>regulator</strong> who investigates and can act against the "
+                "facility's licence. Neither replaces the other, and you can use both at "
+                "once.</p>",
+            ]),
+            ("The Long-Term Care Ombudsman Program", [
+                "<p>The Illinois Department on Aging describes its Long-Term Care "
+                "Ombudsman Program as a &ldquo;resident-directed advocacy program,&rdquo; "
+                "mandated by the federal Older Americans Act and the Illinois Act on "
+                "Aging. Ombudsmen advocate for better care in Illinois long-term care "
+                "facilities, help residents speak up for themselves, explain residents' "
+                "rights, and investigate complaints to try to resolve them to the "
+                "resident's satisfaction.</p>",
+                "<p>Two things are worth knowing before you call. First, the program "
+                "states plainly that its work is <em>directed by the resident</em> "
+                "&mdash; it is not a service a family member sets in motion and then "
+                "runs. Second, it keeps information confidential and will not disclose "
+                "it without the individual's permission. The department's page lists "
+                "current and former residents, their friends and relatives, facility "
+                "staff, and anyone considering placement as people who may contact an "
+                "ombudsman, and the service is free.</p>",
+                "<p>To reach the program, call the Senior HelpLine at "
+                "<strong>1-800-252-8966 (711 TRS)</strong> or email "
+                "<strong>Aging.SLTCOProgram@illinois.gov</strong>. The department's "
+                "contact page also lists direct numbers for the State Long-Term Care "
+                "Ombudsman and deputy staff, but a family with a new concern should start "
+                "with the HelpLine rather than guessing which named contact to use.</p>",
+            ]),
+            ("The Illinois Department of Public Health's Central Complaint Registry", [
+                "<p>IDPH licenses and regulates health care facilities in Illinois, and "
+                "its Central Complaint Registry is the channel for reporting a concern "
+                "that may call for a state investigation rather than informal advocacy. "
+                "The department's complaints page gives the hotline as "
+                "<strong>800-252-4343</strong>, with hours of "
+                "<strong>Monday&ndash;Friday 8:30 a.m. to 4:30 p.m.</strong></p>",
+                "<p>The same page states that for a long-term care complaint "
+                "specifically, that same number reaches the department's Bureau of "
+                "Long-Term Care. Besides the phone line, the page lists three other ways "
+                "to file: online through the OHCR Portal, by fax at 217-524-8885, or by "
+                "e-mail to DPH.CCR@illinois.gov using the Health Care Facilities "
+                "Complaint Form. Written complaints can also go by mail to the Illinois "
+                "Department of Public Health, Office of Health Care Regulation, Central "
+                "Complaint Registry, 525 W. Jefferson St., Ground Floor, Springfield, IL "
+                "62761-0001.</p>",
+                "<p>IDPH says your identity is not disclosed to the facility, and you "
+                "may file anonymously or leave contact information to receive written "
+                "notice of the outcome. Describing who, what, when, where and how gives "
+                "investigators the most to work with.</p>",
+            ]),
+            ("A number this guide will not publish", [
+                "<p>The Ombudsman Program's own page carries a separate navigation link "
+                "reading &ldquo;Report Abuse: 1-866-800-1409,&rdquo; but the page itself "
+                "never states what that line reaches or how it relates to the HelpLine "
+                "number above it. Rather than guess at an unexplained number on a "
+                "government page, this guide leaves it out. If you come across it "
+                "elsewhere, confirm what it connects to with the Department on Aging "
+                "before relying on it.</p>",
+            ]),
+            ("If someone is in immediate danger", [
+                "<p>None of the above is the right channel for an emergency. If a "
+                "resident's life or safety is at risk right now, call 911 first and make "
+                "the state reports afterward.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>Reporting a live concern is a different task from researching a "
+                "community before you move in. For the latter, see "
+                '<a href="/guides/check-illinois-inspection-records/">How to check an '
+                "Illinois care community's inspection record</a>, which covers the public "
+                "tools that publish a facility's inspection history before you need to "
+                "report anything yourself.</p>",
+            ]),
+        ],
+    },
+
+    {
+        "slug": "illinois-medicaid-estate-recovery",
+        "bridge": ("Estate recovery is a question about money after the fact. It sits "
+               "downstream of a more immediate one: what level of care your parent "
+               "needs now."),
+        "reviewed": "2026-10-24",
+        "title": "Will Illinois Take My Parent's House After Medicaid Pays for Care?",
+        "h1": "Will Illinois take my parent&rsquo;s house after Medicaid pays for care?",
+        "desc": ("Illinois can file a claim against a Medicaid recipient's estate after "
+                 "they die, but only against the estate &mdash; never against heirs "
+                 "personally &mdash; and the first $25,000 of every estate is protected "
+                 "by law. Here is what the state can and cannot reach."),
+        "intent": "worry / paying for care",
+        "answer": ("Not automatically, and never from your own pocket. Illinois HFS can "
+                   "file a claim against a Medicaid recipient's <strong>estate</strong> "
+                   "after death to recover what it paid for long-term care &mdash; "
+                   "but it &ldquo;will never ask for more money than it paid for "
+                   "services,&rdquo; it cannot touch the "
+                   "<strong>first $25,000</strong> of any estate with a death on or "
+                   "after 1 July 2022, and it does not pursue a claim at all while a "
+                   "spouse, a child under 21, or a disabled child survives. Heirs are "
+                   "never required to pay a claim from their own money."),
+        "sources": srcs("hfs_estate_guide", "hfs_estate_faq", "hfs_estate_liens"),
+        "body": [
+            ("What estate recovery actually is", [
+                "<p>Every state's Medicaid program is required to run an estate recovery "
+                "program, and Illinois HFS describes why plainly: Medicaid is "
+                "&ldquo;a State and Federally funded program,&rdquo; and after a "
+                "recipient of long-term services and supports &mdash; care at home or in "
+                "a long-term care facility &mdash; dies, the state asks their "
+                "<strong>estate</strong> to repay what it spent. HFS's Bureau of "
+                "Collections runs the program together with the Illinois Department of "
+                "Human Services.</p>",
+                "<p>One limit holds regardless of anything else: HFS states it "
+                "&ldquo;will never ask for more money than it paid for services.&rdquo; "
+                "A claim is always capped at what the state actually spent on that "
+                "person's care &mdash; it is never a penalty, and it is never calculated "
+                "any other way.</p>",
+                "<p>The claim is against the <strong>estate</strong>, not against any "
+                "living person. HFS is direct about this: family members &ldquo;are not "
+                "required to pay from their own money.&rdquo; Nobody inherits a Medicaid "
+                "bill.</p>",
+            ]),
+            ("The protections that apply automatically", [
+                "<p>HFS lists several situations in which it will not seek recovery at "
+                "all, without anyone having to ask:</p>",
+                "<ul class=\"res__list\">"
+                "<li>A <strong>surviving spouse</strong> is alive</li>"
+                "<li>There is a <strong>child under 21</strong></li>"
+                "<li>There is a <strong>child of any age</strong> who is blind or "
+                "permanently and totally disabled under Social Security's rules</li>"
+                "<li>The estate is worth <strong>$25,000 or less</strong></li>"
+                "<li>Selling the property would <strong>cost more than it is "
+                "worth</strong></li>"
+                "<li>Recovery would cause the heirs <strong>undue hardship</strong></li>"
+                "</ul>",
+                "<p>On top of that list, a separate rule protects part of "
+                "<em>every</em> estate, regardless of who survives. For deaths on or "
+                "after <strong>1 July 2022</strong>, HFS will not collect against the "
+                "first <strong>$25,000</strong> of estate value at all. HFS illustrates "
+                "this with its own figures: a $40,000 estate exposes only the $15,000 "
+                "above that threshold to a claim. If a claim is larger than the estate can "
+                "cover, the unpaid balance simply stays open in case more assets turn up "
+                "later &mdash; nobody is chased for the difference.</p>",
+                "<p>Debts come out of the estate before a Medicaid claim does, too: HFS "
+                "says funeral costs, legal costs and any mortgage on the home are paid "
+                "first. And HFS does not offer instalments on what remains &mdash; "
+                "its own FAQ states flatly, &ldquo;HFS does not allow payment "
+                "plans.&rdquo;</p>",
+            ]),
+            ("What counts as the estate &mdash; and what does not", [
+                "<p>HFS defines the estate as property &mdash; money, a house, other "
+                "valuables &mdash; that a person leaves to heirs at death, which in "
+                "practice means the <strong>probate</strong> estate. Anything that "
+                "passes to a named beneficiary outside probate is outside the state's "
+                "reach. HFS gives two examples directly: a life insurance policy that "
+                "names who receives the payment, and a bank account that is payable on "
+                "death to someone else. Its FAQ adds more of the same kind: IRAs, "
+                "pension plans, jointly held accounts with survivorship rights, mutual "
+                "funds and deferred compensation plans are generally outside the probate "
+                "estate and outside a claim.</p>",
+                "<p>Property anywhere counts, not just in Illinois &mdash; HFS says a "
+                "claim can reach estate property regardless of location. And if the "
+                "same person received Medicaid in more than one state, more than one "
+                "state can file a claim; HFS says the probate court decides how the "
+                "estate is divided between them.</p>",
+            ]),
+            ("Liens are a separate, narrower tool", [
+                "<p>A <strong>lien</strong> is not the same thing as an estate claim. A "
+                "lien attaches to real property &mdash; land and whatever is built on it "
+                "&mdash; while someone is still alive, rather than after death. HFS "
+                "describes two situations where one can be filed: cash assistance "
+                "combined with medical assistance produces a lien equal to the cash "
+                "assistance received, and medical-assistance-only recipients in a "
+                "long-term care facility can face a lien, equal to all medical "
+                "assistance paid before and during the stay, but only after "
+                "<strong>120 consecutive days</strong> in the facility. No lien is filed "
+                "if the home is occupied by a spouse, a child under 21, a disabled "
+                "child of any age, or in some cases a sibling, and a lien is released if "
+                "the resident is discharged home.</p>",
+                "<p>This tool has also been narrowed by law. HFS states that "
+                "<strong>Public Act 102-1037</strong>, effective <strong>2 June "
+                "2022</strong>, restricts the filing of <em>new</em> liens on real "
+                "property as a collection method. Liens already filed before that date "
+                "are still pursued &mdash; the change is forward-looking, not "
+                "retroactive.</p>",
+            ]),
+            ("Will the home actually have to be sold?", [
+                "<p>HFS says the state does not take physical possession of a home. But "
+                "it is equally direct that the property &ldquo;may have to be sold in "
+                "order to satisfy the HFS' claim&rdquo; once a claim is filed and no "
+                "exemption applies. Heirs who want to keep the property can instead pay "
+                "the claim from other funds. And as above, if selling would cost more "
+                "than the property is worth, HFS will not pursue a sale at all.</p>",
+            ]),
+            ("The hardship waiver, and a deadline this guide could not verify", [
+                "<p>Heirs can ask HFS to waive a claim on grounds of undue hardship. Its "
+                "guide gives examples of what that can look like: the property was a "
+                "family business, farm or ranch that provided the heirs' main income for "
+                "at least 12 months before death; paying the claim would mean the heirs "
+                "need government financial help they do not currently need; or paying it "
+                "would cause them to lose government help they currently receive. The "
+                "application is available on the HFS site in six languages, and the "
+                "heir must request the waiver and supply the proof HFS asks for.</p>",
+                "<p><strong>This guide went looking for how long heirs have to request "
+                "that waiver after being notified, and could not find a deadline stated "
+                "on either HFS page it read.</strong> Secondary sources online quote a "
+                "60-day window, but that figure was not read off a primary HFS page, so "
+                "it does not appear here. If a hardship waiver matters to your family, "
+                "ask HFS directly &mdash; the Department of Human Services Helpline is "
+                "<strong>1-800-843-6154</strong> (TTY 1-866-324-5553), Monday to Friday "
+                "&mdash; or ask an elder law attorney, rather than relying on a deadline "
+                "repeated secondhand.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>Estate recovery is a question about what happens <em>after</em> "
+                "Medicaid has already been paying for care, not about whether it will. "
+                "For how Illinois Medicaid qualifies someone for long-term care in the "
+                "first place, including what &ldquo;spend-down&rdquo; means, see "
+                '<a href="/guides/illinois-medicaid-long-term-care/">How Illinois '
+                "Medicaid pays for long-term care, and what spend-down means</a>.</p>",
+                "<p>If you are still working out which level of care your parent "
+                'actually needs, the <a href="/">free six-question assessment</a> on '
+                "this site walks through that question and shows its reasoning. It asks "
+                "for no name, no email and no phone number, and your answers never leave "
+                "your device.</p>",
             ]),
         ],
     },
@@ -621,7 +1217,7 @@ def article_jsonld(g, canon):
             '  "publisher": { "@type": "Person", "name": "Joseph Gonzales" },\n'
             '  "about": { "@type": "Thing", "name": "Senior care in Evanston, Illinois" }\n'
             '}\n</script>') % (
-        js(g["title"]), js(strip_tags(g["desc"])), js(canon), REVIEWED)
+        js(g["title"]), js(strip_tags(g["desc"])), js(canon), reviewed_iso(g))
 
 
 def js(s):
@@ -651,7 +1247,50 @@ def sources_block(g):
             '<ul class="res__list">%s</ul>\n'
             '<p class="visit__fine">Every figure on this page was read from the '
             'source listed above on %s. Figures change; the review date tells you '
-            'how fresh this page is.</p>\n</section>' % (items, REVIEWED_HUMAN))
+            'how fresh this page is.</p>\n</section>' % (items, reviewed_human(g)))
+
+
+BRIDGE_MISSING = """
+build-guides.py: the guide "%s" has no "bridge".
+
+Every guide needs ONE short, topic-specific invitation to the assessment,
+placed after the first section - the moment the reader has their answer and
+is most likely to leave. It is not a sales pitch and not a second button: it
+is one sentence naming the question THIS article cannot answer, then a link.
+
+Add a "bridge" key to the guide dict, for example:
+
+    "bridge": ("Knowing what Medicare covers is a different question from "
+               "knowing what kind of care your parent actually needs."),
+
+Write it fresh for the topic. Never reuse another guide's wording. No
+urgency, no scarcity, no "act now", no promise about what the result will
+say. Name the gap the article leaves, then step back.
+"""
+
+
+def bridge_block(g):
+    """The mid-article invitation.
+
+    Required on every guide. A missing one stops the build rather than
+    silently shipping a page whose only route to the assessment is a CTA at
+    the bottom that most readers never scroll to - measured 2026-10-24: the
+    first assessment mention sat in section 6 of 7, 7 of 8 and 8 of 9 across
+    the library, so a reader whose question was answered in section 2 left
+    without ever seeing it.
+
+    The invitation is a link, not a button. The page already ends with one
+    button; a second would read as a sales page rather than a guide."""
+    text = g.get("bridge")
+    if not text or len(strip_tags(text).strip()) < 40:
+        raise SystemExit(BRIDGE_MISSING % g["slug"])
+    return ('<aside class="bridge">\n'
+            '<p class="bridge__p">%s</p>\n'
+            '<p class="bridge__go"><a href="/#assessment">Try the free '
+            'six-question assessment</a> &mdash; about two minutes, no name, '
+            'no email and no phone number, and your answers never leave your '
+            'device. It is educational guidance, not a diagnosis.</p>\n'
+            '</aside>' % text)
 
 
 def build_guide(g):
@@ -666,11 +1305,16 @@ def build_guide(g):
     lead = DIAGRAMS.get((g["slug"], None))
     if lead:
         parts.append(lead + "\n")
-    for heading, paras in g["body"]:
+    for i, (heading, paras) in enumerate(g["body"]):
         dia = DIAGRAMS.get((g["slug"], strip_tags(heading)))
         body = "\n".join(paras) + (("\n" + dia) if dia else "")
         parts.append('<section class="res__block">\n<h2 class="res__h">%s</h2>\n%s\n</section>\n'
                      % (heading, body))
+        # The bridge sits after the FIRST section — the moment the reader
+        # has their answer and is most likely to leave. One quiet link,
+        # never a second button.
+        if i == 0:
+            parts.append(bridge_block(g) + "\n")
     parts.append(sources_block(g) + "\n")
     parts.append(related(g) + "\n")
     parts.append('<section class="res__block plan plan--primary">\n'
@@ -680,7 +1324,7 @@ def build_guide(g):
                  'device.</p>\n'
                  '<p><a class="btn btn--primary" href="/#assessment">Take the free '
                  'assessment</a></p>\n</section>\n')
-    parts.append('<p class="visit__fine">Last reviewed %s.</p>\n' % REVIEWED_HUMAN)
+    parts.append('<p class="visit__fine">Last reviewed %s.</p>\n' % reviewed_human(g))
     parts.append(FOOT)
     return "".join(parts)
 
@@ -714,6 +1358,28 @@ CARDS = {
         "What is the difference between each level of care?",
         "Assisted living, memory care, skilled nursing and rehabilitation in "
         "plain English, so you know what you are comparing."),
+    "illinois-community-care-program": (
+        "Staying at home",
+        "Can my parent get paid help at home in Illinois?",
+        "Illinois pays for homemaker help, adult day service and emergency "
+        "response for some older adults. Who qualifies, and how to start."),
+    "illinois-medicaid-long-term-care": (
+        "Paying with Medicaid",
+        "How Illinois Medicaid pays for long-term care",
+        "What Medicaid actually covers, how to apply, and what "
+        "“spend-down” means if income or assets are too high to "
+        "qualify outright."),
+    "illinois-care-facility-complaint": (
+        "Checking a community",
+        "How to report a problem at an Illinois care facility",
+        "The resident advocate who works the problem with you, and the "
+        "state regulator who investigates it — and which to call first."),
+    "illinois-medicaid-estate-recovery": (
+        "Paying with Medicaid",
+        "Will Illinois take my parent’s house after Medicaid pays?",
+        "What the state can and cannot reach after a Medicaid recipient "
+        "dies, the automatic protections, and the $25,000 every estate "
+        "keeps."),
 }
 
 
@@ -759,20 +1425,26 @@ def build_index():
               'government or survey source and dated, so you can see how current it '
               'is.</p>\n'
             + cards
-            + '<p class="visit__fine">Last reviewed %s.</p>\n' % REVIEWED_HUMAN
+            + '<p class="visit__fine">Last reviewed %s.</p>\n' % reviewed_human({"reviewed": newest_reviewed()})
             + FOOT)
 
 
 def build_sitemap():
     """Generated from the GUIDES list — adding a guide updates the sitemap."""
-    urls = [(SITE + "/", "1.0", "monthly"),
-            (SITE + "/guides/", "0.8", "monthly")]
-    urls += [(SITE + "/guides/%s/" % g["slug"], "0.7", "yearly") for g in GUIDES]
-    urls.append((SITE + "/privacy.html", "0.3", "yearly"))
+    # lastmod is PER URL. Stamping every page with today's date because one
+    # guide changed tells a crawler that six unchanged pages were rewritten -
+    # untrue, and the fastest way to teach it to ignore the field entirely.
+    # A guide's lastmod is its own review date.
+    newest = newest_reviewed()
+    urls = [(SITE + "/", "1.0", "monthly", newest),
+            (SITE + "/guides/", "0.8", "monthly", newest)]
+    urls += [(SITE + "/guides/%s/" % g["slug"], "0.7", "yearly", reviewed_iso(g))
+             for g in GUIDES]
+    urls.append((SITE + "/privacy.html", "0.3", "yearly", newest))
     body = "".join(
         "  <url>\n    <loc>%s</loc>\n    <lastmod>%s</lastmod>\n"
         "    <changefreq>%s</changefreq>\n    <priority>%s</priority>\n  </url>\n"
-        % (loc, REVIEWED, freq, pri) for loc, pri, freq in urls)
+        % (loc, mod, freq, pri) for loc, pri, freq, mod in urls)
     return ('<?xml version="1.0" encoding="UTF-8"?>\n'
             '<!-- Generated by build-guides.py. Do not hand-edit: adding a guide to\n'
             '     the GUIDES list regenerates this file. -->\n'
@@ -780,8 +1452,38 @@ def build_sitemap():
             + body + '</urlset>\n')
 
 
+SHARED_ASSETS = ["styles.css", "app.js", "assessment.js", "nav.js"]
+
+
+def sync_assets():
+    """Copy the hand-edited root assets into _dist.
+
+    Why this exists: styles.css, app.js, assessment.js and nav.js each
+    existed TWICE - once at the repo root and once in _dist - with nothing
+    keeping them in step. Netlify publishes _dist, so a change to the root
+    copy reached nobody. Found 2026-10-24 when styles.css drifted 43 lines
+    out of sync the moment a stylesheet rule was added.
+
+    A daily routine cannot be expected to remember to copy a file. The
+    build does it, and check-guides.js fails if the two ever differ."""
+    import shutil
+    copied = []
+    for name in SHARED_ASSETS:
+        if not os.path.isfile(name):
+            continue
+        dest = os.path.join("_dist", name)
+        a = io.open(name, encoding="utf-8").read()
+        b = io.open(dest, encoding="utf-8").read() if os.path.isfile(dest) else None
+        if a != b:
+            shutil.copyfile(name, dest)
+            copied.append(name)
+    return copied
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
+    for name in sync_assets():
+        print("  synced to _dist: %s" % name)
     for g in GUIDES:
         d = os.path.join(OUT, g["slug"])
         os.makedirs(d, exist_ok=True)

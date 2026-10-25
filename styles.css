@@ -2184,3 +2184,46 @@ section[id], header[id] { scroll-margin-top: calc(var(--nav-h) + 14px); }
   .hero__meta--lead { font-size: 14.5px; margin: 0 0 10px; }
   .hero__actions { margin: 0 0 12px; }
 }
+
+/* ---- The mid-article assessment bridge --------------------------------
+   Placed after the first section, where a reader who got their answer is
+   most likely to leave. Deliberately quiet: a tinted rule-bounded aside,
+   body-sized text, a LINK rather than a second button. The page already
+   ends with one button; two would read as a sales page, not a guide.
+   Not a pop-up, not sticky, not dismissible — it sits in the flow and
+   scrolls away like anything else. */
+.bridge {
+  margin: 30px 0;
+  padding: 20px 22px 18px;
+  background: var(--sage-tint);
+  border-left: 3px solid var(--sage);
+  border-radius: 0 var(--r-md, 14px) var(--r-md, 14px) 0;
+}
+.bridge__p {
+  margin: 0 0 10px;
+  font-size: 17.5px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.bridge__go {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+.bridge__go a {
+  color: var(--deep-3);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.bridge__go a:hover { text-decoration-thickness: 2px; }
+.bridge__go a:focus-visible {
+  outline: 3px solid var(--sage);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+@media (max-width: 560px) {
+  .bridge { margin: 24px -4px; padding: 18px 16px 16px; border-radius: 0 10px 10px 0; }
+  .bridge__p { font-size: 17px; }
+}

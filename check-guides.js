@@ -9,13 +9,26 @@ const fs = require("fs");
 const path = require("path");
 
 const DIST = path.join(__dirname, "_dist");
-const SLUGS = [
-  "assisted-living-cost-illinois",
-  "does-medicare-pay-for-senior-care",
-  "illinois-supportive-living-program",
-  "check-illinois-inspection-records",
-  "levels-of-senior-care-explained",
-];
+
+/* SLUGS is DERIVED from build-guides.py, not typed out here.
+   It used to be a hand-written list of five, and so were the card
+   count and the sitemap URL count. That meant the act of adding a
+   sixth guide broke the suite that was supposed to approve it - the
+   author would have had to edit three numbers in this file to make a
+   correct change pass. A daily routine cannot be asked to maintain
+   its own grading constants; it would either fail forever or learn to
+   edit the gate.
+   Reading the generator keeps build-guides.py the single source of
+   truth for what SHOULD exist, so the gate still catches a guide that
+   quietly vanished from _dist - it just no longer hardcodes how many
+   there are. */
+const GEN = fs.readFileSync(path.join(__dirname, "build-guides.py"), "utf8");
+const SLUGS = (GEN.match(/^\s*"slug":\s*"([a-z0-9-]+)"/gm) || [])
+  .map((m) => m.replace(/.*"slug":\s*"/, "").replace(/"$/, ""));
+if (SLUGS.length < 5) {
+  console.log("  FAIL  could not read the slug list out of build-guides.py");
+  process.exit(1);
+}
 
 let pass = 0, fail = 0;
 function check(name, ok, detail) {
@@ -172,23 +185,58 @@ check("CMS Jimmo fact sheet is cited",
 
 /* ---- OWNER FINDING 5, 2026-10-18: dates must be the real date ----
    Pages claimed a 19 October 2026 review date on 18 October 2026. A review
-   date is a factual claim about when a human looked, and it is the one
-   claim a reader uses to judge every other figure. */
-const TODAY_H = "18 October 2026", TODAY_M = "2026-10-18";
+   date is a factual claim about when a human or a tool looked, and it is the
+   one claim a reader uses to judge every other figure.
+
+   REWRITTEN 2026-10-23. This gate used to pin a literal "18 October 2026"
+   and demand every page carry it. That made the date a constant someone had
+   to hand-edit, and it forced one global stamp onto pages researched on
+   different days - so the only way to add a guide dated today was to re-date
+   six pages nobody had re-checked. The intent survives; the implementation
+   does not. What actually matters is: a date exists, it is not in the
+   future, and the page's three renderings of it agree with each other. */
+const MONTHS = ["January", "February", "March", "April", "May", "June", "July",
+  "August", "September", "October", "November", "December"];
+function isoOf(human) {
+  const m = /^([0-9]{1,2}) ([A-Za-z]+) ([0-9]{4})$/.exec(human || "");
+  if (!m) return null;
+  const mi = MONTHS.indexOf(m[2]);
+  if (mi < 0) return null;
+  return m[3] + "-" + String(mi + 1).padStart(2, "0")
+    + "-" + m[1].padStart(2, "0");
+}
+const BUILD_DAY = new Date().toISOString().slice(0, 10);
+const reviewedOf = {};
 SLUGS.concat(["__index"]).forEach((s) => {
   const h = s === "__index" ? indexPage : page[s];
-  check("review date is today: " + s, lc(h).indexOf("last reviewed " + TODAY_H.toLowerCase()) !== -1);
+  const human = (h.match(/Last reviewed ([0-9]{1,2} [A-Za-z]+ [0-9]{4})\./) || [])[1];
+  const iso = isoOf(human);
+  reviewedOf[s] = iso;
+  check("prints a parseable review date: " + s, !!iso, String(human));
+  check("review date is not in the future: " + s, !!iso && iso <= BUILD_DAY,
+    iso + " vs build day " + BUILD_DAY);
 });
 SLUGS.forEach((s) => {
-  check("verification date is today: " + s,
-    lc(page[s]).indexOf("read from the source listed above on " + TODAY_H.toLowerCase()) !== -1);
-  check("dateModified is today: " + s,
-    page[s].indexOf('"dateModified": "' + TODAY_M + '"') !== -1);
+  const human = (page[s].match(
+    /read from the source listed above on ([0-9]{1,2} [A-Za-z]+ [0-9]{4})\./) || [])[1];
+  check("verification date matches the review date: " + s,
+    isoOf(human) === reviewedOf[s], human + " vs " + reviewedOf[s]);
+  check("dateModified matches the review date: " + s,
+    page[s].indexOf('"dateModified": "' + reviewedOf[s] + '"') !== -1,
+    reviewedOf[s]);
 });
-check("no future-dated review claim anywhere",
-  (all + indexPage).indexOf("19 October 2026") === -1 &&
-  (all + indexPage).indexOf("2026-10-19") === -1);
-check("sitemap lastmod is today", sitemap.indexOf(TODAY_M) !== -1);
+/* The index and the sitemap describe the whole library, so they carry the
+   newest date in it - never an older one, which would understate freshness,
+   and never a newer one, which would be a claim about a page that does not
+   exist. */
+const NEWEST = SLUGS.map((s) => reviewedOf[s]).sort().slice(-1)[0];
+check("the guides index carries the newest review date in the library",
+  reviewedOf["__index"] === NEWEST, reviewedOf["__index"] + " vs " + NEWEST);
+check("sitemap lastmod is the newest review date",
+  sitemap.indexOf(NEWEST) !== -1, NEWEST);
+check("no sitemap lastmod is in the future",
+  (sitemap.match(/<lastmod>([0-9-]+)<\/lastmod>/g) || [])
+    .every((m) => m.replace(/<\/?lastmod>/g, "") <= BUILD_DAY));
 
 /* ---- OWNER FINDING 6, 2026-10-18: turnover is a question, not a prophecy ----
    The page predicted a resident "meets a new caregiver every few weeks" in
@@ -279,14 +327,15 @@ check("the lead has its own readable style", indexPage.indexOf('class="topics__l
 
 /* the cards */
 check("cards are a semantic list", /<ul class="topics">[\s\S]*<\/ul>/.test(indexPage));
-check("there are exactly five cards",
-  (indexPage.match(/<li class="topic">/g) || []).length === 5,
-  String((indexPage.match(/<li class="topic">/g) || []).length));
+check("there is one card per guide, no more and no fewer",
+  (indexPage.match(/<li class="topic">/g) || []).length === SLUGS.length,
+  (indexPage.match(/<li class="topic">/g) || []).length + " cards for "
+    + SLUGS.length + " guides");
 check("the old faint-label title style is gone from the index",
   indexPage.indexOf('res__h"><a') === -1);
 
 var cardBlocks = indexPage.split('<li class="topic">').slice(1);
-check("card blocks parsed", cardBlocks.length === 5);
+check("card blocks parsed", cardBlocks.length === SLUGS.length);
 cardBlocks.forEach(function (c, i) {
   var n = i + 1;
   check("card " + n + " has a category label", /class="topic__cat">[^<]{3,}</.test(c));
@@ -563,9 +612,166 @@ check("no broken internal links", bad.length === 0, bad.join(", "));
 SLUGS.forEach((s) => {
   check("sitemap lists " + s, sitemap.indexOf("/guides/" + s + "/") !== -1);
 });
-check("sitemap has 8 urls", (sitemap.match(/<url>/g) || []).length === 8,
-  String((sitemap.match(/<url>/g) || []).length));
-check("guides index links all five",
+/* home + /guides/ + one per guide + /privacy.html */
+/* ---- OWNER FINDING 5, 2026-10-23: a ceiling is not an entitlement ----
+   The first cloud-written draft said the CSRA was the maximum transferable
+   "before the resident's own eligibility is assessed". HFS says no such
+   thing. What HFS does say is that the ACTUAL amount is the standard MINUS
+   what the at-home spouse already holds - so a reader who treats $143,172
+   or $4,066.50 as an amount they will receive is reading a ceiling as a
+   promise, and plans a parent's finances around it. */
+const mcd = page["illinois-medicaid-long-term-care"];
+check("the unsupported eligibility-sequencing phrase is gone",
+  all.indexOf("before the resident's own eligibility is") === -1 &&
+  all.indexOf("before the resident&rsquo;s own eligibility is") === -1);
+check("both spousal figures are labelled standards, not entitlements",
+  /neither figure is an amount anyone is promised/i.test(flat(mcd)) &&
+  lc(mcd).indexOf("both are ceilings") !== -1);
+check("the CSRA deduction rule is quoted from HFS",
+  lc(mcd).indexOf("deducting nonexempt resources of the community spouse "
+    + "from the standard") !== -1);
+check("the CSMNA deduction rule is quoted from HFS",
+  lc(mcd).indexOf("deducting any gross income of the community spouse "
+    + "from the standard") !== -1);
+check("the guide refuses to do the spousal subtraction itself",
+  lc(mcd).indexOf("does not do that subtraction for you") !== -1);
+check("the personal needs allowance is still refused",
+  lc(mcd).indexOf("could not read a verifiable number") !== -1);
+
+/* ---- OWNER FINDING 6, 2026-10-23: a review date is a factual claim ----
+   REVIEWED used to be one global constant stamped onto every page. Adding a
+   guide researched today would have re-dated six pages nobody re-checked.
+   Dates are per-guide now; this gate proves they did not collapse back into
+   one. */
+const dates = SLUGS.map((s) =>
+  (page[s].match(/Last reviewed ([0-9]+ [A-Za-z]+ [0-9]{4})\./) || [])[1]);
+check("every guide prints a review date", dates.every(Boolean), String(dates));
+check("review dates are per-guide, not one global stamp",
+  new Set(dates).size > 1, dates.join(" | "));
+check("the Medicaid guide is dated the day it was researched",
+  dates[SLUGS.indexOf("illinois-medicaid-long-term-care")] === "23 October 2026",
+  String(dates[SLUGS.indexOf("illinois-medicaid-long-term-care")]));
+check("its JSON-LD dateModified agrees with its printed date",
+  mcd.indexOf('"dateModified": "2026-10-23"') !== -1);
+check("the original five keep their own 2026-10-18 date",
+  dates[SLUGS.indexOf("assisted-living-cost-illinois")] === "18 October 2026",
+  String(dates[SLUGS.indexOf("assisted-living-cost-illinois")]));
+
+/* ---- OWNER RULE, 2026-10-23: the assessment is the conversion goal ----
+   Every guide exists to answer a question honestly AND to put the
+   six-question assessment in front of someone who now realises they do not
+   know which level of care applies. A guide that teaches and then dead-ends
+   is a leak. The daily routine writes guides unsupervised, so this is a gate
+   rather than a note in a file: a new guide cannot reach the owner without
+   the assessment block on it. */
+SLUGS.forEach((s) => {
+  const h = page[s];
+  check("assessment CTA block present: " + s,
+    h.indexOf('class="res__block plan plan--primary"') !== -1);
+  check("assessment CTA is a real link: " + s,
+    /<a class="btn btn--primary" href="\/#assessment">Take the free\s+assessment<\/a>/.test(flat(h)));
+  check("assessment promise is repeated at the CTA: " + s,
+    lc(h).indexOf("no name, no email and no phone number") !== -1);
+});
+
+/* ---- OWNER RULE, 2026-10-24: the article must bridge to the assessment ----
+   Measured before this change: the first mention of the assessment sat in
+   section 6 of 7, 7 of 8 and 8 of 9 across the library. A reader whose
+   question was answered in section 2 left having never seen it. Every guide
+   now carries ONE bridge after the first section, and the generator refuses
+   to build a guide without one - so these gates check the shape and the
+   restraint, not whether somebody remembered. */
+SLUGS.forEach((s) => {
+  const h = page[s];
+  const f = flat(h);
+
+  check("has exactly one mid-article bridge: " + s,
+    (h.match(/<aside class="bridge">/g) || []).length === 1,
+    String((h.match(/<aside class="bridge">/g) || []).length));
+
+  /* It must come BEFORE the sources block, i.e. inside the article, not
+     bolted on at the end next to the CTA that already exists. */
+  const iBridge = h.indexOf('<aside class="bridge">');
+  const iSources = h.indexOf('<h2 class="res__h">Sources</h2>');
+  const iCta = h.indexOf('class="res__block plan plan--primary"');
+  check("bridge sits inside the article, above Sources: " + s,
+    iBridge > 0 && iBridge < iSources, iBridge + " vs " + iSources);
+  check("bridge comes before the final CTA: " + s,
+    iBridge > 0 && iCta > 0 && iBridge < iCta);
+
+  /* A link, never a second button. Two buttons reads as a sales page. */
+  const bridgeHtml = h.slice(iBridge, h.indexOf("</aside>", iBridge));
+  check("bridge offers a link, not a button: " + s,
+    bridgeHtml.indexOf('class="btn') === -1 && /<a href="\/#assessment">/.test(bridgeHtml));
+  check("bridge links to the assessment exactly once: " + s,
+    (bridgeHtml.match(/href="\/#assessment"/g) || []).length === 1);
+
+  /* The promise must be identical everywhere it appears. */
+  check("bridge repeats the full privacy promise: " + s,
+    lc(bridgeHtml).indexOf("no name, no email and no phone number") !== -1 &&
+    lc(bridgeHtml).indexOf("never leave your device") !== -1);
+  check("bridge says it is not a diagnosis: " + s,
+    lc(bridgeHtml).indexOf("not a diagnosis") !== -1);
+  check("bridge states the time cost: " + s,
+    lc(bridgeHtml).indexOf("about two minutes") !== -1);
+
+  /* Each bridge must be written for ITS topic, not pasted. */
+  const lead = (bridgeHtml.match(/<p class="bridge__p">([\s\S]*?)<\/p>/) || [])[1] || "";
+  check("bridge has its own opening sentence: " + s, lead.trim().length >= 40,
+    String(lead.trim().length));
+
+  /* EXACTLY two routes to the assessment inside the article: the bridge
+     and the final CTA. Fewer means a reader can finish without a next step;
+     more is a repeated sales pitch. The site nav carries its own "Start
+     assessment" link in both the desktop bar and the mobile menu - those are
+     navigation, not persuasion, so the count is scoped to the article. */
+  const aStart = h.indexOf("<h1");
+  const aEnd = h.indexOf("<footer") === -1 ? h.length : h.indexOf("<footer");
+  const inArticle = (h.slice(aStart, aEnd).match(/href="\/#assessment"/g) || []).length;
+  check("exactly two assessment links in the article: " + s, inArticle === 2,
+    String(inArticle));
+
+  check("no sticky or popup CTA: " + s,
+    !/position:\s*(fixed|sticky)/i.test(h) && h.indexOf("<dialog") === -1 &&
+    lc(h).indexOf("modal") === -1);
+});
+
+/* Every bridge opening must be unique across the library. */
+const leads = SLUGS.map((s) => {
+  const h = page[s];
+  const i = h.indexOf('<aside class="bridge">');
+  return ((h.slice(i).match(/<p class="bridge__p">([\s\S]*?)<\/p>/) || [])[1] || "").trim();
+});
+check("every bridge is written for its own topic",
+  new Set(leads).size === SLUGS.length,
+  new Set(leads).size + " unique of " + SLUGS.length);
+
+/* No manufactured urgency, anywhere on any page. */
+[/\bact now\b/i, /\bdon'?t miss\b/i, /\blimited time\b/i, /\bhurry\b/i,
+ /\bonly \d+ (spots?|places?|left)\b/i, /\bbefore it'?s too late\b/i,
+ /\bspaces? (are )?filling\b/i, /\burgent(ly)?\b/i,
+ /\bdon'?t wait\b/i, /\brisk (losing|missing)\b/i].forEach((re, i) => {
+  check("no manufactured urgency, pattern " + (i + 1),
+    !re.test(all + indexPage), String(re));
+});
+
+/* ---- ASSET DRIFT, 2026-10-24 ----
+   styles.css, app.js, assessment.js and nav.js each exist at the repo root
+   AND in _dist. Netlify publishes _dist, so a root-only edit reaches nobody.
+   They drifted 43 lines the first time a rule was added. build-guides.py now
+   copies them; this proves the copy actually happened. */
+["styles.css", "app.js", "assessment.js", "nav.js"].forEach((a) => {
+  const root = path.join(__dirname, a), dist = path.join(DIST, a);
+  const both = fs.existsSync(root) && fs.existsSync(dist);
+  check("published copy matches source: " + a,
+    both && read(root) === read(dist));
+});
+
+check("sitemap has one url per page",
+  (sitemap.match(/<url>/g) || []).length === SLUGS.length + 3,
+  (sitemap.match(/<url>/g) || []).length + " urls for "
+    + SLUGS.length + " guides");
+check("guides index links every guide",
   SLUGS.every((s) => indexPage.indexOf("/guides/" + s + "/") !== -1));
 check("Guides is in the main nav",
   read(path.join(DIST, "index.html")).indexOf("/guides/") !== -1);
