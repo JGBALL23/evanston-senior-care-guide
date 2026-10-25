@@ -2227,3 +2227,67 @@ section[id], header[id] { scroll-margin-top: calc(var(--nav-h) + 14px); }
   .bridge { margin: 24px -4px; padding: 18px 16px 16px; border-radius: 0 10px 10px 0; }
   .bridge__p { font-size: 17px; }
 }
+
+/* ---- The guide library: search, chips, show more -----------------------
+   Added 2026-10-25, built to stay usable at 100+ guides. The toolbar is
+   revealed by guides.js; without JavaScript it never appears and the full
+   server-rendered list stands on its own. No animation anywhere here — a
+   library that fades on every keystroke stops feeling calm. */
+.lib { margin: 26px 0 22px; }
+.lib[hidden] { display: none; }
+
+.lib__label {
+  display: block; font-size: 13.5px; letter-spacing: .15em;
+  text-transform: uppercase; color: var(--ink-faint);
+  font-weight: 600; margin: 0 0 8px;
+}
+.lib__input {
+  width: 100%; box-sizing: border-box;
+  padding: 13px 15px; font: inherit; font-size: 17px;
+  color: var(--ink); background: var(--paper-warm);
+  border: 1px solid var(--line, #d8ded9); border-radius: var(--r-sm);
+  -webkit-appearance: none; appearance: none;
+}
+.lib__input::placeholder { color: var(--ink-ghost); }
+.lib__input:focus-visible {
+  outline: 3px solid var(--sage); outline-offset: 2px;
+  border-color: var(--sage);
+}
+
+.lib__chips {
+  display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0;
+}
+.chip {
+  font: inherit; font-size: 15px; line-height: 1;
+  padding: 10px 14px; min-height: 40px;
+  color: var(--ink-soft); background: var(--paper-warm);
+  border: 1px solid var(--line, #d8ded9); border-radius: 999px;
+  cursor: pointer;
+}
+.chip:hover { border-color: var(--sage); color: var(--ink); }
+.chip:focus-visible { outline: 3px solid var(--sage); outline-offset: 2px; }
+.chip--on {
+  background: var(--deep-3); border-color: var(--deep-3); color: #fff;
+}
+.chip--on .chip__n { color: rgba(255,255,255,.72); }
+.chip__n { color: var(--ink-ghost); font-variant-numeric: tabular-nums; }
+
+.lib__count {
+  margin: 14px 0 0; font-size: 15.5px; color: var(--ink-soft);
+}
+
+.lib__more-wrap { margin: 22px 0 6px; text-align: center; }
+.btn--quiet {
+  background: transparent; color: var(--deep-3);
+  border: 1px solid var(--line, #d8ded9); box-shadow: none;
+}
+.btn--quiet:hover { border-color: var(--sage); background: var(--paper-warm); }
+.btn--quiet[hidden] { display: none; }
+
+.topic[hidden] { display: none; }
+
+@media (max-width: 560px) {
+  .lib { margin: 22px 0 18px; }
+  .lib__input { font-size: 16px; }   /* 16px stops iOS zooming on focus */
+  .chip { font-size: 14.5px; padding: 10px 12px; }
+}

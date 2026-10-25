@@ -360,13 +360,13 @@ check("the lead has its own readable style", indexPage.indexOf('class="topics__l
 /* the cards */
 check("cards are a semantic list", /<ul class="topics">[\s\S]*<\/ul>/.test(indexPage));
 check("there is one card per guide, no more and no fewer",
-  (indexPage.match(/<li class="topic">/g) || []).length === SLUGS.length,
-  (indexPage.match(/<li class="topic">/g) || []).length + " cards for "
+  (indexPage.match(/<li class="topic"[\s>]/g) || []).length === SLUGS.length,
+  (indexPage.match(/<li class="topic"[\s>]/g) || []).length + " cards for "
     + SLUGS.length + " guides");
 check("the old faint-label title style is gone from the index",
   indexPage.indexOf('res__h"><a') === -1);
 
-var cardBlocks = indexPage.split('<li class="topic">').slice(1);
+var cardBlocks = indexPage.split(/<li class="topic"[\s>]/).slice(1);
 check("card blocks parsed", cardBlocks.length === SLUGS.length);
 cardBlocks.forEach(function (c, i) {
   var n = i + 1;
@@ -798,6 +798,70 @@ check("every bridge is written for its own topic",
   check("published copy matches source: " + a,
     both && read(root) === read(dist));
 });
+
+/* ---- THE LIBRARY MUST SURVIVE WITHOUT JAVASCRIPT, 2026-10-25 ----
+   Search, chips and Show more are enhancements layered over server-rendered
+   cards. The failure mode worth guarding is a future change that renders the
+   list from JS: the page would still look right in a browser and vanish from
+   Google. These gates read the shipped HTML, which is exactly what a crawler
+   sees with scripting off. */
+check("every guide is a card in the static HTML",
+  (indexPage.match(/<li class="topic"[\s>]/g) || []).length === SLUGS.length,
+  String((indexPage.match(/<li class="topic"[\s>]/g) || []).length));
+SLUGS.forEach((s) => {
+  check("crawlable link present without JS: " + s,
+    indexPage.indexOf('href="/guides/' + s + '/"') !== -1);
+});
+check("no card is hidden in the shipped HTML",
+  indexPage.indexOf('<li class="topic" hidden') === -1 &&
+  !/<li class="topic"[^>]*\shidden/.test(indexPage));
+
+/* The toolbar ships hidden and JS reveals it, so a no-JS visitor never sees
+   a search box that cannot search or a chip that cannot filter. */
+check("toolbar ships hidden for the no-JS case",
+  /<div class="lib" id="libTools" hidden>/.test(indexPage));
+check("Show more ships hidden",
+  /id="libMore" hidden/.test(indexPage));
+
+/* Search terms and categories are generated, never hand-written. */
+SLUGS.forEach((s) => {
+  const card = (indexPage.split(/<li class="topic"[\s>]/)[
+    SLUGS.indexOf(s) + 1] || "");
+  check("card carries a category: " + s, /data-cat="[^"]{3,}"/.test(card));
+  check("card carries search terms: " + s, /data-terms="[^"]{30,}"/.test(card));
+});
+
+/* Chips are derived from the categories actually in use, so an empty chip -
+   a dead end for the visitor - can never render. */
+const chipCats = (indexPage.match(/class="chip" data-cat="([^"]+)"/g) || [])
+  .map((m) => m.replace(/.*data-cat="/, "").replace(/"$/, ""));
+const cardCats = (indexPage.match(/<li class="topic" data-cat="([^"]+)"/g) || [])
+  .map((m) => m.replace(/.*data-cat="/, "").replace(/"$/, ""));
+check("every chip has at least one guide behind it",
+  chipCats.every((c) => cardCats.indexOf(c) !== -1), chipCats.join(" | "));
+check("every category in use has a chip",
+  cardCats.every((c) => chipCats.indexOf(c) !== -1), cardCats.join(" | "));
+check("there is an All chip", /class="chip chip--on" data-cat=""/.test(indexPage));
+check("chip counts are rendered", /class="chip__n"/.test(indexPage));
+
+/* The library keeps the assessment, placed after the guides rather than
+   above them - a reference page that leads with a call to action reads as a
+   landing page. */
+check("library carries the assessment block",
+  indexPage.indexOf('class="res__block plan plan--primary"') !== -1);
+check("assessment sits AFTER the guides, not above them",
+  indexPage.indexOf('class="res__block plan plan--primary"') >
+    indexPage.lastIndexOf('<li class="topic"'));
+check("library assessment repeats the privacy promise",
+  lc(indexPage).indexOf("no name, no email and no phone number") !== -1);
+check("library has no second call to action",
+  (indexPage.match(/href="\/#assessment"/g) || []).length <= 3,
+  String((indexPage.match(/href="\/#assessment"/g) || []).length));
+
+check("guides.js is loaded on the library page",
+  indexPage.indexOf('src="/guides.js"') !== -1);
+check("no animation library or inline keyframes crept in",
+  !/@keyframes|animation:/i.test(indexPage));
 
 check("sitemap has one url per page",
   (sitemap.match(/<url>/g) || []).length === SLUGS.length + 3,
