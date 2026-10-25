@@ -24,9 +24,11 @@ pub = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(pub)          # chdir's to the repo root; no side effects
 
 fails = []
+ran = []
 
 
 def ck(name, ok, detail=""):
+    ran.append(name)
     print("  %-62s %s %s" % (name, "PASS" if ok else "FAIL", detail))
     if not ok:
         fails.append(name)
@@ -58,8 +60,9 @@ real_ledger, real_rel = pub.LEDGER, pub.LEDGER_REL
 try:
     pub.LEDGER = os.path.join(tmp, "data", "indexnow-ledger.json")
 
+    empty = pub.load_ledger()
     ck("a missing ledger loads as empty, it does not crash",
-       pub.load_ledger() == {"submitted": {}})
+       empty["entries"] == {} and empty["version"] == 2, str(empty.get("version")))
 
     live = pub.published_urls()
     ck("published_urls reads real built pages", len(live) >= 2, "%d URLs" % len(live))
@@ -67,34 +70,87 @@ try:
        all(u.startswith(pub.BASE + "/") for u in live))
     ck("hashes are sha256 hex", all(len(h) == 64 for h in live.values()))
 
-    # --- SESSION ONE: announce everything
-    led = {"submitted": {u: {"hash": h, "at": "2026-10-25T00:00:00Z", "status": 200}
-                         for u, h in live.items()}}
+    # --- V1 -> V2 MIGRATION: an old one-bucket ledger must not lose meaning
+    v1 = {"submitted": {sorted(live)[0]: {"hash": "a" * 64,
+                                          "at": "2026-10-25T20:10:06Z",
+                                          "status": 202}}}
+    pub.save_ledger(v1)
+    mig = pub.load_ledger()
+    ck("v1 ledger migrates to v2 entries", "entries" in mig and mig["version"] == 2)
+    ck("a v1 row is tagged as a REAL submission, not a baseline",
+       mig["entries"][sorted(live)[0]]["kind"] == "submitted")
+    ck("migration preserves the real HTTP status",
+       mig["entries"][sorted(live)[0]]["status"] == 202)
+
+    # --- SESSION ONE: baseline everything
+    led = {"version": 2, "note": pub.LEDGER_NOTE,
+           "entries": dict((u, pub.baseline_row(h, "2026-10-25T00:00:00Z",
+                                                "b" * 64))
+                           for u, h in live.items())}
     pub.save_ledger(led)
     ck("ledger file exists on disk after save", os.path.isfile(pub.LEDGER))
 
     # --- SESSION TWO: a brand new process would read it back off disk
     reread = pub.load_ledger()
-    ck("a separate session reads back exactly what was written", reread == led)
+    ck("a separate session reads back exactly what was written",
+       reread["entries"] == led["entries"])
+
+    ck("no baseline entry carries an HTTP status",
+       all("status" not in r for r in reread["entries"].values()))
+    ck("every baseline entry says it was never submitted",
+       all("Never submitted" in r["why"] for r in reread["entries"].values()))
+    ck("the ledger explains the two kinds in the file itself",
+       "NEVER submitted" in reread["note"])
 
     changed = [u for u, h in sorted(live.items())
-               if reread["submitted"].get(u, {}).get("hash") != h]
+               if pub.known_hash(reread, u) != h]
     ck("re-run with no content change submits ZERO URLs", changed == [],
        "%d changed" % len(changed))
 
-    # --- one page edited
+    # --- REQUIREMENT: one genuinely NEW guide selects only itself
+    newurl = pub.BASE + "/guides/va-aid-and-attendance/"
+    withnew = dict(live)
+    withnew[newurl] = "c" * 64
+    changed = [u for u, h in sorted(withnew.items())
+               if pub.known_hash(reread, u) != h]
+    ck("a brand-new guide selects exactly itself, nothing else",
+       changed == [newurl], str(changed))
+
+    # --- one existing page edited
     victim = sorted(live)[0]
-    reread["submitted"][victim]["hash"] = "0" * 64
+    reread["entries"][victim]["hash"] = "0" * 64
     changed = [u for u, h in sorted(live.items())
-               if reread["submitted"].get(u, {}).get("hash") != h]
+               if pub.known_hash(reread, u) != h]
     ck("one edited page yields exactly one changed URL", changed == [victim],
        str(changed))
 
     # --- a URL never seen before
-    reread["submitted"].pop(victim)
+    reread["entries"].pop(victim)
     changed = [u for u, h in sorted(live.items())
-               if reread["submitted"].get(u, {}).get("hash") != h]
-    ck("a never-submitted URL counts as changed", changed == [victim], str(changed))
+               if pub.known_hash(reread, u) != h]
+    ck("an unrecorded URL counts as changed", changed == [victim], str(changed))
+
+    # --- baseline must never overwrite a real submission
+    led2 = {"version": 2, "note": pub.LEDGER_NOTE,
+            "entries": {victim: {"hash": "zz", "kind": "submitted",
+                                 "at": "x", "status": 200}}}
+    fresh = [u for u in sorted(live) if u not in led2["entries"]]
+    ck("baseline skips URLs already in the ledger", victim not in fresh,
+       "%d fresh of %d" % (len(fresh), len(live)))
+
+    # --- the live fingerprint ignores what Netlify rewrites
+    base = b"<html><head><title>T</title></head><body><p>Hello there</p></body></html>"
+    rum = (b'<html><head><title>T</title></head><body><p>Hello  there</p>'
+           b'<script async id="netlify-rum-container" '
+           b'data-netlify-cwv-token="DEPLOY-SPECIFIC"></script></body></html>')
+    ck("injected RUM script and whitespace do not change the fingerprint",
+       pub.live_text_sha(base) == pub.live_text_sha(rum))
+    dotted = b'<body><p>Hi</p><a class="f" href="/privacy.html">Privacy</a></body>'
+    pretty = b"<body><p>Hi</p><a class='f' href='/privacy'>Privacy</a></body>"
+    ck("Netlify's pretty-URL and quote rewrite does not change the fingerprint",
+       pub.live_text_sha(dotted) == pub.live_text_sha(pretty))
+    ck("a real wording change DOES change the fingerprint",
+       pub.live_text_sha(base) != pub.live_text_sha(base.replace(b"Hello", b"Goodbye")))
 
     # --- the ledger is JSON a human can diff
     txt = io.open(pub.LEDGER, encoding="utf-8").read()
@@ -107,6 +163,6 @@ finally:
 ck("the real ledger path was never touched by this test",
    pub.LEDGER == os.path.join("data", "indexnow-ledger.json"))
 
-print("\n%s" % ("%d/%d passed" % (len(CASES) + 12 - len(fails), len(CASES) + 12)
+print("\n%s" % ("%d/%d passed" % (len(ran) - len(fails), len(ran))
                if not fails else "FAILURES: " + ", ".join(fails)))
 sys.exit(1 if fails else 0)

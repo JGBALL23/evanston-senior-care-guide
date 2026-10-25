@@ -952,6 +952,79 @@ if (fs.existsSync(PUB)) {
     (p.match(/--insecure|-k['"\s]/) || [""])[0]);
   check("the IndexNow POST goes through the same verified path",
     /if CURL:[\s\S]{0,200}--data-binary/.test(p));
+
+  /* BASELINE, 2026-10-25. Ten guides were already live and in the sitemap
+     when IndexNow arrived, so against an empty ledger they all read as new.
+     The baseline records them WITHOUT announcing them. The danger is a
+     baseline that looks like a successful submission, so: it writes no
+     status, it says in the row that nothing was sent, and it cannot run in
+     the same breath as a deploy or a submit. */
+  check("baseline mode exists and is explicit",
+    /def do_baseline/.test(p) && /"--baseline"/.test(p));
+  /* Slice the function out instead of guessing a character window. A gate
+     that depends on how long a docstring happens to be is a gate that
+     fails the next time someone edits a comment. */
+  const pyfunc = (src, name) => {
+    const i = src.indexOf("def " + name + "(");
+    if (i === -1) return "";
+    const j = src.indexOf("\ndef ", i + 1);
+    return src.slice(i, j === -1 ? src.length : j);
+  };
+  const ROW = pyfunc(p, "baseline_row");
+  check("baseline_row exists", ROW.length > 0);
+  check("a baseline row carries NO HTTP status", !/"status"/.test(ROW));
+  check("a baseline row states it was never submitted",
+    /Never submitted/.test(ROW));
+  check("a baseline row proves it was live when recorded",
+    /live_text_sha/.test(ROW));
+  check("baseline refuses a URL it cannot prove is live",
+    /could not be proven live and identical/.test(p));
+  check("baseline never overwrites an existing entry",
+    /u not in ledger\["entries"\]/.test(p));
+  check("baseline and --only cannot be combined",
+    /--baseline and --only are different jobs/.test(p));
+  const bi = p.indexOf("if args.baseline:");
+  const di = p.indexOf("# 5 ");
+  check("baseline returns before the deploy and the submit",
+    bi !== -1 && di !== -1 && bi < di &&
+    /\n        return\n/.test(p.slice(bi, di)),
+    "baseline at " + bi + ", deploy at " + di);
+  /* Netlify rewrites served HTML and injects a RUM script whose token
+     embeds the deploy id, so live bytes change on every deploy. Comparing
+     raw live bytes would mark every page changed after any publish. */
+  check("liveness is compared on text, not on raw served bytes",
+    /def live_text_sha/.test(p) && /netlify-rum|RUM script/.test(p));
+  check("the submission trigger still hashes the built file",
+    /def published_urls[\s\S]{0,300}sha256/.test(p));
+  check("published URLs are derived from _dist, never a hardcoded list",
+    /def published_paths[\s\S]{0,400}os\.listdir/.test(p));
+  check("the ledger explains baseline vs submitted in the file itself",
+    /LEDGER_NOTE/.test(p) && /NEVER submitted/.test(p));
+  check("the v1 ledger shape still migrates",
+    /if "entries" in led/.test(p) && /"kind"\] = "submitted"/.test(p));
+  check("netlify JSON is decoded with raw_decode, not loads-to-end",
+    /raw_decode/.test(p));
+}
+
+/* The baseline is only a baseline if it survives the session. */
+const LEDG = path.join(__dirname, "data", "indexnow-ledger.json");
+if (fs.existsSync(LEDG)) {
+  let L = null;
+  try { L = JSON.parse(read(LEDG)); } catch (e) { L = null; }
+  check("ledger on disk is valid JSON", L !== null);
+  if (L && L.entries) {
+    const rows = Object.keys(L.entries).map((k) => L.entries[k]);
+    check("every ledger row declares its kind",
+      rows.every((r) => r.kind === "baseline" || r.kind === "submitted"),
+      rows.map((r) => r.kind).join(","));
+    check("no baseline row claims an HTTP status",
+      rows.filter((r) => r.kind === "baseline").every((r) => !("status" in r)));
+    check("every submitted row records a real 200 or 202",
+      rows.filter((r) => r.kind === "submitted")
+        .every((r) => r.status === 200 || r.status === 202));
+    check("every ledger row has a content hash",
+      rows.every((r) => /^[0-9a-f]{64}$/.test(String(r.hash))));
+  }
 }
 
 /* The daily routine drafts; it must never publish or announce. */
