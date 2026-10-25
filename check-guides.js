@@ -941,6 +941,17 @@ if (fs.existsSync(PUB)) {
      to announce a URL that did not actually change. */
   check("--only cannot submit an unchanged URL",
     /args\.only not in changed/.test(p));
+
+  /* urllib's CA store here holds an expired root, so every https check read
+     a live 200 as HTTP 0 — one step after a production deploy. curl uses the
+     OS trust store. Verification itself is never switched off. */
+  check("publisher reaches the network through curl",
+    /shutil\.which\("curl"\)/.test(p) && /def _curl/.test(p));
+  check("publisher never disables TLS verification",
+    !/--insecure/.test(p) && !/-k['"\s]/.test(p),
+    (p.match(/--insecure|-k['"\s]/) || [""])[0]);
+  check("the IndexNow POST goes through the same verified path",
+    /if CURL:[\s\S]{0,200}--data-binary/.test(p));
 }
 
 /* The daily routine drafts; it must never publish or announce. */
