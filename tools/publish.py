@@ -85,7 +85,39 @@ def die(msg):
     sys.exit(1)
 
 
+CURL = shutil.which("curl") or shutil.which("curl.exe")
+
+
+def _curl(args, data=None, timeout=45):
+    """One HTTP round trip through curl, returning (status, body).
+
+    curl is preferred over urllib because urllib's bundled CA store in this
+    environment contains an expired root: every https request raised
+    CERTIFICATE_VERIFY_FAILED, so a live page that answers 200 was read as
+    'HTTP 0'. That is not a cosmetic bug -- it stopped the run one step
+    AFTER a successful production deploy, and it would have made the
+    IndexNow POST unsendable too. curl uses the operating system's trust
+    store instead.
+
+    Certificate verification stays ON. No flag that skips it is ever passed
+    here, and a gate in check-guides.js fails the build if one appears. A
+    certificate error must stop the publish, not be waved through."""
+    cmd = [CURL, "-s", "-L", "--max-time", str(timeout),
+           "-A", "evanston-publish/1.0", "-w", "\n%{http_code}"] + args
+    r = subprocess.run(cmd, capture_output=True, input=data, shell=False)
+    raw = r.stdout or b""
+    i = raw.rfind(b"\n")
+    if i < 0:
+        return 0, (r.stderr or raw)[:300]
+    try:
+        return int(raw[i + 1:].strip()), raw[:i]
+    except ValueError:
+        return 0, (r.stderr or raw)[:300]
+
+
 def head(url, timeout=30):
+    if CURL:
+        return _curl([url], timeout=timeout)
     req = urllib.request.Request(url, method="GET",
                                  headers={"User-Agent": "evanston-publish/1.0"})
     try:
@@ -207,6 +239,11 @@ def submit(urls):
         "keyLocation": "%s/%s" % (BASE, INDEXNOW_KEY_FILE),
         "urlList": urls,
     }).encode("utf-8")
+    if CURL:
+        status, body = _curl(
+            ["-X", "POST", "-H", "Content-Type: application/json; charset=utf-8",
+             "--data-binary", "@-", INDEXNOW_ENDPOINT], data=payload)
+        return status, body.decode("utf-8", "replace")[:300]
     req = urllib.request.Request(
         INDEXNOW_ENDPOINT, data=payload, method="POST",
         headers={"Content-Type": "application/json; charset=utf-8",
