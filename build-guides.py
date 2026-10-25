@@ -1478,6 +1478,64 @@ def build_guide(g):
 from diagrams import DIAGRAMS
 
 
+# --------------------------------------------------------------------------
+# CATEGORIES — the filter chips on /guides/ are built from this list, in this
+# order, showing only the ones that actually have guides.
+#
+# It is a CLOSED list on purpose. Chips derived from whatever strings happen
+# to be in CARDS would sprawl into twenty near-duplicates ("Costs", "Cost",
+# "Paying") the moment a routine invents one, and a filter bar nobody can
+# scan is worse than no filter bar. A closed list keeps the bar short at 100
+# guides; the build refuses an unknown category and prints the valid ones, so
+# the routine cannot silently invent a twentieth.
+#
+# Adding a genuinely new category is a deliberate edit here, not an accident
+# in a guide dict.
+# --------------------------------------------------------------------------
+CATEGORIES = [
+    "Getting oriented",
+    "Costs",
+    "Medicare",
+    "Paying with Medicaid",
+    "Staying at home",
+    "Checking a community",
+    "Veterans' benefits",
+    "Legal and planning",
+]
+
+CATEGORY_UNKNOWN = """
+build-guides.py: guide "%s" uses the category "%s", which is not in CATEGORIES.
+
+The /guides/ filter bar is built from a closed list so it stays scannable at
+100 guides. Pick the closest existing category:
+
+%s
+
+If the guide genuinely belongs to none of them, add ONE new category to
+CATEGORIES in build-guides.py and say so in the commit message. Do not invent
+a near-duplicate of a category that already exists.
+"""
+
+
+def check_categories():
+    for g in GUIDES:
+        cat = CARDS[g["slug"]][0]
+        if cat not in CATEGORIES:
+            listing = "\n".join("  - " + c for c in CATEGORIES)
+            raise SystemExit(CATEGORY_UNKNOWN % (g["slug"], cat, listing))
+
+
+def used_categories():
+    """Categories that actually have guides, in CATEGORIES order. An empty
+    chip is a dead end, so a category with nothing in it never renders."""
+    present = {CARDS[g["slug"]][0] for g in GUIDES}
+    return [c for c in CATEGORIES if c in present]
+
+
+def category_count(cat):
+    return sum(1 for g in GUIDES if CARDS[g["slug"]][0] == cat)
+
+
 CARDS = {
     "assisted-living-cost-illinois": (
         "Costs",
@@ -1535,19 +1593,85 @@ CARDS = {
 }
 
 
+def esc_attr(s):
+    return (s.replace("&", "&amp;").replace('"', "&quot;")
+             .replace("<", "&lt;").replace(">", "&gt;"))
+
+
+def library_toolbar():
+    """Search box and category chips for /guides/.
+
+    PROGRESSIVE ENHANCEMENT, deliberately. The toolbar ships with `hidden`
+    on it and guides.js removes that attribute on load. Without JavaScript a
+    visitor — or a crawler — gets the complete, unfiltered list of every
+    guide in plain HTML, with no controls that would do nothing if clicked.
+    With JavaScript they get search, filters and Show more.
+
+    That ordering is the whole SEO argument: the cards are server-rendered
+    and always in the document. Nothing here hides an article from Google,
+    and no guide URL changes."""
+    chips = "".join(
+        '<button type="button" class="chip" data-cat="%s">%s '
+        '<span class="chip__n">%d</span></button>\n'
+        % (esc_attr(c), c, category_count(c)) for c in used_categories())
+    return (
+        '<div class="lib" id="libTools" hidden>\n'
+        '  <div class="lib__search">\n'
+        '    <label class="lib__label" for="libQ">Search the guides</label>\n'
+        '    <input type="search" id="libQ" class="lib__input" autocomplete="off"\n'
+        '           placeholder="hospice, Medicaid, costs…"\n'
+        '           aria-describedby="libCount">\n'
+        '  </div>\n'
+        '  <div class="lib__chips" role="group" aria-label="Filter by topic">\n'
+        '    <button type="button" class="chip chip--on" data-cat="">'
+        'All <span class="chip__n">%d</span></button>\n'
+        '%s'
+        '  </div>\n'
+        '  <p class="lib__count" id="libCount" role="status" aria-live="polite"></p>\n'
+        '</div>\n' % (len(GUIDES), chips))
+
+
+def library_assessment():
+    """The assessment panel on the library page.
+
+    Placed AFTER the guides, not above them. Someone who lands on a library
+    page is looking for a specific answer; putting the call to action first
+    makes a reference page read as a landing page. It uses the same block as
+    every guide, so it reads as part of the site rather than an insert."""
+    return ('<section class="res__block plan plan--primary">\n'
+            '<h2 class="res__h plan__h">Not sure which guide applies?</h2>\n'
+            '<p class="plan__lead">Six questions, about two minutes, and the '
+            'result points you at the level of care your answers describe — '
+            'along with the reasoning. It asks for no name, no email and no '
+            'phone number, and your answers never leave your device.</p>\n'
+            '<p><a class="btn btn--primary" href="/#assessment">Take the free '
+            'assessment</a></p>\n</section>\n')
+
+
 def topic_card(g):
     """One card. The anchor sits on the title and its ::after is stretched
     over the whole surface, so the card is clickable with ONE tab stop and
     one accessible name - no duplicate links for a crawler or a screen
     reader to wade through, and the crawlable href never moves."""
     cat, title, blurb = CARDS[g["slug"]]
-    return ('<li class="topic">\n'
+    # data-terms is what the search box matches against: the card title, the
+    # category, the blurb, the article's own h1, its search intent and the
+    # words in its slug. Built here from fields that already exist, so a new
+    # guide becomes findable the moment the routine writes it — nobody ever
+    # maintains a keyword list.
+    raw = " ".join(strip_tags(x) for x in
+                   (title, cat, blurb, g["h1"], g.get("intent", ""),
+                    g["slug"].replace("-", " ")))
+    terms = re.sub(r"[^a-z0-9 ]+", " ", raw.lower())
+    terms = " ".join(sorted(set(w for w in terms.split() if len(w) > 2)))
+    return ('<li class="topic" data-cat="%s" data-terms="%s">\n'
             '  <p class="topic__cat">%s</p>\n'
             '  <h2 class="topic__h"><a href="/guides/%s/">%s</a></h2>\n'
             '  <p class="topic__p">%s</p>\n'
             '  <p class="topic__go">Read article '
             '<span class="topic__arrow" aria-hidden="true">&rarr;</span></p>\n'
-            '</li>\n' % (cat, g["slug"], title, blurb))
+            '</li>\n' % (esc_attr(cat), esc_attr(terms), cat, g["slug"],
+                         title, blurb))
 
 
 def build_index():
@@ -1576,9 +1700,13 @@ def build_index():
               'parent needs more help \u2014 and every figure in them is read from a '
               'government or survey source and dated, so you can see how current it '
               'is.</p>\n'
+            + library_toolbar()
             + cards
+            + '<p class="lib__more-wrap"><button type="button" '
+              'class="btn btn--quiet" id="libMore" hidden></button></p>\n'
+            + library_assessment()
             + '<p class="visit__fine">Last reviewed %s.</p>\n' % reviewed_human({"reviewed": newest_reviewed()})
-            + FOOT)
+            + FOOT.replace("</body>", '<script src="/guides.js"></script>\n</body>'))
 
 
 def build_sitemap():
@@ -1604,7 +1732,8 @@ def build_sitemap():
             + body + '</urlset>\n')
 
 
-SHARED_ASSETS = ["styles.css", "app.js", "assessment.js", "nav.js"]
+SHARED_ASSETS = ["styles.css", "app.js", "assessment.js", "nav.js",
+                 "guides.js"]
 
 
 def sync_assets():
@@ -1633,6 +1762,7 @@ def sync_assets():
 
 
 def main():
+    check_categories()
     os.makedirs(OUT, exist_ok=True)
     for name in sync_assets():
         print("  synced to _dist: %s" % name)

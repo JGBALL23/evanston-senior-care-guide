@@ -70,68 +70,92 @@
 <p class="eyebrow">Care Guides</p>
 <h1 class="h2">Find answers about senior care</h1>
 <p class="topics__lead">Pick the question that is on your mind. Each one is a short, plain-English answer to something families ask when a parent needs more help — and every figure in them is read from a government or survey source and dated, so you can see how current it is.</p>
+<div class="lib" id="libTools" hidden>
+  <div class="lib__search">
+    <label class="lib__label" for="libQ">Search the guides</label>
+    <input type="search" id="libQ" class="lib__input" autocomplete="off"
+           placeholder="hospice, Medicaid, costs…"
+           aria-describedby="libCount">
+  </div>
+  <div class="lib__chips" role="group" aria-label="Filter by topic">
+    <button type="button" class="chip chip--on" data-cat="">All <span class="chip__n">10</span></button>
+<button type="button" class="chip" data-cat="Getting oriented">Getting oriented <span class="chip__n">1</span></button>
+<button type="button" class="chip" data-cat="Costs">Costs <span class="chip__n">1</span></button>
+<button type="button" class="chip" data-cat="Medicare">Medicare <span class="chip__n">2</span></button>
+<button type="button" class="chip" data-cat="Paying with Medicaid">Paying with Medicaid <span class="chip__n">3</span></button>
+<button type="button" class="chip" data-cat="Staying at home">Staying at home <span class="chip__n">1</span></button>
+<button type="button" class="chip" data-cat="Checking a community">Checking a community <span class="chip__n">2</span></button>
+  </div>
+  <p class="lib__count" id="libCount" role="status" aria-live="polite"></p>
+</div>
 <ul class="topics">
-<li class="topic">
+<li class="topic" data-cat="Costs" data-terms="actually after and appear assisted charges cost costs does evanston four illinois include living median move not research statewide that the what you">
   <p class="topic__cat">Costs</p>
   <h2 class="topic__h"><a href="/guides/assisted-living-cost-illinois/">What assisted living actually costs in Illinois</a></h2>
   <p class="topic__p">The statewide median, what it does and does not include, and the four charges that appear after you move in.</p>
   <p class="topic__go">Read article <span class="topic__arrow" aria-hidden="true">&rarr;</span></p>
 </li>
-<li class="topic">
+<li class="topic" data-cat="Medicare" data-terms="and are assisted care coverage covers does ends families for given home living medicare most never nursing often one pay question reason senior the what when wrongly">
   <p class="topic__cat">Medicare</p>
   <h2 class="topic__h"><a href="/guides/does-medicare-pay-for-senior-care/">Does Medicare pay for assisted living or nursing home care?</a></h2>
   <p class="topic__p">What Medicare covers, what it never covers, and the one reason families are most often given wrongly when coverage ends.</p>
   <p class="topic__go">Read article <span class="topic__arrow" aria-hidden="true">&rarr;</span></p>
 </li>
-<li class="topic">
+<li class="topic" data-cat="Paying with Medicaid" data-terms="and assisted care charges expect explained for how illinois living medicaid paying pays program programme resident separate should style supportive the two with">
   <p class="topic__cat">Paying with Medicaid</p>
   <h2 class="topic__h"><a href="/guides/illinois-supportive-living-program/">Illinois Supportive Living Program, explained</a></h2>
   <p class="topic__p">How Illinois Medicaid pays for assisted-living-style care, and the two separate charges a resident should expect.</p>
   <p class="topic__go">Read article <span class="topic__arrow" aria-hidden="true">&rarr;</span></p>
 </li>
-<li class="topic">
+<li class="topic" data-cat="Checking a community" data-terms="and care check checking community diligence due find free how illinois inspection panicking public read record records them tools two what where without you">
   <p class="topic__cat">Checking a community</p>
   <h2 class="topic__h"><a href="/guides/check-illinois-inspection-records/">How to check a community’s inspection record</a></h2>
   <p class="topic__p">Two free public tools, where to find them, and how to read what you find without panicking.</p>
   <p class="topic__go">Read article <span class="topic__arrow" aria-hidden="true">&rarr;</span></p>
 </li>
-<li class="topic">
+<li class="topic" data-cat="Getting oriented" data-terms="and are assisted between care comparing comparison definitional difference each english explained getting know level levels living mdash memory nursing oriented plain rehabilitation senior skilled the what you">
   <p class="topic__cat">Getting oriented</p>
   <h2 class="topic__h"><a href="/guides/levels-of-senior-care-explained/">What is the difference between each level of care?</a></h2>
   <p class="topic__p">Assisted living, memory care, skilled nursing and rehabilitation in plain English, so you know what you are comparing.</p>
   <p class="topic__go">Read article <span class="topic__arrow" aria-hidden="true">&rarr;</span></p>
 </li>
-<li class="topic">
+<li class="topic" data-cat="Staying at home" data-terms="adult adults and can care community day emergency for get help home homemaker how illinois older paid parent pays program qualifies response service some start staying who">
   <p class="topic__cat">Staying at home</p>
   <h2 class="topic__h"><a href="/guides/illinois-community-care-program/">Can my parent get paid help at home in Illinois?</a></h2>
   <p class="topic__p">Illinois pays for homemaker help, adult day service and emergency response for some older adults. Who qualifies, and how to start.</p>
   <p class="topic__go">Read article <span class="topic__arrow" aria-hidden="true">&rarr;</span></p>
 </li>
-<li class="topic">
+<li class="topic" data-cat="Paying with Medicaid" data-terms="actually and apply are assets care covers down for high how illinois income long means medicaid outright paying pays qualify spend term too what with">
   <p class="topic__cat">Paying with Medicaid</p>
   <h2 class="topic__h"><a href="/guides/illinois-medicaid-long-term-care/">How Illinois Medicaid pays for long-term care</a></h2>
   <p class="topic__p">What Medicaid actually covers, how to apply, and what “spend-down” means if income or assets are too high to qualify outright.</p>
   <p class="topic__go">Read article <span class="topic__arrow" aria-hidden="true">&rarr;</span></p>
 </li>
-<li class="topic">
+<li class="topic" data-cat="Checking a community" data-terms="advocacy advocate and call care checking community complaint facility first how illinois investigates problem regulator report resident state the which who with works you">
   <p class="topic__cat">Checking a community</p>
   <h2 class="topic__h"><a href="/guides/illinois-care-facility-complaint/">How to report a problem at an Illinois care facility</a></h2>
   <p class="topic__p">The resident advocate who works the problem with you, and the state regulator who investigates it — and which to call first.</p>
   <p class="topic__go">Read article <span class="topic__arrow" aria-hidden="true">&rarr;</span></p>
 </li>
-<li class="topic">
+<li class="topic" data-cat="Paying with Medicaid" data-terms="000 after and automatic can cannot care dies estate every for house illinois keeps medicaid parent paying pays protections reach recipient recovery rsquo state take the what will with worry">
   <p class="topic__cat">Paying with Medicaid</p>
   <h2 class="topic__h"><a href="/guides/illinois-medicaid-estate-recovery/">Will Illinois take my parent’s house after Medicaid pays?</a></h2>
   <p class="topic__p">What the state can and cannot reach after a Medicaid recipient dies, the automatic protections, and the $25,000 every estate keeps.</p>
   <p class="topic__go">Read article <span class="topic__arrow" aria-hidden="true">&rarr;</span></p>
 </li>
-<li class="topic">
+<li class="topic" data-cat="Medicare" data-terms="actually all and benefit care conditions coverage covers does explained figure for four guess guide home hospice medicare met must not one pay question that the this what would">
   <p class="topic__cat">Medicare</p>
   <h2 class="topic__h"><a href="/guides/medicare-hospice-benefit-explained/">Does Medicare pay for hospice care at home?</a></h2>
   <p class="topic__p">What the hospice benefit actually covers, the four conditions that must all be met, and the one figure this guide would not guess at.</p>
   <p class="topic__go">Read article <span class="topic__arrow" aria-hidden="true">&rarr;</span></p>
 </li>
 </ul>
+<p class="lib__more-wrap"><button type="button" class="btn btn--quiet" id="libMore" hidden></button></p>
+<section class="res__block plan plan--primary">
+<h2 class="res__h plan__h">Not sure which guide applies?</h2>
+<p class="plan__lead">Six questions, about two minutes, and the result points you at the level of care your answers describe — along with the reasoning. It asks for no name, no email and no phone number, and your answers never leave your device.</p>
+<p><a class="btn btn--primary" href="/#assessment">Take the free assessment</a></p>
+</section>
 <p class="visit__fine">Last reviewed 25 October 2026.</p>
   </div>
 </main>
@@ -152,5 +176,6 @@
 </footer>
 
 <script src="/nav.js"></script>
+<script src="/guides.js"></script>
 </body>
 </html>

@@ -160,7 +160,15 @@ shape: `slug`, `title`, `h1`, `desc`, `intent`, `answer`, `sources`, `body`.
   - Good: *"Knowing what Medicare covers is a different question from knowing
     what kind of care your parent actually needs."*
   - Bad: *"Don't wait — find out what your parent needs today!"*
-- Add the `CARDS` entry.
+- Add the `CARDS` entry. Its first element is the **category**, and it must
+  be one of the values in `CATEGORIES` in `build-guides.py` — the build
+  refuses an unknown one and prints the valid list. The /guides/ filter chips
+  and the search index are generated from it, so a new guide becomes
+  browsable and findable with nobody editing the library page.
+  - Pick the closest existing category. Do not invent a near-duplicate of one
+    that already exists ("Costs" vs "Cost" vs "Paying").
+  - If a guide genuinely belongs to none of them, add ONE category to
+    `CATEGORIES` and say so in the commit message.
 - Register any new source in `SRC`.
 
 ## Never clobber
