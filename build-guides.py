@@ -84,6 +84,9 @@ F = {
     "ccp_line": "1-800-252-8966",
     "csra_2026": "$143,172",
     "csmna_2026": "$4,066.50",
+    "hospice_zero": "$0",
+    "hospice_rx_copay": "$5",
+    "hospice_respite_coins": "5%",
 }
 
 SRC = {
@@ -131,6 +134,8 @@ SRC = {
                        'https://hfs.illinois.gov/medicalclients/medicaidestaterecovery/faqs.html'),
     "hfs_estate_liens": ('Illinois HFS — Liens and Estate Recovery',
                         'https://hfs.illinois.gov/medicalclients/medicaidestaterecovery/liensandestaterecovery.html'),
+    "mhospice": ('Medicare.gov — Hospice care',
+                'https://www.medicare.gov/coverage/hospice-care'),
 }
 
 
@@ -1105,6 +1110,147 @@ GUIDES = [
             ]),
         ],
     },
+
+    {
+        "slug": "medicare-hospice-benefit-explained",
+        "bridge": ("Hospice rules say what is covered once a doctor certifies six months "
+               "or less to live. They say nothing about which kind of care your parent "
+               "needs before that point is reached."),
+        "reviewed": "2026-10-25",
+        "title": "Does Medicare Pay for Hospice Care at Home?",
+        "h1": "Does Medicare pay for hospice care at home?",
+        "desc": ("Medicare pays " + F["hospice_zero"] + " for covered hospice care once a "
+                 "doctor certifies six months or less to live and your parent chooses "
+                 "comfort care over a cure. Here is exactly what that does and does not "
+                 "include."),
+        "intent": "coverage question",
+        "answer": ("<strong>Yes, for the hospice benefit itself.</strong> Medicare pays "
+                   "<strong>" + F["hospice_zero"] + "</strong> for covered hospice care "
+                   "once a hospice doctor and your parent&rsquo;s own doctor (if they have "
+                   "one) certify a life expectancy of six months or less, and your parent "
+                   "chooses comfort care instead of treatment to cure the illness. You may "
+                   "still pay <strong>up to " + F["hospice_rx_copay"] + "</strong> per "
+                   "prescription for pain and symptom drugs, and <strong>" +
+                   F["hospice_respite_coins"] + "</strong> coinsurance for a short inpatient "
+                   "respite stay. What it does not pay is room and board if your parent "
+                   "lives in a facility, or anything meant to cure the terminal illness."),
+        "sources": srcs("mhospice", "mcosts"),
+        "body": [
+            ("What the hospice benefit actually pays for", [
+                "<p>Medicare describes hospice as &ldquo;end-of-life care for people with "
+                "illnesses that can&rsquo;t be cured,&rdquo; delivered under Part A. It is "
+                "not a different, better version of regular treatment &mdash; it is a "
+                "different goal. Once your parent elects hospice, the aim shifts from "
+                "curing the terminal illness to managing pain and symptoms and being "
+                "comfortable.</p>",
+                "<p>For <strong>covered</strong> hospice care from a Medicare-approved "
+                "hospice provider, Medicare pays <strong>" + F["hospice_zero"] +
+                "</strong>. That is the headline figure, and it is real &mdash; but "
+                "&ldquo;covered hospice care&rdquo; is a narrower category than most "
+                "families assume, and the next two sections set out exactly where its "
+                "edges are.</p>",
+            ]),
+            ("The four things that must all be true", [
+                "<p>Medicare lists conditions for electing the hospice benefit, and all of "
+                "them have to hold:</p>",
+                "<ul class=\"res__list\">"
+                "<li>Your parent has <strong>Medicare Part A</strong></li>"
+                "<li>A <strong>hospice doctor and your parent&rsquo;s own doctor</strong> "
+                "(if they have one) certify a life expectancy of <strong>six months or "
+                "less</strong> if the illness runs its normal course</li>"
+                "<li>Your parent <strong>accepts comfort care</strong> &mdash; palliative "
+                "care for the terminal illness &mdash; instead of care intended to cure "
+                "it</li>"
+                "<li>Your parent <strong>signs a Hospice Election Statement</strong>, "
+                "which must be completed before any hospice services begin</li></ul>",
+                "<p>Six months is not a deadline on the care itself. If your parent is "
+                "still alive after six months, hospice continues as long as a hospice "
+                "doctor or nurse practitioner recertifies eligibility after a face-to-face "
+                "visit. People do come off hospice &mdash; because they improve, or "
+                "because they or their family decide to go back to curative treatment "
+                "&mdash; and electing hospice does not forfeit that choice.</p>",
+            ]),
+            ("What stops being covered the moment hospice starts", [
+                "<p>Electing hospice changes what Medicare will pay for related to the "
+                "terminal illness. Medicare states plainly that once the hospice benefit "
+                "starts, it will not cover any of the following for that illness unless "
+                "the hospice team arranges it:</p>",
+                "<ul class=\"res__list\">"
+                "<li>Treatment intended to <strong>cure</strong> the terminal illness</li>"
+                "<li>Prescription drugs meant to cure it, rather than to control pain or "
+                "symptoms</li>"
+                "<li>Care from a provider that was not arranged by the hospice team</li>"
+                "<li><strong>Room and board</strong> &mdash; at home, in a nursing home, or "
+                "in an inpatient hospice facility</li>"
+                "<li>Hospital outpatient or inpatient care, or ambulance transport, unless "
+                "the hospice team arranges it or it is unrelated to the terminal "
+                "illness</li></ul>",
+                "<p>That last condition cuts both ways. A health problem that has nothing "
+                "to do with the terminal diagnosis is still covered under Medicare&rsquo;s "
+                "ordinary rules, with its ordinary deductibles and coinsurance. Hospice "
+                "replaces coverage for the terminal illness; it does not replace Medicare "
+                "for everything else. Before any service outside what the hospice team has "
+                "arranged, ask the hospice team first &mdash; Medicare is explicit that it "
+                "will not pay for it otherwise.</p>",
+            ]),
+            ("What it costs", [
+                "<p>Four cost lines, all from Medicare&rsquo;s own cost pages for the "
+                "current year:</p>",
+                "<ul class=\"res__list\">"
+                "<li><strong>Covered hospice care itself:</strong> " + F["hospice_zero"] +
+                "</li>"
+                "<li><strong>Prescription drugs for pain and symptom control:</strong> a "
+                "copayment of up to " + F["hospice_rx_copay"] + " per prescription</li>"
+                "<li><strong>Inpatient respite care</strong> &mdash; a short stay that "
+                "gives a family caregiver a break: <strong>" +
+                F["hospice_respite_coins"] + "</strong> of the Medicare-approved amount"
+                "</li>"
+                "<li><strong>Room and board</strong> in a facility: not paid by the "
+                "hospice benefit at all</li></ul>",
+                "<p><strong>There is a ceiling on the respite copayment.</strong> "
+                "Medicare states that for inpatient respite care, <q>your copayment "
+                "can&rsquo;t be more than the inpatient deductible amount</q>. The Part A "
+                "inpatient hospital deductible is <strong>" + F["partA_deductible"] +
+                "</strong> for each benefit period, so that is the most 5% can add up to "
+                "&mdash; not a figure most respite stays will come near, but a real limit "
+                "rather than an open bill.</p>",
+                "<p><strong>A figure this guide will not publish.</strong> Secondary sites "
+                "describe the respite coinsurance as capped at a specific dollar amount "
+                "<em>per day</em>. That is a different claim from the limit above, and the "
+                "Medicare page this guide read states no daily figure, so none appears "
+                "here. Ask the hospice provider what a respite stay will actually cost "
+                "before agreeing to one.</p>",
+            ]),
+            ("Where care happens, and how long it can continue", [
+                "<p>Hospice is a service, not a building. Medicare says it is usually "
+                "provided at home or wherever your parent already lives &mdash; including "
+                "an assisted living or nursing home &mdash; and that inpatient hospice "
+                "facilities are available when certain conditions are met. The same idea "
+                "applies here as with a skilled nursing stay: it is not the address that "
+                "decides what is covered, it is whether the hospice benefit has been "
+                "elected and the services were arranged by the hospice team.</p>",
+                "<p>Benefit periods run in a fixed pattern: two 90-day periods, then an "
+                "unlimited number of 60-day periods, with recertification required before "
+                "each one past the first six months. Your parent can also change which "
+                "hospice provider they use once per benefit period.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>Hospice answers a different question from the one in "
+                '<a href="/guides/does-medicare-pay-for-senior-care/">Does Medicare pay '
+                "for assisted living or nursing home care?</a> That guide covers short-term "
+                "<em>skilled</em> care aimed at recovery after a hospital stay. Hospice is "
+                "for when the goal has shifted from recovery to comfort, and it can be "
+                "elected in any of the settings "
+                '<a href="/guides/levels-of-senior-care-explained/">that guide to the '
+                "levels of care</a> describes.</p>",
+                "<p>If the question in your family right now is not yet about hospice, but "
+                'about which level of care your parent needs, the <a href="/">free '
+                "six-question assessment</a> on this site walks through that question and "
+                "shows its reasoning. It asks for no name, no email and no phone number, "
+                "and your answers never leave your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -1380,6 +1526,12 @@ CARDS = {
         "What the state can and cannot reach after a Medicaid recipient "
         "dies, the automatic protections, and the $25,000 every estate "
         "keeps."),
+    "medicare-hospice-benefit-explained": (
+        "Medicare",
+        "Does Medicare pay for hospice care at home?",
+        "What the hospice benefit actually covers, the four conditions "
+        "that must all be met, and the one figure this guide would not "
+        "guess at."),
 }
 
 
