@@ -39,7 +39,12 @@
 
   var activeCat = "";
   var query = "";
-  var expanded = false;
+  /* How many matching guides are currently revealed. Show more adds one
+     PAGE at a time rather than dumping the remainder: at 100 guides the old
+     behaviour turned one click into a 91-card wall, which is the thing the
+     cap existed to prevent. Any change to the search or the filter resets
+     this to one page, because the result set underneath it has changed. */
+  var limit = PAGE;
 
   function matches(card) {
     if (activeCat && card.getAttribute("data-cat") !== activeCat) return false;
@@ -60,17 +65,25 @@
     for (var i = 0; i < cards.length; i++) {
       var ok = matches(cards[i]);
       if (ok) hits++;
-      var visible = ok && (expanded || shown < PAGE);
+      var visible = ok && shown < limit;
       if (visible) shown++;
       cards[i].hidden = !visible;
     }
 
     var hidden = hits - shown;
     if (hidden > 0) {
+      var next = Math.min(PAGE, hidden);
       moreBtn.hidden = false;
-      moreBtn.textContent = "Show " + hidden + " more guide" + (hidden === 1 ? "" : "s");
+      moreBtn.textContent = "Show " + next + " more guide" + (next === 1 ? "" : "s");
+      /* The button's accessible name says what is left overall, so a screen
+         reader user knows how deep the list still goes, not just the size of
+         the next step. */
+      moreBtn.setAttribute("aria-label",
+        "Show " + next + " more guide" + (next === 1 ? "" : "s") +
+        ". " + hidden + " of " + hits + " still hidden.");
     } else {
       moreBtn.hidden = true;
+      moreBtn.removeAttribute("aria-label");
     }
 
     if (hits === 0) {
@@ -88,14 +101,14 @@
 
   input.addEventListener("input", function () {
     query = input.value.trim().toLowerCase().replace(/[^a-z0-9 ]+/g, " ").trim();
-    expanded = false;   /* a new search starts from the top of the results */
+    limit = PAGE;   /* a new search starts from the top of the results */
     render();
   });
 
   chips.forEach(function (chip) {
     chip.addEventListener("click", function () {
       activeCat = chip.getAttribute("data-cat") || "";
-      expanded = false;
+      limit = PAGE;
       chips.forEach(function (c) {
         var on = c === chip;
         c.classList.toggle("chip--on", on);
@@ -115,7 +128,7 @@
     for (var i = 0; i < cards.length; i++) {
       if (cards[i].hidden && matches(cards[i])) { firstNew = cards[i]; break; }
     }
-    expanded = true;
+    limit += PAGE;
     render();
     if (firstNew) {
       var link = firstNew.querySelector("a");
