@@ -863,6 +863,98 @@ check("guides.js is loaded on the library page",
 check("no animation library or inline keyframes crept in",
   !/@keyframes|animation:/i.test(indexPage));
 
+/* ---- INDEXNOW, 2026-10-25 ----
+   The key file is PUBLIC by design: IndexNow proves ownership by fetching
+   https://<host>/<key>.txt. It is NOT the Bing Webmaster API key, which
+   authenticates an account and must never appear in this repository.
+   These gates protect the three ways this quietly breaks: the file drops
+   out of the build, the key drifts from the constant, or someone pastes a
+   real secret in next to it. */
+const GEN_KEY = (GEN.match(/^INDEXNOW_KEY = "([0-9a-f]{8,128})"/m) || [])[1];
+check("generator defines an IndexNow key", !!GEN_KEY, String(GEN_KEY));
+const KEYFILE = path.join(DIST, GEN_KEY + ".txt");
+check("key file is in the publish directory", fs.existsSync(KEYFILE));
+check("key file contains exactly the key",
+  fs.existsSync(KEYFILE) && read(KEYFILE).trim() === GEN_KEY);
+check("key file holds nothing but the key",
+  fs.existsSync(KEYFILE) && read(KEYFILE).trim().length === GEN_KEY.length);
+check("no second key-like file shipped",
+  fs.readdirSync(DIST).filter((f) => /^[0-9a-f]{16,}\.txt$/.test(f)).length === 1,
+  fs.readdirSync(DIST).filter((f) => /^[0-9a-f]{16,}\.txt$/.test(f)).join(" "));
+
+/* The publisher must target Evanston explicitly and must never carry the
+   other site's id as a deploy target. An unflagged netlify deploy from this
+   directory resolves to norvenph.com. */
+const PUB = path.join(__dirname, "tools", "publish.py");
+check("publisher exists", fs.existsSync(PUB));
+if (fs.existsSync(PUB)) {
+  const p = read(PUB);
+  check("publisher hardcodes the Evanston site id",
+    p.indexOf('SITE_ID = "e25a95a5-7a87-4d1c-bae7-8c35d496dded"') !== -1);
+  /* The deploy command is assembled from concatenated Python string
+     literals, so collapse quotes and whitespace before looking for the
+     flag. A gate that fails on formatting is a gate nobody trusts. */
+  var flatP = p.replace(/["']/g, "").replace(/\s+/g, " ");
+  check("publisher passes --site on every deploy",
+    /\[deploy,[^\]]{0,200}--site, SITE_ID/.test(flatP),
+    (flatP.match(/\[deploy,[^\]]{0,160}/) || [""])[0]);
+  /* The CLI is invoked as an argument list. The shell=True version passed
+     JSON inside single quotes, which cmd.exe does not strip, so getSite
+     died on invalid JSON and took the site-identity check with it. */
+  check("publisher calls the Netlify CLI without a shell",
+    /shell=False/.test(p) && !/npx[^\n]*netlify[^\n]*['"]\s*%/.test(p));
+  check("publisher resolves npx instead of trusting the shell",
+    /shutil\.which\("npx"\)/.test(p));
+  check("publisher asserts the site NAME before uploading",
+    p.indexOf('site.get("name") != SITE_NAME') !== -1);
+  check("publisher never deploys to the other site",
+    !/deploy[^\n]*OTHER_SITE_ID/.test(p));
+  check("publisher verifies URLs are live before submitting",
+    p.indexOf("no changed URL returned 200") !== -1);
+  check("publisher handles 202 as success",
+    /status in \(200, 202\)/.test(p));
+  check("publisher does not record a failed submission",
+    p.indexOf("Ledger NOT updated") !== -1);
+  check("publisher reads the key from the generator, not a copy",
+    p.indexOf("_key_from_generator") !== -1 &&
+    p.indexOf('"f7fdf3f8') === -1);
+
+  /* A ledger that is only written to disk is not a duplicate-guard: a fresh
+     clone re-announces every URL, and the uncommitted file leaves the tree
+     dirty so the next run's own clean-gate refuses to start. */
+  check("publisher commits the ledger so it outlives the session",
+    /def commit_ledger/.test(p) && /commit_ledger\(stamp\)/.test(p));
+  check("ledger commit is non-interactive",
+    /core\.editor=true/.test(p) && /commit -q -m/.test(p));
+  check("publisher pushes the ledger it just committed",
+    /git push -q origin main/.test(p));
+
+  /* A suite is green only when it proves it. The gate this replaced merely
+     searched for the word fail, so a red 540/544 passed went through. */
+  check("publisher proves a suite is green positively",
+    /def suite_green/.test(p) && /suite_green\(tail\)/.test(p));
+  check("publisher carries no hardcoded suite count",
+    !/\d{3}\/\d{3}/.test(p),
+    (p.match(/\d{3}\/\d{3}/) || [""])[0]);
+
+  /* --only exists for a controlled first submission. It must never be able
+     to announce a URL that did not actually change. */
+  check("--only cannot submit an unchanged URL",
+    /args\.only not in changed/.test(p));
+}
+
+/* The daily routine drafts; it must never publish or announce. */
+const ROUTINE = path.join(__dirname, "ROUTINE.md");
+if (fs.existsSync(ROUTINE)) {
+  const rt = read(ROUTINE);
+  check("routine is forbidden from deploying",
+    /Never deploy\. Never call Netlify\./.test(rt));
+  check("routine is forbidden from announcing to IndexNow",
+    /IndexNow/i.test(rt) && /never|not|forbidden/i.test(rt));
+  check("routine pushes to drafts only",
+    /drafts/.test(rt) && !/git push[^\n]*\bmain\b/.test(rt));
+}
+
 check("sitemap has one url per page",
   (sitemap.match(/<url>/g) || []).length === SLUGS.length + 3,
   (sitemap.match(/<url>/g) || []).length + " urls for "
