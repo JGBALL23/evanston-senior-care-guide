@@ -1,9 +1,82 @@
 {
-  "submitted": {
+  "entries": {
+    "https://evanstonseniorcareguide.com/guides/": {
+      "at": "2026-10-25T22:26:15Z",
+      "hash": "a20f2925da09c58739ce8358af9d2b6e0f57e7fd3edb9ec6ab21558600ba79f5",
+      "kind": "baseline",
+      "live_text_sha": "1d905e96d19496df7bb1cecb60182f6cea061b0c402270444b14e6eb126ed046",
+      "why": "already live and in the sitemap before IndexNow existed; recorded so it is not treated as new. Never submitted."
+    },
+    "https://evanstonseniorcareguide.com/guides/assisted-living-cost-illinois/": {
+      "at": "2026-10-25T22:26:15Z",
+      "hash": "82ebf022ff215b5d4dd700ee832a7a51fa5b8942662ae2d4a636e201ef0ab8c5",
+      "kind": "baseline",
+      "live_text_sha": "6709d22f7aabe05316ec33a8e7883a7f61b0cb0b91365a51da95c821e2f20e5f",
+      "why": "already live and in the sitemap before IndexNow existed; recorded so it is not treated as new. Never submitted."
+    },
+    "https://evanstonseniorcareguide.com/guides/check-illinois-inspection-records/": {
+      "at": "2026-10-25T22:26:15Z",
+      "hash": "b8be71b6b5e22f20a4b9de8d2d194bc4901d3383c9dfae607857cb49a43b8f18",
+      "kind": "baseline",
+      "live_text_sha": "2cfb15c523fab564466b385d564cf7b46026b66388af674de64f676259cfd73e",
+      "why": "already live and in the sitemap before IndexNow existed; recorded so it is not treated as new. Never submitted."
+    },
+    "https://evanstonseniorcareguide.com/guides/does-medicare-pay-for-senior-care/": {
+      "at": "2026-10-25T22:26:15Z",
+      "hash": "6314d186304a274f76e3bf0b4765d08aa669fd6b322a4602792744800e16c46b",
+      "kind": "baseline",
+      "live_text_sha": "de43589ef71bbff127e34f45dd4afb5d24906a1f764f215b5e260490930ce2c9",
+      "why": "already live and in the sitemap before IndexNow existed; recorded so it is not treated as new. Never submitted."
+    },
+    "https://evanstonseniorcareguide.com/guides/illinois-care-facility-complaint/": {
+      "at": "2026-10-25T22:26:15Z",
+      "hash": "a5f45b5fb871e9a2c7391355511ae254eda8df2e6a3828f2d27841a30a98ff6a",
+      "kind": "baseline",
+      "live_text_sha": "3651378a4113a5c8153934d5c693f7491f451d3d3edd3467ca717053f280f6da",
+      "why": "already live and in the sitemap before IndexNow existed; recorded so it is not treated as new. Never submitted."
+    },
+    "https://evanstonseniorcareguide.com/guides/illinois-community-care-program/": {
+      "at": "2026-10-25T22:26:15Z",
+      "hash": "610429c0426e28857a1ab6740caa722e689d35017dc3720427a22a5ca89ffb5c",
+      "kind": "baseline",
+      "live_text_sha": "ebeb954deb0c18fbce0738605222b84536477d62fca6cbf54f7870ecf3a73428",
+      "why": "already live and in the sitemap before IndexNow existed; recorded so it is not treated as new. Never submitted."
+    },
+    "https://evanstonseniorcareguide.com/guides/illinois-medicaid-estate-recovery/": {
+      "at": "2026-10-25T22:26:15Z",
+      "hash": "7aface1e96e826883760bffab3a1852131d14231abb9a3de75fc098a9faecdf1",
+      "kind": "baseline",
+      "live_text_sha": "b171eee18354a63e2f229997fe819c8ca1ee721cc02f7542cb54896efddb67d6",
+      "why": "already live and in the sitemap before IndexNow existed; recorded so it is not treated as new. Never submitted."
+    },
+    "https://evanstonseniorcareguide.com/guides/illinois-medicaid-long-term-care/": {
+      "at": "2026-10-25T22:26:15Z",
+      "hash": "3f66de429524e19a82d375845e966430b4e79bdab8f9a96a3dd0e388be1fa2ff",
+      "kind": "baseline",
+      "live_text_sha": "efd8f95324a4ce9d802c96a2c573ca425ed0746650b6a9f1a46d64fd69d44f12",
+      "why": "already live and in the sitemap before IndexNow existed; recorded so it is not treated as new. Never submitted."
+    },
+    "https://evanstonseniorcareguide.com/guides/illinois-supportive-living-program/": {
+      "at": "2026-10-25T22:26:15Z",
+      "hash": "847fd244006dc669a98def0d83619edbcb7822b522fc215aa173ecc3321b1aac",
+      "kind": "baseline",
+      "live_text_sha": "5bec63ed86af3bf73e7a84d8d99c852a6b28775c12983fdfb2df32135726cabf",
+      "why": "already live and in the sitemap before IndexNow existed; recorded so it is not treated as new. Never submitted."
+    },
+    "https://evanstonseniorcareguide.com/guides/levels-of-senior-care-explained/": {
+      "at": "2026-10-25T22:26:15Z",
+      "hash": "68e39a7503330d461730bbaf662b758fbb64c461c42bdca5e2d1e575ab570ede",
+      "kind": "baseline",
+      "live_text_sha": "e59d1b96a2dd26b5245e66f402d4e4298aa1b1cb2c6477fe234beb4985b5d020",
+      "why": "already live and in the sitemap before IndexNow existed; recorded so it is not treated as new. Never submitted."
+    },
     "https://evanstonseniorcareguide.com/guides/medicare-hospice-benefit-explained/": {
       "at": "2026-10-25T20:10:06Z",
       "hash": "6e609eefdee5debfd70c5715efeefe00f5ba68f18a5a34be9e5ab01c2067a70f",
+      "kind": "submitted",
       "status": 202
     }
-  }
+  },
+  "note": "kind=submitted means IndexNow accepted this URL and the status field is the real HTTP code it answered. kind=baseline means the URL was already live and discoverable through the sitemap before IndexNow existed; it was recorded so it stops counting as new, and it was NEVER submitted. A baseline entry carries no status, because no request was ever made.",
+  "version": 2
 }

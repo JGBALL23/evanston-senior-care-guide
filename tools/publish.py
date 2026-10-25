@@ -154,11 +154,21 @@ def netlify(args, check=True):
 
 
 def netlify_json(args):
+    """Decode the FIRST JSON object the CLI prints and ignore the rest.
+
+    json.loads on everything from the first brace onward raised
+    'Extra data' the moment the CLI appended anything after the object --
+    an update notice, a second document, a stray warning. raw_decode stops
+    at the end of the first value, so trailing noise cannot break a deploy."""
     out = netlify(args)
     i = out.find("{")
     if i < 0:
         die("netlify %s returned no JSON:\n%s" % (" ".join(args), out))
-    return json.loads(out[i:])
+    try:
+        return json.JSONDecoder().raw_decode(out, i)[0]
+    except ValueError as e:
+        die("netlify %s returned unparseable JSON (%s):\n%s"
+            % (" ".join(args), e, out[:400]))
 
 
 def netlify_site(site_id):
@@ -166,10 +176,80 @@ def netlify_site(site_id):
                          "--data", json.dumps({"site_id": site_id})])
 
 
+LEDGER_VERSION = 2
+
+LEDGER_NOTE = (
+    "kind=submitted means IndexNow accepted this URL and the status field is "
+    "the real HTTP code it answered. kind=baseline means the URL was already "
+    "live and discoverable through the sitemap before IndexNow existed; it "
+    "was recorded so it stops counting as new, and it was NEVER submitted. A "
+    "baseline entry carries no status, because no request was ever made."
+)
+
+
 def load_ledger():
-    if os.path.isfile(LEDGER):
-        return json.load(io.open(LEDGER, encoding="utf-8"))
-    return {"submitted": {}}
+    """Read the ledger, upgrading the v1 shape in memory.
+
+    v1 was {"submitted": {url: {...}}} -- one bucket, which could not say
+    whether an entry represented a real submission or merely a URL we had
+    decided not to announce. v2 keeps one map and tags every entry with
+    `kind`, so a baseline can never be mistaken for a successful request."""
+    if not os.path.isfile(LEDGER):
+        return {"version": LEDGER_VERSION, "note": LEDGER_NOTE, "entries": {}}
+    led = json.load(io.open(LEDGER, encoding="utf-8"))
+    if "entries" in led:
+        led.setdefault("version", LEDGER_VERSION)
+        led["note"] = LEDGER_NOTE
+        return led
+    entries = {}
+    for url, row in (led.get("submitted") or {}).items():
+        row = dict(row)
+        row["kind"] = "submitted"       # v1 only ever held real submissions
+        entries[url] = row
+    return {"version": LEDGER_VERSION, "note": LEDGER_NOTE, "entries": entries}
+
+
+def known_hash(led, url):
+    return (led["entries"].get(url) or {}).get("hash")
+
+
+def baseline_row(content_hash, stamp, live_sha):
+    """Build a baseline entry. Deliberately has NO status field: no HTTP
+    request was made, so inventing a code would be a false receipt."""
+    return {
+        "hash": content_hash,
+        "kind": "baseline",
+        "at": stamp,
+        "live_text_sha": live_sha,
+        "why": ("already live and in the sitemap before IndexNow existed; "
+                "recorded so it is not treated as new. Never submitted."),
+    }
+
+
+def live_text_sha(body):
+    """Fingerprint a live page by its visible text, not its bytes.
+
+    Raw bytes cannot be compared against _dist, because Netlify rewrites the
+    HTML it serves: it converts href="/privacy.html" to href='/privacy',
+    swaps attribute quoting, and injects a RUM script whose token embeds the
+    DEPLOY ID. That token changes on every single deploy, so a live-byte
+    hash would mark all eleven pages as changed after any publish -- the
+    exact false positive this ledger exists to prevent.
+
+    Stripping tags and collapsing whitespace survives all of that while
+    still catching a real editorial change, which is what we actually care
+    about verifying. Markup-only changes still move the _dist hash, which is
+    what drives submission."""
+    text = body.decode("utf-8", "replace")
+    text = re.sub(r"(?is)<script\b.*?</script>", " ", text)
+    text = re.sub(r"(?is)<style\b.*?</style>", " ", text)
+    text = re.sub(r"(?s)<[^>]+>", " ", text)
+    text = re.sub(r"\s+", " ", text).strip()
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def local_text_sha(path):
+    return live_text_sha(io.open(path, "rb").read())
 
 
 def save_ledger(led):
@@ -215,20 +295,29 @@ def suite_green(tail):
     return False, "unrecognised summary line"
 
 
-def published_urls():
-    """Every guide URL plus the library index, with a hash of the built HTML.
-    Read from _dist, which is exactly what Netlify uploads."""
+def published_paths():
+    """Every published URL mapped to the file in _dist that serves it.
+
+    Derived by walking _dist, never from a list. A guide added by the daily
+    routine appears here the moment it is built, which is what makes the
+    submission automatic with no URL to pick by hand."""
     out = {}
     gdir = os.path.join("_dist", "guides")
     for name in sorted(os.listdir(gdir)):
         p = os.path.join(gdir, name, "index.html")
         if os.path.isfile(p):
-            body = io.open(p, "rb").read()
-            out["%s/guides/%s/" % (BASE, name)] = hashlib.sha256(body).hexdigest()
+            out["%s/guides/%s/" % (BASE, name)] = p
     idx = os.path.join(gdir, "index.html")
     if os.path.isfile(idx):
-        out["%s/guides/" % BASE] = hashlib.sha256(io.open(idx, "rb").read()).hexdigest()
+        out["%s/guides/" % BASE] = idx
     return out
+
+
+def published_urls():
+    """Every published URL with a hash of the built HTML. Read from _dist,
+    which is exactly what Netlify uploads."""
+    return dict((u, hashlib.sha256(io.open(p, "rb").read()).hexdigest())
+                for u, p in published_paths().items())
 
 
 def submit(urls):
@@ -268,6 +357,49 @@ MEANING = {
 }
 
 
+def do_baseline(ledger, now, paths):
+    """Record already-live URLs so they stop counting as new. Submits nothing.
+
+    WHY THIS EXISTS. IndexNow arrived after ten guides were already live and
+    in the sitemap. Against an empty ledger all of them read as 'changed',
+    so the next ordinary publish would have announced eleven URLs when only
+    one was new -- and the owner's standing instruction is not to resubmit
+    unchanged guides. The alternative was passing --only by hand forever,
+    which is not automation, it is a chore with a deadline.
+
+    WHAT IT WILL NOT DO. It never calls IndexNow, never deploys, and never
+    writes a status field. It refuses to baseline a URL it cannot prove is
+    live right now, and it refuses to touch a URL already in the ledger, so
+    a real submission can never be overwritten by a baseline."""
+    fresh = [u for u in sorted(now) if u not in ledger["entries"]]
+    print("\n  [B] baseline: %d of %d URLs are not yet recorded"
+          % (len(fresh), len(now)))
+    if not fresh:
+        print("      nothing to baseline — every URL is already recorded")
+        return 0, []
+
+    bad = []
+    stamp = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+    for u in fresh:
+        code, body = head(u)
+        live = live_text_sha(body) if code == 200 else None
+        mine = local_text_sha(paths[u])
+        ok = code == 200 and live == mine
+        print("      %-4s %-7s %s" % (code, "match" if ok else "MISMATCH",
+                                      u[len(BASE):]))
+        if not ok:
+            bad.append((u, code))
+            continue
+        ledger["entries"][u] = baseline_row(now[u], stamp, live)
+    if bad:
+        die("%d URL(s) could not be proven live and identical, so they were\n"
+            "        NOT baselined: %s\n"
+            "        A baseline must describe reality or it is a lie in a file."
+            % (len(bad), ", ".join("%s (%s)" % (u[len(BASE):], c)
+                                   for u, c in bad)))
+    return len(fresh), fresh
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true",
@@ -277,6 +409,10 @@ def main():
     ap.add_argument("--only", metavar="URL", default=None,
                     help="submit just this one changed URL; the rest stay "
                          "unrecorded and go out on the next run")
+    ap.add_argument("--baseline", action="store_true",
+                    help="one-time: record already-live URLs as baseline so "
+                         "they stop counting as new. Deploys nothing and "
+                         "submits nothing.")
     args = ap.parse_args()
 
     print("=" * 70)
@@ -324,8 +460,25 @@ def main():
     # 3 ------------------------------------------- what changed since last time
     ledger = load_ledger()
     now = published_urls()
-    changed = [u for u, h in sorted(now.items())
-               if ledger["submitted"].get(u, {}).get("hash") != h]
+
+    if args.baseline:
+        if args.only:
+            die("--baseline and --only are different jobs. Pick one.")
+        added, urls = do_baseline(ledger, now, published_paths())
+        if added:
+            save_ledger(ledger)
+            print("\n  Baselined %d URL(s). NOTHING was submitted to IndexNow"
+                  " and nothing was deployed." % added)
+            print("  committed as %s" % commit_ledger(
+                time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())))
+        kinds = {}
+        for row in ledger["entries"].values():
+            kinds[row.get("kind")] = kinds.get(row.get("kind"), 0) + 1
+        print("  ledger now holds %s"
+              % ", ".join("%d %s" % (n, k) for k, n in sorted(kinds.items())))
+        return
+
+    changed = [u for u, h in sorted(now.items()) if known_hash(ledger, u) != h]
     print("\n  [3] %d of %d published URLs changed since the last submission"
           % (len(changed), len(now)))
     for u in changed:
@@ -405,7 +558,8 @@ def main():
     if status in (200, 202):
         stamp = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
         for u in live_urls:
-            ledger["submitted"][u] = {"hash": now[u], "at": stamp, "status": status}
+            ledger["entries"][u] = {"hash": now[u], "kind": "submitted",
+                                    "at": stamp, "status": status}
         save_ledger(ledger)
         print("\n  Ledger updated — these URLs will not be re-submitted unchanged.")
         print("  %s" % LEDGER)
