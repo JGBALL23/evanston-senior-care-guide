@@ -35,7 +35,8 @@ forbidden from touching `main` or calling Netlify, and nothing here runs on a
 schedule. Drafts are never submitted to IndexNow because drafts are never
 deployed.
 """
-import argparse, hashlib, io, json, os, re, subprocess, sys, time, urllib.error, urllib.request
+import argparse, hashlib, io, json, os, re, shutil, subprocess, sys, time
+import urllib.error, urllib.request
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
@@ -48,6 +49,7 @@ OTHER_SITE_ID = "6b245f3a-1d94-43c9-b7fa-e71f5513d7a6"   # norven — must not m
 HOST = "evanstonseniorcareguide.com"
 BASE = "https://" + HOST
 LEDGER = os.path.join("data", "indexnow-ledger.json")
+LEDGER_REL = "data/indexnow-ledger.json"   # git wants forward slashes
 INDEXNOW_ENDPOINT = "https://api.indexnow.org/IndexNow"
 
 
@@ -95,10 +97,41 @@ def head(url, timeout=30):
         return 0, str(e).encode()
 
 
-def netlify_site(site_id):
-    out = sh('npx --no-install netlify api getSite --data \'{"site_id":"%s"}\'' % site_id)
+NPX = shutil.which("npx") or shutil.which("npx.cmd")
+
+
+def netlify(args, check=True):
+    """Run the Netlify CLI as an ARGUMENT LIST, never through a shell.
+
+    The first version of this file passed JSON to the CLI inside single
+    quotes through shell=True. On Windows that shell is cmd.exe, which does
+    not treat ' as a quote, so the CLI received a literal '{site_id:... and
+    died on invalid JSON. Both the site-identity assertion and the
+    norven-did-not-move proof ran through that call, which means the
+    publisher would have stopped dead one step before the deploy. No shell,
+    no quoting, nothing for a platform to reinterpret."""
+    if not NPX:
+        die("npx is not on PATH — cannot reach the Netlify CLI.")
+    r = subprocess.run([NPX, "--no-install", "netlify"] + args,
+                       capture_output=True, text=True,
+                       encoding="utf-8", errors="replace", shell=False)
+    out = ((r.stdout or "") + (r.stderr or "")).strip()
+    if check and r.returncode != 0:
+        die("netlify %s failed:\n%s" % (" ".join(args), out))
+    return out
+
+
+def netlify_json(args):
+    out = netlify(args)
     i = out.find("{")
+    if i < 0:
+        die("netlify %s returned no JSON:\n%s" % (" ".join(args), out))
     return json.loads(out[i:])
+
+
+def netlify_site(site_id):
+    return netlify_json(["api", "getSite",
+                         "--data", json.dumps({"site_id": site_id})])
 
 
 def load_ledger():
@@ -111,6 +144,43 @@ def save_ledger(led):
     os.makedirs(os.path.dirname(LEDGER), exist_ok=True)
     io.open(LEDGER, "w", encoding="utf-8", newline="\n").write(
         json.dumps(led, indent=2, sort_keys=True) + "\n")
+
+
+def commit_ledger(stamp):
+    """A ledger is only a duplicate-guard if it OUTLIVES the session that
+    wrote it. Writing it to disk is not enough: an uncommitted ledger means a
+    fresh clone re-submits every URL it has already announced, and it leaves
+    the tree dirty so the NEXT run's own clean-gate refuses to start. So the
+    ledger is committed and pushed as the last act of a successful run."""
+    if not sh("git status --porcelain -- " + LEDGER_REL, check=False).strip():
+        return "unchanged"
+    sh("git add -- " + LEDGER_REL)
+    sh('git -c core.editor=true commit -q -m "IndexNow ledger: recorded '
+       'submissions at %s" -- %s' % (stamp, LEDGER_REL))
+    sh("git push -q origin main")
+    return sh("git rev-parse --short HEAD")
+
+
+def suite_green(tail):
+    """Prove a suite passed. Exactly two summary shapes are recognised and
+    NOTHING else -- an unreadable tail is a failure, not a pass.
+
+    The gate this replaces only searched for the word 'fail'. A red test.js
+    summarises as "<ran>/<total> passed" with the two numbers unequal, which
+    contains no 'fail' at all, so it sailed straight through. That gate also
+    carried a literal pass-count exemption, which is the hardcoded-inventory
+    mistake this project has already paid for twice. Counts are compared
+    against each other here, never against a constant. The cases are pinned
+    in tools/test_publish.py."""
+    m = re.match(r"^(\d+)/(\d+) passed$", tail)
+    if m:
+        ran, total = int(m.group(1)), int(m.group(2))
+        return (ran == total and ran > 0), "%d of %d passed" % (ran, total)
+    m = re.search(r"(\d+) passed, (\d+) failed", tail)
+    if m:
+        passed, failed = int(m.group(1)), int(m.group(2))
+        return (failed == 0 and passed > 0), "%d failed" % failed
+    return False, "unrecognised summary line"
 
 
 def published_urls():
@@ -167,6 +237,9 @@ def main():
                     help="report what would ship and submit; change nothing")
     ap.add_argument("--skip-deploy", action="store_true",
                     help="site is already deployed; verify and submit only")
+    ap.add_argument("--only", metavar="URL", default=None,
+                    help="submit just this one changed URL; the rest stay "
+                         "unrecorded and go out on the next run")
     args = ap.parse_args()
 
     print("=" * 70)
@@ -195,13 +268,15 @@ def main():
     if drift:
         die("rebuilding changed committed files — commit the rebuild first:\n    "
             + "\n    ".join(drift))
-    for cmd, want in (("node test.js", "0 failed"),
-                      ("node check-guides.js", "0 failed")):
+    for cmd in ("node test.js", "node check-guides.js",
+                "python tools/test_publish.py"):
         out = sh(cmd, check=False)
         tail = out.strip().splitlines()[-1] if out.strip() else ""
+        ok, why = suite_green(tail)
         print("      %-24s %s" % (cmd, tail))
-        if "fail" in tail.lower() and "0 failed" not in tail and "544/544" not in tail:
-            die("%s is red. Nothing ships on a red suite." % cmd)
+        if not ok:
+            die("%s is not provably green (%s). Nothing ships on a red suite."
+                % (cmd, why))
 
     # key file must exist in what we are about to upload
     keypath = os.path.join("_dist", INDEXNOW_KEY_FILE)
@@ -218,6 +293,13 @@ def main():
           % (len(changed), len(now)))
     for u in changed:
         print("      %s" % u)
+    if args.only:
+        if args.only not in changed:
+            die("--only %s is not in the changed list. Refusing to invent a\n"
+                "        submission for a URL that did not change." % args.only)
+        held = len(changed) - 1
+        changed = [args.only]
+        print("      --only: submitting 1, holding %d for the next run" % held)
     if not changed:
         print("      nothing to notify — IndexNow will not be called")
 
@@ -238,11 +320,10 @@ def main():
             die("site %s is named '%s', expected '%s'. Refusing to deploy."
                 % (SITE_ID, site.get("name"), SITE_NAME))
         print("\n  [5] deploying to %s (%s)" % (site.get("name"), SITE_ID))
-        out = sh('npx --no-install netlify deploy --prod --dir=_dist '
-                 '--functions=netlify/functions --site %s '
-                 '--message "publish %s" --json' % (SITE_ID, commit))
-        i = out.find("{")
-        d = json.loads(out[i:])
+        d = netlify_json(["deploy", "--prod", "--dir=_dist",
+                          "--functions=netlify/functions",
+                          "--site", SITE_ID,
+                          "--message", "publish %s" % commit, "--json"])
         if d.get("site_id") != SITE_ID:
             die("deploy reported site_id %s — expected %s" % (d.get("site_id"), SITE_ID))
         print("      deploy_id %s" % d.get("deploy_id"))
@@ -291,6 +372,8 @@ def main():
         save_ledger(ledger)
         print("\n  Ledger updated — these URLs will not be re-submitted unchanged.")
         print("  %s" % LEDGER)
+        print("  committed as %s — the guard now survives this session"
+              % commit_ledger(stamp))
     else:
         print("\n  Ledger NOT updated. A failed submission must be retryable,")
         print("  so nothing is recorded as sent.")

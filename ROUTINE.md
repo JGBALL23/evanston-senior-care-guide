@@ -12,6 +12,11 @@ Breaking any one of these is a failed run, even if the writing is good.
 
 - Never deploy. Never call Netlify. Never run a deploy script. Never set or
   read a Netlify token.
+- **Never announce anything to a search engine.** Do not run
+  `tools/publish.py`, do not call IndexNow, and never submit a URL to any
+  ping or indexing endpoint. A draft has no live URL, so announcing one
+  would point a crawler at a 404. Announcing is part of publishing, and
+  publishing is the owner's step, not yours.
 - **Never touch `main`.** Do not check it out, merge into it, or push to it.
   `main` is what the owner deploys from; this routine's entire output is
   commits on `drafts` awaiting review.

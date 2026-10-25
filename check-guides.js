@@ -896,8 +896,15 @@ if (fs.existsSync(PUB)) {
      flag. A gate that fails on formatting is a gate nobody trusts. */
   var flatP = p.replace(/["']/g, "").replace(/\s+/g, " ");
   check("publisher passes --site on every deploy",
-    /netlify deploy.{0,200}--site %s/.test(flatP),
-    (flatP.match(/netlify deploy.{0,120}/) || [""])[0]);
+    /\[deploy,[^\]]{0,200}--site, SITE_ID/.test(flatP),
+    (flatP.match(/\[deploy,[^\]]{0,160}/) || [""])[0]);
+  /* The CLI is invoked as an argument list. The shell=True version passed
+     JSON inside single quotes, which cmd.exe does not strip, so getSite
+     died on invalid JSON and took the site-identity check with it. */
+  check("publisher calls the Netlify CLI without a shell",
+    /shell=False/.test(p) && !/npx[^\n]*netlify[^\n]*['"]\s*%/.test(p));
+  check("publisher resolves npx instead of trusting the shell",
+    /shutil\.which\("npx"\)/.test(p));
   check("publisher asserts the site NAME before uploading",
     p.indexOf('site.get("name") != SITE_NAME') !== -1);
   check("publisher never deploys to the other site",
@@ -911,6 +918,41 @@ if (fs.existsSync(PUB)) {
   check("publisher reads the key from the generator, not a copy",
     p.indexOf("_key_from_generator") !== -1 &&
     p.indexOf('"f7fdf3f8') === -1);
+
+  /* A ledger that is only written to disk is not a duplicate-guard: a fresh
+     clone re-announces every URL, and the uncommitted file leaves the tree
+     dirty so the next run's own clean-gate refuses to start. */
+  check("publisher commits the ledger so it outlives the session",
+    /def commit_ledger/.test(p) && /commit_ledger\(stamp\)/.test(p));
+  check("ledger commit is non-interactive",
+    /core\.editor=true/.test(p) && /commit -q -m/.test(p));
+  check("publisher pushes the ledger it just committed",
+    /git push -q origin main/.test(p));
+
+  /* A suite is green only when it proves it. The gate this replaced merely
+     searched for the word fail, so a red 540/544 passed went through. */
+  check("publisher proves a suite is green positively",
+    /def suite_green/.test(p) && /suite_green\(tail\)/.test(p));
+  check("publisher carries no hardcoded suite count",
+    !/\d{3}\/\d{3}/.test(p),
+    (p.match(/\d{3}\/\d{3}/) || [""])[0]);
+
+  /* --only exists for a controlled first submission. It must never be able
+     to announce a URL that did not actually change. */
+  check("--only cannot submit an unchanged URL",
+    /args\.only not in changed/.test(p));
+}
+
+/* The daily routine drafts; it must never publish or announce. */
+const ROUTINE = path.join(__dirname, "ROUTINE.md");
+if (fs.existsSync(ROUTINE)) {
+  const rt = read(ROUTINE);
+  check("routine is forbidden from deploying",
+    /Never deploy\. Never call Netlify\./.test(rt));
+  check("routine is forbidden from announcing to IndexNow",
+    /IndexNow/i.test(rt) && /never|not|forbidden/i.test(rt));
+  check("routine pushes to drafts only",
+    /drafts/.test(rt) && !/git push[^\n]*\bmain\b/.test(rt));
 }
 
 check("sitemap has one url per page",
