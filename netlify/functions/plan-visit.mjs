@@ -149,8 +149,9 @@ const ALLOWED_KEYS = [
    copy in app.js are asserted identical by test.js, which is
    what stops them drifting apart. */
 const CONSENT_STATEMENT =
-  "Share my name, phone, email, assessment result and what I am interested " +
-  "in with Westminster Place, so they can contact me about a tour.";
+  "Send my name, phone, email, assessment result and what I am interested " +
+  "in to the person who runs this guide, and let him share them with " +
+  "Westminster Place so they can contact me about a tour.";
 /* Bumped 2026-10-26. Two changes, and the permission widened by exactly
    one field, so the version moves with it.
 
@@ -165,7 +166,7 @@ const CONSENT_STATEMENT =
 
    Records signed under earlier wording keep their own version, so what
    each person actually agreed to stays recoverable. */
-const CONSENT_VERSION = "2026-10-26";
+const CONSENT_VERSION = "2026-10-26b";
 
 /* ---------- small helpers ----------------------------------- */
 const clean = (value, max) =>

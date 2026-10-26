@@ -1304,6 +1304,12 @@ section[id], header[id] { scroll-margin-top: calc(var(--nav-h) + 14px); }
   color: var(--ink-faint);
 }
 
+.plan__field--full { flex: 1 1 100%; margin-bottom: 14px; }
+/* The interest dropdown, added 2026-10-26, inherited no sizing at all and
+   rendered under the 44px minimum tap height on a phone. Sized with the
+   text inputs so the whole form stays one control height. 17px also stops
+   iOS zooming the page on focus. */
+.plan__field select,
 .plan__field input {
   width: 100%;
   box-sizing: border-box;
@@ -1317,6 +1323,7 @@ section[id], header[id] { scroll-margin-top: calc(var(--nav-h) + 14px); }
   border-radius: 4px;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
+.plan__field select:hover,
 .plan__field input:hover { border-color: #cfc6b4; }
 .plan__field input:focus-visible {
   outline: none;

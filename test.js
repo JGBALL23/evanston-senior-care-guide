@@ -228,9 +228,9 @@ check("consent checkbox exists in the form",
  ["copy: admissions decide, not this site",
   "they decide whether and when a tour happens"],
  ["checkbox: names every shared field including the result",
-  "share my name, phone, email, assessment result and what"],
+  "send my name, phone, email, assessment result and what"],
  ["checkbox: names the recipient and the purpose",
-  "with westminster place, so they can contact me about a tour"],
+  "let him share them with westminster place so they can contact me"],
  ["trust: the operator introduces himself in his own words",
   "i created evanston senior care guide to help families better"],
  ["trust: not official, not paid, named at the form",
@@ -1543,15 +1543,19 @@ check("the one live consent is required on the server",
      the version must have moved with the wording. */
   const fn = fsV.readFileSync("netlify/functions/plan-visit.mjs", "utf8");
   check("consent version moved with the wording",
-    fn.indexOf('const CONSENT_VERSION = "2026-10-26"') !== -1);
+    fn.indexOf('const CONSENT_VERSION = "2026-10-26b"') !== -1);
   check("consent names all five shared items, interest included",
-    fn.indexOf("name, phone, email, assessment result and what I am interested") !== -1);
+    fn.indexOf("name, phone, email, assessment result and what I am interested") !== -1 &&
+    fn.indexOf("to the person who runs this guide") !== -1);
   /* The recipient is the ORGANISATION, not one of its departments.
      "Admissions" is their skilled nursing desk; naming it for every
      inquiry was wrong and would have been plainly wrong for someone
      asking about independent living. */
   check("consent still names the recipient and purpose",
-    fn.indexOf("with Westminster Place, so they can contact me about a tour") !== -1);
+    /* Anchored inside a single string literal. The statement is built by
+       concatenation, so a phrase spanning the `" + "` break exists on the
+       rendered page but never in this file. */
+    fn.indexOf("Westminster Place so they can contact me about a tour") !== -1);
   check("consent does not name a single department as the recipient",
     fn.indexOf("Westminster Place Admissions") === -1);
 }

@@ -131,6 +131,8 @@ SRC = {
                'https://hfs.illinois.gov/medicalproviders/notices/notice.prn251126a.html'),
     "hfs_slp_rates": ('Illinois HFS — Supportive Living reimbursement',
                       'https://hfs.illinois.gov/medicalproviders/medicaidreimbursement/supportivelivinging.html'),
+    "idph_al_div": ('Illinois Department of Public Health \u2014 Assisted Living',
+                    'https://dph.illinois.gov/topics-services/health-care-regulation/assisted-living.html'),
     "idph": ('Illinois Department of Public Health — Health Care Report Card',
              'https://healthcarereportcard.illinois.gov/'),
     "idoa_ccp": ('Illinois Department on Aging — Community Care Program',
@@ -1287,6 +1289,141 @@ GUIDES = [
         ],
     },
     {
+        "slug": "independent-living-evanston",
+        "bridge": ("Independent living is the one option on this site that is not "
+                   "care. That makes it the easiest to choose, and the easiest to "
+                   "choose too late."),
+        "reviewed": "2026-10-26",
+        "title": "Independent Living in Evanston and the North Shore, Explained",
+        "h1": "Independent living in Evanston and the North Shore, explained",
+        "desc": ("Independent living is housing with services, not care. What is in "
+                 "the monthly fee, how it differs from licensed assisted living, and "
+                 "why no Illinois median figure appears on this page."),
+        "intent": "lifestyle question",
+        "answer": ("<strong>Independent living is housing with services, not "
+                   "care.</strong> A private apartment, cottage or townhouse, with "
+                   "some combination of meals, housekeeping, grounds and transport "
+                   "folded into one monthly fee. Generally <strong>no hands-on help "
+                   "with bathing or dressing, and generally no nursing staff on the "
+                   "floor</strong>. Nobody has to need anything to move in, which is "
+                   "the point: most people who do it are well, and they do it while "
+                   "they still get to choose."),
+        "sources": srcs("idph_al_div", "mcosts", "carescout"),
+        "body": [
+            ("What you are actually buying", [
+                "<p>Three things, and it helps to price them separately.</p>"
+                '<ul class="res__list">'
+                "<li><strong>The home.</strong> An apartment, cottage or townhouse "
+                "you live in on your own terms.</li>"
+                "<li><strong>The work you stop doing.</strong> Cooking, cleaning, "
+                "the roof, the gutters, the lawn, the snow, the driving. For most "
+                "people this is the real purchase.</li>"
+                "<li><strong>The people.</strong> A dining room, a calendar, and "
+                "neighbours on the other side of the door. Easy to dismiss from a "
+                "brochure, and the thing residents mention first.</li></ul>",
+                "<p>What you are <em>not</em> buying is care. If someone needs help "
+                "getting dressed, or medications handed to them, or a nurse within "
+                "reach, independent living is the wrong setting, and a good "
+                "community will say so rather than take the deposit.</p>"
+            ]),
+            ("How it differs from assisted living, in one line", [
+                "<p>Assisted living is a <strong>licensed category in "
+                "Illinois</strong>. Independent living is not.</p>",
+                "<p>The Illinois Department of Public Health runs a Division of "
+                "Assisted Living which, in its own words, &ldquo;is responsible for "
+                "all state licensure and survey processes for Assisted Living and "
+                "Shared Housing establishments&rdquo;, and has licensed them since "
+                "regulations were adopted in December 2001. IDPH publishes the list "
+                "of licensed establishments.</p>",
+                "<p><strong>Independent living does not appear on that licence list, "
+                "and this guide found no state care-licence category for it in "
+                "Illinois.</strong> That is not a loophole and not a warning &mdash; "
+                "it follows from no personal care being provided. It does mean the "
+                "state inspection records that exist for assisted living and nursing "
+                "facilities do not exist in the same form here, so the usual way of "
+                "checking a care community does not apply. Ask any community exactly "
+                "what it is licensed as, and for which parts of its campus.</p>"
+            ]),
+            ("What it costs, and the figure this guide will not give you", [
+                "<p>The CareScout Cost of Care Survey is the source this site uses "
+                "for Illinois senior-living costs. It reports a statewide median for "
+                "assisted living of <strong>" + F["al_median"] + " a month</strong>. "
+                "<strong>It reports no Illinois median for independent "
+                "living.</strong></p>",
+                "<p>So there is no honest statewide number to print, and this guide "
+                "will not invent one. Anyone quoting a precise Illinois "
+                "independent-living average is working from something other than "
+                "that survey.</p>",
+                "<p>What moves the price is the shape of the contract. Ask for a "
+                "<strong>written fee schedule</strong> that separates four things:</p>"
+                '<ul class="res__list">'
+                "<li>Any entrance fee or deposit &mdash; and exactly what is "
+                "refundable, to whom, and when.</li>"
+                "<li>The monthly fee, and which services sit inside it.</li>"
+                "<li>What is billed on top: a second meal, a guest room, parking, "
+                "transport beyond a set radius.</li>"
+                "<li>How the monthly fee moved in each of the last five years. Ask "
+                "for the history, not the policy.</li></ul>",
+                "<p><strong>Medicare pays none of this.</strong> Medicare is health "
+                "insurance; independent living is housing. The same is true of "
+                "assisted living, which is the misunderstanding most families "
+                "arrive with.</p>"
+            ]),
+            ("Who it tends to suit", [
+                "<p>There is no eligibility test to pass. Communities set their own "
+                "minimum age and financial requirements, and some run a health "
+                "screen to confirm a person does not need more care than the "
+                "community is licensed to give. Those are the community&rsquo;s "
+                "rules, not the state&rsquo;s.</p>",
+                "<p>In practice it suits someone managing fine who has started "
+                "resenting the building they live in &mdash; the maintenance, the "
+                "stairs, the winter. If the honest answer to &ldquo;why now&rdquo; "
+                "is the house rather than the health, this is the category that "
+                "answers it.</p>",
+                "<p>It also suits planning ahead. Many Evanston and North Shore "
+                "campuses have assisted living and skilled nursing on the same site, "
+                "which makes one question matter more than any amenity: "
+                "<strong>what happens if care needs change?</strong> Ask whether a "
+                "resident can stay, what triggers a move, who decides, whether a "
+                "place in the care building is held for residents or waitlisted, and "
+                "what the fee becomes. Get the answer in writing.</p>"
+            ]),
+            ("Visiting, and what a brochure cannot tell you", [
+                "<p>Go at a mealtime rather than a scheduled tour slot. The dining "
+                "room answers more than the model apartment does.</p>"
+                '<ul class="res__list">'
+                "<li>Ask two residents whether they chose this or were moved here. "
+                "The answers differ, and the difference is the culture.</li>"
+                "<li>Check whether the activity calendar on the wall matches what is "
+                "actually happening that afternoon.</li>"
+                "<li>Notice whether anyone is eating alone, and whether anyone does "
+                "anything about it.</li>"
+                "<li>Ask what last year&rsquo;s turnover was, and where people "
+                "went.</li></ul>",
+                "<p>Visiting before you need to is the cheapest version of this "
+                "decision. Nothing obliges anyone to move.</p>"
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>If the question is whether someone needs help rather than wants "
+                "less house, start with "
+                "<a href=\"/guides/levels-of-senior-care-explained/\">the levels of "
+                "care explained</a>. If the question is cost, "
+                "<a href=\"/guides/assisted-living-cost-illinois/\">what assisted "
+                "living actually costs in Illinois</a> carries the figures this page "
+                "deliberately does not. For a wartime veteran or a surviving spouse, "
+                "<a href=\"/guides/va-aid-and-attendance-benefit/\">VA Aid and "
+                "Attendance</a> is a cash benefit that can go toward any setting, "
+                "including this one.</p>",
+                "<p>This guide did not research entrance-fee refund law, Life Plan or "
+                "continuing-care contract regulation in Illinois, or how an entrance "
+                "fee interacts with Medicaid eligibility later. Those are real "
+                "questions and they are not answered here &mdash; ask a lawyer who "
+                "practises elder law in Illinois before signing anything carrying an "
+                "entrance fee.</p>"
+            ])
+        ]
+    },
+    {
         "slug": "va-aid-and-attendance-benefit",
         "bridge": ("Qualifying for a VA pension tells you that your parent can get help "
                "paying for care. It does not tell you which level of care their health "
@@ -1820,6 +1957,12 @@ CARDS = {
         "What the state can and cannot reach after a Medicaid recipient "
         "dies, the automatic protections, and the $25,000 every estate "
         "keeps."),
+    "independent-living-evanston": (
+        "Getting oriented",
+        "Independent living in Evanston and the North Shore",
+        "Housing with services, not care \u2014 what sits in the monthly fee, "
+        "how it differs from licensed assisted living, and why no Illinois "
+        "median appears here."),
     "medicare-hospice-benefit-explained": (
         "Medicare",
         "Does Medicare pay for hospice care at home?",

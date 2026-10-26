@@ -362,9 +362,10 @@ function planFormBlock(levelId, variant) {
 
           <label class="plan__check">
             <input type="checkbox" name="consent" id="plan-consent" required>
-            <span>Share my name, phone, email, assessment result and what
-              I am interested in with Westminster Place, so they can contact
-              me about a tour.</span>
+            <span>Send my name, phone, email, assessment result and what
+              I am interested in to the person who runs this guide, and let
+              him share them with Westminster Place so they can contact me
+              about a tour.</span>
           </label>
 
           <button class="btn btn--primary plan__submit" type="submit">
