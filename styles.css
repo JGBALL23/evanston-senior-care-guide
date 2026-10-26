@@ -2353,3 +2353,30 @@ section[id], header[id] { scroll-margin-top: calc(var(--nav-h) + 14px); }
   .il__acts { flex-direction: column; }
   .il__btn { width: 100%; }
 }
+
+/* ---------- TWO WAYS TO GO FROM HERE ----------
+   Workflow #4. Two plain anchors, server-rendered, no JavaScript -- guide
+   pages load nav.js only, and shipping the assessment engine to twelve SEO
+   pages just to show two links would not be a small fix. Each carries its
+   pathway in the query string so the beacon fires on arrival. */
+.fork { display: grid; gap: 12px; margin: 18px 0 14px; }
+@media (min-width: 620px) { .fork { grid-template-columns: 1fr 1fr; } }
+.fork__opt {
+  display: block; padding: 18px 20px; text-decoration: none;
+  background: #fff; border: 1px solid var(--line, #e2ddd2);
+  border-radius: 4px; color: inherit; min-height: 48px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.fork__opt:hover, .fork__opt:focus-visible {
+  border-color: var(--sage, #7d8c6f);
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+}
+.fork__h {
+  display: block; font-family: var(--serif, Georgia, serif);
+  font-size: 19px; line-height: 1.25; margin-bottom: 6px;
+  color: var(--ink, #1d1d1b);
+}
+.fork__p {
+  display: block; font-size: 14.5px; line-height: 1.5;
+  color: var(--muted, #6b6b63);
+}

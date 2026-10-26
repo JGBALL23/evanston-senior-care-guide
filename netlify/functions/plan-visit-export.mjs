@@ -164,8 +164,14 @@ export default async (request) => {
   const format = new URL(request.url).searchParams.get("format");
 
   if (format === "csv") {
+    /* assessmentTaken and interestName added 2026-10-26 with the direct
+       inquiry path. Without them a direct row exports as a blank-looking
+       careLevel and reads like a data fault rather than a real visitor who
+       simply never took the assessment. careLevelName carries
+       "Assessment not taken" for those rows. */
     const header = ["submissionId", "receivedAt", "firstName", "lastName",
-      "email", "phone", "careLevelName", "admissionsDept", "admissionsPhone",
+      "email", "phone", "assessmentTaken", "careLevelName", "interestName",
+      "admissionsDept", "admissionsPhone",
       "source", "stage", "referredToAdmissionsAt"];
     const rows = [header.join(",")].concat(
       records.map((r) => header.map((h) => csvCell(r[h])).join(",")));
