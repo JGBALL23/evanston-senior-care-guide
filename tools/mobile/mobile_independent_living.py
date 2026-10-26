@@ -27,11 +27,19 @@ class Quiet(http.server.SimpleHTTPRequestHandler):
         pass
 
 
-srv = socketserver.TCPServer(
-    ("127.0.0.1", PORT),
-    functools.partial(Quiet, directory="_dist"))
-threading.Thread(target=srv.serve_forever, daemon=True).start()
-BASE = "http://127.0.0.1:%d" % PORT
+# Pass a base URL to run the same walk against production. With no
+# argument it serves _dist locally, which is what the pre-deploy pass uses.
+LIVE = sys.argv[1] if len(sys.argv) > 1 else ""
+srv = None
+if LIVE:
+    BASE = LIVE.rstrip("/")
+else:
+    srv = socketserver.TCPServer(
+        ("127.0.0.1", PORT),
+        functools.partial(Quiet, directory="_dist"))
+    threading.Thread(target=srv.serve_forever, daemon=True).start()
+    BASE = "http://127.0.0.1:%d" % PORT
+print("TARGET: %s" % BASE)
 
 CHROME = None
 for p in (r"C:\Program Files\Google\Chrome\Application\chrome.exe",
@@ -247,5 +255,6 @@ try:
     asyncio.run(main())
 finally:
     proc.terminate()
-    srv.shutdown()
+    if srv:
+        srv.shutdown()
 sys.exit(1 if fails else 0)
