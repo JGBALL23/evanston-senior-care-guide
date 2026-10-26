@@ -17,6 +17,8 @@ const QUESTIONS = [
     id: "adl",
     short: "Help with bathing, dressing or the bathroom",
     text: "Does your parent need hands-on help with bathing, dressing or using the bathroom?",
+    textSelf: "Do you need hands-on help with bathing, dressing or using the bathroom?",
+    helpSelf: "These are the tasks that most often decide what level of care a community can provide.",
     help: "These are the tasks that most often decide what level of care a community can provide.",
     options: [
       { label: "No help needed", signals: {} },
@@ -29,6 +31,8 @@ const QUESTIONS = [
     id: "memory",
     short: "Memory and judgment",
     text: "How is your parent's memory and judgment?",
+    textSelf: "How is your memory and judgment?",
+    helpSelf: "Answer about the last few months, not your worst single day.",
     help: "Answer about the last few months, not their worst single day.",
     options: [
       { label: "No real concerns", signals: {} },
@@ -41,6 +45,8 @@ const QUESTIONS = [
     id: "medical",
     short: "Day-to-day medical needs",
     text: "What medical help does your parent need day to day?",
+    textSelf: "What medical help do you need day to day?",
+    helpSelf: "Think about what a nurse would have to do, not what a doctor prescribes.",
     help: "Think about what a nurse would have to do, not what a doctor prescribes.",
     options: [
       { label: "Nothing beyond normal check-ups", signals: {} },
@@ -53,6 +59,8 @@ const QUESTIONS = [
     id: "alone",
     short: "Safe to be alone",
     text: "Is it safe for your parent to be alone?",
+    textSelf: "Is it safe for you to be on your own?",
+    helpSelf: "This question decides more than almost any other.",
     help: "This question decides more than almost any other.",
     options: [
       { label: "Yes, for days at a time", signals: {} },
@@ -65,6 +73,8 @@ const QUESTIONS = [
     id: "hospital",
     short: "Hospital in the last 30 days",
     text: "Has your parent been in the hospital in the last 30 days?",
+    textSelf: "Have you been in the hospital in the last 30 days?",
+    helpSelf: "A recent stay often changes the answer completely, and it is usually temporary.",
     help: "A recent stay often changes the answer completely, and it is usually temporary.",
     options: [
       { label: "No", signals: {} },
@@ -77,6 +87,8 @@ const QUESTIONS = [
     id: "household",
     short: "Cooking, cleaning, driving, bills",
     text: "How are the everyday things going — cooking, cleaning, driving, bills?",
+    textSelf: "How are the everyday things going \u2014 cooking, cleaning, driving, bills?",
+    helpSelf: "Most people hand these over long before they need help bathing or dressing.",
     help: "People usually lose these before they lose bathing and dressing.",
     /* The lifestyle option, added 2026-10-26, is the only answer in the
        whole assessment that describes a WANT rather than a need. It exists
@@ -99,6 +111,19 @@ const QUESTIONS = [
     ]
   }
 ];
+
+/* ---------- 1b. WHO IS ANSWERING ---------------------------
+   Framing only. Every question below carries a second wording for
+   someone answering about themselves, because the original six were
+   written the way an adult child describes a parent and an
+   independent older adult reading "your parent" is being told the
+   page is not for them.
+
+   `textSelf` and `helpSelf` change NOTHING about scoring. The
+   signals live on the options, the options are identical in both
+   framings, and `assess()` never sees the audience. A test pins
+   that: both framings must produce byte-identical results across
+   all 4096 answer combinations.                                  */
 
 /* ---------- 2. CARE LEVELS ----------------------------------
    Illinois median monthly costs, 2026. Ranges, because a single

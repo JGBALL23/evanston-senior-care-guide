@@ -230,7 +230,7 @@ check("consent checkbox exists in the form",
  ["checkbox: names every shared field including the result",
   "send my name, phone, email, assessment result and what"],
  ["checkbox: names the recipient and the purpose",
-  "let him share them with westminster place so they can contact me"],
+  "he may pass my details to westminster place to arrange a tour"],
  ["trust: the operator introduces himself in his own words",
   "i created evanston senior care guide to help families better"],
  ["trust: not official, not paid, named at the form",
@@ -1543,7 +1543,10 @@ check("the one live consent is required on the server",
      the version must have moved with the wording. */
   const fn = fsV.readFileSync("netlify/functions/plan-visit.mjs", "utf8");
   check("consent version moved with the wording",
-    fn.indexOf('const CONSENT_VERSION = "2026-10-26b"') !== -1);
+    fn.indexOf('const CONSENT_VERSION = "2026-10-26c"') !== -1);
+  check("consent says the owner decides, not that forwarding is automatic",
+    fn.indexOf("He reads every inquiry himself") !== -1 &&
+    fn.indexOf("decides how to follow up") !== -1);
   check("consent names all five shared items, interest included",
     fn.indexOf("name, phone, email, assessment result and what I am interested") !== -1 &&
     fn.indexOf("to the person who runs this guide") !== -1);
@@ -1555,7 +1558,7 @@ check("the one live consent is required on the server",
     /* Anchored inside a single string literal. The statement is built by
        concatenation, so a phrase spanning the `" + "` break exists on the
        rendered page but never in this file. */
-    fn.indexOf("Westminster Place so they can contact me about a tour") !== -1);
+    fn.indexOf("Westminster Place to arrange a tour") !== -1);
   check("consent does not name a single department as the recipient",
     fn.indexOf("Westminster Place Admissions") === -1);
 }
@@ -1766,6 +1769,30 @@ check("answering managing-fine six times still describes no need",
   assess({ adl: 0, memory: 0, medical: 0, alone: 0, hospital: 0, household: 0 })
     .status === "no_need");
 
+
+/* ---- FRAMING NEVER TOUCHES SCORING ---------------------------------
+   The self/parent choice rewords six questions. It must not be capable
+   of changing a single outcome. assess() is never handed the audience,
+   so this proves the only thing that could go wrong: that both framings
+   present the SAME options carrying the SAME signals, for every
+   question. Wording may differ; signals may not. */
+QUESTIONS.forEach((q) => {
+  check("both framings offer identical options: " + q.id,
+    q.options.every((o) => o && typeof o.label === "string"));
+  check("a self wording exists: " + q.id,
+    typeof q.textSelf === "string" && q.textSelf.length > 20);
+  check("the self wording drops the third person: " + q.id,
+    q.textSelf.indexOf("your parent") === -1 &&
+    q.textSelf.indexOf("their ") === -1, q.textSelf.slice(0, 48));
+  check("the parent wording is unchanged and still third person: " + q.id,
+    /your parent|they |their /.test(q.text + " " + q.help), q.text.slice(0, 44));
+});
+check("no question carries audience-specific SIGNALS",
+  QUESTIONS.every((q) => q.options.every((o) =>
+    !("signalsSelf" in o) && !("signalsParent" in o))));
+check("assess() takes answers only, never an audience",
+  /function assess\(answers\)/.test(
+    require("fs").readFileSync("assessment.js", "utf8")));
 
 const total = checks.length;
 const passed = checks.filter(Boolean).length;

@@ -2298,3 +2298,15 @@ section[id], header[id] { scroll-margin-top: calc(var(--nav-h) + 14px); }
   .lib__input { font-size: 16px; }   /* 16px stops iOS zooming on focus */
   .chip { font-size: 14.5px; padding: 10px 12px; }
 }
+
+/* ---------- WHO IS ANSWERING ----------
+   The step before question one. Same control sizing as the question
+   options so the whole assessment feels like one instrument. */
+.aud { text-align: left; }
+.aud__label {
+  font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 6px;
+}
+.aud__h { font-family: var(--serif); font-size: 26px; font-weight: 400;
+          line-height: 1.25; margin: 0 0 8px; color: var(--ink); }
+.aud__p { font-size: 15px; color: var(--muted); margin: 0 0 18px; }

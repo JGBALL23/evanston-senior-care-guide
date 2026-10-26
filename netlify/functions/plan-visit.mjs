@@ -150,8 +150,9 @@ const ALLOWED_KEYS = [
    what stops them drifting apart. */
 const CONSENT_STATEMENT =
   "Send my name, phone, email, assessment result and what I am interested " +
-  "in to the person who runs this guide, and let him share them with " +
-  "Westminster Place so they can contact me about a tour.";
+  "in to the person who runs this guide. He reads every inquiry himself " +
+  "and decides how to follow up, and he may pass my details to " +
+  "Westminster Place to arrange a tour.";
 /* Bumped 2026-10-26. Two changes, and the permission widened by exactly
    one field, so the version moves with it.
 
@@ -166,7 +167,7 @@ const CONSENT_STATEMENT =
 
    Records signed under earlier wording keep their own version, so what
    each person actually agreed to stays recoverable. */
-const CONSENT_VERSION = "2026-10-26b";
+const CONSENT_VERSION = "2026-10-26c";
 
 /* ---------- small helpers ----------------------------------- */
 const clean = (value, max) =>

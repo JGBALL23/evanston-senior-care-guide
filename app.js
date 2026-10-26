@@ -85,6 +85,41 @@ let step = 0;
 let resultLevelId = null;
 let startedBeaconSent = false;
 
+/* ---------- WHO IS ANSWERING -------------------------------
+   "self" or "parent". Chosen before question one and used for
+   WORDING ONLY. It is never passed to assess(), never becomes a
+   signal, and never reaches the inquiry payload. Someone exploring
+   for themselves is not a different kind of applicant; they are the
+   same six answers in the second person. */
+let audience = null;
+
+function renderAudience() {
+  quizEl.innerHTML = `
+    <div class="aud">
+      <p class="aud__label">Before the six questions</p>
+      <h3 class="aud__h">Who are we thinking about?</h3>
+      <p class="aud__p">It changes nothing about the result &mdash; only how
+        the questions are worded.</p>
+      <div class="opts">
+        <button class="opt" data-aud="self">I&rsquo;m exploring options for
+          myself</button>
+        <button class="opt" data-aud="parent">I&rsquo;m helping a parent or
+          someone else</button>
+      </div>
+    </div>`;
+}
+
+function qText(q) {
+  return audience === "self" && q.textSelf ? q.textSelf : q.text;
+}
+function qHelp(q) {
+  return audience === "self" && q.helpSelf ? q.helpSelf : q.help;
+}
+
+/* The one pronoun pair the result copy needs. */
+function them() { return audience === "self" ? "you" : "your parent"; }
+function they() { return audience === "self" ? "you" : "they"; }
+
 function esc(value) {
   return String(value == null ? "" : value).replace(/[&<>"']/g, (c) => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
@@ -103,13 +138,14 @@ function renderQuestion() {
     <div class="q__bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"
          aria-valuenow="${pct}" aria-label="Assessment progress">
       <div class="q__fill" style="width:${pct}%"></div></div>
-    <p class="q__text">${esc(q.text)}</p>
-    <p class="q__help">${esc(q.help)}</p>
+    <p class="q__text">${esc(qText(q))}</p>
+    <p class="q__help">${esc(qHelp(q))}</p>
     <div class="opts">
       ${q.options.map((o, i) =>
         `<button class="opt" data-i="${i}">${esc(o.label)}</button>`).join("")}
     </div>
-    ${step > 0 ? '<button class="q__back" type="button">← Previous question</button>' : ""}
+    <button class="q__back" type="button">${step > 0
+      ? "\u2190 Previous question" : "\u2190 Change who this is about"}</button>
   `;
 
   if (step === 1) beacon(FUNNEL.q2);
@@ -363,9 +399,9 @@ function planFormBlock(levelId, variant) {
           <label class="plan__check">
             <input type="checkbox" name="consent" id="plan-consent" required>
             <span>Send my name, phone, email, assessment result and what
-              I am interested in to the person who runs this guide, and let
-              him share them with Westminster Place so they can contact me
-              about a tour.</span>
+              I am interested in to the person who runs this guide. He reads
+              every inquiry himself and decides how to follow up, and he may
+              pass my details to Westminster Place to arrange a tour.</span>
           </label>
 
           <button class="btn btn--primary plan__submit" type="submit">
@@ -505,18 +541,20 @@ function renderResult() {
       <p class="res__label">Your starting point</p>
       <h3 class="res__name">${esc(level.name)}</h3>
       ${lifestyle ? `
-      <p class="res__summary">Nothing in your answers describes a need for
-        care. What you described is wanting less house to look after &mdash;
-        and that is a lifestyle decision, not a care decision. Independent
-        living is the option built for it: your own apartment or cottage,
+      <p class="res__summary">Nothing in these answers describes a need for
+        care. What ${they()} described is wanting less house to look after
+        &mdash; and that is a lifestyle decision, not a care decision.
+        Independent living is the option built for it: ${audience === "self"
+        ? "your own apartment or cottage" : "a private apartment or cottage"},
         with the cooking, cleaning, grounds and driving handled by somebody
         else.</p>
-      <p class="res__summary">This is a move people make while they are
-        well, on their own terms, and usually years before any care question
-        arrives. Nothing here says you need help.</p>` : `
-      <p class="res__summary">Based on your answers, ${esc(level.name.toLowerCase())}
-        may be the level of support worth exploring first.
-        ${esc(level.summary)}</p>`}
+      <p class="res__summary">This is a move people make while they are well,
+        on their own terms, and usually years before any care question
+        arrives. Nothing here says ${they()} need${audience === "self" ? "" : "s"}
+        help.</p>` : `
+      <p class="res__summary">Based on these answers,
+        ${esc(level.name.toLowerCase())} may be the level of support worth
+        exploring first for ${them()}. ${esc(level.summary)}</p>`}
 
       <p class="res__jump">Jump to:
         <a href="#costs" data-beacon="costs">what it costs</a> &middot;
@@ -642,7 +680,8 @@ function wireResult() {
       Object.keys(answers).forEach((k) => delete answers[k]);
       step = 0;
       beacon(FUNNEL.restarted);
-      renderQuestion();
+      audience = null;
+      renderAudience();
       document.getElementById("assessment").scrollIntoView({ block: "start" });
     });
   }
@@ -771,6 +810,14 @@ function wirePlanForm() {
 }
 
 quizEl.addEventListener("click", (event) => {
+  const aud = event.target.closest("[data-aud]");
+  if (aud) {
+    audience = aud.getAttribute("data-aud");
+    beacon("/t/audience-" + audience + ".txt");
+    step = 0;
+    renderQuestion();
+    return;
+  }
   const opt = event.target.closest(".opt");
   if (opt) {
     if (!startedBeaconSent) { beacon(FUNNEL.started); startedBeaconSent = true; }
@@ -780,13 +827,17 @@ quizEl.addEventListener("click", (event) => {
     else renderQuestion();
     return;
   }
+  if (event.target.closest(".q__back") && step === 0) {
+    renderAudience();
+    return;
+  }
   if (event.target.closest(".q__back")) {
     step = Math.max(0, step - 1);
     renderQuestion();
   }
 });
 
-renderQuestion();
+renderAudience();
 
 /* ---------- SECTION BEACONS + REVEAL ------------------------ */
 document.addEventListener("click", (event) => {
