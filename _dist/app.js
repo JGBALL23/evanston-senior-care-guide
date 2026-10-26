@@ -324,6 +324,12 @@ const INTERESTS = [
 
 function interestFor(levelId, variant) {
   if (levelId === "independent") return "independent";
+  /* no_need means the answers described no care need at all. Independent
+     living is then the only level that fits, so the dropdown offers it
+     rather than "not sure". The careLevel field still travels separately
+     as no_need, so the notification keeps both facts: what they asked
+     about, and what the assessment actually found. */
+  if (levelId === "no_need") return "independent";
   if (levelId === "assisted") return "assisted";
   if (levelId === "memory") return "memory";
   if (levelId === "skilled" || levelId === "rehab") return "skilled";
@@ -489,6 +495,26 @@ function renderResult() {
         <p class="visit__fine">Nothing here says anyone needs to move. Come
           back and retake this if that stops being true.</p>
       </section>
+
+      <section class="res__block il">
+        <h4 class="res__h">If the question is the house, not health</h4>
+        <p>Nothing in these answers describes a need for care, so this is
+          the one option worth knowing about anyway: <strong>independent
+          living</strong>. It is housing, not care &mdash; a private
+          apartment or cottage with the cooking, cleaning, grounds and
+          driving handled by somebody else. No help with bathing or
+          dressing, and generally no nursing staff on the floor.</p>
+        <p>People move for the upkeep, not the health. It is a decision
+          made while someone is well, years before any care question
+          arrives, and nothing here says ${audience === "self"
+          ? "you need" : "your parent or loved one needs"} anything at
+          all.</p>
+        <p class="il__go"><a href="/guides/independent-living-evanston/"
+          data-beacon="il-guide">Read what independent living actually
+          is</a> &mdash; what sits in the monthly fee, how it differs from
+          licensed assisted living, and why no Illinois median figure
+          appears on it.</p>
+      </section>
       ${COLLECTING ? `
       <section class="res__block local">
         <div class="wp">
@@ -550,8 +576,8 @@ function renderResult() {
         else.</p>
       <p class="res__summary">This is a move people make while they are well,
         on their own terms, and usually years before any care question
-        arrives. Nothing here says ${they()} need${audience === "self" ? "" : "s"}
-        help.</p>` : `
+        arrives. Nothing here says ${audience === "self"
+        ? "you need" : "they need"} help.</p>` : `
       <p class="res__summary">Based on these answers,
         ${esc(level.name.toLowerCase())} may be the level of support worth
         exploring first for ${them()}. ${esc(level.summary)}</p>`}
@@ -573,6 +599,16 @@ function renderResult() {
           ${level.looksLike.map((l) => `<li>${esc(l)}</li>`).join("")}
         </ul>
       </section>
+
+      ${lifestyle ? `
+      <section class="res__block il">
+        <h4 class="res__h">Before you look at anywhere in particular</h4>
+        <p class="il__go"><a href="/guides/independent-living-evanston/"
+          data-beacon="il-guide">Read what independent living actually
+          is</a> &mdash; what sits in the monthly fee, how it differs from
+          licensed assisted living, the questions worth asking on a visit,
+          and why no Illinois median figure appears on it.</p>
+      </section>` : ""}
 
       ${visitBlock(level.id, line)}
 

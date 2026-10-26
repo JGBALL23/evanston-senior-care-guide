@@ -2310,3 +2310,17 @@ section[id], header[id] { scroll-margin-top: calc(var(--nav-h) + 14px); }
 .aud__h { font-family: var(--serif); font-size: 26px; font-weight: 400;
           line-height: 1.25; margin: 0 0 8px; color: var(--ink); }
 .aud__p { font-size: 15px; color: var(--muted); margin: 0 0 18px; }
+
+/* ---------- INDEPENDENT LIVING ON A NO-CARE RESULT ----------
+   Added 2026-10-26 after the owner finished the live assessment with no
+   care needs and never saw independent living at all. Quiet, not a
+   pitch: a sage tint and a text link, never a button, because nobody
+   here has been told they need anything. */
+.res__block.il {
+  background: var(--sage-tint, #f4f6f2);
+  border-left: 3px solid var(--sage, #7d8c6f);
+  padding: 20px 22px;
+}
+.res__block.il p { margin: 0 0 12px; }
+.res__block.il p:last-child { margin-bottom: 0; }
+.il__go a { font-weight: 500; }

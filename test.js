@@ -1027,6 +1027,33 @@ const noNeedStart = appSrcRaw.indexOf('result.status === "no_need"');
 const noNeedEnd = appSrcRaw.indexOf("wireResult();", noNeedStart);
 const noNeedBranch = noNeedStart === -1 ? "" : appSrcRaw.slice(noNeedStart, noNeedEnd);
 check("the no-need branch was located", noNeedBranch.length > 200);
+/* ---- INDEPENDENT LIVING MUST BE VISIBLE WITHOUT THE LIFESTYLE ANSWER ----
+   Reproduced live 2026-10-26: the owner answered all six questions with
+   the no-concerns option, got "No higher level of care yet", and never
+   saw independent living. The lifestyle answer is option two of five on
+   question six; nobody reads that as the independent-living door. */
+check("the no-need result names independent living prominently",
+  /<section class="res__block il">/.test(noNeedBranch));
+check("the no-need result links to the independent living guide",
+  noNeedBranch.indexOf('href="/guides/independent-living-evanston/"') !== -1);
+check("the no-need result still says no care is needed",
+  /describes a need for care/.test(noNeedBranch));
+check("the no-need result offers no care level as a substitute",
+  noNeedBranch.indexOf("assisted living may be") === -1 &&
+  noNeedBranch.indexOf("worth exploring first") === -1);
+check("a no-care-need result pre-selects independent living on the form",
+  /if \(levelId === "no_need"\) return "independent";/.test(appSrcRaw));
+check("the by-choice result also links to the guide",
+  (appSrcRaw.match(/href="\/guides\/independent-living-evanston\/"/g) || [])
+    .length >= 2,
+  String((appSrcRaw.match(/href="\/guides\/independent-living-evanston\/"/g)
+    || []).length));
+/* The care results must NOT grow an independent-living block. It is not a
+   substitute for assisted living, memory care or skilled nursing. */
+check("the independent living block is gated on lifestyle or no_need only",
+  (appSrcRaw.match(/res__block il/g) || []).length === 2,
+  String((appSrcRaw.match(/res__block il/g) || []).length));
+
 check("the form renders on the no-need result too",
   noNeedBranch.indexOf("COLLECTING ? planFormBlock(") !== -1);
 check("both result branches gate the form on the same flag",
