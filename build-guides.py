@@ -87,6 +87,20 @@ F = {
     "hospice_zero": "$0",
     "hospice_rx_copay": "$5",
     "hospice_respite_coins": "5%",
+    "va_mapr_basic_single": "$17,441",
+    "va_mapr_hb_single": "$21,313",
+    "va_mapr_aa_single": "$29,093",
+    "va_mapr_basic_1dep": "$22,839",
+    "va_mapr_hb_1dep": "$26,710",
+    "va_mapr_aa_1dep": "$34,488",
+    "va_networth_limit": "$163,699",
+    "va_nh_medicaid_rate": "$90",
+    "va_survivor_basic_single": "$11,699",
+    "va_survivor_hb_single": "$14,298",
+    "va_survivor_aa_single": "$18,697",
+    "va_survivor_basic_1dep": "$15,311",
+    "va_survivor_hb_1dep": "$17,902",
+    "va_survivor_aa_1dep": "$22,304",
 }
 
 SRC = {
@@ -136,6 +150,18 @@ SRC = {
                         'https://hfs.illinois.gov/medicalclients/medicaidestaterecovery/liensandestaterecovery.html'),
     "mhospice": ('Medicare.gov — Hospice care',
                 'https://www.medicare.gov/coverage/hospice-care'),
+    "va_elig": ('VA.gov — Veterans Pension eligibility',
+               'https://www.va.gov/pension/eligibility/'),
+    "va_rates": ('VA.gov — Veterans Pension rates',
+                'https://www.va.gov/pension/veterans-pension-rates/'),
+    "va_aa": ('VA.gov — Aid and Attendance and Housebound benefits',
+             'https://www.va.gov/pension/aid-attendance-housebound/'),
+    "va_survivors": ('VA.gov — Survivors Pension',
+                     'https://www.va.gov/pension/survivors-pension/'),
+    "va_survivors_rates": ('VA.gov — Survivors Pension rates',
+                           'https://www.va.gov/pension/survivors-pension-rates/'),
+    "va_apply": ('VA.gov — How to apply for Veterans Pension benefits',
+                'https://www.va.gov/pension/how-to-apply/'),
 }
 
 
@@ -1251,6 +1277,177 @@ GUIDES = [
             ]),
         ],
     },
+    {
+        "slug": "va-aid-and-attendance-benefit",
+        "bridge": ("Qualifying for a VA pension tells you that your parent can get help "
+               "paying for care. It does not tell you which level of care their health "
+               "actually calls for."),
+        "reviewed": "2026-10-26",
+        "title": "Does the VA Pay for Senior Care? Aid and Attendance, Explained",
+        "h1": "Does the VA pay for senior care? Aid and Attendance, explained",
+        "desc": ("VA Aid and Attendance can add up to " + F["va_mapr_aa_single"] +
+                 " a year on top of a wartime veteran&rsquo;s pension. Here is who "
+                 "actually qualifies, why the published rate is a ceiling rather than a "
+                 "cheque, and how a surviving spouse&rsquo;s own pension differs."),
+        "intent": "benefits question",
+        "answer": ("<strong>Yes, for veterans and some surviving spouses who already "
+                   "qualify for a VA pension.</strong> Aid and Attendance and Housebound "
+                   "are not stand-alone benefits &mdash; they are increased monthly rates "
+                   "added to the <strong>Veterans Pension</strong>, or to a surviving "
+                   "spouse&rsquo;s <strong>Survivors Pension</strong>, for someone who "
+                   "needs help with daily activities, is bedridden, is a nursing home "
+                   "patient because of a disability, or has severely limited eyesight. "
+                   "The published figure is a <strong>maximum annual rate</strong>, not a "
+                   "flat cheque: VA pays the difference between that ceiling and the "
+                   "person&rsquo;s own countable income, so this guide will not calculate "
+                   "what any one family would actually receive."),
+        "sources": srcs("va_aa", "va_elig", "va_rates", "va_survivors",
+                        "va_survivors_rates", "va_apply"),
+        "body": [
+            ("What Aid and Attendance and Housebound actually are", [
+                "<p>Many Evanston families have a veteran parent and no idea this exists, "
+                "because VA.gov describes Aid and Attendance and Housebound as something "
+                "you can only get <q>if you get a VA pension</q> &mdash; they sit on top "
+                "of a pension, rather than standing on their own. Mixing the two up with "
+                "the base pension is the most common way a real benefit gets missed.</p>",
+                "<p>VA pays the <strong>Aid and Attendance</strong> rate to someone who "
+                "meets at least one of these, quoted directly from VA.gov:</p>",
+                "<ul class=\"res__list\">"
+                "<li>&ldquo;You need another person to help you perform daily activities, "
+                "like bathing, feeding, and dressing&rdquo;</li>"
+                "<li>&ldquo;You have to stay in bed&mdash;or spend a large portion of the "
+                "day in bed&mdash;because of illness&rdquo;</li>"
+                "<li>&ldquo;You&rsquo;re a patient in a nursing home due to the loss of "
+                "mental or physical abilities related to a disability&rdquo;</li>"
+                "<li>Eyesight of 5/200 or less in both eyes, even with glasses or contact "
+                "lenses, or a visual field contracted to 5 degrees or less</li></ul>",
+                "<p>The <strong>Housebound</strong> rate is separate: it is for someone "
+                "who &ldquo;spends most of your time in your home because of a permanent "
+                "disability.&rdquo; VA.gov is explicit that a person cannot receive both "
+                "at the same time &mdash; it is one increased rate or the other, never "
+                "both stacked together.</p>",
+            ]),
+            ("Who qualifies for the pension underneath it", [
+                "<p>Before either add-on can apply, the veteran has to qualify for the "
+                "Veterans Pension itself. Two things must both be true: an honourable "
+                "discharge (an other-than-honourable, bad conduct or dishonorable "
+                "discharge can disqualify a claim, though a discharge upgrade or a "
+                "Character of Discharge review can be requested), and income and net "
+                "worth within limits Congress sets.</p>",
+                "<p>Service has to clear one of these bars, depending on when active duty "
+                "began: at least 90 days of active duty with at least one day during a "
+                "wartime period for service that started before 8 September 1980; at "
+                "least 24 months, or the full period ordered, with at least one wartime "
+                "day, for enlisted service starting after 7 September 1980. The recognised "
+                "wartime periods include World War II (7 December 1941 &ndash; 31 December "
+                "1946), the Korean conflict (27 June 1950 &ndash; 31 January 1955), the "
+                "Vietnam era (1 November 1955 onward for service in-country, 5 August 1964 "
+                "onward elsewhere), and the Gulf War (2 August 1990 through a date still to "
+                "be set by law).</p>",
+                "<p>Separately, the veteran must meet at least one of: aged 65 or older; a "
+                "permanent and total disability; a long-term nursing home patient because "
+                "of a disability; or already receiving Social Security Disability Insurance "
+                "or Supplemental Security Income.</p>",
+            ]),
+            ("The published rate is a ceiling, not a cheque", [
+                "<p>VA.gov&rsquo;s rate tables (current as of the cost-of-living increase "
+                "effective 1 December 2025) give the <strong>Maximum Annual Pension "
+                "Rate</strong>, or MAPR &mdash; the most a veteran with no dependents can "
+                "be paid, before their own income is subtracted:</p>",
+                "<ul class=\"res__list\">"
+                "<li><strong>Pension alone:</strong> " + F["va_mapr_basic_single"] +
+                " a year with no dependents, " + F["va_mapr_basic_1dep"] +
+                " with one</li>"
+                "<li><strong>Housebound:</strong> " + F["va_mapr_hb_single"] +
+                " a year with no dependents, " + F["va_mapr_hb_1dep"] +
+                " with one</li>"
+                "<li><strong>Aid and Attendance:</strong> " + F["va_mapr_aa_single"] +
+                " a year with no dependents, " + F["va_mapr_aa_1dep"] +
+                " with one</li></ul>",
+                "<p>That is a ceiling, not an entitlement. VA.gov is explicit that pension "
+                "pays the gap between the MAPR and the veteran&rsquo;s own countable annual "
+                "income, which it defines as including wages, Social Security benefits, "
+                "investment income and a dependent&rsquo;s income. Unreimbursed medical "
+                "expenses can reduce that countable income, but only the portion above 5% "
+                "of the MAPR counts as deductible &mdash; VA.gov&rsquo;s own words are that "
+                "these expenses &ldquo;may reduce your income for VA purposes.&rdquo; This "
+                "guide will not do that subtraction for a hypothetical family; the real "
+                "figure depends on income and medical expenses only VA can verify.</p>",
+                "<p>Net worth is capped separately, at <strong>" + F["va_networth_limit"] +
+                "</strong> for the period running 1 December 2025 through 30 November "
+                "2026, and it includes a spouse&rsquo;s net worth too. A house, a car and "
+                "most home furnishings are excluded.</p>",
+                "<p>One figure worth knowing even though it is not the MAPR: a veteran "
+                "with no dependents who is already a patient in a Medicaid-covered nursing "
+                "facility has their pension reduced to <strong>" +
+                F["va_nh_medicaid_rate"] + " a month</strong>. That is a real VA.gov figure, "
+                "but it describes a different situation from the Aid and Attendance rate "
+                "above &mdash; do not read the two as the same benefit.</p>",
+            ]),
+            ("Surviving spouses: the Survivors Pension and its own Aid and Attendance", [
+                "<p>A surviving spouse who has not remarried, and who generally lived with "
+                "the veteran from marriage until death (VA.gov allows exceptions for "
+                "separations caused by health, work, or the veteran&rsquo;s misconduct), "
+                "can claim a <strong>Survivors Pension</strong> if the veteran&rsquo;s "
+                "service met the same wartime rules and income and net worth again fall "
+                "within the limits Congress sets &mdash; the same " +
+                F["va_networth_limit"] + " net worth limit applies.</p>",
+                "<p>Its MAPR figures, for the same period, are lower than a veteran&rsquo;s "
+                "own pension:</p>",
+                "<ul class=\"res__list\">"
+                "<li><strong>Basic Survivors Pension:</strong> " +
+                F["va_survivor_basic_single"] + " a year with no dependents, " +
+                F["va_survivor_basic_1dep"] + " with one child</li>"
+                "<li><strong>Housebound:</strong> " + F["va_survivor_hb_single"] +
+                " with no dependents, " + F["va_survivor_hb_1dep"] + " with one child</li>"
+                "<li><strong>Aid and Attendance:</strong> " + F["va_survivor_aa_single"] +
+                " with no dependents, " + F["va_survivor_aa_1dep"] + " with one child</li>"
+                "</ul>",
+                "<p>As with the veteran&rsquo;s own pension, these are ceilings reduced by "
+                "the survivor&rsquo;s countable income, not flat payments.</p>",
+            ]),
+            ("How to apply", [
+                "<p>VA.gov lists five ways to apply for the underlying pension: apply "
+                "online; upload a completed VA Form 21P-527EZ through the QuickSubmit "
+                "tool; mail the completed form to the Pension Intake Center, Department "
+                "of Veterans Affairs, PO Box 5365, Janesville, WI 53547-5365; bring it to "
+                "a VA regional office in person; or get help from an accredited attorney, "
+                "claims agent, or Veterans Service Organization representative.</p>",
+                "<p>Aid and Attendance or Housebound specifically also needs VA Form "
+                "21-2680, &ldquo;Examination for Housebound Status or Permanent Need for "
+                "Regular Aid and Attendance,&rdquo; completed in part by a medical "
+                "examiner. A veteran who already lives in a nursing home must also submit "
+                "VA Form 21-0779, Request for Nursing Home Information in Connection with "
+                "Claim for Aid and Attendance.</p>",
+                "<p>Applying online while signed in with an identity-verified account sets "
+                "the claim&rsquo;s effective date automatically. Applying by mailed form "
+                "or an unverified account does not get that automatic date, so VA.gov "
+                "suggests filing an intent to file first to protect it. Either way, be "
+                "ready with a Social Security number, military and marital history, "
+                "household income and asset figures, and unreimbursed medical "
+                "expenses.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>A VA pension answers a different question from "
+                '<a href="/guides/does-medicare-pay-for-senior-care/">Does Medicare pay '
+                "for assisted living or nursing home care?</a> Medicare is federal health "
+                "insurance and never pays for custodial assisted living; a VA pension is a "
+                "needs-based cash benefit that a family can put toward any level of care, "
+                "including assisted living. The two can apply to the same parent at the "
+                "same time.</p>",
+                "<p>This guide has not verified how a VA pension interacts with eligibility "
+                "for <a href=\"/guides/illinois-medicaid-long-term-care/\">Illinois "
+                "Medicaid&rsquo;s long-term care programme</a> &mdash; that depends on "
+                "income counting rules this guide did not read, so it will not guess at "
+                "the answer. Ask Illinois HFS directly if your parent may need both.</p>",
+                "<p>If the open question in your family is which level of care your "
+                'parent actually needs, rather than how to pay for it, the <a href="/">'
+                "free six-question assessment</a> on this site walks through that "
+                "separately. It asks for no name, no email and no phone number, and your "
+                "answers never leave your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -1590,6 +1787,12 @@ CARDS = {
         "What the hospice benefit actually covers, the four conditions "
         "that must all be met, and the one figure this guide would not "
         "guess at."),
+    "va-aid-and-attendance-benefit": (
+        "Veterans' benefits",
+        "Does the VA pay for senior care? Aid and Attendance, explained",
+        "Who actually qualifies for a VA pension and its Aid and "
+        "Attendance or Housebound add-on, and why the published rate is "
+        "a ceiling, not a cheque."),
 }
 
 
