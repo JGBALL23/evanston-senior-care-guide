@@ -16,7 +16,9 @@ const QUESTIONS = [
   {
     id: "adl",
     short: "Help with bathing, dressing or the bathroom",
-    text: "Does your parent need hands-on help with bathing, dressing or using the bathroom?",
+    text: "Does your parent or loved one need hands-on help with bathing, dressing or using the bathroom?",
+    textSelf: "Do you need hands-on help with bathing, dressing or using the bathroom?",
+    helpSelf: "These are the tasks that most often decide what level of care a community can provide.",
     help: "These are the tasks that most often decide what level of care a community can provide.",
     options: [
       { label: "No help needed", signals: {} },
@@ -28,7 +30,9 @@ const QUESTIONS = [
   {
     id: "memory",
     short: "Memory and judgment",
-    text: "How is your parent's memory and judgment?",
+    text: "How is your parent or loved one's memory and judgment?",
+    textSelf: "How is your memory and judgment?",
+    helpSelf: "Answer about the last few months, not your worst single day.",
     help: "Answer about the last few months, not their worst single day.",
     options: [
       { label: "No real concerns", signals: {} },
@@ -40,7 +44,9 @@ const QUESTIONS = [
   {
     id: "medical",
     short: "Day-to-day medical needs",
-    text: "What medical help does your parent need day to day?",
+    text: "What medical help does your parent or loved one need day to day?",
+    textSelf: "What medical help do you need day to day?",
+    helpSelf: "Think about what a nurse would have to do, not what a doctor prescribes.",
     help: "Think about what a nurse would have to do, not what a doctor prescribes.",
     options: [
       { label: "Nothing beyond normal check-ups", signals: {} },
@@ -52,7 +58,9 @@ const QUESTIONS = [
   {
     id: "alone",
     short: "Safe to be alone",
-    text: "Is it safe for your parent to be alone?",
+    text: "Is it safe for your parent or loved one to be alone?",
+    textSelf: "Is it safe for you to be on your own?",
+    helpSelf: "This question decides more than almost any other.",
     help: "This question decides more than almost any other.",
     options: [
       { label: "Yes, for days at a time", signals: {} },
@@ -64,7 +72,9 @@ const QUESTIONS = [
   {
     id: "hospital",
     short: "Hospital in the last 30 days",
-    text: "Has your parent been in the hospital in the last 30 days?",
+    text: "Has your parent or loved one been in the hospital in the last 30 days?",
+    textSelf: "Have you been in the hospital in the last 30 days?",
+    helpSelf: "A recent stay often changes the answer completely, and it is usually temporary.",
     help: "A recent stay often changes the answer completely, and it is usually temporary.",
     options: [
       { label: "No", signals: {} },
@@ -77,15 +87,46 @@ const QUESTIONS = [
     id: "household",
     short: "Cooking, cleaning, driving, bills",
     text: "How are the everyday things going — cooking, cleaning, driving, bills?",
+    textSelf: "How are the everyday things going \u2014 cooking, cleaning, driving, bills?",
+    helpSelf: "Most people hand these over long before they need help bathing or dressing.",
     help: "People usually lose these before they lose bathing and dressing.",
+    /* The lifestyle option, added 2026-10-26, is the only answer in the
+       whole assessment that describes a WANT rather than a need. It exists
+       because the six questions measured deficits only: someone fit and
+       independent who is simply tired of the house answered "managing
+       fine" six times, matched no rule at all, and was told nothing here
+       describes a need for care. True, and a dead end for exactly the
+       person independent living is built for.
+
+       It sits at index 1 so the list still reads from most to least
+       capable. Shifting the iadl options down by one is safe: answers are
+       held in memory for one session and nothing persists an index. */
     options: [
       { label: "Managing fine", signals: {} },
+      { label: "Managing fine — but the house and yard are more work than I want",
+        signals: { lifestyle: 1 } },
       { label: "Slipping — meals skipped, mail piling up", signals: { iadl: 1 } },
       { label: "Needs help with most of it", signals: { iadl: 2 } },
       { label: "Cannot do these at all anymore", signals: { iadl: 3 } }
     ]
   }
 ];
+
+/* ---------- 1b. WHO IS ANSWERING ---------------------------
+   Framing only. Every question below carries a second wording for
+   someone answering about themselves, because the original six were
+   written in the third person about someone else, and an independent
+   older adult reading "does your parent need help" is being told in the
+   first line that the page is not for them. The parent framing also says
+   "or loved one", because the selector offers "a parent or someone else"
+   and plenty of people doing this are a spouse, a sibling or a
+   neighbour.
+
+   `textSelf` and `helpSelf` change NOTHING about scoring. The
+   signals live on the options, the options are identical in both
+   framings, and `assess()` never sees the audience. A test pins
+   that: both framings must produce byte-identical results across
+   all 4096 answer combinations.                                  */
 
 /* ---------- 2. CARE LEVELS ----------------------------------
    Illinois median monthly costs, 2026. Ranges, because a single
@@ -208,7 +249,7 @@ const CARE_LEVELS = {
     nextSteps: [
       "Talk to the hospital discharge planner TODAY — this window is short and it closes",
       "Ask how many therapy days per week, and for how long",
-      "Ask what the plan is if your parent cannot safely go home afterward"
+      "Ask what the plan is if they cannot safely go home afterward"
     ]
   }
 };
@@ -276,6 +317,31 @@ const RULES = [
     when: (s) => s.iadl >= 1 || s.memory >= 1,
     because: (a) => 'the everyday things are slipping — "' + a.household +
       '" — while personal care is still managed, which is the independent living picture'
+  },
+  {
+    /* INDEPENDENT LIVING BY CHOICE — added 2026-10-26, and deliberately
+       LAST so it can never displace a safety rule. Every rule above fires
+       on a care or safety signal; this one fires only when none of them
+       did, and only when the person said the upkeep of the house is more
+       work than they want.
+
+       The `when` re-states the absence of every deficit signal rather
+       than trusting rule order alone. Order already protects this, but a
+       rule that quietly becomes reachable after someone reorders the list
+       is the kind of bug that routes a person who needs help to a
+       lifestyle page. Two locks, not one.
+
+       variant: "lifestyle" tells the result page to frame this as a move
+       someone is choosing, not a level of care someone needs. */
+    level: "independent",
+    variant: "lifestyle",
+    cites: ["household", "adl", "alone"],
+    when: (s) => s.lifestyle >= 1 &&
+                 !s.adl && !s.memory && !s.medical && !s.supervision &&
+                 !s.iadl && !s.unsafe && !s.recent,
+    because: (a) => 'nothing here describes a need for care — the answer on ' +
+      'the everyday things, "' + a.household + '", describes wanting less ' +
+      'house to look after, which is the question independent living answers'
   }
 ];
 
@@ -349,6 +415,10 @@ function assess(answers) {
   return {
     status: "matched",
     level: CARE_LEVELS[rule.level],
+    /* "lifestyle" only on the by-choice independent living rule. Absent
+       everywhere else, so no care result can be rendered as a lifestyle
+       move by accident. */
+    variant: rule.variant || null,
     reason: rule.because(chosen),
     reasons: reasonsFor(rule, answers, chosen),
     signals,
@@ -376,7 +446,8 @@ const DISCLAIMER =
   "This is a general guide, not medical advice and not a clinical assessment. " +
   "Only a doctor, nurse or licensed care assessor can determine what level of " +
   "care someone needs. Use this to understand the options and ask better " +
-  "questions — then confirm with a professional who has examined your parent.";
+  "questions — then confirm with a professional who has examined the " +
+  "person this is about.";
 
 if (typeof module !== "undefined") {
   module.exports = { QUESTIONS, CARE_LEVELS, RULES, assess, DISCLAIMER };

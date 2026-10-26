@@ -13,18 +13,18 @@ function answersFrom(list) {
 
 /* [name, [adl, memory, medical, alone, hospital, household], expected level] */
 const CASES = [
-  ["Mum forgets bills, manages herself",        [0, 1, 0, 0, 0, 1], "independent"],
-  ["House slipping, no care needs",             [0, 0, 0, 0, 0, 2], "independent"],
-  ["Needs help bathing, mind is sharp",         [2, 0, 1, 1, 0, 2], "assisted"],
-  ["Full personal care, no nursing needs",      [3, 1, 1, 2, 0, 3], "assisted"],
-  ["Medication help plus some dressing help",   [1, 0, 1, 1, 0, 1], "assisted"],
-  ["Left the stove on, wanders",                [2, 3, 1, 3, 0, 3], "memory"],
-  ["Confused about place, unsafe alone",        [1, 2, 0, 2, 0, 2], "memory"],
-  ["Oxygen and wound care, needs full help",    [3, 0, 2, 3, 0, 3], "skilled"],
-  ["Needs a nurse around the clock",            [2, 0, 3, 2, 0, 2], "skilled"],
-  ["Out of hospital, getting stronger",         [2, 0, 1, 1, 1, 2], "rehab"],
-  ["In hospital right now",                     [2, 1, 1, 1, 3, 2], "rehab"],
-  ["Out of hospital, not bouncing back",        [2, 0, 1, 2, 2, 2], "skilled"],
+  ["Mum forgets bills, manages herself",        [0, 1, 0, 0, 0, 2], "independent"],
+  ["House slipping, no care needs",             [0, 0, 0, 0, 0, 3], "independent"],
+  ["Needs help bathing, mind is sharp",         [2, 0, 1, 1, 0, 3], "assisted"],
+  ["Full personal care, no nursing needs",      [3, 1, 1, 2, 0, 4], "assisted"],
+  ["Medication help plus some dressing help",   [1, 0, 1, 1, 0, 2], "assisted"],
+  ["Left the stove on, wanders",                [2, 3, 1, 3, 0, 4], "memory"],
+  ["Confused about place, unsafe alone",        [1, 2, 0, 2, 0, 3], "memory"],
+  ["Oxygen and wound care, needs full help",    [3, 0, 2, 3, 0, 4], "skilled"],
+  ["Needs a nurse around the clock",            [2, 0, 3, 2, 0, 3], "skilled"],
+  ["Out of hospital, getting stronger",         [2, 0, 1, 1, 1, 3], "rehab"],
+  ["In hospital right now",                     [2, 1, 1, 1, 3, 3], "rehab"],
+  ["Out of hospital, not bouncing back",        [2, 0, 1, 2, 2, 3], "skilled"],
   ["No needs at all",                           [0, 0, 0, 0, 0, 0], null]
 ];
 
@@ -228,9 +228,9 @@ check("consent checkbox exists in the form",
  ["copy: admissions decide, not this site",
   "they decide whether and when a tour happens"],
  ["checkbox: names every shared field including the result",
-  "share my name, phone, email and assessment result"],
+  "send my name, phone, email, assessment result and what"],
  ["checkbox: names the recipient and the purpose",
-  "with westminster place admissions so they can contact me about a tour"],
+  "he may pass my details to westminster place to arrange a tour"],
  ["trust: the operator introduces himself in his own words",
   "i created evanston senior care guide to help families better"],
  ["trust: not official, not paid, named at the form",
@@ -901,7 +901,7 @@ check("the published notice states the 180-day period",
 check("the server switch is never hardcoded on",
   planFnSrc.indexOf("const COLLECTING = true") === -1);
 check("the form markup is preserved, not deleted",
-  appSrcRaw.indexOf("function planFormBlock()") !== -1 &&
+  appSrcRaw.indexOf("function planFormBlock(levelId, variant)") !== -1 &&
   appShown.indexOf('name="phone"') !== -1 &&
   appShown.indexOf('name="consent"') !== -1);
 /* The paused branch stays in the source even while live, so the form
@@ -1001,7 +1001,7 @@ const ORDER = [
   ["why this result appeared",                 "Why this result appeared"],
   ["what this type of care usually provides",  "What this type of care usually provides"],
   ["the Westminster card with its disclosure", "I work at Westminster Place"],
-  ["our own tour-inquiry form",                "COLLECTING ? planFormBlock()"],
+  ["our own tour-inquiry form",                "COLLECTING ? planFormBlock("],
   ["what it costs",                            "usually costs"],
   ["questions to ask when evaluating options", "Questions to ask when evaluating options"],
   ["the Illinois state directory",             "healthcarereportcard.illinois.gov"]
@@ -1028,11 +1028,11 @@ const noNeedEnd = appSrcRaw.indexOf("wireResult();", noNeedStart);
 const noNeedBranch = noNeedStart === -1 ? "" : appSrcRaw.slice(noNeedStart, noNeedEnd);
 check("the no-need branch was located", noNeedBranch.length > 200);
 check("the form renders on the no-need result too",
-  noNeedBranch.indexOf("COLLECTING ? planFormBlock()") !== -1);
+  noNeedBranch.indexOf("COLLECTING ? planFormBlock(") !== -1);
 check("both result branches gate the form on the same flag",
-  (appSrcRaw.match(/COLLECTING \? planFormBlock\(\)/g) || []).length === 2);
+  (appSrcRaw.match(/COLLECTING \? planFormBlock\(/g) || []).length === 2);
 check("the form comes BEFORE costs and evaluation questions",
-  tpl.indexOf("COLLECTING ? planFormBlock()") < tpl.indexOf("usually costs") &&
+  tpl.indexOf("COLLECTING ? planFormBlock(") < tpl.indexOf("usually costs") &&
   tpl.indexOf("COLLECTING ? planFormBlock()") <
     tpl.indexOf("Questions to ask when evaluating options"));
 check("costs and questions stay one click away",
@@ -1155,7 +1155,10 @@ check("notification includes a human-readable local time",
    every "record.x" read in the email must be a permitted field. */
 const notifFields = (notifBlock.match(/record\.[a-zA-Z]+/g) || [])
   .map((m) => m.split(".")[1]);
-const NOTIF_ALLOWED = ["firstName", "lastName", "phone", "email", "careLevel"];
+/* `interest` added 2026-10-26: the visitor's own selection, drawn from a
+   fixed list in the function, and named in the consent they ticked. */
+const NOTIF_ALLOWED = ["firstName", "lastName", "phone", "email", "careLevel",
+                       "interest"];
 check("notification reads only permitted record fields",
   notifFields.every((f) => NOTIF_ALLOWED.indexOf(f) !== -1),
   notifFields.filter((f) => NOTIF_ALLOWED.indexOf(f) === -1).join(" "));
@@ -1382,7 +1385,7 @@ check("the one live consent is required on the server",
     noNeed.indexOf("not an official Westminster") !== -1);
   check("the no-need disclosure sits before its form",
     noNeed.indexOf("I work at Westminster Place") <
-      noNeed.indexOf("COLLECTING ? planFormBlock()"));
+      noNeed.indexOf("COLLECTING ? planFormBlock("));
   check("the no-need disclosure states no referral fees",
     noNeed.indexOf("no referral fees") !== -1);
 
@@ -1402,11 +1405,11 @@ check("the one live consent is required on the server",
   const { QUESTIONS: Q, assess: A } = require("./assessment.js");
   const qids = Q.map((q) => q.id);
   const mk = (picks) => { const o = {}; picks.forEach((c, i) => { o[qids[i]] = c; }); return o; };
-  [["24h nursing + recovering",     [2, 0, 3, 2, 1, 2], "skilled"],
-   ["24h nursing + in hospital now", [2, 0, 3, 2, 3, 2], "skilled"],
-   ["24h nursing + no hospital",     [2, 0, 3, 2, 0, 2], "skilled"],
-   ["mild needs + recovering",       [2, 0, 1, 1, 1, 2], "rehab"],
-   ["mild needs + in hospital now",  [2, 1, 1, 1, 3, 2], "rehab"]].forEach(
+  [["24h nursing + recovering",     [2, 0, 3, 2, 1, 3], "skilled"],
+   ["24h nursing + in hospital now", [2, 0, 3, 2, 3, 3], "skilled"],
+   ["24h nursing + no hospital",     [2, 0, 3, 2, 0, 3], "skilled"],
+   ["mild needs + recovering",       [2, 0, 1, 1, 1, 3], "rehab"],
+   ["mild needs + in hospital now",  [2, 1, 1, 1, 3, 3], "rehab"]].forEach(
     ([label, picks, want]) => {
       const got = A(mk(picks)).level.id;
       check("routing: " + label, got === want, got);
@@ -1416,7 +1419,7 @@ check("the one live consent is required on the server",
   /* The result must still explain itself — that is the point of the
      assessment, and a routing fix must not cost the explanation. */
   check("the reassigned case still quotes the family's own answer",
-    A(mk([2, 0, 3, 2, 1, 2])).reason.length > 30);
+    A(mk([2, 0, 3, 2, 1, 3])).reason.length > 30);
 }
 
 /* ============================================================
@@ -1540,12 +1543,24 @@ check("the one live consent is required on the server",
      the version must have moved with the wording. */
   const fn = fsV.readFileSync("netlify/functions/plan-visit.mjs", "utf8");
   check("consent version moved with the wording",
-    fn.indexOf('const CONSENT_VERSION = "2026-10-19"') !== -1);
-  check("consent still names all four shared items",
-    fn.indexOf("name, phone, email and assessment result") !== -1);
+    fn.indexOf('const CONSENT_VERSION = "2026-10-26c"') !== -1);
+  check("consent says the owner decides, not that forwarding is automatic",
+    fn.indexOf("He reads every inquiry himself") !== -1 &&
+    fn.indexOf("decides how to follow up") !== -1);
+  check("consent names all five shared items, interest included",
+    fn.indexOf("name, phone, email, assessment result and what I am interested") !== -1 &&
+    fn.indexOf("to the person who runs this guide") !== -1);
+  /* The recipient is the ORGANISATION, not one of its departments.
+     "Admissions" is their skilled nursing desk; naming it for every
+     inquiry was wrong and would have been plainly wrong for someone
+     asking about independent living. */
   check("consent still names the recipient and purpose",
-    fn.indexOf("Westminster Place ") !== -1 &&
-    fn.indexOf("Admissions so they can contact me about a tour") !== -1);
+    /* Anchored inside a single string literal. The statement is built by
+       concatenation, so a phrase spanning the `" + "` break exists on the
+       rendered page but never in this file. */
+    fn.indexOf("Westminster Place to arrange a tour") !== -1);
+  check("consent does not name a single department as the recipient",
+    fn.indexOf("Westminster Place Admissions") === -1);
 }
 
 
@@ -1676,6 +1691,115 @@ check("still no persistent identifier storage",
     card.toLowerCase().indexOf("openings") === -1);
 }
 
+
+/* ---- EVERY PRE-EXISTING JOURNEY STILL ENDS WHERE IT DID -------------
+   Adding the independent-living lifestyle option shifted the household
+   answer indices and inserted a new rule. Hand-written cases cannot prove
+   that nothing else moved; there are 4096 ways to answer six questions.
+
+   fixtures/assessment-baseline-2026-10-26.json holds the outcome of all
+   4096 of them as the engine stood at commit 48900b0, before any of this
+   existed. It is FROZEN. Regenerating it from current code would turn
+   this check into a tautology, which is the self-invalidating-gate
+   mistake this repo has already paid for twice. */
+const BASE = require("./fixtures/assessment-baseline-2026-10-26.json");
+const IDS = BASE.ids;
+let drift = 0, firstDrift = "";
+BASE.cases.forEach((row) => {
+  const [picks, was] = row.split(":");
+  const answers = {};
+  IDS.forEach((id, k) => {
+    const v = Number(picks[k]);
+    answers[id] = id === "household" ? BASE.householdMap[v] : v;
+  });
+  const r = assess(answers);
+  const now = r.level ? r.level.id : "none";
+  if (now !== was || r.variant) {
+    drift++;
+    if (!firstDrift) firstDrift = picks + " was " + was + ", now " + now;
+  }
+});
+check("all 4096 pre-existing answer combinations route exactly as before",
+  drift === 0, drift ? drift + " changed; first: " + firstDrift : "0 changed");
+
+/* ---- THE LIFESTYLE ANSWER NEVER OVERRIDES A CARE SIGNAL -------------
+   Re-run all 4096 baseline combinations with household forced to the new
+   lifestyle option. Anyone who described a real need must still get their
+   care level; only the genuinely-no-needs answers may become the
+   lifestyle result. */
+let hijacked = 0, firstHijack = "", lifestyleHits = 0;
+BASE.cases.forEach((row) => {
+  const [picks] = row.split(":");
+  const answers = {};
+  IDS.forEach((id, k) => { answers[id] = Number(picks[k]); });
+  answers.household = 1;                       // the lifestyle option
+  const bare = { ...answers, household: 0 };   // same answers, "managing fine"
+  const expect = assess(bare);
+  const got = assess(answers);
+  if (got.variant === "lifestyle") {
+    lifestyleHits++;
+    /* It may only fire where NO care level was produced otherwise. */
+    if (expect.level) {
+      hijacked++;
+      if (!firstHijack) firstHijack = picks + " -> lifestyle over " + expect.level.id;
+    }
+  } else if (!expect.level ? false : got.level.id !== expect.level.id) {
+    hijacked++;
+    if (!firstHijack) firstHijack = picks + " -> " + got.level.id + " not " + expect.level.id;
+  }
+});
+check("the lifestyle answer never displaces a care or safety result",
+  hijacked === 0, hijacked ? hijacked + " hijacked; " + firstHijack : "0 hijacked");
+check("the lifestyle answer does reach a lifestyle result somewhere",
+  lifestyleHits > 0, lifestyleHits + " of 4096 reach it");
+
+/* The by-choice result must never be dressed as a care need. */
+const lifestyleResult = assess({ adl: 0, memory: 0, medical: 0, alone: 0,
+                                 hospital: 0, household: 1 });
+check("fit + wants less upkeep yields independent living, by choice",
+  lifestyleResult.level && lifestyleResult.level.id === "independent" &&
+  lifestyleResult.variant === "lifestyle",
+  (lifestyleResult.level || {}).id + "/" + lifestyleResult.variant);
+check("the by-choice reason says no care need is described",
+  /nothing here describes a need for care/.test(lifestyleResult.reason || ""));
+check("the by-choice result suggests no higher level of care",
+  (lifestyleResult.alsoConsider || []).length === 0,
+  ((lifestyleResult.alsoConsider || []).map((l) => l.id).join(",") || "none"));
+check("answering managing-fine six times still describes no need",
+  assess({ adl: 0, memory: 0, medical: 0, alone: 0, hospital: 0, household: 0 })
+    .status === "no_need");
+
+
+/* ---- FRAMING NEVER TOUCHES SCORING ---------------------------------
+   The self/parent choice rewords six questions. It must not be capable
+   of changing a single outcome. assess() is never handed the audience,
+   so this proves the only thing that could go wrong: that both framings
+   present the SAME options carrying the SAME signals, for every
+   question. Wording may differ; signals may not. */
+QUESTIONS.forEach((q) => {
+  check("both framings offer identical options: " + q.id,
+    q.options.every((o) => o && typeof o.label === "string"));
+  check("a self wording exists: " + q.id,
+    typeof q.textSelf === "string" && q.textSelf.length > 20);
+  check("the self wording drops the third person: " + q.id,
+    q.textSelf.indexOf("your parent") === -1 &&
+    q.textSelf.indexOf("their ") === -1, q.textSelf.slice(0, 48));
+  check("the parent wording is still third person: " + q.id,
+    /your parent or loved one|they |their /.test(q.text + " " + q.help),
+    q.text.slice(0, 44));
+  /* The selector offers "a parent or someone else", so the questions may
+     not narrow that back to a parent. Bare "your parent" excludes the
+     spouse, the sibling and the neighbour who are doing the same job. */
+  check("no question says bare \"your parent\": " + q.id,
+    q.text.indexOf("your parent") === -1 ||
+    q.text.indexOf("your parent or loved one") !== -1, q.text.slice(0, 50));
+});
+check("no question carries audience-specific SIGNALS",
+  QUESTIONS.every((q) => q.options.every((o) =>
+    !("signalsSelf" in o) && !("signalsParent" in o))));
+check("assess() takes answers only, never an audience",
+  /function assess\(answers\)/.test(
+    require("fs").readFileSync("assessment.js", "utf8")));
 
 const total = checks.length;
 const passed = checks.filter(Boolean).length;

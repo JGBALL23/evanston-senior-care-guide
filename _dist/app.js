@@ -85,6 +85,41 @@ let step = 0;
 let resultLevelId = null;
 let startedBeaconSent = false;
 
+/* ---------- WHO IS ANSWERING -------------------------------
+   "self" or "parent". Chosen before question one and used for
+   WORDING ONLY. It is never passed to assess(), never becomes a
+   signal, and never reaches the inquiry payload. Someone exploring
+   for themselves is not a different kind of applicant; they are the
+   same six answers in the second person. */
+let audience = null;
+
+function renderAudience() {
+  quizEl.innerHTML = `
+    <div class="aud">
+      <p class="aud__label">Before the six questions</p>
+      <h3 class="aud__h">Who are we thinking about?</h3>
+      <p class="aud__p">It changes nothing about the result &mdash; only how
+        the questions are worded.</p>
+      <div class="opts">
+        <button class="opt" data-aud="self">I&rsquo;m exploring options for
+          myself</button>
+        <button class="opt" data-aud="parent">I&rsquo;m helping a parent or
+          someone else</button>
+      </div>
+    </div>`;
+}
+
+function qText(q) {
+  return audience === "self" && q.textSelf ? q.textSelf : q.text;
+}
+function qHelp(q) {
+  return audience === "self" && q.helpSelf ? q.helpSelf : q.help;
+}
+
+/* The one pronoun pair the result copy needs. */
+function them() { return audience === "self" ? "you" : "your parent or loved one"; }
+function they() { return audience === "self" ? "you" : "they"; }
+
 function esc(value) {
   return String(value == null ? "" : value).replace(/[&<>"']/g, (c) => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
@@ -103,13 +138,14 @@ function renderQuestion() {
     <div class="q__bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"
          aria-valuenow="${pct}" aria-label="Assessment progress">
       <div class="q__fill" style="width:${pct}%"></div></div>
-    <p class="q__text">${esc(q.text)}</p>
-    <p class="q__help">${esc(q.help)}</p>
+    <p class="q__text">${esc(qText(q))}</p>
+    <p class="q__help">${esc(qHelp(q))}</p>
     <div class="opts">
       ${q.options.map((o, i) =>
         `<button class="opt" data-i="${i}">${esc(o.label)}</button>`).join("")}
     </div>
-    ${step > 0 ? '<button class="q__back" type="button">← Previous question</button>' : ""}
+    <button class="q__back" type="button">${step > 0
+      ? "\u2190 Previous question" : "\u2190 Change who this is about"}</button>
   `;
 
   if (step === 1) beacon(FUNNEL.q2);
@@ -274,15 +310,47 @@ function visitBlock(levelId, line) {
       </section>`;
 }
 
-function planFormBlock() {
+/* The interest list mirrors the levels this site already explains, plus an
+   honest "not sure". It is NOT a routing instruction: every inquiry reaches
+   the same inbox and the owner handles all of them himself. It exists so he
+   knows what the person actually wants before he replies. */
+const INTERESTS = [
+  { id: "independent", label: "Independent Living" },
+  { id: "assisted", label: "Assisted Living" },
+  { id: "memory", label: "Memory Care" },
+  { id: "skilled", label: "Skilled Nursing" },
+  { id: "unsure", label: "Not sure yet" }
+];
+
+function interestFor(levelId, variant) {
+  if (levelId === "independent") return "independent";
+  if (levelId === "assisted") return "assisted";
+  if (levelId === "memory") return "memory";
+  if (levelId === "skilled" || levelId === "rehab") return "skilled";
+  return "unsure";
+}
+
+function planFormBlock(levelId, variant) {
   return `
       <section class="res__block plan plan--primary" id="plan-visit">
         <h4 class="res__h plan__h">Want to see Westminster Place?</h4>
 
-        <p class="plan__lead">Leave your details and I&rsquo;ll pass them to
-          Westminster Place Admissions, the team that arranges tours. They
-          decide whether and when a tour happens &mdash; this form
+        <p class="plan__lead">Leave your details and I read them myself. If
+          you tick the box below, I pass them to Westminster Place so they
+          can arrange a tour &mdash; nothing is shared without that tick.
+          They decide whether and when a tour happens; this form
           doesn&rsquo;t book anything.</p>
+
+        <label class="plan__field plan__field--full">
+          <span class="plan__label">What are you interested in seeing?</span>
+          <select name="interest" class="plan__select" id="plan-interest">
+            ${INTERESTS.map((o) => `<option value="${o.id}"${
+              o.id === interestFor(levelId, variant) ? " selected" : ""
+            }>${esc(o.label)}</option>`).join("")}
+          </select>
+          <span class="plan__hint">Pre-filled from your result. Change it if
+            you are looking at something else.</span>
+        </label>
 
         <div class="plan__who">
           <p class="plan__who-h">Who runs this guide</p>
@@ -330,9 +398,10 @@ function planFormBlock() {
 
           <label class="plan__check">
             <input type="checkbox" name="consent" id="plan-consent" required>
-            <span>Share my name, phone, email and assessment result with
-              Westminster Place Admissions so they can contact me about a
-              tour.</span>
+            <span>Send my name, phone, email, assessment result and what
+              I am interested in to the person who runs this guide. He reads
+              every inquiry himself and decides how to follow up, and he may
+              pass my details to Westminster Place to arrange a tour.</span>
           </label>
 
           <button class="btn btn--primary plan__submit" type="submit">
@@ -394,13 +463,13 @@ function renderResult() {
       <p class="res__label">Your result</p>
       <h3 class="res__name">No higher level of care yet</h3>
       <p class="res__summary">Nothing in these answers describes a need to move
-        your parent into a care setting. That is a real answer, and it is worth
+        ${them()} into a care setting. That is a real answer, and it is worth
         writing down somewhere with today's date — so that when something does
         change, you can see what changed.</p>
       <div class="res__why">
         <p class="res__why-label">Worth doing anyway</p>
-        <p>Have the conversation now, while it is hypothetical. Ask your parent
-          what they would want. Find out where the important documents are. The
+        <p>Have the conversation now, while it is hypothetical. Ask
+          ${them()} what they would want. Find out where the important documents are. The
           families who struggle most are the ones deciding all of it inside
           seventy-two hours.</p>
         <p>Looking at a community before you need one is the cheapest version
@@ -410,7 +479,7 @@ function renderResult() {
       <section class="res__block visit">
         <h4 class="res__h">Three things worth doing this month</h4>
         <ul class="res__list">
-          <li>Ask your parent what they would want, while it is still
+          <li>Ask ${them()} what they would want, while it is still
             hypothetical and nobody is under pressure</li>
           <li>Find out where the important documents are kept &mdash; the will,
             the power of attorney, the insurance</li>
@@ -439,7 +508,7 @@ function renderResult() {
           </p>
         </div>
       </section>` : ""}
-      ${COLLECTING ? planFormBlock() : ""}
+      ${COLLECTING ? planFormBlock(resultLevelId, null) : ""}
 
       <div class="res__actions">
         <a class="btn btn--dark" href="#tour" data-beacon="tour">See the tour questions</a>
@@ -454,7 +523,12 @@ function renderResult() {
   const level = result.level;
   resultLevelId = level.id;
   const line = westminsterLine(level.id);
-  beacon(FUNNEL.result + level.id + ".txt");
+  /* The by-choice path gets its own beacon so the owner can separate
+     "independent living because something is slipping" from "independent
+     living because I want less house". Same page, different intent, and
+     the two are worth counting apart. */
+  const lifestyle = result.variant === "lifestyle";
+  beacon(FUNNEL.result + level.id + (lifestyle ? "-by-choice" : "") + ".txt");
 
   const reasons = (result.reasons || []).map((r) => `
     <li class="why__item">
@@ -466,9 +540,21 @@ function renderResult() {
     <div class="res">
       <p class="res__label">Your starting point</p>
       <h3 class="res__name">${esc(level.name)}</h3>
-      <p class="res__summary">Based on your answers, ${esc(level.name.toLowerCase())}
-        may be the level of support worth exploring first.
-        ${esc(level.summary)}</p>
+      ${lifestyle ? `
+      <p class="res__summary">Nothing in these answers describes a need for
+        care. What ${they()} described is wanting less house to look after
+        &mdash; and that is a lifestyle decision, not a care decision.
+        Independent living is the option built for it: ${audience === "self"
+        ? "your own apartment or cottage" : "a private apartment or cottage"},
+        with the cooking, cleaning, grounds and driving handled by somebody
+        else.</p>
+      <p class="res__summary">This is a move people make while they are well,
+        on their own terms, and usually years before any care question
+        arrives. Nothing here says ${they()} need${audience === "self" ? "" : "s"}
+        help.</p>` : `
+      <p class="res__summary">Based on these answers,
+        ${esc(level.name.toLowerCase())} may be the level of support worth
+        exploring first for ${them()}. ${esc(level.summary)}</p>`}
 
       <p class="res__jump">Jump to:
         <a href="#costs" data-beacon="costs">what it costs</a> &middot;
@@ -534,7 +620,7 @@ function renderResult() {
         </div>
       </section>
 
-      ${COLLECTING ? planFormBlock() : `
+      ${COLLECTING ? planFormBlock(level.id, result.variant) : `
       <section class="res__block plan" id="plan-visit">
         <h4 class="res__h">Interested in touring Westminster Place?</h4>
         <p class="plan__lead">There will be a way here to ask Westminster Place
@@ -594,7 +680,8 @@ function wireResult() {
       Object.keys(answers).forEach((k) => delete answers[k]);
       step = 0;
       beacon(FUNNEL.restarted);
-      renderQuestion();
+      audience = null;
+      renderAudience();
       document.getElementById("assessment").scrollIntoView({ block: "start" });
     });
   }
@@ -647,7 +734,8 @@ function wirePlanForm() {
          never become a free-text channel. Nothing the visitor
          clicked during the six questions appears in this object, and
          none of it is transmitted. */
-      careLevel: resultLevelId
+      careLevel: resultLevelId,
+      interest: (form.elements.interest || {}).value || "unsure"
     };
 
     /* Say the same things the server says, before the round trip,
@@ -722,6 +810,14 @@ function wirePlanForm() {
 }
 
 quizEl.addEventListener("click", (event) => {
+  const aud = event.target.closest("[data-aud]");
+  if (aud) {
+    audience = aud.getAttribute("data-aud");
+    beacon("/t/audience-" + audience + ".txt");
+    step = 0;
+    renderQuestion();
+    return;
+  }
   const opt = event.target.closest(".opt");
   if (opt) {
     if (!startedBeaconSent) { beacon(FUNNEL.started); startedBeaconSent = true; }
@@ -731,13 +827,17 @@ quizEl.addEventListener("click", (event) => {
     else renderQuestion();
     return;
   }
+  if (event.target.closest(".q__back") && step === 0) {
+    renderAudience();
+    return;
+  }
   if (event.target.closest(".q__back")) {
     step = Math.max(0, step - 1);
     renderQuestion();
   }
 });
 
-renderQuestion();
+renderAudience();
 
 /* ---------- SECTION BEACONS + REVEAL ------------------------ */
 document.addEventListener("click", (event) => {
