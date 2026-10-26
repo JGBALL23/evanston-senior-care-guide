@@ -1,11 +1,10 @@
 {
   "entries": {
     "https://evanstonseniorcareguide.com/guides/": {
-      "at": "2026-10-25T22:26:15Z",
-      "hash": "a20f2925da09c58739ce8358af9d2b6e0f57e7fd3edb9ec6ab21558600ba79f5",
-      "kind": "baseline",
-      "live_text_sha": "1d905e96d19496df7bb1cecb60182f6cea061b0c402270444b14e6eb126ed046",
-      "why": "already live and in the sitemap before IndexNow existed; recorded so it is not treated as new. Never submitted."
+      "at": "2026-10-26T14:59:12Z",
+      "hash": "c6aafb058e1ef4fb2a7c6361d409877e8f42bc093ec9c0de056d1fd7bef19167",
+      "kind": "submitted",
+      "status": 200
     },
     "https://evanstonseniorcareguide.com/guides/assisted-living-cost-illinois/": {
       "at": "2026-10-25T22:26:15Z",
@@ -75,6 +74,12 @@
       "hash": "6e609eefdee5debfd70c5715efeefe00f5ba68f18a5a34be9e5ab01c2067a70f",
       "kind": "submitted",
       "status": 202
+    },
+    "https://evanstonseniorcareguide.com/guides/va-aid-and-attendance-benefit/": {
+      "at": "2026-10-26T14:59:12Z",
+      "hash": "41fa9fa0e1e0df6870fe87697f822f855cf3e7a7a3dd45ab0b0a310e9ba67f33",
+      "kind": "submitted",
+      "status": 200
     }
   },
   "note": "kind=submitted means IndexNow accepted this URL and the status field is the real HTTP code it answered. kind=baseline means the URL was already live and discoverable through the sitemap before IndexNow existed; it was recorded so it stops counting as new, and it was NEVER submitted. A baseline entry carries no status, because no request was ever made.",
