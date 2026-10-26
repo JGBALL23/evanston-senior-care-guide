@@ -78,8 +78,21 @@ const QUESTIONS = [
     short: "Cooking, cleaning, driving, bills",
     text: "How are the everyday things going — cooking, cleaning, driving, bills?",
     help: "People usually lose these before they lose bathing and dressing.",
+    /* The lifestyle option, added 2026-10-26, is the only answer in the
+       whole assessment that describes a WANT rather than a need. It exists
+       because the six questions measured deficits only: someone fit and
+       independent who is simply tired of the house answered "managing
+       fine" six times, matched no rule at all, and was told nothing here
+       describes a need for care. True, and a dead end for exactly the
+       person independent living is built for.
+
+       It sits at index 1 so the list still reads from most to least
+       capable. Shifting the iadl options down by one is safe: answers are
+       held in memory for one session and nothing persists an index. */
     options: [
       { label: "Managing fine", signals: {} },
+      { label: "Managing fine — but the house and yard are more work than I want",
+        signals: { lifestyle: 1 } },
       { label: "Slipping — meals skipped, mail piling up", signals: { iadl: 1 } },
       { label: "Needs help with most of it", signals: { iadl: 2 } },
       { label: "Cannot do these at all anymore", signals: { iadl: 3 } }
@@ -276,6 +289,31 @@ const RULES = [
     when: (s) => s.iadl >= 1 || s.memory >= 1,
     because: (a) => 'the everyday things are slipping — "' + a.household +
       '" — while personal care is still managed, which is the independent living picture'
+  },
+  {
+    /* INDEPENDENT LIVING BY CHOICE — added 2026-10-26, and deliberately
+       LAST so it can never displace a safety rule. Every rule above fires
+       on a care or safety signal; this one fires only when none of them
+       did, and only when the person said the upkeep of the house is more
+       work than they want.
+
+       The `when` re-states the absence of every deficit signal rather
+       than trusting rule order alone. Order already protects this, but a
+       rule that quietly becomes reachable after someone reorders the list
+       is the kind of bug that routes a person who needs help to a
+       lifestyle page. Two locks, not one.
+
+       variant: "lifestyle" tells the result page to frame this as a move
+       someone is choosing, not a level of care someone needs. */
+    level: "independent",
+    variant: "lifestyle",
+    cites: ["household", "adl", "alone"],
+    when: (s) => s.lifestyle >= 1 &&
+                 !s.adl && !s.memory && !s.medical && !s.supervision &&
+                 !s.iadl && !s.unsafe && !s.recent,
+    because: (a) => 'nothing here describes a need for care — the answer on ' +
+      'the everyday things, "' + a.household + '", describes wanting less ' +
+      'house to look after, which is the question independent living answers'
   }
 ];
 
@@ -349,6 +387,10 @@ function assess(answers) {
   return {
     status: "matched",
     level: CARE_LEVELS[rule.level],
+    /* "lifestyle" only on the by-choice independent living rule. Absent
+       everywhere else, so no care result can be rendered as a lifestyle
+       move by accident. */
+    variant: rule.variant || null,
     reason: rule.because(chosen),
     reasons: reasonsFor(rule, answers, chosen),
     signals,

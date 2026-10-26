@@ -1564,7 +1564,7 @@ FOOT = """  </div>
     <p>Independently developed by an employee of Westminster Place. This is not
       an official Westminster Place website. I receive no referral fees from
       Westminster Place. If you ask to be contacted about a tour, your details
-      are passed to their Admissions team because that is what you asked for;
+      are passed to Westminster Place because that is what you asked for;
       nothing is passed on unless you tick that permission box.</p>
     <p class="foot__fine">These guides are educational and are not medical,
       legal or financial advice. Confirm anything that matters with the agency,
@@ -2006,8 +2006,13 @@ def write_indexnow_key():
     return False
 
 
+# index.html added 2026-10-26. The homepage existed as TWO hand-maintained
+# copies, root and _dist, with nothing keeping them in step: editing the
+# root one and rebuilding left the published homepage untouched, silently.
+# Exactly the drift that already bit styles.css. The generator syncs it now
+# and check-guides fails the build if the two ever disagree.
 SHARED_ASSETS = ["styles.css", "app.js", "assessment.js", "nav.js",
-                 "guides.js"]
+                 "guides.js", "index.html"]
 
 
 def sync_assets():

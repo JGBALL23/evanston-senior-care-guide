@@ -274,15 +274,47 @@ function visitBlock(levelId, line) {
       </section>`;
 }
 
-function planFormBlock() {
+/* The interest list mirrors the levels this site already explains, plus an
+   honest "not sure". It is NOT a routing instruction: every inquiry reaches
+   the same inbox and the owner handles all of them himself. It exists so he
+   knows what the person actually wants before he replies. */
+const INTERESTS = [
+  { id: "independent", label: "Independent Living" },
+  { id: "assisted", label: "Assisted Living" },
+  { id: "memory", label: "Memory Care" },
+  { id: "skilled", label: "Skilled Nursing" },
+  { id: "unsure", label: "Not sure yet" }
+];
+
+function interestFor(levelId, variant) {
+  if (levelId === "independent") return "independent";
+  if (levelId === "assisted") return "assisted";
+  if (levelId === "memory") return "memory";
+  if (levelId === "skilled" || levelId === "rehab") return "skilled";
+  return "unsure";
+}
+
+function planFormBlock(levelId, variant) {
   return `
       <section class="res__block plan plan--primary" id="plan-visit">
         <h4 class="res__h plan__h">Want to see Westminster Place?</h4>
 
-        <p class="plan__lead">Leave your details and I&rsquo;ll pass them to
-          Westminster Place Admissions, the team that arranges tours. They
-          decide whether and when a tour happens &mdash; this form
+        <p class="plan__lead">Leave your details and I read them myself. If
+          you tick the box below, I pass them to Westminster Place so they
+          can arrange a tour &mdash; nothing is shared without that tick.
+          They decide whether and when a tour happens; this form
           doesn&rsquo;t book anything.</p>
+
+        <label class="plan__field plan__field--full">
+          <span class="plan__label">What are you interested in seeing?</span>
+          <select name="interest" class="plan__select" id="plan-interest">
+            ${INTERESTS.map((o) => `<option value="${o.id}"${
+              o.id === interestFor(levelId, variant) ? " selected" : ""
+            }>${esc(o.label)}</option>`).join("")}
+          </select>
+          <span class="plan__hint">Pre-filled from your result. Change it if
+            you are looking at something else.</span>
+        </label>
 
         <div class="plan__who">
           <p class="plan__who-h">Who runs this guide</p>
@@ -330,9 +362,9 @@ function planFormBlock() {
 
           <label class="plan__check">
             <input type="checkbox" name="consent" id="plan-consent" required>
-            <span>Share my name, phone, email and assessment result with
-              Westminster Place Admissions so they can contact me about a
-              tour.</span>
+            <span>Share my name, phone, email, assessment result and what
+              I am interested in with Westminster Place, so they can contact
+              me about a tour.</span>
           </label>
 
           <button class="btn btn--primary plan__submit" type="submit">
@@ -439,7 +471,7 @@ function renderResult() {
           </p>
         </div>
       </section>` : ""}
-      ${COLLECTING ? planFormBlock() : ""}
+      ${COLLECTING ? planFormBlock(resultLevelId, null) : ""}
 
       <div class="res__actions">
         <a class="btn btn--dark" href="#tour" data-beacon="tour">See the tour questions</a>
@@ -454,7 +486,12 @@ function renderResult() {
   const level = result.level;
   resultLevelId = level.id;
   const line = westminsterLine(level.id);
-  beacon(FUNNEL.result + level.id + ".txt");
+  /* The by-choice path gets its own beacon so the owner can separate
+     "independent living because something is slipping" from "independent
+     living because I want less house". Same page, different intent, and
+     the two are worth counting apart. */
+  const lifestyle = result.variant === "lifestyle";
+  beacon(FUNNEL.result + level.id + (lifestyle ? "-by-choice" : "") + ".txt");
 
   const reasons = (result.reasons || []).map((r) => `
     <li class="why__item">
@@ -466,9 +503,19 @@ function renderResult() {
     <div class="res">
       <p class="res__label">Your starting point</p>
       <h3 class="res__name">${esc(level.name)}</h3>
+      ${lifestyle ? `
+      <p class="res__summary">Nothing in your answers describes a need for
+        care. What you described is wanting less house to look after &mdash;
+        and that is a lifestyle decision, not a care decision. Independent
+        living is the option built for it: your own apartment or cottage,
+        with the cooking, cleaning, grounds and driving handled by somebody
+        else.</p>
+      <p class="res__summary">This is a move people make while they are
+        well, on their own terms, and usually years before any care question
+        arrives. Nothing here says you need help.</p>` : `
       <p class="res__summary">Based on your answers, ${esc(level.name.toLowerCase())}
         may be the level of support worth exploring first.
-        ${esc(level.summary)}</p>
+        ${esc(level.summary)}</p>`}
 
       <p class="res__jump">Jump to:
         <a href="#costs" data-beacon="costs">what it costs</a> &middot;
@@ -534,7 +581,7 @@ function renderResult() {
         </div>
       </section>
 
-      ${COLLECTING ? planFormBlock() : `
+      ${COLLECTING ? planFormBlock(level.id, result.variant) : `
       <section class="res__block plan" id="plan-visit">
         <h4 class="res__h">Interested in touring Westminster Place?</h4>
         <p class="plan__lead">There will be a way here to ask Westminster Place
@@ -647,7 +694,8 @@ function wirePlanForm() {
          never become a free-text channel. Nothing the visitor
          clicked during the six questions appears in this object, and
          none of it is transmitted. */
-      careLevel: resultLevelId
+      careLevel: resultLevelId,
+      interest: (form.elements.interest || {}).value || "unsure"
     };
 
     /* Say the same things the server says, before the round trip,

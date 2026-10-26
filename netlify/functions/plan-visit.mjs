@@ -115,13 +115,29 @@ const CARE_LEVELS = {
                  dept: "General Inquiries", tel: "(847) 570-3422" }
 };
 
+/* What the visitor SAID they want to see, which is not always what the
+   assessment derived. A fixed list for the same reason careLevel is one:
+   free text here would turn an inquiry alert into an open channel.
+
+   This is NOT a routing instruction. Every inquiry reaches the same
+   inbox and the owner handles all of them himself; this only tells him
+   what the person is actually asking about before he replies. */
+const INTERESTS = {
+  independent: "Independent Living",
+  assisted: "Assisted Living",
+  memory: "Memory Care",
+  skilled: "Skilled Nursing",
+  unsure: "Not sure yet"
+};
+
 const ALLOWED_KEYS = [
-  "firstName", "lastName", "email", "phone", "consent", "careLevel"
+  "firstName", "lastName", "email", "phone", "consent", "careLevel",
+  "interest"
 ];
 
 /* ---------- the consent, stored verbatim --------------------
    This submission authorises a transfer: the name and contact
-   details are passed by hand to Westminster Place Admissions so
+   details are passed by hand to Westminster Place so
    they can get in touch about a tour. A consent that permits a
    transfer has to be evidenced by what the person actually
    agreed to, not by a boolean on its own — "they ticked a box"
@@ -133,14 +149,23 @@ const ALLOWED_KEYS = [
    copy in app.js are asserted identical by test.js, which is
    what stops them drifting apart. */
 const CONSENT_STATEMENT =
-  "Share my name, phone, email and assessment result with Westminster Place " +
-  "Admissions so they can contact me about a tour.";
-/* Bumped with the wording on 2026-10-19. The sentence was shortened
-   because the old one repeated a disclaimer the form already made once;
-   what it PERMITS is unchanged — same four items, same recipient, same
-   purpose. Records signed under earlier wording keep their own version,
-   so what each person agreed to stays recoverable. */
-const CONSENT_VERSION = "2026-10-19";
+  "Share my name, phone, email, assessment result and what I am interested " +
+  "in with Westminster Place, so they can contact me about a tour.";
+/* Bumped 2026-10-26. Two changes, and the permission widened by exactly
+   one field, so the version moves with it.
+
+   1. The selected interest is now shared as well. A fifth item, named.
+   2. The recipient is now named as the organisation rather than one of
+      its departments. The old wording named their SKILLED NURSING desk — their own published
+      directory lists Independent Living, Assisted Living & Memory Care and
+      Skilled Nursing Admissions as separate teams. Naming one department
+      for every inquiry was wrong, and would have been plainly wrong for
+      someone asking about independent living. The recipient is the
+      organisation; the owner reads every inquiry himself and passes it on.
+
+   Records signed under earlier wording keep their own version, so what
+   each person actually agreed to stays recoverable. */
+const CONSENT_VERSION = "2026-10-26";
 
 /* ---------- small helpers ----------------------------------- */
 const clean = (value, max) =>
@@ -203,6 +228,13 @@ function validate(payload) {
   /* Refused rather than silently blanked: an unrecognised value means
      something upstream changed, and guessing would put a wrong
      Admissions team in the notification. */
+  /* An absent or unrecognised interest falls back to "unsure" rather than
+     rejecting the submission. A dropdown this person never touched must
+     never be the reason a real inquiry is lost. */
+  const rawInterest = clean(payload.interest, 20);
+  const interest = Object.prototype.hasOwnProperty.call(INTERESTS, rawInterest)
+    ? rawInterest : "unsure";
+
   const careLevel = clean(payload.careLevel, 20);
   if (!Object.prototype.hasOwnProperty.call(CARE_LEVELS, careLevel)) {
     problems.push("The assessment result could not be read. Retake the six questions.");
@@ -214,7 +246,8 @@ function validate(payload) {
 
   return {
     problems,
-    record: { firstName, lastName, email, phone: phoneRaw, phoneDigits, careLevel }
+    record: { firstName, lastName, email, phone: phoneRaw, phoneDigits, careLevel,
+              interest }
   };
 }
 
@@ -268,6 +301,8 @@ async function writeDurableRecord(record, submissionId, receivedAt) {
     email: record.email,
     phone: record.phone,
     careLevel: record.careLevel,
+    interest: record.interest || "unsure",
+    interestName: INTERESTS[record.interest] || INTERESTS.unsure,
     careLevelName: (CARE_LEVELS[record.careLevel] || {}).name || "",
     admissionsDept: (CARE_LEVELS[record.careLevel] || {}).dept || "",
     admissionsPhone: (CARE_LEVELS[record.careLevel] || {}).tel || "",
@@ -351,6 +386,7 @@ function notificationText(record, submissionId, receivedAt) {
     "PHONE:             " + (record.phone || "not given"),
     "EMAIL:             " + (record.email || "not given"),
     "",
+    "INTERESTED IN:     " + (INTERESTS[record.interest] || INTERESTS.unsure),
     "ASSESSMENT RESULT: " + (lvl.name || "unknown"),
     "ADMISSIONS TEAM:   " + (lvl.dept || "unknown") + " - " + (lvl.tel || ""),
     "",
@@ -367,7 +403,7 @@ function notificationText(record, submissionId, receivedAt) {
     "This record was created before any referral. It does not mean a",
     "tour was scheduled, and it is not a confirmed tour. The family",
     "gave permission for these contact details to be passed to",
-    "Westminster Place Admissions.",
+    "Westminster Place.",
     "",
     "This email contains personal information and is NOT covered by",
     "the site 180-day deletion policy. Clear it from this mailbox",
