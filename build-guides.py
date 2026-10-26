@@ -103,6 +103,15 @@ F = {
     "va_survivor_aa_1dep": "$22,304",
 }
 
+# DERIVED, never typed. VA publishes the Aid and Attendance rate annually; a
+# family comparing it against a monthly care bill has to divide by twelve, and
+# a hand-typed monthly figure is exactly the kind of number that drifts when
+# the December COLA moves the annual one. Computed from the annual figure so
+# the two can never disagree, and floored rather than rounded up so the
+# comparison never overstates what VA pays.
+F["va_mapr_aa_single_month"] = "$%s" % format(
+    int(F["va_mapr_aa_single"].lstrip("$").replace(",", "")) // 12, ",")
+
 SRC = {
     "carescout": ('CareScout 2025 Cost of Care Survey, published 2026',
                   'https://assets.carescout.com/x/5c90319b6a/298701.pdf'),
@@ -1319,31 +1328,47 @@ GUIDES = [
                 "day in bed&mdash;because of illness&rdquo;</li>"
                 "<li>&ldquo;You&rsquo;re a patient in a nursing home due to the loss of "
                 "mental or physical abilities related to a disability&rdquo;</li>"
-                "<li>Eyesight of 5/200 or less in both eyes, even with glasses or contact "
-                "lenses, or a visual field contracted to 5 degrees or less</li></ul>",
+                "<li>&ldquo;Your eyesight is limited (even with glasses or contact lenses "
+                "you have only 5/200 or less in both eyes; or concentric contraction of "
+                "the visual field to 5 degrees or less)&rdquo;</li></ul>",
                 "<p>The <strong>Housebound</strong> rate is separate: it is for someone "
-                "who &ldquo;spends most of your time in your home because of a permanent "
-                "disability.&rdquo; VA.gov is explicit that a person cannot receive both "
+                "who, in VA.gov&rsquo;s words, will &ldquo;spend most of your time in "
+                "your home because of a permanent disability (a disability that "
+                "doesn&rsquo;t go away).&rdquo; VA.gov is explicit that a person cannot receive both "
                 "at the same time &mdash; it is one increased rate or the other, never "
                 "both stacked together.</p>",
             ]),
             ("Who qualifies for the pension underneath it", [
                 "<p>Before either add-on can apply, the veteran has to qualify for the "
-                "Veterans Pension itself. Two things must both be true: an honourable "
-                "discharge (an other-than-honourable, bad conduct or dishonorable "
-                "discharge can disqualify a claim, though a discharge upgrade or a "
-                "Character of Discharge review can be requested), and income and net "
-                "worth within limits Congress sets.</p>",
-                "<p>Service has to clear one of these bars, depending on when active duty "
-                "began: at least 90 days of active duty with at least one day during a "
-                "wartime period for service that started before 8 September 1980; at "
-                "least 24 months, or the full period ordered, with at least one wartime "
-                "day, for enlisted service starting after 7 September 1980. The recognised "
-                "wartime periods include World War II (7 December 1941 &ndash; 31 December "
-                "1946), the Korean conflict (27 June 1950 &ndash; 31 January 1955), the "
-                "Vietnam era (1 November 1955 onward for service in-country, 5 August 1964 "
-                "onward elsewhere), and the Gulf War (2 August 1990 through a date still to "
-                "be set by law).</p>",
+                "Veterans Pension itself. Two things must both be true. The first is "
+                "the discharge, and the bar is lower than most families assume: VA.gov "
+                "requires only that the veteran &ldquo;didn&rsquo;t receive a "
+                "dishonorable discharge&rdquo; &mdash; <strong>not</strong> that the "
+                "discharge was honourable. An other-than-honorable or bad-conduct "
+                "discharge may still make a claim ineligible, and VA.gov describes two "
+                "routes in that case: asking for a discharge upgrade, or requesting a "
+                "Character of Discharge review. Do not rule a parent out because the "
+                "paperwork does not say &ldquo;honorable.&rdquo; The second is income "
+                "and net worth within limits Congress sets.</p>",
+                "<p>The service record then has to clear <strong>one</strong> of three "
+                "bars, and which one depends on when active duty began:</p>"
+                "<ul class=\"res__list\">"
+                "<li><strong>Started before 8 September 1980:</strong> at least 90 days "
+                "of active duty, with at least one day during a wartime period.</li>"
+                "<li><strong>Enlisted, started after 7 September 1980:</strong> at least "
+                "24 months, or the full period ordered, with at least one wartime "
+                "day.</li>"
+                "<li><strong>An officer who started after 16 October 1981:</strong> had "
+                "not previously served at least 24 months on active duty.</li></ul>",
+                "<p>The wartime periods VA recognises include:</p>"
+                "<ul class=\"res__list\">"
+                "<li>World War II &mdash; 7 December 1941 to 31 December 1946</li>"
+                "<li>Korean conflict &mdash; 27 June 1950 to 31 January 1955</li>"
+                "<li>Vietnam era &mdash; 1 November 1955 to 7 May 1975 for service in the "
+                "Republic of Vietnam; 5 August 1964 to 7 May 1975 for service "
+                "elsewhere</li>"
+                "<li>Gulf War &mdash; 2 August 1990 through a future date to be set by "
+                "law or presidential proclamation</li></ul>",
                 "<p>Separately, the veteran must meet at least one of: aged 65 or older; a "
                 "permanent and total disability; a long-term nursing home patient because "
                 "of a disability; or already receiving Social Security Disability Insurance "
@@ -1373,6 +1398,15 @@ GUIDES = [
                 "these expenses &ldquo;may reduce your income for VA purposes.&rdquo; This "
                 "guide will not do that subtraction for a hypothetical family; the real "
                 "figure depends on income and medical expenses only VA can verify.</p>",
+                "<p>Worth sizing honestly before you plan around it. The highest Aid and "
+                "Attendance rate for a veteran with no dependents, " +
+                F["va_mapr_aa_single"] + " a year, works out to roughly " +
+                F["va_mapr_aa_single_month"] + " a month &mdash; against a median "
+                "Illinois assisted living cost of " + F["al_median"] + " a month, from "
+                "<a href=\"/guides/assisted-living-cost-illinois/\">this site&rsquo;s "
+                "cost guide</a>. At the ceiling it covers a useful share of the bill, "
+                "not the bill. Aid and Attendance is a contribution toward care costs, "
+                "and it is not a programme that pays for assisted living.</p>",
                 "<p>Net worth is capped separately, at <strong>" + F["va_networth_limit"] +
                 "</strong> for the period running 1 December 2025 through 30 November "
                 "2026, and it includes a spouse&rsquo;s net worth too. A house, a car and "
@@ -1407,12 +1441,17 @@ GUIDES = [
                 "the survivor&rsquo;s countable income, not flat payments.</p>",
             ]),
             ("How to apply", [
-                "<p>VA.gov lists five ways to apply for the underlying pension: apply "
-                "online; upload a completed VA Form 21P-527EZ through the QuickSubmit "
-                "tool; mail the completed form to the Pension Intake Center, Department "
-                "of Veterans Affairs, PO Box 5365, Janesville, WI 53547-5365; bring it to "
-                "a VA regional office in person; or get help from an accredited attorney, "
-                "claims agent, or Veterans Service Organization representative.</p>",
+                "<p>VA.gov lists five ways to apply for the underlying pension:</p>"
+                "<ul class=\"res__list\">"
+                "<li>Apply online.</li>"
+                "<li>Fill out VA Form 21P-527EZ and upload it through the QuickSubmit "
+                "tool.</li>"
+                "<li>Fill out VA Form 21P-527EZ and post it to: Department of Veterans "
+                "Affairs, Pension Intake Center, PO Box 5365, Janesville, WI "
+                "53547-5365.</li>"
+                "<li>Bring the completed form to a VA regional office in person.</li>"
+                "<li>Get help from an accredited attorney, claims agent, or Veterans "
+                "Service Organization representative.</li></ul>",
                 "<p>Aid and Attendance or Housebound specifically also needs VA Form "
                 "21-2680, &ldquo;Examination for Housebound Status or Permanent Need for "
                 "Regular Aid and Attendance,&rdquo; completed in part by a medical "
