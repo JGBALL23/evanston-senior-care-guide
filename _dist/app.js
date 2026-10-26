@@ -467,11 +467,30 @@ function renderResult() {
     resultLevelId = "no_need";
     quizEl.innerHTML = `
       <p class="res__label">Your result</p>
-      <h3 class="res__name">No higher level of care yet</h3>
+      <h3 class="res__name">No significant care needs identified</h3>
+      <section class="res__block il" id="independent-living">
+        <p class="il__eyebrow">A lifestyle option, not a care recommendation</p>
+        <h4 class="il__h">Independent Living</h4>
+        <p class="il__lead">A private apartment or cottage with the cooking,
+          cleaning, grounds and driving handled for you. No personal care,
+          no nursing floor.</p>
+        <p class="il__lead"><strong>Entirely voluntary.</strong> Nothing in
+          this assessment recommends it, and nothing here is medical advice
+          — people move for the upkeep, not the health.</p>
+        <div class="il__acts">
+          <a class="btn btn--primary il__btn"
+             href="/guides/independent-living-evanston/"
+             data-beacon="il-guide">What independent living is</a>
+          <a class="btn btn--ghost il__btn" href="#plan-visit"
+             data-beacon="il-tour">Ask about an independent living tour</a>
+        </div>
+      </section>
+      
       <p class="res__summary">Nothing in these answers describes a need to move
         ${them()} into a care setting. That is a real answer, and it is worth
         writing down somewhere with today's date — so that when something does
         change, you can see what changed.</p>
+
       <div class="res__why">
         <p class="res__why-label">Worth doing anyway</p>
         <p>Have the conversation now, while it is hypothetical. Ask
@@ -496,25 +515,6 @@ function renderResult() {
           back and retake this if that stops being true.</p>
       </section>
 
-      <section class="res__block il">
-        <h4 class="res__h">If the question is the house, not health</h4>
-        <p>Nothing in these answers describes a need for care, so this is
-          the one option worth knowing about anyway: <strong>independent
-          living</strong>. It is housing, not care &mdash; a private
-          apartment or cottage with the cooking, cleaning, grounds and
-          driving handled by somebody else. No help with bathing or
-          dressing, and generally no nursing staff on the floor.</p>
-        <p>People move for the upkeep, not the health. It is a decision
-          made while someone is well, years before any care question
-          arrives, and nothing here says ${audience === "self"
-          ? "you need" : "your parent or loved one needs"} anything at
-          all.</p>
-        <p class="il__go"><a href="/guides/independent-living-evanston/"
-          data-beacon="il-guide">Read what independent living actually
-          is</a> &mdash; what sits in the monthly fee, how it differs from
-          licensed assisted living, and why no Illinois median figure
-          appears on it.</p>
-      </section>
       ${COLLECTING ? `
       <section class="res__block local">
         <div class="wp">

@@ -1033,16 +1033,49 @@ check("the no-need branch was located", noNeedBranch.length > 200);
    saw independent living. The lifestyle answer is option two of five on
    question six; nobody reads that as the independent-living door. */
 check("the no-need result names independent living prominently",
-  /<section class="res__block il">/.test(noNeedBranch));
+  /<section class="res__block il" id="independent-living">/.test(noNeedBranch));
+check("it is titled Independent Living at heading weight",
+  /<h4 class="il__h">Independent Living<\/h4>/.test(noNeedBranch));
+/* The eyebrow does the ethical work: it disclaims a recommendation BEFORE
+   naming the option, so prominence can never read as a diagnosis. */
+check("the disclaimer sits ABOVE the name, not below it",
+  noNeedBranch.indexOf("not a care recommendation") <
+  noNeedBranch.indexOf('<h4 class="il__h">'));
+check("it says the move is entirely voluntary",
+  /Entirely voluntary/.test(noNeedBranch));
+check("it says nothing here is medical advice",
+  /nothing here is medical advice/.test(noNeedBranch));
+check("it offers both a guide link and a tour action",
+  noNeedBranch.indexOf('href="/guides/independent-living-evanston/"') !== -1 &&
+  noNeedBranch.indexOf('href="#plan-visit"') !== -1);
+/* Buried is the defect being fixed. The section must precede the
+   secondary "worth doing anyway" block, not follow it. */
+/* Buried is the defect. It must follow the conclusion heading
+   IMMEDIATELY -- ahead of the summary paragraph, which is what put it
+   238px down the page when measured in a real browser. */
+check("independent living comes straight after the conclusion heading",
+  noNeedBranch.indexOf('class="res__block il"') <
+  noNeedBranch.indexOf('class="res__summary"'));
+check("independent living appears BEFORE the worth-doing-anyway block",
+  noNeedBranch.indexOf('class="res__block il"') <
+  noNeedBranch.indexOf("Worth doing anyway"));
+check("the conclusion stays honest",
+  /No significant care needs identified/.test(noNeedBranch));
 check("the no-need result links to the independent living guide",
   noNeedBranch.indexOf('href="/guides/independent-living-evanston/"') !== -1);
+/* The honest conclusion now lives in the heading and the summary, not in
+   the independent-living section, which is the point of the refinement. */
 check("the no-need result still says no care is needed",
-  /describes a need for care/.test(noNeedBranch));
+  /No significant care needs identified/.test(noNeedBranch) &&
+  /describes a need to move/.test(noNeedBranch));
 check("the no-need result offers no care level as a substitute",
   noNeedBranch.indexOf("assisted living may be") === -1 &&
   noNeedBranch.indexOf("worth exploring first") === -1);
 check("a no-care-need result pre-selects independent living on the form",
   /if \(levelId === "no_need"\) return "independent";/.test(appSrcRaw));
+check("no long paragraph in the section: every line under 240 chars",
+  (noNeedBranch.match(/<p class="il__lead">[\s\S]*?<\/p>/g) || [])
+    .every((t) => t.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").length < 240));
 check("the by-choice result also links to the guide",
   (appSrcRaw.match(/href="\/guides\/independent-living-evanston\/"/g) || [])
     .length >= 2,
