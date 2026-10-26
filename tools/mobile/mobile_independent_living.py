@@ -142,8 +142,8 @@ async def main():
                    "your parent" not in (q1 or "") and (q1 or "").startswith("Do you"),
                    (q1 or "")[:52])
             else:
-                ck("%s: Q1 still asks about a parent" % label,
-                   "your parent" in (q1 or ""), (q1 or "")[:52])
+                ck("%s: Q1 is inclusive, not parent-only" % label,
+                   "your parent or loved one" in (q1 or ""), (q1 or "")[:58])
 
             picks = [0, 0, 0, 0, 0, 1]
             for i, choice in enumerate(picks):
@@ -177,8 +177,9 @@ async def main():
                    "says you need help" in (body or ""),
                    "second person" if "says you need help" in (body or "") else "MISSING")
             else:
-                ck("PARENT: result speaks about the parent",
-                   "says they need" in (body or "") or "your parent" in (body or ""))
+                ck("PARENT: result speaks about them inclusively",
+                   "says they need" in (body or "") or
+                   "your parent or loved one" in (body or ""))
             ck("%s: no horizontal scroll on the result" % label,
                not await js("document.documentElement.scrollWidth > "
                             "document.documentElement.clientWidth + 1"))

@@ -117,7 +117,7 @@ function qHelp(q) {
 }
 
 /* The one pronoun pair the result copy needs. */
-function them() { return audience === "self" ? "you" : "your parent"; }
+function them() { return audience === "self" ? "you" : "your parent or loved one"; }
 function they() { return audience === "self" ? "you" : "they"; }
 
 function esc(value) {
@@ -463,13 +463,13 @@ function renderResult() {
       <p class="res__label">Your result</p>
       <h3 class="res__name">No higher level of care yet</h3>
       <p class="res__summary">Nothing in these answers describes a need to move
-        your parent into a care setting. That is a real answer, and it is worth
+        ${them()} into a care setting. That is a real answer, and it is worth
         writing down somewhere with today's date — so that when something does
         change, you can see what changed.</p>
       <div class="res__why">
         <p class="res__why-label">Worth doing anyway</p>
-        <p>Have the conversation now, while it is hypothetical. Ask your parent
-          what they would want. Find out where the important documents are. The
+        <p>Have the conversation now, while it is hypothetical. Ask
+          ${them()} what they would want. Find out where the important documents are. The
           families who struggle most are the ones deciding all of it inside
           seventy-two hours.</p>
         <p>Looking at a community before you need one is the cheapest version
@@ -479,7 +479,7 @@ function renderResult() {
       <section class="res__block visit">
         <h4 class="res__h">Three things worth doing this month</h4>
         <ul class="res__list">
-          <li>Ask your parent what they would want, while it is still
+          <li>Ask ${them()} what they would want, while it is still
             hypothetical and nobody is under pressure</li>
           <li>Find out where the important documents are kept &mdash; the will,
             the power of attorney, the insurance</li>

@@ -16,7 +16,7 @@ const QUESTIONS = [
   {
     id: "adl",
     short: "Help with bathing, dressing or the bathroom",
-    text: "Does your parent need hands-on help with bathing, dressing or using the bathroom?",
+    text: "Does your parent or loved one need hands-on help with bathing, dressing or using the bathroom?",
     textSelf: "Do you need hands-on help with bathing, dressing or using the bathroom?",
     helpSelf: "These are the tasks that most often decide what level of care a community can provide.",
     help: "These are the tasks that most often decide what level of care a community can provide.",
@@ -30,7 +30,7 @@ const QUESTIONS = [
   {
     id: "memory",
     short: "Memory and judgment",
-    text: "How is your parent's memory and judgment?",
+    text: "How is your parent or loved one's memory and judgment?",
     textSelf: "How is your memory and judgment?",
     helpSelf: "Answer about the last few months, not your worst single day.",
     help: "Answer about the last few months, not their worst single day.",
@@ -44,7 +44,7 @@ const QUESTIONS = [
   {
     id: "medical",
     short: "Day-to-day medical needs",
-    text: "What medical help does your parent need day to day?",
+    text: "What medical help does your parent or loved one need day to day?",
     textSelf: "What medical help do you need day to day?",
     helpSelf: "Think about what a nurse would have to do, not what a doctor prescribes.",
     help: "Think about what a nurse would have to do, not what a doctor prescribes.",
@@ -58,7 +58,7 @@ const QUESTIONS = [
   {
     id: "alone",
     short: "Safe to be alone",
-    text: "Is it safe for your parent to be alone?",
+    text: "Is it safe for your parent or loved one to be alone?",
     textSelf: "Is it safe for you to be on your own?",
     helpSelf: "This question decides more than almost any other.",
     help: "This question decides more than almost any other.",
@@ -72,7 +72,7 @@ const QUESTIONS = [
   {
     id: "hospital",
     short: "Hospital in the last 30 days",
-    text: "Has your parent been in the hospital in the last 30 days?",
+    text: "Has your parent or loved one been in the hospital in the last 30 days?",
     textSelf: "Have you been in the hospital in the last 30 days?",
     helpSelf: "A recent stay often changes the answer completely, and it is usually temporary.",
     help: "A recent stay often changes the answer completely, and it is usually temporary.",
@@ -115,9 +115,12 @@ const QUESTIONS = [
 /* ---------- 1b. WHO IS ANSWERING ---------------------------
    Framing only. Every question below carries a second wording for
    someone answering about themselves, because the original six were
-   written the way an adult child describes a parent and an
-   independent older adult reading "your parent" is being told the
-   page is not for them.
+   written in the third person about someone else, and an independent
+   older adult reading "does your parent need help" is being told in the
+   first line that the page is not for them. The parent framing also says
+   "or loved one", because the selector offers "a parent or someone else"
+   and plenty of people doing this are a spouse, a sibling or a
+   neighbour.
 
    `textSelf` and `helpSelf` change NOTHING about scoring. The
    signals live on the options, the options are identical in both
@@ -246,7 +249,7 @@ const CARE_LEVELS = {
     nextSteps: [
       "Talk to the hospital discharge planner TODAY — this window is short and it closes",
       "Ask how many therapy days per week, and for how long",
-      "Ask what the plan is if your parent cannot safely go home afterward"
+      "Ask what the plan is if they cannot safely go home afterward"
     ]
   }
 };
@@ -443,7 +446,8 @@ const DISCLAIMER =
   "This is a general guide, not medical advice and not a clinical assessment. " +
   "Only a doctor, nurse or licensed care assessor can determine what level of " +
   "care someone needs. Use this to understand the options and ask better " +
-  "questions — then confirm with a professional who has examined your parent.";
+  "questions — then confirm with a professional who has examined the " +
+  "person this is about.";
 
 if (typeof module !== "undefined") {
   module.exports = { QUESTIONS, CARE_LEVELS, RULES, assess, DISCLAIMER };

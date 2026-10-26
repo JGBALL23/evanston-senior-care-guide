@@ -1784,8 +1784,15 @@ QUESTIONS.forEach((q) => {
   check("the self wording drops the third person: " + q.id,
     q.textSelf.indexOf("your parent") === -1 &&
     q.textSelf.indexOf("their ") === -1, q.textSelf.slice(0, 48));
-  check("the parent wording is unchanged and still third person: " + q.id,
-    /your parent|they |their /.test(q.text + " " + q.help), q.text.slice(0, 44));
+  check("the parent wording is still third person: " + q.id,
+    /your parent or loved one|they |their /.test(q.text + " " + q.help),
+    q.text.slice(0, 44));
+  /* The selector offers "a parent or someone else", so the questions may
+     not narrow that back to a parent. Bare "your parent" excludes the
+     spouse, the sibling and the neighbour who are doing the same job. */
+  check("no question says bare \"your parent\": " + q.id,
+    q.text.indexOf("your parent") === -1 ||
+    q.text.indexOf("your parent or loved one") !== -1, q.text.slice(0, 50));
 });
 check("no question carries audience-specific SIGNALS",
   QUESTIONS.every((q) => q.options.every((o) =>
