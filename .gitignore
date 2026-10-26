@@ -56,3 +56,7 @@ ACCESS-TEST.md
 # IndexNow submission ledger is DATA, not scratch - it is what stops
 # duplicate submissions. It is committed on purpose.
 !data/indexnow-ledger.json
+
+# Scratch worktrees from one-off investigations. Committed by accident in
+# 6190023 by a careless `git add -A .`; never again.
+.wt-*/
