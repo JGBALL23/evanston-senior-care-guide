@@ -1041,6 +1041,16 @@ check("it is titled Independent Living at heading weight",
 check("the disclaimer sits ABOVE the name, not below it",
   noNeedBranch.indexOf("not a care recommendation") <
   noNeedBranch.indexOf('<h4 class="il__h">'));
+/* ACCURACY, 2026-10-26. The first copy said a cottage comes "with the
+   cooking, cleaning, grounds and driving handled for you", which asserts
+   as universal what every community prices differently. */
+check("it says services vary by community",
+  /Services vary by community/.test(noNeedBranch));
+check("it says personal and nursing care are generally NOT included",
+  /not<\/strong> include hands-on personal or nursing/.test(noNeedBranch));
+check("it does not assert bundled services as universal",
+  noNeedBranch.indexOf("with the cooking") === -1 &&
+  noNeedBranch.indexOf("handled for you") === -1);
 check("it says the move is entirely voluntary",
   /Entirely voluntary/.test(noNeedBranch));
 check("it says nothing here is medical advice",

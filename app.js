@@ -471,9 +471,12 @@ function renderResult() {
       <section class="res__block il" id="independent-living">
         <p class="il__eyebrow">A lifestyle option, not a care recommendation</p>
         <h4 class="il__h">Independent Living</h4>
-        <p class="il__lead">A private apartment or cottage with the cooking,
-          cleaning, grounds and driving handled for you. No personal care,
-          no nursing floor.</p>
+        <p class="il__lead">A private apartment or cottage.
+          <strong>Services vary by community</strong> &mdash; meals,
+          housekeeping and transport may sit in the monthly fee, be billed
+          separately, or not be offered. It generally does
+          <strong>not</strong> include hands-on personal or nursing
+          care.</p>
         <p class="il__lead"><strong>Entirely voluntary.</strong> Nothing in
           this assessment recommends it, and nothing here is medical advice
           — people move for the upkeep, not the health.</p>
