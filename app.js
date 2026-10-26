@@ -324,6 +324,12 @@ const INTERESTS = [
 
 function interestFor(levelId, variant) {
   if (levelId === "independent") return "independent";
+  /* no_need means the answers described no care need at all. Independent
+     living is then the only level that fits, so the dropdown offers it
+     rather than "not sure". The careLevel field still travels separately
+     as no_need, so the notification keeps both facts: what they asked
+     about, and what the assessment actually found. */
+  if (levelId === "no_need") return "independent";
   if (levelId === "assisted") return "assisted";
   if (levelId === "memory") return "memory";
   if (levelId === "skilled" || levelId === "rehab") return "skilled";
@@ -461,11 +467,33 @@ function renderResult() {
     resultLevelId = "no_need";
     quizEl.innerHTML = `
       <p class="res__label">Your result</p>
-      <h3 class="res__name">No higher level of care yet</h3>
+      <h3 class="res__name">No significant care needs identified</h3>
+      <section class="res__block il" id="independent-living">
+        <p class="il__eyebrow">A lifestyle option, not a care recommendation</p>
+        <h4 class="il__h">Independent Living</h4>
+        <p class="il__lead">A private apartment or cottage.
+          <strong>Services vary by community</strong> &mdash; meals,
+          housekeeping and transport may sit in the monthly fee, be billed
+          separately, or not be offered. It generally does
+          <strong>not</strong> include hands-on personal or nursing
+          care.</p>
+        <p class="il__lead"><strong>Entirely voluntary.</strong> Nothing in
+          this assessment recommends it, and nothing here is medical advice
+          — people move for the upkeep, not the health.</p>
+        <div class="il__acts">
+          <a class="btn btn--primary il__btn"
+             href="/guides/independent-living-evanston/"
+             data-beacon="il-guide">What independent living is</a>
+          <a class="btn btn--ghost il__btn" href="#plan-visit"
+             data-beacon="il-tour">Ask about an independent living tour</a>
+        </div>
+      </section>
+      
       <p class="res__summary">Nothing in these answers describes a need to move
         ${them()} into a care setting. That is a real answer, and it is worth
         writing down somewhere with today's date — so that when something does
         change, you can see what changed.</p>
+
       <div class="res__why">
         <p class="res__why-label">Worth doing anyway</p>
         <p>Have the conversation now, while it is hypothetical. Ask
@@ -489,6 +517,7 @@ function renderResult() {
         <p class="visit__fine">Nothing here says anyone needs to move. Come
           back and retake this if that stops being true.</p>
       </section>
+
       ${COLLECTING ? `
       <section class="res__block local">
         <div class="wp">
@@ -550,8 +579,8 @@ function renderResult() {
         else.</p>
       <p class="res__summary">This is a move people make while they are well,
         on their own terms, and usually years before any care question
-        arrives. Nothing here says ${they()} need${audience === "self" ? "" : "s"}
-        help.</p>` : `
+        arrives. Nothing here says ${audience === "self"
+        ? "you need" : "they need"} help.</p>` : `
       <p class="res__summary">Based on these answers,
         ${esc(level.name.toLowerCase())} may be the level of support worth
         exploring first for ${them()}. ${esc(level.summary)}</p>`}
@@ -573,6 +602,16 @@ function renderResult() {
           ${level.looksLike.map((l) => `<li>${esc(l)}</li>`).join("")}
         </ul>
       </section>
+
+      ${lifestyle ? `
+      <section class="res__block il">
+        <h4 class="res__h">Before you look at anywhere in particular</h4>
+        <p class="il__go"><a href="/guides/independent-living-evanston/"
+          data-beacon="il-guide">Read what independent living actually
+          is</a> &mdash; what sits in the monthly fee, how it differs from
+          licensed assisted living, the questions worth asking on a visit,
+          and why no Illinois median figure appears on it.</p>
+      </section>` : ""}
 
       ${visitBlock(level.id, line)}
 

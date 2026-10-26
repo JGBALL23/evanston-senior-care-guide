@@ -1027,6 +1027,76 @@ const noNeedStart = appSrcRaw.indexOf('result.status === "no_need"');
 const noNeedEnd = appSrcRaw.indexOf("wireResult();", noNeedStart);
 const noNeedBranch = noNeedStart === -1 ? "" : appSrcRaw.slice(noNeedStart, noNeedEnd);
 check("the no-need branch was located", noNeedBranch.length > 200);
+/* ---- INDEPENDENT LIVING MUST BE VISIBLE WITHOUT THE LIFESTYLE ANSWER ----
+   Reproduced live 2026-10-26: the owner answered all six questions with
+   the no-concerns option, got "No higher level of care yet", and never
+   saw independent living. The lifestyle answer is option two of five on
+   question six; nobody reads that as the independent-living door. */
+check("the no-need result names independent living prominently",
+  /<section class="res__block il" id="independent-living">/.test(noNeedBranch));
+check("it is titled Independent Living at heading weight",
+  /<h4 class="il__h">Independent Living<\/h4>/.test(noNeedBranch));
+/* The eyebrow does the ethical work: it disclaims a recommendation BEFORE
+   naming the option, so prominence can never read as a diagnosis. */
+check("the disclaimer sits ABOVE the name, not below it",
+  noNeedBranch.indexOf("not a care recommendation") <
+  noNeedBranch.indexOf('<h4 class="il__h">'));
+/* ACCURACY, 2026-10-26. The first copy said a cottage comes "with the
+   cooking, cleaning, grounds and driving handled for you", which asserts
+   as universal what every community prices differently. */
+check("it says services vary by community",
+  /Services vary by community/.test(noNeedBranch));
+check("it says personal and nursing care are generally NOT included",
+  /not<\/strong> include hands-on personal or nursing/.test(noNeedBranch));
+check("it does not assert bundled services as universal",
+  noNeedBranch.indexOf("with the cooking") === -1 &&
+  noNeedBranch.indexOf("handled for you") === -1);
+check("it says the move is entirely voluntary",
+  /Entirely voluntary/.test(noNeedBranch));
+check("it says nothing here is medical advice",
+  /nothing here is medical advice/.test(noNeedBranch));
+check("it offers both a guide link and a tour action",
+  noNeedBranch.indexOf('href="/guides/independent-living-evanston/"') !== -1 &&
+  noNeedBranch.indexOf('href="#plan-visit"') !== -1);
+/* Buried is the defect being fixed. The section must precede the
+   secondary "worth doing anyway" block, not follow it. */
+/* Buried is the defect. It must follow the conclusion heading
+   IMMEDIATELY -- ahead of the summary paragraph, which is what put it
+   238px down the page when measured in a real browser. */
+check("independent living comes straight after the conclusion heading",
+  noNeedBranch.indexOf('class="res__block il"') <
+  noNeedBranch.indexOf('class="res__summary"'));
+check("independent living appears BEFORE the worth-doing-anyway block",
+  noNeedBranch.indexOf('class="res__block il"') <
+  noNeedBranch.indexOf("Worth doing anyway"));
+check("the conclusion stays honest",
+  /No significant care needs identified/.test(noNeedBranch));
+check("the no-need result links to the independent living guide",
+  noNeedBranch.indexOf('href="/guides/independent-living-evanston/"') !== -1);
+/* The honest conclusion now lives in the heading and the summary, not in
+   the independent-living section, which is the point of the refinement. */
+check("the no-need result still says no care is needed",
+  /No significant care needs identified/.test(noNeedBranch) &&
+  /describes a need to move/.test(noNeedBranch));
+check("the no-need result offers no care level as a substitute",
+  noNeedBranch.indexOf("assisted living may be") === -1 &&
+  noNeedBranch.indexOf("worth exploring first") === -1);
+check("a no-care-need result pre-selects independent living on the form",
+  /if \(levelId === "no_need"\) return "independent";/.test(appSrcRaw));
+check("no long paragraph in the section: every line under 240 chars",
+  (noNeedBranch.match(/<p class="il__lead">[\s\S]*?<\/p>/g) || [])
+    .every((t) => t.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").length < 240));
+check("the by-choice result also links to the guide",
+  (appSrcRaw.match(/href="\/guides\/independent-living-evanston\/"/g) || [])
+    .length >= 2,
+  String((appSrcRaw.match(/href="\/guides\/independent-living-evanston\/"/g)
+    || []).length));
+/* The care results must NOT grow an independent-living block. It is not a
+   substitute for assisted living, memory care or skilled nursing. */
+check("the independent living block is gated on lifestyle or no_need only",
+  (appSrcRaw.match(/res__block il/g) || []).length === 2,
+  String((appSrcRaw.match(/res__block il/g) || []).length));
+
 check("the form renders on the no-need result too",
   noNeedBranch.indexOf("COLLECTING ? planFormBlock(") !== -1);
 check("both result branches gate the form on the same flag",

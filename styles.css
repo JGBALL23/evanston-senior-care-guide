@@ -2310,3 +2310,46 @@ section[id], header[id] { scroll-margin-top: calc(var(--nav-h) + 14px); }
 .aud__h { font-family: var(--serif); font-size: 26px; font-weight: 400;
           line-height: 1.25; margin: 0 0 8px; color: var(--ink); }
 .aud__p { font-size: 15px; color: var(--muted); margin: 0 0 18px; }
+
+
+
+/* ---------- INDEPENDENT LIVING ON A NO-CARE RESULT ----------
+   Rewritten 2026-10-26. The first version was accurate and buried: three
+   paragraphs of explanation below a "worth doing anyway" block, so the
+   owner finished the live assessment and never saw it.
+
+   It now sits directly under the conclusion with its own eyebrow, a
+   heading at result weight, three short lines and two real buttons. The
+   eyebrow does the ethical work: it says "not a care recommendation"
+   before the name of the thing, so prominence never reads as a
+   diagnosis. */
+.res__block.il {
+  background: var(--sage-tint, #f4f6f2);
+  border: 1px solid var(--sage, #7d8c6f);
+  border-left: 4px solid var(--sage, #7d8c6f);
+  border-radius: 4px;
+  padding: 20px 22px 22px;
+  margin: 22px 0 26px;
+}
+.il__eyebrow {
+  font-size: 12px; letter-spacing: 0.07em; text-transform: uppercase;
+  color: var(--muted, #6b6b63); margin: 0 0 4px; font-weight: 500;
+}
+.il__h {
+  font-family: var(--serif, Georgia, serif); font-size: 25px;
+  font-weight: 400; line-height: 1.2; margin: 0 0 10px;
+  color: var(--ink, #1d1d1b);
+}
+.il__lead { font-size: 15.5px; line-height: 1.5; margin: 0 0 10px; }
+.il__acts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.il__btn { min-height: 48px; display: inline-flex; align-items: center;
+           justify-content: center; padding: 0 18px; font-size: 15px; }
+.btn--ghost {
+  background: transparent; color: var(--ink, #1d1d1b);
+  border: 1px solid var(--sage, #7d8c6f);
+}
+.btn--ghost:hover { background: rgba(125, 140, 111, 0.12); }
+@media (max-width: 460px) {
+  .il__acts { flex-direction: column; }
+  .il__btn { width: 100%; }
+}
