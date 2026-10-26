@@ -901,7 +901,7 @@ check("the published notice states the 180-day period",
 check("the server switch is never hardcoded on",
   planFnSrc.indexOf("const COLLECTING = true") === -1);
 check("the form markup is preserved, not deleted",
-  appSrcRaw.indexOf("function planFormBlock(levelId, variant)") !== -1 &&
+  appSrcRaw.indexOf("function planFormBlock(levelId, variant, interestOverride)") !== -1 &&
   appShown.indexOf('name="phone"') !== -1 &&
   appShown.indexOf('name="consent"') !== -1);
 /* The paused branch stays in the source even while live, so the form
@@ -1099,8 +1099,13 @@ check("the independent living block is gated on lifestyle or no_need only",
 
 check("the form renders on the no-need result too",
   noNeedBranch.indexOf("COLLECTING ? planFormBlock(") !== -1);
-check("both result branches gate the form on the same flag",
-  (appSrcRaw.match(/COLLECTING \? planFormBlock\(/g) || []).length === 2);
+/* Three render paths now: the matched result, the no-care-need result, and
+   the direct inquiry. All three must gate on the same flag -- a path that
+   renders the form while COLLECTING is false is a collection switch that
+   does not switch. */
+check("all three render paths gate the form on the same flag",
+  (appSrcRaw.match(/COLLECTING \? planFormBlock\(/g) || []).length === 3,
+  String((appSrcRaw.match(/COLLECTING \? planFormBlock\(/g) || []).length));
 check("the form comes BEFORE costs and evaluation questions",
   tpl.indexOf("COLLECTING ? planFormBlock(") < tpl.indexOf("usually costs") &&
   tpl.indexOf("COLLECTING ? planFormBlock()") <
@@ -1870,6 +1875,109 @@ check("no question carries audience-specific SIGNALS",
 check("assess() takes answers only, never an audience",
   /function assess\(answers\)/.test(
     require("fs").readFileSync("assessment.js", "utf8")));
+
+/* ---- WORKFLOW #4: A TOUR WITHOUT AN ASSESSMENT ---------------------
+   The audit found the blocker: planFormBlock() was only reachable from
+   renderResult(), so the form did not exist until all six questions were
+   answered, and the endpoint rejected any careLevel outside its six-value
+   allowlist. Someone who already knew they wanted a tour had no path. */
+const fsW = require("fs");
+const planSrc = fsW.readFileSync("netlify/functions/plan-visit.mjs", "utf8");
+const exportSrc = fsW.readFileSync("netlify/functions/plan-visit-export.mjs",
+                                   "utf8");
+
+check("the endpoint accepts a direct inquiry",
+  /^  direct:\s/m.test(planSrc));
+/* The name must describe the ABSENCE of an assessment. Anything that reads
+   like a care level would be a fabricated result. */
+check("direct is named as the absence of an assessment",
+  /direct:\s+\{ name: "Assessment not taken"/.test(planSrc));
+check("the no-assessment value is named once, not repeated as a literal",
+  /const NO_ASSESSMENT = "direct";/.test(planSrc));
+check("the notification says the assessment was NOT taken",
+  /NOT TAKEN - this person came straight from a/.test(planSrc));
+check("the notification still carries the selected interest",
+  planSrc.indexOf('"INTERESTED IN:     "') !== -1);
+check("the stored record flags whether an assessment happened",
+  /assessmentTaken: record\.careLevel !== NO_ASSESSMENT/.test(planSrc));
+check("the export reports assessmentTaken and the interest",
+  /"assessmentTaken", "careLevelName", "interestName"/.test(exportSrc));
+/* No new department, no new number -- direct reuses the General Inquiries
+   line that no_need already used. */
+check("direct introduces no new phone number",
+  (planSrc.match(/\(847\) \d{3}-\d{4}/g) || [])
+    .every((n) => ["(847) 570-3310", "(847) 866-1615", "(847) 492-7780",
+                   "(847) 570-3422"].indexOf(n) !== -1));
+
+check("a direct render path exists and sends careLevel direct",
+  /function renderDirectInquiry\(\)/.test(appSrcRaw) &&
+  /resultLevelId = "direct";/.test(appSrcRaw));
+check("the direct page states no assessment was taken",
+  /No assessment needed/.test(appSrcRaw) &&
+  /Nothing about care needs is\s+assumed, recorded or guessed/.test(appSrcRaw));
+check("the direct page still offers the six questions",
+  /Take\s+the six questions instead/.test(appSrcRaw));
+/* The select renders ABOVE the <form> element, so without form="plan-form"
+   it is not a submittable control: form.elements.interest is undefined and
+   the payload silently falls back to "unsure". That shipped on 2026-10-26 --
+   the dropdown looked right and the value never left the page. A DOM check
+   cannot see it; only asserting the posted body can. */
+check("the interest select is associated with the form",
+  /id="plan-interest"[\s\S]{0,40}form="plan-form"/.test(appSrcRaw));
+check("the interest can be preselected without a result",
+  /interestFor\(levelId, variant, interestOverride\)/.test(appSrcRaw));
+check("the pathway params are sanitised to a short safe token",
+  /replace\(\/\[\^a-z0-9-\]\/g, ""\)\.slice\(0, 24\)/.test(appSrcRaw));
+check("the direct path never fabricates an assessment answer",
+  appSrcRaw.indexOf("renderDirectInquiry") !== -1 &&
+  !/renderDirectInquiry[\s\S]{0,900}answers\[/.test(appSrcRaw));
+
+/* Opening a form is not saving an inquiry. These must stay distinct. */
+check("opening the form has its own beacon",
+  /directFormView:\s+"\/t\/direct-inquiry-form-view\.txt"/.test(appSrcRaw));
+check("both guide pathways have their own beacons",
+  /guideAssessment:\s+"\/t\/guide-choice-assessment\.txt"/.test(appSrcRaw) &&
+  /guideTour:\s+"\/t\/guide-choice-tour\.txt"/.test(appSrcRaw));
+check("saving an inquiry remains a separate beacon from opening it",
+  /planSaved:\s+"\/t\/plan-visit-saved\.txt"/.test(appSrcRaw) &&
+  /inquirySubmitted:\s+"\/t\/inquiry-submitted\.txt"/.test(appSrcRaw));
+
+/* EVERY beacon the page can request must have a file. Three shipped
+   firing at nothing before this; a 404 beacon reads as zero forever. */
+const beaconNames = new Set(
+  (appSrcRaw.match(/"\/t\/([a-z0-9-]+)\.txt"/g) || [])
+    .map((m) => m.replace(/"|\/t\/|\.txt/g, "")));
+["result-independent", "result-assisted", "result-memory", "result-skilled",
+ "result-rehab", "result-no_need", "result-independent-by-choice",
+ "audience-self", "audience-parent"].forEach((n) => beaconNames.add(n));
+const missingBeacons = [...beaconNames].filter(
+  (n) => !fsW.existsSync("_dist/t/" + n + ".txt"));
+check("every beacon the page requests has a file in _dist/t",
+  missingBeacons.length === 0, missingBeacons.join(" "));
+const missingSrcBeacons = [...beaconNames].filter(
+  (n) => !fsW.existsSync("t/" + n + ".txt"));
+check("the working-tree copy of t/ matches, so the two cannot drift",
+  missingSrcBeacons.length === 0, missingSrcBeacons.join(" "));
+check("beacon files are generated, not hand-maintained",
+  /def write_beacons\(\)/.test(
+    fsW.readFileSync("build-guides.py", "utf8")));
+
+/* The guide's two choices are plain anchors. Guide pages load nav.js only;
+   shipping the assessment engine to twelve SEO pages to show two links
+   would not be a small fix. */
+const ilGuide = fsW.readFileSync(
+  "_dist/guides/independent-living-evanston/index.html", "utf8");
+check("the guide offers both pathways",
+  ilGuide.indexOf('href="/?from=il-guide#assessment"') !== -1 &&
+  ilGuide.indexOf('href="/?tour=independent#plan-visit"') !== -1);
+check("the guide pathway section needs no JavaScript",
+  /<div class="fork">/.test(ilGuide) &&
+  (ilGuide.match(/<script[^>]*src="[^"]*"/g) || [])
+    .every((t) => t.indexOf("nav.js") !== -1));
+check("the article still reads without touching either choice",
+  /Neither is required to finish reading/.test(ilGuide));
+check("the guide says the direct route records no assessment",
+  /records no assessment at all/.test(ilGuide));
 
 const total = checks.length;
 const passed = checks.filter(Boolean).length;

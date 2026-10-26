@@ -32,7 +32,13 @@ const FUNNEL = {
   /* Confirmed lead. Fires only after the server read the record
      back out of the store. No query string, so the Observability
      filter is an exact path match. */
-  inquirySubmitted: "/t/inquiry-submitted.txt"
+  inquirySubmitted: "/t/inquiry-submitted.txt",
+  /* The two guide pathways, and opening the form directly. Opening is NOT
+     saving: planSaved and inquirySubmitted stay the only beacons that mean
+     a record exists. */
+  guideAssessment: "/t/guide-choice-assessment.txt",
+  guideTour:       "/t/guide-choice-tour.txt",
+  directFormView:  "/t/direct-inquiry-form-view.txt"
 };
 
 /* ---------- WHERE THEY CAME FROM ----------------------------
@@ -61,6 +67,28 @@ function channel() {
   }
 }
 const SOURCE = channel();
+
+/* ---------- PATHWAY FROM A GUIDE ---------------------------
+   Guide pages carry nav.js only, so they cannot render the form or fire a
+   beacon. Instead each of the two choices is a plain anchor whose pathway
+   rides in the query string, and this reads it on arrival:
+
+     /?from=il-guide#assessment      -> the six questions, unchanged
+     /?tour=independent#plan-visit   -> the form, directly
+
+   `tour` doubles as the interest preselect. Both are validated against
+   fixed lists; neither is personal, neither is stored, and an unrecognised
+   value is simply ignored. */
+function param(name) {
+  try {
+    const raw = new URLSearchParams(window.location.search).get(name) || "";
+    return String(raw).toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 24);
+  } catch (err) {
+    return "";
+  }
+}
+const FROM_GUIDE = param("from");
+const TOUR_PARAM = param("tour");
 
 const sent = {};
 function beacon(path) {
@@ -124,6 +152,33 @@ function esc(value) {
   return String(value == null ? "" : value).replace(/[&<>"']/g, (c) => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
   }[c]));
+}
+
+/* ---------- DIRECT TOUR INQUIRY -----------------------------
+   No assessment, and the page says so out loud. careLevel travels as
+   "direct", which the endpoint maps to "Assessment not taken" -- never a
+   care level, never a recommendation, and never a fabricated answer.
+
+   The same form, the same consent checkbox, the same endpoint, the same
+   inbox. Nothing new behind it. */
+function renderDirectInquiry() {
+  resultLevelId = "direct";
+  beacon(FUNNEL.guideTour);
+  beacon(FUNNEL.directFormView);
+  quizEl.innerHTML = `
+    <div class="res">
+      <p class="res__label">Asking about a tour</p>
+      <h3 class="res__name">No assessment needed</h3>
+      <p class="res__summary">You already know what you want to look at, so
+        the six questions are skipped entirely. Nothing about care needs is
+        assumed, recorded or guessed.</p>
+      <p class="res__summary">Prefer to work out which level fits first?
+        <a href="#" class="direct__take" data-beacon="direct-to-assessment">Take
+        the six questions instead</a> &mdash; about two minutes, no name, no
+        email and no phone number.</p>
+      ${COLLECTING ? planFormBlock("direct", null, TOUR_PARAM) : ""}
+    </div>`;
+  wirePlanForm();
 }
 
 function renderQuestion() {
@@ -322,7 +377,8 @@ const INTERESTS = [
   { id: "unsure", label: "Not sure yet" }
 ];
 
-function interestFor(levelId, variant) {
+function interestFor(levelId, variant, override) {
+  if (override && INTERESTS.some((o) => o.id === override)) return override;
   if (levelId === "independent") return "independent";
   /* no_need means the answers described no care need at all. Independent
      living is then the only level that fits, so the dropdown offers it
@@ -336,7 +392,7 @@ function interestFor(levelId, variant) {
   return "unsure";
 }
 
-function planFormBlock(levelId, variant) {
+function planFormBlock(levelId, variant, interestOverride) {
   return `
       <section class="res__block plan plan--primary" id="plan-visit">
         <h4 class="res__h plan__h">Want to see Westminster Place?</h4>
@@ -347,11 +403,20 @@ function planFormBlock(levelId, variant) {
           They decide whether and when a tour happens; this form
           doesn&rsquo;t book anything.</p>
 
+        <!-- The select sits ABOVE the form element in the layout, so it needs
+             form="plan-form" to be part of the submission. Without it,
+             form.elements.interest is undefined and the payload silently
+             falls back to "unsure" -- which is exactly what shipped on
+             2026-10-26: the dropdown rendered, preselected correctly, and the
+             chosen value never left the page. Caught by asserting the posted
+             body rather than the rendered DOM. -->
         <label class="plan__field plan__field--full">
           <span class="plan__label">What are you interested in seeing?</span>
-          <select name="interest" class="plan__select" id="plan-interest">
+          <select name="interest" class="plan__select" id="plan-interest"
+                  form="plan-form">
             ${INTERESTS.map((o) => `<option value="${o.id}"${
-              o.id === interestFor(levelId, variant) ? " selected" : ""
+              o.id === interestFor(levelId, variant, interestOverride)
+                ? " selected" : ""
             }>${esc(o.label)}</option>`).join("")}
           </select>
           <span class="plan__hint">Pre-filled from your result. Change it if
@@ -849,6 +914,11 @@ function wirePlanForm() {
 }
 
 quizEl.addEventListener("click", (event) => {
+  if (event.target.closest(".direct__take")) {
+    event.preventDefault();
+    renderAudience();
+    return;
+  }
   const aud = event.target.closest("[data-aud]");
   if (aud) {
     audience = aud.getAttribute("data-aud");
@@ -876,7 +946,14 @@ quizEl.addEventListener("click", (event) => {
   }
 });
 
-renderAudience();
+/* A guide sent them here. Either path is the EXISTING one; the only new
+   thing is which of the two opens first. */
+if (TOUR_PARAM) {
+  renderDirectInquiry();
+} else {
+  if (FROM_GUIDE) beacon(FUNNEL.guideAssessment);
+  renderAudience();
+}
 
 /* ---------- SECTION BEACONS + REVEAL ------------------------ */
 document.addEventListener("click", (event) => {

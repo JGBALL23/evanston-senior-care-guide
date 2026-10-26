@@ -1369,6 +1369,27 @@ GUIDES = [
                 "assisted living, which is the misunderstanding most families "
                 "arrive with.</p>"
             ]),
+            ("Two ways to go from here", [
+                "<p>Neither is required to finish reading, and nothing below "
+                "asks for a name.</p>"
+                '<div class="fork">'
+                '<a class="fork__opt" href="/?from=il-guide#assessment">'
+                '<span class="fork__h">Help me explore my options</span>'
+                '<span class="fork__p">Six questions, about two minutes. It '
+                'suggests which level of living fits and explains why. No '
+                'name, no email, no phone number, and your answers never '
+                'leave your device.</span></a>'
+                '<a class="fork__opt" href="/?tour=independent#plan-visit">'
+                '<span class="fork__h">I&rsquo;d like to explore a tour</span>'
+                '<span class="fork__p">Skip the questions entirely. The '
+                'request reaches the person who runs this guide, who reads '
+                'every one himself. Nothing about care needs is assumed or '
+                'recorded.</span></a>'
+                '</div>',
+                "<p>The second route records no assessment at all, and the "
+                "notification says so in those words. Choosing it asserts "
+                "nothing about anyone&rsquo;s health.</p>"
+            ]),
             ("Who it tends to suit", [
                 "<p>There is no eligibility test to pass. Communities set their own "
                 "minimum age and financial requirements, and some run a health "
@@ -2158,6 +2179,46 @@ SHARED_ASSETS = ["styles.css", "app.js", "assessment.js", "nav.js",
                  "guides.js", "index.html"]
 
 
+BEACON_LEVELS = ["independent", "assisted", "memory", "skilled", "rehab",
+                 "no_need"]
+
+
+def write_beacons():
+    """Every /t/*.txt the page can request, emitted from app.js itself.
+
+    These were hand-made files, and three were simply never created:
+    audience-self, audience-parent and result-independent-by-choice shipped
+    firing at nothing. A beacon that 404s is not a quiet failure -- Netlify
+    counts it in the not-found bucket rather than the path report, so that
+    funnel step reads as zero forever.
+
+    Parsed from the literals in app.js plus the two prefixes it builds at
+    runtime, so adding a beacon in code creates its file on the next build
+    and nobody has to remember."""
+    src = io.open("app.js", encoding="utf-8").read()
+    names = set(re.findall(r'"/t/([a-z0-9-]+)\.txt"', src))
+    for lvl in BEACON_LEVELS:
+        names.add("result-" + lvl)
+    names.add("result-independent-by-choice")
+    names.add("audience-self")
+    names.add("audience-parent")
+    # OUT is "_dist/guides", NOT the publish root -- using it here put the
+    # beacons in _dist/guides/t/ where nothing ever requests them. They live
+    # at the site root, and BOTH copies are hand-maintained: t/ in the
+    # working tree and _dist/t/ in the publish directory. Write both, or the
+    # next build drifts them apart the way index.html already did once.
+    made = []
+    for root in ("t", os.path.join("_dist", "t")):
+        if not os.path.isdir(root):
+            os.makedirs(root)
+        for n in sorted(names):
+            f = os.path.join(root, n + ".txt")
+            if not os.path.isfile(f):
+                io.open(f, "w", encoding="utf-8", newline="").write(n + "\n")
+                made.append(os.path.join(root, n + ".txt"))
+    return made
+
+
 def sync_assets():
     """Copy the hand-edited root assets into _dist.
 
@@ -2188,6 +2249,8 @@ def main():
     os.makedirs(OUT, exist_ok=True)
     for name in sync_assets():
         print("  synced to _dist: %s" % name)
+    for b in write_beacons():
+        print("  beacon file created: %s" % b)
     if write_indexnow_key():
         print("  wrote IndexNow key file: %s" % INDEXNOW_KEY_FILE)
     for g in GUIDES:

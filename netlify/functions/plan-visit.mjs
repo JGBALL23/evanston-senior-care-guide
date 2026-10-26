@@ -112,8 +112,20 @@ const CARE_LEVELS = {
   rehab:       { name: "Short-Term Rehabilitation",
                  dept: "Skilled Nursing Admissions", tel: "(847) 492-7780" },
   no_need:     { name: "No higher level of care yet",
+                 dept: "General Inquiries", tel: "(847) 570-3422" },
+  /* DIRECT, added 2026-10-26. The visitor came straight from a guide and
+     never answered the six questions. The name says exactly that: it is
+     not a care level, it is the absence of one, and it must never be
+     mistaken for a recommendation. No new department and no new number --
+     the same General Inquiries line no_need already uses. */
+  direct:      { name: "Assessment not taken",
                  dept: "General Inquiries", tel: "(847) 570-3422" }
 };
+
+/* The one careLevel value that means "no assessment happened". Named once
+   so the notification, the stored record and the export cannot disagree
+   about which rows are direct inquiries. */
+const NO_ASSESSMENT = "direct";
 
 /* What the visitor SAID they want to see, which is not always what the
    assessment derived. A fixed list for the same reason careLevel is one:
@@ -303,6 +315,7 @@ async function writeDurableRecord(record, submissionId, receivedAt) {
     email: record.email,
     phone: record.phone,
     careLevel: record.careLevel,
+    assessmentTaken: record.careLevel !== NO_ASSESSMENT,
     interest: record.interest || "unsure",
     interestName: INTERESTS[record.interest] || INTERESTS.unsure,
     careLevelName: (CARE_LEVELS[record.careLevel] || {}).name || "",
@@ -389,7 +402,11 @@ function notificationText(record, submissionId, receivedAt) {
     "EMAIL:             " + (record.email || "not given"),
     "",
     "INTERESTED IN:     " + (INTERESTS[record.interest] || INTERESTS.unsure),
-    "ASSESSMENT RESULT: " + (lvl.name || "unknown"),
+    (record.careLevel === NO_ASSESSMENT
+      ? "ASSESSMENT:        NOT TAKEN - this person came straight from a\n"
+        + "                   guide and did not answer the six questions.\n"
+        + "                   Nothing is known about their care needs."
+      : "ASSESSMENT RESULT: " + (lvl.name || "unknown")),
     "ADMISSIONS TEAM:   " + (lvl.dept || "unknown") + " - " + (lvl.tel || ""),
     "",
     "SUBMITTED:         " + local,
