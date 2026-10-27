@@ -441,8 +441,12 @@ def main():
     if drift:
         die("rebuilding changed committed files — commit the rebuild first:\n    "
             + "\n    ".join(drift))
+    # The consistency proof EXECUTES the record, email and CSV builders for
+    # both pathways. The static suites can show the constant is referenced;
+    # only this one shows the three artefacts agree.
     for cmd in ("node test.js", "node check-guides.js",
-                "python tools/test_publish.py"):
+                "python tools/test_publish.py",
+                "node tools/direct_inquiry_consistency.mjs"):
         out = sh(cmd, check=False)
         tail = out.strip().splitlines()[-1] if out.strip() else ""
         ok, why = suite_green(tail)

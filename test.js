@@ -228,7 +228,7 @@ check("consent checkbox exists in the form",
  ["copy: admissions decide, not this site",
   "they decide whether and when a tour happens"],
  ["checkbox: names every shared field including the result",
-  "send my name, phone, email, assessment result and what"],
+  "send my name, phone, email, what i am interested in, and my"],
  ["checkbox: names the recipient and the purpose",
   "he may pass my details to westminster place to arrange a tour"],
  ["trust: the operator introduces himself in his own words",
@@ -1618,12 +1618,12 @@ check("the one live consent is required on the server",
      the version must have moved with the wording. */
   const fn = fsV.readFileSync("netlify/functions/plan-visit.mjs", "utf8");
   check("consent version moved with the wording",
-    fn.indexOf('const CONSENT_VERSION = "2026-10-26c"') !== -1);
+    fn.indexOf('const CONSENT_VERSION = "2026-10-26d"') !== -1);
   check("consent says the owner decides, not that forwarding is automatic",
     fn.indexOf("He reads every inquiry himself") !== -1 &&
     fn.indexOf("decides how to follow up") !== -1);
   check("consent names all five shared items, interest included",
-    fn.indexOf("name, phone, email, assessment result and what I am interested") !== -1 &&
+    fn.indexOf("name, phone, email, what I am interested in, and my assessment") !== -1 &&
     fn.indexOf("to the person who runs this guide") !== -1);
   /* The recipient is the ORGANISATION, not one of its departments.
      "Admissions" is their skilled nursing desk; naming it for every
@@ -1911,10 +1911,10 @@ check("direct introduces no new phone number",
 
 check("a direct render path exists and sends careLevel direct",
   /function renderDirectInquiry\(\)/.test(appSrcRaw) &&
-  /resultLevelId = "direct";/.test(appSrcRaw));
+  /resultLevelId = NO_ASSESSMENT_LEVEL;/.test(appSrcRaw));
 check("the direct page states no assessment was taken",
   /No assessment needed/.test(appSrcRaw) &&
-  /Nothing about care needs is\s+assumed, recorded or guessed/.test(appSrcRaw));
+  /Nothing about care needs is\s+assumed or guessed/.test(appSrcRaw));
 check("the direct page still offers the six questions",
   /Take\s+the six questions instead/.test(appSrcRaw));
 /* The select renders ABOVE the <form> element, so without form="plan-form"
@@ -1976,8 +1976,132 @@ check("the guide pathway section needs no JavaScript",
     .every((t) => t.indexOf("nav.js") !== -1));
 check("the article still reads without touching either choice",
   /Neither is required to finish reading/.test(ilGuide));
-check("the guide says the direct route records no assessment",
-  /records no assessment at all/.test(ilGuide));
+
+/* ============================================================
+   WORKFLOW 4 REFINEMENT, 2026-10-26
+   The pathway shipped working and still said three things that were
+   untrue to the people using it. Each gate below pins one of them.
+   ============================================================ */
+
+/* 1. A visitor who skipped the assessment has no result, so no sentence
+      may refer to one. The old hint said "Pre-filled from your result"
+      to someone who had never answered a question. */
+const directBranch =
+  (appSrcRaw.match(/const interestHint =[\s\S]*?: `Pre-filled/) || [""])[0];
+check("the no-result hint exists and is chosen by the no-assessment level",
+  /noAssessment/.test(directBranch) && directBranch.length > 120);
+check("the no-result hint never claims a result was used",
+  directBranch.indexOf("Pre-filled from your result") === -1);
+check("the no-result hint credits the guide link, not an assessment",
+  /Set to \$\{esc\(chosenLabel\)\} by the guide link you followed/
+    .test(directBranch) &&
+  /not by an assessment, which you haven&rsquo;t taken/.test(directBranch));
+check("the hint names the level it actually selected, never a literal",
+  /chosenLabel\s*=\s*\n?\s*\(INTERESTS\.filter/.test(appSrcRaw) &&
+  appSrcRaw.indexOf('Set to Independent Living') === -1);
+check("a visitor with no pathway link is told nothing was pre-filled",
+  /so nothing here was\s+pre-filled from a result/.test(appSrcRaw));
+/* The same defect twice more: six answers that were never given, and an
+   assessment "above" that is not above anything. */
+check("the fine print does not promise six answers that were never given",
+  /noAssessment\s*\n?\s*\? `You gave no assessment answers/.test(appSrcRaw));
+check("the disclosure line adapts when there is no assessment above it",
+  /nothing on this site has asked for your name until now/
+    .test(appSrcRaw) &&
+  /the assessment above never asked for your name/.test(appSrcRaw));
+/* Scoped to the care-level meaning of the word. app.js also uses "direct"
+   for an unrelated thing -- the traffic source when there is no referrer --
+   so counting the literal would gate on the wrong "direct" entirely. What
+   matters is that no comparison or call site carries it by hand. */
+check("the no-assessment level is compared by name, never by literal",
+  /const NO_ASSESSMENT_LEVEL = "direct";/.test(appSrcRaw) &&
+  !/levelId === "direct"/.test(appSrcRaw) &&
+  !/resultLevelId = "direct"/.test(appSrcRaw) &&
+  !/planFormBlock\("direct"/.test(appSrcRaw));
+
+/* 2. Two things the visitor must be able to tell apart: the assessment
+      asks for nothing, the inquiry needs contact details and a tick. */
+check("the form states the assessment asks for nothing",
+  /The six questions ask for nothing &mdash; no\s+name, no email, no phone number/
+    .test(appSrcRaw));
+check("the form states what it needs in exchange",
+  /needs your name, one way to reach you, and your tick on the box/
+    .test(appSrcRaw));
+const homeRaw = fsW.readFileSync("index.html", "utf8");
+check("the homepage names the one place that asks for contact details",
+  /only part of this site that asks for contact details/.test(homeRaw) &&
+  /nothing\s+is sent unless you tick its consent box/.test(homeRaw));
+check("the guide fork says which route asks for what",
+  /One asks for\s*nothing at all; the other asks how to reach you/
+    .test(ilGuide.replace(/\s+/g, " ")) ||
+  /the other asks how to reach you/.test(ilGuide));
+
+/* 3. Visitor copy explains what happens to them, not how the backend
+      records it. These four phrases described storage and notifications
+      to people who had asked about a tour. */
+["records no assessment at all", "the notification says so in those words",
+ "assumed, recorded or guessed", "assumed or\nrecorded"].forEach((phrase) => {
+  check("visitor copy drops backend wording: " + phrase.slice(0, 34),
+    appSrcRaw.indexOf(phrase) === -1 && ilGuide.indexOf(phrase) === -1);
+});
+/* The distinctions themselves stay — in the record, the email and the
+   export, which is where they belong. */
+check("the stored record still distinguishes a direct inquiry",
+  /assessmentTaken: record\.careLevel !== NO_ASSESSMENT/.test(planSrc));
+check("the notification still distinguishes a direct inquiry",
+  /NOT TAKEN - this person came straight from a/.test(planSrc));
+check("the export still distinguishes a direct inquiry",
+  /"assessmentTaken", "careLevelName", "interestName"/.test(exportSrc));
+
+/* 4. Reach. The introduction is worth reading and changes nothing about
+      the submission, so it sits after the form; everything that changes
+      what happens to the data stays above or inside it. */
+const planBlock = (appSrcRaw.match(
+  /function planFormBlock[\s\S]*?\n}\n/) || [""])[0];
+check("the introduction block renders after the form closes",
+  planBlock.indexOf("</form>") !== -1 &&
+  planBlock.indexOf('class="plan__who"') > planBlock.indexOf("</form>"));
+check("consent still renders inside the form, above the submit button",
+  planBlock.indexOf('id="plan-consent"') < planBlock.indexOf("</form>") &&
+  planBlock.indexOf('id="plan-consent"') <
+    planBlock.indexOf('type="submit"'));
+["plan__contrast", "plan__lead", "plan__disclose"].forEach((cls) => {
+  check("disclosure stays above the first field: " + cls,
+    planBlock.indexOf(cls) < planBlock.indexOf('name="firstName"'));
+});
+check("the privacy notice link is still inside the form",
+  planBlock.indexOf('class="plan__privacy"') < planBlock.indexOf("</form>"));
+/* The interest control now lives INSIDE the form. form="plan-form" fixed
+   the never-transmitted bug; moving the control removes the way it could
+   happen. Both are asserted: the attribute because it is still the
+   explicit association, the position because it is the structural fix. */
+check("the interest control renders inside the form element",
+  planBlock.indexOf('id="plan-interest"') >
+    planBlock.indexOf('id="plan-form"') &&
+  planBlock.indexOf('id="plan-interest"') < planBlock.indexOf("</form>"));
+check("the interest control is still explicitly associated with the form",
+  /id="plan-interest"[\s\S]{0,45}form="plan-form"/.test(appSrcRaw));
+check("contact fields come before the interest question",
+  planBlock.indexOf('name="firstName"') <
+    planBlock.indexOf('id="plan-interest"'));
+check("consent is still the last thing before the submit button",
+  planBlock.indexOf('id="plan-interest"') <
+    planBlock.indexOf('id="plan-consent"'));
+
+/* 6. One consent sentence that is true on both pathways, and the stored
+      version moved with the wording. */
+check("consent no longer asserts an assessment result unconditionally",
+  /and my\s+assessment result if I took the assessment/.test(appSrcRaw) &&
+  appSrcRaw.indexOf("name, phone, email, assessment result and what") === -1);
+check("the direct notification does not contradict its own NOT TAKEN line",
+  /No assessment was taken, so there is no care level to read here/
+    .test(planSrc));
+check("the assessment notification still reads the derived level",
+  /The result above is the care LEVEL the six questions produced/
+    .test(planSrc));
+check("the two notification tails are mutually exclusive",
+  /record\.careLevel === NO_ASSESSMENT\s*\n?\s*\?\s*\["No assessment was taken/
+    .test(planSrc));
 
 const total = checks.length;
 const passed = checks.filter(Boolean).length;

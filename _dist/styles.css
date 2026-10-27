@@ -2380,3 +2380,34 @@ section[id], header[id] { scroll-margin-top: calc(var(--nav-h) + 14px); }
   display: block; font-size: 14.5px; line-height: 1.5;
   color: var(--muted, #6b6b63);
 }
+
+/* ---------- INQUIRY FORM: REACH ----------
+   Workflow #4 refinement. The introduction block used to sit between the
+   interest dropdown and the first contact field, where it measured about
+   675px on a 390px viewport and pushed First name to 1199px down an 844px
+   screen. The disclosures that change what happens to someone's data stay
+   above the fields; the operator's introduction moved below them. */
+.plan__contrast {
+  margin: 0 0 18px; padding: 13px 16px;
+  font-size: 16.5px; line-height: 1.55; color: var(--ink);
+  background: var(--paper-2, #f7f5f0);
+  border-left: 2px solid var(--forest-3, #7d8c6f);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  max-width: 62ch;
+}
+.plan__disclose {
+  margin: 0 0 22px; font-size: 15.5px; line-height: 1.55;
+  color: var(--ink-faint); max-width: 62ch;
+}
+/* Below the form now, so the spacing flips to the top edge. */
+.plan__who { margin: 28px 0 0; }
+@media (max-width: 620px) {
+  /* Tighter above the fields on a phone, where 776px of introduction is
+     already most of an 844px screen. Nothing is removed -- every
+     disclosure stays visible and in the same order; the gaps between
+     them close. */
+  .plan__contrast { padding: 12px 14px; font-size: 16px; margin-bottom: 14px; }
+  .plan__lead { margin-bottom: 16px; }
+  .plan__disclose { margin-bottom: 16px; }
+  .plan__who { margin-top: 24px; }
+}
