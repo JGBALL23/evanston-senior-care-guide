@@ -162,7 +162,7 @@ function esc(value) {
    The same form, the same consent checkbox, the same endpoint, the same
    inbox. Nothing new behind it. */
 function renderDirectInquiry() {
-  resultLevelId = "direct";
+  resultLevelId = NO_ASSESSMENT_LEVEL;
   beacon(FUNNEL.guideTour);
   beacon(FUNNEL.directFormView);
   quizEl.innerHTML = `
@@ -171,12 +171,12 @@ function renderDirectInquiry() {
       <h3 class="res__name">No assessment needed</h3>
       <p class="res__summary">You already know what you want to look at, so
         the six questions are skipped entirely. Nothing about care needs is
-        assumed, recorded or guessed.</p>
+        assumed or guessed.</p>
       <p class="res__summary">Prefer to work out which level fits first?
         <a href="#" class="direct__take" data-beacon="direct-to-assessment">Take
-        the six questions instead</a> &mdash; about two minutes, no name, no
-        email and no phone number.</p>
-      ${COLLECTING ? planFormBlock("direct", null, TOUR_PARAM) : ""}
+        the six questions instead</a> &mdash; about two minutes, and it asks
+        for no name, no email and no phone number.</p>
+      ${COLLECTING ? planFormBlock(NO_ASSESSMENT_LEVEL, null, TOUR_PARAM) : ""}
     </div>`;
   wirePlanForm();
 }
@@ -369,6 +369,12 @@ function visitBlock(levelId, line) {
    honest "not sure". It is NOT a routing instruction: every inquiry reaches
    the same inbox and the owner handles all of them himself. It exists so he
    knows what the person actually wants before he replies. */
+/* The one careLevel value that means "no assessment happened". The endpoint
+   names it once for the same reason (NO_ASSESSMENT in plan-visit.mjs): the
+   copy, the payload and the notification must not be able to disagree about
+   which visitors answered the six questions. */
+const NO_ASSESSMENT_LEVEL = "direct";
+
 const INTERESTS = [
   { id: "independent", label: "Independent Living" },
   { id: "assisted", label: "Assisted Living" },
@@ -393,9 +399,40 @@ function interestFor(levelId, variant, override) {
 }
 
 function planFormBlock(levelId, variant, interestOverride) {
+  /* "direct" is the one levelId that means no assessment happened, so every
+     sentence here that refers to a result has to move with it. Before this,
+     a visitor who came straight from a guide was told the dropdown was
+     "pre-filled from your result" when they had no result, promised their
+     six answers stayed on their device when they never gave six, and told
+     the assessment above never asked for their name when there was no
+     assessment above. Three sentences about something that never happened. */
+  const noAssessment = levelId === NO_ASSESSMENT_LEVEL;
+  const chosen = interestFor(levelId, variant, interestOverride);
+  const chosenLabel =
+    (INTERESTS.filter((o) => o.id === chosen)[0] || {}).label || "";
+
+  /* The honest claim for a pathway link is that the LINK carried the value,
+     which is true whether it was clicked in the guide or typed by hand.
+     "Because you read the Independent Living guide" would be a guess about
+     where someone had been. */
+  const interestHint = noAssessment
+    ? (interestOverride && chosenLabel
+        ? `Set to ${esc(chosenLabel)} by the guide link you followed &mdash;
+           not by an assessment, which you haven&rsquo;t taken. Change it if
+           you are looking at something else.`
+        : `You haven&rsquo;t taken the assessment, so nothing here was
+           pre-filled from a result. Pick whichever fits.`)
+    : `Pre-filled from your result. Change it if you are looking at
+       something else.`;
+
   return `
       <section class="res__block plan plan--primary" id="plan-visit">
         <h4 class="res__h plan__h">Want to see Westminster Place?</h4>
+
+        <p class="plan__contrast">The six questions ask for nothing &mdash; no
+          name, no email, no phone number. This form is the other thing: it
+          needs your name, one way to reach you, and your tick on the box
+          before anything is sent anywhere.</p>
 
         <p class="plan__lead">Leave your details and I read them myself. If
           you tick the box below, I pass them to Westminster Place so they
@@ -403,40 +440,12 @@ function planFormBlock(levelId, variant, interestOverride) {
           They decide whether and when a tour happens; this form
           doesn&rsquo;t book anything.</p>
 
-        <!-- The select sits ABOVE the form element in the layout, so it needs
-             form="plan-form" to be part of the submission. Without it,
-             form.elements.interest is undefined and the payload silently
-             falls back to "unsure" -- which is exactly what shipped on
-             2026-10-26: the dropdown rendered, preselected correctly, and the
-             chosen value never left the page. Caught by asserting the posted
-             body rather than the rendered DOM. -->
-        <label class="plan__field plan__field--full">
-          <span class="plan__label">What are you interested in seeing?</span>
-          <select name="interest" class="plan__select" id="plan-interest"
-                  form="plan-form">
-            ${INTERESTS.map((o) => `<option value="${o.id}"${
-              o.id === interestFor(levelId, variant, interestOverride)
-                ? " selected" : ""
-            }>${esc(o.label)}</option>`).join("")}
-          </select>
-          <span class="plan__hint">Pre-filled from your result. Change it if
-            you are looking at something else.</span>
-        </label>
-
-        <div class="plan__who">
-          <p class="plan__who-h">Who runs this guide</p>
-          <p>I created Evanston Senior Care Guide to help families better
-            understand their senior-care options without feeling overwhelmed.
-            My goal is to make complicated decisions easier by explaining
-            different levels of care, helping families know what questions to
-            ask, and giving them a clearer starting point.</p>
-          <p>I work in senior living, but this guide is an independent project
-            I created to help families make informed decisions.</p>
-          <p class="plan__who-fine">To be specific about that: I work at
-            Westminster Place. This isn&rsquo;t an official Westminster site,
-            I&rsquo;m not paid for referrals, and the assessment above never
-            asked for your name.</p>
-        </div>
+        <p class="plan__disclose">To be specific about who you are writing
+          to: I work at Westminster Place. This isn&rsquo;t an official
+          Westminster site, I&rsquo;m not paid for referrals, and ${
+            noAssessment
+              ? "nothing on this site has asked for your name until now"
+              : "the assessment above never asked for your name"}.</p>
 
         <form class="plan__form" id="plan-form" novalidate>
           <div class="plan__row">
@@ -467,22 +476,70 @@ function planFormBlock(levelId, variant, interestOverride) {
           <p class="plan__hint">Give at least one &mdash; whichever you
             actually answer.</p>
 
+          <!-- INSIDE the form, deliberately. It used to render above the
+               <form> element and rely on form="plan-form" to be submitted
+               at all; without that attribute form.elements.interest is
+               undefined and the payload silently falls back to "unsure",
+               which is exactly what shipped on 2026-10-26 -- the dropdown
+               rendered, preselected correctly, and the chosen value never
+               left the page. The attribute fixed it; moving the control
+               inside the form removes the way it could break. The
+               attribute stays because an explicit association is still
+               the thing being relied on, and a gate still asserts it.
+
+               It also sits BELOW the contact fields now: who you are
+               first, what you want to see second. That is the order
+               people fill a form in, and it lifts the first input a
+               screen's worth closer to the top on a phone. -->
+          <label class="plan__field plan__field--full">
+            <span class="plan__label">What are you interested in seeing?</span>
+            <select name="interest" class="plan__select" id="plan-interest"
+                    form="plan-form">
+              ${INTERESTS.map((o) => `<option value="${o.id}"${
+                o.id === chosen ? " selected" : ""
+              }>${esc(o.label)}</option>`).join("")}
+            </select>
+            <span class="plan__hint">${interestHint}</span>
+          </label>
+
           <label class="plan__check">
             <input type="checkbox" name="consent" id="plan-consent" required>
-            <span>Send my name, phone, email, assessment result and what
-              I am interested in to the person who runs this guide. He reads
-              every inquiry himself and decides how to follow up, and he may
-              pass my details to Westminster Place to arrange a tour.</span>
+            <span>Send my name, phone, email, what I am interested in, and my
+              assessment result if I took the assessment, to the person who
+              runs this guide. He reads every inquiry himself and decides how
+              to follow up, and he may pass my details to Westminster Place to
+              arrange a tour.</span>
           </label>
 
           <button class="btn btn--primary plan__submit" type="submit">
             Request a tour</button>
           <p class="plan__status" id="plan-status" role="status" aria-live="polite"></p>
 
-          <p class="plan__fine">Your six answers stay on your device &mdash;
-            only the care level is shared. Details are deleted after 180 days.
+          <p class="plan__fine">${noAssessment
+            ? `You gave no assessment answers, so there are none to share.`
+            : `Your six answers stay on your device &mdash; only the care
+               level is shared.`} Details are deleted after 180 days.
             <a href="/privacy.html" class="plan__privacy">Privacy notice</a></p>
         </form>
+
+        <!-- Below the form on purpose. This block ran to roughly 675px on a
+             390px viewport, which put the First name field 1199px down an
+             844px screen: a thumb crossed 1.4 screens of introduction before
+             it could type. The disclosures that change what happens to a
+             visitor's data -- who reads it, who it is passed to, the consent
+             tick -- all stay above or inside the form. What moved down here
+             is the operator's own introduction, which is worth reading and
+             changes nothing about the submission. -->
+        <div class="plan__who">
+          <p class="plan__who-h">Who runs this guide</p>
+          <p>I created Evanston Senior Care Guide to help families better
+            understand their senior-care options without feeling overwhelmed.
+            My goal is to make complicated decisions easier by explaining
+            different levels of care, helping families know what questions to
+            ask, and giving them a clearer starting point.</p>
+          <p>I work in senior living, but this guide is an independent project
+            I created to help families make informed decisions.</p>
+        </div>
       </section>`;
 }
 

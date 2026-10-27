@@ -1370,8 +1370,8 @@ GUIDES = [
                 "arrive with.</p>"
             ]),
             ("Two ways to go from here", [
-                "<p>Neither is required to finish reading, and nothing below "
-                "asks for a name.</p>"
+                "<p>Neither is required to finish reading. One asks for "
+                "nothing at all; the other asks how to reach you.</p>"
                 '<div class="fork">'
                 '<a class="fork__opt" href="/?from=il-guide#assessment">'
                 '<span class="fork__h">Help me explore my options</span>'
@@ -1381,14 +1381,11 @@ GUIDES = [
                 'leave your device.</span></a>'
                 '<a class="fork__opt" href="/?tour=independent#plan-visit">'
                 '<span class="fork__h">I&rsquo;d like to explore a tour</span>'
-                '<span class="fork__p">Skip the questions entirely. The '
-                'request reaches the person who runs this guide, who reads '
-                'every one himself. Nothing about care needs is assumed or '
-                'recorded.</span></a>'
+                '<span class="fork__p">Skip the questions entirely. This one '
+                'asks for your name and one way to reach you, and sends '
+                'nothing until you tick the box. It reaches the person who '
+                'runs this guide, who reads every one himself.</span></a>'
                 '</div>',
-                "<p>The second route records no assessment at all, and the "
-                "notification says so in those words. Choosing it asserts "
-                "nothing about anyone&rsquo;s health.</p>"
             ]),
             ("Who it tends to suit", [
                 "<p>There is no eligibility test to pass. Communities set their own "

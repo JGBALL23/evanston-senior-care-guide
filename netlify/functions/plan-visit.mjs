@@ -161,10 +161,10 @@ const ALLOWED_KEYS = [
    copy in app.js are asserted identical by test.js, which is
    what stops them drifting apart. */
 const CONSENT_STATEMENT =
-  "Send my name, phone, email, assessment result and what I am interested " +
-  "in to the person who runs this guide. He reads every inquiry himself " +
-  "and decides how to follow up, and he may pass my details to " +
-  "Westminster Place to arrange a tour.";
+  "Send my name, phone, email, what I am interested in, and my assessment " +
+  "result if I took the assessment, to the person who runs this guide. " +
+  "He reads every inquiry himself and decides how to follow up, and he " +
+  "may pass my details to Westminster Place to arrange a tour.";
 /* Bumped 2026-10-26. Two changes, and the permission widened by exactly
    one field, so the version moves with it.
 
@@ -179,7 +179,14 @@ const CONSENT_STATEMENT =
 
    Records signed under earlier wording keep their own version, so what
    each person actually agreed to stays recoverable. */
-const CONSENT_VERSION = "2026-10-26c";
+/* Bumped again 2026-10-26, and this one NARROWS nothing and widens
+   nothing -- it stops the sentence claiming something that is not true
+   on one of the two pathways. A visitor arriving straight from a guide
+   never takes the assessment, so "send my ... assessment result" asked
+   them to consent to sharing a thing that does not exist. The condition
+   is now in the sentence itself, which means one statement is accurate
+   on both paths and the stored record still matches the words shown. */
+const CONSENT_VERSION = "2026-10-26d";
 
 /* ---------- small helpers ----------------------------------- */
 const clean = (value, max) =>
@@ -303,11 +310,14 @@ function recordKey(receivedAt, submissionId) {
   return "visits/" + receivedAt.replace(/[:.]/g, "-") + "__" + submissionId + ".json";
 }
 
-async function writeDurableRecord(record, submissionId, receivedAt) {
-  const ctx = blobsContext();
-  if (!ctx) return { stored: false, reason: "no_store_context" };
-
-  const row = {
+/* The stored shape, built by a pure function so it can be executed and
+   asserted without a blob store. The three places a direct inquiry has to
+   read as "Assessment not taken" -- this record, the notification email and
+   the CSV export -- all derive it from NO_ASSESSMENT, and the only way to
+   prove they agree is to run them. Extracted 2026-10-26; the object is
+   byte-for-byte what writeDurableRecord used to build inline. */
+function durableRow(record, submissionId, receivedAt) {
+  return {
     submissionId,
     receivedAt,
     firstName: record.firstName,
@@ -341,7 +351,13 @@ async function writeDurableRecord(record, submissionId, receivedAt) {
        that was passed on. */
     referredToAdmissionsAt: null
   };
+}
 
+async function writeDurableRecord(record, submissionId, receivedAt) {
+  const ctx = blobsContext();
+  if (!ctx) return { stored: false, reason: "no_store_context" };
+
+  const row = durableRow(record, submissionId, receivedAt);
   const key = recordKey(receivedAt, submissionId);
   const auth = { authorization: "Bearer " + ctx.token };
 
@@ -416,8 +432,17 @@ function notificationText(record, submissionId, receivedAt) {
     "Source:            " + SOURCE,
     "Developed by:      " + DEVELOPED_BY,
     "",
-    "The result above is the care LEVEL the six questions produced.",
-    "The answers themselves were never sent anywhere and are not held.",
+    /* This pair described the assessment unconditionally, so a direct
+       inquiry carried both "ASSESSMENT: NOT TAKEN" and "the result above
+       is the care LEVEL the six questions produced" in the same email.
+       One of the two had to be wrong, and the reader had no way to tell
+       which. The no-assessment rows now say what is actually known. */
+    ...(record.careLevel === NO_ASSESSMENT
+      ? ["No assessment was taken, so there is no care level to read here.",
+         "The INTERESTED IN line above is what this person selected, and",
+         "it is the only thing they said about what they are looking for."]
+      : ["The result above is the care LEVEL the six questions produced.",
+         "The answers themselves were never sent anywhere and are not held."]),
     "",
     "This record was created before any referral. It does not mean a",
     "tour was scheduled, and it is not a confirmed tour. The family",
