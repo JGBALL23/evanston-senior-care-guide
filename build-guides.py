@@ -173,6 +173,12 @@ SRC = {
                            'https://www.va.gov/pension/survivors-pension-rates/'),
     "va_apply": ('VA.gov — How to apply for Veterans Pension benefits',
                 'https://www.va.gov/pension/how-to-apply/'),
+    "va_vdc": ('VA.gov — Veteran Directed Care',
+              'https://www.va.gov/geriatrics/pages/veteran-directed_care.asp'),
+    "va_cc_elig": ('VA.gov — Eligibility for community care outside VA',
+                  'https://www.va.gov/resources/eligibility-for-community-care-outside-va/'),
+    "va_health_apply": ('VA.gov — How to apply for VA health care benefits',
+                        'https://www.va.gov/health-care/how-to-apply/'),
 }
 
 
@@ -1645,6 +1651,154 @@ GUIDES = [
             ]),
         ],
     },
+
+    {
+        "slug": "va-veteran-directed-care-program",
+        "bridge": ("Knowing that the VA will fund help at home answers how your "
+               "veteran parent might pay for it. It does not answer whether help "
+               "at home, rather than a higher level of care, is actually enough."),
+        "reviewed": "2026-10-27",
+        "title": "Can a Veteran Get Paid In-Home Care Through the VA?",
+        "h1": "Can a veteran get paid in-home care through the VA?",
+        "desc": ("VA.gov describes a consumer-directed benefit called Veteran "
+                 "Directed Care that lets an eligible veteran set a spending plan "
+                 "and hire their own help at home, including a family member. "
+                 "Here is who qualifies and how to start, in VA.gov&rsquo;s own "
+                 "words."),
+        "intent": "benefits question",
+        "answer": ("<strong>Sometimes, through a programme called Veteran "
+                   "Directed Care, which is separate from the VA pension this "
+                   "site covers elsewhere.</strong> VA.gov describes it as giving "
+                   "&ldquo;Veterans of all ages the opportunity to receive the "
+                   "Home and Community Based Services they need in a "
+                   "consumer-directed way.&rdquo; A veteran who qualifies gets a "
+                   "budget and help building a spending plan, then hires their "
+                   "own workers &mdash; who can include a family member or a "
+                   "neighbour &mdash; rather than being assigned an agency "
+                   "worker. It depends on clinical need, enrollment in VA health "
+                   "care, and whether the local VA offers it at all."),
+        "sources": srcs("va_vdc", "va_cc_elig", "va_health_apply", "va_aa"),
+        "body": [
+            ("What Veteran Directed Care actually is", [
+                "<p>This is easy to miss because it sits inside VA.gov&rsquo;s "
+                "Geriatrics and Extended Care pages rather than beside the "
+                "pension material most families find first. VA.gov&rsquo;s own "
+                "description: Veteran Directed Care &ldquo;gives Veterans of all "
+                "ages the opportunity to receive the Home and Community Based "
+                "Services&rdquo; they need &ldquo;in a consumer-directed "
+                "way.&rdquo;</p>",
+                "<p>&ldquo;Consumer-directed&rdquo; is the operative word. "
+                "Instead of VA (or an agency VA contracts with) choosing and "
+                "scheduling an aide, the veteran or their representative "
+                "receives help developing a spending plan, then hires workers "
+                "themselves &mdash; and VA.gov is explicit that this can include "
+                "&ldquo;their own family member or neighbor&rdquo; &mdash; to "
+                "help the veteran live independently in the community.</p>",
+                "<p>VA.gov lists examples of the daily activities the hired help "
+                "can cover: eating, getting dressed, personal grooming, bathing, "
+                "using the bathroom, moving from one place to another, and "
+                "grocery shopping. It also names who the programme is aimed at: "
+                "veterans who need personal care and help with daily activities, "
+                "and veterans who are isolated or whose caregiver is under "
+                "strain.</p>",
+            ]),
+            ("Who qualifies, in VA.gov's own words", [
+                "<p>VA.gov states the rule in one sentence: &ldquo;All enrolled "
+                "Veterans are eligible for Veteran Directed Care if they are "
+                "eligible for community care,&rdquo; &ldquo;meet the clinical "
+                "criteria for the service, and it is available&rdquo; where they "
+                "live. That is three separate gates, and the page is explicit "
+                "that services vary by location &mdash; this is not a benefit "
+                "every VA medical centre necessarily offers.</p>",
+                "<p>The Veteran Directed Care page does not itself spell out what "
+                "&ldquo;eligible for community care&rdquo; means, so this guide "
+                "read VA.gov's own community care eligibility page rather than "
+                "guess. That page sets two basic requirements that must both be "
+                "true &mdash; &ldquo;you're enrolled in or eligible for VA health "
+                "care&rdquo; and &ldquo;you have approval from your VA health "
+                "care team before you get care from a community provider&rdquo; "
+                "&mdash; plus at least one of several further conditions, such as "
+                "needing a service VA does not provide at any facility or living "
+                "somewhere without a full-service VA facility nearby.</p>",
+                "<p>This guide has not confirmed, on any VA.gov page, that the "
+                "general community-care eligibility rules apply to Veteran "
+                "Directed Care exactly as written for an outside specialist "
+                "referral &mdash; the Veteran Directed Care page simply says "
+                "&ldquo;eligible for community care&rdquo; without cross-linking "
+                "the detail. Rather than assume the two pages mean exactly the "
+                "same thing in every case, ask a VA social worker whether your "
+                "veteran parent clears this gate before ruling the programme in "
+                "or out.</p>",
+            ]),
+            ("This is not Aid and Attendance", [
+                "<p>Families researching VA help with senior care usually find "
+                '<a href="/guides/va-aid-and-attendance-benefit/">VA Aid and '
+                "Attendance</a> first, and it is easy to assume Veteran Directed "
+                "Care is the same thing under another name. It is not.</p>",
+                "<p>Aid and Attendance is an increased rate added to the "
+                "Veterans Pension or Survivors Pension &mdash; a cash benefit, "
+                "administered on the benefits side of VA, that a family can put "
+                "toward care in any setting. Veteran Directed Care is a health "
+                "care service, administered through VA's geriatrics and "
+                "extended-care programme, that pays for a defined package of "
+                "in-home help rather than handing the veteran cash. One pays a "
+                "monthly amount against the veteran's own countable income; the "
+                "other funds a spending plan for specific hired help. This guide "
+                "found no VA.gov page confirming whether a veteran can draw on "
+                "both at once, so it will not guess &mdash; ask a VA social "
+                "worker about your specific situation.</p>",
+            ]),
+            ("How to start", [
+                "<p>VA.gov does not describe a separate application form for "
+                "Veteran Directed Care itself. What it says instead is to use "
+                "the Veteran Decision Aid for Care at Home or in the Community "
+                "&ldquo;to help you figure out what home care services or long "
+                "term care services may best meet your needs&rdquo; now or in "
+                "the future, and then: &ldquo;If Veteran Directed Care seems "
+                "right for you, talk with your VA social worker and find out if "
+                "it is available&rdquo; in your location.</p>",
+                "<p>A veteran who is not yet enrolled in VA health care has to "
+                "clear that step first, since enrollment is one of the stated "
+                "gates above. VA.gov lists four ways to apply for VA health "
+                "care: online, by phone at <strong>877-222-8387</strong> "
+                "(Monday&ndash;Friday, 8:00 a.m. to 8:00 p.m. ET), by mailing a "
+                "signed VA Form 10-10EZ to the Health Eligibility Center, PO Box "
+                "5207, Janesville, WI 53547-5207, or in person at the nearest VA "
+                "medical centre or clinic with the same signed form in hand.</p>",
+            ]),
+            ("A figure this guide will not guess at", [
+                "<p>Families will want to know the size of the budget a veteran "
+                "actually receives. This guide looked for that figure on VA.gov "
+                "and did not find a published national amount &mdash; the page "
+                "describes the spending plan as based on an individual "
+                "assessment, not a fixed rate. Anything quoting a specific "
+                "dollar figure for Veteran Directed Care is not working from a "
+                "VA.gov page this guide could locate. Ask the VA social worker "
+                "handling the case what the assessed budget would actually "
+                "be.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>If the money question is the pension itself rather than this "
+                'programme, see <a href="/guides/va-aid-and-attendance-benefit/">'
+                "Does the VA pay for senior care? Aid and Attendance, "
+                "explained</a>, which covers the " + F["va_mapr_aa_single"] +
+                " ceiling and who qualifies for the pension underneath it. "
+                "Illinois runs its own, separate in-home programme funded "
+                'through Medicaid rather than VA &mdash; see <a '
+                'href="/guides/illinois-community-care-program/">Can my parent '
+                "get paid help at home in Illinois?</a> A veteran parent could "
+                "in principle have both a state and a federal route into paid "
+                "help at home; this guide has not researched how the two "
+                "interact and will not guess.</p>",
+                "<p>If the open question is whether your parent needs help at "
+                "home at all, rather than how any particular programme pays for "
+                'it, the <a href="/">free six-question assessment</a> on this '
+                "site walks through that separately. It asks for no name, no "
+                "email and no phone number, and your answers never leave your "
+                "device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -1996,6 +2150,12 @@ CARDS = {
         "Who actually qualifies for a VA pension and its Aid and "
         "Attendance or Housebound add-on, and why the published rate is "
         "a ceiling, not a cheque."),
+    "va-veteran-directed-care-program": (
+        "Veterans' benefits",
+        "Can a veteran get paid in-home care through the VA?",
+        "A consumer-directed VA budget that can hire a family member or "
+        "neighbour, not a pension cheque — who qualifies and how to "
+        "start."),
 }
 
 
