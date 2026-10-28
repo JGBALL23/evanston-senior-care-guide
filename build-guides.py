@@ -179,6 +179,12 @@ SRC = {
                   'https://www.va.gov/resources/eligibility-for-community-care-outside-va/'),
     "va_health_apply": ('VA.gov — How to apply for VA health care benefits',
                         'https://www.va.gov/health-care/how-to-apply/'),
+    "idoa_caregiver": ('Illinois Department on Aging — Family Caregiver Support Program',
+                       'https://ilaging.illinois.gov/programs/caregiver/program.html'),
+    "idoa_crc": ('Illinois Department on Aging — Family and Caregiver Resource Centers',
+                'https://ilaging.illinois.gov/programs/caregiver/crc.html'),
+    "idoa_caregiver_links": ('Illinois Department on Aging — Family and Caregiver Services',
+                             'https://ilaging.illinois.gov/programs/caregiver/caregiver-links.html'),
 }
 
 
@@ -1799,6 +1805,136 @@ GUIDES = [
             ]),
         ],
     },
+    {
+        "slug": "illinois-family-caregiver-support-program",
+        "bridge": ("Finding help for yourself as the caregiver is a different "
+               "question from knowing whether your parent's needs have moved "
+               "past what any amount of help at home can cover."),
+        "reviewed": "2026-10-28",
+        "title": "Is There Help for the Caregiver, Not Just the Parent, in Illinois?",
+        "h1": "Is there help for the caregiver, not just the parent, in Illinois?",
+        "desc": ("Illinois runs a Family Caregiver Support Program built around "
+                 "the person doing the caring, not the person being cared for "
+                 "&mdash; respite, counselling, training and a local resource "
+                 "centre. Here is what the Department on Aging&rsquo;s own pages "
+                 "say it covers, and what they do not say."),
+        "intent": "caregiver support",
+        "answer": ("<strong>Yes &mdash; Illinois funds a Family Caregiver "
+                   "Support Program aimed at the caregiver rather than the "
+                   "older adult.</strong> The Illinois Department on Aging "
+                   "describes a family caregiver as &ldquo;an adult family "
+                   "member or another individual who is an informal provider "
+                   "of in-home and community care&rdquo; to an older person, "
+                   "and says the programme can connect that caregiver to "
+                   "counselling, support groups, training, <strong>respite "
+                   "care</strong> and limited supplemental services. It is "
+                   "delivered locally through a network of Caregiver Resource "
+                   "Centers and the 13 Area Agencies on Aging, not a single "
+                   "statewide office &mdash; so the way in is the Senior "
+                   "HelpLine, not a form."),
+        "sources": srcs("idoa_caregiver", "idoa_crc", "idoa_caregiver_links"),
+        "body": [
+            ("What the programme actually is", [
+                "<p>The Illinois Department on Aging says this programme grew "
+                "out of 2000 amendments to the federal Older Americans Act, "
+                "which created a National Family Caregiver Support Program; "
+                "Illinois received an initial $4.7 million to build its own "
+                "version with the state&rsquo;s Area Agencies on Aging and "
+                "local community-service providers. That is a historical "
+                "start-up figure, not a per-family benefit amount, and this "
+                "guide found no current statewide budget figure published "
+                "anywhere on the Department&rsquo;s site.</p>",
+                "<p>The Department&rsquo;s own definition of who counts as a "
+                "&ldquo;family caregiver&rdquo; is broader than a spouse or "
+                "adult child: it names &ldquo;an adult family member or "
+                "another individual who is an informal provider of in-home "
+                "and community care&rdquo; to an older person, and separately "
+                "covers grandparents raising grandchildren. &ldquo;Informal "
+                "caregiving,&rdquo; in the Department&rsquo;s words, means "
+                "unpaid care and support given by family or friends to someone "
+                "with a chronic illness or disability.</p>",
+            ]),
+            ("What it can connect you to", [
+                "<p>The Department lists five things the programme does for a "
+                "caregiver: provides information about available services; "
+                "helps a caregiver get access to those services; connects a "
+                "caregiver to individual counselling, support groups or "
+                "caregiver training; connects a caregiver to <strong>respite "
+                "care</strong>, described as giving &ldquo;temporary relief "
+                "from caregiving duties&rdquo;; and provides supplemental "
+                "services &ldquo;on a limited basis&rdquo; to complement the "
+                "care a family already gives.</p>",
+                "<p>A separate Department page on its Family and Caregiver "
+                "Resource Centers adds detail to that list: each centre can "
+                "help locate adult day service, home-delivered meals, "
+                "housekeeping assistance, home modification and assistive "
+                "device help, transportation, financial and legal "
+                "information, caregiver training, case management assistance "
+                "and employment programmes &mdash; on top of the counselling "
+                "and respite already named.</p>",
+            ]),
+            ("Respite, in the Department's own words", [
+                "<p>Respite is the service most caregivers are actually "
+                "looking for, and the Department's Family and Caregiver "
+                "Services page describes it plainly: &ldquo;Respite services "
+                "are intended to provide caregivers with short-term "
+                "relief.&rdquo; It says the length and setting vary &mdash; "
+                "respite &ldquo;may be provided for an afternoon, several "
+                "days, at home, or in a facility-based setting.&rdquo;</p>",
+                "<p>The same page says Area Agencies on Aging assess a "
+                "caregiver's own needs using an assessment tool it calls "
+                "TCARE, and may refer a caregiver on from there to named "
+                "programmes such as Savvy Caregiver or the Stress-Busting "
+                "Program for Family Caregivers, as well as support groups, "
+                "counselling and what it calls &ldquo;gap-filling "
+                "services.&rdquo;</p>",
+            ]),
+            ("What this guide could not pin down", [
+                "<p>None of the three Department pages this guide read states "
+                "an income limit for the Family Caregiver Support Program, a "
+                "cost to the caregiver, a cap on respite hours, or a formal "
+                "application form. The Resource Centers page is explicit that "
+                "eligibility and fees are not listed there either &mdash; it "
+                "directs a caregiver to the local centre or the Senior "
+                "HelpLine instead.</p>",
+                "<p>This guide will not guess at any of those figures on the "
+                "Department's behalf. If a cost, an income test or a waiting "
+                "list applies in your case, that answer lives with your local "
+                "Area Agency on Aging or Caregiver Resource Center, not on a "
+                "page written in Springfield.</p>",
+            ]),
+            ("How to start", [
+                "<p>Call the <strong>Senior HelpLine</strong> on "
+                "<strong>1-800-252-8966</strong> (711 TRS for deaf and "
+                "speech-impaired callers). The Department also publishes a "
+                "provider search tool for finding the Caregiver Resource "
+                "Center or Area Agency on Aging that covers your parent's "
+                "address, since services are organised locally rather than "
+                "from one statewide office.</p>",
+                "<p>If your parent lives outside Illinois, the Department's "
+                "own guidance is to contact the Caregiver Resource Center "
+                "nearest to <em>your parent</em>, not to you &mdash; the "
+                "service follows the older adult's location.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>This programme supports the person doing the caring. It "
+                "is not the same thing as Illinois paying for help at home "
+                "for the older adult, which is a separate Medicaid-funded "
+                'programme covered in <a '
+                'href="/guides/illinois-community-care-program/">Can my '
+                "parent get paid help at home in Illinois?</a> A family can "
+                "in principle use both at once; this guide found no "
+                "Department page describing how the two interact, and will "
+                "not guess.</p>",
+                "<p>If the real question is whether home, with or without "
+                "extra help, is still the right setting for your parent, the "
+                '<a href="/">free six-question assessment</a> on this site '
+                "walks through that separately. It asks for no name, no "
+                "email and no phone number, and your answers never leave "
+                "your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -2156,6 +2292,12 @@ CARDS = {
         "A consumer-directed VA budget that can hire a family member or "
         "neighbour, not a pension cheque — who qualifies and how to "
         "start."),
+    "illinois-family-caregiver-support-program": (
+        "Staying at home",
+        "Is there help for the caregiver, not just the parent?",
+        "Illinois funds respite, counselling and training for the person "
+        "doing the caring, delivered through a local Caregiver Resource "
+        "Center — what it covers, and what it does not say."),
 }
 
 
