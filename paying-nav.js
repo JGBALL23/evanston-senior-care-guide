@@ -1,7 +1,11 @@
 /* Workflow #5: optional Payment Options Navigator.
    Three answers stay in the browser. No income, diagnosis, name, eligibility
    decision, ranking of providers, or lead collection. A "yes" only changes
-   the order of the same fixed funding explanations. */
+   the order of the same fixed funding explanations.
+
+   It never reads or writes the assessment: not `answers`, not
+   `resultLevelId`, not the scoring. A care level arrives only as the id on
+   the result's entry link, and "Not sure" is always a complete answer. */
 (function (root) {
   "use strict";
   const CARE = Object.freeze({
@@ -20,6 +24,8 @@
     skilled:     ["medicaid", "medicare", "private", "ltci", "va"],
     rehab:       ["medicare", "medicaid", "private", "ltci", "va"]
   });
+  /* `more` is a second site guide where one exists for the route. Both
+     guides live on this site; the external link is the agency's own page. */
   const ROUTES = Object.freeze({
     medicare: {
       title: "Medicare",
@@ -27,6 +33,8 @@
       linkText: "Medicare: long-term care coverage",
       guide: "/guides/does-medicare-pay-for-senior-care/",
       guideText: "What Medicare pays for",
+      more: "/guides/illinois-senior-health-insurance-program/",
+      moreText: "Free Medicare counselling in Illinois (SHIP)",
       summary: {
         unsure: "Check whether the need is short-term skilled nursing or rehabilitation. Medicare does not pay for most ongoing custodial long-term care.",
         independent: "Medicare does not pay the usual housing or lifestyle costs of independent living. Qualifying medical services are a separate question.",
@@ -42,6 +50,8 @@
       linkText: "Illinois HFS: long-term care",
       guide: "/guides/illinois-medicaid-long-term-care/",
       guideText: "Illinois Medicaid long-term care guide",
+      more: null,
+      moreText: null,
       summary: {
         unsure: "Eligibility and services depend on the actual setting. Illinois nursing-home Medicaid and the certified Supportive Living Program have different rules.",
         independent: "Medicaid does not ordinarily pay independent-living rent. Ask Illinois HFS about services in an eligible setting if care needs change.",
@@ -57,6 +67,8 @@
       linkText: "VA: Aid and Attendance",
       guide: "/guides/va-aid-and-attendance-benefit/",
       guideText: "VA Aid and Attendance guide",
+      more: "/guides/va-veteran-directed-care-program/",
+      moreText: "VA-paid care at home (Veteran-Directed Care)",
       summary: {
         unsure: "A qualifying Veteran or survivor who receives a VA pension may be eligible for extra Aid and Attendance or Housebound payments. This is not automatic payment of a care bill.",
         independent: "A qualifying Veteran or survivor receiving a VA pension may get extra payments if benefit conditions are met. Independent living by itself does not establish eligibility.",
@@ -72,6 +84,8 @@
       linkText: "Illinois Department of Insurance: policy guide",
       guide: null,
       guideText: null,
+      more: null,
+      moreText: null,
       summary: {
         unsure: "An existing policy may pay for specified long-term-care services. Read the policy's covered settings, benefit triggers, waiting period, limits and exclusions.",
         independent: "A long-term-care policy usually has benefit triggers tied to care needs, not a voluntary lifestyle move. Ask the insurer for written confirmation.",
@@ -87,6 +101,8 @@
       linkText: "Understanding care costs",
       guide: null,
       guideText: null,
+      more: null,
+      moreText: null,
       summary: {
         unsure: "Ask each community for a written breakdown of housing, personal care, medical services, added fees and increases. Costs vary by setting.",
         independent: "Ask for apartment or cottage fees, any entrance fee, included services, optional extras and annual increases. A statewide independent-living median is not available here.",
@@ -117,18 +133,24 @@
       link: ROUTES[key].link,
       linkText: ROUTES[key].linkText,
       guide: ROUTES[key].guide,
-      guideText: ROUTES[key].guideText
+      guideText: ROUTES[key].guideText,
+      more: ROUTES[key].more,
+      moreText: ROUTES[key].moreText
     }));
+  }
+  function anchor(href, text) {
+    const external = href.charAt(0) !== "/";
+    return '<a href="' + href + '"' + (external ? ' target="_blank" rel="noopener"' : '') + '>' +
+      text + (external ? ' <span class="paynav__ext" aria-hidden="true">&#8599;</span>' : '') + '</a>';
   }
   function renderCards(care, veteran, policy) {
     return getRoutes(care, veteran, policy).map((r, i) =>
-      '<li class="paynav__route">' +
-      '<p class="paynav__rank">OPTION ' + (i + 1) + '</p>' +
+      '<li class="paynav__route' + (i === 0 ? ' paynav__route--first' : '') + '">' +
+      '<p class="paynav__rank">' + (i === 0 ? 'Option 1 &middot; Start here' : 'Option ' + (i + 1)) + '</p>' +
       '<h4>' + r.title + '</h4><p>' + r.summary + '</p>' +
-      '<p class="paynav__links"><a href="' + r.link + '"' +
-      (r.link.charAt(0) === "/" ? "" : ' target="_blank" rel="noopener"') +
-      '>' + r.linkText + '</a>' +
-      (r.guide ? ' · <a href="' + r.guide + '">' + r.guideText + '</a>' : '') +
+      '<p class="paynav__links">' + anchor(r.link, r.linkText) +
+      (r.guide ? anchor(r.guide, r.guideText) : '') +
+      (r.more ? anchor(r.more, r.moreText) : '') +
       '</p></li>'
     ).join("");
   }
@@ -141,43 +163,79 @@
     { question: "Does the person already have long-term-care insurance?",
       key: "policy", choices: [{id:"yes",label:"Yes"},{id:"no",label:"No"},{id:"unsure",label:"Not sure"}] }
   ];
+  /* Literal paths, not built at runtime: build-guides.py's write_beacons()
+     reads these string literals and creates the matching file in /t/ on
+     the next build, so a new beacon can never fire at a 404. */
+  const BEACONS = Object.freeze({
+    "pay-nav-started":   "/t/pay-nav-started.txt",
+    "pay-nav-completed": "/t/pay-nav-completed.txt"
+  });
   function beacon(name) {
-    if (emitted[name]) return;
+    const path = BEACONS[name];
+    if (!path || emitted[name]) return;
     emitted[name] = true;
     if (root && typeof root.fetch === "function") {
-      try { root.fetch("/t/" + name + ".txt", {cache:"no-store",keepalive:true}).catch(() => {}); }
+      try { root.fetch(path, {cache:"no-store",keepalive:true}).catch(() => {}); }
       catch (e) { /* analytics never blocks the tool */ }
     }
   }
-  function render() {
+  function carriedLine() {
+    /* The care type in play, shown on questions 2 and 3 whether it came
+       from the assessment result or from question 1, with a way to change
+       it. A visitor should never have to wonder what the tool assumed. */
+    if (!state || !state.care) return '';
+    return '<p class="paynav__carried">Care type: <strong>' + CARE[state.care] + '</strong> ' +
+      '<button type="button" class="paynav__change" data-pay-change>Change</button></p>';
+  }
+  function render(moveFocus) {
     if (!widget) return;
     const step = stage;
     const question = QUESTIONS[step];
     if (question) {
+      const picked = state ? state[question.key] : null;
       widget.innerHTML =
         '<div class="paynav__progress">Question ' + (step + 1) + ' of 3</div>' +
+        (step > 0 ? carriedLine() : '') +
         '<h3 class="paynav__question" tabindex="-1">' + question.question + '</h3>' +
         (step === 0 ? '<p class="paynav__hint">Not sure is a complete answer. No care setting will be assumed.</p>' : '') +
         '<div class="paynav__choices">' +
         question.choices.map(c =>
-          '<button type="button" class="paynav__choice" data-pay-value="' + c.id + '">' +
+          '<button type="button" class="paynav__choice' + (picked === c.id ? ' is-selected' : '') +
+          '" data-pay-value="' + c.id + '" aria-pressed="' + (picked === c.id ? 'true' : 'false') + '">' +
           c.label + '</button>').join("") + '</div>' +
-        (step > 0 ? '<button type="button" class="paynav__back" data-pay-back>Back</button>' : '') +
+        (step > 0 ? '<div class="paynav__actions"><button type="button" class="paynav__back" data-pay-back>&larr; Back</button></div>' : '') +
         '<p class="paynav__fine">These answers stay on this device. No account or contact details.</p>';
     } else {
       widget.innerHTML =
         '<p class="paynav__progress">Your payment starting points</p>' +
         '<h3 class="paynav__question" tabindex="-1">' +
         (state.care === "unsure" ? 'Nothing assumed about the type of care' : CARE[state.care]) + '</h3>' +
-        '<p class="paynav__hint">All five options remain visible. A “yes” may move an option higher, but never changes what it covers. This is not an eligibility decision.</p>' +
+        '<p class="paynav__hint">All five options remain visible. A &ldquo;yes&rdquo; may move an option higher, but never changes what it covers. This is not an eligibility decision.</p>' +
         '<ol class="paynav__routes">' +
         renderCards(state.care, state.veteran, state.policy) + '</ol>' +
         '<p class="paynav__fine">Coverage, eligibility, benefit amounts and whether a particular community accepts a program must be confirmed directly with the agency, insurer or community.</p>' +
-        '<div class="paynav__actions"><button type="button" class="paynav__back" data-pay-back>Back</button>' +
+        '<div class="paynav__actions"><button type="button" class="paynav__back" data-pay-back>&larr; Back</button>' +
         '<button type="button" class="paynav__restart" data-pay-restart>Start again</button></div>';
     }
+    /* Focus the new heading only after the visitor did something. On page
+       load the widget just appears; stealing focus there would drop every
+       keyboard and screen-reader user into the middle of the page. */
+    if (!moveFocus) return;
     const heading = widget.querySelector(".paynav__question");
-    if (heading) heading.focus({preventScroll:true});
+    if (!heading) return;
+    try { heading.focus({preventScroll:true}); } catch (e) { heading.focus(); }
+    keepHeadingVisible(heading);
+  }
+  function keepHeadingVisible(heading) {
+    /* After answering the last choice on a long question, the next heading
+       can sit above the sticky nav on a short phone screen. Nudge it down
+       only when it is actually hidden; never scroll otherwise. */
+    try {
+      const nav = root.document.querySelector("nav");
+      const navH = nav ? nav.getBoundingClientRect().height : 0;
+      const top = heading.getBoundingClientRect().top;
+      if (top < navH + 8) root.scrollBy({top: top - navH - 16, left: 0});
+    } catch (e) { /* layout queries are best-effort */ }
   }
   function start(care) {
     if (!widget && root && root.document) widget = root.document.getElementById("paying-nav-widget");
@@ -186,7 +244,7 @@
     state = {care:known ? care : null, veteran:null, policy:null};
     stage = known ? 1 : 0;
     beacon("pay-nav-started"); // also for assessment-prefilled starts
-    render();
+    render(true);
     return true;
   }
   function init() {
@@ -195,10 +253,11 @@
     if (!widget) return false;
     state = {care:null,veteran:null,policy:null};
     stage = 0;
-    render();
+    render(false);
     widget.addEventListener("click", function(event) {
       const choice = event.target.closest("[data-pay-value]");
       const back = event.target.closest("[data-pay-back]");
+      const change = event.target.closest("[data-pay-change]");
       const restart = event.target.closest("[data-pay-restart]");
       if (choice && stage < 3) {
         const q = QUESTIONS[stage];
@@ -208,15 +267,20 @@
         state[q.key] = value;
         stage += 1;
         if (stage === 3) beacon("pay-nav-completed");
-        render();
+        render(true);
       } else if (back) {
+        /* Earlier answers are kept and shown highlighted, including a care
+           type that arrived from the assessment result: Back reaches
+           question 1 with that choice marked, and any choice replaces it. */
         stage = Math.max(0, stage - 1);
-        if (stage === 0) state.care = null; // back from a prefill is editable
-        render();
+        render(true);
+      } else if (change) {
+        stage = 0;
+        render(true);
       } else if (restart) {
         state = {care:null,veteran:null,policy:null};
         stage = 0;
-        render();
+        render(true);
       }
     });
     root.document.addEventListener("click", function(event) {
@@ -225,11 +289,15 @@
       event.preventDefault();
       const id = normalizeCare(link.getAttribute("data-pay-nav-care"));
       start(id);
+      /* Setting the hash scrolls only when it changes. The second visit from
+         the same result page needs the explicit scroll. */
       root.location.hash = "paying-nav";
+      const section = root.document.getElementById("paying-nav");
+      if (section && typeof section.scrollIntoView === "function") section.scrollIntoView({block:"start"});
     });
     return true;
   }
-  const api = {normalizeCare, getRoutes, renderCards, init, start, CARE, ROUTES};
+  const api = {normalizeCare, getRoutes, renderCards, init, start, CARE, ROUTES, BEACONS};
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   if (root && root.document) { root.PaymentNavigator = api; init(); }
 })(typeof window !== "undefined" ? window : null);

@@ -581,13 +581,19 @@ function costBlock(cost) {
     </div>`;
 }
 
+/* ---------- ENTRY TO THE PAYMENT NAVIGATOR (WORKFLOW #5) ----------
+   The one hand-off between the two tools. The derived level rides on the
+   link as a data attribute and nothing else does: no answers, no name,
+   no storage. "no_need" is not a care level, so it hands over nothing and
+   the navigator starts at its own question one. */
 function paymentEntry(careLevel) {
   const care = careLevel === "no_need" ? "unsure" : careLevel;
   return '<div class="paynav__entry">' +
     '<p><strong>How might you pay for this care?</strong></p>' +
-    '<p>Compare Medicare, Illinois Medicaid, VA benefits, existing long-term-care insurance and private payment. No eligibility is assumed.</p>' +
-    '<p><a href="#paying-nav" data-pay-nav-care="' + esc(care) +
-    '">Explore payment options (3 short questions)</a></p></div>';
+    '<p>Compare Medicare, Illinois Medicaid, VA benefits, existing long-term-care insurance and private payment. Three short questions, no eligibility assumed' +
+    (care === "unsure" ? '.' : ', and your result above is carried over so you are not asked again.') + '</p>' +
+    '<p><a class="paynav__entry-btn" href="#paying-nav" data-pay-nav-care="' + esc(care) +
+    '">Explore payment options</a></p></div>';
 }
 
 function renderResult() {
