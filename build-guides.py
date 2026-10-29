@@ -185,6 +185,12 @@ SRC = {
                 'https://ilaging.illinois.gov/programs/caregiver/crc.html'),
     "idoa_caregiver_links": ('Illinois Department on Aging — Family and Caregiver Services',
                              'https://ilaging.illinois.gov/programs/caregiver/caregiver-links.html'),
+    "idoa_ship": ('Illinois Department on Aging — Senior Health Insurance Program (SHIP)',
+                 'https://ilaging.illinois.gov/ship'),
+    "idoa_ship_about": ('Illinois Department on Aging — About SHIP',
+                        'https://ilaging.illinois.gov/ship/aboutship.html'),
+    "mtools": ('Medicare.gov — Helpful tools',
+              'https://www.medicare.gov/basics/get-started-with-medicare/using-medicare/helpful-tools'),
 }
 
 
@@ -1932,6 +1938,134 @@ GUIDES = [
             ]),
         ],
     },
+
+    {
+        "slug": "illinois-senior-health-insurance-program",
+        "bridge": ("Picking the right Medicare plan is a different question "
+               "from knowing whether Medicare will ever pay for the kind of "
+               "care your parent eventually needs."),
+        "reviewed": "2026-10-29",
+        "title": "Who Can Help My Parent Choose a Medicare Plan for Free in Illinois?",
+        "h1": "Who can help my parent choose a Medicare plan for free in Illinois?",
+        "desc": ("Illinois runs a free, unbiased Medicare counselling service "
+                 "called SHIP. What the Department on Aging's own pages say "
+                 "it actually does, what it does not say, and how to reach a "
+                 "counsellor directly."),
+        "intent": "how-to / free local help",
+        "answer": ("<strong>Call the Illinois Senior Health Insurance Program "
+                   "(SHIP) on 1-800-252-8966 (711 TRS).</strong> It is a free, "
+                   "statewide counselling service for Medicare beneficiaries "
+                   "and their caregivers, run by the Illinois Department on "
+                   "Aging. SHIP is not affiliated with any insurance company, "
+                   "and its counsellors do not sell or solicit insurance of "
+                   "any kind &mdash; the advice is not trying to sell your "
+                   "parent anything."),
+        "sources": srcs("idoa_ship", "idoa_ship_about", "mtools"),
+        "body": [
+            ("A free, unbiased place to start", [
+                "<p>The Illinois Department on Aging describes the Senior "
+                "Health Insurance Program, SHIP, as &ldquo;a free statewide "
+                "health insurance counseling service for Medicare "
+                "beneficiaries and their caregivers.&rdquo; It moved to the "
+                "Department on Aging from the Illinois Department of "
+                "Insurance in April 2013, and the programme itself dates back "
+                "to 1988.</p>",
+                "<p>The Department states plainly that &ldquo;SHIP is not "
+                "affiliated with any insurance company&rdquo; and that "
+                "&ldquo;SHIP counselors do not sell or solicit any type of "
+                "insurance.&rdquo; Medicare's own site makes the same point "
+                "about the national SHIP network: &ldquo;SHIPs aren't "
+                "connected to any insurance companies or health plans.&rdquo; "
+                "That independence is the whole reason to call a SHIP "
+                "counsellor before calling a plan's own sales line.</p>",
+            ]),
+            ("What a SHIP counsellor actually does", [
+                "<p>The Department's SHIP pages describe volunteer counsellors "
+                "as the programme's &ldquo;backbone,&rdquo; trained and "
+                "supported by the Department, with local sponsoring "
+                "organisations &mdash; often an Area Agency on Aging &mdash; "
+                "providing the office space. What a counsellor can help "
+                "with, in the Department's own words, includes: educating "
+                "consumers and answering questions about Medicare, Medicare "
+                "Supplement insurance, long-term care insurance, Medicare "
+                "HMOs and other health insurance; analysing Medicare "
+                "Supplement and long-term care policies; organising and "
+                "assisting with Medicare and Medicare Supplement claims; and "
+                "one-on-one confidential counselling, with advocacy and "
+                "referrals where appropriate. The Department also publishes "
+                "an annual Medicare Choices Guide.</p>",
+                "<p>The SHIP page also lists related Department resources a "
+                "counsellor can point a caller toward, without stating "
+                "figures here: a Medicare Savings Programs chart, an Extra "
+                "Help chart, and information on Medicaid income and asset "
+                "limits. Ask the counsellor directly whether your parent's "
+                "situation fits any of those &mdash; this guide is not going "
+                "to estimate an income limit on the Department's behalf.</p>",
+            ]),
+            ("Medicare's own comparison tool, and where SHIP fits around it", [
+                "<p>Medicare.gov's own &ldquo;Helpful tools&rdquo; page "
+                "points to its plan-comparison tool at "
+                "medicare.gov/plan-compare, where you can &ldquo;find and "
+                "compare Medicare Advantage Plans (Part C),&rdquo; other "
+                "Medicare health plans and Medicare drug plans, review costs "
+                "and services, and enter a parent's actual prescriptions to "
+                "estimate what each plan would cost. A separate tool at "
+                "medicare.gov/medigap-supplemental-insurance-plans finds "
+                "Medicare Supplement (Medigap) policies and premiums by ZIP "
+                "code.</p>",
+                "<p>The same Medicare.gov page names SHIP directly as the "
+                "free, no-strings-attached help for using those tools: "
+                "&ldquo;Get free personalized health insurance counseling. "
+                "SHIPs aren't connected to any insurance companies or health "
+                "plans,&rdquo; and says SHIP counsellors can help with "
+                "comparing and joining plans. In other words, the self-serve "
+                "comparison lives on Medicare.gov; the person who will sit "
+                "with your parent and go through it is SHIP.</p>",
+                "<p>Medicare.gov also lists 1-800-MEDICARE (1-800-633-4227, "
+                "TTY 1-877-486-2048) as a federal line available around the "
+                "clock except some holidays, and a live-chat option for "
+                "finding local help. Neither replaces SHIP &mdash; they are "
+                "simply other doors into the same federal programme.</p>",
+            ]),
+            ("What this guide could not pin down", [
+                "<p>Neither Department on Aging SHIP page this guide read "
+                "states the counselling programme's hours, a typical wait "
+                "for an appointment, or a list of named local counsellors by "
+                "address. The Department instead points callers to a "
+                "&ldquo;Volunteers in Your Area by County&rdquo; listing and "
+                "a service locator rather than publishing that detail on the "
+                "page itself.</p>",
+                "<p>This guide also will not quote a dollar figure for the "
+                "Medicare Savings Programs or Extra Help, since doing so "
+                "would mean reading it off a chart this guide did not open. "
+                "Ask a SHIP counsellor directly whether either applies to "
+                "your parent's income.</p>",
+            ]),
+            ("How to reach a counsellor", [
+                "<p>Call the <strong>Senior HelpLine</strong> on "
+                "<strong>1-800-252-8966</strong> (711 TRS for deaf and "
+                "speech-impaired callers), or email "
+                "<strong>Aging.SHIP@illinois.gov</strong>. That is the same "
+                "statewide number the Department publishes for its other "
+                "aging programmes, so one call can also raise anything else "
+                "covered on this site, from home care to caregiver "
+                "support.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>A SHIP counsellor can help your parent pick the right "
+                "Medicare plan. It cannot tell you whether Medicare will pay "
+                "for the care your parent eventually needs &mdash; for that "
+                'distinction, see <a '
+                'href="/guides/does-medicare-pay-for-senior-care/">Does '
+                "Medicare pay for assisted living or nursing home care?</a></p>",
+                "<p>If the real question is what level of care fits your "
+                'parent at all, the <a href="/">free six-question '
+                "assessment</a> on this site walks through that separately. "
+                "It asks for no name, no email and no phone number, and your "
+                "answers never leave your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -2295,6 +2429,12 @@ CARDS = {
         "Illinois funds respite, counselling and training for the person "
         "doing the caring, delivered through a local Caregiver Resource "
         "Center — what it covers, and what it does not say."),
+    "illinois-senior-health-insurance-program": (
+        "Medicare",
+        "Free help choosing a Medicare plan in Illinois",
+        "SHIP is a free, unbiased state counselling service for Medicare "
+        "beneficiaries — what counsellors actually do, and how to reach "
+        "one."),
 }
 
 
