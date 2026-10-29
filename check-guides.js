@@ -670,6 +670,59 @@ check("the guide refuses to do the spousal subtraction itself",
 check("the personal needs allowance is still refused",
   lc(mcd).indexOf("could not read a verifiable number") !== -1);
 
+/* ---- OWNER FINDING, 2026-10-29: a pension ceiling is not an add-on ----
+   The Aid and Attendance guide's description said the benefit "can add up
+   to $29,093 a year on top of a wartime veteran's pension". VA.gov's table
+   says $29,093 is the Maximum Annual Pension Rate for a veteran with no
+   dependents who qualifies for Aid and Attendance - the whole pension at
+   that level, reduced by the veteran's own income. Read as an extra
+   payment it roughly doubles what a family might plan around, and it sat
+   in the meta description, og:description and JSON-LD, the three strings
+   a search engine shows before anyone reads the page.
+
+   The rule: no sentence anywhere on the site, visible or in metadata, may
+   pair a pension-sized dollar figure with add-on language and a pension
+   term. Every MAPR figure the generator holds must be introduced as a
+   maximum, a ceiling, or the whole pension. */
+const ADD_ON = /\b(on top of|added to|in addition to|add(?:s|ed)? up to|extra|additional|bonus|supplement(?:s|ed)? (?:the|a|your) pension)\b/i;
+const PENSION_TERM = /\b(pension|aid and attendance|housebound|mapr)\b/i;
+const BIG_FIGURE = /\$\d{2},\d{3}/;
+const NEGATED = /\b(not|never|neither|rather than)\b[^.]{0,60}\$\d{2},\d{3}|\$\d{2},\d{3}[^.]{0,80}\b(not|never|neither|rather than)\b/i;
+const homePage = read(path.join(DIST, "index.html"));
+const sentencesOf = (html) => {
+  const attrs = [];
+  html.replace(/(?:name="description"|property="og:description") content="([^"]*)"/g, (m, v) => { attrs.push(v); return m; });
+  html.replace(/"description":\s*"((?:[^"\\]|\\.)*)"/g, (m, v) => { attrs.push(v); return m; });
+  const body = html.replace(/<script[\s\S]*?<\/script>/g, " ").replace(/<[^>]+>/g, " ");
+  return (attrs.join(". ") + ". " + body).replace(/&rsquo;|&#39;/g, "'").replace(/&mdash;/g, " - ")
+    .replace(/\s+/g, " ").split(/(?<=[.!?])\s+/);
+};
+const pensionSlips = [];
+Object.entries(Object.assign({ home: homePage }, page)).forEach(([s, html]) => {
+  sentencesOf(html).forEach((sent) => {
+    if (BIG_FIGURE.test(sent) && ADD_ON.test(sent) && PENSION_TERM.test(sent) && !NEGATED.test(sent)) {
+      pensionSlips.push(s + ": " + sent.slice(0, 110));
+    }
+  });
+});
+check("no sentence pairs a pension-sized figure with add-on language",
+  pensionSlips.length === 0, pensionSlips.join(" | "));
+const aaFig = (GEN.match(/"va_mapr_aa_single":\s*"(\$[\d,]+)"/) || [])[1];
+const aaPage = page["va-aid-and-attendance-benefit"];
+const aaDesc = (aaPage.match(/name="description" content="([^"]+)"/) || [])[1] || "";
+check("the Aid and Attendance figure is read from the generator", !!aaFig, "va_mapr_aa_single missing");
+check("the A&A description names the figure as the whole pension or a ceiling, never an extra",
+  aaDesc.indexOf(aaFig) !== -1 && /whole pension|ceiling|maximum/i.test(aaDesc) && !ADD_ON.test(aaDesc.replace(/not an extra payment/i, "")),
+  aaDesc.slice(0, 120));
+check("the A&A page states that the MAPR is the whole pension at that level",
+  /whole pension at that level/i.test(flat(aaPage)) && /maximum annual pension rate/i.test(flat(aaPage)));
+const maprKeys = GEN.match(/"va_(?:mapr|survivor)_[a-z0-9_]+":\s*"\$[\d,]+"/g) || [];
+check("twelve VA rate figures are held by the generator", maprKeys.length === 12, maprKeys.length + " found");
+maprKeys.forEach((kv) => {
+  const fig = kv.match(/\$[\d,]+/)[0];
+  check("VA rate " + fig + " appears on the A&A page inside the rate tables", flat(aaPage).indexOf(fig) !== -1);
+});
+
 /* ---- OWNER FINDING 6, 2026-10-23: a review date is a factual claim ----
    REVIEWED used to be one global constant stamped onto every page. Adding a
    guide researched today would have re-dated six pages nobody re-checked.
