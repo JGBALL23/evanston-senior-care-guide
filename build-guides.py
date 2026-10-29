@@ -173,6 +173,24 @@ SRC = {
                            'https://www.va.gov/pension/survivors-pension-rates/'),
     "va_apply": ('VA.gov — How to apply for Veterans Pension benefits',
                 'https://www.va.gov/pension/how-to-apply/'),
+    "va_vdc": ('VA.gov — Veteran Directed Care',
+              'https://www.va.gov/geriatrics/pages/veteran-directed_care.asp'),
+    "va_cc_elig": ('VA.gov — Eligibility for community care outside VA',
+                  'https://www.va.gov/resources/eligibility-for-community-care-outside-va/'),
+    "va_health_apply": ('VA.gov — How to apply for VA health care benefits',
+                        'https://www.va.gov/health-care/how-to-apply/'),
+    "idoa_caregiver": ('Illinois Department on Aging — Family Caregiver Support Program',
+                       'https://ilaging.illinois.gov/programs/caregiver/program.html'),
+    "idoa_crc": ('Illinois Department on Aging — Family and Caregiver Resource Centers',
+                'https://ilaging.illinois.gov/programs/caregiver/crc.html'),
+    "idoa_caregiver_links": ('Illinois Department on Aging — Family and Caregiver Services',
+                             'https://ilaging.illinois.gov/programs/caregiver/caregiver-links.html'),
+    "idoa_ship": ('Illinois Department on Aging — Senior Health Insurance Program (SHIP)',
+                 'https://ilaging.illinois.gov/ship'),
+    "idoa_ship_about": ('Illinois Department on Aging — About SHIP',
+                        'https://ilaging.illinois.gov/ship/aboutship.html'),
+    "mtools": ('Medicare.gov — Helpful tools',
+              'https://www.medicare.gov/basics/get-started-with-medicare/using-medicare/helpful-tools'),
 }
 
 
@@ -1642,6 +1660,412 @@ GUIDES = [
             ]),
         ],
     },
+
+    {
+        "slug": "va-veteran-directed-care-program",
+        "bridge": ("Knowing that the VA will fund help at home answers how your "
+               "veteran parent might pay for it. It does not answer whether help "
+               "at home, rather than a higher level of care, is actually enough."),
+        "reviewed": "2026-10-27",
+        "title": "Can a Veteran Get Paid In-Home Care Through the VA?",
+        "h1": "Can a veteran get paid in-home care through the VA?",
+        "desc": ("VA.gov describes a consumer-directed benefit called Veteran "
+                 "Directed Care that lets an eligible veteran set a spending plan "
+                 "and hire their own help at home, including a family member. "
+                 "Here is who qualifies and how to start, in VA.gov&rsquo;s own "
+                 "words."),
+        "intent": "benefits question",
+        "answer": ("<strong>Sometimes, through a programme called Veteran "
+                   "Directed Care, which is separate from the VA pension this "
+                   "site covers elsewhere.</strong> VA.gov describes it as giving "
+                   "&ldquo;Veterans of all ages the opportunity to receive the "
+                   "Home and Community Based Services they need in a "
+                   "consumer-directed way.&rdquo; A veteran who qualifies gets a "
+                   "budget and help building a spending plan, then hires their "
+                   "own workers &mdash; who can include a family member or a "
+                   "neighbour &mdash; rather than being assigned an agency "
+                   "worker. It depends on clinical need, enrollment in VA health "
+                   "care, and whether the local VA offers it at all."),
+        "sources": srcs("va_vdc", "va_cc_elig", "va_health_apply", "va_aa"),
+        "body": [
+            ("What Veteran Directed Care actually is", [
+                "<p>This is easy to miss because it sits inside VA.gov&rsquo;s "
+                "Geriatrics and Extended Care pages rather than beside the "
+                "pension material most families find first. VA.gov&rsquo;s own "
+                "description: Veteran Directed Care &ldquo;gives Veterans of all "
+                "ages the opportunity to receive the Home and Community Based "
+                "Services&rdquo; they need &ldquo;in a consumer-directed "
+                "way.&rdquo;</p>",
+                "<p>&ldquo;Consumer-directed&rdquo; is the operative word. "
+                "Instead of VA (or an agency VA contracts with) choosing and "
+                "scheduling an aide, the veteran or their representative "
+                "receives help developing a spending plan, then hires workers "
+                "themselves &mdash; and VA.gov is explicit that this can include "
+                "&ldquo;their own family member or neighbor&rdquo; &mdash; to "
+                "help the veteran live independently in the community.</p>",
+                "<p>VA.gov lists examples of the daily activities the hired help "
+                "can cover: eating, getting dressed, personal grooming, bathing, "
+                "using the bathroom, moving from one place to another, and "
+                "grocery shopping. It also names who the programme is aimed at: "
+                "veterans who need personal care and help with daily activities, "
+                "and veterans who are isolated or whose caregiver is under "
+                "strain.</p>",
+            ]),
+            ("Who qualifies, in VA.gov's own words", [
+                "<p>VA.gov states the rule in one sentence: &ldquo;All enrolled "
+                "Veterans are eligible for Veteran Directed Care if they are "
+                "eligible for community care,&rdquo; &ldquo;meet the clinical "
+                "criteria for the service, and it is available&rdquo; where they "
+                "live. That is three separate gates, and the page is explicit "
+                "that services vary by location &mdash; this is not a benefit "
+                "every VA medical centre necessarily offers.</p>",
+                "<p>The Veteran Directed Care page does not itself spell out what "
+                "&ldquo;eligible for community care&rdquo; means, so this guide "
+                "read VA.gov's own community care eligibility page rather than "
+                "guess. That page sets two basic requirements that must both be "
+                "true &mdash; &ldquo;you're enrolled in or eligible for VA health "
+                "care&rdquo; and &ldquo;you have approval from your VA health "
+                "care team before you get care from a community provider&rdquo; "
+                "&mdash; plus at least one of several further conditions, such as "
+                "needing a service VA does not provide at any facility or living "
+                "somewhere without a full-service VA facility nearby.</p>",
+                "<p>This guide has not confirmed, on any VA.gov page, that the "
+                "general community-care eligibility rules apply to Veteran "
+                "Directed Care exactly as written for an outside specialist "
+                "referral &mdash; the Veteran Directed Care page simply says "
+                "&ldquo;eligible for community care&rdquo; without cross-linking "
+                "the detail. Rather than assume the two pages mean exactly the "
+                "same thing in every case, ask a VA social worker whether your "
+                "veteran parent clears this gate before ruling the programme in "
+                "or out.</p>",
+            ]),
+            ("This is not Aid and Attendance", [
+                "<p>Families researching VA help with senior care usually find "
+                '<a href="/guides/va-aid-and-attendance-benefit/">VA Aid and '
+                "Attendance</a> first, and it is easy to assume Veteran Directed "
+                "Care is the same thing under another name. It is not.</p>",
+                "<p>Aid and Attendance is an increased rate added to the "
+                "Veterans Pension or Survivors Pension &mdash; a cash benefit, "
+                "administered on the benefits side of VA, that a family can put "
+                "toward care in any setting. Veteran Directed Care is a health "
+                "care service, administered through VA's geriatrics and "
+                "extended-care programme, that pays for a defined package of "
+                "in-home help rather than handing the veteran cash. One pays a "
+                "monthly amount against the veteran's own countable income; the "
+                "other funds a spending plan for specific hired help. This guide "
+                "found no VA.gov page confirming whether a veteran can draw on "
+                "both at once, so it will not guess &mdash; ask a VA social "
+                "worker about your specific situation.</p>",
+            ]),
+            ("How to start", [
+                "<p>VA.gov does not describe a separate application form for "
+                "Veteran Directed Care itself. What it says instead is to use "
+                "the Veteran Decision Aid for Care at Home or in the Community "
+                "&ldquo;to help you figure out what home care services or long "
+                "term care services may best meet your needs&rdquo; now or in "
+                "the future, and then: &ldquo;If Veteran Directed Care seems "
+                "right for you, talk with your VA social worker and find out if "
+                "it is available&rdquo; in your location.</p>",
+                "<p>A veteran who is not yet enrolled in VA health care has to "
+                "clear that step first, since enrollment is one of the stated "
+                "gates above. VA.gov lists four ways to apply for VA health "
+                "care: online, by phone at <strong>877-222-8387</strong> "
+                "(Monday&ndash;Friday, 8:00 a.m. to 8:00 p.m. ET), by mailing a "
+                "signed VA Form 10-10EZ to the Health Eligibility Center, PO Box "
+                "5207, Janesville, WI 53547-5207, or in person at the nearest VA "
+                "medical centre or clinic with the same signed form in hand.</p>",
+            ]),
+            ("A figure this guide will not guess at", [
+                "<p>Families will want to know the size of the budget a veteran "
+                "actually receives. This guide looked for that figure on VA.gov "
+                "and did not find a published national amount &mdash; the page "
+                "describes the spending plan as based on an individual "
+                "assessment, not a fixed rate. Anything quoting a specific "
+                "dollar figure for Veteran Directed Care is not working from a "
+                "VA.gov page this guide could locate. Ask the VA social worker "
+                "handling the case what the assessed budget would actually "
+                "be.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>If the money question is the pension itself rather than this "
+                'programme, see <a href="/guides/va-aid-and-attendance-benefit/">'
+                "Does the VA pay for senior care? Aid and Attendance, "
+                "explained</a>, which covers the " + F["va_mapr_aa_single"] +
+                " ceiling and who qualifies for the pension underneath it. "
+                "Illinois runs its own, separate in-home programme funded "
+                'through Medicaid rather than VA &mdash; see <a '
+                'href="/guides/illinois-community-care-program/">Can my parent '
+                "get paid help at home in Illinois?</a> A veteran parent could "
+                "in principle have both a state and a federal route into paid "
+                "help at home; this guide has not researched how the two "
+                "interact and will not guess.</p>",
+                "<p>If the open question is whether your parent needs help at "
+                "home at all, rather than how any particular programme pays for "
+                'it, the <a href="/">free six-question assessment</a> on this '
+                "site walks through that separately. It asks for no name, no "
+                "email and no phone number, and your answers never leave your "
+                "device.</p>",
+            ]),
+        ],
+    },
+    {
+        "slug": "illinois-family-caregiver-support-program",
+        "bridge": ("Finding help for yourself as the caregiver is a different "
+               "question from knowing whether your parent's needs have moved "
+               "past what any amount of help at home can cover."),
+        "reviewed": "2026-10-28",
+        "title": "Is There Help for the Caregiver, Not Just the Parent, in Illinois?",
+        "h1": "Is there help for the caregiver, not just the parent, in Illinois?",
+        "desc": ("Illinois runs a Family Caregiver Support Program built around "
+                 "the person doing the caring, not the person being cared for "
+                 "&mdash; respite, counselling, training and a local resource "
+                 "centre. Here is what the Department on Aging&rsquo;s own pages "
+                 "say it covers, and what they do not say."),
+        "intent": "caregiver support",
+        "answer": ("<strong>Yes &mdash; Illinois funds a Family Caregiver "
+                   "Support Program aimed at the caregiver rather than the "
+                   "older adult.</strong> The Illinois Department on Aging "
+                   "describes a family caregiver as &ldquo;an adult family "
+                   "member or another individual who is an informal provider "
+                   "of in-home and community care&rdquo; to an older person, "
+                   "and says the programme can connect that caregiver to "
+                   "counselling, support groups, training, <strong>respite "
+                   "care</strong> and limited supplemental services. It is "
+                   "delivered locally through a network of Caregiver Resource "
+                   "Centers and the 13 Area Agencies on Aging, not a single "
+                   "statewide office &mdash; so the way in is the Senior "
+                   "HelpLine, not a form."),
+        "sources": srcs("idoa_caregiver", "idoa_crc", "idoa_caregiver_links"),
+        "body": [
+            ("What the programme actually is", [
+                "<p>The Illinois Department on Aging says this programme grew "
+                "out of 2000 amendments to the federal Older Americans Act, "
+                "which created a National Family Caregiver Support Program; "
+                "Illinois received an initial $4.7 million to build its own "
+                "version with the state&rsquo;s Area Agencies on Aging and "
+                "local community-service providers. That is a historical "
+                "start-up figure, not a per-family benefit amount, and this "
+                "guide found no current statewide budget figure published "
+                "anywhere on the Department&rsquo;s site.</p>",
+                "<p>The Department&rsquo;s own definition of who counts as a "
+                "&ldquo;family caregiver&rdquo; is broader than a spouse or "
+                "adult child: it names &ldquo;an adult family member or "
+                "another individual who is an informal provider of in-home "
+                "and community care&rdquo; to an older person, and separately "
+                "covers grandparents raising grandchildren. &ldquo;Informal "
+                "caregiving,&rdquo; in the Department&rsquo;s words, means "
+                "unpaid care and support given by family or friends to someone "
+                "with a chronic illness or disability.</p>",
+            ]),
+            ("What it can connect you to", [
+                "<p>The Department lists five things the programme does for a "
+                "caregiver: provides information about available services; "
+                "helps a caregiver get access to those services; connects a "
+                "caregiver to individual counselling, support groups or "
+                "caregiver training; connects a caregiver to <strong>respite "
+                "care</strong>, described as giving &ldquo;temporary relief "
+                "from caregiving duties&rdquo;; and provides supplemental "
+                "services &ldquo;on a limited basis&rdquo; to complement the "
+                "care a family already gives.</p>",
+                "<p>A separate Department page on its Family and Caregiver "
+                "Resource Centers adds detail to that list: each centre can "
+                "help locate adult day service, home-delivered meals, "
+                "housekeeping assistance, home modification and assistive "
+                "device help, transportation, financial and legal "
+                "information, caregiver training, case management assistance "
+                "and employment programmes &mdash; on top of the counselling "
+                "and respite already named.</p>",
+            ]),
+            ("Respite, in the Department's own words", [
+                "<p>Respite is the service most caregivers are actually "
+                "looking for, and the Department's Family and Caregiver "
+                "Services page describes it plainly: &ldquo;Respite services "
+                "are intended to provide caregivers with short-term "
+                "relief.&rdquo; It says the length and setting vary &mdash; "
+                "respite &ldquo;may be provided for an afternoon, several "
+                "days, at home, or in a facility-based setting.&rdquo;</p>",
+                "<p>The same page says Area Agencies on Aging assess a "
+                "caregiver's own needs using an assessment tool it calls "
+                "TCARE, and may refer a caregiver on from there to named "
+                "programmes such as Savvy Caregiver or the Stress-Busting "
+                "Program for Family Caregivers, as well as support groups, "
+                "counselling and what it calls &ldquo;gap-filling "
+                "services.&rdquo;</p>",
+            ]),
+            ("What this guide could not pin down", [
+                "<p>None of the three Department pages this guide read states "
+                "an income limit for the Family Caregiver Support Program, a "
+                "cost to the caregiver, a cap on respite hours, or a formal "
+                "application form. The Resource Centers page is explicit that "
+                "eligibility and fees are not listed there either &mdash; it "
+                "directs a caregiver to the local centre or the Senior "
+                "HelpLine instead.</p>",
+                "<p>This guide will not guess at any of those figures on the "
+                "Department's behalf. If a cost, an income test or a waiting "
+                "list applies in your case, that answer lives with your local "
+                "Area Agency on Aging or Caregiver Resource Center, not on a "
+                "page written in Springfield.</p>",
+            ]),
+            ("How to start", [
+                "<p>Call the <strong>Senior HelpLine</strong> on "
+                "<strong>1-800-252-8966</strong> (711 TRS for deaf and "
+                "speech-impaired callers). The Department also publishes a "
+                "provider search tool for finding the Caregiver Resource "
+                "Center or Area Agency on Aging that covers your parent's "
+                "address, since services are organised locally rather than "
+                "from one statewide office.</p>",
+                "<p>If your parent lives outside Illinois, the Department's "
+                "own guidance is to contact the Caregiver Resource Center "
+                "nearest to <em>your parent</em>, not to you &mdash; the "
+                "service follows the older adult's location.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>This programme supports the person doing the caring. It "
+                "is not the same thing as Illinois paying for help at home "
+                "for the older adult, which is a separate Medicaid-funded "
+                'programme covered in <a '
+                'href="/guides/illinois-community-care-program/">Can my '
+                "parent get paid help at home in Illinois?</a> A family can "
+                "in principle use both at once; this guide found no "
+                "Department page describing how the two interact, and will "
+                "not guess.</p>",
+                "<p>If the real question is whether home, with or without "
+                "extra help, is still the right setting for your parent, the "
+                '<a href="/">free six-question assessment</a> on this site '
+                "walks through that separately. It asks for no name, no "
+                "email and no phone number, and your answers never leave "
+                "your device.</p>",
+            ]),
+        ],
+    },
+
+    {
+        "slug": "illinois-senior-health-insurance-program",
+        "bridge": ("Picking the right Medicare plan is a different question "
+               "from knowing whether Medicare will ever pay for the kind of "
+               "care your parent eventually needs."),
+        "reviewed": "2026-10-29",
+        "title": "Who Can Help My Parent Choose a Medicare Plan for Free in Illinois?",
+        "h1": "Who can help my parent choose a Medicare plan for free in Illinois?",
+        "desc": ("Illinois runs a free, unbiased Medicare counselling service "
+                 "called SHIP. What the Department on Aging's own pages say "
+                 "it actually does, what it does not say, and how to reach a "
+                 "counsellor directly."),
+        "intent": "how-to / free local help",
+        "answer": ("<strong>Call the Illinois Senior Health Insurance Program "
+                   "(SHIP) on 1-800-252-8966 (711 TRS).</strong> It is a free, "
+                   "statewide counselling service for Medicare beneficiaries "
+                   "and their caregivers, run by the Illinois Department on "
+                   "Aging. SHIP is not affiliated with any insurance company, "
+                   "and its counsellors do not sell or solicit insurance of "
+                   "any kind &mdash; the advice is not trying to sell your "
+                   "parent anything."),
+        "sources": srcs("idoa_ship", "idoa_ship_about", "mtools"),
+        "body": [
+            ("A free, unbiased place to start", [
+                "<p>The Illinois Department on Aging describes the Senior "
+                "Health Insurance Program, SHIP, as &ldquo;a free statewide "
+                "health insurance counseling service for Medicare "
+                "beneficiaries and their caregivers.&rdquo; It moved to the "
+                "Department on Aging from the Illinois Department of "
+                "Insurance in April 2013, and the programme itself dates back "
+                "to 1988.</p>",
+                "<p>The Department states plainly that &ldquo;SHIP is not "
+                "affiliated with any insurance company&rdquo; and that "
+                "&ldquo;SHIP counselors do not sell or solicit any type of "
+                "insurance.&rdquo; Medicare's own site makes the same point "
+                "about the national SHIP network: &ldquo;SHIPs aren't "
+                "connected to any insurance companies or health plans.&rdquo; "
+                "That independence is the whole reason to call a SHIP "
+                "counsellor before calling a plan's own sales line.</p>",
+            ]),
+            ("What a SHIP counsellor actually does", [
+                "<p>The Department's SHIP pages describe volunteer counsellors "
+                "as the programme's &ldquo;backbone,&rdquo; trained and "
+                "supported by the Department, with local sponsoring "
+                "organisations &mdash; often an Area Agency on Aging &mdash; "
+                "providing the office space. What a counsellor can help "
+                "with, in the Department's own words, includes: educating "
+                "consumers and answering questions about Medicare, Medicare "
+                "Supplement insurance, long-term care insurance, Medicare "
+                "HMOs and other health insurance; analysing Medicare "
+                "Supplement and long-term care policies; organising and "
+                "assisting with Medicare and Medicare Supplement claims; and "
+                "one-on-one confidential counselling, with advocacy and "
+                "referrals where appropriate. The Department also publishes "
+                "an annual Medicare Choices Guide.</p>",
+                "<p>The SHIP page also lists related Department resources a "
+                "counsellor can point a caller toward, without stating "
+                "figures here: a Medicare Savings Programs chart, an Extra "
+                "Help chart, and information on Medicaid income and asset "
+                "limits. Ask the counsellor directly whether your parent's "
+                "situation fits any of those &mdash; this guide is not going "
+                "to estimate an income limit on the Department's behalf.</p>",
+            ]),
+            ("Medicare's own comparison tool, and where SHIP fits around it", [
+                "<p>Medicare.gov's own &ldquo;Helpful tools&rdquo; page "
+                "points to its plan-comparison tool at "
+                "medicare.gov/plan-compare, where you can &ldquo;find and "
+                "compare Medicare Advantage Plans (Part C),&rdquo; other "
+                "Medicare health plans and Medicare drug plans, review costs "
+                "and services, and enter a parent's actual prescriptions to "
+                "estimate what each plan would cost. A separate tool at "
+                "medicare.gov/medigap-supplemental-insurance-plans finds "
+                "Medicare Supplement (Medigap) policies and premiums by ZIP "
+                "code.</p>",
+                "<p>The same Medicare.gov page names SHIP directly as the "
+                "free, no-strings-attached help for using those tools: "
+                "&ldquo;Get free personalized health insurance counseling. "
+                "SHIPs aren't connected to any insurance companies or health "
+                "plans,&rdquo; and says SHIP counsellors can help with "
+                "comparing and joining plans. In other words, the self-serve "
+                "comparison lives on Medicare.gov; the person who will sit "
+                "with your parent and go through it is SHIP.</p>",
+                "<p>Medicare.gov also lists 1-800-MEDICARE (1-800-633-4227, "
+                "TTY 1-877-486-2048) as a federal line available around the "
+                "clock except some holidays, and a live-chat option for "
+                "finding local help. Neither replaces SHIP &mdash; they are "
+                "simply other doors into the same federal programme.</p>",
+            ]),
+            ("What this guide could not pin down", [
+                "<p>Neither Department on Aging SHIP page this guide read "
+                "states the counselling programme's hours, a typical wait "
+                "for an appointment, or a list of named local counsellors by "
+                "address. The Department instead points callers to a "
+                "&ldquo;Volunteers in Your Area by County&rdquo; listing and "
+                "a service locator rather than publishing that detail on the "
+                "page itself.</p>",
+                "<p>This guide also will not quote a dollar figure for the "
+                "Medicare Savings Programs or Extra Help, since doing so "
+                "would mean reading it off a chart this guide did not open. "
+                "Ask a SHIP counsellor directly whether either applies to "
+                "your parent's income.</p>",
+            ]),
+            ("How to reach a counsellor", [
+                "<p>Call the <strong>Senior HelpLine</strong> on "
+                "<strong>1-800-252-8966</strong> (711 TRS for deaf and "
+                "speech-impaired callers), or email "
+                "<strong>Aging.SHIP@illinois.gov</strong>. That is the same "
+                "statewide number the Department publishes for its other "
+                "aging programmes, so one call can also raise anything else "
+                "covered on this site, from home care to caregiver "
+                "support.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>A SHIP counsellor can help your parent pick the right "
+                "Medicare plan. It cannot tell you whether Medicare will pay "
+                "for the care your parent eventually needs &mdash; for that "
+                'distinction, see <a '
+                'href="/guides/does-medicare-pay-for-senior-care/">Does '
+                "Medicare pay for assisted living or nursing home care?</a></p>",
+                "<p>If the real question is what level of care fits your "
+                'parent at all, the <a href="/">free six-question '
+                "assessment</a> on this site walks through that separately. "
+                "It asks for no name, no email and no phone number, and your "
+                "answers never leave your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -1689,6 +2113,7 @@ HEAD = """<!DOCTYPE html>
     </a>
     <div class="nav__links">
       <a href="/guides/">Care Guides</a>
+      <a href="/#paying-nav">Paying for care</a>
       <button class="nav__toggle" id="navToggle" type="button"
               aria-expanded="false" aria-controls="navMenu">
         <span class="nav__toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -1701,6 +2126,7 @@ HEAD = """<!DOCTYPE html>
     <div class="wrap">
       <a href="/">Home</a>
       <a href="/guides/">Care Guides</a>
+      <a href="/#paying-nav">Paying for care</a>
       <a href="/#assessment">Start assessment</a>
     </div>
   </div>
@@ -1765,6 +2191,43 @@ def strip_tags(s):
     return re.sub(r"<[^>]+>", "", s)
 
 
+# --------------------------------------------------------------------------
+# PAYMENT NAVIGATOR LINE (Workflow #5) — which guides carry it.
+#
+# One quiet sentence under "Related guides", only on guides whose subject is
+# paying for care. It is a link, never a second button: the assessment keeps
+# the page's only button, its bridge after section one, and its block at the
+# end. Guides about choosing or checking a community, about independent
+# living (which has its own two-way fork), and about caregiver support say
+# nothing about it; a reader there did not ask how to pay.
+#
+# The query string carries one fixed token so the index page can count the
+# pathway (/t/guide-choice-pay.txt) apart from the two existing ones. It is
+# not personal and nothing is rendered differently because of it.
+# --------------------------------------------------------------------------
+PAY_NAV_GUIDES = [
+    "assisted-living-cost-illinois",
+    "does-medicare-pay-for-senior-care",
+    "illinois-senior-health-insurance-program",
+    "illinois-supportive-living-program",
+    "illinois-medicaid-long-term-care",
+    "illinois-medicaid-estate-recovery",
+    "va-aid-and-attendance-benefit",
+    "va-veteran-directed-care-program",
+]
+PAY_NAV_HREF = "/?pay=guide#paying-nav"
+
+
+def pay_nav_line(g):
+    if g["slug"] not in PAY_NAV_GUIDES:
+        return ""
+    return ('<p class="related__pay">Comparing ways to pay? '
+            '<a href="%s">The payment navigator</a> puts Medicare, Illinois '
+            'Medicaid, VA benefits, long-term-care insurance and private payment '
+            'in order for a given type of care &mdash; three questions, nothing '
+            'decided, nothing collected.</p>\n' % PAY_NAV_HREF)
+
+
 def related(g):
     others = [x for x in GUIDES if x["slug"] != g["slug"]][:3]
     items = "".join(
@@ -1772,7 +2235,7 @@ def related(g):
         for o in others)
     return ('<section class="res__block">\n'
             '<h2 class="res__h">Related guides</h2>\n'
-            '<ul class="res__list">%s</ul>\n</section>' % items)
+            '<ul class="res__list">%s</ul>\n%s</section>' % (items, pay_nav_line(g)))
 
 
 def sources_block(g):
@@ -1993,6 +2456,24 @@ CARDS = {
         "Who actually qualifies for a VA pension and its Aid and "
         "Attendance or Housebound add-on, and why the published rate is "
         "a ceiling, not a cheque."),
+    "va-veteran-directed-care-program": (
+        "Veterans' benefits",
+        "Can a veteran get paid in-home care through the VA?",
+        "A consumer-directed VA budget that can hire a family member or "
+        "neighbour, not a pension cheque — who qualifies and how to "
+        "start."),
+    "illinois-family-caregiver-support-program": (
+        "Staying at home",
+        "Is there help for the caregiver, not just the parent?",
+        "Illinois funds respite, counselling and training for the person "
+        "doing the caring, delivered through a local Caregiver Resource "
+        "Center — what it covers, and what it does not say."),
+    "illinois-senior-health-insurance-program": (
+        "Medicare",
+        "Free help choosing a Medicare plan in Illinois",
+        "SHIP is a free, unbiased state counselling service for Medicare "
+        "beneficiaries — what counsellors actually do, and how to reach "
+        "one."),
 }
 
 
@@ -2173,7 +2654,7 @@ def write_indexnow_key():
 # Exactly the drift that already bit styles.css. The generator syncs it now
 # and check-guides fails the build if the two ever disagree.
 SHARED_ASSETS = ["styles.css", "app.js", "assessment.js", "nav.js",
-                 "guides.js", "index.html"]
+                 "guides.js", "index.html", "paying-nav.js"]
 
 
 BEACON_LEVELS = ["independent", "assisted", "memory", "skilled", "rehab",
@@ -2192,7 +2673,8 @@ def write_beacons():
     Parsed from the literals in app.js plus the two prefixes it builds at
     runtime, so adding a beacon in code creates its file on the next build
     and nobody has to remember."""
-    src = io.open("app.js", encoding="utf-8").read()
+    src = (io.open("app.js", encoding="utf-8").read() + "\n" +
+           io.open("paying-nav.js", encoding="utf-8").read())
     names = set(re.findall(r'"/t/([a-z0-9-]+)\.txt"', src))
     for lvl in BEACON_LEVELS:
         names.add("result-" + lvl)
