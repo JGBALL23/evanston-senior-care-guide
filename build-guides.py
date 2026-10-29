@@ -179,6 +179,8 @@ SRC = {
                   'https://www.va.gov/resources/eligibility-for-community-care-outside-va/'),
     "va_health_apply": ('VA.gov — How to apply for VA health care benefits',
                         'https://www.va.gov/health-care/how-to-apply/'),
+    "va_90": ('VA.gov — $90 VA pension rate in a Medicaid-covered nursing facility',
+              'https://www.va.gov/resources/90-va-pension-rate-if-youre-in-a-medicaid-covered-nursing-facility/'),
     "idoa_caregiver": ('Illinois Department on Aging — Family Caregiver Support Program',
                        'https://ilaging.illinois.gov/programs/caregiver/program.html'),
     "idoa_crc": ('Illinois Department on Aging — Family and Caregiver Resource Centers',
@@ -186,7 +188,7 @@ SRC = {
     "idoa_caregiver_links": ('Illinois Department on Aging — Family and Caregiver Services',
                              'https://ilaging.illinois.gov/programs/caregiver/caregiver-links.html'),
     "idoa_ship": ('Illinois Department on Aging — Senior Health Insurance Program (SHIP)',
-                 'https://ilaging.illinois.gov/ship'),
+                 'https://ilaging.illinois.gov/ship.html'),
     "idoa_ship_about": ('Illinois Department on Aging — About SHIP',
                         'https://ilaging.illinois.gov/ship/aboutship.html'),
     "mtools": ('Medicare.gov — Helpful tools',
@@ -1464,13 +1466,14 @@ GUIDES = [
         "bridge": ("Qualifying for a VA pension tells you that your parent can get help "
                "paying for care. It does not tell you which level of care their health "
                "actually calls for."),
-        "reviewed": "2026-10-26",
+        "reviewed": "2026-10-29",
         "title": "Does the VA Pay for Senior Care? Aid and Attendance, Explained",
         "h1": "Does the VA pay for senior care? Aid and Attendance, explained",
-        "desc": ("VA Aid and Attendance can add up to " + F["va_mapr_aa_single"] +
-                 " a year on top of a wartime veteran&rsquo;s pension. Here is who "
-                 "actually qualifies, why the published rate is a ceiling rather than a "
-                 "cheque, and how a surviving spouse&rsquo;s own pension differs."),
+        "desc": ("The most a wartime veteran with no dependents can receive with Aid "
+                 "and Attendance is " + F["va_mapr_aa_single"] + " a year &mdash; the "
+                 "whole pension at that rate, not an extra payment, and a ceiling reduced "
+                 "by the veteran&rsquo;s own income. Here is who actually qualifies, and "
+                 "how a surviving spouse&rsquo;s own pension differs."),
         "intent": "benefits question",
         "answer": ("<strong>Yes, for veterans and some surviving spouses who already "
                    "qualify for a VA pension.</strong> Aid and Attendance and Housebound "
@@ -1479,12 +1482,14 @@ GUIDES = [
                    "spouse&rsquo;s <strong>Survivors Pension</strong>, for someone who "
                    "needs help with daily activities, is bedridden, is a nursing home "
                    "patient because of a disability, or has severely limited eyesight. "
-                   "The published figure is a <strong>maximum annual rate</strong>, not a "
-                   "flat cheque: VA pays the difference between that ceiling and the "
-                   "person&rsquo;s own countable income, so this guide will not calculate "
-                   "what any one family would actually receive."),
+                   "The published figure is a <strong>maximum annual rate for the whole "
+                   "pension at that level</strong> &mdash; not an amount paid on top of "
+                   "the pension, and not a flat cheque: VA pays the difference between "
+                   "that ceiling and the person&rsquo;s own countable income, so this "
+                   "guide will not calculate what any one family would actually "
+                   "receive."),
         "sources": srcs("va_aa", "va_elig", "va_rates", "va_survivors",
-                        "va_survivors_rates", "va_apply"),
+                        "va_survivors_rates", "va_apply", "va_90"),
         "body": [
             ("What Aid and Attendance and Housebound actually are", [
                 "<p>Many Evanston families have a veteran parent and no idea this exists, "
@@ -1571,9 +1576,10 @@ GUIDES = [
                 "these expenses &ldquo;may reduce your income for VA purposes.&rdquo; This "
                 "guide will not do that subtraction for a hypothetical family; the real "
                 "figure depends on income and medical expenses only VA can verify.</p>",
-                "<p>Worth sizing honestly before you plan around it. The highest Aid and "
-                "Attendance rate for a veteran with no dependents, " +
-                F["va_mapr_aa_single"] + " a year, works out to roughly " +
+                "<p>Worth sizing honestly before you plan around it. The Aid and "
+                "Attendance ceiling for a veteran with no dependents &mdash; " +
+                F["va_mapr_aa_single"] + " a year, the whole pension at that level "
+                "rather than a sum added to it &mdash; works out to roughly " +
                 F["va_mapr_aa_single_month"] + " a month &mdash; against a median "
                 "Illinois assisted living cost of " + F["al_median"] + " a month, from "
                 "<a href=\"/guides/assisted-living-cost-illinois/\">this site&rsquo;s "
@@ -1587,8 +1593,10 @@ GUIDES = [
                 "<p>One figure worth knowing even though it is not the MAPR: a veteran "
                 "with no dependents who is already a patient in a Medicaid-covered nursing "
                 "facility has their pension reduced to <strong>" +
-                F["va_nh_medicaid_rate"] + " a month</strong>. That is a real VA.gov figure, "
-                "but it describes a different situation from the Aid and Attendance rate "
+                F["va_nh_medicaid_rate"] + " a month</strong>. VA.gov states that rate on "
+                "its own page for that situation (&ldquo;if you&rsquo;re living in a "
+                "Medicaid-covered nursing facility and you have no dependents&rdquo;), and "
+                "it describes a different situation from the Aid and Attendance rate "
                 "above &mdash; do not read the two as the same benefit.</p>",
             ]),
             ("Surviving spouses: the Survivors Pension and its own Aid and Attendance", [
@@ -1791,7 +1799,9 @@ GUIDES = [
                 'programme, see <a href="/guides/va-aid-and-attendance-benefit/">'
                 "Does the VA pay for senior care? Aid and Attendance, "
                 "explained</a>, which covers the " + F["va_mapr_aa_single"] +
-                " ceiling and who qualifies for the pension underneath it. "
+                " ceiling &mdash; the whole pension at the Aid and Attendance rate, "
+                "not an amount added to it &mdash; and who qualifies for the pension "
+                "underneath it. "
                 "Illinois runs its own, separate in-home programme funded "
                 'through Medicaid rather than VA &mdash; see <a '
                 'href="/guides/illinois-community-care-program/">Can my parent '
@@ -1813,7 +1823,7 @@ GUIDES = [
         "bridge": ("Finding help for yourself as the caregiver is a different "
                "question from knowing whether your parent's needs have moved "
                "past what any amount of help at home can cover."),
-        "reviewed": "2026-10-28",
+        "reviewed": "2026-10-29",
         "title": "Is There Help for the Caregiver, Not Just the Parent, in Illinois?",
         "h1": "Is there help for the caregiver, not just the parent, in Illinois?",
         "desc": ("Illinois runs a Family Caregiver Support Program built around "
@@ -1841,10 +1851,10 @@ GUIDES = [
                 "<p>The Illinois Department on Aging says this programme grew "
                 "out of 2000 amendments to the federal Older Americans Act, "
                 "which created a National Family Caregiver Support Program; "
-                "Illinois received an initial $4.7 million to build its own "
-                "version with the state&rsquo;s Area Agencies on Aging and "
+                "Illinois &ldquo;was given $4.7 million to develop&rdquo; its "
+                "own version with the state&rsquo;s Area Agencies on Aging and "
                 "local community-service providers. That is a historical "
-                "start-up figure, not a per-family benefit amount, and this "
+                "development figure, not a per-family benefit amount, and this "
                 "guide found no current statewide budget figure published "
                 "anywhere on the Department&rsquo;s site.</p>",
                 "<p>The Department&rsquo;s own definition of who counts as a "
@@ -1863,10 +1873,11 @@ GUIDES = [
                 "helps a caregiver get access to those services; connects a "
                 "caregiver to individual counselling, support groups or "
                 "caregiver training; connects a caregiver to <strong>respite "
-                "care</strong>, described as giving &ldquo;temporary relief "
-                "from caregiving duties&rdquo;; and provides supplemental "
-                "services &ldquo;on a limited basis&rdquo; to complement the "
-                "care a family already gives.</p>",
+                "care</strong>, so that caregivers can be &ldquo;temporarily "
+                "relieved from their caregiving responsibilities&rdquo;; and "
+                "provides supplemental services &ldquo;on a limited "
+                "basis&rdquo; to complement the care a family already "
+                "gives.</p>",
                 "<p>A separate Department page on its Family and Caregiver "
                 "Resource Centers adds detail to that list: each centre can "
                 "help locate adult day service, home-delivered meals, "
@@ -1896,10 +1907,13 @@ GUIDES = [
                 "<p>None of the three Department pages this guide read states "
                 "an income limit for the Family Caregiver Support Program, a "
                 "cost to the caregiver, a cap on respite hours, or a formal "
-                "application form. The Resource Centers page is explicit that "
-                "eligibility and fees are not listed there either &mdash; it "
-                "directs a caregiver to the local centre or the Senior "
-                "HelpLine instead.</p>",
+                "application form. The Resource Centers page lists services "
+                "and regional contacts and nothing about eligibility or fees "
+                "at all. The Department&rsquo;s own answer to &ldquo;Where can "
+                "I find out about services nearest to me?&rdquo; is to "
+                "&ldquo;inquire at your local Caregiver Resource Center or "
+                "your local Area Agency on Aging,&rdquo; or to call the "
+                "Senior HelpLine.</p>",
                 "<p>This guide will not guess at any of those figures on the "
                 "Department's behalf. If a cost, an income test or a waiting "
                 "list applies in your case, that answer lives with your local "
@@ -1983,8 +1997,9 @@ GUIDES = [
                 "<p>The Department's SHIP pages describe volunteer counsellors "
                 "as the programme's &ldquo;backbone,&rdquo; trained and "
                 "supported by the Department, with local sponsoring "
-                "organisations &mdash; often an Area Agency on Aging &mdash; "
-                "providing the office space. What a counsellor can help "
+                "organisations providing office space, and reached "
+                "&ldquo;through the Area Agency on Aging network of offices "
+                "throughout the state.&rdquo; What a counsellor can help "
                 "with, in the Department's own words, includes: educating "
                 "consumers and answering questions about Medicare, Medicare "
                 "Supplement insurance, long-term care insurance, Medicare "
