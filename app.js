@@ -38,7 +38,11 @@ const FUNNEL = {
      a record exists. */
   guideAssessment: "/t/guide-choice-assessment.txt",
   guideTour:       "/t/guide-choice-tour.txt",
-  directFormView:  "/t/direct-inquiry-form-view.txt"
+  directFormView:  "/t/direct-inquiry-form-view.txt",
+  /* The third pathway from a guide (Workflow #5): the payment navigator.
+     Counted apart from the two above so a reader who came to compare
+     funding routes is never mistaken for one who chose the assessment. */
+  guidePay:        "/t/guide-choice-pay.txt"
 };
 
 /* ---------- WHERE THEY CAME FROM ----------------------------
@@ -89,6 +93,11 @@ function param(name) {
 }
 const FROM_GUIDE = param("from");
 const TOUR_PARAM = param("tour");
+/* /?pay=guide#paying-nav -> the payment navigator, arrived at from a guide.
+   One fixed value, nothing else accepted, nothing stored, nothing rendered
+   differently: the hash does the scrolling and the navigator starts at its
+   own first question. Only the count changes. */
+const PAY_PARAM = param("pay");
 
 const sent = {};
 function beacon(path) {
@@ -1023,6 +1032,7 @@ quizEl.addEventListener("click", (event) => {
 
 /* A guide sent them here. Either path is the EXISTING one; the only new
    thing is which of the two opens first. */
+if (PAY_PARAM === "guide") beacon(FUNNEL.guidePay);
 if (TOUR_PARAM) {
   renderDirectInquiry();
 } else {

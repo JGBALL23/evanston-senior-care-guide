@@ -2442,7 +2442,11 @@ section[id], header[id] { scroll-margin-top: calc(var(--nav-h) + 14px); }
 .paynav__fine { color: var(--ink-faint); font-size: 15px; line-height: 1.6; margin-top: 22px; }
 .paynav__routes { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 14px; }
 .paynav__route { border: 1px solid var(--line); padding: 18px 20px; border-radius: 12px; background: #fff; }
-.paynav__route--first { border-color: var(--sage-deep); box-shadow: inset 5px 0 0 var(--sage-deep); }
+.paynav__route--lead { border-color: var(--sage-deep); box-shadow: inset 5px 0 0 var(--sage-deep); }
+/* One sentence on why the routes sit in this order, and on a moved card,
+   the visitor's own answer that moved it. Explanations, not verdicts. */
+.paynav__order { color: var(--ink); font-size: 17px; line-height: 1.6; max-width: 62ch; margin: 0 0 8px; }
+.paynav__why { color: var(--sage-deep); font-size: 15.5px; line-height: 1.5; margin: 0 0 8px; }
 .paynav__route h4 { font-size: 22px; margin: 8px 0; color: var(--ink); }
 .paynav__route p { font-size: 17px; line-height: 1.55; }
 .paynav__links { display: flex; flex-wrap: wrap; gap: 8px 22px; }
@@ -2455,6 +2459,10 @@ section[id], header[id] { scroll-margin-top: calc(var(--nav-h) + 14px); }
 .paynav__entry p:last-child { margin-bottom: 0; }
 .paynav__entry-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 10px 24px; margin-top: 4px; border-radius: 999px; background: var(--sage-deep); color: #fff !important; font-weight: 500; text-decoration: none; }
 .paynav__entry-btn:hover { filter: brightness(1.08); }
+/* The one quiet line on a paying-related guide. A link, never a second
+   button: the guide already ends with the assessment's button. */
+.related__pay { margin: 14px 0 0; font-size: 16.5px; line-height: 1.6; color: var(--ink-soft); max-width: 62ch; }
+.related__pay a { color: var(--sage-deep); text-underline-offset: 3px; }
 @media (max-width: 620px) {
   .paynav__widget { padding: 20px 16px; }
   .paynav__route { padding: 15px; }

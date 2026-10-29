@@ -195,7 +195,54 @@ async function main() {
       const links = await ev(`Array.from(${W}.querySelectorAll('.paynav__links a')).map(a=>({href:a.getAttribute('href'),target:a.getAttribute('target'),rel:a.getAttribute('rel')}))`);
       check("external links open in a new tab with noopener", links.filter((l) => l.href.startsWith("http")).every((l) => l.target === "_blank" && /noopener/.test(l.rel || "")));
       check("site links stay in the same tab", links.filter((l) => l.href.startsWith("/")).every((l) => !l.target));
-      check("no 404 among the pages the navigator links to", await ev(`(async()=>{var hs=${JSON.stringify(links.filter((l) => l.href.startsWith("/")).map((l) => l.href))}; for (var h of hs){ var r=await fetch(h,{method:'GET',cache:'no-store'}); if(!r.ok) return h+' -> '+r.status; } return 'ok';})()`) === "ok");
+      check("no 404 among the pages the navigator links to", await ev(`(async()=>{var hs=${JSON.stringify(links.filter((l) => l.href.startsWith("/") && !l.href.startsWith("/#")).map((l) => l.href))}; for (var h of hs){ var r=await fetch(h,{method:'GET',cache:'no-store'}); if(!r.ok) return h+' -> '+r.status; } return 'ok';})()`) === "ok");
+
+      /* 2b. the order is explained, never asserted; links fit the care type */
+      await fresh();
+      await choose("unsure"); await choose("no"); await choose("no");
+      let wtext = await ev(`${W}.textContent`);
+      check("'Not sure' results say they are in no particular order", wtext.includes("In no particular order"));
+      check("'Not sure' results mark nothing as worth checking first", !wtext.includes("Worth checking first") && !wtext.includes("Start here") && await count(".paynav__route--lead") === 0);
+      check("'Not sure' results carry the reason for the order", wtext.includes("nothing here is ranked"));
+      await click("[data-pay-restart]");
+      await choose("unsure"); await choose("yes"); await choose("no");
+      wtext = await ev(`${W}.textContent`);
+      check("a 'yes' on 'Not sure' moves VA up and says why, in the visitor's own answer", (await routeTitles())[0] === "VA benefits" && wtext.includes("Moved up because you answered Yes") && await count(".paynav__route--lead") === 1);
+      await click("[data-pay-restart]");
+      await choose("skilled"); await choose("no"); await choose("no");
+      wtext = await ev(`${W}.textContent`);
+      const skilledHrefs = await ev(`Array.from(${W}.querySelectorAll('.paynav__links a')).map(a=>a.getAttribute('href'))`);
+      check("skilled nursing: nothing links to assisted-living costs", !skilledHrefs.includes("/guides/assisted-living-cost-illinois/"), skilledHrefs.join(" "));
+      check("skilled nursing: private pay names the nursing-home figures", wtext.includes("What a nursing home usually costs"));
+      check("skilled nursing: Medicare links its skilled-nursing-facility page", skilledHrefs.some((h) => /skilled-nursing-facility/.test(h)));
+      check("skilled nursing: the first card is 'worth checking first', not 'start here'", wtext.includes("Worth checking first") && !wtext.includes("Start here"));
+      check("skilled nursing: the order is explained for this care type", wtext.includes("Ordered for skilled nursing") && wtext.includes("Long-stay nursing-home care"));
+      await click("[data-pay-restart]");
+      await choose("rehab"); await choose("no"); await choose("no");
+      const rehabHrefs = await ev(`Array.from(${W}.querySelectorAll('.paynav__links a')).map(a=>a.getAttribute('href'))`);
+      check("rehabilitation: nothing links to assisted-living costs", !rehabHrefs.includes("/guides/assisted-living-cost-illinois/"));
+      check("rehabilitation: the cost-section link resolves on this page", await ev(`!!document.getElementById('cost')`) && rehabHrefs.includes("/#cost"));
+
+      /* 2c. discoverable from the site without a second call to action */
+      await fresh();
+      const menu = await ev(`Array.from(document.querySelectorAll('#navMenu a')).map(a=>a.textContent.trim())`);
+      check("home page menu offers 'Paying for care' before 'Start assessment'", menu.indexOf("Paying for care") > 0 && menu.indexOf("Paying for care") < menu.indexOf("Start assessment"), menu.join(" | "));
+      check("the nav's one call-to-action is still the assessment", await ev(`document.querySelector('.nav__cta').getAttribute('href')`) === "#assessment");
+      await send("Page.navigate", { url: base + "/guides/illinois-medicaid-long-term-care/" }); await sleep(1200);
+      const gmenu = await ev(`Array.from(document.querySelectorAll('#navMenu a')).map(a=>a.textContent.trim())`);
+      check("a guide's menu offers 'Paying for care'", gmenu.includes("Paying for care"), gmenu.join(" | "));
+      check("a paying guide carries one quiet payment line and still exactly one button", await ev(`document.querySelectorAll('.related__pay').length`) === 1 && await ev(`document.querySelectorAll('.btn.btn--primary').length`) === 1);
+      check("the guide's payment link is a link, not a button", await ev(`(function(){var a=document.querySelector('.related__pay a'); return a && !a.className.includes('btn');})()`));
+      browser.events.length = 0;
+      await ev(`document.querySelector('.related__pay a').click()`); await sleep(2500);
+      check("guide -> navigator: lands on the home page at the navigator", (await ev(`location.pathname + location.hash`)) === "/#paying-nav");
+      const gtop = await sectionTop();
+      check("guide -> navigator: section is in view", gtop > -40 && gtop < 200, String(gtop));
+      check("guide -> navigator: the navigator is at its own question one, nothing assumed", (await heading()).includes("What kind of care"));
+      check("guide -> navigator: counted as the third guide pathway, not as the assessment", seen().includes("/t/guide-choice-pay.txt") && !seen().includes("/t/guide-choice-assessment.txt") && !seen().includes("/t/guide-choice-tour.txt"));
+      check("guide -> navigator: the six questions still open as usual", await ev(`!!document.querySelector('#quiz [data-aud="parent"]')`));
+      await send("Page.navigate", { url: base + "/guides/check-illinois-inspection-records/" }); await sleep(1000);
+      check("a guide that is not about paying carries no payment line", await ev(`document.querySelectorAll('.related__pay').length`) === 0);
 
       /* 3. Back at every stage, Change, restart, keyboard */
       await fresh();

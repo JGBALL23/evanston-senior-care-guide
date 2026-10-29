@@ -88,21 +88,130 @@ for (const care of careTypes) {
 const root = path.join(__dirname,"..");
 const dist = path.join(root,"_dist");
 const hrefs = new Set();
-for (const key of Object.keys(p.ROUTES)) {
-  const r = p.ROUTES[key];
-  for (const h of [r.link, r.guide, r.more]) if (h && h.startsWith("/")) hrefs.add(h);
+const externals = new Set();
+for (const care of careTypes) {
+  for (const r of p.getRoutes(care, "no", "no")) {
+    for (const h of [r.link, r.guide, r.more]) {
+      if (!h) continue;
+      if (h.startsWith("/")) hrefs.add(h); else externals.add(h);
+    }
+    check(care + "/" + r.id + ": every link has text, and no text without a link", () => {
+      assert(r.link && r.linkText);
+      assert(!!r.guide === !!r.guideText);
+      assert(!!r.more === !!r.moreText);
+    });
+  }
 }
-check("navigator links at least four site guides", () => assert(hrefs.size >= 4, [...hrefs].join(", ")));
+check("navigator links at least six site pages", () => assert(hrefs.size >= 6, [...hrefs].join(", ")));
+const indexHtml = fs.readFileSync(path.join(dist, "index.html"), "utf8");
 for (const h of hrefs) {
-  check("site link exists in _dist: " + h, () =>
-    assert(fs.existsSync(path.join(dist, h.replace(/^\//,""), "index.html")), h));
+  check("site link exists in _dist: " + h, () => {
+    if (h.startsWith("/#")) assert(indexHtml.includes('id="' + h.slice(2) + '"'), "no section " + h);
+    else assert(fs.existsSync(path.join(dist, h.replace(/^\//,""), "index.html")), h);
+  });
 }
 check("external links are https and agency domains only", () => {
-  for (const key of Object.keys(p.ROUTES)) {
-    const l = p.ROUTES[key].link;
-    if (l.startsWith("/")) continue;
+  for (const l of externals)
     assert(/^https:\/\/(www\.medicare\.gov|hfs\.illinois\.gov|www\.va\.gov|idoi\.illinois\.gov)\//.test(l), l);
+});
+
+/* ---- relevance: each care type is sent to information about that care type ---- */
+const route = (care, id) => p.getRoutes(care, "no", "no").find((x) => x.id === id);
+const AL_COST = "/guides/assisted-living-cost-illinois/";
+for (const care of ["skilled", "rehab", "memory", "independent", "unsure"]) {
+  check(care + ": private pay never points at assisted-living costs", () => {
+    const r = route(care, "private");
+    for (const h of [r.link, r.guide, r.more]) assert(h !== AL_COST, care + " -> " + h);
+  });
+}
+check("assisted: private pay points at the assisted-living cost guide and the cost figures", () => {
+  const r = route("assisted", "private");
+  assert.equal(r.link, AL_COST); assert.equal(r.guide, "/#cost");
+});
+check("independent: private pay points at the independent-living guide", () =>
+  assert.equal(route("independent", "private").link, "/guides/independent-living-evanston/"));
+for (const care of ["skilled", "rehab", "memory", "unsure"]) {
+  check(care + ": private pay points at the per-level cost figures", () =>
+    assert.equal(route(care, "private").link, "/#cost"));
+}
+check("the private-pay link text names the level it is about", () => {
+  assert(/nursing home/i.test(route("skilled", "private").linkText));
+  assert(/rehabilitation/i.test(route("rehab", "private").linkText));
+  assert(/memory/i.test(route("memory", "private").linkText));
+  assert(/independent living/i.test(route("independent", "private").linkText));
+  assert(/each level/i.test(route("unsure", "private").linkText));
+});
+for (const care of ["skilled", "rehab"]) {
+  check(care + ": Medicare points at the skilled-nursing-facility page", () =>
+    assert(/skilled-nursing-facility/.test(route(care, "medicare").link)));
+}
+for (const care of ["assisted", "memory"]) {
+  check(care + ": Medicaid points at the Supportive Living Program page and guide", () => {
+    assert(/slf\.html$/.test(route(care, "medicaid").link));
+    assert.equal(route(care, "medicaid").guide, "/guides/illinois-supportive-living-program/");
+  });
+}
+check("independent: Medicaid points at paid help at home, not nursing-home Medicaid", () =>
+  assert.equal(route("independent", "medicaid").guide, "/guides/illinois-community-care-program/"));
+check("skilled: Medicaid also offers the estate-recovery guide", () =>
+  assert.equal(route("skilled", "medicaid").more, "/guides/illinois-medicaid-estate-recovery/"));
+check("Veteran-Directed Care (care at home) is offered only where the person may be at home", () => {
+  for (const care of careTypes) {
+    const vdc = route(care, "va").more === "/guides/va-veteran-directed-care-program/";
+    assert.equal(vdc, care === "unsure" || care === "independent", care);
   }
+});
+check("SHIP counselling is offered on every Medicare card", () => {
+  for (const care of careTypes) assert.equal(route(care, "medicare").more, "/guides/illinois-senior-health-insurance-program/");
+});
+
+/* ---- ordering is explained, never asserted ---- */
+check("every care type has a hedged reason for its order", () => {
+  for (const care of careTypes) {
+    const why = p.ORDER_WHY[care];
+    assert(why && why.length > 60, care);
+    assert(!promises(why), why);
+    assert(!/\b(recommend|should|must|best option|guaranteed)\b/i.test(why), why);
+  }
+});
+check("assisted living and memory care put the private quote first, Medicare last", () => {
+  for (const care of ["assisted", "memory"]) {
+    const ids = p.getRoutes(care, "no", "no").map((x) => x.id);
+    assert.equal(ids[0], "private"); assert.equal(ids[4], "medicare");
+  }
+});
+check("a moved route carries the visitor's own answer as the reason; nothing else does", () => {
+  for (const care of careTypes) {
+    for (const r of p.getRoutes(care, "no", "no")) assert.equal(r.reason, null);
+    for (const r of p.getRoutes(care, "unsure", "unsure")) assert.equal(r.reason, null);
+    const v = p.getRoutes(care, "yes", "no");
+    assert.equal(v[0].id, "va"); assert.equal(v[0].reason, "veteran");
+    assert(v.slice(1).every((r) => r.reason === null));
+    const b = p.getRoutes(care, "yes", "yes");
+    assert.equal(b[0].reason, "policy"); assert.equal(b[1].reason, "veteran");
+  }
+  for (const k of ["veteran", "policy"]) assert(/Moved up because you answered Yes/.test(p.REASON_TEXT[k]));
+});
+check("'Not sure' results mark nothing as the place to start", () => {
+  const html = p.renderCards("unsure", "no", "no");
+  assert(!html.includes("Worth checking first"));
+  assert(!html.includes("Start here"));
+  assert(!html.includes("paynav__route--lead"));
+  assert(!html.includes("paynav__why"));
+});
+check("a chosen care type marks only the first card, and says it is worth checking, not a verdict", () => {
+  const html = p.renderCards("assisted", "no", "no");
+  assert.equal((html.match(/paynav__route--lead/g) || []).length, 1);
+  assert(html.startsWith('<li class="paynav__route paynav__route--lead">'));
+  assert.equal((html.match(/Worth checking first/g) || []).length, 1);
+  assert(!html.includes("Start here"));
+});
+check("a 'yes' marks the moved card with the visitor's answer, even for 'Not sure'", () => {
+  const html = p.renderCards("unsure", "yes", "no");
+  assert(html.startsWith('<li class="paynav__route paynav__route--lead">'));
+  assert(html.includes("Moved up by your answer"));
+  assert(html.includes("Veteran or surviving spouse"));
+  assert(!html.includes("Worth checking first"));
 });
 
 /* ---- beacons: literal paths, and a file behind every one of them ---- */
@@ -139,6 +248,40 @@ check("no-JS fallback names all five routes", () => {
   assert(m, "fallback paragraph missing");
   for (const w of ["Medicare","Medicaid","VA","long-term-care insurance","private payment"]) assert(m[1].includes(w), w);
 });
+check("the navigator is in the menu on the home page, after the guides and before the assessment", () => {
+  const menu = html.slice(html.indexOf('id="navMenu"'), html.indexOf("</nav>"));
+  const i = menu.indexOf('href="/guides/">Care Guides'), j = menu.indexOf('href="/#paying-nav">Paying for care'), k = menu.indexOf('href="/#assessment">Start assessment');
+  assert(i > 0 && j > i && k > j, menu);
+});
+check("the assessment keeps the only call-to-action button in the nav", () => {
+  const navBar = html.slice(html.indexOf("<nav"), html.indexOf("</nav>"));
+  assert.equal((navBar.match(/nav__cta/g) || []).length >= 1, true);
+  assert(!/nav__cta[^>]*paying-nav/.test(navBar));
+});
+check("arriving from a guide is counted apart from the other two pathways", () => {
+  assert(app.includes('guidePay:        "/t/guide-choice-pay.txt"'));
+  assert(app.includes('const PAY_PARAM = param("pay");'));
+  assert(app.includes('if (PAY_PARAM === "guide") beacon(FUNNEL.guidePay);'));
+  for (const dir of ["t", path.join("_dist", "t")])
+    assert.equal(fs.readFileSync(path.join(root, dir, "guide-choice-pay.txt"), "utf8").trim(), "guide-choice-pay");
+});
+const buildSrc = fs.readFileSync(path.join(root, "build-guides.py"), "utf8");
+const payGuides = [...buildSrc.slice(buildSrc.indexOf("PAY_NAV_GUIDES = ["), buildSrc.indexOf("]", buildSrc.indexOf("PAY_NAV_GUIDES = ["))).matchAll(/"([a-z0-9-]+)"/g)].map((m) => m[1]);
+check("the guide line is restricted to guides about paying", () => {
+  assert(payGuides.length >= 6 && payGuides.length <= 10, payGuides.join(","));
+  for (const s of ["independent-living-evanston", "check-illinois-inspection-records", "illinois-care-facility-complaint", "levels-of-senior-care-explained", "illinois-family-caregiver-support-program"])
+    assert(!payGuides.includes(s), s + " should not carry the payment line");
+});
+for (const d of fs.readdirSync(path.join(dist, "guides"), { withFileTypes: true }).filter((e) => e.isDirectory()).map((e) => e.name)) {
+  const page = fs.readFileSync(path.join(dist, "guides", d, "index.html"), "utf8");
+  check("guide " + d + ": nav offers Paying for care, and the payment line appears only if it is a paying guide", () => {
+    assert(page.includes('href="/#paying-nav">Paying for care</a>'));
+    assert.equal(page.includes('class="related__pay"'), payGuides.includes(d), d);
+    assert.equal((page.match(/related__pay/g) || []).length <= 1, true);
+    if (payGuides.includes(d)) assert(page.includes('href="/?pay=guide#paying-nav"'));
+    assert.equal((page.match(/class="btn btn--primary"/g) || []).length, 1, "a guide keeps exactly one button");
+  });
+}
 check("script loads before app", () =>
   assert(html.indexOf('src="paying-nav.js"') < html.indexOf('src="app.js"')));
 check("results link reuses the care type", () =>

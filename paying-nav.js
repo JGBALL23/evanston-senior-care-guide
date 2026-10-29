@@ -5,7 +5,13 @@
 
    It never reads or writes the assessment: not `answers`, not
    `resultLevelId`, not the scoring. A care level arrives only as the id on
-   the result's entry link, and "Not sure" is always a complete answer. */
+   the result's entry link, and "Not sure" is always a complete answer.
+
+   The order is explained, never asserted. Each care type carries one
+   sentence saying why its routes sit in that order; a route moved up by a
+   "yes" says so on the card, in terms of the visitor's own answer; and when
+   no care type was chosen the five are presented in no particular order,
+   with nothing marked as the place to start. */
 (function (root) {
   "use strict";
   const CARE = Object.freeze({
@@ -16,23 +22,44 @@
     skilled: "Skilled Nursing / long-term nursing home",
     rehab: "Short-Term Rehabilitation"
   });
+  /* Assisted living and memory care in Illinois are usually private-pay
+     (the page's own cost section says so, citing HFS), so the quote comes
+     first for them and Medicaid sits where its one route, the Supportive
+     Living Program, belongs. Nursing-home care is where Medicaid does most
+     of its paying. A short rehab stay is the one setting Medicare may cover. */
   const BASE_ORDER = Object.freeze({
     unsure:      ["medicaid", "medicare", "private", "va", "ltci"],
     independent: ["private", "ltci", "va", "medicaid", "medicare"],
-    assisted:    ["medicaid", "private", "ltci", "va", "medicare"],
-    memory:      ["medicaid", "private", "ltci", "va", "medicare"],
+    assisted:    ["private", "ltci", "medicaid", "va", "medicare"],
+    memory:      ["private", "ltci", "medicaid", "va", "medicare"],
     skilled:     ["medicaid", "medicare", "private", "ltci", "va"],
     rehab:       ["medicare", "medicaid", "private", "ltci", "va"]
   });
-  /* `more` is a second site guide where one exists for the route. Both
-     guides live on this site; the external link is the agency's own page. */
+  /* Why the routes sit in that order, in one hedged sentence per care type.
+     Shown above the list. None of these decides anything. */
+  const ORDER_WHY = Object.freeze({
+    unsure: "No type of care was chosen, so nothing here is ranked: the two public programs first because they are the most often misunderstood, then private payment, then the two that depend on the person's own circumstances.",
+    independent: "Independent living is housing rather than care, so it is almost always paid privately. A long-term-care policy or a VA pension supplement only comes into play when care needs exist, and neither Medicaid nor Medicare pays the rent.",
+    assisted: "Assisted living in Illinois is usually private-pay, so the written quote comes first. A policy may help; Medicaid pays only through the certified Supportive Living Program; Medicare does not pay for it.",
+    memory: "Memory care is usually private-pay, so the written quote comes first. A policy may help; Medicaid pays only in certified Supportive Living dementia-care settings; Medicare does not pay for ongoing care.",
+    skilled: "Long-stay nursing-home care is the setting Illinois Medicaid most often pays for, under its clinical and financial rules, and Medicare pays only for a time-limited skilled stay. Those two come first, then the private rate.",
+    rehab: "A short rehabilitation stay is the one setting Medicare may pay for, under its conditions, so it comes first. The rest is what families fall back on when the covered days end or the conditions are not met."
+  });
+  /* A field may be one value for every care type, or an object keyed by care
+     type with "*" as the fallback. Links differ by care type so that someone
+     exploring a nursing home is never sent to assisted-living prices. */
+  const COST_SECTION = "/#cost";
   const ROUTES = Object.freeze({
     medicare: {
       title: "Medicare",
-      link: "https://www.medicare.gov/coverage/long-term-care",
-      linkText: "Medicare: long-term care coverage",
+      link: { "*": "https://www.medicare.gov/coverage/long-term-care",
+              skilled: "https://www.medicare.gov/coverage/skilled-nursing-facility-snf-care",
+              rehab: "https://www.medicare.gov/coverage/skilled-nursing-facility-snf-care" },
+      linkText: { "*": "Medicare: long-term care coverage",
+                  skilled: "Medicare: skilled nursing facility care",
+                  rehab: "Medicare: skilled nursing facility care" },
       guide: "/guides/does-medicare-pay-for-senior-care/",
-      guideText: "What Medicare pays for",
+      guideText: "What Medicare pays for, and what it never pays for",
       more: "/guides/illinois-senior-health-insurance-program/",
       moreText: "Free Medicare counselling in Illinois (SHIP)",
       summary: {
@@ -46,12 +73,30 @@
     },
     medicaid: {
       title: "Illinois Medicaid",
-      link: "https://hfs.illinois.gov/medicalclients/ltc.html",
-      linkText: "Illinois HFS: long-term care",
-      guide: "/guides/illinois-medicaid-long-term-care/",
-      guideText: "Illinois Medicaid long-term care guide",
-      more: null,
-      moreText: null,
+      link: { "*": "https://hfs.illinois.gov/medicalclients/ltc.html",
+              assisted: "https://hfs.illinois.gov/medicalprograms/slf.html",
+              memory: "https://hfs.illinois.gov/medicalprograms/slf.html" },
+      linkText: { "*": "Illinois HFS: long-term care",
+                  assisted: "Illinois HFS: Supportive Living Program",
+                  memory: "Illinois HFS: Supportive Living Program" },
+      guide: { "*": "/guides/illinois-medicaid-long-term-care/",
+               assisted: "/guides/illinois-supportive-living-program/",
+               memory: "/guides/illinois-supportive-living-program/",
+               independent: "/guides/illinois-community-care-program/" },
+      guideText: { "*": "How Illinois Medicaid pays for long-term care",
+                   assisted: "The Supportive Living Program, explained",
+                   memory: "The Supportive Living Program, explained",
+                   independent: "Paid help at home: the Community Care Program" },
+      more: { "*": "/guides/illinois-supportive-living-program/",
+              assisted: "/guides/illinois-medicaid-long-term-care/",
+              memory: "/guides/illinois-medicaid-long-term-care/",
+              skilled: "/guides/illinois-medicaid-estate-recovery/",
+              rehab: null },
+      moreText: { "*": "The Supportive Living Program, explained",
+                  assisted: "If needs grow: nursing-home Medicaid and spend-down",
+                  memory: "If needs grow: nursing-home Medicaid and spend-down",
+                  skilled: "Will Illinois take the house after Medicaid pays?",
+                  rehab: null },
       summary: {
         unsure: "Eligibility and services depend on the actual setting. Illinois nursing-home Medicaid and the certified Supportive Living Program have different rules.",
         independent: "Medicaid does not ordinarily pay independent-living rent. Ask Illinois HFS about services in an eligible setting if care needs change.",
@@ -66,9 +111,13 @@
       link: "https://www.va.gov/pension/aid-attendance-housebound/",
       linkText: "VA: Aid and Attendance",
       guide: "/guides/va-aid-and-attendance-benefit/",
-      guideText: "VA Aid and Attendance guide",
-      more: "/guides/va-veteran-directed-care-program/",
-      moreText: "VA-paid care at home (Veteran-Directed Care)",
+      guideText: "VA Aid and Attendance, explained",
+      more: { "*": null,
+              unsure: "/guides/va-veteran-directed-care-program/",
+              independent: "/guides/va-veteran-directed-care-program/" },
+      moreText: { "*": null,
+                  unsure: "VA-paid care at home (Veteran-Directed Care)",
+                  independent: "VA-paid care at home (Veteran-Directed Care)" },
       summary: {
         unsure: "A qualifying Veteran or survivor who receives a VA pension may be eligible for extra Aid and Attendance or Housebound payments. This is not automatic payment of a care bill.",
         independent: "A qualifying Veteran or survivor receiving a VA pension may get extra payments if benefit conditions are met. Independent living by itself does not establish eligibility.",
@@ -97,10 +146,21 @@
     },
     private: {
       title: "Private payment and a written quote",
-      link: "/guides/assisted-living-cost-illinois/",
-      linkText: "Understanding care costs",
-      guide: null,
-      guideText: null,
+      /* The cost section on this page carries one card per level of care,
+         including the honest "no statewide figure" ones, so it is the
+         destination for every level. The assisted-living cost guide is
+         about assisted living only, so only assisted living links to it. */
+      link: { "*": COST_SECTION,
+              assisted: "/guides/assisted-living-cost-illinois/",
+              independent: "/guides/independent-living-evanston/" },
+      linkText: { "*": "What each level of care usually costs in Illinois",
+                  assisted: "What assisted living actually costs in Illinois",
+                  memory: "Memory-care costs in Illinois, and why no median is shown",
+                  skilled: "What a nursing home usually costs in Illinois",
+                  rehab: "Short-term rehabilitation costs in Illinois",
+                  independent: "What independent living includes, and what it costs" },
+      guide: { "*": null, assisted: COST_SECTION, independent: COST_SECTION },
+      guideText: { "*": null, assisted: "Cost figures for every level of care", independent: "Cost figures for every level of care" },
       more: null,
       moreText: null,
       summary: {
@@ -113,29 +173,39 @@
       }
     }
   });
+  const REASON_TEXT = Object.freeze({
+    veteran: "Moved up because you answered Yes: the person is a Veteran or surviving spouse.",
+    policy: "Moved up because you answered Yes: the person already has long-term-care insurance."
+  });
   function normalizeCare(id) {
     if (id === "no_need" || id === "direct" || id == null) return "unsure";
     return Object.prototype.hasOwnProperty.call(CARE, id) ? id : "unsure";
   }
+  function pick(field, care) {
+    if (field === null || typeof field !== "object") return field;
+    return Object.prototype.hasOwnProperty.call(field, care) ? field[care] : field["*"];
+  }
   function getRoutes(care, veteran, policy) {
     const id = normalizeCare(care);
     const keys = BASE_ORDER[id].slice();
-    function promote(key) {
+    const reason = {};
+    function promote(key, why) {
       const i = keys.indexOf(key);
-      if (i >= 0) { keys.splice(i, 1); keys.unshift(key); }
+      if (i >= 0) { keys.splice(i, 1); keys.unshift(key); reason[key] = why; }
     }
-    if (veteran === "yes") promote("va");
-    if (policy === "yes") promote("ltci");
+    if (veteran === "yes") promote("va", "veteran");
+    if (policy === "yes") promote("ltci", "policy");
     return keys.map(key => ({
       id: key,
       title: ROUTES[key].title,
       summary: ROUTES[key].summary[id],
-      link: ROUTES[key].link,
-      linkText: ROUTES[key].linkText,
-      guide: ROUTES[key].guide,
-      guideText: ROUTES[key].guideText,
-      more: ROUTES[key].more,
-      moreText: ROUTES[key].moreText
+      link: pick(ROUTES[key].link, id),
+      linkText: pick(ROUTES[key].linkText, id),
+      guide: pick(ROUTES[key].guide, id),
+      guideText: pick(ROUTES[key].guideText, id),
+      more: pick(ROUTES[key].more, id),
+      moreText: pick(ROUTES[key].moreText, id),
+      reason: reason[key] || null
     }));
   }
   function anchor(href, text) {
@@ -143,16 +213,26 @@
     return '<a href="' + href + '"' + (external ? ' target="_blank" rel="noopener"' : '') + '>' +
       text + (external ? ' <span class="paynav__ext" aria-hidden="true">&#8599;</span>' : '') + '</a>';
   }
+  function rankLabel(i, care, reason) {
+    const n = "Option " + (i + 1);
+    if (reason) return n + " &middot; Moved up by your answer";
+    if (i === 0 && care !== "unsure") return n + " &middot; Worth checking first";
+    return n;
+  }
   function renderCards(care, veteran, policy) {
-    return getRoutes(care, veteran, policy).map((r, i) =>
-      '<li class="paynav__route' + (i === 0 ? ' paynav__route--first' : '') + '">' +
-      '<p class="paynav__rank">' + (i === 0 ? 'Option 1 &middot; Start here' : 'Option ' + (i + 1)) + '</p>' +
-      '<h4>' + r.title + '</h4><p>' + r.summary + '</p>' +
-      '<p class="paynav__links">' + anchor(r.link, r.linkText) +
-      (r.guide ? anchor(r.guide, r.guideText) : '') +
-      (r.more ? anchor(r.more, r.moreText) : '') +
-      '</p></li>'
-    ).join("");
+    const id = normalizeCare(care);
+    return getRoutes(id, veteran, policy).map((r, i) => {
+      const lead = r.reason || (i === 0 && id !== "unsure");
+      return '<li class="paynav__route' + (lead ? ' paynav__route--lead' : '') + '">' +
+        '<p class="paynav__rank">' + rankLabel(i, id, r.reason) + '</p>' +
+        '<h4>' + r.title + '</h4>' +
+        (r.reason ? '<p class="paynav__why">' + REASON_TEXT[r.reason] + '</p>' : '') +
+        '<p>' + r.summary + '</p>' +
+        '<p class="paynav__links">' + anchor(r.link, r.linkText) +
+        (r.guide ? anchor(r.guide, r.guideText) : '') +
+        (r.more ? anchor(r.more, r.moreText) : '') +
+        '</p></li>';
+    }).join("");
   }
   let widget = null, stage = 0, state = null, emitted = {};
   const QUESTIONS = [
@@ -187,6 +267,12 @@
     return '<p class="paynav__carried">Care type: <strong>' + CARE[state.care] + '</strong> ' +
       '<button type="button" class="paynav__change" data-pay-change>Change</button></p>';
   }
+  function resultsHint(care) {
+    return (care === "unsure"
+      ? 'In no particular order. '
+      : 'Ordered for ' + CARE[care].toLowerCase() + '. ') +
+      'A &ldquo;yes&rdquo; moves an option up but never changes what it covers. Nothing here decides eligibility &mdash; the agency, insurer or community does.';
+  }
   function render(moveFocus) {
     if (!widget) return;
     const step = stage;
@@ -206,14 +292,16 @@
         (step > 0 ? '<div class="paynav__actions"><button type="button" class="paynav__back" data-pay-back>&larr; Back</button></div>' : '') +
         '<p class="paynav__fine">These answers stay on this device. No account or contact details.</p>';
     } else {
+      const care = normalizeCare(state.care);
       widget.innerHTML =
         '<p class="paynav__progress">Your payment starting points</p>' +
         '<h3 class="paynav__question" tabindex="-1">' +
-        (state.care === "unsure" ? 'Nothing assumed about the type of care' : CARE[state.care]) + '</h3>' +
-        '<p class="paynav__hint">All five options remain visible. A &ldquo;yes&rdquo; may move an option higher, but never changes what it covers. This is not an eligibility decision.</p>' +
+        (care === "unsure" ? 'Nothing assumed about the type of care' : CARE[care]) + '</h3>' +
+        '<p class="paynav__hint">' + resultsHint(care) + '</p>' +
+        '<p class="paynav__order">' + ORDER_WHY[care] + '</p>' +
         '<ol class="paynav__routes">' +
-        renderCards(state.care, state.veteran, state.policy) + '</ol>' +
-        '<p class="paynav__fine">Coverage, eligibility, benefit amounts and whether a particular community accepts a program must be confirmed directly with the agency, insurer or community.</p>' +
+        renderCards(care, state.veteran, state.policy) + '</ol>' +
+        '<p class="paynav__fine">Coverage, eligibility, benefit amounts and whether a particular community accepts a program must be confirmed directly with the agency, insurer or community. This page is educational guidance, not financial or legal advice.</p>' +
         '<div class="paynav__actions"><button type="button" class="paynav__back" data-pay-back>&larr; Back</button>' +
         '<button type="button" class="paynav__restart" data-pay-restart>Start again</button></div>';
     }
@@ -297,7 +385,7 @@
     });
     return true;
   }
-  const api = {normalizeCare, getRoutes, renderCards, init, start, CARE, ROUTES, BEACONS};
+  const api = {normalizeCare, getRoutes, renderCards, init, start, CARE, ROUTES, BEACONS, ORDER_WHY, REASON_TEXT, BASE_ORDER};
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   if (root && root.document) { root.PaymentNavigator = api; init(); }
 })(typeof window !== "undefined" ? window : null);
