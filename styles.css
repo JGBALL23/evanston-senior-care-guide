@@ -2044,6 +2044,28 @@ section[id], header[id] { scroll-margin-top: calc(var(--nav-h) + 14px); }
   .nav__toggle { padding: 14px 15px; }
 }
 
+/* The homepage bar holds six items above 880px: four section links,
+   Care Guides and Start. Measured 2026-10-29 at the default 28px gap and
+   15.5px links they need about 770px, and the bar has 545px free at 881px,
+   650px at 1000px and 850px at 1280px. So between 881px and 1139px the
+   links sit closer, at 14.5px, never wrapping, and the one new link reads
+   "How to pay" (the same long/short pair Start already uses). In the
+   narrow 881px to 1019px band that still is not enough, so the wordmark
+   goes the way it already does under 480px: the logo and the brand link's
+   aria-label stay, Start keeps its place, and nothing scrolls sideways.
+   Guide pages carry three items and are untouched by any of this except
+   the wordmark rule, which keeps the two layouts consistent. */
+.nav__short { display: none; }
+@media (min-width: 881px) and (max-width: 1139px) {
+  .nav__links { gap: 16px; }
+  .nav__links > a:not(.nav__cta) { font-size: 14.5px; white-space: nowrap; }
+  .nav__long { display: none; }
+  .nav__short { display: inline; }
+}
+@media (min-width: 881px) and (max-width: 1019px) {
+  .brand__name, .brand__sub { display: none; }
+}
+
 /* ============================================================
    EDUCATIONAL DIAGRAMS  (approved 2026-10-19)
    HTML/CSS, never SVG. A 760-wide SVG scales its own text down

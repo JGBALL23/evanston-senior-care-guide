@@ -253,6 +253,20 @@ check("the navigator is in the menu on the home page, after the guides and befor
   const i = menu.indexOf('href="/guides/">Care Guides'), j = menu.indexOf('href="/#paying-nav">Paying for care'), k = menu.indexOf('href="/#assessment">Start assessment');
   assert(i > 0 && j > i && k > j, menu);
 });
+check("the navigator is in the visible desktop bar on the home page, before Start", () => {
+  const bar = html.slice(html.indexOf('class="nav__links"'), html.indexOf('id="navMenu"'));
+  const i = bar.indexOf('href="#paying-nav"'), j = bar.indexOf('class="nav__cta"');
+  assert(i > 0 && j > i, bar);
+  assert(bar.includes('<span class="nav__long">Paying for care</span><span class="nav__short">How to pay</span>'));
+  assert.equal((bar.match(/nav__cta"/g) || []).length, 1, "one call to action in the bar");
+});
+const css = fs.readFileSync(path.join(root, "styles.css"), "utf8");
+check("the bar has a compact band so six items never wrap or overflow above 880px", () => {
+  assert(css.includes(".nav__short { display: none; }"));
+  const band = css.slice(css.indexOf("@media (min-width: 881px) and (max-width: 1139px) {"));
+  assert(band.includes(".nav__links { gap: 16px; }") && band.includes("white-space: nowrap") && band.includes(".nav__short { display: inline; }"), "compact band");
+  assert(/@media \(min-width: 881px\) and \(max-width: 1019px\) \{\s*\.brand__name, \.brand__sub \{ display: none; \}/.test(css), "wordmark band");
+});
 check("the assessment keeps the only call-to-action button in the nav", () => {
   const navBar = html.slice(html.indexOf("<nav"), html.indexOf("</nav>"));
   assert.equal((navBar.match(/nav__cta/g) || []).length >= 1, true);
@@ -276,6 +290,9 @@ for (const d of fs.readdirSync(path.join(dist, "guides"), { withFileTypes: true 
   const page = fs.readFileSync(path.join(dist, "guides", d, "index.html"), "utf8");
   check("guide " + d + ": nav offers Paying for care, and the payment line appears only if it is a paying guide", () => {
     assert(page.includes('href="/#paying-nav">Paying for care</a>'));
+    const bar = page.slice(page.indexOf('class="nav__links"'), page.indexOf('id="navMenu"'));
+    assert(bar.indexOf('href="/#paying-nav">Paying for care</a>') > 0 && bar.indexOf('href="/#paying-nav"') < bar.indexOf('class="nav__cta"'), "desktop bar");
+    assert.equal((bar.match(/nav__cta"/g) || []).length, 1, "one call to action in the bar");
     assert.equal(page.includes('class="related__pay"'), payGuides.includes(d), d);
     assert.equal((page.match(/related__pay/g) || []).length <= 1, true);
     if (payGuides.includes(d)) assert(page.includes('href="/?pay=guide#paying-nav"'));

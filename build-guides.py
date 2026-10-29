@@ -2113,6 +2113,7 @@ HEAD = """<!DOCTYPE html>
     </a>
     <div class="nav__links">
       <a href="/guides/">Care Guides</a>
+      <a href="/#paying-nav">Paying for care</a>
       <button class="nav__toggle" id="navToggle" type="button"
               aria-expanded="false" aria-controls="navMenu">
         <span class="nav__toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>

@@ -244,6 +244,32 @@ async function main() {
       await send("Page.navigate", { url: base + "/guides/check-illinois-inspection-records/" }); await sleep(1000);
       check("a guide that is not about paying carries no payment line", await ev(`document.querySelectorAll('.related__pay').length`) === 0);
 
+      /* 2d. the visible header bar: present above 880px on every page, one
+         row, no overflow, Start still the only button; hidden on a phone. */
+      const BAR = `(function(){var links=Array.from(document.querySelectorAll('.nav__links > a')).filter(function(a){return getComputedStyle(a).display!=='none';});var text=links.filter(function(a){return !a.classList.contains('nav__cta');});var inner=document.querySelector('.nav__inner');var pay=document.querySelector('.nav__links > a[href$="#paying-nav"]');var rows=new Set(text.map(function(a){return Math.round(a.getBoundingClientRect().top);})).size;return {visible:links.length,rows:rows,overflow:inner.scrollWidth-inner.clientWidth,docOverflow:document.documentElement.scrollWidth-window.innerWidth,payShown:!!pay&&getComputedStyle(pay).display!=='none',payLabel:pay?pay.innerText.trim():'',ctas:document.querySelectorAll('.nav__links .nav__cta').length};})()`;
+      if (!mobile) {
+        for (const [w, label] of [[881, "How to pay"], [1000, "How to pay"], [1100, "How to pay"], [1280, "Paying for care"]]) {
+          await send("Emulation.setDeviceMetricsOverride", { width: w, height, deviceScaleFactor: 1, mobile: false });
+          for (const [p, nm] of [["/", "home"], ["/guides/", "library"], ["/guides/illinois-medicaid-long-term-care/", "guide"]]) {
+            await send("Page.navigate", { url: base + p }); await sleep(700);
+            const b = await ev(BAR);
+            check(`${w}px ${nm}: 'Paying for care' is in the visible bar`, b.payShown, JSON.stringify(b));
+            check(`${w}px ${nm}: the bar is one row with no overflow`, b.rows === 1 && b.overflow <= 0 && b.docOverflow <= 0, JSON.stringify(b));
+            check(`${w}px ${nm}: Start is the only button in the bar`, b.ctas === 1 && b.visible >= 3, JSON.stringify(b));
+            if (nm === "home") check(`${w}px home: the bar label reads '${label}'`, b.payLabel === label, b.payLabel);
+          }
+        }
+        await send("Emulation.setDeviceMetricsOverride", { width, height, deviceScaleFactor: 1, mobile: false });
+        await fresh();
+        await ev(`document.querySelector('.nav__links > a[href$="#paying-nav"]').click()`); await sleep(1800);
+        const btop = await sectionTop();
+        check("the bar link scrolls to the navigator", btop > -40 && btop < 200 && (await ev(`location.hash`)) === "#paying-nav", String(btop));
+      } else {
+        await fresh();
+        const b = await ev(BAR);
+        check("phone: the bar link is hidden and the menu carries it instead", !b.payShown && b.rows === 0 && b.docOverflow <= 0, JSON.stringify(b));
+      }
+
       /* 3. Back at every stage, Change, restart, keyboard */
       await fresh();
       check("question 1 has no Back control", await count("[data-pay-back]") === 0);
