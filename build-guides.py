@@ -2113,6 +2113,7 @@ HEAD = """<!DOCTYPE html>
     </a>
     <div class="nav__links">
       <a href="/guides/">Care Guides</a>
+      <a href="/#paying-nav">Paying for care</a>
       <button class="nav__toggle" id="navToggle" type="button"
               aria-expanded="false" aria-controls="navMenu">
         <span class="nav__toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -2125,6 +2126,7 @@ HEAD = """<!DOCTYPE html>
     <div class="wrap">
       <a href="/">Home</a>
       <a href="/guides/">Care Guides</a>
+      <a href="/#paying-nav">Paying for care</a>
       <a href="/#assessment">Start assessment</a>
     </div>
   </div>
@@ -2189,6 +2191,43 @@ def strip_tags(s):
     return re.sub(r"<[^>]+>", "", s)
 
 
+# --------------------------------------------------------------------------
+# PAYMENT NAVIGATOR LINE (Workflow #5) — which guides carry it.
+#
+# One quiet sentence under "Related guides", only on guides whose subject is
+# paying for care. It is a link, never a second button: the assessment keeps
+# the page's only button, its bridge after section one, and its block at the
+# end. Guides about choosing or checking a community, about independent
+# living (which has its own two-way fork), and about caregiver support say
+# nothing about it; a reader there did not ask how to pay.
+#
+# The query string carries one fixed token so the index page can count the
+# pathway (/t/guide-choice-pay.txt) apart from the two existing ones. It is
+# not personal and nothing is rendered differently because of it.
+# --------------------------------------------------------------------------
+PAY_NAV_GUIDES = [
+    "assisted-living-cost-illinois",
+    "does-medicare-pay-for-senior-care",
+    "illinois-senior-health-insurance-program",
+    "illinois-supportive-living-program",
+    "illinois-medicaid-long-term-care",
+    "illinois-medicaid-estate-recovery",
+    "va-aid-and-attendance-benefit",
+    "va-veteran-directed-care-program",
+]
+PAY_NAV_HREF = "/?pay=guide#paying-nav"
+
+
+def pay_nav_line(g):
+    if g["slug"] not in PAY_NAV_GUIDES:
+        return ""
+    return ('<p class="related__pay">Comparing ways to pay? '
+            '<a href="%s">The payment navigator</a> puts Medicare, Illinois '
+            'Medicaid, VA benefits, long-term-care insurance and private payment '
+            'in order for a given type of care &mdash; three questions, nothing '
+            'decided, nothing collected.</p>\n' % PAY_NAV_HREF)
+
+
 def related(g):
     others = [x for x in GUIDES if x["slug"] != g["slug"]][:3]
     items = "".join(
@@ -2196,7 +2235,7 @@ def related(g):
         for o in others)
     return ('<section class="res__block">\n'
             '<h2 class="res__h">Related guides</h2>\n'
-            '<ul class="res__list">%s</ul>\n</section>' % items)
+            '<ul class="res__list">%s</ul>\n%s</section>' % (items, pay_nav_line(g)))
 
 
 def sources_block(g):
@@ -2615,7 +2654,7 @@ def write_indexnow_key():
 # Exactly the drift that already bit styles.css. The generator syncs it now
 # and check-guides fails the build if the two ever disagree.
 SHARED_ASSETS = ["styles.css", "app.js", "assessment.js", "nav.js",
-                 "guides.js", "index.html"]
+                 "guides.js", "index.html", "paying-nav.js"]
 
 
 BEACON_LEVELS = ["independent", "assisted", "memory", "skilled", "rehab",
@@ -2634,7 +2673,8 @@ def write_beacons():
     Parsed from the literals in app.js plus the two prefixes it builds at
     runtime, so adding a beacon in code creates its file on the next build
     and nobody has to remember."""
-    src = io.open("app.js", encoding="utf-8").read()
+    src = (io.open("app.js", encoding="utf-8").read() + "\n" +
+           io.open("paying-nav.js", encoding="utf-8").read())
     names = set(re.findall(r'"/t/([a-z0-9-]+)\.txt"', src))
     for lvl in BEACON_LEVELS:
         names.add("result-" + lvl)
