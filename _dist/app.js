@@ -38,7 +38,11 @@ const FUNNEL = {
      a record exists. */
   guideAssessment: "/t/guide-choice-assessment.txt",
   guideTour:       "/t/guide-choice-tour.txt",
-  directFormView:  "/t/direct-inquiry-form-view.txt"
+  directFormView:  "/t/direct-inquiry-form-view.txt",
+  /* The third pathway from a guide (Workflow #5): the payment navigator.
+     Counted apart from the two above so a reader who came to compare
+     funding routes is never mistaken for one who chose the assessment. */
+  guidePay:        "/t/guide-choice-pay.txt"
 };
 
 /* ---------- WHERE THEY CAME FROM ----------------------------
@@ -89,6 +93,11 @@ function param(name) {
 }
 const FROM_GUIDE = param("from");
 const TOUR_PARAM = param("tour");
+/* /?pay=guide#paying-nav -> the payment navigator, arrived at from a guide.
+   One fixed value, nothing else accepted, nothing stored, nothing rendered
+   differently: the hash does the scrolling and the navigator starts at its
+   own first question. Only the count changes. */
+const PAY_PARAM = param("pay");
 
 const sent = {};
 function beacon(path) {
@@ -581,6 +590,21 @@ function costBlock(cost) {
     </div>`;
 }
 
+/* ---------- ENTRY TO THE PAYMENT NAVIGATOR (WORKFLOW #5) ----------
+   The one hand-off between the two tools. The derived level rides on the
+   link as a data attribute and nothing else does: no answers, no name,
+   no storage. "no_need" is not a care level, so it hands over nothing and
+   the navigator starts at its own question one. */
+function paymentEntry(careLevel) {
+  const care = careLevel === "no_need" ? "unsure" : careLevel;
+  return '<div class="paynav__entry">' +
+    '<p><strong>How might you pay for this care?</strong></p>' +
+    '<p>Compare Medicare, Illinois Medicaid, VA benefits, existing long-term-care insurance and private payment. Three short questions, no eligibility assumed' +
+    (care === "unsure" ? '.' : ', and your result above is carried over so you are not asked again.') + '</p>' +
+    '<p><a class="paynav__entry-btn" href="#paying-nav" data-pay-nav-care="' + esc(care) +
+    '">Explore payment options</a></p></div>';
+}
+
 function renderResult() {
   const result = assess(answers);
   beacon(FUNNEL.completed + "?s=" + SOURCE);
@@ -660,6 +684,8 @@ function renderResult() {
         </div>
       </section>` : ""}
       ${COLLECTING ? planFormBlock(resultLevelId, null) : ""}
+
+      ${paymentEntry("unsure")}
 
       <div class="res__actions">
         <a class="btn btn--dark" href="#tour" data-beacon="tour">See the tour questions</a>
@@ -801,6 +827,7 @@ function renderResult() {
       <section class="res__block" id="costs">
         <h4 class="res__h">What ${esc(level.name.toLowerCase())} usually costs</h4>
         ${costBlock(level.cost)}
+        ${paymentEntry(level.id)}
       </section>
 
       <section class="res__block" id="evaluating">
@@ -1005,6 +1032,7 @@ quizEl.addEventListener("click", (event) => {
 
 /* A guide sent them here. Either path is the EXISTING one; the only new
    thing is which of the two opens first. */
+if (PAY_PARAM === "guide") beacon(FUNNEL.guidePay);
 if (TOUR_PARAM) {
   renderDirectInquiry();
 } else {
