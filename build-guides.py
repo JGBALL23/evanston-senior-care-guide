@@ -2615,7 +2615,7 @@ def write_indexnow_key():
 # Exactly the drift that already bit styles.css. The generator syncs it now
 # and check-guides fails the build if the two ever disagree.
 SHARED_ASSETS = ["styles.css", "app.js", "assessment.js", "nav.js",
-                 "guides.js", "index.html"]
+                 "guides.js", "index.html", "paying-nav.js"]
 
 
 BEACON_LEVELS = ["independent", "assisted", "memory", "skilled", "rehab",
@@ -2634,7 +2634,8 @@ def write_beacons():
     Parsed from the literals in app.js plus the two prefixes it builds at
     runtime, so adding a beacon in code creates its file on the next build
     and nobody has to remember."""
-    src = io.open("app.js", encoding="utf-8").read()
+    src = (io.open("app.js", encoding="utf-8").read() + "\n" +
+           io.open("paying-nav.js", encoding="utf-8").read())
     names = set(re.findall(r'"/t/([a-z0-9-]+)\.txt"', src))
     for lvl in BEACON_LEVELS:
         names.add("result-" + lvl)

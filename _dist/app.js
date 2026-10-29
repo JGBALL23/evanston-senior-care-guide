@@ -581,6 +581,15 @@ function costBlock(cost) {
     </div>`;
 }
 
+function paymentEntry(careLevel) {
+  const care = careLevel === "no_need" ? "unsure" : careLevel;
+  return '<div class="paynav__entry">' +
+    '<p><strong>How might you pay for this care?</strong></p>' +
+    '<p>Compare Medicare, Illinois Medicaid, VA benefits, existing long-term-care insurance and private payment. No eligibility is assumed.</p>' +
+    '<p><a href="#paying-nav" data-pay-nav-care="' + esc(care) +
+    '">Explore payment options (3 short questions)</a></p></div>';
+}
+
 function renderResult() {
   const result = assess(answers);
   beacon(FUNNEL.completed + "?s=" + SOURCE);
@@ -660,6 +669,8 @@ function renderResult() {
         </div>
       </section>` : ""}
       ${COLLECTING ? planFormBlock(resultLevelId, null) : ""}
+
+      ${paymentEntry("unsure")}
 
       <div class="res__actions">
         <a class="btn btn--dark" href="#tour" data-beacon="tour">See the tour questions</a>
@@ -801,6 +812,7 @@ function renderResult() {
       <section class="res__block" id="costs">
         <h4 class="res__h">What ${esc(level.name.toLowerCase())} usually costs</h4>
         ${costBlock(level.cost)}
+        ${paymentEntry(level.id)}
       </section>
 
       <section class="res__block" id="evaluating">
