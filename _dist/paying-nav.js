@@ -39,7 +39,7 @@
      Shown above the list. None of these decides anything. */
   const ORDER_WHY = Object.freeze({
     unsure: "No type of care was chosen, so nothing here is ranked: the two public programs first because they are the most often misunderstood, then private payment, then the two that depend on the person's own circumstances.",
-    independent: "Independent living is housing rather than care, so it is almost always paid privately. A long-term-care policy or a VA pension supplement only comes into play when care needs exist, and neither Medicaid nor Medicare pays the rent.",
+    independent: "Independent living is housing rather than care, so it is almost always paid privately. A long-term-care policy or the higher VA pension rates only come into play when care needs exist, and neither Medicaid nor Medicare pays the rent.",
     assisted: "Assisted living in Illinois is usually private-pay, so the written quote comes first. A policy may help; Medicaid pays only through the certified Supportive Living Program; Medicare does not pay for it.",
     memory: "Memory care is usually private-pay, so the written quote comes first. A policy may help; Medicaid pays only in certified Supportive Living dementia-care settings; Medicare does not pay for ongoing care.",
     skilled: "Long-stay nursing-home care is the setting Illinois Medicaid most often pays for, under its clinical and financial rules, and Medicare pays only for a time-limited skilled stay. Those two come first, then the private rate.",
@@ -119,12 +119,12 @@
                   unsure: "VA-paid care at home (Veteran-Directed Care)",
                   independent: "VA-paid care at home (Veteran-Directed Care)" },
       summary: {
-        unsure: "A qualifying Veteran or survivor who receives a VA pension may be eligible for extra Aid and Attendance or Housebound payments. This is not automatic payment of a care bill.",
-        independent: "A qualifying Veteran or survivor receiving a VA pension may get extra payments if benefit conditions are met. Independent living by itself does not establish eligibility.",
-        assisted: "Some eligible Veterans or survivors receiving a VA pension may receive Aid and Attendance or Housebound payments to help with costs. Benefits depend on the individual.",
-        memory: "Some eligible Veterans or survivors receiving a VA pension may receive additional Aid and Attendance or Housebound payments. A memory-care setting alone does not guarantee eligibility.",
-        skilled: "Eligible Veterans or survivors receiving a VA pension may qualify for additional Aid and Attendance or Housebound payments. This is distinct from VA health-care facility coverage.",
-        rehab: "A Veteran or survivor may have VA-related benefit options, but a pension supplement is not the same as coverage for a specific rehabilitation admission."
+        unsure: "A qualifying Veteran or survivor who receives a VA pension may be eligible for the higher Aid and Attendance or Housebound pension rate. The published rates are ceilings on the whole pension, reduced by the person's own income, not automatic payment of a care bill.",
+        independent: "A qualifying Veteran or survivor receiving a VA pension may qualify for the higher Aid and Attendance or Housebound rate if its conditions are met. Independent living by itself does not establish eligibility.",
+        assisted: "Some eligible Veterans or survivors receiving a VA pension may qualify for the higher Aid and Attendance or Housebound pension rate, which can help with costs. What anyone receives depends on their own income.",
+        memory: "Some eligible Veterans or survivors receiving a VA pension may qualify for the higher Aid and Attendance or Housebound pension rate. A memory-care setting alone does not guarantee eligibility.",
+        skilled: "Eligible Veterans or survivors receiving a VA pension may qualify for the higher Aid and Attendance or Housebound pension rate. This is distinct from VA health-care facility coverage.",
+        rehab: "A Veteran or survivor may have VA-related benefit options, but a higher pension rate is not the same as coverage for a specific rehabilitation admission."
       }
     },
     ltci: {
