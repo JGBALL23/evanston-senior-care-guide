@@ -186,7 +186,7 @@ SRC = {
     "idoa_caregiver_links": ('Illinois Department on Aging — Family and Caregiver Services',
                              'https://ilaging.illinois.gov/programs/caregiver/caregiver-links.html'),
     "idoa_ship": ('Illinois Department on Aging — Senior Health Insurance Program (SHIP)',
-                 'https://ilaging.illinois.gov/ship'),
+                 'https://ilaging.illinois.gov/ship.html'),
     "idoa_ship_about": ('Illinois Department on Aging — About SHIP',
                         'https://ilaging.illinois.gov/ship/aboutship.html'),
     "mtools": ('Medicare.gov — Helpful tools',
@@ -1813,7 +1813,7 @@ GUIDES = [
         "bridge": ("Finding help for yourself as the caregiver is a different "
                "question from knowing whether your parent's needs have moved "
                "past what any amount of help at home can cover."),
-        "reviewed": "2026-10-28",
+        "reviewed": "2026-10-29",
         "title": "Is There Help for the Caregiver, Not Just the Parent, in Illinois?",
         "h1": "Is there help for the caregiver, not just the parent, in Illinois?",
         "desc": ("Illinois runs a Family Caregiver Support Program built around "
@@ -1841,10 +1841,10 @@ GUIDES = [
                 "<p>The Illinois Department on Aging says this programme grew "
                 "out of 2000 amendments to the federal Older Americans Act, "
                 "which created a National Family Caregiver Support Program; "
-                "Illinois received an initial $4.7 million to build its own "
-                "version with the state&rsquo;s Area Agencies on Aging and "
+                "Illinois &ldquo;was given $4.7 million to develop&rdquo; its "
+                "own version with the state&rsquo;s Area Agencies on Aging and "
                 "local community-service providers. That is a historical "
-                "start-up figure, not a per-family benefit amount, and this "
+                "development figure, not a per-family benefit amount, and this "
                 "guide found no current statewide budget figure published "
                 "anywhere on the Department&rsquo;s site.</p>",
                 "<p>The Department&rsquo;s own definition of who counts as a "
@@ -1863,10 +1863,11 @@ GUIDES = [
                 "helps a caregiver get access to those services; connects a "
                 "caregiver to individual counselling, support groups or "
                 "caregiver training; connects a caregiver to <strong>respite "
-                "care</strong>, described as giving &ldquo;temporary relief "
-                "from caregiving duties&rdquo;; and provides supplemental "
-                "services &ldquo;on a limited basis&rdquo; to complement the "
-                "care a family already gives.</p>",
+                "care</strong>, so that caregivers can be &ldquo;temporarily "
+                "relieved from their caregiving responsibilities&rdquo;; and "
+                "provides supplemental services &ldquo;on a limited "
+                "basis&rdquo; to complement the care a family already "
+                "gives.</p>",
                 "<p>A separate Department page on its Family and Caregiver "
                 "Resource Centers adds detail to that list: each centre can "
                 "help locate adult day service, home-delivered meals, "
@@ -1896,10 +1897,13 @@ GUIDES = [
                 "<p>None of the three Department pages this guide read states "
                 "an income limit for the Family Caregiver Support Program, a "
                 "cost to the caregiver, a cap on respite hours, or a formal "
-                "application form. The Resource Centers page is explicit that "
-                "eligibility and fees are not listed there either &mdash; it "
-                "directs a caregiver to the local centre or the Senior "
-                "HelpLine instead.</p>",
+                "application form. The Resource Centers page lists services "
+                "and regional contacts and nothing about eligibility or fees "
+                "at all. The Department&rsquo;s own answer to &ldquo;Where can "
+                "I find out about services nearest to me?&rdquo; is to "
+                "&ldquo;inquire at your local Caregiver Resource Center or "
+                "your local Area Agency on Aging,&rdquo; or to call the "
+                "Senior HelpLine.</p>",
                 "<p>This guide will not guess at any of those figures on the "
                 "Department's behalf. If a cost, an income test or a waiting "
                 "list applies in your case, that answer lives with your local "
@@ -1983,8 +1987,9 @@ GUIDES = [
                 "<p>The Department's SHIP pages describe volunteer counsellors "
                 "as the programme's &ldquo;backbone,&rdquo; trained and "
                 "supported by the Department, with local sponsoring "
-                "organisations &mdash; often an Area Agency on Aging &mdash; "
-                "providing the office space. What a counsellor can help "
+                "organisations providing office space, and reached "
+                "&ldquo;through the Area Agency on Aging network of offices "
+                "throughout the state.&rdquo; What a counsellor can help "
                 "with, in the Department's own words, includes: educating "
                 "consumers and answering questions about Medicare, Medicare "
                 "Supplement insurance, long-term care insurance, Medicare "
