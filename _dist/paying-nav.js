@@ -177,6 +177,39 @@
     veteran: "Moved up because you answered Yes: the person is a Veteran or surviving spouse.",
     policy: "Moved up because you answered Yes: the person already has long-term-care insurance."
   });
+  /* Simple first. One everyday line under each care choice on question 1,
+     and one everyday line at the top of each result card, with the careful
+     per-care summary and its links behind a "More" row. The plain lines
+     describe programs; they decide nothing and promise nothing. */
+  const CARE_PLAIN = Object.freeze({
+    unsure: "A fine answer. Nothing is assumed.",
+    independent: "Meals and chores handled, no personal care",
+    assisted: "Help with daily things",
+    memory: "A secure home, staff trained for dementia",
+    skilled: "A nursing home, nurses day and night",
+    rehab: "Weeks of therapy after a hospital stay"
+  });
+  const ROUTE_PLAIN = Object.freeze({
+    medicare: { "*": "The health insurance most people have from 65. It may pay for a short skilled stay, not for years of care.",
+                independent: "The health insurance most people have from 65. It does not pay rent or living costs.",
+                assisted: "The health insurance most people have from 65. It does not pay for assisted living itself.",
+                memory: "The health insurance most people have from 65. It does not pay for ongoing memory care.",
+                skilled: "The health insurance most people have from 65. It may pay for a short skilled stay, not a long one.",
+                rehab: "The health insurance most people have from 65. It may pay for a short rehab stay if its rules are met." },
+    medicaid: { "*": "Illinois’s health program for people with low income and savings. It can pay for a nursing home, under its own rules.",
+                independent: "Illinois’s health program for people with low income and savings. It does not usually pay rent.",
+                assisted: "Illinois’s program for people with low income and savings. For assisted living it pays only in certified Supportive Living communities.",
+                memory: "Illinois’s program for people with low income and savings. For memory care it pays only in certified Supportive Living dementia settings.",
+                skilled: "Illinois’s health program for people with low income and savings. It most often pays for long nursing-home stays.",
+                rehab: "Illinois’s health program for people with low income and savings. Whether it applies to a short rehab stay depends on the facility and the plan." },
+    va: { "*": "A higher pension rate for some Veterans and surviving spouses who need daily help.",
+          independent: "A higher pension rate for some Veterans and surviving spouses who need daily help. Living independently alone does not qualify.",
+          rehab: "A higher pension rate for some Veterans and surviving spouses. It is not coverage for a rehab stay." },
+    ltci: { "*": "A policy some people bought years ago. If there is one, it may pay for some care.",
+            independent: "A policy some people bought years ago. It usually pays only when care is needed, not for a lifestyle move." },
+    private: { "*": "Paying from income and savings. Ask every community for a written quote.",
+               rehab: "Paying from income and savings for whatever insurance does not cover. Ask for a written estimate." }
+  });
   function normalizeCare(id) {
     if (id === "no_need" || id === "direct" || id == null) return "unsure";
     return Object.prototype.hasOwnProperty.call(CARE, id) ? id : "unsure";
@@ -219,19 +252,31 @@
     if (i === 0 && care !== "unsure") return n + " &middot; Worth checking first";
     return n;
   }
+  /* Five options every time, in the explained order. The first three are
+     full cards; the last two are compact rows under one quiet line, with
+     the same plain sentence, the same "More" row, the same links, and
+     the same place in the list. Nothing is dropped and nothing is
+     hidden: a limitation such as "Medicare does not pay for assisted
+     living" stays in the compact row's plain sentence. */
+  const FULL_CARDS = 3;
   function renderCards(care, veteran, policy) {
     const id = normalizeCare(care);
     return getRoutes(id, veteran, policy).map((r, i) => {
       const lead = r.reason || (i === 0 && id !== "unsure");
-      return '<li class="paynav__route' + (lead ? ' paynav__route--lead' : '') + '">' +
+      const rest = i >= FULL_CARDS;
+      return '<li class="paynav__route' + (lead ? ' paynav__route--lead' : '') + (rest ? ' paynav__route--rest' : '') + '">' +
+        (i === FULL_CARDS ? '<p class="paynav__rest-h">Two more ways people pay</p>' : '') +
         '<p class="paynav__rank">' + rankLabel(i, id, r.reason) + '</p>' +
         '<h4>' + r.title + '</h4>' +
+        '<p class="paynav__plain">' + pick(ROUTE_PLAIN[r.id], id) + '</p>' +
         (r.reason ? '<p class="paynav__why">' + REASON_TEXT[r.reason] + '</p>' : '') +
+        '<details class="more paynav__more"><summary>More, and where to read the rules</summary>' +
+        '<div class="more-body">' +
         '<p>' + r.summary + '</p>' +
         '<p class="paynav__links">' + anchor(r.link, r.linkText) +
         (r.guide ? anchor(r.guide, r.guideText) : '') +
         (r.more ? anchor(r.more, r.moreText) : '') +
-        '</p></li>';
+        '</p></div></details></li>';
     }).join("");
   }
   let widget = null, stage = 0, state = null, emitted = {};
@@ -271,7 +316,15 @@
     return (care === "unsure"
       ? 'In no particular order. '
       : 'Ordered for ' + CARE[care].toLowerCase() + '. ') +
-      'A &ldquo;yes&rdquo; moves an option up but never changes what it covers. Nothing here decides eligibility &mdash; the agency, insurer or community does.';
+      'Nothing here decides eligibility &mdash; the agency, insurer or community does.';
+  }
+  function orderWhyRow(care) {
+    /* The reasoning stays on the page, one tap away: why the routes sit in
+       this order, and what a "yes" did and did not do. */
+    return '<details class="more paynav__more"><summary>Why this order?</summary>' +
+      '<div class="more-body"><p class="paynav__order">' + ORDER_WHY[care] + '</p>' +
+      '<p class="paynav__order">A &ldquo;yes&rdquo; moves an option up but never changes what it covers.</p>' +
+      '</div></details>';
   }
   function render(moveFocus) {
     if (!widget) return;
@@ -288,7 +341,11 @@
         question.choices.map(c =>
           '<button type="button" class="paynav__choice' + (picked === c.id ? ' is-selected' : '') +
           '" data-pay-value="' + c.id + '" aria-pressed="' + (picked === c.id ? 'true' : 'false') + '">' +
-          c.label + '</button>').join("") + '</div>' +
+          (step === 0
+            ? '<span class="paynav__choice-label">' + c.label + '</span>' +
+              '<span class="paynav__choice-sub">' + CARE_PLAIN[c.id] + '</span>'
+            : c.label) +
+          '</button>').join("") + '</div>' +
         (step > 0 ? '<div class="paynav__actions"><button type="button" class="paynav__back" data-pay-back>&larr; Back</button></div>' : '') +
         '<p class="paynav__fine">These answers stay on this device. No account or contact details.</p>';
     } else {
@@ -298,7 +355,7 @@
         '<h3 class="paynav__question" tabindex="-1">' +
         (care === "unsure" ? 'Nothing assumed about the type of care' : CARE[care]) + '</h3>' +
         '<p class="paynav__hint">' + resultsHint(care) + '</p>' +
-        '<p class="paynav__order">' + ORDER_WHY[care] + '</p>' +
+        orderWhyRow(care) +
         '<ol class="paynav__routes">' +
         renderCards(care, state.veteran, state.policy) + '</ol>' +
         '<p class="paynav__fine">Coverage, eligibility, benefit amounts and whether a particular community accepts a program must be confirmed directly with the agency, insurer or community. This page is educational guidance, not financial or legal advice.</p>' +
@@ -317,11 +374,14 @@
   function keepHeadingVisible(heading) {
     /* After answering the last choice on a long question, the next heading
        can sit above the sticky nav on a short phone screen. Nudge it down
-       only when it is actually hidden; never scroll otherwise. */
+       only when it is actually hidden; never scroll otherwise. The line
+       above the heading ("Question 2 of 3", "Your payment starting
+       points") is what gets measured, so it is never left under the bar. */
     try {
       const nav = root.document.querySelector("nav");
       const navH = nav ? nav.getBoundingClientRect().height : 0;
-      const top = heading.getBoundingClientRect().top;
+      const first = (widget && widget.firstElementChild) || heading;
+      const top = Math.min(first.getBoundingClientRect().top, heading.getBoundingClientRect().top);
       if (top < navH + 8) root.scrollBy({top: top - navH - 16, left: 0});
     } catch (e) { /* layout queries are best-effort */ }
   }

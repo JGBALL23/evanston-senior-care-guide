@@ -986,7 +986,18 @@ check("no unpublished number exists in the notification mapping",
    and costs plus evaluation questions follow it while staying one
    click away. Order is asserted by position, because a reorder that
    silently buries the form is exactly the regression prose cannot
-   catch. */
+   catch.
+
+   Re-ordered 2026-10-30 on Joseph's instruction (Simple First): the
+   visitor reads answer -> costs -> how to pay -> optional Westminster
+   Place inquiry. The answer leads with the level in plain words, the
+   "not a diagnosis" limit and one button, "See what it costs"; the
+   reasoning and the visitor's own answers sit behind "Why this
+   result?"; costs and the payment entry come BEFORE the form; the
+   evaluating questions and the state directory follow it. The form is
+   still reached by the IL block's tour action, the hero shortcut and
+   the guide pathway, and its disclosures, consent and order are
+   asserted separately below. */
 /* The order is asserted inside the result template ONLY. planFormBlock()
    is DEFINED near the top of app.js, so scanning the whole file reports
    the form before the heading it actually renders after — which is how
@@ -998,11 +1009,14 @@ const tpl = appSrcRaw.slice(tplStart, tplEnd);
 
 const ORDER = [
   ["your starting point",                      "Your starting point"],
-  ["why this result appeared",                 "Why this result appeared"],
+  ["the one next step: see what it costs",     "See what it costs"],
+  ["why this result, with the answers given",  "Why this result?"],
   ["what this type of care usually provides",  "What this type of care usually provides"],
+  ["what it costs",                            "usually costs"],
+  ["how to pay for it",                        "paymentEntry(level.id)"],
+  ["what a visit would tell you",              "visitBlock(level.id, line)"],
   ["the Westminster card with its disclosure", "I work at Westminster Place"],
   ["our own tour-inquiry form",                "COLLECTING ? planFormBlock("],
-  ["what it costs",                            "usually costs"],
   ["questions to ask when evaluating options", "Questions to ask when evaluating options"],
   ["the Illinois state directory",             "healthcarereportcard.illinois.gov"]
 ];
@@ -1106,10 +1120,29 @@ check("the form renders on the no-need result too",
 check("all three render paths gate the form on the same flag",
   (appSrcRaw.match(/COLLECTING \? planFormBlock\(/g) || []).length === 3,
   String((appSrcRaw.match(/COLLECTING \? planFormBlock\(/g) || []).length));
-check("the form comes BEFORE costs and evaluation questions",
-  tpl.indexOf("COLLECTING ? planFormBlock(") < tpl.indexOf("usually costs") &&
-  tpl.indexOf("COLLECTING ? planFormBlock()") <
+/* 2026-10-30: answer -> costs -> how to pay -> optional inquiry. The
+   cost block and the payment entry come before the form, the evaluating
+   questions after it. The form is never the thing a visitor has to pass
+   to reach the price. */
+check("costs and the payment entry come BEFORE the form",
+  tpl.indexOf("usually costs") < tpl.indexOf("COLLECTING ? planFormBlock(") &&
+  tpl.indexOf("paymentEntry(level.id)") < tpl.indexOf("COLLECTING ? planFormBlock("));
+check("the evaluating questions follow the form",
+  tpl.indexOf("COLLECTING ? planFormBlock(") <
     tpl.indexOf("Questions to ask when evaluating options"));
+/* The answer card stays short: the level, one plain line, the limit and
+   the one button come before any reasoning, and the reasoning is a row
+   the visitor opens. The answers they gave stay in that row. */
+check("the limit is stated before the first next step",
+  tpl.indexOf("not a diagnosis") < tpl.indexOf("See what it costs"));
+check("the reasoning sits behind a row the visitor opens",
+  /<details class="more"[^>]*>\s*<summary><h4 class="res__h">Why this result\?<\/h4><\/summary>/.test(tpl) &&
+  tpl.indexOf("Why this result?") < tpl.indexOf('<ul class="why">'));
+check("the hedged lead moved into the reasoning row, not out of the page",
+  tpl.indexOf("may be the level of support worth") > tpl.indexOf("Why this result?") &&
+  tpl.indexOf("may be the level of support worth") < tpl.indexOf("usually costs"));
+check("the no-need result also puts the payment entry before the form",
+  noNeedBranch.indexOf('paymentEntry("unsure")') < noNeedBranch.indexOf("COLLECTING ? planFormBlock("));
 check("costs and questions stay one click away",
   appShown.indexOf('href="#costs"') !== -1 &&
   appShown.indexOf('href="#evaluating"') !== -1 &&

@@ -172,7 +172,11 @@ function esc(value) {
    inbox. Nothing new behind it. */
 function renderDirectInquiry() {
   resultLevelId = NO_ASSESSMENT_LEVEL;
-  beacon(FUNNEL.guideTour);
+  /* A guide's pathway link always carries an interest, so a recognised
+     value is what marks the guide pathway. The homepage shortcut carries
+     ?tour=form instead: it opens the same form but is not a guide choice,
+     so only the form-view count moves. */
+  if (INTERESTS.some((o) => o.id === TOUR_PARAM)) beacon(FUNNEL.guideTour);
   beacon(FUNNEL.directFormView);
   quizEl.innerHTML = `
     <div class="res">
@@ -214,6 +218,22 @@ function renderQuestion() {
 
   if (step === 1) beacon(FUNNEL.q2);
   if (step === 3) beacon(FUNNEL.q4);
+  keepTopVisible(quizEl);
+}
+
+/* ---------- THE STICKY BAR NEVER HIDES WHAT JUST RENDERED ----------
+   On a phone the answer a visitor taps sits low on the screen, so the
+   next question or the result renders with its top already scrolled
+   under the fixed bar. Nudge the page only when that has happened;
+   never scroll otherwise. Page load never reaches this: the audience
+   chooser and the direct form render without it. */
+function keepTopVisible(el) {
+  try {
+    const nav = document.getElementById("nav");
+    const navH = nav ? nav.getBoundingClientRect().height : 0;
+    const top = el.getBoundingClientRect().top;
+    if (top < navH + 8) window.scrollBy({ top: top - navH - 16, left: 0 });
+  } catch (err) { /* layout queries are best-effort */ }
 }
 
 /* ---------- WESTMINSTER PHONE ROUTING -----------------------
@@ -352,27 +372,45 @@ const VISIT_GUIDE = {
 function visitBlock(levelId, line) {
   const g = VISIT_GUIDE[levelId];
   if (!g) return "";
+  /* Simple first: the heading is the tap row, the lists sit behind it. */
   return `
-      <section class="res__block visit">
-        <h4 class="res__h">What a visit would tell you</h4>
-        <p class="visit__lead">Some things no website can answer. These are
-          what an hour in the building shows you &mdash; at Westminster Place
-          or anywhere else you look.</p>
+      <section class="res__block res__block--more visit">
+        <details class="more">
+          <summary><h4 class="res__h">What a visit would tell you</h4></summary>
+          <div class="more-body">
+            <p class="visit__lead">Some things no website can answer. These are
+              what an hour in the building shows you &mdash; at Westminster Place
+              or anywhere else you look.</p>
 
-        <p class="visit__sub">Worth watching for</p>
-        <ul class="res__list">
-          ${g.see.map((l) => `<li>${esc(l)}</li>`).join("")}
-        </ul>
+            <p class="visit__sub">Worth watching for</p>
+            <ul class="res__list">
+              ${g.see.map((l) => `<li>${esc(l)}</li>`).join("")}
+            </ul>
 
-        <p class="visit__sub">Worth asking the ${esc(line.label)} team</p>
-        <ul class="res__list">
-          ${g.ask.map((l) => `<li>${esc(l)}</li>`).join("")}
-        </ul>
+            <p class="visit__sub">Worth asking the ${esc(line.label)} team</p>
+            <ul class="res__list">
+              ${g.ask.map((l) => `<li>${esc(l)}</li>`).join("")}
+            </ul>
 
-        <p class="visit__fine">Take these to any community you visit. They work
-          just as well somewhere else.</p>
+            <p class="visit__fine">Take these to any community you visit. They work
+              just as well somewhere else.</p>
+          </div>
+        </details>
       </section>`;
 }
+
+/* ---------- ONE PLAIN LINE PER LEVEL --------------------------
+   The first thing a result says, in everyday words, before any of the
+   careful language below it. Nothing here is scored or decided: these
+   are descriptions of settings, the same for everyone who lands on
+   them, and the engine in assessment.js is untouched. */
+const PLAIN_LEVEL = {
+  independent: "An apartment with meals and chores handled. Generally no personal care.",
+  assisted: "An apartment with help for daily things — bathing, dressing, medicines.",
+  memory: "A secure home with staff trained for dementia. Safety comes first.",
+  skilled: "A nursing home, with nurses on duty day and night.",
+  rehab: "A few weeks of therapy after a hospital stay, with going home as the goal."
+};
 
 /* The interest list mirrors the levels this site already explains, plus an
    honest "not sure". It is NOT a routing instruction: every inquiry reaches
@@ -419,13 +457,18 @@ function planFormBlock(levelId, variant, interestOverride) {
   const chosen = interestFor(levelId, variant, interestOverride);
   const chosenLabel =
     (INTERESTS.filter((o) => o.id === chosen)[0] || {}).label || "";
+  /* Only a recognised interest id counts as a pathway link having set the
+     dropdown. The homepage shortcut (?tour=form) carries no interest, so
+     it gets the "nothing pre-filled" sentence rather than a guide credit. */
+  const linkedInterest = Boolean(interestOverride) &&
+    INTERESTS.some((o) => o.id === interestOverride);
 
   /* The honest claim for a pathway link is that the LINK carried the value,
      which is true whether it was clicked in the guide or typed by hand.
      "Because you read the Independent Living guide" would be a guess about
      where someone had been. */
   const interestHint = noAssessment
-    ? (interestOverride && chosenLabel
+    ? (linkedInterest && chosenLabel
         ? `Set to ${esc(chosenLabel)} by the guide link you followed &mdash;
            not by an assessment, which you haven&rsquo;t taken. Change it if
            you are looking at something else.`
@@ -436,7 +479,8 @@ function planFormBlock(levelId, variant, interestOverride) {
 
   return `
       <section class="res__block plan plan--primary" id="plan-visit">
-        <h4 class="res__h plan__h">Want to see Westminster Place?</h4>
+        <p class="plan__optional">Optional &middot; one community in Evanston</p>
+        <h4 class="res__h plan__h">Ask Westminster Place about a tour</h4>
 
         <p class="plan__contrast">The six questions ask for nothing &mdash; no
           name, no email, no phone number. This form is the other thing: it
@@ -540,14 +584,18 @@ function planFormBlock(levelId, variant, interestOverride) {
              is the operator's own introduction, which is worth reading and
              changes nothing about the submission. -->
         <div class="plan__who">
-          <p class="plan__who-h">Who runs this guide</p>
-          <p>I created Evanston Senior Care Guide to help families better
-            understand their senior-care options without feeling overwhelmed.
-            My goal is to make complicated decisions easier by explaining
-            different levels of care, helping families know what questions to
-            ask, and giving them a clearer starting point.</p>
-          <p>I work in senior living, but this guide is an independent project
-            I created to help families make informed decisions.</p>
+          <details class="more">
+            <summary><span class="plan__who-h">Who runs this guide</span></summary>
+            <div class="more-body">
+              <p>I created Evanston Senior Care Guide to help families better
+                understand their senior-care options without feeling overwhelmed.
+                My goal is to make complicated decisions easier by explaining
+                different levels of care, helping families know what questions to
+                ask, and giving them a clearer starting point.</p>
+              <p>I work in senior living, but this guide is an independent project
+                I created to help families make informed decisions.</p>
+            </div>
+          </details>
         </div>
       </section>`;
 }
@@ -577,13 +625,21 @@ function costBlock(cost) {
            target="_blank" rel="noopener" data-beacon="cost-source">View source</a>` : ""}</p>`
     : "";
 
+  /* Simple first: the figure and what it measures stay in view; the
+     survey, the link and the caveats sit behind one tap row. The
+     Westminster line stays in view with the figure it qualifies. */
   return `
     <div class="res__cost${sourced ? "" : " res__cost--nofig"}">
       <p class="res__cost-label">${esc(cost.label)}</p>
       ${sourced ? `<p class="res__cost-fig">${esc(cost.figure)}<span>${esc(cost.unit)}</span></p>` : ""}
       <p class="res__cost-basis">${esc(cost.basis)}</p>
-      ${source}
-      <p class="res__cost-note">${esc(cost.note)}</p>
+      <details class="more more--dark">
+        <summary>${sourced ? "Where this number comes from" : "Why there is no number here"}</summary>
+        <div class="more-body">
+          ${source}
+          <p class="res__cost-note">${esc(cost.note)}</p>
+        </div>
+      </details>
       ${sourced ? `<p class="res__cost-wp">Statewide estimates are provided for
         general comparison and do not represent Westminster Place&rsquo;s actual
         rates.</p>` : ""}
@@ -598,11 +654,11 @@ function costBlock(cost) {
 function paymentEntry(careLevel) {
   const care = careLevel === "no_need" ? "unsure" : careLevel;
   return '<div class="paynav__entry">' +
-    '<p><strong>How might you pay for this care?</strong></p>' +
-    '<p>Compare Medicare, Illinois Medicaid, VA benefits, existing long-term-care insurance and private payment. Three short questions, no eligibility assumed' +
+    '<p><strong>How could you pay for it?</strong></p>' +
+    '<p>Three short questions put Medicare, Illinois Medicaid, VA benefits, long-term-care insurance and private payment in the order worth checking first. Nothing about eligibility is assumed' +
     (care === "unsure" ? '.' : ', and your result above is carried over so you are not asked again.') + '</p>' +
     '<p><a class="paynav__entry-btn" href="#paying-nav" data-pay-nav-care="' + esc(care) +
-    '">Explore payment options</a></p></div>';
+    '">See how people pay for it</a></p></div>';
 }
 
 function renderResult() {
@@ -636,32 +692,42 @@ function renderResult() {
       </section>
       
       <p class="res__summary">Nothing in these answers describes a need to move
-        ${them()} into a care setting. That is a real answer, and it is worth
-        writing down somewhere with today's date — so that when something does
-        change, you can see what changed.</p>
+        ${them()} into a care setting. That is a real answer. Write it down
+        with today&rsquo;s date, so that when something changes you can see
+        what changed.</p>
+      <p class="res__limit">A starting point, not a diagnosis. Come back and
+        retake this if anything changes.</p>
 
-      <div class="res__why">
-        <p class="res__why-label">Worth doing anyway</p>
-        <p>Have the conversation now, while it is hypothetical. Ask
-          ${them()} what they would want. Find out where the important documents are. The
-          families who struggle most are the ones deciding all of it inside
-          seventy-two hours.</p>
-        <p>Looking at a community before you need one is the cheapest version
-          of this decision. Nothing obliges you to move.</p>
-      </div>
+      <section class="res__block res__block--more">
+        <details class="more">
+          <summary><h4 class="res__h">Worth doing anyway</h4></summary>
+          <div class="more-body">
+            <div class="res__why">
+              <p>Have the conversation now, while it is hypothetical. Ask
+                ${them()} what they would want. Find out where the important documents are. The
+                families who struggle most are the ones deciding all of it inside
+                seventy-two hours.</p>
+              <p>Looking at a community before you need one is the cheapest version
+                of this decision. Nothing obliges you to move.</p>
+            </div>
 
-      <section class="res__block visit">
-        <h4 class="res__h">Three things worth doing this month</h4>
-        <ul class="res__list">
-          <li>Ask ${them()} what they would want, while it is still
-            hypothetical and nobody is under pressure</li>
-          <li>Find out where the important documents are kept &mdash; the will,
-            the power of attorney, the insurance</li>
-          <li>Write down today&rsquo;s date and what you are seeing, so that
-            when something changes you can tell what changed</li>
-        </ul>
-        <p class="visit__fine">Nothing here says anyone needs to move. Come
-          back and retake this if that stops being true.</p>
+            <p class="visit__sub">Three things worth doing this month</p>
+            <ul class="res__list">
+              <li>Ask ${them()} what they would want, while it is still
+                hypothetical and nobody is under pressure</li>
+              <li>Find out where the important documents are kept &mdash; the will,
+                the power of attorney, the insurance</li>
+              <li>Write down today&rsquo;s date and what you are seeing, so that
+                when something changes you can tell what changed</li>
+            </ul>
+            <p class="visit__fine">Nothing here says anyone needs to move. Come
+              back and retake this if that stops being true.</p>
+          </div>
+        </details>
+      </section>
+
+      <section class="res__block">
+        ${paymentEntry("unsure")}
       </section>
 
       ${COLLECTING ? `
@@ -685,14 +751,13 @@ function renderResult() {
       </section>` : ""}
       ${COLLECTING ? planFormBlock(resultLevelId, null) : ""}
 
-      ${paymentEntry("unsure")}
-
       <div class="res__actions">
         <a class="btn btn--dark" href="#tour" data-beacon="tour">See the tour questions</a>
         <button class="btn btn--line" id="restart" type="button">Start over</button>
       </div>
       <p class="res__fine">${esc(DISCLAIMER)}</p>
     `;
+    keepTopVisible(quizEl);
     wireResult();
     return;
   }
@@ -717,38 +782,51 @@ function renderResult() {
     <div class="res">
       <p class="res__label">Your starting point</p>
       <h3 class="res__name">${esc(level.name)}</h3>
+      <p class="res__plain">${esc(PLAIN_LEVEL[level.id] || "")}</p>
       ${lifestyle ? `
       <p class="res__summary">Nothing in these answers describes a need for
         care. What ${they()} described is wanting less house to look after
-        &mdash; and that is a lifestyle decision, not a care decision.
-        Independent living is the option built for it: ${audience === "self"
-        ? "your own apartment or cottage" : "a private apartment or cottage"},
-        with the cooking, cleaning, grounds and driving handled by somebody
-        else.</p>
-      <p class="res__summary">This is a move people make while they are well,
-        on their own terms, and usually years before any care question
-        arrives. Nothing here says ${audience === "self"
-        ? "you need" : "they need"} help.</p>` : `
-      <p class="res__summary">Based on these answers,
-        ${esc(level.name.toLowerCase())} may be the level of support worth
-        exploring first for ${them()}. ${esc(level.summary)}</p>`}
+        &mdash; a lifestyle decision, not a care decision. Independent living
+        is the option built for it.</p>
+      <p class="res__summary">A move people make while they are well, on
+        their own terms. Nothing here says ${audience === "self"
+        ? "you need" : "they need"} help.</p>` : ""}
+      <p class="res__limit">A starting point, not a diagnosis. Only a
+        professional who has examined ${them()} can decide what is needed.</p>
 
-      <p class="res__jump">Jump to:
-        <a href="#costs" data-beacon="costs">what it costs</a> &middot;
-        <a href="#evaluating" data-beacon="tour">questions to ask</a></p>
+      <div class="res__next">
+        <a class="btn btn--primary res__next-btn" href="#costs"
+           data-beacon="costs">See what it costs</a>
+        <p class="res__next-sub">Then how people pay for it, and an optional
+          tour. <a href="#evaluating" data-beacon="tour">Questions to ask
+          when you look at places</a></p>
+      </div>
 
-      <section class="res__block">
-        <h4 class="res__h">Why this result appeared</h4>
-        <ul class="why">${reasons}</ul>
-        <p class="why__note">These are the answers you gave. Change any of them
-          and the result may change &mdash; that is the whole logic.</p>
+      <section class="res__block res__block--more" id="why-this-result">
+        <details class="more" data-open-on-jump>
+          <summary><h4 class="res__h">Why this result?</h4></summary>
+          <div class="more-body">
+            ${lifestyle ? "" : `
+            <p class="res__summary">Based on these answers,
+              ${esc(level.name.toLowerCase())} may be the level of support worth
+              exploring first for ${them()}. ${esc(level.summary)}</p>`}
+            <p class="why__lead">These are the answers you gave:</p>
+            <ul class="why">${reasons}</ul>
+            <p class="why__note">Change any of them and the result may change
+              &mdash; that is the whole logic. Nothing else is weighed.</p>
+          </div>
+        </details>
       </section>
 
-      <section class="res__block">
-        <h4 class="res__h">What this type of care usually provides</h4>
-        <ul class="res__list">
-          ${level.looksLike.map((l) => `<li>${esc(l)}</li>`).join("")}
-        </ul>
+      <section class="res__block res__block--more">
+        <details class="more">
+          <summary><h4 class="res__h">What this type of care usually provides</h4></summary>
+          <div class="more-body">
+            <ul class="res__list">
+              ${level.looksLike.map((l) => `<li>${esc(l)}</li>`).join("")}
+            </ul>
+          </div>
+        </details>
       </section>
 
       ${lifestyle ? `
@@ -760,6 +838,12 @@ function renderResult() {
           licensed assisted living, the questions worth asking on a visit,
           and why no Illinois median figure appears on it.</p>
       </section>` : ""}
+
+      <section class="res__block" id="costs">
+        <h4 class="res__h">What ${esc(level.name.toLowerCase())} usually costs</h4>
+        ${costBlock(level.cost)}
+        ${paymentEntry(level.id)}
+      </section>
 
       ${visitBlock(level.id, line)}
 
@@ -780,30 +864,37 @@ function renderResult() {
           <p class="wp__disclosure wp__disclosure--sub">
             I receive no referral fees. Your contact information is not shared
             with Westminster Place unless you ask for it to be, by ticking the
-            permission box on the form below. If you do, your details are
-            passed to their Admissions team so they can contact you about a
-            tour, and a record is kept that your inquiry came through this
-            resource.
+            permission box on the form below.
           </p>
 
-          <p class="wp__why">Westminster Place offers several levels of senior
-            care on one campus. During a visit, you can ask how the community
-            supports residents when their needs change and whether
-            transitioning between care settings may be possible.</p>
+          <details class="more">
+            <summary>What happens to an inquiry, and more about Westminster Place</summary>
+            <div class="more-body">
+              <p class="wp__disclosure wp__disclosure--sub">If you tick that box,
+                your details are passed to their Admissions team so they can
+                contact you about a tour, and a record is kept that your
+                inquiry came through this resource.</p>
 
-          <p class="wp__route">They publish a direct line for each team. Yours
-            would be <strong>${esc(line.label)}</strong>, the one that handles
-            ${esc(level.name.toLowerCase())} &mdash; so a call starts in the
-            right place instead of with a transfer. The form below is how this
-            guide passes an inquiry to them.</p>
+              <p class="wp__why">Westminster Place offers several levels of senior
+                care on one campus. During a visit, you can ask how the community
+                supports residents when their needs change and whether
+                transitioning between care settings may be possible.</p>
 
-          <p class="wp__verify">Everything above comes from Westminster
-            Place&rsquo;s own published pages. Read what they say about
-            themselves at
-            <a href="https://www.presbyterianliving.org/our-locations/westminster-place/"
-               rel="noopener" target="_blank" data-beacon="wp-official">their
-            official site</a> &mdash; this guide is not it, and does not speak
-            for them.</p>
+              <p class="wp__route">They publish a direct line for each team. Yours
+                would be <strong>${esc(line.label)}</strong>, the one that handles
+                ${esc(level.name.toLowerCase())} &mdash; so a call starts in the
+                right place instead of with a transfer. The form below is how this
+                guide passes an inquiry to them.</p>
+
+              <p class="wp__verify">Everything above comes from Westminster
+                Place&rsquo;s own published pages. Read what they say about
+                themselves at
+                <a href="https://www.presbyterianliving.org/our-locations/westminster-place/"
+                   rel="noopener" target="_blank" data-beacon="wp-official">their
+                official site</a> &mdash; this guide is not it, and does not speak
+                for them.</p>
+            </div>
+          </details>
         </div>
       </section>
 
@@ -824,17 +915,15 @@ function renderResult() {
           answers never left this device either way.</p>
       </section>`}
 
-      <section class="res__block" id="costs">
-        <h4 class="res__h">What ${esc(level.name.toLowerCase())} usually costs</h4>
-        ${costBlock(level.cost)}
-        ${paymentEntry(level.id)}
-      </section>
-
-      <section class="res__block" id="evaluating">
-        <h4 class="res__h">Questions to ask when evaluating options</h4>
-        <ul class="res__list">
-          ${level.nextSteps.map((l) => `<li>${esc(l)}</li>`).join("")}
-        </ul>
+      <section class="res__block res__block--more" id="evaluating">
+        <details class="more" data-open-on-jump>
+          <summary><h4 class="res__h">Questions to ask when evaluating options</h4></summary>
+          <div class="more-body">
+            <ul class="res__list">
+              ${level.nextSteps.map((l) => `<li>${esc(l)}</li>`).join("")}
+            </ul>
+          </div>
+        </details>
       </section>
 
       <section class="res__block">
@@ -843,8 +932,7 @@ function renderResult() {
           <a data-beacon="idph" rel="noopener" target="_blank"
              href="https://healthcarereportcard.illinois.gov/">View Illinois&rsquo;
           official licensed-facility directory</a> &mdash; the state&rsquo;s own
-          lookup, not mine. It lists every licensed facility in Illinois,
-          including the ones I have never heard of.
+          lookup, not mine. It lists every licensed facility in Illinois.
         </p>
       </section>
 
@@ -857,6 +945,7 @@ function renderResult() {
         does not guarantee placement or insurance coverage.</p>
     </div>
   `;
+  keepTopVisible(quizEl);
   beacon(FUNNEL.wpView);
   wireResult();
 }
@@ -1051,6 +1140,29 @@ document.addEventListener("click", (event) => {
   if (which === "wp-official") beacon(FUNNEL.wpSite + "?s=" + SOURCE);
   if (which === "idph") beacon(FUNNEL.idph);
 });
+
+/* ---------- "MORE" ROWS OPEN WHEN A LINK LANDS INSIDE THEM --------
+   Reference material sits inside <details> so each screen reads short.
+   A link to #tour or #evaluating must still show what it points at, so
+   a jump opens the row it lands in, or the row the target carries with
+   data-open-on-jump. Nothing is measured here and nothing is stored. */
+function openMoreFor(id) {
+  const target = id ? document.getElementById(id) : null;
+  if (!target) return;
+  let row = target.closest("details");
+  while (row) {
+    row.open = true;
+    row = row.parentElement ? row.parentElement.closest("details") : null;
+  }
+  target.querySelectorAll("details[data-open-on-jump]").forEach((d) => { d.open = true; });
+}
+document.addEventListener("click", (event) => {
+  const link = event.target.closest('a[href^="#"]');
+  if (!link) return;
+  openMoreFor(link.getAttribute("href").slice(1));
+});
+window.addEventListener("hashchange", () => openMoreFor(window.location.hash.slice(1)));
+openMoreFor(window.location.hash.slice(1));
 
 if ("IntersectionObserver" in window) {
   /* Reveal the content blocks, and count the two sections that
