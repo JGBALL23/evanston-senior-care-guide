@@ -252,11 +252,20 @@
     if (i === 0 && care !== "unsure") return n + " &middot; Worth checking first";
     return n;
   }
+  /* Five options every time, in the explained order. The first three are
+     full cards; the last two are compact rows under one quiet line, with
+     the same plain sentence, the same "More" row, the same links, and
+     the same place in the list. Nothing is dropped and nothing is
+     hidden: a limitation such as "Medicare does not pay for assisted
+     living" stays in the compact row's plain sentence. */
+  const FULL_CARDS = 3;
   function renderCards(care, veteran, policy) {
     const id = normalizeCare(care);
     return getRoutes(id, veteran, policy).map((r, i) => {
       const lead = r.reason || (i === 0 && id !== "unsure");
-      return '<li class="paynav__route' + (lead ? ' paynav__route--lead' : '') + '">' +
+      const rest = i >= FULL_CARDS;
+      return '<li class="paynav__route' + (lead ? ' paynav__route--lead' : '') + (rest ? ' paynav__route--rest' : '') + '">' +
+        (i === FULL_CARDS ? '<p class="paynav__rest-h">Two more ways people pay</p>' : '') +
         '<p class="paynav__rank">' + rankLabel(i, id, r.reason) + '</p>' +
         '<h4>' + r.title + '</h4>' +
         '<p class="paynav__plain">' + pick(ROUTE_PLAIN[r.id], id) + '</p>' +
@@ -365,11 +374,14 @@
   function keepHeadingVisible(heading) {
     /* After answering the last choice on a long question, the next heading
        can sit above the sticky nav on a short phone screen. Nudge it down
-       only when it is actually hidden; never scroll otherwise. */
+       only when it is actually hidden; never scroll otherwise. The line
+       above the heading ("Question 2 of 3", "Your payment starting
+       points") is what gets measured, so it is never left under the bar. */
     try {
       const nav = root.document.querySelector("nav");
       const navH = nav ? nav.getBoundingClientRect().height : 0;
-      const top = heading.getBoundingClientRect().top;
+      const first = (widget && widget.firstElementChild) || heading;
+      const top = Math.min(first.getBoundingClientRect().top, heading.getBoundingClientRect().top);
       if (top < navH + 8) root.scrollBy({top: top - navH - 16, left: 0});
     } catch (e) { /* layout queries are best-effort */ }
   }

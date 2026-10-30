@@ -214,6 +214,38 @@ check("a 'yes' marks the moved card with the visitor's answer, even for 'Not sur
   assert(!html.includes("Worth checking first"));
 });
 
+/* ---- five options, three full cards and two compact rows (2026-10-30) ----
+   The compact rows are the same list items in the same order: same plain
+   sentence, same "More" row, same links. Overload goes down; nothing is
+   dropped, hidden or re-ranked. */
+check("every result keeps five cards: three full, the last two compact, in order", () => {
+  for (const care of careTypes) for (const v of yn) for (const pol of yn) {
+    const html = p.renderCards(care, v, pol);
+    const items = html.split("<li ").slice(1);
+    assert.equal(items.length, 5);
+    items.forEach((li, i) => {
+      assert.equal(li.includes("paynav__route--rest"), i >= 3, care + " card " + (i + 1));
+      assert(li.includes('class="paynav__plain"'), "plain line on card " + (i + 1));
+      assert(li.includes('<details class="more paynav__more">'), "More row on card " + (i + 1));
+      assert(li.includes('class="paynav__links"'), "links on card " + (i + 1));
+    });
+    assert.equal((html.match(/paynav__rest-h/g) || []).length, 1, "one quiet label");
+    assert(items[3].includes("Two more ways people pay") && !items[4].includes("paynav__rest-h"));
+    assert.deepEqual(items.map((li) => li.match(/<h4>([^<]+)<\/h4>/)[1]), p.getRoutes(care, v, pol).map((r) => r.title));
+  }
+});
+check("a compact row never loses a limitation: Medicare on assisted living still says it does not pay", () => {
+  const html = p.renderCards("assisted", "no", "no");
+  const medicare = html.split("<li ").slice(1).find((li) => li.includes("<h4>Medicare</h4>"));
+  assert(medicare.includes("paynav__route--rest") && /does not pay for assisted living/.test(medicare));
+});
+check("the plain lines promise nothing", () => {
+  for (const care of careTypes) {
+    const html = p.renderCards(care, "no", "no");
+    for (const m of html.matchAll(/<p class="paynav__plain">([^<]*)<\/p>/g)) assert(!promises(m[1]), m[1]);
+  }
+});
+
 /* ---- beacons: literal paths, and a file behind every one of them ---- */
 const html = fs.readFileSync(path.join(root,"index.html"),"utf8");
 const app = fs.readFileSync(path.join(root,"app.js"),"utf8");

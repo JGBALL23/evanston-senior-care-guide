@@ -286,10 +286,25 @@ async function main() {
       /* the payment navigator's first question explains each choice */
       check("navigator question 1 explains every choice in plain words", (await ev(`document.querySelectorAll('#paying-nav-widget .paynav__choice-sub').length`)) === 6);
       check("navigator choices are at least 56px tall", (await ev(HEIGHTS("#paying-nav-widget .paynav__choice"))).every((h) => h >= 56));
+      /* tap the last choice with it sitting low on the screen, the way a
+         thumb does, so the next question would render under the bar if
+         nothing kept it visible */
+      await ev(`(function(){ var b=document.querySelector('#paying-nav-widget [data-pay-value="rehab"]'); b.scrollIntoView({block:'end'}); }())`); await sleep(200);
+      await ev(`document.querySelector('#paying-nav-widget [data-pay-value="rehab"]').click()`); await sleep(400);
+      check("navigator question 2 renders with its top line below the sticky bar", await ev(`document.getElementById('paying-nav-widget').firstElementChild.getBoundingClientRect().top >= document.getElementById('nav').getBoundingClientRect().bottom - 1`), String(await ev(`Math.round(document.getElementById('paying-nav-widget').firstElementChild.getBoundingClientRect().top - document.getElementById('nav').getBoundingClientRect().bottom)`)));
+      await ev(`document.querySelector('#paying-nav-widget [data-pay-change]').click()`); await sleep(200);
       await ev(`document.querySelector('#paying-nav-widget [data-pay-value="assisted"]').click()`); await sleep(150);
       await ev(`document.querySelector('#paying-nav-widget [data-pay-value="no"]').click()`); await sleep(150);
-      await ev(`document.querySelector('#paying-nav-widget [data-pay-value="no"]').click()`); await sleep(300);
+      await ev(`(function(){ var b=document.querySelector('#paying-nav-widget [data-pay-value="no"]'); b.scrollIntoView({block:'end'}); }())`); await sleep(200);
+      await ev(`document.querySelector('#paying-nav-widget [data-pay-value="no"]').click()`); await sleep(400);
       check("each result card leads with one plain line", (await ev(`document.querySelectorAll('#paying-nav-widget .paynav__plain').length`)) === 5);
+      check("three full cards, then two compact rows under one quiet line", (await ev(`document.querySelectorAll('#paying-nav-widget .paynav__route--rest').length`)) === 2 && (await ev(`document.querySelectorAll('#paying-nav-widget .paynav__rest-h').length`)) === 1 && (await ev(`Array.from(document.querySelectorAll('#paying-nav-widget .paynav__route')).map(function(li,i){ return li.classList.contains('paynav__route--rest') === (i >= 3); }).every(Boolean)`)));
+      check("the compact rows keep their plain line, their More row and their links", await ev(`Array.from(document.querySelectorAll('#paying-nav-widget .paynav__route--rest')).every(function(li){ return li.querySelector('.paynav__plain') && li.querySelector('details.more') && li.querySelectorAll('.paynav__links a').length >= 1; })`));
+      check("the compact rows' plain lines stay readable (17px+)", (await ev(FONTS("#paying-nav-widget .paynav__route--rest .paynav__plain"))).every((f) => f >= 17));
+      check("the compact rows' More rows are at least 44px tall", (await ev(HEIGHTS("#paying-nav-widget .paynav__route--rest details.more > summary"))).every((h) => h >= 44));
+      check("a compact row still states a limitation plainly (Medicare on assisted living)", /does not pay for assisted living/.test(await ev(`(Array.from(document.querySelectorAll('#paying-nav-widget .paynav__route--rest')).find(function(li){ return /Medicare/.test(li.querySelector('h4').textContent); }) || {}).textContent || ''`)));
+      const NAV_BOTTOM = `document.getElementById('nav').getBoundingClientRect().bottom`;
+      check("the navigator's top line sits below the sticky bar after the last answer", await ev(`document.getElementById('paying-nav-widget').firstElementChild.getBoundingClientRect().top >= ${NAV_BOTTOM} - 1`), String(await ev(`Math.round(document.getElementById('paying-nav-widget').firstElementChild.getBoundingClientRect().top - (${NAV_BOTTOM}))`)));
       check("each result card keeps its full text and links one tap away", (await ev(`document.querySelectorAll('#paying-nav-widget .paynav__route details.more .paynav__links a').length`)) >= 5);
       check("the reason for the order is one tap away", (await ev(`document.querySelector('#paying-nav-widget').textContent`)).includes("Assisted living in Illinois is usually private-pay"));
       check("navigator More rows are at least 48px tall", (await ev(HEIGHTS("#paying-nav-widget details.more > summary"))).every((h) => h >= 48));
@@ -301,9 +316,16 @@ async function main() {
         await goto("/#assessment");
         await ev(`document.querySelector('#quiz [data-aud="parent"]').click()`); await sleep(120);
         check(`${level}: answer buttons are at least 56px tall`, (await ev(HEIGHTS("#quiz .opt"))).every((h) => h >= 56));
-        for (const i of answers) { await ev(`document.querySelector('#quiz .opt[data-i="${i}"]').click()`); await sleep(120); }
+        let underBar = 0;
+        for (const i of answers) {
+          /* tap with the option low on the screen, the way a thumb does */
+          await ev(`(function(){ var b=document.querySelector('#quiz .opt[data-i="${i}"]'); b.scrollIntoView({block:'end'}); }())`); await sleep(120);
+          await ev(`document.querySelector('#quiz .opt[data-i="${i}"]').click()`); await sleep(260);
+          if (await ev(`document.getElementById('quiz').getBoundingClientRect().top < document.getElementById('nav').getBoundingClientRect().bottom - 1`)) underBar++;
+        }
         for (let t = 0; t < 40 && !(await ev(`!!document.querySelector('#quiz .res__name')`)); t++) await sleep(100);
         await sleep(200);
+        check(`${level}: each question and the result render with the box top below the sticky bar`, underBar === 0, underBar + " under the bar");
         const words = await ev(VISIBLE_WORDS_IN("#quiz"));
         check(`${level}: result shows ${words} words before any tap (budget ${BUDGET.result})`, words <= BUDGET.result);
         check(`${level}: every More row on the result starts closed`, (await ev(`document.querySelectorAll('#quiz details[open]').length`)) === 0);
@@ -313,6 +335,10 @@ async function main() {
         check(`${level}: no sideways scroll`, await ev(NO_SIDEWAYS));
         if (level !== "no_need") {
           check(`${level}: the result leads with the level in plain words`, (await ev(`((document.querySelector('#quiz .res__plain')||{}).textContent||'').length`)) > 20);
+          check(`${level}: the reasoning and the visitor's answers sit behind "Why this result?", closed`, await ev(`(function(){ var d=document.querySelector('#why-this-result details'); return !!d && !d.open && d.querySelector('summary').textContent.trim() === 'Why this result?' && d.querySelectorAll('.why__item').length >= 1; }())`));
+          check(`${level}: the hedged lead is inside that row`, /may be the level of support worth\s+exploring first/.test(await ev(`document.querySelector('#why-this-result').textContent`)) || level === "independent");
+          check(`${level}: page order is answer, costs, how to pay, then the optional inquiry`, await ev(`(function(){ var q=document.getElementById('quiz'); var order=['.res__next-btn','#costs .res__cost-basis','#costs .paynav__entry-btn','#plan-visit']; var tops=order.map(function(s){ var e=q.querySelector(s); return e ? e.getBoundingClientRect().top : NaN; }); return tops.every(function(t,i){ return !isNaN(t) && (i===0 || t > tops[i-1]); }); }())`));
+          check(`${level}: the form keeps its disclosures, consent and privacy link`, await ev(`(function(){ var f=document.getElementById('plan-visit'); return !!f.querySelector('.plan__contrast') && !!f.querySelector('.plan__disclose') && !!f.querySelector('#plan-consent') && !!f.querySelector('.plan__privacy'); }())`));
           check(`${level}: the plain line is 20px or larger`, (await ev(FONTS("#quiz .res__plain")))[0] >= 20);
           await ev(`document.getElementById('quiz').scrollIntoView({block:'start'})`); await sleep(200);
           const btnTop = await ev(`(function(){ var b=document.querySelector('#quiz .res__next-btn'); return b ? Math.round(b.getBoundingClientRect().top) : -1; }())`);

@@ -218,6 +218,22 @@ function renderQuestion() {
 
   if (step === 1) beacon(FUNNEL.q2);
   if (step === 3) beacon(FUNNEL.q4);
+  keepTopVisible(quizEl);
+}
+
+/* ---------- THE STICKY BAR NEVER HIDES WHAT JUST RENDERED ----------
+   On a phone the answer a visitor taps sits low on the screen, so the
+   next question or the result renders with its top already scrolled
+   under the fixed bar. Nudge the page only when that has happened;
+   never scroll otherwise. Page load never reaches this: the audience
+   chooser and the direct form render without it. */
+function keepTopVisible(el) {
+  try {
+    const nav = document.getElementById("nav");
+    const navH = nav ? nav.getBoundingClientRect().height : 0;
+    const top = el.getBoundingClientRect().top;
+    if (top < navH + 8) window.scrollBy({ top: top - navH - 16, left: 0 });
+  } catch (err) { /* layout queries are best-effort */ }
 }
 
 /* ---------- WESTMINSTER PHONE ROUTING -----------------------
@@ -710,6 +726,10 @@ function renderResult() {
         </details>
       </section>
 
+      <section class="res__block">
+        ${paymentEntry("unsure")}
+      </section>
+
       ${COLLECTING ? `
       <section class="res__block local">
         <div class="wp">
@@ -731,14 +751,13 @@ function renderResult() {
       </section>` : ""}
       ${COLLECTING ? planFormBlock(resultLevelId, null) : ""}
 
-      ${paymentEntry("unsure")}
-
       <div class="res__actions">
         <a class="btn btn--dark" href="#tour" data-beacon="tour">See the tour questions</a>
         <button class="btn btn--line" id="restart" type="button">Start over</button>
       </div>
       <p class="res__fine">${esc(DISCLAIMER)}</p>
     `;
+    keepTopVisible(quizEl);
     wireResult();
     return;
   }
@@ -769,13 +788,9 @@ function renderResult() {
         care. What ${they()} described is wanting less house to look after
         &mdash; a lifestyle decision, not a care decision. Independent living
         is the option built for it.</p>
-      <p class="res__summary">This is a move people make while they are well,
-        on their own terms, and usually years before any care question
-        arrives. Nothing here says ${audience === "self"
-        ? "you need" : "they need"} help.</p>` : `
-      <p class="res__summary">Based on these answers,
-        ${esc(level.name.toLowerCase())} may be the level of support worth
-        exploring first for ${them()}. ${esc(level.summary)}</p>`}
+      <p class="res__summary">A move people make while they are well, on
+        their own terms. Nothing here says ${audience === "self"
+        ? "you need" : "they need"} help.</p>` : ""}
       <p class="res__limit">A starting point, not a diagnosis. Only a
         professional who has examined ${them()} can decide what is needed.</p>
 
@@ -787,11 +802,20 @@ function renderResult() {
           when you look at places</a></p>
       </div>
 
-      <section class="res__block">
-        <h4 class="res__h">Why this result appeared</h4>
-        <ul class="why">${reasons}</ul>
-        <p class="why__note">These are the answers you gave. Change any of them
-          and the result may change &mdash; that is the whole logic.</p>
+      <section class="res__block res__block--more" id="why-this-result">
+        <details class="more" data-open-on-jump>
+          <summary><h4 class="res__h">Why this result?</h4></summary>
+          <div class="more-body">
+            ${lifestyle ? "" : `
+            <p class="res__summary">Based on these answers,
+              ${esc(level.name.toLowerCase())} may be the level of support worth
+              exploring first for ${them()}. ${esc(level.summary)}</p>`}
+            <p class="why__lead">These are the answers you gave:</p>
+            <ul class="why">${reasons}</ul>
+            <p class="why__note">Change any of them and the result may change
+              &mdash; that is the whole logic. Nothing else is weighed.</p>
+          </div>
+        </details>
       </section>
 
       <section class="res__block res__block--more">
@@ -814,6 +838,12 @@ function renderResult() {
           licensed assisted living, the questions worth asking on a visit,
           and why no Illinois median figure appears on it.</p>
       </section>` : ""}
+
+      <section class="res__block" id="costs">
+        <h4 class="res__h">What ${esc(level.name.toLowerCase())} usually costs</h4>
+        ${costBlock(level.cost)}
+        ${paymentEntry(level.id)}
+      </section>
 
       ${visitBlock(level.id, line)}
 
@@ -885,12 +915,6 @@ function renderResult() {
           answers never left this device either way.</p>
       </section>`}
 
-      <section class="res__block" id="costs">
-        <h4 class="res__h">What ${esc(level.name.toLowerCase())} usually costs</h4>
-        ${costBlock(level.cost)}
-        ${paymentEntry(level.id)}
-      </section>
-
       <section class="res__block res__block--more" id="evaluating">
         <details class="more" data-open-on-jump>
           <summary><h4 class="res__h">Questions to ask when evaluating options</h4></summary>
@@ -921,6 +945,7 @@ function renderResult() {
         does not guarantee placement or insurance coverage.</p>
     </div>
   `;
+  keepTopVisible(quizEl);
   beacon(FUNNEL.wpView);
   wireResult();
 }

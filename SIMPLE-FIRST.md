@@ -174,7 +174,7 @@ desktop (`node tools/simple_first_check.mjs`):
 | screen | before | now |
 | --- | --- | --- |
 | homepage, words before any tap | 2,284 | about 710 |
-| a result, words before any tap | about 3,000 | 700–750 |
+| a result, words before any tap | about 3,000 | about 605 after the refinement below |
 | first screen of the homepage | five cards, two paragraphs | the question and one button |
 | first screen of a result | level + reasons + what it provides | level, one plain line, the limits, "See what it costs" |
 
@@ -186,14 +186,37 @@ choices are about 80 on the homepage. The gate's budgets (760 / 760)
 sit just above the measured figures so that a paragraph added above
 the fold fails the build rather than quietly undoing this.
 
-One thing the proposal drew differently: the inquiry form still sits
-before the cost section in a result's page order, because `test.js`
-locks that order ("the form comes BEFORE costs"). The visitor's first
-next step is still the costs — the "See what it costs" button is the
-first thing under the answer and jumps past the form — so the journey
-reads answer → costs → paying → optional tour. Putting the cost block
-physically above the form would need that gate changed, which is the
-owner's call.
+## Refinement (2026-10-30, owner's review of the first preview)
+
+- A result now shows the level, one plain line, the limit ("A starting
+  point, not a diagnosis") and "See what it costs" — nothing else above
+  the first row. The hedged lead sentence and the visitor's own answers
+  moved into "Why this result?", a row that opens on tap or Enter.
+  Measured: about 605 visible words on a result (from 700–750; it was
+  roughly 3,000 before this branch).
+- The page order is now answer → costs → how to pay → optional
+  Westminster Place inquiry → what a visit shows → evaluating questions
+  → state directory. The `test.js` gate that locked the form ahead of
+  the costs ("the form comes BEFORE costs", 2026-10-17) was replaced on
+  the owner's instruction by gates for the new order; the form's
+  disclosures, consent sentence, field order, privacy link and all three
+  render paths are asserted exactly as before. The no-care-need result
+  puts the payment entry ahead of the form too.
+- The payment navigator shows three full cards, then "Two more ways
+  people pay" as two compact rows: same list, same order, same plain
+  sentence (a limitation such as "Medicare does not pay for assisted
+  living itself" stays in view), same "More, and where to read the
+  rules" row and links. Nothing is dropped, hidden or re-ranked; the
+  unit tests pin all five for all 54 answer combinations.
+- Sticky header: after a tap low on a phone screen, the next question,
+  the result, and the navigator's "Question 2 of 3" / "Your payment
+  starting points" line now render with their top edge below the bar
+  (the page nudges only when it would otherwise be covered), and every
+  jump target carries a scroll margin for the bar. The gate taps every
+  answer with the button at the bottom of the screen and checks this.
+- Homepage title and description name independent living, assisted
+  living, memory care, skilled nursing and rehab in Evanston again, in
+  one line each; no copy was added to the page for search.
 
 Also changed on this branch:
 - `/?tour=form#plan-visit` (the hero's "Ask about a tour") opens the
