@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Evanston Senior Care Guide — what level of care does your parent actually need?</title>
-<meta name="description" content="A free, plain-English guide to assisted living, memory care, skilled nursing and rehab in Evanston. Take the 2-minute assessment to find the level of care your parent needs." />
+<title>Evanston Senior Care Guide — which kind of senior care fits? Six questions, a clear starting point</title>
+<meta name="description" content="Not sure what kind of help you or someone you love needs? Answer 6 quick questions. Get a plain-English starting point, what it costs in Illinois, and how people pay for it. Free and private." />
 <meta name="theme-color" content="#001e44" />
 <meta property="og:title" content="Evanston Senior Care Guide" />
-<meta property="og:description" content="Assisted living, memory care, skilled nursing, rehab — explained in plain English. Free 2-minute assessment." />
+<meta property="og:description" content="Not sure what kind of help you or someone you love needs? Six quick questions, a plain-English starting point, and what it costs. Free and private." />
 <meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://evanstonseniorcareguide.com/og-card.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Evanston Senior Care Guide — what level of care does your parent need?" />
+<meta property="og:image:alt" content="Evanston Senior Care Guide — which kind of senior care fits?" />
 <meta property="og:locale" content="en_US" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://evanstonseniorcareguide.com/og-card.png" />
@@ -112,61 +112,253 @@
   <div class="nav__progress" id="navProgress" aria-hidden="true"></div>
 </nav>
 
-<!-- ============ HERO ============ -->
-<header class="hero" id="top">
+<!-- ============ HERO: one question, one button ============ -->
+<header class="hero hero--simple" id="top">
   <div class="hero__glow" aria-hidden="true"></div>
   <div class="hero__grid" aria-hidden="true"></div>
   <div class="wrap hero__inner">
     <p class="kicker"><span class="kicker__dot"></span>Evanston Senior Care Guide</p>
     <h1 class="hero__title">
-      Your parent needs more help.<br />
-      <em>Let&rsquo;s figure out what kind.</em>
+      Not sure what kind of help
+      <em>you or someone you love</em> needs?
     </h1>
-    <p class="hero__lede">
-      Answer six simple questions to understand which level of senior care may
-      fit their current needs.
-    </p>
-    <p class="hero__meta hero__meta--lead">No account needed. You do not need to
-      give an email address or phone number to see your result.</p>
+    <p class="hero__lede">Answer 6 quick questions. Get a clear starting point.</p>
+    <p class="hero__meta hero__meta--lead">Free. Private. No email needed to see
+      your result.</p>
     <div class="hero__actions">
       <a class="btn btn--primary btn--xl" href="#assessment" data-beacon="hero-cta">
-        Find the right level of care
+        Start the 6 questions
         <svg class="btn__arrow" viewBox="0 0 20 20" width="19" height="19" aria-hidden="true">
           <path d="M4 10h11M11 6l4 4-4 4" stroke="currentColor" stroke-width="1.9"
                 fill="none" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </a>
     </div>
+    <p class="hero__skip">Already know what you want?
+      <a href="#cost">See costs</a> &middot;
+      <a href="#paying-nav">How people pay</a> &middot;
+      <a href="/?tour=form#plan-visit">Ask about a tour</a></p>
   </div>
 </header>
 
 <main>
 
-<!-- ============ TRUST STRIP ============ -->
-<section class="strip" aria-label="How this guide works">
-  <div class="wrap">
-    <ul class="strip__list">
-      <li>Free</li>
-      <li>No signup</li>
-      <li>No email for your result</li>
-      <li>Private assessment</li>
-      <li>No provider rankings</li>
-    </ul>
+<!-- ============ HOW IT WORKS ============ -->
+<section class="band band--air steps" id="how" aria-labelledby="how-title">
+  <div class="wrap narrow">
+    <h2 class="h2" id="how-title">How this works</h2>
+    <ol class="steps__list">
+      <li><span class="steps__n" aria-hidden="true">1</span>
+        <p><strong>Answer 6 questions</strong> about daily life. About two minutes.</p></li>
+      <li><span class="steps__n" aria-hidden="true">2</span>
+        <p><strong>See which kind of care fits,</strong> and why.</p></li>
+      <li><span class="steps__n" aria-hidden="true">3</span>
+        <p><strong>See what it costs,</strong> and how people pay for it.</p></li>
+    </ol>
+    <p class="steps__then">Then, only if you want, ask one Evanston community
+      about a tour.</p>
   </div>
 </section>
 
-<!-- ============ FIVE CARE CATEGORIES ============ -->
+<!-- ============ ASSESSMENT ============ -->
+<section class="band band--dark" id="assessment">
+  <div class="wrap narrow">
+    <p class="eyebrow eyebrow--light">Six questions &middot; about two minutes</p>
+    <h2 class="h2 h2--light">Which kind of care fits?</h2>
+    <p class="quiz__intro">
+      Think about the last few months, not the worst day. The result shows
+      which answers produced it, so you can check the reasoning yourself.
+    </p>
+
+    <div class="quiz" id="quiz" role="region" aria-live="polite">
+      <!-- rendered by app.js -->
+    </div>
+
+    <p class="quiz__privacy">Your answers stay in your browser. No name, no
+      email, no phone number.</p>
+    <details class="more more--light">
+      <summary>Why this is private, and what the result is</summary>
+      <div class="more-body">
+        <p>
+          Your answers are not sent anywhere. No account, no name, no email and
+          no phone number, and no record of what you chose — the assessment runs
+          entirely in your browser. What you get back is educational guidance to
+          help you think it through, not a diagnosis or a placement decision.
+          After the result there is one optional tour-inquiry form, and it is the
+          only part of this site that asks for contact details. It needs a name
+          and one way to reach you, it asks for no health information, and nothing
+          is sent unless you tick its consent box.
+        </p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ============ COST ============ -->
+<section class="band" id="cost">
+  <div class="wrap">
+    <p class="eyebrow">What it costs</p>
+    <h2 class="h2">What senior care costs in Illinois</h2>
+    <p class="narrow-p">
+      Typical Illinois prices from the CareScout 2025 Cost of Care Survey,
+      published 2026. Every place sets its own price.
+    </p>
+
+    <div class="costs">
+      <div class="cost">
+        <p class="cost__level">Assisted Living</p>
+        <p class="cost__fig">$6,219<span>/month</span></p>
+        <p class="cost__plain">Help with daily things, at about the typical
+          Illinois price.</p>
+        <details class="more more--card">
+          <summary>Source</summary>
+          <div class="more-body">
+            <p class="cost__label">Estimated Illinois Cost</p>
+            <p class="cost__basis">Illinois assisted living median.</p>
+            <p class="cost__src">CareScout 2025 Cost of Care Survey, published 2026.
+              <a class="cost__src-link" href="https://assets.carescout.com/x/5c90319b6a/298701.pdf" target="_blank" rel="noopener">View source</a></p>
+            <p class="cost__note">Base rates usually exclude care tiers. Ask what
+              the rate becomes at the level of help actually needed.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="cost">
+        <p class="cost__level">Nursing Home</p>
+        <p class="cost__fig">$8,304<span>/month</span></p>
+        <p class="cost__plain">Shared room, at about the typical Illinois
+          price. Private room: about $9,216.</p>
+        <details class="more more--card">
+          <summary>Source</summary>
+          <div class="more-body">
+            <p class="cost__label">Estimated Illinois Cost</p>
+            <p class="cost__basis">Illinois median, semi-private room. A private
+              room has a separate median of <strong>$9,216 a month</strong>.</p>
+            <p class="cost__src">CareScout 2025 Cost of Care Survey, published 2026.
+              <a class="cost__src-link" href="https://assets.carescout.com/x/5c90319b6a/298701.pdf" target="_blank" rel="noopener">View source</a></p>
+            <p class="cost__note">Long-stay figures. The one level Illinois
+              Medicaid may cover for those who qualify.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="cost cost--nofig">
+        <p class="cost__level">Memory Care</p>
+        <p class="cost__plain">No reliable statewide figure. Ask each place
+          for a written estimate.</p>
+        <details class="more more--card">
+          <summary>Why no number</summary>
+          <div class="more-body">
+            <p class="cost__label">Memory Care Costs</p>
+            <p class="cost__basis">The CareScout survey does not separately report
+              an Illinois memory-care median, so no figure is shown here.</p>
+            <p class="cost__note">Memory care costs vary depending on location,
+              accommodation type, staffing, and the level of assistance required.
+              Request a detailed written estimate from communities you are
+              considering.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="cost cost--nofig">
+        <p class="cost__level">Independent Living</p>
+        <p class="cost__plain">No statewide figure. Ask for a written fee
+          schedule.</p>
+        <details class="more more--card">
+          <summary>Why no number</summary>
+          <div class="more-body">
+            <p class="cost__label">Independent Living Costs</p>
+            <p class="cost__basis">The CareScout survey does not report an
+              Illinois figure for independent living, so none is shown.</p>
+            <p class="cost__note">Pricing depends on apartment size, the
+              community, and which services are bundled into the monthly fee
+              rather than billed on top. Ask for a written fee schedule.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="cost cost--flag cost--nofig">
+        <p class="cost__level">Short-term Rehab</p>
+        <p class="cost__plain">Depends on insurance and length of stay.
+          Medicare may cover a qualifying stay.</p>
+        <details class="more more--card">
+          <summary>What Medicare may pay</summary>
+          <div class="more-body">
+            <p class="cost__label">Short-Term Rehabilitation Costs</p>
+            <p class="cost__basis">No statewide price is shown, because what a
+              family pays depends on insurance, Medicare eligibility, length of
+              stay and the services delivered. <strong>Long-stay nursing home
+              medians do not describe a short rehabilitation stay</strong> and
+              are not used here as a substitute.</p>
+            <p class="cost__note">Under Original Medicare, a qualifying stay may
+              carry $0 daily coinsurance for days 1–20, then $217 a day for days
+              21–100 in 2026, after the applicable Part A deductible. Eligibility
+              rules apply, and Medicare Advantage plans may differ. Confirm with
+              your plan.</p>
+          </div>
+        </details>
+      </div>
+
+      <p class="costs__wp">Statewide estimates are provided for general
+        comparison and do not represent Westminster Place&rsquo;s actual rates.</p>
+    </div>
+
+    <details class="more more--wide">
+      <summary>Can Medicaid pay for assisted living? Only in one kind of community</summary>
+      <div class="more-body">
+        <p class="fine">
+          Here is the part that catches families. Traditional assisted living and
+          memory care are usually private-pay. But Illinois runs a separate option:
+          eligible residents can have their <strong>care services</strong> covered by
+          Medicaid in a state-certified <strong>Supportive Living Program</strong>
+          setting — including certified dementia-care settings.</p>
+
+        <p class="fine">
+          <strong>Expect two charges, not one.</strong> The first is room and board,
+          which stays the resident’s responsibility and is set by the state from the
+          annual Social Security increase: <strong>$874 a month</strong> for a
+          single-occupancy apartment and <strong>$625.50</strong> for double
+          occupancy, effective 1 January 2026
+          (<a class="inline-src" href="https://hfs.illinois.gov/medicalproviders/notices/notice.prn251126a.html"
+              target="_blank" rel="noopener">HFS Provider Notice, 26 November
+          2025</a>). The second is a <strong>group care credit</strong>, also called
+          patient liability — an amount calculated from the resident’s countable
+          income after allowable deductions, paid monthly toward the cost of care,
+          with Medicaid covering the remainder. Most residents owe both. A resident
+          avoids the group care credit only when their income equals the SSI amount,
+          and keeps a $120 personal needs allowance either way
+          (<a class="inline-src" href="https://hfs.illinois.gov/medicalprograms/slf/residentfactsheet.html"
+              target="_blank" rel="noopener">HFS Supportive Living resident fact
+          sheet</a>). So $874 is not the cost of living there — it is one line of it.
+          It is a different kind of community with its own eligibility rules, so ask
+          about it by name.
+        </p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ============ PAYMENT NAVIGATOR (WORKFLOW #5) ============ -->
+<section class="band band--quiet" id="paying-nav" aria-labelledby="paying-nav-title">
+  <div class="wrap narrow">
+    <p class="eyebrow">Optional next step</p>
+    <h2 class="h2" id="paying-nav-title">How could you pay for senior care?</h2>
+    <p class="paynav__intro">Three short questions put the five main ways
+      families pay in the order worth checking first. Nothing is decided and
+      no financial details are asked for.</p>
+    <div class="paynav__widget" id="paying-nav-widget">
+      <p>Compare Medicare, Illinois Medicaid, VA benefits, long-term-care insurance and private payment. Enable JavaScript to use the three-question navigator.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT THE WORDS MEAN (five kinds of senior living) ============ -->
 <section class="band band--air" id="levels">
   <div class="wrap">
     <div class="lead">
-      <p class="eyebrow">Start here</p>
+      <p class="eyebrow">What the words mean</p>
       <h2 class="h2">Five kinds of senior living, in plain English</h2>
-      <p class="lead__p">
-        These five phrases get used as if they mean the same thing. They do
-        not, and the difference decides what the next few years look like
-        &mdash; and what they cost. The first one is not care at all: it is a
-        move people make while they are well.
-      </p>
+      <p class="lead__p">They are not the same thing. Tap one to read more.</p>
     </div>
 
     <div class="cats">
@@ -181,13 +373,20 @@
           </svg>
         </span>
         <h3 class="cat__name">Independent Living</h3>
-        <p class="cat__desc">For people who manage on their own and want less
-          house to look after.</p>
-        <p class="cat__tell">A private apartment or cottage with meals,
-          housekeeping and transport included, and neighbours on the other side
-          of the door. Generally no hands-on personal care.
-          <a href="/guides/independent-living-evanston/">What independent living
-            actually is</a></p>
+        <p class="cat__desc">An apartment with meals and chores handled. No
+          personal care.</p>
+        <details class="more more--card">
+          <summary>More</summary>
+          <div class="more-body">
+            <p class="cat__tell">A private apartment or cottage, with neighbours
+              on the other side of the door. Meals, housekeeping and transport
+              may be included &mdash; services vary by community. Generally no
+              hands-on personal care and no nurse on the floor. Families often
+              skip past it and pay for care nobody needed yet.
+              <a href="/guides/independent-living-evanston/">What independent living
+                actually is</a></p>
+          </div>
+        </details>
       </article>
 
       <article class="cat">
@@ -200,10 +399,15 @@
           </svg>
         </span>
         <h3 class="cat__name">Assisted Living</h3>
-        <p class="cat__desc">Daily support while maintaining as much independence
-          as possible.</p>
-        <p class="cat__tell">Typically hands-on help with bathing, dressing and
-          medications, in their own apartment. Services vary by community.</p>
+        <p class="cat__desc">An apartment with help for daily things.</p>
+        <details class="more more--card">
+          <summary>More</summary>
+          <div class="more-body">
+            <p class="cat__tell">Typically hands-on help with bathing, dressing
+              and medications, in their own apartment. Services vary by
+              community.</p>
+          </div>
+        </details>
       </article>
 
       <article class="cat">
@@ -218,10 +422,14 @@
           </svg>
         </span>
         <h3 class="cat__name">Memory Care</h3>
-        <p class="cat__desc">Structured support for significant memory or
-          cognitive changes.</p>
-        <p class="cat__tell">Usually a secured setting with dementia-trained
-          staff. The question is safety, not just help.</p>
+        <p class="cat__desc">A secure home for people with dementia.</p>
+        <details class="more more--card">
+          <summary>More</summary>
+          <div class="more-body">
+            <p class="cat__tell">Usually a secured setting with dementia-trained
+              staff. The question is safety, not just help.</p>
+          </div>
+        </details>
       </article>
 
       <article class="cat">
@@ -234,10 +442,14 @@
           </svg>
         </span>
         <h3 class="cat__name">Skilled Nursing</h3>
-        <p class="cat__desc">24-hour nursing care for higher medical and physical
-          needs.</p>
-        <p class="cat__tell">Licensed nursing available around the clock. A
-          medical setting, usually a room rather than an apartment.</p>
+        <p class="cat__desc">A nursing home. Nurses on duty day and night.</p>
+        <details class="more more--card">
+          <summary>More</summary>
+          <div class="more-body">
+            <p class="cat__tell">Licensed nursing available around the clock. A
+              medical setting, usually a room rather than an apartment.</p>
+          </div>
+        </details>
       </article>
 
       <article class="cat">
@@ -251,218 +463,76 @@
           </svg>
         </span>
         <h3 class="cat__name">Short-Term Rehab</h3>
-        <p class="cat__desc">Temporary nursing and therapy while recovering after
-          illness, surgery, or hospitalization.</p>
-        <p class="cat__tell">Weeks, not years, with going home as the goal.
-          Medicare may cover a qualifying stay.</p>
+        <p class="cat__desc">A few weeks of therapy after a hospital stay.</p>
+        <details class="more more--card">
+          <summary>More</summary>
+          <div class="more-body">
+            <p class="cat__tell">Weeks, not years, with going home as the goal.
+              Medicare may cover a qualifying stay.</p>
+          </div>
+        </details>
       </article>
 
     </div>
 
-    <div class="aside">
-      <p class="aside__label">The option families overlook</p>
-      <p><strong>Independent living</strong> is for when the house is the
-        problem, not the person. Meals, housekeeping and transport, in a private
-        apartment. These communities generally do not provide hands-on personal
-        care, and typically have no nurse on the floor &mdash; though services
-        vary by community. Families often skip past it and pay for care nobody
-        needed yet.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ THE MOMENT ============ -->
-<section class="band band--quiet band--tight">
-  <div class="wrap narrow">
-    <p class="pull">
-      Most families start looking the week after something happens. A fall. A
-      hospital stay. A phone call from a neighbour.
-    </p>
-    <p>
-      You may be deciding something worth tens of thousands of dollars a year
-      &mdash; and in some settings well past six figures &mdash; in a hurry, on
-      the worst week of the year. The language is the first obstacle.
-      Communities describe themselves in marketing terms, the state licenses
-      them in regulatory terms, and your mother&rsquo;s doctor speaks in
-      clinical terms. None of those three are the same vocabulary.
-    </p>
-  </div>
-</section>
-
-
-<!-- ============ ASSESSMENT ============ -->
-<section class="band band--dark" id="assessment">
-  <div class="wrap narrow">
-    <p class="eyebrow eyebrow--light">Six questions · about two minutes</p>
-    <h2 class="h2 h2--light">What level does your parent need?</h2>
-    <p class="quiz__intro">
-      Answer about the last few months, not their worst single day. The result
-      shows you which answers produced it, so you can check the reasoning yourself.
-    </p>
-
-    <div class="quiz" id="quiz" role="region" aria-live="polite">
-      <!-- rendered by app.js -->
-    </div>
-
-    <p class="quiz__privacy">
-      Your answers are not sent anywhere. No account, no name, no email and no
-      phone number, and no record of what you chose — the assessment runs
-      entirely in your browser. What you get back is educational guidance to
-      help you think it through, not a diagnosis or a placement decision.
-      After the result there is one optional tour-inquiry form, and it is the
-      only part of this site that asks for contact details. It needs a name
-      and one way to reach you, it asks for no health information, and nothing
-      is sent unless you tick its consent box.
-    </p>
-  </div>
-</section>
-
-<!-- ============ COST ============ -->
-<section class="band" id="cost">
-  <div class="wrap">
-    <p class="eyebrow">The number nobody says out loud</p>
-    <h2 class="h2">What senior care costs in Illinois</h2>
-    <p class="narrow-p">
-      Statewide Illinois medians from the CareScout 2025 Cost of Care Survey,
-      published 2026. Every community prices its own way — these are numbers to hold a quote against,
-      not a quote. Where no credible statewide figure exists, none is shown.
-    </p>
-
-    <div class="costs">
-      <div class="cost">
-        <p class="cost__level">Assisted Living</p>
-        <p class="cost__label">Estimated Illinois Cost</p>
-        <p class="cost__fig">$6,219<span>/month</span></p>
-        <p class="cost__basis">Illinois assisted living median.</p>
-        <p class="cost__src">CareScout 2025 Cost of Care Survey, published 2026.
-          <a class="cost__src-link" href="https://assets.carescout.com/x/5c90319b6a/298701.pdf" target="_blank" rel="noopener">View source</a></p>
-        <p class="cost__note">Base rates usually exclude care tiers. Ask what the
-          rate becomes at the level your parent actually needs.</p>
+    <details class="more more--wide words">
+      <summary>Medicaid, Medicare, Supportive Living and other money words</summary>
+      <div class="more-body">
+        <ul class="words__list">
+          <li><strong>Medicaid</strong> &mdash; Illinois&rsquo;s health program for
+            people with low income and savings. It can pay for a nursing home,
+            under its own rules.</li>
+          <li><strong>Medicare</strong> &mdash; the health insurance most people
+            have from 65. It may pay for a short rehab stay, not for years of
+            care.</li>
+          <li><strong>Supportive Living</strong> &mdash; Illinois&rsquo;s Medicaid
+            version of assisted living, in certified communities only.</li>
+          <li><strong>Aid and Attendance</strong> &mdash; a higher VA pension rate
+            for some veterans and surviving spouses who need daily help.</li>
+          <li><strong>Long-term-care insurance</strong> &mdash; a policy some people
+            bought years ago. If there is one, it may pay for some care.</li>
+          <li><strong>Private pay</strong> &mdash; paying from income and savings.
+            How assisted living and memory care in Illinois are usually paid
+            for.</li>
+        </ul>
       </div>
-
-      <div class="cost">
-        <p class="cost__level">Nursing Home</p>
-        <p class="cost__label">Estimated Illinois Cost</p>
-        <p class="cost__fig">$8,304<span>/month</span></p>
-        <p class="cost__basis">Illinois median, semi-private room. A private room
-          has a separate median of <strong>$9,216 a month</strong>.</p>
-        <p class="cost__src">CareScout 2025 Cost of Care Survey, published 2026.
-          <a class="cost__src-link" href="https://assets.carescout.com/x/5c90319b6a/298701.pdf" target="_blank" rel="noopener">View source</a></p>
-        <p class="cost__note">Long-stay figures. The one level Illinois Medicaid
-          may cover for those who qualify.</p>
-      </div>
-
-      <div class="cost cost--nofig">
-        <p class="cost__level">Memory Care</p>
-        <p class="cost__label">Memory Care Costs</p>
-        <p class="cost__basis">The CareScout survey does not separately report an
-          Illinois memory-care median, so no figure is shown here.</p>
-        <p class="cost__note">Memory care costs vary depending on location,
-          accommodation type, staffing, and the level of assistance required.
-          Request a detailed written estimate from communities you are
-          considering.</p>
-      </div>
-
-      <div class="cost cost--nofig">
-        <p class="cost__level">Independent Living</p>
-        <p class="cost__label">Independent Living Costs</p>
-        <p class="cost__basis">The CareScout survey does not report an Illinois
-          figure for independent living, so none is shown.</p>
-        <p class="cost__note">Pricing depends on apartment size, the community,
-          and which services are bundled into the monthly fee rather than billed
-          on top. Ask for a written fee schedule.</p>
-      </div>
-
-      <div class="cost cost--flag cost--nofig">
-        <p class="cost__level">Short-term Rehab</p>
-        <p class="cost__label">Short-Term Rehabilitation Costs</p>
-        <p class="cost__basis">No statewide price is shown, because what a family
-          pays depends on insurance, Medicare eligibility, length of stay and the
-          services delivered. <strong>Long-stay nursing home medians do not
-          describe a short rehabilitation stay</strong> and are not used here as
-          a substitute.</p>
-        <p class="cost__note">Under Original Medicare, a qualifying stay may carry
-          $0 daily coinsurance for days 1–20, then $217 a day for days 21–100 in
-          2026, after the applicable Part A deductible. Eligibility rules apply,
-          and Medicare Advantage plans may differ. Confirm with your plan.</p>
-      </div>
-
-      <p class="costs__wp">Statewide estimates are provided for general
-        comparison and do not represent Westminster Place&rsquo;s actual rates.</p>
-    </div>
-
-    <p class="fine">
-      Here is the part that catches families. Traditional assisted living and
-      memory care are usually private-pay. But Illinois runs a separate option:
-      eligible residents can have their <strong>care services</strong> covered by
-      Medicaid in a state-certified <strong>Supportive Living Program</strong>
-      setting — including certified dementia-care settings.</p>
-
-    <p class="fine">
-      <strong>Expect two charges, not one.</strong> The first is room and board,
-      which stays the resident’s responsibility and is set by the state from the
-      annual Social Security increase: <strong>$874 a month</strong> for a
-      single-occupancy apartment and <strong>$625.50</strong> for double
-      occupancy, effective 1 January 2026
-      (<a class="inline-src" href="https://hfs.illinois.gov/medicalproviders/notices/notice.prn251126a.html"
-          target="_blank" rel="noopener">HFS Provider Notice, 26 November
-      2025</a>). The second is a <strong>group care credit</strong>, also called
-      patient liability — an amount calculated from the resident’s countable
-      income after allowable deductions, paid monthly toward the cost of care,
-      with Medicaid covering the remainder. Most residents owe both. A resident
-      avoids the group care credit only when their income equals the SSI amount,
-      and keeps a $120 personal needs allowance either way
-      (<a class="inline-src" href="https://hfs.illinois.gov/medicalprograms/slf/residentfactsheet.html"
-          target="_blank" rel="noopener">HFS Supportive Living resident fact
-      sheet</a>). So $874 is not the cost of living there — it is one line of it.
-      It is a different kind of community with its own eligibility rules, so ask
-      about it by name.
-    </p>
-  </div>
-</section>
-
-<!-- ============ PAYMENT NAVIGATOR (WORKFLOW #5) ============ -->
-<section class="band band--quiet" id="paying-nav" aria-labelledby="paying-nav-title">
-  <div class="wrap narrow">
-    <p class="eyebrow">A separate, optional next step</p>
-    <h2 class="h2" id="paying-nav-title">How could you pay for senior care?</h2>
-    <p class="paynav__intro">Three short questions put the five main ways families pay &mdash; Medicare, Illinois Medicaid, VA benefits, long-term-care insurance and private payment &mdash; in the order worth investigating first. It does not decide eligibility, does not change your care assessment, and asks for no financial or medical details.</p>
-    <div class="paynav__widget" id="paying-nav-widget">
-      <p>Compare Medicare, Illinois Medicaid, VA benefits, long-term-care insurance and private payment. Enable JavaScript to use the three-question navigator.</p>
-    </div>
+    </details>
   </div>
 </section>
 
 <!-- ============ TOUR QUESTIONS ============ -->
 <section class="band band--quiet" id="tour">
-  <div class="wrap">
-    <p class="eyebrow">Free · nothing to download</p>
+  <div class="wrap narrow">
+    <p class="eyebrow">When you visit a place</p>
     <h2 class="h2">Twelve questions to ask on a tour</h2>
-    <p class="narrow-p">
-      Almost every community will show you the dining room and the activity calendar.
-      These are the questions that actually separate them. Screenshot this.
-    </p>
+    <p class="narrow-p">Every place shows you the dining room. These show
+      you the rest.</p>
 
-    <ol class="asks">
-      <li>What is included in the base rate, and what is billed on top?</li>
-      <li>How do you assess care levels, and how often does the price change as a result?</li>
-      <li>What is the staff-to-resident ratio <em>overnight</em>?</li>
-      <li>What is your care staff turnover in the last twelve months?</li>
-      <li>What happens when my parent's needs exceed what you provide here?</li>
-      <li>What happens if private funds run out?</li>
-      <li>How are medications managed, and by whom — a nurse or care staff?</li>
-      <li>How long has the current executive director been here?</li>
-      <li>What was your last state survey, and may I see it?</li>
-      <li>What happens at 2am if my parent falls?</li>
-      <li>How much notice before a rate increase, and what was last year's?</li>
-      <li>May I come back unannounced at a mealtime?</li>
-    </ol>
+    <details class="more more--wide" data-open-on-jump>
+      <summary>Show the twelve questions</summary>
+      <div class="more-body">
+        <ol class="asks">
+          <li>What is included in the base rate, and what is billed on top?</li>
+          <li>How do you assess care levels, and how often does the price change as a result?</li>
+          <li>What is the staff-to-resident ratio <em>overnight</em>?</li>
+          <li>What is your care staff turnover in the last twelve months?</li>
+          <li>What happens when my parent's needs exceed what you provide here?</li>
+          <li>What happens if private funds run out?</li>
+          <li>How are medications managed, and by whom — a nurse or care staff?</li>
+          <li>How long has the current executive director been here?</li>
+          <li>What was your last state survey, and may I see it?</li>
+          <li>What happens at 2am if my parent falls?</li>
+          <li>How much notice before a rate increase, and what was last year's?</li>
+          <li>May I come back unannounced at a mealtime?</li>
+        </ol>
 
-    <p class="fine">
-      One more, and it is the most useful: visit late afternoon. Staffing thins,
-      dementia symptoms often peak, and you see the community as it really runs
-      rather than as it is presented at eleven in the morning.
-    </p>
+        <p class="fine">
+          One more, and it is the most useful: visit late afternoon. Staffing thins,
+          dementia symptoms often peak, and you see the community as it really runs
+          rather than as it is presented at eleven in the morning.
+        </p>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -471,27 +541,36 @@
   <div class="wrap narrow">
     <p class="eyebrow">About this guide</p>
     <h2 class="h2">Who made this, and why there's nothing for sale</h2>
-    <p>
-      I work in Evanston. I kept watching families arrive at a decision
-      this large already exhausted, holding four words nobody had ever explained
-      to them. The explanation is not complicated. It just was not written down
-      anywhere in plain language, for this town.
+    <p class="about__lead">
+      I work at Westminster Place in Evanston. This guide is my own project,
+      and nobody pays for a result.
     </p>
-    <p>
-      The assessment cannot be steered. It reads your six answers against
-      published rules and returns a <strong>level of care</strong> — never a
-      community. It asks nothing about who you are and it takes no fees from anyone.
-      <strong>I work at Westminster Place in Evanston.</strong> After the result
-      I show you their information, clearly labelled, alongside the state’s own
-      licensed-facility directory so you can see every other option. I am not
-      going to pretend to rank communities when I work at one of them.
-    </p>
-    <p class="fine">
-      <strong>This is a general guide, not medical advice and not a clinical
-      assessment.</strong> Only a doctor, nurse or licensed care assessor can
-      determine what level of care someone needs. Use this to understand your
-      options and ask sharper questions — then confirm with a professional.
-    </p>
+    <details class="more more--wide">
+      <summary>More about how this guide works</summary>
+      <div class="more-body">
+        <p>
+          I kept watching families arrive at a decision this large already
+          exhausted, holding four words nobody had ever explained to them. The
+          explanation is not complicated. It just was not written down anywhere
+          in plain language, for this town.
+        </p>
+        <p>
+          The assessment cannot be steered. It reads your six answers against
+          published rules and returns a <strong>level of care</strong> — never a
+          community. It asks nothing about who you are and it takes no fees from anyone.
+          <strong>I work at Westminster Place in Evanston.</strong> After the result
+          I show you their information, clearly labelled, alongside the state’s own
+          licensed-facility directory so you can see every other option. I am not
+          going to pretend to rank communities when I work at one of them.
+        </p>
+        <p class="fine">
+          <strong>This is a general guide, not medical advice and not a clinical
+          assessment.</strong> Only a doctor, nurse or licensed care assessor can
+          determine what level of care someone needs. Use this to understand your
+          options and ask sharper questions — then confirm with a professional.
+        </p>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -611,16 +690,14 @@
   <div class="wrap">
     <p class="foot__name">Evanston Senior Care Guide</p>
     <p>Independently developed by an employee of Westminster Place. This is not
-      an official Westminster Place website. I receive no referral fees from
-      Westminster Place. If you ask to be contacted about a tour, your details
-      are passed to Westminster Place because that is what you asked for;
-      nothing is passed on unless you tick that permission box.</p>
+      an official Westminster Place website, and I receive no referral fees
+      from Westminster Place. Nothing is passed to them unless you tick the
+      permission box on the tour form.</p>
     <p><a class="foot__link" href="/guides/">Senior care guides</a> &mdash; costs,
-      what Medicare covers, Illinois Supportive Living, and how to check a
-      community&rsquo;s inspection record.</p>
-    <p class="foot__fine">Cost figures are Illinois 2026 medians compiled from
-      published senior-care cost surveys. Coverage figures are from Medicare.gov
-      and Illinois HFS. Verify current pricing and eligibility directly —
+      Medicare, Illinois Supportive Living, inspection records.</p>
+    <p class="foot__fine">Cost figures are Illinois 2026 medians from a published
+      cost survey; coverage figures are from Medicare.gov and Illinois HFS.
+      Verify current pricing and eligibility directly &mdash;
       <a class="foot__link" href="#sources">sources &amp; methodology</a>.</p>
   </div>
 </footer>

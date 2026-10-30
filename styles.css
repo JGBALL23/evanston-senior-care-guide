@@ -2491,3 +2491,159 @@ section[id], header[id] { scroll-margin-top: calc(var(--nav-h) + 14px); }
   .paynav__choice { font-size: 18px; }
   .paynav__back, .paynav__restart, .paynav__entry-btn { width: 100%; }
 }
+
+/* ============================================================
+   SIMPLE FIRST, DETAILS WHEN NEEDED (2026-10-30)
+   One question, one answer, one next step on every screen. The
+   careful material stays on the page inside tappable "More" rows
+   (<details>), so a hurried reader sees one thing at a time and a
+   careful one loses nothing. Type 19px or larger for anything a
+   visitor has to read, buttons 56px or taller, rows 48px or taller.
+   ============================================================ */
+
+/* ---- the "More" row: a plain tap target, keyboard-operable by the
+        browser itself (details/summary needs no script) ---- */
+.more {
+  margin: 18px 0 0;
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+.more + .more { border-top: none; margin-top: 0; }
+.more > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex; align-items: center; gap: 14px;
+  min-height: 56px; padding: 12px 6px;
+  font-size: 19px; font-weight: 600; line-height: 1.35;
+  color: var(--ink);
+}
+.more > summary::-webkit-details-marker { display: none; }
+.more > summary::before {
+  content: ""; flex: 0 0 auto;
+  width: 11px; height: 11px; margin: 0 2px 4px 4px;
+  border-right: 2.5px solid var(--sage-deep);
+  border-bottom: 2.5px solid var(--sage-deep);
+  transform: rotate(-45deg);
+  transition: transform .18s var(--ease);
+}
+.more[open] > summary::before { transform: rotate(45deg); margin-bottom: 0; }
+.more > summary:hover { color: var(--sage-deep); }
+.more > summary:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 6px; }
+.more > summary .res__h, .more > summary .plan__who-h {
+  margin: 0; display: inline; font: inherit; letter-spacing: 0; text-transform: none; color: inherit;
+}
+.more-body { padding: 4px 6px 22px; }
+.more-body > p:last-child, .more-body > ul:last-child, .more-body > ol:last-child { margin-bottom: 0; }
+
+/* the same row on the dark assessment band and on the dark cost card */
+.more--light, .more--dark { border-color: rgba(255,255,255,.16); }
+.more--light > summary, .more--dark > summary { color: #e9eee9; }
+.more--light > summary::before, .more--dark > summary::before { border-color: #c9d6cf; }
+.more--light > summary:hover, .more--dark > summary:hover { color: #fff; }
+.more--light .more-body p { color: #c7d2cf; font-size: 17px; }
+.more--dark .more-body p { color: #e4ded4; }
+
+/* a card row: no top rule, sits flush with the card's text */
+.more--card { margin-top: 14px; border-top: none; border-bottom: none; }
+.more--card > summary { min-height: 48px; padding: 10px 2px; font-size: 18px; }
+.more--card .more-body { padding: 0 2px 6px; }
+.more--wide { max-width: 68ch; margin-top: clamp(26px, 3vw, 36px); }
+
+/* ---- hero: one question, one button, one quiet shortcut line ---- */
+.hero--simple .hero__title { font-size: clamp(40px, 6.8vw, 78px); max-width: 24ch; }
+.hero--simple .hero__lede { font-size: clamp(21px, 2.5vw, 26px); color: #e4ebe8; max-width: 44ch; }
+.hero--simple .hero__meta--lead { font-size: 18px; color: #b7c6c1; }
+.hero--simple .btn--xl { min-height: 72px; font-size: 21px; }
+.hero__skip { font-size: 17px; color: #9fb3ad; margin: 26px 0 0; line-height: 2; }
+.hero__skip a { color: #d8e1dd; text-underline-offset: 4px; padding: 4px 2px; }
+.hero__skip a:hover { color: #fff; }
+
+/* ---- how it works: three numbered lines ---- */
+.steps { padding: clamp(44px, 6vw, 72px) 0; }
+.steps .h2 { font-size: clamp(26px, 3vw, 34px); margin-bottom: 18px; }
+.steps__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.steps__list li { display: flex; align-items: flex-start; gap: 16px; }
+.steps__list p { margin: 0; font-size: 20px; line-height: 1.5; padding-top: 6px; }
+.steps__n {
+  flex: 0 0 auto; width: 42px; height: 42px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--sage-tint); color: var(--sage-deep);
+  font-weight: 600; font-size: 19px;
+}
+.steps__then { margin: 20px 0 0; font-size: 18px; color: var(--ink-soft); }
+
+/* ---- assessment band: a short private line, the rest one tap away ---- */
+.quiz__privacy { font-size: 18px; }
+#assessment .more { margin-top: 10px; }
+
+/* ---- cost cards: the figure, one plain line, one tap row ---- */
+.cost__plain { font-size: 19px; line-height: 1.5; color: var(--ink); margin: 10px 0 0; max-width: 30ch; }
+.cost--nofig .cost__plain { margin-top: 4px; }
+.cost .more--card { margin-top: 16px; }
+.cost .more-body p { max-width: none; }
+
+/* ---- glossary cards ---- */
+.cat .cat__desc { margin-bottom: 0; font-size: 19px; }
+.cat .cat__tell { border-top: none; padding-top: 0; font-size: 17px; }
+.cat .more--card { margin-top: 12px; }
+.words { margin-top: clamp(30px, 4vw, 44px); }
+.words__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.words__list li { font-size: 18px; line-height: 1.55; padding-left: 0; }
+.words__list strong { color: var(--sage-deep); }
+
+/* ---- about ---- */
+.about__lead { font-size: clamp(19px, 2vw, 21px); }
+
+/* ---- the result: the answer, then one next step ---- */
+.res__plain {
+  font-size: clamp(20px, 2.4vw, 24px); line-height: 1.45; color: var(--ink);
+  margin: 0 0 16px; max-width: 40ch; font-weight: 500;
+}
+.res__limit { font-size: 16.5px; color: var(--ink-faint); margin: 0 0 8px; max-width: 52ch; }
+.res__next { margin: clamp(24px, 3vw, 32px) 0 6px; }
+.res__next-btn { min-height: 64px; font-size: 20px; width: 100%; max-width: 420px; }
+.res__next-sub { font-size: 16.5px; color: var(--ink-soft); margin: 14px 0 0; max-width: 48ch; }
+.res__next-sub a { color: var(--sage-deep); text-underline-offset: 3px; }
+.res__next + .res__block { margin-top: clamp(26px, 3vw, 34px); padding-top: clamp(22px, 3vw, 30px); border-top: 1px solid var(--line-soft); }
+.res__block--more { padding-top: 0; margin-top: 10px; border-top: none; }
+.res__block--more + .res__block--more { margin-top: 0; }
+.res__block--more .more { margin-top: 0; border-bottom: none; }
+.res__block--more + .res__block--more .more { border-top: 1px solid var(--line-soft); }
+.res__block--more.visit { border-left: none; padding-left: 0; }
+.visit__sub { margin-top: 14px; }
+.plan--primary .plan__h {
+  font-family: "Fraunces", Georgia, serif; font-size: clamp(26px, 3vw, 32px);
+  font-weight: 400; letter-spacing: -.012em; text-transform: none; color: var(--ink);
+  line-height: 1.15; margin: 0 0 10px;
+}
+.plan__optional {
+  font-size: 13.5px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--sage-deep); font-weight: 600; margin: 0 0 8px; line-height: 1.4;
+}
+.plan--primary .plan__contrast, .plan--primary .plan__lead, .plan--primary .plan__disclose { margin-bottom: 14px; }
+.plan__who { padding: 4px 16px; }
+.plan__who .more { border: none; margin: 0; }
+.plan__who .more > summary { min-height: 48px; font-size: 17px; }
+.res__cost .more--dark { margin-top: 10px; }
+.res__cost .more--dark > summary { font-size: 17px; min-height: 48px; }
+.paynav__entry-btn { min-height: 60px; font-size: 19px; font-weight: 600; padding: 12px 28px; }
+
+/* ---- the payment navigator: a plain line under each choice and on each card ---- */
+.paynav__choice { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; min-height: 56px; }
+.paynav__choice-label { font-size: 19px; font-weight: 600; line-height: 1.3; }
+.paynav__choice-sub { font-size: 16.5px; color: var(--ink-soft); line-height: 1.4; font-weight: 400; }
+.paynav__choice.is-selected .paynav__choice-sub { color: var(--ink-soft); }
+.paynav__route .paynav__plain { font-size: 18px; line-height: 1.5; color: var(--ink); margin: 0 0 6px; }
+.paynav__more { margin-top: 6px; border-top: none; border-bottom: none; }
+.paynav__more > summary { min-height: 48px; font-size: 17px; padding: 8px 2px; }
+.paynav__more .more-body { padding: 0 2px 4px; }
+.paynav__widget > .paynav__more { margin: 6px 0 0; }
+
+@media (max-width: 620px) {
+  .more > summary { font-size: 18px; }
+  .hero--simple .hero__title { font-size: clamp(34px, 9.4vw, 44px); }
+  .hero--simple .hero__lede { font-size: 20px; }
+  .steps__list p { font-size: 19px; }
+  .res__next-btn { max-width: none; }
+  .paynav__choice { padding: 14px 16px; }
+}

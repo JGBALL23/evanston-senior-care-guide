@@ -157,3 +157,48 @@ Each result card shows one line, with today's full text behind "More":
 The sixteen guides keep their current shape. The routine writes them and
 its gates grade them; simplifying their template is a second project
 once the homepage journey has visitor data behind it.
+
+## What was built (2026-10-30, same branch)
+
+Built as proposed, with the owner's adjustments: the hero asks about
+"you or someone you love", the form is headed "Ask Westminster Place
+about a tour" and marked optional, the limits stay in plain view on
+every result ("A starting point, not a diagnosis"), and the hero carries
+three shortcuts (costs, how people pay, ask about a tour) under the one
+button. Nothing changed in `assessment.js`, the functions, the privacy
+wording, the consent sentence or the beacons.
+
+Measured in a real browser with every "More" row closed, phone and
+desktop (`node tools/simple_first_check.mjs`):
+
+| screen | before | now |
+| --- | --- | --- |
+| homepage, words before any tap | 2,284 | about 710 |
+| a result, words before any tap | about 3,000 | 700–750 |
+| first screen of the homepage | five cards, two paragraphs | the question and one button |
+| first screen of a result | level + reasons + what it provides | level, one plain line, the limits, "See what it costs" |
+
+The 450 / 250 targets above were written before counting the copy that
+has to stay word for word: the three disclosures above the form, the
+consent sentence, the Westminster disclosure and the full disclaimer
+are about 330 words on every result, and the navigator's six explained
+choices are about 80 on the homepage. The gate's budgets (760 / 760)
+sit just above the measured figures so that a paragraph added above
+the fold fails the build rather than quietly undoing this.
+
+One thing the proposal drew differently: the inquiry form still sits
+before the cost section in a result's page order, because `test.js`
+locks that order ("the form comes BEFORE costs"). The visitor's first
+next step is still the costs — the "See what it costs" button is the
+first thing under the answer and jumps past the form — so the journey
+reads answer → costs → paying → optional tour. Putting the cost block
+physically above the form would need that gate changed, which is the
+owner's call.
+
+Also changed on this branch:
+- `/?tour=form#plan-visit` (the hero's "Ask about a tour") opens the
+  existing direct-inquiry form. It counts as a form view only; the
+  guide-pathway beacon fires only when the link carries a recognised
+  interest, as a guide's own link does.
+- A link that lands inside a closed "More" row opens it (`#tour`,
+  `#evaluating`), so nothing that is linked to is ever hidden.
