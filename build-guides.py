@@ -199,6 +199,12 @@ SRC = {
                          'https://ilaging.illinois.gov/content/dam/soi/en/web/aging/ship/documents/medicare-savings-program-chart.pdf'),
     "hfs_qmb": ('Illinois HFS — Qualified Medicare Beneficiary (QMB) Program brochure (HFS 3352)',
                'https://hfs.illinois.gov/info/brochures-and-forms/brochures/hfs3352.html'),
+    "idph_adv_directives": ('Illinois Department of Public Health — Advance Directives',
+                            'https://dph.illinois.gov/topics-services/health-care-regulation/nursing-homes/advance-directives.html'),
+    "ilaging_adv_directives": ('Illinois Department on Aging — Advance Directives',
+                               'https://ilaging.illinois.gov/aboutus/legal-adv-directives.html'),
+    "ilaging_legal_assistance": ('Illinois Department on Aging — Legal Assistance',
+                                 'https://ilaging.illinois.gov/programs/legalassistance.html'),
 }
 
 
@@ -2230,6 +2236,189 @@ GUIDES = [
             ]),
         ],
     },
+    {
+        "slug": "illinois-advance-directive-power-of-attorney",
+        "bridge": ("Naming who decides your parent&rsquo;s medical care is a "
+               "different question from knowing what kind of care they "
+               "actually need right now."),
+        "reviewed": "2026-10-31",
+        "title": "Power of Attorney for Health Care in Illinois, Explained",
+        "h1": "Does my parent need a power of attorney for health care in Illinois?",
+        "desc": ("Illinois does not require a power of attorney for health care, "
+                 "but without one state law still appoints a decision-maker for "
+                 "your parent, in a fixed order you do not get to choose. What "
+                 "each of Illinois&rsquo;s four advance directives does, and who "
+                 "decides if your parent has none."),
+        "intent": "legal planning question",
+        "answer": ("<strong>No Illinois law requires one</strong>, but if your "
+                   "parent never signs a Power of Attorney for Health Care, "
+                   "Illinois law still appoints someone to decide for them "
+                   "&mdash; in a fixed order you do not get to pick, running from "
+                   "a court-appointed guardian through a spouse, adult children, "
+                   "parents, siblings and grandchildren before it ever reaches a "
+                   "close friend. A Power of Attorney for Health Care lets your "
+                   "parent name that person themselves, while they still can."),
+        "sources": srcs("idph_adv_directives", "ilaging_adv_directives",
+                        "ilaging_legal_assistance"),
+        "body": [
+            ("The four advance directives Illinois recognises", [
+                "<p>The Illinois Department of Public Health describes four "
+                "separate documents, each answering a different question, and "
+                "each with its own state law behind it:</p>",
+                "<ul class=\"res__list\">"
+                "<li><strong>Power of Attorney for Health Care</strong> &mdash; "
+                "names an agent to make health care decisions when your parent "
+                "cannot (Illinois Power of Attorney Act)</li>"
+                "<li><strong>Living Will Declaration</strong> &mdash; states, in "
+                "advance, whether to withhold or withdraw death-delaying "
+                "procedures if your parent has a terminal condition and cannot "
+                "say so themselves (Illinois Living Will Act, 755 ILCS 35/1)</li>"
+                "<li><strong>Mental Health Treatment Preference Declaration</strong> "
+                "&mdash; records consent to, or refusal of, specific mental health "
+                "treatments in advance (Mental Health Treatment Preference "
+                "Declaration Act, 755 ILCS 43/10)</li>"
+                "<li><strong>Practitioner Orders for Life-Sustaining Treatment "
+                "(POLST)</strong> &mdash; a medical order, signed by a doctor as "
+                "well as your parent, setting out which life-sustaining "
+                "treatments to use or withhold (Health Care Surrogate Act)</li>"
+                "</ul>",
+                "<p>None of the four is required. The Illinois Department of "
+                "Public Health states plainly that no facility, health care "
+                "professional or insurer can require your parent to execute any "
+                "of them as a condition of receiving treatment or insurance: "
+                "&ldquo;It is entirely your decision.&rdquo;</p>",
+            ]),
+            ("What a Power of Attorney for Health Care actually does", [
+                "<p>Your parent (the <strong>principal</strong>) names an "
+                "<strong>agent</strong> to make personal and health care "
+                "decisions on their behalf, under the Illinois Power of Attorney "
+                "Act. The Illinois Department of Public Health sets out what that "
+                "agent can and cannot do:</p>",
+                "<ul class=\"res__list\">"
+                "<li>The agent must follow your parent&rsquo;s specific "
+                "instructions, including on life-sustaining treatment and "
+                "anatomical gifts</li>"
+                "<li>The agent <strong>cannot be your parent&rsquo;s own health "
+                "care professional or other health care provider</strong></li>"
+                "<li>Unless your parent sets a time limit, the power lasts from "
+                "signing until death</li>"
+                "<li>Your parent can name a backup agent, and can cancel the "
+                "document at any time &mdash; changes must be made in "
+                "writing</li>"
+                "<li>Someone other than the agent should witness the "
+                "signing</li>"
+                "<li>Illinois accepts an electronic copy if the signed original "
+                "is unavailable</li></ul>",
+                "<p>Free forms &mdash; a &ldquo;Power of Attorney for Health "
+                "Care&rdquo; document and a Spanish-language version &mdash; are "
+                "published by both the Illinois Department of Public Health and "
+                "the Illinois Department on Aging.</p>",
+            ]),
+            ("If there is no Power of Attorney, Illinois still picks someone "
+             "&mdash; just not who your family might choose", [
+                "<p>This is the part most families never learn until they need "
+                "it. If your parent has no Power of Attorney for Health Care and "
+                "loses the ability to decide, Illinois does not leave the "
+                "decision to whichever relative is in the room. Under the "
+                "Health Care Surrogate Act, <strong>two doctors must first "
+                "certify</strong> that your parent cannot make their own "
+                "decisions. Only then is a surrogate decision-maker identified "
+                "&mdash; and the law picks that person from a fixed order, not "
+                "from family agreement:</p>",
+                "<ol class=\"res__list\">"
+                "<li>Guardian of the person</li>"
+                "<li>Spouse</li>"
+                "<li>Adult children</li>"
+                "<li>Either parent</li>"
+                "<li>Adult siblings</li>"
+                "<li>Adult grandchildren</li>"
+                "<li>A close friend</li>"
+                "<li>Guardian of the estate</li></ol>",
+                "<p>That order has real limits built into it, too. A surrogate "
+                "who is not a court-appointed guardian <strong>cannot</strong> "
+                "direct the withdrawal or withholding of life-sustaining "
+                "treatment unless two doctors certify a qualifying condition "
+                "&mdash; a terminal condition, permanent unconsciousness, or an "
+                "incurable or irreversible condition. The same surrogate also "
+                "cannot consent to electroconvulsive treatment, psychotropic "
+                "medication, or admission to a mental health facility, without "
+                "a court&rsquo;s approval. A Power of Attorney for Health Care "
+                "is what lets your parent choose their own decision-maker "
+                "instead of relying on this default order, and lets that chosen "
+                "agent act without those extra restrictions.</p>",
+            ]),
+            ("The living will and the POLST answer narrower questions", [
+                "<p>A <strong>Living Will</strong> only applies if your parent "
+                "has a terminal condition <em>and</em> cannot state their own "
+                "wishes &mdash; it does nothing before then. Illinois requires "
+                "two witnesses, neither of whom can be your parent&rsquo;s own "
+                "health care professional, and the Illinois Department of Public "
+                "Health states that food and water cannot be withdrawn under a "
+                "living will if doing so would be the only cause of death. It "
+                "also does not take effect if your parent is pregnant and the "
+                "treating provider believes a live birth is possible. If your "
+                "parent has both a living will and a Power of Attorney for "
+                "Health Care, the named agent decides &mdash; the living will "
+                "only governs if that agent is unavailable.</p>",
+                "<p>A <strong>POLST</strong> is different in kind, not just in "
+                "name: it is a medical order, not only a statement of wishes. It "
+                "needs your parent&rsquo;s signature (or an authorised "
+                "representative&rsquo;s) <em>and</em> the attending "
+                "practitioner&rsquo;s, and the Illinois Department of Public "
+                "Health states it will not be entered into the medical record "
+                "without every required signature. It can record, among other "
+                "things, that cardiopulmonary resuscitation should not be "
+                "attempted if your parent&rsquo;s heart or breathing stops.</p>",
+            ]),
+            ("What a nursing home or hospital must do — and must never do", [
+                "<p>Under the federal Patient Self-Determination Act, Medicare "
+                "and Medicaid providers &mdash; including nursing facilities "
+                "&mdash; must tell your parent about the right to make an "
+                "advance directive, in the Illinois Department of Public "
+                "Health&rsquo;s words, &ldquo;upon admission to a facility or "
+                "when provision of care begins.&rdquo; No facility can condition "
+                "treatment on actually signing one.</p>",
+                "<p>If a facility objects to following your parent&rsquo;s "
+                "directive on moral or religious grounds, the Illinois "
+                "Department of Public Health states it must say so and must "
+                "keep providing care until your parent can be transferred to a "
+                "provider who will follow it. It cannot simply stop caring for "
+                "your parent while that objection stands.</p>",
+            ]),
+            ("Where to get the forms, and free help filling them out", [
+                "<p>The Illinois Department on Aging and the Illinois Department "
+                "of Public Health both publish free forms for a Power of "
+                "Attorney for Health Care, a Living Will, a Mental Health "
+                "Treatment Preference Declaration and a POLST. The POLST form is "
+                "available in English, Arabic, Simplified and Traditional "
+                "Chinese, French, Hindi, Korean, Polish and Spanish.</p>",
+                "<p>Filling one out does not have to mean hiring a lawyer. The "
+                "Illinois Department on Aging funds local Area Agencies on "
+                "Aging to contract with legal aid representatives who, in the "
+                "Department&rsquo;s own words, &ldquo;may help with a wide "
+                "variety of civil law issues.&rdquo; Find the agency covering "
+                "Evanston through the Department&rsquo;s AAA map tool or its "
+                "provider Service Locator, or call the Senior HelpLine on "
+                "<strong>" + F["ccp_line"] + "</strong> (711 TRS) to ask where to "
+                "start.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>None of this decides what kind of care is right for your "
+                "parent &mdash; it only decides who gets to make that call, and "
+                "under what rules, once a decision has to be made. For the "
+                "differences between the levels of care those decisions are "
+                "actually about, see "
+                '<a href="/guides/levels-of-senior-care-explained/">Assisted '
+                "living, memory care, skilled nursing and rehabilitation "
+                "&mdash; what is the difference?</a></p>",
+                "<p>If the open question in your family is what level of care "
+                'your parent needs in the first place, the <a href="/">free '
+                "six-question assessment</a> on this site walks through that "
+                "separately. It asks for no name, no email and no phone number, "
+                "and your answers never leave your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -2645,6 +2834,12 @@ CARDS = {
         "QMB, SLMB and QI are three Medicaid-run tiers that pay part or "
         "all of a Medicare premium — what each covers, the state's dated "
         "2026 limits, and the older figures this guide would not use."),
+    "illinois-advance-directive-power-of-attorney": (
+        "Legal and planning",
+        "Does my parent need a power of attorney for health care?",
+        "Illinois does not require one, but without it the state still "
+        "names a decision-maker in a fixed order you do not get to "
+        "choose — what each of Illinois's four advance directives does."),
 }
 
 
