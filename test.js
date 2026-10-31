@@ -1368,8 +1368,20 @@ check("the notice has a section on how visits are counted",
   priv.indexOf("How visits are counted") !== -1);
 check("the notice names the result beacon the way app.js builds it",
   /result-assisted/.test(priv) && /\/t\/result-/.test(require("fs").readFileSync("app.js", "utf8")));
-check("the notice says the counts carry no answers, no name and no identifier",
-  /no cookie and no identifier/.test(priv) && /your answers, your name/.test(priv));
+check("the notice says a count request carries no answers, no name and no visitor ID",
+  /no answers, no name and\s+no visitor ID/.test(priv) && /sets no cookie/.test(priv));
+check("the notice describes the counts as actions, not people",
+  /count of actions,\s+not of people/.test(priv));
+check("the notice makes no absolute claim that visits cannot be linked",
+  priv.indexOf("cannot tell whether two visits") === -1 &&
+  priv.indexOf("anything that links one visit to another") === -1 &&
+  /no way of its own to recognise a\s+returning visitor/.test(priv) &&
+  /records the IP address and browser details/.test(priv));
+check("the exhaustive list of counted events sits in an expandable row",
+  /<details class="more">\s*<summary>What exactly is counted\?<\/summary>/.test(priv) &&
+  ((priv.match(/<summary>What exactly is counted\?<\/summary>[\s\S]*?<\/details>/) || [""])[0].match(/<li>/g) || []).length >= 8);
+check("the short explanation comes before the expandable list",
+  priv.indexOf("keeps a simple tally") < priv.indexOf("What exactly is counted?"));
 check("the notice describes the one-word channel note, never the full referrer",
   /one-word\s+note of how you arrived/.test(priv) && /never the full address/.test(priv));
 check("the notice says what a host request log records",
@@ -1391,12 +1403,16 @@ check("the published notice is byte-identical to the staged copy",
 const homeForCounts = require("fs").readFileSync("index.html", "utf8");
 check("the homepage no longer claims no record of what you chose",
   homeForCounts.indexOf("no record of what you chose") === -1);
-check("the homepage says individual answers are never stored and categories are counted",
-  /individual answers are never stored/.test(homeForCounts) && /which care category comes up/.test(homeForCounts));
-check("the homepage methodology names the counting and links the notice",
-  /the site counts how many people reach each[\s\S]{0,160}step/.test(homeForCounts) &&
-  /It\s+is a count, not a record of you/.test(homeForCounts) &&
+check("the homepage says individual answers are never stored and categories are tallied",
+  /individual answers are never stored/.test(homeForCounts) && /which care category comes\s+up/.test(homeForCounts) &&
+  /actions, not people/.test(homeForCounts));
+check("the homepage methodology names the counting, the host log, and links the notice",
+  /keeps a simple tally of how often\s+each step is used/.test(homeForCounts) &&
+  /counts actions, not people/.test(homeForCounts) &&
+  /request log still records\s+the IP address and browser/.test(homeForCounts) &&
   /<a href="\/privacy.html">privacy notice<\/a> explains/.test(homeForCounts));
+check("the homepage never counts people",
+  !/how many people reach/.test(homeForCounts));
 
 /* ---- NOTHING STAGED MAY EVER BE DEPLOYED ----
    staged/ holds the sharing consent, the privacy notice and the
