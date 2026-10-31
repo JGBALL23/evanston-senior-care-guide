@@ -1388,6 +1388,15 @@ check("the notice says what a host request log records",
   /IP address/.test(priv) && /kind of browser/.test(priv));
 check("the notice names Google Fonts as the typeface provider",
   priv.indexOf("Google Fonts") !== -1);
+check("the outside-companies count includes Google",
+  priv.indexOf("Three outside companies are involved") !== -1 &&
+  priv.indexOf("Two outside companies") === -1 &&
+  /<li><strong>Google Fonts<\/strong> serves the typeface/.test(priv));
+check("the notice handles a visitor who reached the form without the assessment",
+  (priv.match(/if you took the six questions/g) || []).length >= 2 &&
+  /reached directly from a guide/.test(priv) &&
+  /If you did not take them/.test(priv) &&
+  /general inquiries line if you did not take the questions/.test(priv));
 check("the notice no longer claims there is no tracking pixel",
   priv.indexOf("no tracking pixel") === -1);
 check("the notice lists the selected interest as a stored field",

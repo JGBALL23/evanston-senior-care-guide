@@ -54,10 +54,12 @@
 
     <p class="narrow-p">
       Plain version first: your six answers are never sent anywhere. The only
-      place that asks you for anything is the optional tour-inquiry form after
-      your result, it asks for no health information, and its purpose is to pass
-      your name, contact details and the care level those questions suggested to
-      Westminster Place Admissions so they can contact you about a tour. The
+      place that asks you for anything is the optional tour-inquiry form &mdash;
+      shown after your result, or reached directly from a guide. It asks for no
+      health information, and its purpose is to pass your name, contact details,
+      the type of care you are interested in and, if you took the six questions,
+      the care level those questions suggested to Westminster Place Admissions
+      so they can contact you about a tour. The
       site also keeps a simple tally of how often its steps are used, with no
       names and no answers in it &mdash; explained below under &ldquo;How
       visits are counted&rdquo;.
@@ -98,8 +100,9 @@
         its version, and the time you agreed, stored word for word alongside
         your record</li>
       <li>Bookkeeping the site adds itself: the name of this site as the
-        source, the Admissions team and phone number that match the care
-        level, and whether your inquiry has been passed on yet (it starts as
+        source, the Westminster Place team and phone number that match the care
+        level (their general inquiries line if you did not take the questions),
+        and whether your inquiry has been passed on yet (it starts as
         &ldquo;not yet&rdquo; and is only ever changed by hand)</li>
     </ul>
     <p>
@@ -133,7 +136,7 @@
     </p>
 
     <h3 class="h3">Where it is stored, and who else touches it</h3>
-    <p>Two outside companies are involved, and no others:</p>
+    <p>Three outside companies are involved, and no others:</p>
     <ul class="res__list">
       <li><strong>Netlify</strong> hosts the site and stores the submission
         records. Records are held in a private store that is not reachable from
@@ -152,14 +155,14 @@
         the form, that log shows the submission reference and whether the
         save succeeded; it does not contain your name, email or phone
         number.</li>
+      <li><strong>Google Fonts</strong> serves the typeface. That is the only
+        outside request the page itself makes, and it means Google's servers
+        see the same kind of technical details, such as your IP address and
+        browser type, when the font is fetched.</li>
     </ul>
     <p>
-      There is no analytics service, no advertising network and no cookie. The
-      only outside request the page itself makes is for its typeface, which is
-      loaded from <strong>Google Fonts</strong>; that means Google's servers
-      see the same kind of technical details, such as your IP address and
-      browser type, when the font is fetched. The page loads no other outside
-      service.
+      There is no analytics service, no advertising network and no cookie, and
+      the page loads no other outside service.
     </p>
 
     <h3 class="h3">How visits are counted</h3>
@@ -229,9 +232,12 @@
     </p>
     <p>
       If you do tick it, here is exactly what happens. Your
-      <strong>first name, last name, phone number, email address and the care
-      level the questions suggested</strong> are given to Westminster Place
-      Admissions so they can contact you. That is a transfer of your
+      <strong>first name, last name, phone number, email address, the type of
+      care you said you were interested in and, if you took the six questions,
+      the care level the questions suggested</strong> are given to Westminster
+      Place Admissions so they can contact you. If you did not take them, the
+      type of care you chose on the form is all that is known about what you
+      are looking for. That is a transfer of your
       information to them, and this notice is not telling you otherwise. It is
       done <strong>by hand, by a person, over the phone</strong> &mdash; this
       website sends nothing to Westminster Place automatically and has no
