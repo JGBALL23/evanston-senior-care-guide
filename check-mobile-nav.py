@@ -24,6 +24,12 @@ import sys
 import time
 import urllib.request
 
+# Every harness announces itself with one fixed User-Agent so the host's
+# request log can exclude it by exact match. A test run must never be
+# counted as a family. The string is identical in every harness; test.js
+# checks that it stays so.
+HARNESS_UA = "ESCG-harness/1 (automated test; +https://evanstonseniorcareguide.com/)"
+
 # websockets is NOT imported at module level on purpose. The cloud
 # runner does not have it, and a top-level import crashes with a
 # traceback before any guard can run - which is exactly what happened
@@ -107,7 +113,7 @@ class CDP(object):
 
 def launch():
     p = subprocess.Popen(
-        [CHROME, "--headless=new", "--disable-gpu", "--no-sandbox",
+        [CHROME, "--headless=new", "--user-agent=" + HARNESS_UA, "--disable-gpu", "--no-sandbox",
          "--no-first-run", "--disable-extensions",
          "--remote-debugging-port=%d" % PORT, "about:blank"],
         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)

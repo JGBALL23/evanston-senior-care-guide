@@ -17,6 +17,12 @@ import asyncio, base64, functools, http.server, json, os, socketserver
 import subprocess, sys, threading, time, urllib.request
 import websockets
 
+# Every harness announces itself with one fixed User-Agent so the host's
+# request log can exclude it by exact match. A test run must never be
+# counted as a family. The string is identical in every harness; test.js
+# checks that it stays so.
+HARNESS_UA = "ESCG-harness/1 (automated test; +https://evanstonseniorcareguide.com/)"
+
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 PORT, CDP = 8903, 9385
 os.makedirs("shots", exist_ok=True)
@@ -61,7 +67,7 @@ for p in (r"C:\Program Files\Google\Chrome\Application\chrome.exe",
     if os.path.isfile(p):
         CHROME = p
 proc = subprocess.Popen(
-    [CHROME, "--headless=new", "--disable-gpu", "--no-sandbox", "--no-first-run",
+    [CHROME, "--headless=new", "--user-agent=" + HARNESS_UA, "--disable-gpu", "--no-sandbox", "--no-first-run",
      "--remote-debugging-port=%d" % CDP, "about:blank"],
     stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 for _ in range(60):

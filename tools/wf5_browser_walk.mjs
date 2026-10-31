@@ -24,6 +24,11 @@ import { join, extname, resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createRequire } from "node:module";
 
+/* Every harness announces itself with one fixed User-Agent so the host's
+   request log can exclude it by exact match. A test run must never be
+   counted as a family. The string is identical in every harness; test.js
+   checks that it stays so. */
+const HARNESS_UA = "ESCG-harness/1 (automated test; +https://evanstonseniorcareguide.com/)";
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, "..");
 const P = createRequire(import.meta.url)(join(ROOT, "paying-nav.js"));
@@ -116,7 +121,7 @@ async function main() {
   console.log("BROWSER: " + BIN + "\nTARGET:  " + base);
 
   const profile = mkdtempSync(join(tmpdir(), "wf5-walk-"));
-  const proc = spawn(BIN, ["--headless=new", `--remote-debugging-port=${CDP}`, `--user-data-dir=${profile}`,
+  const proc = spawn(BIN, ["--headless=new", `--user-agent=${HARNESS_UA}`, `--remote-debugging-port=${CDP}`, `--user-data-dir=${profile}`,
     "--disable-gpu", "--no-sandbox", "--no-first-run", "--no-default-browser-check", "--hide-scrollbars", "--mute-audio"], { stdio: "ignore" });
   let wsUrl = null;
   for (let i = 0; i < 60 && !wsUrl; i++) {

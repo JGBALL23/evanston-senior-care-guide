@@ -2136,6 +2136,49 @@ check("the two notification tails are mutually exclusive",
   /record\.careLevel === NO_ASSESSMENT\s*\n?\s*\?\s*\["No assessment was taken/
     .test(planSrc));
 
+/* ============================================================
+   MEASUREMENT HOUSEKEEPING, 2026-10-31
+   The first clean night after launch showed zero beacons from real
+   visitors and 1,496 of 1,949 requests from the test harnesses the day
+   before. Two things keep the funnel honest from here: every harness
+   announces one fixed User-Agent the host's log can exclude by exact
+   match, and no beacon file exists that nothing on the site fires, so an
+   enumerating bot cannot register a stage a visitor never reached.
+   ============================================================ */
+{
+  const fs = require("fs");
+  const HARNESS_UA = "ESCG-harness/1 (automated test; +https://evanstonseniorcareguide.com/)";
+  const harnesses = ["tools/simple_first_check.mjs", "tools/wf5_browser_walk.mjs",
+    "check-mobile-nav.py", "tools/mobile/wf4_direct_inquiry.py", "tools/mobile/il_prominence.py",
+    "tools/mobile/mobile_independent_living.py", "tools/mobile/form_reach.py"];
+  harnesses.forEach((f) => {
+    const src = fs.readFileSync(f, "utf8");
+    check("harness announces the shared User-Agent: " + f,
+      src.indexOf('HARNESS_UA = "' + HARNESS_UA + '"') !== -1 &&
+      src.indexOf("--user-agent=") !== -1);
+  });
+  /* Every beacon file must have a caller: a literal in the shipped scripts,
+     or one of the names the build derives (result-<level>, the by-choice
+     variant, the two audience choices). Anything else is a retired stage
+     that still answers 200 to whoever enumerates the folder. */
+  const scripts = ["app.js", "paying-nav.js", "guides.js", "nav.js"]
+    .filter((f) => fs.existsSync(f)).map((f) => fs.readFileSync(f, "utf8")).join("\n");
+  const callers = new Set((scripts.match(/["']\/t\/([a-z0-9_-]+)\.txt["']/g) || [])
+    .map((m) => m.replace(/["']\/t\//, "").replace(/\.txt["']$/, "")));
+  ["independent", "assisted", "memory", "skilled", "rehab", "no_need"]
+    .forEach((l) => callers.add("result-" + l));
+  ["result-independent-by-choice", "audience-self", "audience-parent"].forEach((n) => callers.add(n));
+  ["t", "_dist/t"].forEach((dir) => {
+    const orphans = fs.readdirSync(dir).filter((f) => f.endsWith(".txt"))
+      .map((f) => f.slice(0, -4)).filter((n) => !callers.has(n));
+    check("no beacon file without a caller in " + dir, orphans.length === 0, orphans.join(", "));
+  });
+  check("the three retired Westminster click beacons are gone",
+    !fs.existsSync("t/westminster-call-click.txt") &&
+    !fs.existsSync("t/westminster-directions-click.txt") &&
+    !fs.existsSync("t/westminster-inquiry-form-click.txt"));
+}
+
 const total = checks.length;
 const passed = checks.filter(Boolean).length;
 console.log("\n" + passed + "/" + total + " passed");
