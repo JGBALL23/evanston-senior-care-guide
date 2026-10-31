@@ -3,6 +3,12 @@
 
 Measures, does not judge. The number it prints is the vertical distance
 from the top of the inquiry section to the top of the First name input,
+
+# Every harness announces itself with one fixed User-Agent so the host's
+# request log can exclude it by exact match. A test run must never be
+# counted as a family. The string is identical in every harness; test.js
+# checks that it stays so.
+HARNESS_UA = "ESCG-harness/1 (automated test; +https://evanstonseniorcareguide.com/)"
 which is the distance a thumb has to travel past the disclosures before
 it can type anything. Run on both pathways and both viewports.
 
@@ -37,7 +43,7 @@ for p in (r"C:\Program Files\Google\Chrome\Application\chrome.exe",
     if os.path.isfile(p):
         CHROME = p
 proc = subprocess.Popen(
-    [CHROME, "--headless=new", "--disable-gpu", "--no-sandbox", "--no-first-run",
+    [CHROME, "--headless=new", "--user-agent=" + HARNESS_UA, "--disable-gpu", "--no-sandbox", "--no-first-run",
      "--remote-debugging-port=%d" % CDP, "about:blank"],
     stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 for _ in range(60):
