@@ -25,7 +25,7 @@ beacon → export.
 | Path | the full assessment, parent audience, the assisted-living answers used by the harnesses | Tests `careLevel` and `assessmentTaken: true` |
 
 Done from a normal phone browser on the live site, not from a harness, so
-the beacons count it as one verified visitor — and the baseline row for that
+the beacons record it as one visitor event — and the baseline row for that
 day notes it.
 
 ## What must be true afterwards
