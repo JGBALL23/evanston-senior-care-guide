@@ -1112,5 +1112,61 @@ SLUGS.forEach((s) => {
 });
 check("no control bytes", !/[\x00-\x08\x0b\x0c\x0e-\x1f]/.test(all));
 
+/* ---- RELATED GUIDES BY TOPIC + SHORTER METADATA, 2026-10-31 ----
+   Until this date every guide's "Related guides" block named the first three
+   guides in file order, so eleven of fifteen guides were never named by any
+   other page, and six descriptions ran past 220 characters - longer than a
+   search result shows. The generator now carries a curated RELATED map and a
+   build-time check; these are the same rules applied to the output, plus
+   caps on title and description length and a check that the homepage gives
+   crawlers a way into the library from the words people tap on. */
+const relatedLinks = {};
+SLUGS.forEach((s) => {
+  const block = (page[s].match(/<section class="res__block related">[\s\S]*?<\/section>/) || [""])[0];
+  const links = (block.match(/<a href="\/guides\/[a-z0-9-]+\/"/g) || []).map((m) => m.replace(/^<a href="\/guides\//, "").replace(/\/"$/, ""));
+  relatedLinks[s] = links;
+  check("related block present: " + s, block.length > 0);
+  check("three related guides, by topic: " + s, links.length === 3 && new Set(links).size === 3, links.join(","));
+  check("related never names itself: " + s, links.indexOf(s) === -1);
+  check("related names only built guides: " + s, links.every((l) => SLUGS.indexOf(l) !== -1), links.join(","));
+  check("every related link carries its one-line reason: " + s,
+    (block.match(/class="related__why">[^<]{30,}</g) || []).length === 3);
+});
+const inbound = {};
+SLUGS.forEach((s) => { inbound[s] = 0; });
+SLUGS.forEach((s) => relatedLinks[s].forEach((l) => { if (l in inbound) inbound[l] += 1; }));
+SLUGS.forEach((s) => {
+  check("named by at least two other guides: " + s, inbound[s] >= 2, inbound[s] + " inbound");
+});
+check("the costs guide names the independent-living guide",
+  relatedLinks["assisted-living-cost-illinois"].indexOf("independent-living-evanston") !== -1);
+check("the levels guide names the independent-living guide",
+  relatedLinks["levels-of-senior-care-explained"].indexOf("independent-living-evanston") !== -1);
+
+const decode = (t) => t.replace(/&mdash;/g, "\u2014").replace(/&rsquo;/g, "\u2019").replace(/&lsquo;/g, "\u2018")
+  .replace(/&ldquo;/g, "\u201c").replace(/&rdquo;/g, "\u201d").replace(/&amp;/g, "&").replace(/&nbsp;/g, " ");
+SLUGS.forEach((s) => {
+  const d = decode((page[s].match(/name="description" content="([^"]+)"/) || ["", ""])[1]);
+  check("description fits a search result (<= 160 chars): " + s, d.length >= 60 && d.length <= 160, d.length + " chars");
+  const t = (page[s].match(/<title>([^<|]+)\|/) || ["", ""])[1].trim();
+  check("title is at most 70 characters before the site name: " + s, t.length >= 20 && t.length <= 70, t.length + " chars");
+  const ld = (page[s].match(/"description":\s*"((?:[^"\\]|\\.)*)"/) || ["", ""])[1];
+  check("JSON-LD description carries no HTML entity: " + s, !/&[a-z]+;|&#\d+;/i.test(ld));
+  const hl = (page[s].match(/"headline":\s*"((?:[^"\\]|\\.)*)"/) || ["", ""])[1];
+  check("JSON-LD headline carries no HTML entity: " + s, !/&[a-z]+;|&#\d+;/i.test(hl));
+});
+const homeDesc = decode((home.match(/name="description" content="([^"]+)"/) || ["", ""])[1]);
+check("homepage description fits a search result (<= 160 chars)", homeDesc.length >= 60 && homeDesc.length <= 160, homeDesc.length + " chars");
+const homeTitle = (home.match(/<title>([^<]+)<\/title>/) || ["", ""])[1];
+check("homepage title is at most 80 characters", homeTitle.length >= 20 && homeTitle.length <= 80, homeTitle.length + " chars");
+check("homepage title leads with independent living among the levels",
+  /independent living/i.test(homeTitle) && homeTitle.toLowerCase().indexOf("independent living") < homeTitle.toLowerCase().indexOf("nursing"));
+const homeGuideLinks = new Set((home.match(/href="\/guides\/[a-z0-9-]+\/"/g) || []).map((m) => m.replace(/^href="\/guides\//, "").replace(/\/"$/, "")));
+check("the homepage links to at least seven guides in plain HTML", homeGuideLinks.size >= 7, homeGuideLinks.size + " distinct");
+check("the homepage still names the independent-living guide", homeGuideLinks.has("independent-living-evanston"));
+homeGuideLinks.forEach((l) => {
+  check("homepage guide link resolves: " + l, SLUGS.indexOf(l) !== -1);
+});
+
 console.log("\n  " + pass + " passed, " + fail + " failed   (" + (pass + fail) + " checks)");
 process.exit(fail === 0 ? 0 : 1);

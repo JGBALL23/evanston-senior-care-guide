@@ -2678,3 +2678,23 @@ section[id], header[id] { scroll-margin-top: calc(var(--nav-h) + 14px); }
   .paynav__route { padding: 14px 15px; }
   .paynav__route--rest { padding: 6px 2px 2px; }
 }
+
+/* ============================================================
+   RELATED GUIDES, BY TOPIC — 2026-10-31
+   Each link carries the library card's one-line blurb underneath it, so a
+   reader knows what the next page answers before leaving this one. Larger
+   link, quieter reason; rows spaced for a thumb.
+   ============================================================ */
+.related__list { list-style: none; padding-left: 0; }
+.related__list li { margin-bottom: 16px; }
+.related__list a {
+  font-size: 19px; font-weight: 600; color: var(--sage-deep);
+  text-underline-offset: 3px;
+}
+.related__why { display: block; margin-top: 3px; font-size: 16.5px; line-height: 1.55; color: var(--ink-soft); max-width: 62ch; }
+/* Links inside the homepage's opened rows (glossary, money words, cost
+   sources, the tour questions): the site's link colour, not the browser's
+   default blue. */
+.cat__tell a, .words__list a, .cost__note a, .asks a {
+  color: var(--sage-deep); text-underline-offset: 3px; font-weight: 500;
+}

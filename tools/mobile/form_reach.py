@@ -3,18 +3,18 @@
 
 Measures, does not judge. The number it prints is the vertical distance
 from the top of the inquiry section to the top of the First name input,
-
-# Every harness announces itself with one fixed User-Agent so the host's
-# request log can exclude it by exact match. A test run must never be
-# counted as a family. The string is identical in every harness; test.js
-# checks that it stays so.
-HARNESS_UA = "ESCG-harness/1 (automated test; +https://evanstonseniorcareguide.com/)"
 which is the distance a thumb has to travel past the disclosures before
 it can type anything. Run on both pathways and both viewports.
 
 Submits nothing: fetch is stubbed before the document loads.
 
 Usage: form_reach.py [base-url]"""
+
+# Every harness announces itself with one fixed User-Agent so the host's
+# request log can exclude it by exact match. A test run must never be
+# counted as a family. The string is identical in every harness; test.js
+# checks that it stays so.
+HARNESS_UA = "ESCG-harness/1 (automated test; +https://evanstonseniorcareguide.com/)"
 import asyncio, base64, functools, http.server, json, os, socketserver
 import subprocess, sys, threading, time, urllib.request
 import websockets

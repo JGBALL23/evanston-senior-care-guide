@@ -290,7 +290,7 @@ GUIDES = [
         "h1": "Does Medicare pay for assisted living or nursing home care?",
         "desc": ("Medicare does not pay for assisted living. It pays for a qualifying "
                  "skilled nursing stay — " + F["snf_coins"] + " a day for days 21 to 100 "
-                 "in 2026. Here is exactly what is and is not covered."),
+                 "in 2026. What is and is not covered."),
         "intent": "coverage question",
         "answer": ("<strong>Medicare does not pay for assisted living</strong>, and it "
                    "does not pay for <strong>long-term custodial</strong> nursing home "
@@ -419,9 +419,9 @@ GUIDES = [
                "you whether it is."),
         "title": "Illinois Supportive Living Program Explained",
         "h1": "Illinois Supportive Living Program, explained",
-        "desc": ("Illinois Medicaid pays for care in approved Supportive Living "
-                 "facilities. It covers services, not room and board. Expect two "
-                 "charges, and a " + F["pna"] + " monthly personal needs allowance."),
+        "desc": ("Illinois Medicaid pays for care, not room and board, in approved "
+                 "Supportive Living facilities. Expect two charges, and a " + F["pna"] +
+                 " monthly personal needs allowance."),
         "intent": "Illinois Medicaid programme",
         "answer": ("The Supportive Living Program is how Illinois Medicaid pays for "
                    "assisted-living-style care. It covers the <strong>cost of "
@@ -503,8 +503,8 @@ GUIDES = [
         "title": "How to Check Illinois Nursing Home Inspection Records",
         "h1": "How to check an Illinois care community's inspection record",
         "desc": ("Illinois publishes inspection and complaint records for licensed "
-                 "facilities, and Medicare publishes staffing and quality data. Here is "
-                 "how to look up any community before you visit."),
+                 "facilities; Medicare publishes staffing and quality data. How to look "
+                 "up a community first."),
         "intent": "how-to / due diligence",
         "answer": ("Two free public tools. The <strong>Illinois Department of Public "
                    "Health Health Care Report Card</strong> publishes inspection and "
@@ -578,7 +578,7 @@ GUIDES = [
         "bridge": ("Definitions are the easy half. Working out which of these four "
                "describes your own parent, with their particular habits and recent "
                "changes, is the harder one."),
-        "title": "Assisted Living vs. Memory Care vs. Skilled Nursing vs. Rehabilitation",
+        "title": "Assisted Living vs. Memory Care vs. Skilled Nursing vs. Rehab",
         "h1": "Assisted living, memory care, skilled nursing and rehabilitation &mdash; what is the difference?",
         "desc": ("Four phrases used as if they mean the same thing. They do not. Here is "
                  "what each one provides, who it is for, and how to tell which your "
@@ -657,9 +657,9 @@ GUIDES = [
         "reviewed": "2026-10-23",
         "title": "Can My Parent Get Paid Help at Home in Illinois?",
         "h1": "Can my parent get paid help at home in Illinois?",
-        "desc": ("Illinois pays for homemaker help, adult day service and emergency "
-                 "response for some older adults who would otherwise need a nursing "
-                 "home. Here is who qualifies and how to start."),
+        "desc": ("Illinois pays for homemaker help and adult day service for some "
+                 "older adults who would otherwise need a nursing home. Who qualifies, "
+                 "and how to start."),
         "intent": "staying at home",
         "answer": ("Possibly. Illinois runs the <strong>Community Care Program</strong>, "
                    "which the Department on Aging describes as helping older adults "
@@ -777,12 +777,11 @@ GUIDES = [
         # Researched and verified in the cloud routine's own run on this date,
         # not on the library's original 2026-10-18 review date.
         "reviewed": "2026-10-23",
-        "title": "How Illinois Medicaid Pays for Long-Term Care (and What Spend-Down Means)",
+        "title": "How Illinois Medicaid Pays for Long-Term Care and Spend-Down",
         "h1": "How Illinois Medicaid pays for long-term care, and what spend-down means",
         "desc": ("Illinois Medicaid can pay for nursing home and other long-term care. "
-                 "Here is what it actually covers, how to apply, and what a "
-                 "&ldquo;spend-down&rdquo; is for a family whose income or assets are "
-                 "too high to qualify outright."),
+                 "What it covers, how to apply, and what &ldquo;spend-down&rdquo; means "
+                 "if income or assets are too high."),
         "intent": "paying for care",
         "answer": ("Yes, through the state's Medical Assistance Program. Illinois HFS "
                    "states plainly that &ldquo;payment for long-term nursing home "
@@ -922,12 +921,11 @@ GUIDES = [
                "sign the setting itself no longer matches what your parent needs. "
                "Those two look alike from the outside."),
         "reviewed": "2026-10-23",
-        "title": "How to Report a Problem at an Illinois Nursing Home or Assisted Living Facility",
+        "title": "How to Report a Problem at an Illinois Nursing Home or Assisted Living",
         "h1": "How to report a problem at an Illinois care facility",
-        "desc": ("Illinois runs two separate channels for a concern about a nursing home "
-                 "or assisted living community: a resident advocate who works the problem "
-                 "with you, and a state regulator who investigates it. Here is which to "
-                 "call, and when."),
+        "desc": ("A concern about an Illinois nursing home or assisted living has two "
+                 "channels: an advocate who works it with you, a regulator who "
+                 "investigates. Which to call."),
         "intent": "how-to / advocacy",
         "answer": ("Two different state contacts, for two different jobs. The "
                    "<strong>Long-Term Care Ombudsman Program</strong>, run by the Illinois "
@@ -1024,12 +1022,11 @@ GUIDES = [
                "downstream of a more immediate one: what level of care your parent "
                "needs now."),
         "reviewed": "2026-10-24",
-        "title": "Will Illinois Take My Parent's House After Medicaid Pays for Care?",
+        "title": "Illinois Medicaid Estate Recovery: Will the State Take the House?",
         "h1": "Will Illinois take my parent&rsquo;s house after Medicaid pays for care?",
-        "desc": ("Illinois can file a claim against a Medicaid recipient's estate after "
-                 "they die, but only against the estate &mdash; never against heirs "
-                 "personally &mdash; and the first $25,000 of every estate is protected "
-                 "by law. Here is what the state can and cannot reach."),
+        "desc": ("Illinois can claim against a Medicaid recipient's estate after death, "
+                 "never against heirs personally, and the first $25,000 is protected. "
+                 "What it can reach."),
         "intent": "worry / paying for care",
         "answer": ("Not automatically, and never from your own pocket. Illinois HFS can "
                    "file a claim against a Medicaid recipient's <strong>estate</strong> "
@@ -1177,9 +1174,8 @@ GUIDES = [
         "title": "Does Medicare Pay for Hospice Care at Home?",
         "h1": "Does Medicare pay for hospice care at home?",
         "desc": ("Medicare pays " + F["hospice_zero"] + " for covered hospice care once a "
-                 "doctor certifies six months or less to live and your parent chooses "
-                 "comfort care over a cure. Here is exactly what that does and does not "
-                 "include."),
+                 "doctor certifies six months or less to live and comfort care is chosen "
+                 "over a cure. What is and is not covered."),
         "intent": "coverage question",
         "answer": ("<strong>Yes, for the hospice benefit itself.</strong> Medicare pays "
                    "<strong>" + F["hospice_zero"] + "</strong> for covered hospice care "
@@ -1316,9 +1312,9 @@ GUIDES = [
         "reviewed": "2026-10-26",
         "title": "Independent Living in Evanston and the North Shore, Explained",
         "h1": "Independent living in Evanston and the North Shore, explained",
-        "desc": ("Independent living is housing with services, not care. What is in "
-                 "the monthly fee, how it differs from licensed assisted living, and "
-                 "why no Illinois median figure appears on this page."),
+        "desc": ("Independent living is housing with services, not care. What the "
+                 "monthly fee covers, how it differs from assisted living, and why no "
+                 "Illinois median is given."),
         "intent": "lifestyle question",
         "answer": ("<strong>Independent living is housing with services, not "
                    "care.</strong> A private apartment, cottage or townhouse, with "
@@ -1469,11 +1465,9 @@ GUIDES = [
         "reviewed": "2026-10-29",
         "title": "Does the VA Pay for Senior Care? Aid and Attendance, Explained",
         "h1": "Does the VA pay for senior care? Aid and Attendance, explained",
-        "desc": ("The most a wartime veteran with no dependents can receive with Aid "
-                 "and Attendance is " + F["va_mapr_aa_single"] + " a year &mdash; the "
-                 "whole pension at that rate, not an extra payment, and a ceiling reduced "
-                 "by the veteran&rsquo;s own income. Here is who actually qualifies, and "
-                 "how a surviving spouse&rsquo;s own pension differs."),
+        "desc": ("A wartime veteran with no dependents can get at most "
+                 + F["va_mapr_aa_single"] + " a year with Aid and Attendance &mdash; the "
+                 "whole pension at that rate, less their income. Who qualifies."),
         "intent": "benefits question",
         "answer": ("<strong>Yes, for veterans and some surviving spouses who already "
                    "qualify for a VA pension.</strong> Aid and Attendance and Housebound "
@@ -1677,11 +1671,9 @@ GUIDES = [
         "reviewed": "2026-10-27",
         "title": "Can a Veteran Get Paid In-Home Care Through the VA?",
         "h1": "Can a veteran get paid in-home care through the VA?",
-        "desc": ("VA.gov describes a consumer-directed benefit called Veteran "
-                 "Directed Care that lets an eligible veteran set a spending plan "
-                 "and hire their own help at home, including a family member. "
-                 "Here is who qualifies and how to start, in VA.gov&rsquo;s own "
-                 "words."),
+        "desc": ("Veteran Directed Care lets an eligible veteran set a spending plan "
+                 "and hire their own help at home, including family. Who qualifies, "
+                 "how to start, per VA.gov."),
         "intent": "benefits question",
         "answer": ("<strong>Sometimes, through a programme called Veteran "
                    "Directed Care, which is separate from the VA pension this "
@@ -1824,13 +1816,11 @@ GUIDES = [
                "question from knowing whether your parent's needs have moved "
                "past what any amount of help at home can cover."),
         "reviewed": "2026-10-29",
-        "title": "Is There Help for the Caregiver, Not Just the Parent, in Illinois?",
+        "title": "Illinois Family Caregiver Support Program, Explained",
         "h1": "Is there help for the caregiver, not just the parent, in Illinois?",
-        "desc": ("Illinois runs a Family Caregiver Support Program built around "
-                 "the person doing the caring, not the person being cared for "
-                 "&mdash; respite, counselling, training and a local resource "
-                 "centre. Here is what the Department on Aging&rsquo;s own pages "
-                 "say it covers, and what they do not say."),
+        "desc": ("Illinois&rsquo;s Family Caregiver Support Program serves the person "
+                 "doing the caring: respite, counselling, training and a local "
+                 "resource centre. What it covers."),
         "intent": "caregiver support",
         "answer": ("<strong>Yes &mdash; Illinois funds a Family Caregiver "
                    "Support Program aimed at the caregiver rather than the "
@@ -1959,12 +1949,11 @@ GUIDES = [
                "from knowing whether Medicare will ever pay for the kind of "
                "care your parent eventually needs."),
         "reviewed": "2026-10-29",
-        "title": "Who Can Help My Parent Choose a Medicare Plan for Free in Illinois?",
+        "title": "Who Helps My Parent Choose a Medicare Plan for Free in Illinois?",
         "h1": "Who can help my parent choose a Medicare plan for free in Illinois?",
-        "desc": ("Illinois runs a free, unbiased Medicare counselling service "
-                 "called SHIP. What the Department on Aging's own pages say "
-                 "it actually does, what it does not say, and how to reach a "
-                 "counsellor directly."),
+        "desc": ("SHIP is Illinois's free, unbiased Medicare counselling service. "
+                 "What the Department on Aging says it does, what it does not say, "
+                 "and how to reach a counsellor."),
         "intent": "how-to / free local help",
         "answer": ("<strong>Call the Illinois Senior Health Insurance Program "
                    "(SHIP) on 1-800-252-8966 (711 TRS).</strong> It is a free, "
@@ -2195,11 +2184,18 @@ def article_jsonld(g, canon):
             '  "publisher": { "@type": "Person", "name": "Joseph Gonzales" },\n'
             '  "about": { "@type": "Thing", "name": "Senior care in Evanston, Illinois" }\n'
             '}\n</script>') % (
-        js(g["title"]), js(strip_tags(g["desc"])), js(canon), reviewed_iso(g))
+        js(unescape(g["title"])), js(unescape(strip_tags(g["desc"]))), js(canon), reviewed_iso(g))
 
 
 def js(s):
     return '"' + s.replace('\\', '\\\\').replace('"', '\\"') + '"'
+
+
+def unescape(s):
+    """JSON-LD is JSON, not HTML: an entity such as &mdash; inside it is six
+    literal characters to a structured-data parser. Decode before quoting."""
+    import html
+    return html.unescape(s)
 
 
 def strip_tags(s):
@@ -2243,14 +2239,134 @@ def pay_nav_line(g):
             'decided, nothing collected.</p>\n' % PAY_NAV_HREF)
 
 
+# --------------------------------------------------------------------------
+# RELATED GUIDES — chosen by topic, not by position.
+#
+# Until 2026-10-31 related() took the first three guides in file order, so
+# every page pointed at the same three (costs, Medicare, Supportive Living)
+# and eleven guides were never named by any other. The map below is the
+# reader's next question, in order: three guides, each an answer to what a
+# person who has just read THIS page is likely to ask next.
+#
+# Rules, enforced by check_related() at build time and by check-guides.js on
+# the output:
+#   - exactly three per guide, no guide names itself, every slug exists;
+#   - every guide is named by at least two others, so no page depends on the
+#     library index alone to be found;
+#   - the independent-living guide is named from the costs guide and the
+#     levels guide, the two pages a planning-stage family reads first.
+# The link text and the one-line reason are the library card's own title and
+# blurb (CARDS below), so no new factual claim is introduced here.
+# --------------------------------------------------------------------------
+RELATED = {
+    "assisted-living-cost-illinois": [
+        "does-medicare-pay-for-senior-care",
+        "independent-living-evanston",
+        "va-aid-and-attendance-benefit"],
+    "does-medicare-pay-for-senior-care": [
+        "assisted-living-cost-illinois",
+        "illinois-medicaid-long-term-care",
+        "illinois-senior-health-insurance-program"],
+    "illinois-supportive-living-program": [
+        "illinois-medicaid-long-term-care",
+        "illinois-medicaid-estate-recovery",
+        "illinois-community-care-program"],
+    "check-illinois-inspection-records": [
+        "illinois-care-facility-complaint",
+        "levels-of-senior-care-explained",
+        "assisted-living-cost-illinois"],
+    "levels-of-senior-care-explained": [
+        "independent-living-evanston",
+        "assisted-living-cost-illinois",
+        "does-medicare-pay-for-senior-care"],
+    "illinois-community-care-program": [
+        "illinois-family-caregiver-support-program",
+        "va-veteran-directed-care-program",
+        "illinois-supportive-living-program"],
+    "illinois-medicaid-long-term-care": [
+        "illinois-medicaid-estate-recovery",
+        "illinois-supportive-living-program",
+        "illinois-care-facility-complaint"],
+    "illinois-care-facility-complaint": [
+        "check-illinois-inspection-records",
+        "levels-of-senior-care-explained",
+        "assisted-living-cost-illinois"],
+    "illinois-medicaid-estate-recovery": [
+        "illinois-medicaid-long-term-care",
+        "illinois-community-care-program",
+        "illinois-supportive-living-program"],
+    "medicare-hospice-benefit-explained": [
+        "does-medicare-pay-for-senior-care",
+        "illinois-family-caregiver-support-program",
+        "illinois-senior-health-insurance-program"],
+    "independent-living-evanston": [
+        "levels-of-senior-care-explained",
+        "assisted-living-cost-illinois",
+        "check-illinois-inspection-records"],
+    "va-aid-and-attendance-benefit": [
+        "va-veteran-directed-care-program",
+        "assisted-living-cost-illinois",
+        "illinois-medicaid-long-term-care"],
+    "va-veteran-directed-care-program": [
+        "va-aid-and-attendance-benefit",
+        "illinois-community-care-program",
+        "illinois-family-caregiver-support-program"],
+    "illinois-family-caregiver-support-program": [
+        "illinois-community-care-program",
+        "levels-of-senior-care-explained",
+        "medicare-hospice-benefit-explained"],
+    "illinois-senior-health-insurance-program": [
+        "does-medicare-pay-for-senior-care",
+        "medicare-hospice-benefit-explained",
+        "illinois-medicaid-long-term-care"],
+}
+
+RELATED_MIN_INBOUND = 2
+IL_SLUG = "independent-living-evanston"
+IL_NAMED_FROM = ["assisted-living-cost-illinois", "levels-of-senior-care-explained"]
+
+
+def check_related():
+    """Stop the build on a map that would leave a guide unreachable."""
+    slugs = [g["slug"] for g in GUIDES]
+    problems = []
+    for s in slugs:
+        picks = RELATED.get(s)
+        if picks is None:
+            problems.append("%s: no RELATED entry" % s)
+            continue
+        if len(picks) != 3 or len(set(picks)) != 3:
+            problems.append("%s: needs exactly three distinct related guides" % s)
+        if s in picks:
+            problems.append("%s: names itself" % s)
+        for p in picks:
+            if p not in slugs:
+                problems.append("%s: unknown related slug %s" % (s, p))
+    for extra in set(RELATED) - set(slugs):
+        problems.append("RELATED names a guide that is not built: %s" % extra)
+    inbound = {s: 0 for s in slugs}
+    for s in slugs:
+        for p in RELATED.get(s, []):
+            if p in inbound:
+                inbound[p] += 1
+    for s, n in inbound.items():
+        if n < RELATED_MIN_INBOUND:
+            problems.append("%s is named by only %d other guide(s)" % (s, n))
+    for s in IL_NAMED_FROM:
+        if IL_SLUG not in RELATED.get(s, []):
+            problems.append("%s does not name the independent-living guide" % s)
+    if problems:
+        raise SystemExit("build-guides.py: RELATED map rejected:\n  " + "\n  ".join(problems))
+
+
 def related(g):
-    others = [x for x in GUIDES if x["slug"] != g["slug"]][:3]
     items = "".join(
-        '<li><a href="/guides/%s/">%s</a></li>' % (o["slug"], o["h1"].replace("&mdash;", "—"))
-        for o in others)
-    return ('<section class="res__block">\n'
+        '<li><a href="/guides/%s/">%s</a>'
+        '<span class="related__why">%s</span></li>' % (s, CARDS[s][1], CARDS[s][2])
+        for s in RELATED[g["slug"]])
+    return ('<section class="res__block related">\n'
             '<h2 class="res__h">Related guides</h2>\n'
-            '<ul class="res__list">%s</ul>\n%s</section>' % (items, pay_nav_line(g)))
+            '<ul class="res__list related__list">%s</ul>\n%s</section>' % (items, pay_nav_line(g)))
 
 
 def sources_block(g):
@@ -2740,6 +2856,7 @@ def sync_assets():
 
 def main():
     check_categories()
+    check_related()
     os.makedirs(OUT, exist_ok=True)
     for name in sync_assets():
         print("  synced to _dist: %s" % name)
