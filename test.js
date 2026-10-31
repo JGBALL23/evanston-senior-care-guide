@@ -2156,6 +2156,18 @@ check("the two notification tails are mutually exclusive",
     check("harness announces the shared User-Agent: " + f,
       src.indexOf('HARNESS_UA = "' + HARNESS_UA + '"') !== -1 &&
       src.indexOf("--user-agent=") !== -1);
+    /* 2026-10-31: form_reach.py carried the constant INSIDE its module
+       docstring, so the text matched and the harness crashed with a
+       NameError. The constant has to be a real top-level statement: for a
+       Python file, the line must sit after the docstring closes; for a
+       module, it must be a top-level const. */
+    if (f.endsWith(".py")) {
+      const at = src.indexOf('HARNESS_UA = "');
+      const quotes = (src.slice(0, at).match(/"""/g) || []).length;
+      check("harness constant is code, not docstring: " + f, quotes % 2 === 0 && /(^|\n)HARNESS_UA = "/.test(src));
+    } else {
+      check("harness constant is a top-level const: " + f, /(^|\n)const HARNESS_UA = "/.test(src));
+    }
   });
   /* Every beacon file must have a caller: a literal in the shipped scripts,
      or one of the names the build derives (result-<level>, the by-choice
