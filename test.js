@@ -364,7 +364,11 @@ check("assessment wording is transparent, not confrontational",
    whether the privacy claims are real. Adding a form without
    amending that section would make the section the lie. */
 [["form named in methodology",  "optional tour-inquiry form shown after the result"],
- ["the fields are named",       "a name, a phone number and an email address, and nothing else"],
+ /* 2026-10-31: the form has asked which type of care the visitor is
+    interested in since consent version 2026-10-26d, so the methodology
+    line now names that field too. The pin moves with the form; the
+    old wording described a form that no longer exists. */
+ ["the fields are named",       "a name, a phone number or an email address, and which type of care you are interested in, and nothing else"],
  ["kept separate is stated",    "kept completely separate from the assessment"],
  ["skipping it is allowed",     "skipping it changes"],
  /* Rewritten 2026-10-16. The old line said the record "is not sent to
@@ -1351,6 +1355,48 @@ check("the notice names the real email provider",
 check("the notice discloses the care level travels",
   priv.indexOf("care level those questions suggested") !== -1 ||
   priv.indexOf("care level the questions suggested") !== -1);
+
+/* ---- THE NOTICE DESCRIBES THE COUNTING, 2026-10-31 ----
+   The site has counted step reaches with /t/ beacons since launch and the
+   notice never said so; it also said the host logs "the time and the
+   response status" when a request log records the address and browser
+   too, called the typeface "an outside request" without naming Google,
+   and listed the inquiry fields as they were before the interest select
+   and the not-taken case existed. Each claim below is pinned to the
+   code it describes, so the notice cannot describe last week again. */
+check("the notice has a section on how visits are counted",
+  priv.indexOf("How visits are counted") !== -1);
+check("the notice names the result beacon the way app.js builds it",
+  /result-assisted/.test(priv) && /\/t\/result-/.test(require("fs").readFileSync("app.js", "utf8")));
+check("the notice says the counts carry no answers, no name and no identifier",
+  /no cookie and no identifier/.test(priv) && /your answers, your name/.test(priv));
+check("the notice describes the one-word channel note, never the full referrer",
+  /one-word\s+note of how you arrived/.test(priv) && /never the full address/.test(priv));
+check("the notice says what a host request log records",
+  /IP address/.test(priv) && /kind of browser/.test(priv));
+check("the notice names Google Fonts as the typeface provider",
+  priv.indexOf("Google Fonts") !== -1);
+check("the notice no longer claims there is no tracking pixel",
+  priv.indexOf("no tracking pixel") === -1);
+check("the notice lists the selected interest as a stored field",
+  /type of care you said you were interested in/.test(priv));
+check("the notice lists whether the assessment was taken",
+  /Whether you took the six questions/.test(priv) && /assessment was not taken/.test(priv));
+check("the notice says the email also carries the interest",
+  /that email contains your[\s\S]{0,200}interested in/.test(priv));
+check("the notice carries the 31 October 2026 review date",
+  priv.indexOf("Last updated: 31 October 2026") !== -1);
+check("the published notice is byte-identical to the staged copy",
+  require("fs").readFileSync("_dist/privacy.html", "utf8") === priv);
+const homeForCounts = require("fs").readFileSync("index.html", "utf8");
+check("the homepage no longer claims no record of what you chose",
+  homeForCounts.indexOf("no record of what you chose") === -1);
+check("the homepage says individual answers are never stored and categories are counted",
+  /individual answers are never stored/.test(homeForCounts) && /which care category comes up/.test(homeForCounts));
+check("the homepage methodology names the counting and links the notice",
+  /the site counts how many people reach each[\s\S]{0,160}step/.test(homeForCounts) &&
+  /It\s+is a count, not a record of you/.test(homeForCounts) &&
+  /<a href="\/privacy.html">privacy notice<\/a> explains/.test(homeForCounts));
 
 /* ---- NOTHING STAGED MAY EVER BE DEPLOYED ----
    staged/ holds the sharing consent, the privacy notice and the
