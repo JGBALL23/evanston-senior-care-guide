@@ -43,6 +43,15 @@
   the selected interest and whether the assessment was taken, which the
   consent sentence has named since version 2026-10-26d.
 
+  UPDATED 2026-11-01. Wording only, no change to what is collected,
+  stored or shared. The notice now describes the hand-off the consent
+  describes: the details go to the operator, who reads each one and may
+  pass it to Westminster Place by hand. The recipient is the
+  organisation, not one of its departments. Three phone-call
+  assumptions are gone, because nothing in the code makes the hand-off
+  a call. And "no health information" no longer covers the care level,
+  which the form sends whenever the assessment was taken.
+
   If the notification ever changes again, THIS FILE CHANGES IN THE
   SAME COMMIT. test.js asserts the notice and the code agree.
 -->
@@ -56,10 +65,11 @@
       Plain version first: your six answers are never sent anywhere. The only
       place that asks you for anything is the optional tour-inquiry form &mdash;
       shown after your result, or reached directly from a guide. It asks for no
-      health information, and its purpose is to pass your name, contact details,
+      health information, and its purpose is to send your name, contact details,
       the type of care you are interested in and, if you took the six questions,
-      the care level those questions suggested to Westminster Place Admissions
-      so they can contact you about a tour. The
+      the care level those questions suggested to the person who runs this guide,
+      who may pass them to Westminster Place so they can contact you about a
+      tour. The
       site also keeps a simple tally of how often its steps are used, with no
       names and no answers in it &mdash; explained below under &ldquo;How
       visits are counted&rdquo;.
@@ -111,20 +121,20 @@
       ever asked for. The server rejects a submission outright if any field of
       that kind is present, rather than accepting it and discarding it later.
       The care level is the single value derived from your answers that is
-      kept, and it is kept so the right Admissions team is the one that calls
-      you.
+      kept, and it is kept so that, if your inquiry is passed on, it goes to
+      the Westminster Place team for that level of care.
     </p>
 
     <h3 class="h3">Why it is collected</h3>
     <p>
-      For two purposes, and no others. First, so your details can be passed to
-      Westminster Place Admissions and they can contact you about a tour.
-      Second, so there is a dated record that your inquiry came through this
-      guide.
+      For two purposes, and no others. First, so the person who runs this guide
+      can follow up and, if he decides to, pass your details to Westminster
+      Place so they can contact you about a tour. Second, so there is a dated
+      record that your inquiry came through this guide.
     </p>
     <p>
       It does not schedule anything and it does not guarantee a tour &mdash;
-      Admissions decide that. It does not put you on a mailing list; there is
+      Westminster Place decides that. It does not put you on a mailing list; there is
       no mailing list. Nobody is paid for your inquiry.
     </p>
 
@@ -231,29 +241,31 @@
       no record of you if you do.
     </p>
     <p>
-      If you do tick it, here is exactly what happens. Your
-      <strong>first name, last name, phone number, email address, the type of
-      care you said you were interested in and, if you took the six questions,
-      the care level the questions suggested</strong> are given to Westminster
-      Place Admissions so they can contact you. If you did not take them, the
-      type of care you chose on the form is all that is known about what you
-      are looking for. That is a transfer of your
+      If you do tick it, here is exactly what happens. Your details go to the
+      person who runs this guide, who reads every inquiry himself and decides
+      how to follow up. He may pass your <strong>first name, last name, phone
+      number, email address, the type of care you said you were interested in
+      and, if you took the six questions,
+      the care level the questions suggested</strong> to Westminster Place so
+      they can contact you about a tour. If you did not take them, the type of
+      care you chose on the form is all that is known about what you are
+      looking for. If he passes them on, that is a transfer of your
       information to them, and this notice is not telling you otherwise. It is
-      done <strong>by hand, by a person, over the phone</strong> &mdash; this
-      website sends nothing to Westminster Place automatically and has no
-      connection to their systems.
+      done <strong>by hand, by a person</strong> &mdash; this website sends
+      nothing to Westminster Place automatically and has no connection to
+      their systems.
     </p>
     <p>
       What is never shared: your individual assessment answers, which never
-      left your device, and any health information, because none was ever
-      collected. Nothing is shared with anyone other than Westminster Place
-      Admissions.
+      left your device, and any diagnosis, medications or medical history,
+      because none of it is ever collected. Nothing is shared with anyone
+      other than Westminster Place.
     </p>
     <p>
       You can withdraw this permission at any time using the address below. If
-      your details have already been passed to Admissions, withdrawing stops
-      anything further here, but it cannot undo that call &mdash; you would need
-      to ask Westminster Place directly to remove what they hold.
+      your details have already been passed to Westminster Place, withdrawing
+      stops anything further here, but it cannot undo that &mdash; you would
+      need to ask Westminster Place directly to remove what they hold.
     </p>
 
     <h3 class="h3">How long it is kept</h3>
@@ -270,15 +282,15 @@
       email is also sent to the operator, and <strong>that email contains your
       name, phone number, email address and care level</strong> (or a note that
       the assessment was not taken), and the type of care you said you were
-      interested in, so he can make the call without a lookup. That message sits in his mailbox and with the
+      interested in, so he can follow up without a lookup. That message sits in his mailbox and with the
       email provider, Resend &mdash; neither of which the automatic 180-day
-      deletion can reach. He clears it manually once the referral is made. If
+      deletion can reach. He clears it manually once he has followed up. If
       you ask to be removed, say so and the mailbox copy is deleted too.
     </p>
     <p>
-      <strong>A second honest limit.</strong> Once your details have been given
-      to Westminster Place Admissions, what they do with them is governed by
-      their own privacy practices, not by this notice. The 180-day rule deletes
+      <strong>A second honest limit.</strong> If your details are passed to
+      Westminster Place, what they do with them is governed by their own
+      privacy practices, not by this notice. The 180-day rule deletes
       this site's copy. It has no power over theirs.
     </p>
 
@@ -292,8 +304,8 @@
     </p>
     <p>
       That address is read by the person who operates this guide. If your
-      details have already been passed to Westminster Place Admissions,
-      deleting the record here stops anything further from this site, but it
+      details have already been passed to Westminster Place, deleting the
+      record here stops anything further from this site, but it
       cannot withdraw what they already hold &mdash; ask Westminster Place
       directly for that.
     </p>
@@ -305,7 +317,7 @@
     </p>
 
     <p class="fine">
-      Last updated: 31 October 2026. If this notice changes, the date changes
+      Last updated: 1 November 2026. If this notice changes, the date changes
       with it.
     </p>
 

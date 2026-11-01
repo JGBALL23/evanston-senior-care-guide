@@ -231,7 +231,7 @@ function validate(payload) {
   const hasEmail = email.length > 0;
   const hasPhone = phoneDigits.length > 0;
   if (!hasEmail && !hasPhone) {
-    problems.push("Add a phone number or an email address so Admissions can reach you.");
+    problems.push("Add a phone number or an email address.");
   }
   if (hasEmail && !EMAIL_OK.test(email)) {
     problems.push("That email address does not look complete.");
@@ -262,7 +262,7 @@ function validate(payload) {
   }
 
   if (payload.consent !== true && payload.consent !== "true" && payload.consent !== "on") {
-    problems.push("Tick the box to give permission for your details to be shared with Admissions.");
+    problems.push("Tick the box to give permission to send your details.");
   }
 
   return {

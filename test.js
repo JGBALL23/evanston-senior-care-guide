@@ -375,7 +375,12 @@ check("assessment wording is transparent, not confrontational",
     Westminster Place", which was true of a form that shared nothing and
     is false of one whose purpose is the hand-off. The methodology now
     states the transfer, that it is by hand, and that it is opt-in. */
- ["the transfer is stated",     "passed by hand to westminster place admissions"],
+ /* 2026-11-01: "are passed by hand to Westminster Place Admissions"
+    promised a hand-off the consent only permits ("he may pass my
+    details"), and named one department where the consent names the
+    organisation. The pin moves with the corrected sentence; the
+    transfer, the by-hand and the opt-in are all still asserted. */
+ ["the transfer is stated",     "come to me, and i may pass them by hand to westminster place"],
  ["the transfer is opt-in",     "if you tick the permission box"],
  ["the dated record is stated", "a dated record is kept here showing the inquiry started on this site"]
 ].forEach(([label, phrase]) => {
@@ -418,7 +423,10 @@ if (wpNamed) {
       carrying the whole sentence. The disclosure now states the transfer
       plainly, says it is opt-in, and names who receives it. */
    ["sharing is opt-in and said so",    "not shared with westminster place unless you ask for it to be"],
-   ["the recipient is named",           "passed to their admissions team"],
+   /* 2026-11-01: was "passed to their admissions team" -- certain where
+      the consent says "may", and a department where the consent names
+      the organisation. Same gate, corrected sentence. */
+   ["the recipient is named",           "your details come to me, and i may pass them to westminster place so they can contact you about a tour"],
    ["purpose of collection is stated",  "a record is kept that your inquiry came through this resource"],
    ["refusal to rank is stated",        "do not rank westminster place"],
    ["state directory is offered",       "healthcarereportcard.illinois.gov"]
@@ -574,17 +582,27 @@ check("success states it does not schedule an appointment",
   doneBlock.indexOf("does not schedule an appointment with westminster place") !== -1);
 check("success states no tour is guaranteed",
   doneBlock.indexOf("does not guarantee a tour") !== -1);
-check("success says the next step belongs to Admissions",
-  doneBlock.indexOf("up to westminster place admissions") !== -1 &&
-  doneBlock.indexOf("any follow-up comes") !== -1);
+/* 2026-11-01: this gate used to require "what happens next is up to
+   Westminster Place Admissions. Any follow-up comes from them" -- which
+   contradicted the consent the visitor had just ticked ("He reads every
+   inquiry himself and decides how to follow up, and he may pass my
+   details to Westminster Place"). The confirmation now says what the
+   consent says, in the same order. */
+check("success says the owner reads it and decides, as the consent does",
+  doneBlock.indexOf("i read every inquiry myself and decide how to follow up") !== -1 &&
+  doneBlock.indexOf("if i pass your details to westminster place, they decide whether and when to contact you") !== -1);
 check("success confirms the interest was recorded, not acted on",
   doneBlock.indexOf("your interest has been recorded") !== -1);
 check("the confirmation offers no outbound Westminster buttons",
   doneBlock.indexOf("visit westminster place") === -1 &&
   doneBlock.indexOf("get directions") === -1 &&
   doneBlock.indexOf("tel:") === -1);
+/* 2026-11-01: was "Westminster Place is a public organisation and their
+   own contact details are easy to find". It is not a public body, and
+   "easy to find" said nothing about where. No link: the single call to
+   action is this guide's own form (owner decision 2026-10-17). */
 check("the confirmation says they can reach Westminster themselves",
-  doneBlock.indexOf("their own contact details are easy to find") !== -1);
+  doneBlock.indexOf("if you would rather contact westminster place yourself, their official website lists how") !== -1);
 check("success shows the server reference back to the visitor",
   doneBlock.indexOf("reference") !== -1 && doneBlock.indexOf("submissionid") !== -1);
 
@@ -1405,8 +1423,10 @@ check("the notice lists whether the assessment was taken",
   /Whether you took the six questions/.test(priv) && /assessment was not taken/.test(priv));
 check("the notice says the email also carries the interest",
   /that email contains your[\s\S]{0,200}interested in/.test(priv));
-check("the notice carries the 31 October 2026 review date",
-  priv.indexOf("Last updated: 31 October 2026") !== -1);
+/* 2026-11-01: the notice changed (wording only), so its own promise
+   "if this notice changes, the date changes with it" moves the date. */
+check("the notice carries the 1 November 2026 review date",
+  priv.indexOf("Last updated: 1 November 2026") !== -1);
 check("the published notice is byte-identical to the staged copy",
   require("fs").readFileSync("_dist/privacy.html", "utf8") === priv);
 const homeForCounts = require("fs").readFileSync("index.html", "utf8");
@@ -2260,6 +2280,212 @@ check("the two notification tails are mutually exclusive",
     !fs.existsSync("t/westminster-call-click.txt") &&
     !fs.existsSync("t/westminster-directions-click.txt") &&
     !fs.existsSync("t/westminster-inquiry-form-click.txt"));
+}
+
+/* ============================================================
+   INQUIRY DISCLOSURES MATCH THE CODE, 2026-11-01
+   What the code does: a ticked form goes to the person who runs this
+   guide (a stored record and an email to him). Nothing reaches
+   Westminster Place automatically; he decides, and passes it on by
+   hand. No Westminster phone number or form is rendered anywhere on
+   the site (removed 2026-10-17). Each sentence below said something
+   else before this date. The consent sentence and its version are
+   frozen here too: a copy fix must never move them as a side effect.
+   ============================================================ */
+{
+  const fsD = require("fs");
+  const flatLc = (s) => s.replace(/\s+/g, " ").toLowerCase();
+  const home = flatLc(fsD.readFileSync("index.html", "utf8"));
+  const app = appShown;
+  const fnSrc = fsD.readFileSync("netlify/functions/plan-visit.mjs", "utf8");
+  const guideSrc = flatLc(fsD.readFileSync("build-guides.py", "utf8"));
+  const guidePages = fsD.readdirSync("_dist/guides", { withFileTypes: true })
+    .filter((d) => d.isDirectory())
+    .map((d) => "_dist/guides/" + d.name + "/index.html")
+    .concat(["_dist/guides/index.html"])
+    .filter((f) => fsD.existsSync(f));
+
+  /* 1. The homepage no longer says Westminster's form and phone number
+        are on the page. Neither has been rendered since 2026-10-17. */
+  check("inquiry copy: homepage drops the form-and-phone-on-the-page claim",
+    home.indexOf("own form and phone number") === -1 &&
+    home.indexOf("on the page either way") === -1);
+  check("inquiry copy: homepage says where their contact details really are",
+    home.indexOf("westminster place&rsquo;s official website lists how to contact them directly") !== -1);
+  check("inquiry copy: homepage names their website without linking a second form",
+    home.indexOf("westminster-place/contact") === -1);
+
+  /* 2. Nothing promises the hand-off. The consent says "may pass". */
+  [["homepage", home], ["app.js", app]].forEach(([where, text]) => {
+    ["are passed by hand to", "your details are passed to",
+     "i pass them to westminster place", "passed to their admissions team",
+     "how this guide passes an inquiry"].forEach((p) => {
+      check("inquiry copy: no certain hand-off in " + where + ': "' + p + '"',
+        text.indexOf(p) === -1);
+    });
+  });
+  /* "below" went to pay for "may": with both, the lead wraps a ninth line
+     on a 390px phone and the First name field drops 27px (781 -> 808,
+     tools/mobile/form_reach.py). Without it the field stays at 781. */
+  check("inquiry copy: form lead says may, as the consent does",
+    app.indexOf("if you tick the box, i may pass them to westminster place") !== -1);
+  check("inquiry copy: result card says where the direct lines are published",
+    app.indexOf("they publish a direct line for each team on their website") !== -1);
+  check("inquiry copy: result card says the form can pass it on, not that it does",
+    app.indexOf("the form below is how this guide can pass an inquiry to them") !== -1);
+
+  /* 3. The confirmation agrees with the consent the visitor just ticked. */
+  ["any follow-up comes from them", "up to westminster place admissions",
+   "public organisation", "easy to find", "if admissions do get in touch"
+  ].forEach((p) => {
+    check('inquiry copy: confirmation drops "' + p + '"', doneBlock.indexOf(p) === -1);
+  });
+
+  /* 4. Every sentence this pass rewrote names the organisation, as the
+        consent has since 2026-10-26, not one of its departments. */
+  const methodology = (home.match(
+    /there is exactly one place that asks you for anything[\s\S]*?<\/li>/) || [""])[0];
+  const cardWhat = (app.match(
+    /<summary>what happens to an inquiry[\s\S]*?class="wp__why"/) || [""])[0];
+  [["methodology item", methodology], ["result card", cardWhat],
+   ["confirmation", doneBlock]].forEach(([where, text]) => {
+    check("inquiry copy: " + where + " names Westminster Place, not one department",
+      text.length > 80 && text.indexOf("westminster place") !== -1 &&
+      text.indexOf("admissions") === -1, String(text.length) + " chars");
+  });
+
+  /* 5. The independent-living guide's tour option names Westminster
+        Place, and the employment disclosure sits with it. */
+  const ilRaw = fsD.readFileSync(
+    "_dist/guides/independent-living-evanston/index.html", "utf8");
+  const tourOpt = (ilRaw.match(
+    /<a class="fork__opt" href="\/\?tour=independent#plan-visit">[\s\S]*?<\/a>/) || [""])[0];
+  const tourHead = flatLc((tourOpt.match(
+    /<span class="fork__h">([\s\S]*?)<\/span>/) || ["", ""])[1]);
+  check("inquiry copy: IL guide tour heading names Westminster Place",
+    tourHead.indexOf("westminster place") !== -1, tourHead);
+  check("inquiry copy: IL guide tour option discloses the employment where it asks",
+    flatLc(tourOpt).indexOf("he works at westminster place") !== -1);
+  check("inquiry copy: IL guide tour option says may, as the consent does",
+    flatLc(tourOpt).indexOf("may pass your details to them to arrange a tour") !== -1);
+  check("inquiry copy: IL guide tour option still sends nothing before the tick",
+    flatLc(tourOpt).indexOf("sends nothing until you tick the box") !== -1);
+
+  /* 6. Guide footers say what the homepage footer says. */
+  const OPT_IN = "nothing is passed to them unless you tick the permission box on the tour form";
+  check("inquiry copy: homepage footer carries the opt-in line", home.indexOf(OPT_IN) !== -1);
+  check("inquiry copy: guide footer source carries the same line",
+    guideSrc.indexOf(OPT_IN) !== -1 &&
+    guideSrc.indexOf("are passed to westminster place because") === -1);
+  check("inquiry copy: all built guide pages found", guidePages.length >= 16,
+    String(guidePages.length));
+  const badGuides = guidePages.filter((f) => {
+    const page = flatLc(fsD.readFileSync(f, "utf8"));
+    const foot = (page.match(/<footer class="foot">[\s\S]*?<\/footer>/) || [""])[0];
+    return foot.indexOf(OPT_IN) === -1 || page.indexOf("your details are passed") !== -1;
+  });
+  check("inquiry copy: every built guide page carries the homepage's opt-in line",
+    badGuides.length === 0, badGuides.join(" "));
+
+  /* 7. Frozen. Changing either needs its own review. */
+  const CONSENT_FROZEN =
+    "Send my name, phone, email, what I am interested in, and my " +
+    "assessment result if I took the assessment, to the person who runs " +
+    "this guide. He reads every inquiry himself and decides how to follow " +
+    "up, and he may pass my details to Westminster Place to arrange a tour.";
+  const formConsent = ((appSrcRaw.match(
+    /id="plan-consent" required>\s*<span>([\s\S]*?)<\/span>/) || ["", ""])[1])
+    .replace(/\s+/g, " ").trim();
+  check("consent frozen: the sentence on the form is unchanged",
+    formConsent === CONSENT_FROZEN, formConsent.slice(0, 50));
+  const storedConsent = (((fnSrc.match(/const CONSENT_STATEMENT =([\s\S]*?);/) ||
+    ["", ""])[1]).match(/"[^"]*"/g) || []).map((s) => s.slice(1, -1)).join("");
+  check("consent frozen: the sentence stored on each record is unchanged",
+    storedConsent === CONSENT_FROZEN, storedConsent.slice(0, 50));
+  check("consent frozen: the version is unchanged",
+    /const CONSENT_VERSION = "2026-10-26d";/.test(fnSrc));
+}
+
+/* ============================================================
+   PRIVACY NOTICE, VALIDATION MESSAGES AND HEALTH CLAIM, 2026-11-01
+   The second half of the same correction. The notice said details "are
+   given to Westminster Place Admissions", that the care level is kept so
+   "the right Admissions team is the one that calls you", and that the
+   hand-off happens "over the phone". The consent says the operator reads
+   each inquiry and MAY pass it on; nothing in the code makes that a call.
+   The homepage said "no health information leaves this device" while the
+   care level is counted on every result and sent with the form. Wording
+   only: what is collected, stored and shared is unchanged.
+   ============================================================ */
+{
+  const fsE = require("fs");
+  const flat = (s) => s.replace(/\s+/g, " ");
+  /* Visible text only: the changelog comment at the top may name what
+     was removed without that counting as the notice saying it. */
+  const notice = flat(fsE.readFileSync("staged/privacy.html", "utf8")
+    .replace(/<!--[\s\S]*?-->/g, " "));
+  const noticeLc = notice.toLowerCase();
+  const fnE = fsE.readFileSync("netlify/functions/plan-visit.mjs", "utf8");
+  const homeE = flat(fsE.readFileSync("index.html", "utf8"));
+
+  /* 1. The recipient is the organisation, as in the consent. */
+  check("notice: never names one department as the recipient",
+    noticeLc.indexOf("admissions") === -1);
+
+  /* 2. The hand-off is the one the consent describes. */
+  check("notice: the plain version sends to the operator, who may pass it on",
+    notice.indexOf("to the person who runs this guide, who may pass them to Westminster Place") !== -1);
+  check("notice: the purpose is his follow-up, and passing it on is his decision",
+    notice.indexOf("so the person who runs this guide can follow up and, if he decides to, pass your details to Westminster Place") !== -1);
+  check("notice: what happens on ticking matches the consent",
+    notice.indexOf("Your details go to the person who runs this guide, who reads every inquiry himself and decides how to follow up. He may pass your") !== -1);
+  check("notice: the transfer is stated as conditional on his passing it on",
+    notice.indexOf("If he passes them on, that is a transfer of your information to them") !== -1);
+  check("notice: the hand-off is still manual and nothing is automatic",
+    /by hand, by a person/.test(notice) &&
+    /sends nothing to Westminster Place automatically/.test(notice));
+  check("notice: Westminster Place, not the guide, decides on a tour",
+    notice.indexOf("does not guarantee a tour &mdash; Westminster Place decides that") !== -1);
+
+  /* 3. Nothing assumes the hand-off happens, or that it is a call. */
+  ["are given to westminster place", "is the one that calls you", "over the phone",
+   "undo that call", "make the call", "once the referral is made",
+   "once your details have been given"].forEach((p) => {
+    check('notice: drops "' + p + '"', noticeLc.indexOf(p) === -1);
+  });
+
+  /* 4. "No health information" no longer covers the care level. */
+  check("notice: no longer says no health information is ever collected",
+    noticeLc.indexOf("any health information, because none was ever collected") === -1);
+  check("notice: names what is never collected instead",
+    noticeLc.indexOf("any diagnosis, medications or medical history, because none of it is ever collected") !== -1);
+  check("homepage: drops 'no health information leaves this device'",
+    homeE.toLowerCase().indexOf("no health information leaves this device") === -1);
+  check("homepage: says the care level can leave, and the two ways it does",
+    homeE.indexOf("The only thing from it that leaves this device is the care level it suggests: counted with no name attached, and sent with your details only if you tick the box on the tour form.") !== -1);
+
+  /* 5. Validation messages say what the box does, the same on both sides. */
+  const TICK = "Tick the box to give permission to send your details.";
+  check("validation: the form's consent message names no department",
+    appSrcRaw.indexOf('local.push("' + TICK + '")') !== -1 &&
+    appSrcRaw.indexOf("shared with Admissions") === -1);
+  check("validation: the server's consent message matches the form's",
+    fnE.indexOf('problems.push("' + TICK + '")') !== -1 &&
+    fnE.indexOf("shared with Admissions") === -1);
+  check("validation: the contact message matches on form and server",
+    appSrcRaw.indexOf('local.push("Add a phone number or an email address.")') !== -1 &&
+    fnE.indexOf('problems.push("Add a phone number or an email address.")') !== -1 &&
+    fnE.indexOf("so Admissions can reach you") === -1);
+
+  /* 6. The confirmation lets the visitor keep the reference. */
+  check("confirmation: tells the visitor to keep the reference number",
+    doneBlock.indexOf("keep the reference number above for your records") !== -1);
+  check("confirmation: the reference is still shown above that line",
+    doneBlock.indexOf("plan__ref") !== -1 &&
+    doneBlock.indexOf("plan__ref") < doneBlock.indexOf("keep the reference number"));
+  check("confirmation: drops 'nothing to show anyone' and 'nothing to mention'",
+    doneBlock.indexOf("nothing to show anyone") === -1 &&
+    doneBlock.indexOf("nothing to mention") === -1);
 }
 
 const total = checks.length;
