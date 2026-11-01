@@ -48,13 +48,26 @@ if (SLUGS.length < 5) {
    Everything else about evidence is unchanged: the source must still be
    fetched and READ, the claim must still come off the page, and
    check-citations.sh must still resolve the URL over the network. A wider
-   allowlist is not a lower bar. */
+   allowlist is not a lower bar.
+
+   ilga.gov, gao.gov and ssa.gov PROPOSED 2026-11-01 for the Life Plan
+   contracts guide, and in force only if the owner merges that PR. That
+   guide explains an Illinois statute, so it cites the statute and the
+   Public Act where the General Assembly publishes them (ilga.gov is not a
+   subdomain of illinois.gov), the dated GAO review its contract types and
+   bankruptcy finding come from, and the Social Security Act section on
+   entrance fees as SSA publishes it. All three are government publishers
+   of the primary text. ROUTINE.md is deliberately unchanged, so the daily
+   routine's own list is still the first five hosts below. */
 const PRIMARY_HOSTS = [
   "medicare.gov",      // Medicare coverage and cost pages
   "cms.gov",           // CMS rules, fact sheets, manuals
   "illinois.gov",      // HFS, Dept on Aging, IDPH, report card
   "va.gov",            // VA pension, Aid & Attendance, survivors
   "assets.carescout.com", // the Cost of Care Survey PDF, exact host only
+  "ilga.gov",          // Illinois General Assembly: statutes, Public Acts
+  "gao.gov",           // U.S. Government Accountability Office reports
+  "ssa.gov",           // Social Security Act, as SSA publishes it
 ];
 function isPrimarySource(href) {
   const m = /^https?:\/\/([^/"?#]+)/.exec(String(href).replace(/^href="/, ""));
