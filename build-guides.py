@@ -193,6 +193,21 @@ SRC = {
                         'https://ilaging.illinois.gov/ship/aboutship.html'),
     "mtools": ('Medicare.gov — Helpful tools',
               'https://www.medicare.gov/basics/get-started-with-medicare/using-medicare/helpful-tools'),
+    # Life Plan contracts guide, 2026-11-01. The statute is cited from the
+    # General Assembly itself, not from a reproduction. The Life Care
+    # Facilities Contract Code (77 Ill. Adm. Code 396) is deliberately NOT
+    # cited: its amendments effective 2026-09-03 could not be opened, so the
+    # guide rests on the statute and IDPH alone.
+    "lcfa": ('Illinois General Assembly — Life Care Facilities Act (210 ILCS 40)',
+             'https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=1224&ChapterID=21'),
+    "pa_103_0812": ('Illinois General Assembly — Public Act 103-0812 (entry fee refund notices, effective 1 January 2025)',
+                    'https://www.ilga.gov/legislation/publicacts/fulltext.asp?Name=103-0812'),
+    "idph_lifecare": ('Illinois Department of Public Health — Life Care Facilities Program',
+                      'https://dph.illinois.gov/topics-services/health-care-regulation/life-care-facilities-program.html'),
+    "gao_10_611": ('U.S. Government Accountability Office — Continuing Care Retirement Communities Can Provide Benefits, but Not Without Some Risk (GAO-10-611, June 2010)',
+                   'https://www.gao.gov/assets/a305757.html'),
+    "ssa_1917g": ('Social Security Administration — Social Security Act § 1917(g), 42 U.S.C. 1396p(g): entrance fees and Medicaid',
+                  'https://www.ssa.gov/OP_Home/ssact/title19/1917.htm'),
 }
 
 
@@ -1374,7 +1389,10 @@ GUIDES = [
                 "<strong>written fee schedule</strong> that separates four things:</p>"
                 '<ul class="res__list">'
                 "<li>Any entrance fee or deposit &mdash; and exactly what is "
-                "refundable, to whom, and when.</li>"
+                "refundable, to whom, and when. "
+                '<a href="/guides/illinois-life-plan-contracts/">Life Plan '
+                "contracts and entrance fees in Illinois</a> explains what the "
+                "state requires and what it leaves to the contract.</li>"
                 "<li>The monthly fee, and which services sit inside it.</li>"
                 "<li>What is billed on top: a second meal, a guest room, parking, "
                 "transport beyond a set radius.</li>"
@@ -1450,13 +1468,296 @@ GUIDES = [
                 "deliberately does not. For a wartime veteran or a surviving spouse, "
                 "<a href=\"/guides/va-aid-and-attendance-benefit/\">VA Aid and "
                 "Attendance</a> is a cash benefit that can go toward any setting, "
-                "including this one.</p>",
-                "<p>This guide did not research entrance-fee refund law, Life Plan or "
-                "continuing-care contract regulation in Illinois, or how an entrance "
-                "fee interacts with Medicaid eligibility later. Those are real "
-                "questions and they are not answered here &mdash; ask a lawyer who "
-                "practises elder law in Illinois before signing anything carrying an "
-                "entrance fee.</p>"
+                "including this one.</p>"
+            ])
+        ]
+    },
+    # ----------------------------------------------------------------------
+    # Life Plan contracts and entrance fees, 2026-11-01. Every legal statement
+    # is read from 210 ILCS 40 as amended by P.A. 103-0812, or from IDPH's
+    # program page. The federal review is GAO-10-611 and is always dated
+    # 2010 in the text: its findings describe 2010, not today. No dollar
+    # figure and no refund percentage appears, because no primary source
+    # gives one that holds for any particular community.
+    # ----------------------------------------------------------------------
+    {
+        "slug": "illinois-life-plan-contracts",
+        "bridge": ("A contract tells you what happens if care is needed. It "
+                   "cannot tell you whether care is needed now."),
+        "reviewed": "2026-11-01",
+        "title": "Illinois Life Plan Contracts and Entrance Fees, Explained",
+        "h1": "Life Plan contracts and entrance fees in Illinois, explained",
+        "desc": ("Is an entrance fee refundable? What Illinois’ life care law "
+                 "requires, the 14-day right to cancel, and what to ask before you "
+                 "tour."),
+        "intent": "contract question / due diligence",
+        "answer": ("<strong>A Life Plan community usually charges an entrance fee "
+                   "plus a monthly fee, but what the entrance fee buys depends on "
+                   "the contract.</strong> Some contracts include future care with "
+                   "little change to the monthly fee; others give access to care at "
+                   "market or discounted rates. In Illinois, a contract that pairs "
+                   "an entrance fee with care for life, or for more than a year, is "
+                   "a &ldquo;life care contract&rdquo;: the community needs a state "
+                   "permit, must give you a statement of its finances before you "
+                   "pay, and must give you a 14-day window to cancel for a full "
+                   "refund. After that, a refund, or a date by which it must be "
+                   "paid, exists only if your contract promises it, and even a "
+                   "promised refund can be reduced or lost if the community "
+                   "fails."),
+        "sources": srcs("lcfa", "pa_103_0812", "idph_lifecare", "idph_al_div",
+                        "gao_10_611", "ssa_1917g"),
+        "body": [
+            ("Is this community covered by Illinois&rsquo; life care law?", [
+                "<p>Not every independent-living community is. The Illinois Life "
+                "Care Facilities Act covers a contract that does all three of "
+                "these things:</p>"
+                '<ul class="res__list">'
+                "<li>requires an entrance fee, paid up front or promised for "
+                "later;</li>"
+                "<li>provides food, shelter and laundry, plus personal care, "
+                "nursing or medical services;</li>"
+                "<li>runs for life, or for more than one year.</li></ul>",
+                "<p>A community offering that kind of contract needs a life care "
+                "permit from the Illinois Department of Public Health (IDPH). "
+                "Entering into one without a permit is a crime, a Class A "
+                "misdemeanor.</p>",
+                "<p>A rental community with no entrance fee, or a lease that "
+                "promises no care, usually falls outside the law. Assisted living "
+                "and nursing homes are licensed separately by IDPH under their own "
+                "laws, on a Life Plan campus or off one. &ldquo;Life Plan "
+                "community&rdquo; and &ldquo;CCRC&rdquo; are industry names; the "
+                "law looks at the contract.</p>",
+                "<p><strong>How to check.</strong> IDPH says about 90 campuses in "
+                "Illinois hold life care permits, most of them in the Chicago "
+                "area. To confirm that a community holds one today, email "
+                "IDPH&rsquo;s Life Care Program at DPH.Lifecare@Illinois.gov with "
+                "the community&rsquo;s name and address. A permit puts a community "
+                "under IDPH&rsquo;s financial oversight, but it is not a rating: "
+                "the law requires every permit to say it is not an approval, "
+                "recommendation or endorsement.</p>"
+            ]),
+            ("What the two fees pay for", [
+                "<p>The entrance fee secures what the contract offers. The monthly "
+                "fee pays for the housing, services and any care the contract "
+                "includes. Exactly what each covers is in the contract and its fee "
+                "schedule, not in state law.</p>",
+                "<p>How much care the entrance fee buys depends on the type of "
+                "contract. The industry uses letter labels, described in a 2010 "
+                "federal government review:</p>"
+                '<ul class="res__list">'
+                "<li><strong>Type A, &ldquo;extensive&rdquo; or &ldquo;life "
+                "care&rdquo;:</strong> the monthly fee changes little if you move "
+                "to assisted living or nursing care.</li>"
+                "<li><strong>Type B, &ldquo;modified&rdquo;:</strong> some care is "
+                "included; after an initial period you pay market or discounted "
+                "rates for more.</li>"
+                "<li><strong>Type C, &ldquo;fee-for-service&rdquo;:</strong> you "
+                "pay market rates for care as you need it.</li>"
+                "<li><strong>Type D, &ldquo;rental&rdquo;:</strong> generally no "
+                "entrance fee.</li></ul>",
+                "<p>These letters are shorthand, not Illinois legal categories, and "
+                "two contracts with the same letter can differ. Read what your "
+                "contract says happens to the monthly fee when care is needed.</p>"
+            ]),
+            ("Will you get the entrance fee back, and when?", [
+                "<p>That depends entirely on the contract. Find four answers in "
+                "each refund clause:</p>"
+                '<ol class="res__list">'
+                "<li>How much comes back.</li>"
+                "<li>Whether that amount shrinks the longer you live there.</li>"
+                "<li>When it is paid, and whether payment waits for a new resident "
+                "to move in.</li>"
+                "<li>Who receives it: you, a spouse, or your estate.</li></ol>",
+                "<p>Timing matters as much as the amount, and it is two separate "
+                "questions.</p>"
+                '<ul class="res__list">'
+                "<li><strong>When the wait starts.</strong> For the refund figures "
+                "in the notice below, Illinois law starts counting once your "
+                "apartment is permanently vacated, ready to resell and your account "
+                "is paid up, or 30 days after you move out with your account paid "
+                "up, whichever comes first. Delays caused by estate problems "
+                "outside the community&rsquo;s control, such as probate disputes, "
+                "are left out of those figures.</li>"
+                "<li><strong>When payment is due.</strong> Illinois law sets no "
+                "deadline for paying a refund after you move out or die. A contract "
+                "may promise a date, or it may not. In a 2010 federal review, "
+                "community officials said refunds usually waited until a new "
+                "resident moved into the vacated home, so a slow market meant a "
+                "longer wait.</li></ul>",
+                "<p><strong>What Illinois requires, since 1 January 2025.</strong> "
+                "If an entrance fee is refundable, the community must give you a "
+                "paper notice before you sign or pay anything. It is titled "
+                "&ldquo;ENTRY FEE REFUNDS: CONSUMER NOTICE,&rdquo; and you sign it "
+                "before the contract. For the last full calendar year, it "
+                "shows:</p>"
+                '<ul class="res__list">'
+                "<li>the average and the median number of months refunds "
+                "took;</li>"
+                "<li>of contracts still waiting for a refund at year-end, the share "
+                "waiting more than 24, 36 and 60 months;</li>"
+                "<li>how many contracts are still waiting, and how many refunds "
+                "were paid.</li></ul>",
+                "<p>The notice must also warn that past refund times may not "
+                "predict yours, and that your &ldquo;ability to collect on the full "
+                "amount of the calculated refund may be modified or nullified "
+                "pending market conditions, any future sale of this organization, "
+                "or in the event of bankruptcy.&rdquo; Current residents, former "
+                "residents waiting for a refund, and their estates can ask for the "
+                "latest figures.</p>",
+                "<p>Sometimes a community wants to use an empty apartment for "
+                "something else, such as storage, while former residents wait for "
+                "refunds. Whoever is owed those refunds, which may be an estate, "
+                "must first agree in writing, up to a set date, on a notice titled "
+                "&ldquo;ENTRY FEE REFUND DELAYS: CONSUMER NOTICE.&rdquo; The rights "
+                "it describes cannot be signed away.</p>",
+                "<p><strong>If the community gets into financial trouble.</strong> "
+                "The 2010 federal review also found that refund claims were "
+                "generally unsecured in a bankruptcy, so residents could lose the "
+                "refundable part of their fee. State officials told it they "
+                "believed such losses were rare; it described one, in Pennsylvania "
+                "in 2009.</p>"
+            ]),
+            ("What Illinois law protects, and what it leaves to you", [
+                "<p><strong>The law requires:</strong></p>"
+                '<ul class="res__list">'
+                "<li>A life care permit from IDPH.</li>"
+                "<li>A statement of the community&rsquo;s finances, including "
+                "short-term assets and liabilities, at or before signing and before "
+                "you pay anything.</li>"
+                "<li>A 14-day right to cancel with a full refund. The 14 days start "
+                "on the first full day after the last of three events: signing, "
+                "your first payment, or receiving the financial statement. Nobody "
+                "can be required to move in before they end.</li>"
+                "<li>For refundable contracts, the refund-timing notice above.</li>"
+                "<li>For a home no one has lived in yet, usually in a new building, "
+                "entrance fee payments held in escrow at an Illinois financial "
+                "institution, or covered by a letter of credit. Escrowed money is "
+                "released in stages as sales and construction milestones are "
+                "met.</li>"
+                "<li>A reserve, in escrow or as a letter of credit, covering at "
+                "least the next six months of payments on the community&rsquo;s "
+                "mortgage or other long-term debt.</li>"
+                "<li>An audited financial statement filed with IDPH every "
+                "year.</li>"
+                "<li>If IDPH&rsquo;s Director believes a community may be unable to "
+                "keep its contracts, a court case filed through the Attorney "
+                "General on behalf of residents.</li></ul>",
+                "<p><strong>The law leaves to your contract:</strong></p>"
+                '<ul class="res__list">'
+                "<li>How much of the entrance fee is refunded, and by when.</li>"
+                "<li>What happens when care needs change.</li>"
+                "<li>What happens if you can no longer pay.</li>"
+                "<li>How much the monthly fee can rise.</li></ul>",
+                "<p><strong>And it does not judge the community or guarantee "
+                "refunds.</strong> The permit is not an endorsement. Beyond money "
+                "still held in escrow, the law guarantees no refund if a community "
+                "fails.</p>",
+                "<p>In a 2010 review of eight states, federal auditors found that "
+                "Illinois required comparatively few disclosures. Illinois has "
+                "since added the refund-timing notice. For everything else you have "
+                "to ask, and the checklist below covers it.</p>"
+            ]),
+            ("When care needs change", [
+                "<p>This is the promise you are paying for, so get it in writing. "
+                "On a Life Plan campus, assisted living, memory care and nursing "
+                "care may sit next to the independent-living apartments. The "
+                "contract, not the life care law, decides:</p>"
+                '<ul class="res__list">'
+                "<li>whether you have priority for a place in those settings, or "
+                "join a waitlist;</li>"
+                "<li>what happens if no place is free: care elsewhere, and who pays "
+                "for it;</li>"
+                "<li>who decides that you need to move, and what say you, your "
+                "family and your doctor have;</li>"
+                "<li>what your monthly fee becomes after a move;</li>"
+                "<li>what happens to your apartment, and to a spouse who stays in "
+                "it.</li></ul>",
+                "<p>Those care settings are licensed by IDPH under their own laws, "
+                "and their inspection records are public. "
+                '<a href="/guides/check-illinois-inspection-records/">How to check '
+                "an Illinois care community&rsquo;s inspection record</a> shows "
+                "where to look.</p>"
+            ]),
+            ("If the money runs out", [
+                "<p>Illinois&rsquo; life care law does not answer this, so the "
+                "contract has to. Ask before you sign:</p>"
+                '<ul class="res__list">'
+                "<li>Does the contract promise any help if you can no longer pay "
+                "the monthly fee? Is there a resident assistance fund, and is it a "
+                "written promise or a policy that can change?</li>"
+                "<li>If Medicaid might pay for nursing care later, does the "
+                "campus&rsquo;s nursing care accept Medicaid?</li></ul>",
+                "<p>Federal Medicaid law can also count a refundable entrance fee as "
+                "a resource when someone applies. It counts to the extent the fee "
+                "could pay for care once other income and savings run short, if a "
+                "refund would be due on leaving or death, and if the fee gives no "
+                "ownership stake. An elder-law attorney can tell you how that "
+                "applies to a specific contract.</p>"
+            ]),
+            ("Ten questions to ask before you tour", [
+                "<p><strong>Ask them to send these first:</strong></p>"
+                '<ol class="res__list">'
+                "<li>Do you hold a life care permit from IDPH? Then confirm it with "
+                "IDPH.</li>"
+                "<li>Your financial disclosure statement and your latest audited "
+                "financial statements.</li>"
+                "<li>A sample contract and the residents&rsquo; handbook. If the "
+                "two disagree, which one controls?</li>"
+                "<li>If any plan is refundable, your &ldquo;ENTRY FEE REFUNDS: "
+                "CONSUMER NOTICE&rdquo; with the latest figures.</li>"
+                "<li>The fee schedule, and how the monthly fee changed in each of "
+                "the last five years.</li></ol>",
+                "<p><strong>Ask on the visit:</strong></p>"
+                '<ol class="res__list" start="6">'
+                "<li>Exactly how much of the entrance fee comes back, to whom, and "
+                "by what date? If the contract sets no date, what does payment "
+                "wait for?</li>"
+                "<li>If care is needed, is a place promised or waitlisted, who "
+                "decides, and what does the monthly fee become?</li>"
+                "<li>What happens if we can no longer pay, and does your nursing "
+                "care accept Medicaid?</li>"
+                "<li>Can we talk with two residents about what surprised them "
+                "after they moved in?</li></ol>",
+                "<p><strong>Before signing:</strong></p>"
+                '<ol class="res__list" start="10">'
+                "<li>Have an attorney who practices elder law in Illinois read the "
+                "contract, and a financial adviser if you use one. Keep a copy of "
+                "everything you sign. The 14-day cancellation clock starts after "
+                "the last of signing, paying, or receiving the financial "
+                "statement.</li></ol>"
+            ]),
+            ("Two ways to go from here", [
+                "<p>Neither is required to finish reading. One asks for "
+                "nothing at all; the other asks how to reach you.</p>"
+                '<div class="fork">'
+                '<a class="fork__opt" href="/?from=lifeplan-guide#assessment">'
+                '<span class="fork__h">Help me check which level of living '
+                'fits</span>'
+                '<span class="fork__p">Six questions, about two minutes. Useful '
+                'if you are not yet sure independent living is the right level. '
+                'No name, no email, no phone number, and your six answers stay '
+                'on your device.</span></a>'
+                '<a class="fork__opt" href="/?tour=independent#plan-visit">'
+                '<span class="fork__h">I&rsquo;d like to explore a tour of '
+                'Westminster Place</span>'
+                '<span class="fork__p">Bring these questions to one Evanston '
+                'community. This form asks for your name, one way to reach you '
+                'and what you are interested in, and sends nothing until you '
+                'tick the box. It reaches the person who runs this guide, who '
+                'reads every one himself. He works at Westminster Place and may '
+                'pass your details to them to arrange a tour.</span></a>'
+                '</div>',
+            ]),
+            ("Where this fits", [
+                "<p>Still deciding whether independent living suits at all? Start "
+                'with <a href="/guides/independent-living-evanston/">Independent '
+                "living in Evanston and the North Shore, explained</a>. If the "
+                "question is care rather than housing, see "
+                '<a href="/guides/levels-of-senior-care-explained/">the levels of '
+                "senior care explained</a>.</p>",
+                "<p>This page explains Illinois law in plain words, from the "
+                "sources listed below. It is not legal advice, and it cannot tell "
+                "you whether a particular contract is right for you.</p>"
             ])
         ]
     },
@@ -2276,7 +2577,7 @@ RELATED = {
     "check-illinois-inspection-records": [
         "illinois-care-facility-complaint",
         "levels-of-senior-care-explained",
-        "assisted-living-cost-illinois"],
+        "illinois-life-plan-contracts"],
     "levels-of-senior-care-explained": [
         "independent-living-evanston",
         "assisted-living-cost-illinois",
@@ -2303,7 +2604,11 @@ RELATED = {
         "illinois-senior-health-insurance-program"],
     "independent-living-evanston": [
         "levels-of-senior-care-explained",
-        "assisted-living-cost-illinois",
+        "illinois-life-plan-contracts",
+        "check-illinois-inspection-records"],
+    "illinois-life-plan-contracts": [
+        "independent-living-evanston",
+        "levels-of-senior-care-explained",
         "check-illinois-inspection-records"],
     "va-aid-and-attendance-benefit": [
         "va-veteran-directed-care-program",
@@ -2577,6 +2882,12 @@ CARDS = {
         "Housing with services, not care \u2014 what sits in the monthly fee, "
         "how it differs from licensed assisted living, and why no Illinois "
         "median appears here."),
+    "illinois-life-plan-contracts": (
+        "Costs",
+        "Life Plan contracts and entrance fees in Illinois",
+        "Whether an entrance fee comes back, the 14-day right to cancel, the "
+        "refund notice Illinois has required since 2025, and what to ask "
+        "before you pay."),
     "medicare-hospice-benefit-explained": (
         "Medicare",
         "Does Medicare pay for hospice care at home?",
