@@ -1423,8 +1423,10 @@ check("the notice lists whether the assessment was taken",
   /Whether you took the six questions/.test(priv) && /assessment was not taken/.test(priv));
 check("the notice says the email also carries the interest",
   /that email contains your[\s\S]{0,200}interested in/.test(priv));
-check("the notice carries the 31 October 2026 review date",
-  priv.indexOf("Last updated: 31 October 2026") !== -1);
+/* 2026-11-01: the notice changed (wording only), so its own promise
+   "if this notice changes, the date changes with it" moves the date. */
+check("the notice carries the 1 November 2026 review date",
+  priv.indexOf("Last updated: 1 November 2026") !== -1);
 check("the published notice is byte-identical to the staged copy",
   require("fs").readFileSync("_dist/privacy.html", "utf8") === priv);
 const homeForCounts = require("fs").readFileSync("index.html", "utf8");
@@ -2402,6 +2404,88 @@ check("the two notification tails are mutually exclusive",
     storedConsent === CONSENT_FROZEN, storedConsent.slice(0, 50));
   check("consent frozen: the version is unchanged",
     /const CONSENT_VERSION = "2026-10-26d";/.test(fnSrc));
+}
+
+/* ============================================================
+   PRIVACY NOTICE, VALIDATION MESSAGES AND HEALTH CLAIM, 2026-11-01
+   The second half of the same correction. The notice said details "are
+   given to Westminster Place Admissions", that the care level is kept so
+   "the right Admissions team is the one that calls you", and that the
+   hand-off happens "over the phone". The consent says the operator reads
+   each inquiry and MAY pass it on; nothing in the code makes that a call.
+   The homepage said "no health information leaves this device" while the
+   care level is counted on every result and sent with the form. Wording
+   only: what is collected, stored and shared is unchanged.
+   ============================================================ */
+{
+  const fsE = require("fs");
+  const flat = (s) => s.replace(/\s+/g, " ");
+  /* Visible text only: the changelog comment at the top may name what
+     was removed without that counting as the notice saying it. */
+  const notice = flat(fsE.readFileSync("staged/privacy.html", "utf8")
+    .replace(/<!--[\s\S]*?-->/g, " "));
+  const noticeLc = notice.toLowerCase();
+  const fnE = fsE.readFileSync("netlify/functions/plan-visit.mjs", "utf8");
+  const homeE = flat(fsE.readFileSync("index.html", "utf8"));
+
+  /* 1. The recipient is the organisation, as in the consent. */
+  check("notice: never names one department as the recipient",
+    noticeLc.indexOf("admissions") === -1);
+
+  /* 2. The hand-off is the one the consent describes. */
+  check("notice: the plain version sends to the operator, who may pass it on",
+    notice.indexOf("to the person who runs this guide, who may pass them to Westminster Place") !== -1);
+  check("notice: the purpose is his follow-up, and passing it on is his decision",
+    notice.indexOf("so the person who runs this guide can follow up and, if he decides to, pass your details to Westminster Place") !== -1);
+  check("notice: what happens on ticking matches the consent",
+    notice.indexOf("Your details go to the person who runs this guide, who reads every inquiry himself and decides how to follow up. He may pass your") !== -1);
+  check("notice: the transfer is stated as conditional on his passing it on",
+    notice.indexOf("If he passes them on, that is a transfer of your information to them") !== -1);
+  check("notice: the hand-off is still manual and nothing is automatic",
+    /by hand, by a person/.test(notice) &&
+    /sends nothing to Westminster Place automatically/.test(notice));
+  check("notice: Westminster Place, not the guide, decides on a tour",
+    notice.indexOf("does not guarantee a tour &mdash; Westminster Place decides that") !== -1);
+
+  /* 3. Nothing assumes the hand-off happens, or that it is a call. */
+  ["are given to westminster place", "is the one that calls you", "over the phone",
+   "undo that call", "make the call", "once the referral is made",
+   "once your details have been given"].forEach((p) => {
+    check('notice: drops "' + p + '"', noticeLc.indexOf(p) === -1);
+  });
+
+  /* 4. "No health information" no longer covers the care level. */
+  check("notice: no longer says no health information is ever collected",
+    noticeLc.indexOf("any health information, because none was ever collected") === -1);
+  check("notice: names what is never collected instead",
+    noticeLc.indexOf("any diagnosis, medications or medical history, because none of it is ever collected") !== -1);
+  check("homepage: drops 'no health information leaves this device'",
+    homeE.toLowerCase().indexOf("no health information leaves this device") === -1);
+  check("homepage: says the care level can leave, and the two ways it does",
+    homeE.indexOf("The only thing from it that leaves this device is the care level it suggests: counted with no name attached, and sent with your details only if you tick the box on the tour form.") !== -1);
+
+  /* 5. Validation messages say what the box does, the same on both sides. */
+  const TICK = "Tick the box to give permission to send your details.";
+  check("validation: the form's consent message names no department",
+    appSrcRaw.indexOf('local.push("' + TICK + '")') !== -1 &&
+    appSrcRaw.indexOf("shared with Admissions") === -1);
+  check("validation: the server's consent message matches the form's",
+    fnE.indexOf('problems.push("' + TICK + '")') !== -1 &&
+    fnE.indexOf("shared with Admissions") === -1);
+  check("validation: the contact message matches on form and server",
+    appSrcRaw.indexOf('local.push("Add a phone number or an email address.")') !== -1 &&
+    fnE.indexOf('problems.push("Add a phone number or an email address.")') !== -1 &&
+    fnE.indexOf("so Admissions can reach you") === -1);
+
+  /* 6. The confirmation lets the visitor keep the reference. */
+  check("confirmation: tells the visitor to keep the reference number",
+    doneBlock.indexOf("keep the reference number above for your records") !== -1);
+  check("confirmation: the reference is still shown above that line",
+    doneBlock.indexOf("plan__ref") !== -1 &&
+    doneBlock.indexOf("plan__ref") < doneBlock.indexOf("keep the reference number"));
+  check("confirmation: drops 'nothing to show anyone' and 'nothing to mention'",
+    doneBlock.indexOf("nothing to show anyone") === -1 &&
+    doneBlock.indexOf("nothing to mention") === -1);
 }
 
 const total = checks.length;

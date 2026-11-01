@@ -1024,7 +1024,7 @@ function wirePlanForm() {
       local.push("Add a phone number or an email address.");
     }
     if (!payload.consent) {
-      local.push("Tick the box to give permission for your details to be shared with Admissions.");
+      local.push("Tick the box to give permission to send your details.");
     }
     if (local.length) { say(local.join(" "), "error"); return; }
 
@@ -1066,8 +1066,8 @@ function wirePlanForm() {
           <p class="plan__ref">Recorded ${esc(new Date(data.receivedAt).toLocaleString())}
             &middot; reference <code>${esc(data.submissionId)}</code></p>
           <p class="plan__done-fine">If someone from Westminster Place gets in
-            touch, deal with them in the normal way &mdash; there is nothing to
-            show anyone and nothing to mention.</p>`;
+            touch, deal with them in the normal way. Keep the reference number
+            above for your records.</p>`;
         return;
       }
 
