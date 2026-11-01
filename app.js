@@ -488,7 +488,7 @@ function planFormBlock(levelId, variant, interestOverride) {
           before anything is sent anywhere.</p>
 
         <p class="plan__lead">Leave your details and I read them myself. If
-          you tick the box below, I pass them to Westminster Place so they
+          you tick the box, I may pass them to Westminster Place so they
           can arrange a tour &mdash; nothing is shared without that tick.
           They decide whether and when a tour happens; this form
           doesn&rsquo;t book anything.</p>
@@ -871,20 +871,20 @@ function renderResult() {
             <summary>What happens to an inquiry, and more about Westminster Place</summary>
             <div class="more-body">
               <p class="wp__disclosure wp__disclosure--sub">If you tick that box,
-                your details are passed to their Admissions team so they can
-                contact you about a tour, and a record is kept that your
-                inquiry came through this resource.</p>
+                your details come to me, and I may pass them to Westminster
+                Place so they can contact you about a tour. A record is kept
+                that your inquiry came through this resource.</p>
 
               <p class="wp__why">Westminster Place offers several levels of senior
                 care on one campus. During a visit, you can ask how the community
                 supports residents when their needs change and whether
                 transitioning between care settings may be possible.</p>
 
-              <p class="wp__route">They publish a direct line for each team. Yours
-                would be <strong>${esc(line.label)}</strong>, the one that handles
-                ${esc(level.name.toLowerCase())} &mdash; so a call starts in the
-                right place instead of with a transfer. The form below is how this
-                guide passes an inquiry to them.</p>
+              <p class="wp__route">They publish a direct line for each team on
+                their website. Yours would be <strong>${esc(line.label)}</strong>,
+                the one that handles ${esc(level.name.toLowerCase())} &mdash; so a
+                call starts in the right place instead of with a transfer. The form
+                below is how this guide can pass an inquiry to them.</p>
 
               <p class="wp__verify">Everything above comes from Westminster
                 Place&rsquo;s own published pages. Read what they say about
@@ -1058,17 +1058,16 @@ function wirePlanForm() {
           <p class="plan__done-h">Your interest has been recorded.</p>
           <p class="plan__done">Thanks. Your details have been saved with the
             date and time you asked. This does not schedule an appointment with
-            Westminster Place and does not guarantee a tour &mdash; what happens
-            next is up to Westminster Place Admissions. Any follow-up comes
-            from them, on their timetable, and this guide cannot promise it.
-            Westminster Place is a public organisation and
-            their own contact details are easy to find if you would rather
-            reach them yourself.</p>
+            Westminster Place and does not guarantee a tour. I read every
+            inquiry myself and decide how to follow up. If I pass your details
+            to Westminster Place, they decide whether and when to contact you,
+            and this guide cannot promise it. If you would rather contact
+            Westminster Place yourself, their official website lists how.</p>
           <p class="plan__ref">Recorded ${esc(new Date(data.receivedAt).toLocaleString())}
             &middot; reference <code>${esc(data.submissionId)}</code></p>
-          <p class="plan__done-fine">If Admissions do get in touch, deal with
-            them in the normal way &mdash; there is nothing to show anyone and
-            nothing to mention.</p>`;
+          <p class="plan__done-fine">If someone from Westminster Place gets in
+            touch, deal with them in the normal way &mdash; there is nothing to
+            show anyone and nothing to mention.</p>`;
         return;
       }
 

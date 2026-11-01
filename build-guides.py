@@ -1396,11 +1396,14 @@ GUIDES = [
                 'name, no email, no phone number, and your answers never '
                 'leave your device.</span></a>'
                 '<a class="fork__opt" href="/?tour=independent#plan-visit">'
-                '<span class="fork__h">I&rsquo;d like to explore a tour</span>'
+                '<span class="fork__h">I&rsquo;d like to explore a tour of '
+                'Westminster Place</span>'
                 '<span class="fork__p">Skip the questions entirely. This one '
                 'asks for your name and one way to reach you, and sends '
                 'nothing until you tick the box. It reaches the person who '
-                'runs this guide, who reads every one himself.</span></a>'
+                'runs this guide, who reads every one himself. He works at '
+                'Westminster Place and may pass your details to them to '
+                'arrange a tour.</span></a>'
                 '</div>',
             ]),
             ("Who it tends to suit", [
@@ -2148,9 +2151,8 @@ FOOT = """  </div>
     <p class="foot__name">Evanston Senior Care Guide</p>
     <p>Independently developed by an employee of Westminster Place. This is not
       an official Westminster Place website. I receive no referral fees from
-      Westminster Place. If you ask to be contacted about a tour, your details
-      are passed to Westminster Place because that is what you asked for;
-      nothing is passed on unless you tick that permission box.</p>
+      Westminster Place. Nothing is passed to them unless you tick the
+      permission box on the tour form.</p>
     <p class="foot__fine">These guides are educational and are not medical,
       legal or financial advice. Confirm anything that matters with the agency,
       plan or provider directly. <a class="foot__link" href="/privacy.html">Privacy
