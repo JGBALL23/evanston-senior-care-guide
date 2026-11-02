@@ -1274,6 +1274,20 @@ check("IL guide: the paragraph saying it did not research entrance fees is gone"
 check("IL guide: related names the Life Plan guide in place of the cost guide",
   relatedLinks["independent-living-evanston"].indexOf(LP) !== -1 &&
   relatedLinks["independent-living-evanston"].indexOf("assisted-living-cost-illinois") === -1);
+/* Owner decision, 2026-11-02: the Life Plan guide's second inbound link
+   comes from the levels-of-care guide, in place of its Medicare link (that
+   guide's body already links to the Medicare guide). The inspection-records
+   guide keeps the cost guide. */
+check("levels guide: related names the Life Plan guide and keeps the cost guide",
+  relatedLinks["levels-of-senior-care-explained"].indexOf(LP) !== -1 &&
+  relatedLinks["levels-of-senior-care-explained"].indexOf("assisted-living-cost-illinois") !== -1);
+check("levels guide: the Medicare guide is still linked from its article body",
+  /href="\/guides\/does-medicare-pay-for-senior-care\/"/.test(
+    page["levels-of-senior-care-explained"].slice(0,
+      page["levels-of-senior-care-explained"].indexOf('<section class="res__block related">'))));
+check("inspection guide: related list keeps the cost guide",
+  relatedLinks["check-illinois-inspection-records"].indexOf("assisted-living-cost-illinois") !== -1 &&
+  relatedLinks["check-illinois-inspection-records"].indexOf(LP) === -1);
 
 console.log("\n  " + pass + " passed, " + fail + " failed   (" + (pass + fail) + " checks)");
 process.exit(fail === 0 ? 0 : 1);

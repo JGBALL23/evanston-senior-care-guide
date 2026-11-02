@@ -2577,11 +2577,11 @@ RELATED = {
     "check-illinois-inspection-records": [
         "illinois-care-facility-complaint",
         "levels-of-senior-care-explained",
-        "illinois-life-plan-contracts"],
+        "assisted-living-cost-illinois"],
     "levels-of-senior-care-explained": [
         "independent-living-evanston",
         "assisted-living-cost-illinois",
-        "does-medicare-pay-for-senior-care"],
+        "illinois-life-plan-contracts"],
     "illinois-community-care-program": [
         "illinois-family-caregiver-support-program",
         "va-veteran-directed-care-program",
