@@ -211,6 +211,10 @@ SRC = {
                                 'https://ilaging.illinois.gov/benefitsaccess/eligibility-20and-20frequently-asked-questions.html'),
     "idoa_benefit_access_ridefree": ('Illinois Department on Aging — Benefit Access, Ride Free Transit Benefit',
                                      'https://ilaging.illinois.gov/benefitsaccess/ride-free-transit-benefit.html'),
+    "idoa_nutrition": ('Illinois Department on Aging — Senior Nutrition Program',
+                       'https://ilaging.illinois.gov/programs/nutrition.html'),
+    "idoa_aaa": ('Illinois Department on Aging — Area Agencies on Aging',
+                'https://ilaging.illinois.gov/forprofessionals/areaagenciesonaging.html'),
 }
 
 
@@ -2600,6 +2604,120 @@ GUIDES = [
             ]),
         ],
     },
+
+    {
+        "slug": "illinois-home-delivered-meals",
+        "bridge": ("Knowing your parent can get a meal delivered to the door is a "
+               "different question from knowing whether living alone, even "
+               "well-fed, is still safe."),
+        "reviewed": "2026-11-02",
+        "title": "Can My Parent Get Home-Delivered Meals in Illinois?",
+        "h1": "Can my parent get home-delivered meals in Illinois?",
+        "desc": ("Illinois funds a Senior Nutrition Program that delivers meals "
+                 "to older adults who cannot easily cook or shop for themselves "
+                 "&mdash; what it actually covers, who it is for, and how to "
+                 "reach the agency that runs it where you live."),
+        "intent": "staying at home",
+        "answer": ("Likely yes. The Illinois Department on Aging funds a "
+                   "<strong>Senior Nutrition Program</strong> that pays local "
+                   "providers to deliver meals to the homes of older adults, "
+                   "alongside group dining at community sites. The "
+                   "department's own page states this is for "
+                   "<strong>older adults age 60 and up</strong> &mdash; it does "
+                   "not publish an income limit or a fee for the service. You "
+                   "do not apply to the state directly; you contact your local "
+                   "<strong>Area Agency on Aging</strong> or a nutrition "
+                   "provider, and the easiest way to be connected to the "
+                   "right one is the Senior HelpLine."),
+        "sources": srcs("idoa_nutrition", "idoa_aaa"),
+        "body": [
+            ("What the Senior Nutrition Program actually provides", [
+                "<p>The Illinois Department on Aging funds local providers "
+                "under what it calls the Senior Nutrition Program, with two "
+                "main services. <strong>Home-delivered meals</strong> are "
+                "brought to an older adult's home, largely by volunteers. "
+                "<strong>Group, or congregate, dining</strong> happens at "
+                "around 400 sites statewide &mdash; senior centres, churches, "
+                "senior housing, community buildings, and in some areas "
+                "restaurants and food trucks.</p>",
+                "<p>The department states that every meal served under the "
+                "programme must provide at least one-third of the daily "
+                "recommended dietary allowances. Providers also offer "
+                "nutrition screening &mdash; a nutritional-risk checklist "
+                "available in English and Spanish &mdash; plus nutrition "
+                "education, counselling and cooking classes in some areas.</p>",
+                "<p>A related benefit on the same page is the "
+                "<strong>Senior Farmers Market Nutrition Program</strong>: "
+                "in 37 counties, eligible seniors receive checks, distributed "
+                "at local senior facilities, that can be redeemed for fresh "
+                "produce at participating farmers' markets during a season "
+                "the department runs from 10 July to 31 October. Ask your "
+                "local Area Agency on Aging whether your county is one of "
+                "the 37 and whether your parent qualifies.</p>",
+            ]),
+            ("Who qualifies, and what this guide will not publish", [
+                "<p>The department's nutrition page states home-delivered "
+                "meals are for <strong>older adults age 60+</strong>. It does "
+                "not state an income test for either home-delivered meals or "
+                "group dining, and it does not state a fee or a suggested "
+                "donation amount on that page. Rather than guess at a cost or "
+                "an income cut-off the state's own page does not give, this "
+                "guide leaves both out &mdash; ask the provider you are "
+                "referred to what, if anything, is asked of your household "
+                "when you sign up.</p>",
+                "<p>The page also does not say whether a waiting list exists "
+                "in any given area, or how long it typically takes to start "
+                "receiving meals once contacted. Demand for Older Americans "
+                "Act services can outrun funding in a given county in a given "
+                "year; this guide will not predict your parent's wait from a "
+                "state webpage that does not address it. Ask the local agency "
+                "directly when you call.</p>",
+            ]),
+            ("Finding the agency that covers Evanston", [
+                "<p>Illinois delivers this programme through a network of "
+                "<strong>Area Agencies on Aging</strong>, each covering a "
+                "Planning and Service Area the department has drawn across "
+                "the state. The department's own Area Agencies on Aging page "
+                "lets you find yours by clicking a map, browsing a list, or "
+                "picking your county from a drop-down &mdash; and it lists "
+                "Cook County twice, once for the City of Chicago and once "
+                "for suburban Cook County, so Evanston families need to pick "
+                "the entry that actually matches a north-suburban address, "
+                "not the Chicago one.</p>",
+                "<p>The department's map-based lookup tool is not something "
+                "this guide can read and quote text from, so it will not "
+                "name a specific agency, address or direct phone number here "
+                "that it did not itself verify on the page. The reliable "
+                "route is the same one the department gives on its nutrition "
+                "page: call the <strong>Senior HelpLine</strong> at "
+                "<strong>1-800-252-8966 (711 TRS)</strong> and ask to be "
+                "connected to the nutrition provider or Area Agency on Aging "
+                "that covers your parent's address.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>This is a different programme from the one most families "
+                "find first. "
+                '<a href="/guides/illinois-community-care-program/">Can my '
+                "parent get paid help at home in Illinois?</a> covers "
+                "homemaker help, adult day service and emergency response "
+                "through the Community Care Program, which runs on its own "
+                "asset and need test. The nutrition programme described here "
+                "is funded separately, under the federal Older Americans Act, "
+                "and is not means-tested on this page the way the Community "
+                "Care Program is.</p>",
+                "<p>If the person who needs support is the one doing the "
+                "caring rather than the one being cared for, see "
+                '<a href="/guides/illinois-family-caregiver-support-program/">Is '
+                "there help for the caregiver, not just the parent?</a></p>",
+                "<p>If the open question in your family is whether home is "
+                "still the right setting at all, rather than whether a meal "
+                'can get delivered to it, the <a href="/">free six-question '
+                "assessment</a> on this site walks through that separately. "
+                "It asks for no name, no email and no phone number, and your "
+                "answers never leave your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -3028,6 +3146,12 @@ CARDS = {
         "transit rides and a discounted vehicle registration — the "
         "income limits and how to apply, read off the Department on "
         "Aging's own page."),
+    "illinois-home-delivered-meals": (
+        "Staying at home",
+        "Can my parent get home-delivered meals in Illinois?",
+        "A state-funded nutrition programme delivers meals to older "
+        "adults who cannot easily cook or shop for themselves — what "
+        "it covers, and who to call."),
 }
 
 
