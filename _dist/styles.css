@@ -374,6 +374,9 @@ a:focus-visible, button:focus-visible {
 }
 .res__list { margin: 0; padding-left: 24px; font-size: 17.5px; color: var(--ink-soft); }
 .res__list li { margin-bottom: 9px; }
+/* Numbered guide lists (first used 2026-11-01, the Life Plan checklist) need
+   room for a two-digit marker, or "10." hangs outside the text column. */
+ol.res__list { padding-left: 34px; }
 
 .res__cost {
   display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 16px;

@@ -48,13 +48,26 @@ if (SLUGS.length < 5) {
    Everything else about evidence is unchanged: the source must still be
    fetched and READ, the claim must still come off the page, and
    check-citations.sh must still resolve the URL over the network. A wider
-   allowlist is not a lower bar. */
+   allowlist is not a lower bar.
+
+   ilga.gov, gao.gov and ssa.gov PROPOSED 2026-11-01 for the Life Plan
+   contracts guide, and in force only if the owner merges that PR. That
+   guide explains an Illinois statute, so it cites the statute and the
+   Public Act where the General Assembly publishes them (ilga.gov is not a
+   subdomain of illinois.gov), the dated GAO review its contract types and
+   bankruptcy finding come from, and the Social Security Act section on
+   entrance fees as SSA publishes it. All three are government publishers
+   of the primary text. ROUTINE.md is deliberately unchanged, so the daily
+   routine's own list is still the first five hosts below. */
 const PRIMARY_HOSTS = [
   "medicare.gov",      // Medicare coverage and cost pages
   "cms.gov",           // CMS rules, fact sheets, manuals
   "illinois.gov",      // HFS, Dept on Aging, IDPH, report card
   "va.gov",            // VA pension, Aid & Attendance, survivors
   "assets.carescout.com", // the Cost of Care Survey PDF, exact host only
+  "ilga.gov",          // Illinois General Assembly: statutes, Public Acts
+  "gao.gov",           // U.S. Government Accountability Office reports
+  "ssa.gov",           // Social Security Act, as SSA publishes it
 ];
 function isPrimarySource(href) {
   const m = /^https?:\/\/([^/"?#]+)/.exec(String(href).replace(/^href="/, ""));
@@ -1167,6 +1180,114 @@ check("the homepage still names the independent-living guide", homeGuideLinks.ha
 homeGuideLinks.forEach((l) => {
   check("homepage guide link resolves: " + l, SLUGS.indexOf(l) !== -1);
 });
+
+/* ---- LIFE PLAN CONTRACTS GUIDE, 2026-11-01 ----
+   Explains what Illinois' life care law requires and what it leaves to the
+   contract. These gates hold the owner's review corrections: the opening
+   says an entrance fee buys different things under different contracts;
+   when a refund wait starts and whether a payment date exists stay two
+   separate questions; every finding of the 2010 federal review carries its
+   year; and the page promises nothing the law does not. */
+const LP = "illinois-life-plan-contracts";
+const lp = page[LP] || "";
+const lpArticle = lp.slice(lp.indexOf("<h1"), lp.indexOf('<h2 class="res__h">Sources</h2>'));
+const lpText = flat(decode(lpArticle.replace(/<[^>]+>/g, " ")));
+const lpAnswer = flat(decode(((lp.match(
+  /<p class="res__why-label">Short answer<\/p>\s*<p>([\s\S]*?)<\/p>/) || ["", ""])[1])
+  .replace(/<[^>]+>/g, "")));
+check("life plan: the guide is built", lpArticle.length > 4000, String(lpArticle.length));
+check("life plan: the answer says the contract decides what the fee buys",
+  lpAnswer.indexOf("what the entrance fee buys depends on the contract") !== -1);
+check("life plan: the answer names both kinds of care promise",
+  lpAnswer.indexOf("little change to the monthly fee") !== -1 &&
+  lpAnswer.indexOf("market or discounted rates") !== -1);
+check("life plan: the answer gives the 14-day right to cancel",
+  lpAnswer.indexOf("14-day window to cancel for a full refund") !== -1);
+check("life plan: the answer says a later refund exists only by contract",
+  lpAnswer.indexOf("exists only if your contract promises it") !== -1);
+check("life plan: not every community is said to be covered",
+  lpText.indexOf("Not every independent-living community is.") !== -1 &&
+  lpText.indexOf("the law looks at the contract") !== -1);
+const lpStart = lpText.indexOf("When the wait starts."), lpDue = lpText.indexOf("When payment is due.");
+check("life plan: when the wait starts and when payment is due are separate",
+  lpStart !== -1 && lpDue > lpStart);
+check("life plan: the wait is counted as Sec. 5.1(b) counts it",
+  lpText.indexOf("For the refund figures in the notice below") !== -1 &&
+  lpText.indexOf("permanently vacated, ready to resell and your account is paid up, " +
+    "or 30 days after you move out with your account paid up, whichever comes first") !== -1);
+check("life plan: no statutory payment deadline is claimed",
+  lpText.indexOf("Illinois law sets no deadline for paying a refund") !== -1 &&
+  lpText.indexOf("A contract may promise a date, or it may not.") !== -1);
+check("life plan: both notices are named by their statutory titles",
+  lpText.indexOf("ENTRY FEE REFUNDS: CONSUMER NOTICE") !== -1 &&
+  lpText.indexOf("ENTRY FEE REFUND DELAYS: CONSUMER NOTICE") !== -1);
+check("life plan: the notice's required warning is quoted, not paraphrased",
+  lpText.indexOf("ability to collect on the full amount of the calculated refund may be " +
+    "modified or nullified pending market conditions, any future sale of this " +
+    "organization, or in the event of bankruptcy") !== -1);
+check("life plan: the 14 days start after the last of three events",
+  lpText.indexOf("first full day after the last of three events") !== -1);
+check("life plan: a permit is not an endorsement, in the law's words",
+  lpText.indexOf("not an approval, recommendation or endorsement") !== -1);
+const lpFederal = lpText.split(/(?<=[.?!:;])\s+/)
+  .filter((t) => /federal (government )?review|federal auditors/i.test(t));
+check("life plan: every finding of the federal review carries its year",
+  lpFederal.length >= 4 && lpFederal.every((t) => t.indexOf("2010") !== -1),
+  lpFederal.length + " sentences");
+check("life plan: no dollar figure or percentage", !/\$\s?\d|%/.test(lpText));
+check("life plan: the guide does not rest on the unverified 2026 rules",
+  lp.indexOf("Adm. Code") === -1 && !/\b396\b/.test(lpText));
+check("life plan: it says it is not legal advice",
+  lpText.indexOf("It is not legal advice") !== -1 &&
+  lpText.indexOf("attorney who practices elder law in Illinois") !== -1);
+check("life plan: Westminster Place appears only in the optional tour choice",
+  lc(lpArticle.replace(/<div class="fork">[\s\S]*?<\/div>/, "")).indexOf("westminster") === -1);
+const lpTour = flat((lp.match(
+  /<a class="fork__opt" href="\/\?tour=independent#plan-visit">[\s\S]*?<\/a>/) || [""])[0]).toLowerCase();
+check("life plan: the tour choice discloses the employment where it asks",
+  lpTour.indexOf("he works at westminster place") !== -1);
+check("life plan: the tour choice says may, as the consent does",
+  lpTour.indexOf("may pass your details to them to arrange a tour") !== -1);
+check("life plan: the tour choice lists what the form asks for and sends nothing first",
+  lpTour.indexOf("your name, one way to reach you and what you are interested in") !== -1 &&
+  lpTour.indexOf("sends nothing until you tick the box") !== -1);
+const lpQuiz = flat((lp.match(
+  /<a class="fork__opt" href="\/\?from=lifeplan-guide#assessment">[\s\S]*?<\/a>/) || [""])[0]).toLowerCase();
+check("life plan: the assessment choice asks for nothing",
+  lpQuiz.indexOf("no name, no email, no phone number") !== -1 &&
+  lpQuiz.indexOf("your six answers stay on your device") !== -1);
+["ilga.gov/legislation/ilcs/ilcs3.asp?ActID=1224", "fulltext.asp?Name=103-0812",
+ "life-care-facilities-program.html", "gao.gov/assets/a305757.html",
+ "ssa.gov/OP_Home/ssact/title19/1917.htm"].forEach((u) => {
+  check("life plan: cites " + u, lp.indexOf(u) !== -1);
+});
+const ilp = page["independent-living-evanston"];
+const ilpCost = (ilp.match(
+  /What it costs, and the figure this guide will not give you<\/h2>[\s\S]*?<\/section>/) || [""])[0];
+check("IL guide: the entrance-fee bullet links to the Life Plan guide",
+  /Any entrance fee or deposit[\s\S]{0,200}?href="\/guides\/illinois-life-plan-contracts\/"/.test(ilpCost));
+check("IL guide: one forward link to the Life Plan guide in the article",
+  (ilp.slice(ilp.indexOf("<h1"), ilp.indexOf('<section class="res__block related">'))
+    .match(/href="\/guides\/illinois-life-plan-contracts\/"/g) || []).length === 1);
+check("IL guide: the paragraph saying it did not research entrance fees is gone",
+  lc(ilp).indexOf("did not research entrance-fee refund law") === -1);
+check("IL guide: related names the Life Plan guide in place of the cost guide",
+  relatedLinks["independent-living-evanston"].indexOf(LP) !== -1 &&
+  relatedLinks["independent-living-evanston"].indexOf("assisted-living-cost-illinois") === -1);
+/* Owner decision, 2026-11-02: the Life Plan guide's second inbound link
+   comes from the levels-of-care guide, in place of its Medicare link (that
+   guide's body already links to the Medicare guide). The inspection-records
+   guide keeps the cost guide. */
+check("levels guide: related names the Life Plan guide and keeps the cost guide",
+  relatedLinks["levels-of-senior-care-explained"].indexOf(LP) !== -1 &&
+  relatedLinks["levels-of-senior-care-explained"].indexOf("assisted-living-cost-illinois") !== -1);
+check("levels guide: the Medicare guide is still linked from its article body",
+  /href="\/guides\/does-medicare-pay-for-senior-care\/"/.test(
+    page["levels-of-senior-care-explained"].slice(0,
+      page["levels-of-senior-care-explained"].indexOf('<section class="res__block related">'))));
+check("inspection guide: related list keeps the cost guide",
+  relatedLinks["check-illinois-inspection-records"].indexOf("assisted-living-cost-illinois") !== -1 &&
+  relatedLinks["check-illinois-inspection-records"].indexOf(LP) === -1);
 
 console.log("\n  " + pass + " passed, " + fail + " failed   (" + (pass + fail) + " checks)");
 process.exit(fail === 0 ? 0 : 1);
