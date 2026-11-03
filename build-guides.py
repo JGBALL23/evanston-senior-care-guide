@@ -215,6 +215,14 @@ SRC = {
                        'https://ilaging.illinois.gov/programs/nutrition.html'),
     "idoa_aaa": ('Illinois Department on Aging — Area Agencies on Aging',
                 'https://ilaging.illinois.gov/forprofessionals/areaagenciesonaging.html'),
+    "idoa_aps_program": ('Illinois Department on Aging — Adult Protective Services (APS)',
+                        'https://ilaging.illinois.gov/programs/adult-protective-services-aps-.html'),
+    "idoa_aps_definitions": ('Illinois Department on Aging — APS Definitions',
+                            'https://ilaging.illinois.gov/protectionadvocacy/aps-definitions.html'),
+    "idoa_aps_abuse": ('Illinois Department on Aging — Abuse, Neglect and Exploitation',
+                       'https://ilaging.illinois.gov/protectionadvocacy/abuse.html'),
+    "idoa_engage": ('Illinois Department on Aging — Engage2Change (what happens after a report)',
+                    'https://ilaging.illinois.gov/engage.html'),
 }
 
 
@@ -2718,6 +2726,145 @@ GUIDES = [
             ]),
         ],
     },
+
+    {
+        "slug": "illinois-elder-abuse-reporting",
+        "bridge": ("Reporting a suspected problem is a different question from "
+               "deciding whether the living situation that let it happen can "
+               "still be made safe."),
+        "reviewed": "2026-11-03",
+        "title": "What to Do About Suspected Elder Abuse or Neglect at Home in Illinois",
+        "h1": "What to do about suspected elder abuse or neglect at home in Illinois",
+        "desc": ("Illinois runs a statewide Adult Protective Services hotline for "
+                 "abuse, neglect, exploitation and self-neglect of an older adult "
+                 "living in the community &mdash; a different line from the one "
+                 "that covers a nursing home or assisted living facility. Here is "
+                 "who it covers, what the state's own pages say happens after you "
+                 "call, and the line it does not reach."),
+        "intent": "how-to / safety",
+        "answer": ("Call the Illinois <strong>Adult Protective Services (APS) "
+                   "hotline at 1-866-800-1409</strong>, 24 hours a day (711 for "
+                   "Illinois Relay). The Illinois Department on Aging says APS "
+                   "&ldquo;investigates reports of abuse, neglect, exploitation, "
+                   "and self-neglect of adults age 60 or older, and adults age "
+                   "18-59 with disabilities living in the community.&rdquo; That "
+                   "last phrase matters: APS is for someone living at home or in "
+                   "the community, not in a nursing home or assisted living "
+                   "facility &mdash; a suspected problem there goes to the Long-"
+                   "Term Care Ombudsman or the Illinois Department of Public "
+                   "Health instead."),
+        "sources": srcs("idoa_aps_program", "idoa_aps_definitions", "idoa_engage"),
+        "body": [
+            ("Two different hotlines, and this guide is about one of them", [
+                "<p>Illinois splits elder-safety reporting the same way it "
+                "splits facility complaints: by where the person lives. If "
+                "your parent lives in their own home, an apartment, or with "
+                "family &mdash; anywhere outside a licensed care facility "
+                "&mdash; the Illinois Department on Aging's <strong>Adult "
+                "Protective Services</strong> program is the state channel. "
+                "Its own programme page states it &ldquo;investigates reports "
+                "of abuse, neglect, exploitation, and self-neglect of adults "
+                "age 60 or older, and adults age 18-59 with disabilities "
+                "living in the community.&rdquo;</p>",
+                "<p>A concern about a nursing home or assisted living "
+                "community is a different problem with a different number "
+                "&mdash; the Long-Term Care Ombudsman Program or the Illinois "
+                "Department of Public Health's Central Complaint Registry, "
+                "both covered in "
+                '<a href="/guides/illinois-care-facility-complaint/">How to '
+                "report a problem at an Illinois care facility</a>. That "
+                "guide notes an unexplained number &mdash; "
+                "<strong>1-866-800-1409</strong> &mdash; sitting on the "
+                "Ombudsman Program's page without any description of what it "
+                "reaches. Having now read the Department on Aging's own APS "
+                "page, that number is the Adult Protective Services hotline "
+                "described here, not a facility line.</p>",
+            ]),
+            ("What counts as abuse, neglect, exploitation and self-neglect", [
+                "<p>The Department on Aging's APS Definitions page gives "
+                "short, plain definitions for each term it investigates. "
+                "<strong>Abuse</strong> &ldquo;means causing any physical, "
+                "mental, or sexual injury to an eligible adult,&rdquo; and the "
+                "department folds financial harm into the same word: abuse "
+                "includes &ldquo;exploitation of such adult's financial "
+                "resources.&rdquo; <strong>Neglect</strong> is defined as "
+                "&ldquo;another individual's failure to provide an eligible "
+                "adult with or willful withholding from an eligible adult&rdquo; "
+                "the basic necessities of life, &ldquo;including, but not "
+                "limited to, food, clothing, shelter, or health care.&rdquo; "
+                "<strong>Financial exploitation</strong> is &ldquo;use of an "
+                "eligible adult's resources by another to the disadvantage of "
+                "that adult&rdquo; or for &ldquo;the profit or advantage of a "
+                "person other than that adult.&rdquo;</p>",
+                "<p>The same page lists <strong>self-neglect</strong> as its "
+                "own allegation type &mdash; a report that an older adult's "
+                "own inability to care for themselves, with no one else at "
+                "fault, has put them at risk &mdash; but the page this guide "
+                "read does not itself spell out a definition for that term. A "
+                "family worried that a parent living alone is no longer "
+                "managing &mdash; not eating, not taking medication, not "
+                "keeping the home safe &mdash; does not need a suspect to "
+                "call; self-neglect on its own is a reportable concern.</p>",
+            ]),
+            ("How to report, and what the state says happens next", [
+                "<p>The hotline is <strong>1-866-800-1409</strong>, which the "
+                "department's APS Definitions page gives as the number "
+                "&ldquo;to report abuse, neglect, or exploitation,&rdquo; "
+                "alongside <strong>711</strong> for Illinois Relay for deaf and "
+                "speech-impaired callers. The department's Engage page, aimed "
+                "at explaining the process to someone thinking about calling, "
+                "says a report can be made anonymously and that &ldquo;your "
+                "name as the reporter is confidential&rdquo; &mdash; it adds "
+                "that your identity is not disclosed without your written "
+                "permission or a court order.</p>",
+                "<p>That same page describes what happens after a report "
+                "reaches a local agency: &ldquo;a trained caseworker responds "
+                "within a specified time period depending on the severity of "
+                "the case,&rdquo; then talks with the older adult about the "
+                "risks and what services in the community could lower them "
+                "&mdash; naming caregiver support, housing help and training "
+                "as examples. The programme page adds that APS is &ldquo;"
+                "locally coordinated through 36 provider agencies,&rdquo; with "
+                "caseworkers &ldquo;trained and certified by the Illinois "
+                "Department on Aging.&rdquo;</p>",
+            ]),
+            ("What this guide will not state as a fixed rule", [
+                "<p>The department's own pages do not give a specific response "
+                "time &mdash; only that it varies with how serious the "
+                "caseworker judges the situation to be, so this guide will not "
+                "invent a number of hours or days. Nor do the pages this guide "
+                "read state who, by law, is required to report &mdash; a "
+                "<strong>mandated reporter</strong> page exists and is linked "
+                "from the department's site, but this guide did not fetch it, "
+                "so it will not describe mandated-reporter rules on the "
+                "strength of a link alone. And while the Engage page mentions, "
+                "in a single success story, that a case was referred to a "
+                "State's Attorney, nothing on the pages read states a general "
+                "rule for when or whether law enforcement gets involved "
+                "&mdash; that single anecdote is not a stated procedure, and "
+                "this guide will not present it as one.</p>",
+                "<p>If a resident's life or safety is at risk right now, call "
+                "911 first. Reporting to APS afterward is still worth doing, "
+                "but it is not built to be an emergency response line.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>Suspecting abuse or neglect at home often surfaces a "
+                "harder question underneath it: whether living alone, even "
+                "with the concern addressed, is still realistic for your "
+                "parent. If the real question is whether the current setting "
+                "still fits, the "
+                '<a href="/">free six-question assessment</a> on this site '
+                "walks through that separately. It asks for no name, no "
+                "email and no phone number, and your answers never leave your "
+                "device.</p>",
+                "<p>If the person who needs support is the one doing the "
+                "caring, not the one being cared for, see "
+                '<a href="/guides/illinois-family-caregiver-support-program/">Is '
+                "there help for the caregiver, not just the parent, in "
+                "Illinois?</a></p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -3152,6 +3299,12 @@ CARDS = {
         "A state-funded nutrition programme delivers meals to older "
         "adults who cannot easily cook or shop for themselves — what "
         "it covers, and who to call."),
+    "illinois-elder-abuse-reporting": (
+        "Staying at home",
+        "What to do about suspected elder abuse at home",
+        "A statewide Adult Protective Services hotline covers abuse, "
+        "neglect, exploitation and self-neglect of an older adult living "
+        "at home — a different line from the one for a care facility."),
 }
 
 
