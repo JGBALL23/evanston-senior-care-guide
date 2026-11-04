@@ -26,6 +26,14 @@ Guides added later carry their own "reviewed" date and their own sources;
 guide, the latter verified against four HFS pages including the 22 January
 2026 spousal impoverishment notice.
 
+2026-11-04 (Experiment 1): the cost guide was re-verified against the same
+CareScout PDF, and its "What this means in Evanston" section was rewritten
+from the Assisted Living and Shared Housing Act (210 ILCS 9/15, 9/85 and
+9/90 on ilga.gov, an approved legal source, cross-checked against Public Act
+104-0589) and IDPH's assisted living page. Four listing websites were read
+only to describe what kind of number they publish; no figure from any of
+them is printed.
+
 Nothing here is from a lead-generation aggregator. If a figure cannot be
 read from a government or survey primary source, it does not go on a page.
 
@@ -133,6 +141,20 @@ SRC = {
                       'https://hfs.illinois.gov/medicalproviders/medicaidreimbursement/supportivelivinging.html'),
     "idph_al_div": ('Illinois Department of Public Health \u2014 Assisted Living',
                     'https://dph.illinois.gov/topics-services/health-care-regulation/assisted-living.html'),
+    # The Assisted Living and Shared Housing Act, read on ilga.gov 2026-11-04.
+    # Section 15 was amended by P.A. 104-0589; the sentences relied on here
+    # (assessment before admission, at least yearly and after a significant
+    # change, the service plan as the basis for the contract) read the same
+    # in that Act. Sections 85 and 90 are unamended since 2005.
+    "ilcs_al_15": ('Assisted Living and Shared Housing Act, 210 ILCS 9/15 \u2014 '
+                   'assessment and service plan',
+                   'https://www.ilga.gov/legislation/ilcs/documents/021000090K15.htm'),
+    "ilcs_al_85": ('Assisted Living and Shared Housing Act, 210 ILCS 9/85 \u2014 '
+                   'contract requirements',
+                   'https://www.ilga.gov/legislation/ilcs/documents/021000090K85.htm'),
+    "ilcs_al_90": ('Assisted Living and Shared Housing Act, 210 ILCS 9/90 \u2014 '
+                   'contents of the contract',
+                   'https://www.ilga.gov/legislation/ilcs/documents/021000090K90.htm'),
     "idph": ('Illinois Department of Public Health — Health Care Report Card',
              'https://healthcarereportcard.illinois.gov/'),
     "idoa_ccp": ('Illinois Department on Aging — Community Care Program',
@@ -222,7 +244,12 @@ GUIDES = [
                    "What a family actually pays depends on the level of care assessed, "
                    "whether a second person is living in the apartment, and a one-time "
                    "community fee that the monthly figure never includes."),
-        "sources": srcs("carescout", "hfs_slf"),
+        # Re-verified 2026-11-04 when the Evanston section was rewritten: the
+        # three CareScout figures were read again from the PDF, so this guide
+        # now carries its own date instead of the original five's default.
+        "reviewed": "2026-11-04",
+        "sources": srcs("carescout", "idph_al_div", "ilcs_al_15", "ilcs_al_85",
+                        "ilcs_al_90", "hfs_slf"),
         "body": [
             ("What the median actually measures", [
                 "<p>A median is the middle of a range. Half of Illinois communities "
@@ -255,16 +282,68 @@ GUIDES = [
                 "each of the last three years. A community that cannot answer that "
                 "question has told you something.</p>",
             ]),
+            # Rewritten 2026-11-04 for Experiment 1 (docs/PROJECT_STATUS.md,
+            # Section 4). Only this section changed: title, description, short
+            # answer, disclosures, assessment and inquiry are untouched. The one
+            # figure here is the CareScout survey median. Listing-site figures
+            # are described, never printed, and no community is named.
             ("What this means in Evanston", [
-                "<p>A statewide median cannot tell you what any one Evanston community "
-                "charges, and the spread between communities is wider than a single "
-                "number suggests. Rather than guess at a local average, get the actual "
-                "numbers from the actual buildings — there are not many of them, and they "
-                "will quote you.</p>",
-                "<p>The practical move is to collect three written quotes that each "
-                "itemise base rent, the current care tier, the community fee and the "
-                "second-person fee. Comparing all-in monthly totals is the only "
-                "comparison that means anything.</p>",
+                "<p>No survey we know of publishes an assisted living median for "
+                "Evanston itself. The Evanston figures you find online are usually "
+                "one of three kinds, and they disagree because they measure "
+                "different things. None of them is your parent&rsquo;s bill.</p>",
+                "<p><strong>A surveyed median.</strong> The " + F["al_median"] +
+                " figure above is the middle of the monthly rates for a private "
+                "one-bedroom apartment reported in CareScout&rsquo;s Cost of Care "
+                "Survey, collected from July to November 2025. Its published tables "
+                "are statewide. The survey does not say whether that rate includes "
+                "extra charges for a resident&rsquo;s level of care, and the "
+                "one-time community fee is not part of it.</p>",
+                "<p><strong>A website&rsquo;s estimate.</strong> Listing and referral "
+                "websites publish their own &ldquo;Evanston&rdquo; figures. On "
+                "4 November 2026 we checked four that come up in a web search for "
+                "Evanston assisted living costs. None "
+                "explained how its figure was calculated, and all four counted "
+                "communities in other towns, including Chicago, among their Evanston "
+                "results. One of them is run by CareScout, which also runs the "
+                "survey above; the &ldquo;Evanston area&rdquo; average on that "
+                "listing page is not one of the survey&rsquo;s published "
+                "figures.</p>",
+                "<p><strong>A starting price.</strong> A &ldquo;from&rdquo; or "
+                "&ldquo;starting at&rdquo; price is the lowest price a community "
+                "advertises. It tells you where its prices begin, not which "
+                "apartment or how much care that price buys.</p>",
+                "<p><strong>The figure that counts is in the contract.</strong> "
+                "Illinois requires a comprehensive assessment before anyone moves "
+                "into a licensed assisted living establishment, and again at least "
+                "once a year and after a significant change in condition. The "
+                "service plan built from it is the basis for the contract. That "
+                "contract must state the base rate and the services it includes, "
+                "describe the services that cost extra, set out their fees, and say "
+                "whether there is a community fee, how much it is and whether it is "
+                "refundable. The resident or their representative must be given a "
+                "complete copy, including any later changes.</p>",
+                "<p>So, after a community has assessed your parent, ask it for these "
+                "figures in writing:</p>",
+                '<ul class="res__list">'
+                "<li>the base rate for the apartment your parent would actually "
+                "take;</li>"
+                "<li>the fee for each extra service your parent will use, including "
+                "those the assessment calls for;</li>"
+                "<li>any second-person fee;</li>"
+                "<li>the community fee, and whether any of it is refundable.</li>"
+                "</ul>",
+                "<p>The first three, added together, are the monthly figure to "
+                "compare between communities. The community fee is paid once. "
+                "Against those totals the statewide median is only a rough check, "
+                "because the survey does not say which charges its figure "
+                "includes.</p>",
+                "<p>A listing website&rsquo;s &ldquo;Evanston&rdquo; results are not "
+                "an official list. The Illinois Department of Public Health licenses "
+                "assisted living and publishes the list of licensed establishments, "
+                'and <a href="/guides/check-illinois-inspection-records/">How to '
+                "check an Illinois care community&rsquo;s inspection record</a> "
+                "explains how to look up each one&rsquo;s record.</p>",
             ]),
             ("If paying privately is not realistic", [
                 "<p>Illinois runs a Medicaid programme that pays for care in approved "
