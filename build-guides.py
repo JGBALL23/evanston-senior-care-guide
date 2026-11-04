@@ -223,6 +223,10 @@ SRC = {
                        'https://ilaging.illinois.gov/protectionadvocacy/abuse.html'),
     "idoa_engage": ('Illinois Department on Aging — Engage2Change (what happens after a report)',
                     'https://ilaging.illinois.gov/engage.html'),
+    "idoa_resident_rights_brochure": ('Illinois Department on Aging — "Residents’ Rights '
+                                      'for People in Long-Term Care Facilities" (brochure, printed 9/25)',
+                                      'https://ilaging.illinois.gov/content/dam/soi/en/web/aging/resources/'
+                                      'newsandpublications/publications/documents/ltc-resrights.pdf'),
 }
 
 
@@ -2865,6 +2869,163 @@ GUIDES = [
             ]),
         ],
     },
+
+    {
+        "slug": "illinois-nursing-home-resident-rights",
+        "bridge": ("Knowing what rights your parent has on paper is a "
+               "different question from knowing whether the facility "
+               "they are in is still the right level of care for them."),
+        "reviewed": "2026-11-04",
+        "title": "What Rights Does Your Parent Have in an Illinois Care Facility?",
+        "h1": "What rights does your parent have in an Illinois nursing home or care facility?",
+        "desc": ("The Illinois Department on Aging publishes a plain-language "
+                 "brochure of residents' rights for long-term care facilities "
+                 "&mdash; on money, privacy, discharge and grievances. Here is "
+                 "what it actually says, read off the document itself."),
+        "intent": "informational / advocacy",
+        "answer": ("Illinois residents of nursing homes and other long-term "
+                   "care facilities keep legal rights that the facility cannot "
+                   "override: a say in their own care, privacy, control of "
+                   "their own money, a written contract, and protection from "
+                   "being discharged except for one of four stated reasons. "
+                   "The Illinois Department on Aging sets these out in a "
+                   "brochure called <em>Residents&rsquo; Rights for People in "
+                   "Long-Term Care Facilities</em>. It is a summary, not the "
+                   "full statute &mdash; the brochure itself says to ask your "
+                   "ombudsman for the complete list."),
+        "sources": srcs("idoa_resident_rights_brochure", "idoa_ombudsman"),
+        "body": [
+            ("Where this list comes from", [
+                "<p>Every nursing home and long-term care facility resident "
+                "in Illinois keeps rights the facility cannot take away "
+                "simply because they now live there. The Illinois Department "
+                "on Aging publishes a brochure, <em>Residents&rsquo; Rights "
+                "for People in Long-Term Care Facilities</em>, that sets out "
+                "what those rights are in plain language, grouped under "
+                "headings such as safety and good care, participating in "
+                "your own care, privacy, money management, contract "
+                "information, Medicaid and Medicare information, and the "
+                "right to stay in the facility. This guide reports what that "
+                "document says, heading by heading.</p>",
+                "<p>One limit stated plainly on the brochure's own back "
+                "page: &ldquo;For a full list of rights, talk to your "
+                "ombudsman.&rdquo; This guide will not claim to be the "
+                "complete statutory list &mdash; it reports what the "
+                "Department on Aging's own summary document says, and no "
+                "more.</p>",
+            ]),
+            ("Safety, dignity and a say in your own care", [
+                "<p>The brochure states a resident &ldquo;must not be abused "
+                "by anyone &mdash; physically, verbally, mentally, "
+                "financially, or sexually.&rdquo; On care itself, the "
+                "facility &ldquo;must develop a written care plan that "
+                "states all the services it provides&rdquo; and &ldquo;must "
+                "make reasonable arrangements to meet your needs and "
+                "choices.&rdquo; A resident has the right to choose their "
+                "own doctor, to receive information about their medical "
+                "condition and treatment in a language they understand, and "
+                "to see their medical records within 24 hours of asking. The "
+                "brochure also lists the right to make a Durable Power of "
+                "Attorney for Health Care, a Living Will, a Declaration for "
+                "Mental Health, and a Do Not Resuscitate order.</p>",
+                "<p>On privacy, the brochure says medical and personal care "
+                "information is private, staff must knock before entering a "
+                "resident's room, and the facility may not share information "
+                "about a resident without permission. Visits and phone calls "
+                "are private unless a doctor has ordered limited visits for "
+                "medical reasons, and a married couple has the right to "
+                "share a room if one is available.</p>",
+            ]),
+            ("Money, contracts and what the facility cannot do with either", [
+                "<p>A resident has the right to manage their own money, and "
+                "the brochure says the facility &ldquo;may not become your "
+                "money manager nor your Social Security representative "
+                "payee without your permission.&rdquo; A resident may see "
+                "their own financial record at any time, and the facility "
+                "&ldquo;must give you an itemized statement at least once "
+                "every 3 months.&rdquo;</p>",
+                "<p>On contracts, a resident must be given a document "
+                "stating what services are provided and how much they cost, "
+                "and the facility &ldquo;must not require anyone else to "
+                "sign an agreement stating they will pay for your bill "
+                "unless they are your court appointed guardian.&rdquo; On "
+                "Medicaid and Medicare, a resident has the right to apply "
+                "for either, the facility must give information on how to "
+                "apply &mdash; including for spousal impoverishment "
+                "protections &mdash; and, the brochure states, &ldquo;if you "
+                "receive Medicaid, the facility cannot make you pay for "
+                "anything for which Medicaid pays.&rdquo;</p>",
+            ]),
+            ("Being asked to leave: the only four reasons, and the right to appeal", [
+                "<p>The brochure states a resident has the right to keep "
+                "living in their facility, and that it &ldquo;can force you "
+                "to leave&rdquo; only because the bill has not been paid, "
+                "the resident is dangerous to themselves or others, their "
+                "medical needs cannot be met there, or the facility closes. "
+                "A written notice is required, and it must state why the "
+                "resident is being asked to move, how to appeal, and include "
+                "a self-addressed envelope to the Illinois Department of "
+                "Public Health. A resident has the right to appeal a "
+                "discharge within <strong>10 days</strong>, and the brochure "
+                "directs anyone needing help with an involuntary discharge "
+                "notice to call the Illinois Department on Aging at "
+                "<strong>1-800-252-8966</strong>.</p>",
+                "<p>On returning after a hospital stay, the brochure says "
+                "that in most cases a Medicaid resident must be allowed to "
+                "return to the facility after a hospital stay, even with a "
+                "written discharge notice already issued, and that a "
+                "facility must hold a bed for a resident hospitalized more "
+                "than 10 days once one becomes available. A private-pay "
+                "resident, the brochure says, must be told in writing what "
+                "they need to do to hold their bed while hospitalized. A "
+                "resident also has the right to be told in advance if their "
+                "room or roommate is changing.</p>",
+            ]),
+            ("Rights that do not disappear at the door", [
+                "<p>The brochure is explicit that a resident keeps their "
+                "rights as a citizen of Illinois and the United States. It "
+                "lists the right to vote, to take part in social and "
+                "community activities, to participate in the facility's "
+                "Resident Council, and to meet with the Long-Term Care "
+                "Ombudsman, community organisations, legal advocates and "
+                "members of the public who visit. A resident has the right "
+                "to present grievances and get a prompt response, and the "
+                "brochure states the facility &ldquo;may not threaten or "
+                "punish you in any way for asserting your rights or "
+                "presenting grievances.&rdquo;</p>",
+            ]),
+            ("If a right is not being respected", [
+                "<p>The brochure's own suggested order is: write down what "
+                "happened, with dates, times and who was involved; raise it "
+                "with facility staff through the grievance procedure; bring "
+                "it to the Resident Council; and contact the Illinois "
+                "Long-Term Care Ombudsman Program, which the Department on "
+                "Aging describes elsewhere as a free, confidential, "
+                "<strong>resident-directed</strong> advocate &mdash; reach it "
+                "through the Senior HelpLine at <strong>1-800-252-8966 (711 "
+                "TRS)</strong>. The brochure separately names the Central "
+                "Complaint Registry, <strong>800-252-4343</strong>, as the "
+                "Illinois Department of Public Health's channel for a formal "
+                "complaint. A full walk-through of both channels, including "
+                "hours and how to file in writing, is in "
+                '<a href="/guides/illinois-care-facility-complaint/">How to '
+                "report a problem at an Illinois care facility</a>.</p>",
+                "<p>One Evanston-specific detail from the brochure's own "
+                "contact page: the Ombudsman region covering the city "
+                "lists a direct number for <strong>City of Evanston: "
+                "1-847-448-8696</strong>, separate from the number listed "
+                "for the rest of that region.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>Rights on paper are a different question from whether a "
+                "specific facility is the right setting at all. The "
+                '<a href="/">free six-question assessment</a> on this site '
+                "walks through that separately, asking for no name, no "
+                "email and no phone number, with answers that never leave "
+                "your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -3305,6 +3466,12 @@ CARDS = {
         "A statewide Adult Protective Services hotline covers abuse, "
         "neglect, exploitation and self-neglect of an older adult living "
         "at home — a different line from the one for a care facility."),
+    "illinois-nursing-home-resident-rights": (
+        "Checking a community",
+        "What rights does your parent have in a care facility?",
+        "The Illinois Department on Aging's own brochure, read in full: "
+        "money, privacy, discharge and grievance rights a facility "
+        "cannot override."),
 }
 
 
