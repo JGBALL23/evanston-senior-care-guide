@@ -265,6 +265,7 @@ Netlify records no commit for these deploys. The source commit comes from each a
 | 2026-11-01 | [Competitive intelligence research](https://claude.ai/artifact/QZxfKtRJ3DdtyuL5rYk8VY) | Competitors, AI search evidence, Google rules, local link prospects |
 | 2026-11-01 | [Life Plan guide review draft](https://claude.ai/artifact/BYmnSgmwfbR4U9CEBiDo4j) | Sources, inversion and measurement for PR #10 |
 | 2026-11-02 | [Evanston-first memo](https://claude.ai/artifact/Tug4p2g1hKg7BXffcL1157) | Five ranked opportunities and Experiment 1 |
+| 2026-11-03 | Draft quality review of #16 to #20 (Section 5 of this file) | Fact-checks, production compatibility and ranking. Redo only for a draft that changes |
 
 Repository documents from before 2026-10-29 (`ACQUISITION-*.md`, `TOP-PRIORITIES.md`, `WHAT-I-CAN-PROVE.md`, `LAUNCH-CHECKLIST.md`, `VISIT-ATTRIBUTION.md`) are `HISTORICAL`. Where they conflict with this file, this file wins.
 
@@ -288,6 +289,28 @@ Repository documents from before 2026-10-29 (`ACQUISITION-*.md`, `TOP-PRIORITIES
 
 All five need separate publication approval. All are statewide topics, and none is part of Experiment 1. The routine can add up to two guides a day.
 
+### Draft quality review (2026-11-03)
+
+**Reviews completed: 5 of 5. Corrections completed: 0. Approved for publication: none.** Each claim listed below was compared with the primary source it relies on, read on 2026-11-03 (`VERIFIED`). Ranks and actions are `RECOMMENDED` (D-017), not approved. Nothing on `drafts` was changed. Production (`6ae7a5a0`), `main` (`4ce3249`), `drafts` (`f72ff6f`) and PR #10 (`bca3f0b`) were unchanged when the review finished.
+
+| Rank | Draft | Accuracy | Evanston information verified | Fit with the goal | Action (`RECOMMENDED`) |
+|---|---|---|---|---|---|
+| 1 | #19 Home-delivered meals | 3 material errors | CJE SeniorLife delivers state-funded meals to ZIPs 60201 to 60204, 60208 and 60209 after an assessment by North Shore Senior Center. Meals on Wheels Northeastern Illinois lists Evanston: $10 a meal, with a sliding scale. The Levy Center's group meal program closed in August 2026. | Families arranging help at home. Search demand unmeasured. | Revise before consideration. Improve first. |
+| 2 | #17 Power of attorney for health care | 4 statutory errors, 3 minor. No not-legal-advice notice. | The City's resource list names the Center for Disability and Elder Law, CJE Legal Desk and North Suburban Legal Aid. | Families planning a parent's care. Strong statewide competition. | Revise before consideration, then an Illinois attorney's review. |
+| 3 | #20 Elder abuse reporting | 3 material errors, 1 omission | Metropolitan Family Services (Skokie) is Evanston's APS provider. The City of Evanston is the regional long-term care ombudsman. | Crisis intent. A tour prompt fits poorly. | Hold. Candidate for supporting content once corrected. |
+| 4 | #16 Medicare Savings Programs | 2 material errors, 2 minor | Thin. The IDHS office for Evanston is in Lincolnwood. The Levy Center offers Medicare counseling (SHIP). | Mostly benefit seekers, with incomes under about $1,800 a month for one person. | Hold |
+| 5 | #18 Benefit Access Program | 3 material errors, 1 missing step | Thin. The Levy Center books application appointments (847-866-2919). | Mostly benefit seekers, with incomes under $33,562 a year for one person. | Hold |
+
+**Errors found. None has been corrected.**
+
+- **#19:** (1) Treats age 60 as the only test. An assessment of frailty or being homebound is required ([89 Ill. Adm. Code 230.255](https://www.ilga.gov/ftp/JCAR/AdminCode/089/089002300C02550R.html); the state's provider locator). (2) Credits the Senior HelpLine route to the state's nutrition page, which says to contact the Area Agency on Aging or a provider ([IDoA](https://ilaging.illinois.gov/programs/nutrition.html)). (3) Says the agency serving Evanston cannot be identified. The state's list names AgeOptions, and the locator names North Shore Senior Center as the Care Coordination Unit ([AAA list](https://ilaging.illinois.gov/forprofessionals/aaa-list.html)). Local sources: [CJE](https://cje.net/supportiveservices/foodservices/), [Meals on Wheels Northeastern Illinois](https://mealsonwheelsnei.org/faq), [Levy Center](https://www.cityofevanston.org/departments/prcs/facilities/levy_senior_center/senior_social_services.php).
+- **#17:** (1) Says two doctors must certify incapacity before a surrogate acts. The attending physician decides, and a second practitioner must concur only before life-sustaining treatment is forgone ([755 ILCS 40/20](https://www.ilga.gov/Documents/legislation/ilcs/documents/075500400K20.htm)). (2) Says only the agent cannot witness the power of attorney. Relatives of the principal or agent, the principal's clinicians, and the facility's owners or operators are also excluded ([755 ILCS 45/4-10](https://www.ilga.gov/Documents/legislation/ilcs/documents/075500450K4-10.htm)). (3) Bars health professionals as living-will witnesses, which the statute does not. Its form excludes heirs and anyone financially responsible for the care ([755 ILCS 35/3](https://ilga.gov/legislation/ilcs/documents/075500350K3.htm)). (4) Says a court-appointed guardian escapes the surrogate limits. A guardian is treated as a surrogate (40/20). Minor: an APRN, PA or resident can also sign a POLST; IDoA does not host every form named; IDPH names no "moral or religious" grounds for objecting. Nine claims need an Illinois attorney.
+- **#20:** (1) Says IDoA publishes no response times. It gives 24 hours, 72 hours and up to 7 days by type of report ([IDoA](https://ilaging.illinois.gov/protectionadvocacy/abuse-after-report.html)). (2) Says APS never covers facility residents. The statute covers abuse by family or other non-staff and exploitation by non-employees ([320 ILCS 20/2](https://ilga.gov/legislation/ilcs/ilcs3.asp?ActID=1452)); a specialist should confirm. (3) Omits the HFS Supportive Living complaint line, 1-844-528-8444 ([HFS](https://hfs.illinois.gov/medicalprograms/slf/complaintprocess.html)). It also says the law's mandated reporters are not stated; IDoA lists them and their immunity. Verified as written: APS 1-866-800-1409, 24 hours; IDPH complaints 1-800-252-4343.
+- **#16:** (1) Says to add the $25 disregard to income. The first $25 of non-SSI income is subtracted, once per person ([IDHS](https://www.dhs.state.il.us/page.aspx?item=14179)). (2) The SLMB and QI limits do not match the IDHS 2026 table ([IDHS](https://www.dhs.state.il.us/page.aspx?item=21741)). Minor: a Medicare.gov quote is reworded, and the programs differ by income band, not "mainly" procedure. Verified as written: the QMB limits and the online application.
+- **#18:** (1) Reports an age-rule discrepancy that does not exist. (2) Says "legally separated" where the rule says "permanently separated" ([IDoA FAQ](https://ilaging.illinois.gov/benefitsaccess/eligibility-20and-20frequently-asked-questions.html)). (3) Says the Secretary of State sets the plate fee. Statute sets it, at $10 since 1 January 2023 ([IDoA](https://ilaging.illinois.gov/press-release.25844.html)). Omits NITA's separate Ride Free application ([NITA](https://nita.illinois.gov/riders/free-and-reduced-fare-programs)). Verified as written: the income limits.
+
+**Compatibility with production (`VERIFIED` against `main`):** all five use the guide template from before PRs #7 and #9. Published as built, each would bring back the footer wording about Westminster Place that PR #9 replaced and the related-guides block that PR #7 replaced. As written, every description (205 to 349 characters) fails `check-guides.js`, whose limit is 160. The Benefit Access title is 73 characters, over the limit of 70. `main` requires a `RELATED` entry and links from two other guides, so any release edits two live guides (`RECOMMENDED`: not the cost guide while Experiment 1 is pending). `drafts` does not have PRs #6 to #9 and must never be merged into `main` (D-001). The layout, assessment and inquiry flow stay as they are only if just the guide's content is moved to a fresh branch from `main`. A corrected #17 that cites statutes needs `ilga.gov` on the citation allowlist, which exists only in unmerged PR #10.
+
 ### Blocked
 
 | Item | Blocked by | Who |
@@ -297,7 +320,7 @@ All five need separate publication approval. All are statewide topics, and none 
 | End-to-end inquiry test (U1) | Separate approval | Owner |
 | IndexNow catch-up (U4) | Separate approval. The ledger commit touches `main`. | Owner |
 | Tour attribution (U6) | A proposal for review and a process with Admissions | Owner |
-| Drafts #16 to #20 | Owner review, and a demonstrated gap | Owner |
+| Drafts #16 to #20 | Owner review, and a demonstrated gap. Since 2026-11-03, factual corrections come first (Draft quality review). | Owner |
 
 ### Pending verification
 
@@ -314,7 +337,7 @@ All five need separate publication approval. All are statewide topics, and none 
 
 ## 6. Decision Log (append only)
 
-**Nothing labeled `RECOMMENDED` is authorized.** Today that means D-011, D-015 and D-016. Revisit conditions are proposed unless the owner set them. Decisions before 2026-10-29 are in the `HISTORICAL` documents listed in Section 5.
+**Nothing labeled `RECOMMENDED` is authorized.** Today that means D-011, D-015, D-016 and D-017. Revisit conditions are proposed unless the owner set them. Decisions before 2026-10-29 are in the `HISTORICAL` documents listed in Section 5.
 
 ### D-001 · 2026-10-29 · `APPROVED` · Releases go through a release branch and PR
 - **Why:** `main` is production, and `drafts` holds work awaiting review.
@@ -424,6 +447,13 @@ All five need separate publication approval. All are statewide topics, and none 
 - **Evidence:** the owner's request of 2026-11-03.
 - **Rejected or deferred:** none.
 - **Revisit:** if this file stops being kept current. Becomes `APPROVED` only when the owner merges it.
+
+### D-017 · 2026-11-03 · `RECOMMENDED` · Draft review: improve the meals guide first, hold three
+- **Recommended:** correct #19 (home-delivered meals) first, on a fresh branch from `main`, for review only. Correct #17 (power of attorney) next and have an Illinois attorney review it before any publication. Hold #20, #16 and #18. No draft is ready for publication review.
+- **Why:** all five contain material factual errors. #19 has the most verified Evanston information that statewide pages lack, and correcting it needs no legal review. #16 and #18 mostly reach people seeking a benefit. #20 is read in a crisis, where a tour prompt fits poorly.
+- **Evidence:** the Draft quality review in Section 5 and the primary sources linked there.
+- **Rejected or deferred:** publishing any draft as written; merging `drafts`; renaming statewide topics to Evanston; any change to Experiment 1 or Section 7.
+- **Revisit:** when the owner reviews a corrected draft. Publication would still need D-003's demonstrated gap. The verified gap is informational, and search demand for these topics is unmeasured.
 
 ---
 
