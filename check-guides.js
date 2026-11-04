@@ -176,7 +176,7 @@ const evSec = (flat(costPage).match(
 const evLc = evSec.toLowerCase();
 check("Evanston section: present", evSec.length > 200, String(evSec.length));
 check("Evanston section: separates the three kinds of figure",
-  evLc.indexOf("a surveyed median") !== -1 &&
+  evLc.indexOf("a statewide survey median") !== -1 &&
   evLc.indexOf("a website&rsquo;s estimate") !== -1 &&
   evLc.indexOf("a starting price") !== -1);
 const AL_MEDIAN = (GEN.match(/"al_median":\s*"(\$[\d,]+)"/) || [])[1] || "missing";
@@ -189,9 +189,17 @@ check("Evanston section: says no Evanston median is published",
 check("Evanston section: states what the survey prices, when, and where",
   evLc.indexOf("private one-bedroom") !== -1 &&
   evLc.indexOf("july to november 2025") !== -1 &&
-  evLc.indexOf("published tables are statewide") !== -1);
-check("Evanston section: does not claim the survey includes or excludes care charges",
-  evLc.indexOf("does not say whether that rate includes") !== -1);
+  evLc.indexOf("pdf tables are statewide") !== -1 &&
+  evLc.indexOf("none covers evanston alone") !== -1);
+/* The fact-check of 2026-11-04 found that CareScout's methodology DOES say
+   how care is priced: one-bedroom rates "as they ranged from basic care to
+   more substantial care", the midpoint used where a range was given. An
+   earlier draft said the survey was silent on this. Hold the corrected
+   statement in place. */
+check("Evanston section: states how the survey treats care-level price ranges",
+  evLc.indexOf("from basic care to more substantial care") !== -1 &&
+  evLc.indexOf("midpoint") !== -1 &&
+  evLc.indexOf("does not say whether that rate includes") === -1);
 check("Evanston section: dates its look at listing websites",
   evLc.indexOf("on 4 november 2026 we checked four") !== -1);
 check("Evanston section: says why website figures disagree",
@@ -199,6 +207,7 @@ check("Evanston section: says why website figures disagree",
   evLc.indexOf("communities in other towns") !== -1);
 check("Evanston section: the real cost is anchored in the Illinois contract",
   evLc.indexOf("comprehensive assessment") !== -1 &&
+  evLc.indexOf("a basis for the contract") !== -1 &&
   evLc.indexOf("base rate") !== -1 &&
   evLc.indexOf("set out their fees") !== -1 &&
   evLc.indexOf("whether it is refundable") !== -1);
@@ -211,6 +220,7 @@ check("Evanston section: names no listing website by its address",
 check("Evanston section: links the inspection-records guide",
   evSec.indexOf('href="/guides/check-illinois-inspection-records/"') !== -1);
 ["021000090K15.htm", "021000090K85.htm", "021000090K90.htm",
+ "Legislation/PublicActs/View/104-0589", "assets.carescout.com/x/e3933bfcf1/131168.pdf",
  "dph.illinois.gov/topics-services/health-care-regulation/assisted-living.html"].forEach((u) => {
   check("cost guide cites " + u, costPage.indexOf(u) !== -1);
 });

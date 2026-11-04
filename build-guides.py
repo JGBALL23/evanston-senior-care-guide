@@ -28,11 +28,12 @@ guide, the latter verified against four HFS pages including the 22 January
 
 2026-11-04 (Experiment 1): the cost guide was re-verified against the same
 CareScout PDF, and its "What this means in Evanston" section was rewritten
-from the Assisted Living and Shared Housing Act (210 ILCS 9/15, 9/85 and
-9/90 on ilga.gov, an approved legal source, cross-checked against Public Act
-104-0589) and IDPH's assisted living page. Four listing websites were read
-only to describe what kind of number they publish; no figure from any of
-them is printed.
+from CareScout's 2025 methodology PDF, the Assisted Living and Shared
+Housing Act (210 ILCS 9/15, 9/85 and 9/90 on ilga.gov, an approved legal
+source, cross-checked against Public Act 104-0589) and IDPH's assisted
+living page. Four listing websites were read only to describe what kind of
+number they publish; no figure from any of them is printed. An independent
+fact-check of the section ran before review.
 
 Nothing here is from a lead-generation aggregator. If a figure cannot be
 read from a government or survey primary source, it does not go on a page.
@@ -141,14 +142,24 @@ SRC = {
                       'https://hfs.illinois.gov/medicalproviders/medicaidreimbursement/supportivelivinging.html'),
     "idph_al_div": ('Illinois Department of Public Health \u2014 Assisted Living',
                     'https://dph.illinois.gov/topics-services/health-care-regulation/assisted-living.html'),
+    # CareScout's own methodology for the 2025 survey (document 131168,
+    # 03/02/26): one-bedroom private-pay rates "as they ranged from basic care
+    # to more substantial care", the midpoint used where a range was given,
+    # community or entrance fees recorded separately, 434 regions based on
+    # 387 metropolitan areas. Read from the PDF on 2026-11-04.
+    "carescout_method": ('CareScout 2025 Cost of Care Survey \u2014 Methodology',
+                         'https://assets.carescout.com/x/e3933bfcf1/131168.pdf'),
     # The Assisted Living and Shared Housing Act, read on ilga.gov 2026-11-04.
-    # Section 15 was amended by P.A. 104-0589; the sentences relied on here
-    # (assessment before admission, at least yearly and after a significant
-    # change, the service plan as the basis for the contract) read the same
-    # in that Act. Sections 85 and 90 are unamended since 2005.
+    # Section 15 was amended by P.A. 104-0589, and the compiled page has not
+    # caught up, so both are cited. The sentences relied on here (assessment
+    # before admission, at least yearly and after a significant change, the
+    # service plan as a basis for the contract) read the same in that Act.
+    # Sections 85 and 90 are unamended since 2005.
     "ilcs_al_15": ('Assisted Living and Shared Housing Act, 210 ILCS 9/15 \u2014 '
                    'assessment and service plan',
                    'https://www.ilga.gov/legislation/ilcs/documents/021000090K15.htm'),
+    "pa_104_0589": ('Public Act 104-0589 \u2014 amends 210 ILCS 9/15',
+                    'https://ilga.gov/Legislation/PublicActs/View/104-0589'),
     "ilcs_al_85": ('Assisted Living and Shared Housing Act, 210 ILCS 9/85 \u2014 '
                    'contract requirements',
                    'https://www.ilga.gov/legislation/ilcs/documents/021000090K85.htm'),
@@ -248,8 +259,9 @@ GUIDES = [
         # three CareScout figures were read again from the PDF, so this guide
         # now carries its own date instead of the original five's default.
         "reviewed": "2026-11-04",
-        "sources": srcs("carescout", "idph_al_div", "ilcs_al_15", "ilcs_al_85",
-                        "ilcs_al_90", "hfs_slf"),
+        "sources": srcs("carescout", "carescout_method", "idph_al_div",
+                        "ilcs_al_15", "pa_104_0589", "ilcs_al_85", "ilcs_al_90",
+                        "hfs_slf"),
         "body": [
             ("What the median actually measures", [
                 "<p>A median is the middle of a range. Half of Illinois communities "
@@ -289,16 +301,19 @@ GUIDES = [
             # are described, never printed, and no community is named.
             ("What this means in Evanston", [
                 "<p>No survey we know of publishes an assisted living median for "
-                "Evanston itself. The Evanston figures you find online are usually "
-                "one of three kinds, and they disagree because they measure "
-                "different things. None of them is your parent&rsquo;s bill.</p>",
-                "<p><strong>A surveyed median.</strong> The " + F["al_median"] +
-                " figure above is the middle of the monthly rates for a private "
-                "one-bedroom apartment reported in CareScout&rsquo;s Cost of Care "
-                "Survey, collected from July to November 2025. Its published tables "
-                "are statewide. The survey does not say whether that rate includes "
-                "extra charges for a resident&rsquo;s level of care, and the "
-                "one-time community fee is not part of it.</p>",
+                "Evanston itself. The figures you will find while researching "
+                "Evanston costs are usually one of three kinds, and they disagree "
+                "because they measure different things. None of them is your "
+                "parent&rsquo;s bill.</p>",
+                "<p><strong>A statewide survey median.</strong> The " +
+                F["al_median"] + " figure above is CareScout&rsquo;s 2025 median "
+                "monthly rate for a private one-bedroom in Illinois assisted living, "
+                "from rates collected July to November 2025. Where a community "
+                "quoted a range, from basic care to more substantial care, CareScout "
+                "used the midpoint. Surveyors noted separately whether a community "
+                "charges a non-refundable community or entrance fee. The "
+                "survey&rsquo;s PDF tables are statewide and its regional figures "
+                "follow metropolitan areas, so none covers Evanston alone.</p>",
                 "<p><strong>A website&rsquo;s estimate.</strong> Listing and referral "
                 "websites publish their own &ldquo;Evanston&rdquo; figures. On "
                 "4 November 2026 we checked four that come up in a web search for "
@@ -310,37 +325,40 @@ GUIDES = [
                 "listing page is not one of the survey&rsquo;s published "
                 "figures.</p>",
                 "<p><strong>A starting price.</strong> A &ldquo;from&rdquo; or "
-                "&ldquo;starting at&rdquo; price is the lowest price a community "
-                "advertises. It tells you where its prices begin, not which "
-                "apartment or how much care that price buys.</p>",
+                "&ldquo;starting at&rdquo; price is the lowest price shown, "
+                "sometimes for one apartment type. It tells you where prices begin, "
+                "not what your parent&rsquo;s apartment and care will cost.</p>",
                 "<p><strong>The figure that counts is in the contract.</strong> "
                 "Illinois requires a comprehensive assessment before anyone moves "
                 "into a licensed assisted living establishment, and again at least "
                 "once a year and after a significant change in condition. The "
-                "service plan built from it is the basis for the contract. That "
+                "service plan built from it is a basis for the contract. That "
                 "contract must state the base rate and the services it includes, "
                 "describe the services that cost extra, set out their fees, and say "
                 "whether there is a community fee, how much it is and whether it is "
                 "refundable. The resident or their representative must be given a "
                 "complete copy, including any later changes.</p>",
-                "<p>So, after a community has assessed your parent, ask it for these "
-                "figures in writing:</p>",
+                "<p>So, once your parent&rsquo;s assessment is done and the community "
+                "has proposed a service plan, ask it for these figures in "
+                "writing:</p>",
                 '<ul class="res__list">'
                 "<li>the base rate for the apartment your parent would actually "
                 "take;</li>"
                 "<li>the fee for each extra service your parent will use, including "
-                "those the assessment calls for;</li>"
+                "those in the service plan;</li>"
                 "<li>any second-person fee;</li>"
                 "<li>the community fee, and whether any of it is refundable.</li>"
                 "</ul>",
-                "<p>The first three, added together, are the monthly figure to "
-                "compare between communities. The community fee is paid once. "
-                "Against those totals the statewide median is only a rough check, "
-                "because the survey does not say which charges its figure "
-                "includes.</p>",
+                "<p>Convert the first three to monthly amounts and add them up: that "
+                "total is the figure to compare between communities. Ask when the "
+                "community fee is due. Against those totals the statewide median is "
+                "only a rough check, because the survey used the midpoint wherever a "
+                "community quoted a range of care prices, and it does not itemise "
+                "charges.</p>",
                 "<p>A listing website&rsquo;s &ldquo;Evanston&rdquo; results are not "
                 "an official list. The Illinois Department of Public Health licenses "
-                "assisted living and publishes the list of licensed establishments, "
+                "assisted living and publishes a list of assisted living and shared "
+                "housing establishments, "
                 'and <a href="/guides/check-illinois-inspection-records/">How to '
                 "check an Illinois care community&rsquo;s inspection record</a> "
                 "explains how to look up each one&rsquo;s record.</p>",
