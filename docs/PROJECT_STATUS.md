@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| Last verified | 2026-11-04 19:10 Chicago (2026-11-05 01:10 UTC): GitHub, Netlify and the live site, after the PR #11 release. Search Console as of R4. |
+| Last verified | 2026-11-05 11:30 Chicago (17:30 UTC): GitHub (PR #12 opened for review), Netlify (review copy published; production unchanged at `6aebd5ef`) and the live inspection guide (still the 18 October version). Search Console as of R4. |
 | Checked against | GitHub, Netlify, the live site, Search Console emails, owner-reported Search Console figures |
 | This document | `DRAFT` on `feature/project-control-center`. Not merged. Not approved. |
 
@@ -63,6 +63,7 @@
 | [PR #10](https://github.com/JGBALL23/evanston-senior-care-guide/pull/10), head `bca3f0b` | Illinois Life Plan guide, related-link swaps, citation allowlist | No, URL returns 404 |
 | `drafts`, head `5be93b6` (`VERIFIED` 2026-11-04) | 6 unpublished guides (Section 5). The routine added #21 on 2026-11-04. | No, all 6 URLs return 404 |
 | [PR #11](https://github.com/JGBALL23/evanston-senior-care-guide/pull/11), merged as `971b14a` (`VERIFIED` 2026-11-04) | Experiment 1: the cost guide's rewritten Evanston section | Yes, since deploy `6aebd5ef` |
+| [PR #12](https://github.com/JGBALL23/evanston-senior-care-guide/pull/12), head `c2767bc` (`VERIFIED` 2026-11-05) | Experiment 2: the inspection guide corrected, with its Evanston section | No. Review copy only: `esc-preview-evanston-costs`, `noindex`, no functions |
 | Claude Docs memos | Research and recommendations | No |
 
 `drafts` has diverged from `main` (12 commits ahead, 25 behind) and lacks PRs #6 to #9. Never merge it wholesale. Publish a guide through a release branch cut from `main`, as PR #5 did.
@@ -83,6 +84,7 @@
 | U10 | **Housekeeping:** two preview sites remain online (`esc-preview-d9ed1ac`, `esc-preview-simple-first`). Both are `noindex` and block crawlers. Since 2026-11-04 a third, `esc-preview-evanston-costs`, holds the review copy of PR #11: static files only, no functions, `noindex`, `robots.txt` blocks everything. | Netlify; live headers | Owner may delete all three. PR #11 is released, so the third is no longer needed. |
 | U11 | **`ilga.gov` fails the citation checker.** `ilga.gov` sends its certificate without the intermediate, so `check-citations.sh` (curl) reports every `ilga.gov` URL as dead (code 000), although browsers open them. This affects PR #10 and PR #11. The daily routine runs `check-citations.sh` on `drafts` and stops on any dead citation, so `ilga.gov` citations must not reach `drafts` before this is handled. | `openssl s_client`, 2026-11-04: "unable to verify the first certificate" for `ilga.gov`, `www.ilga.gov`, `lrb.ilga.gov` and `witnessslips.ilga.gov`; `beta.ilga.gov` verifies | Owner decision. `RECOMMENDED`: make the checker supply the missing intermediate for `ilga.gov` only. Documented in `check-citations.sh` on `main` since PR #11, with certificate validation left on. On `main`, 41 of 45 citations resolve; the 4 failures are the cost guide's `ilga.gov` URLs, all opened in a browser tool on 2026-11-04. |
 | U12 | **CareScout disagrees with itself on the Illinois assisted living figure.** Its Illinois press release (2 March 2026) gives $72,645 a year. Both 2025 data-table PDFs give $74,628 a year and $6,219 a month ("As reported, monthly rate, private, one bedroom"). | Press release on Business Wire; PDFs 298701 and 282102, read 2026-11-04 | The site uses $6,219, the monthly figure both tables print. No page change. Ask CareScout only if the annual figure is ever used |
+| U13 | **Three places send families to a hospital-only state site.** `healthcarereportcard.illinois.gov` is the Illinois Hospital Report Card: hospitals and surgery centres, no nursing homes, no assisted living. (1) The live inspection guide tells families to search it for a care community's record. (2) The assessment result's "Compare other communities yourself" link (`app.js`) calls it "Illinois' official licensed-facility directory" that "lists every licensed facility in Illinois"; every visitor who finishes the assessment sees it. (3) The levels-of-care guide lists it among its sources; its text makes no claim from it. | The site read 2026-11-05: title "Illinois Hospital Report Card", scope hospitals and surgery centres | (1) Fixed in PR #12, not released. (2) Owner decision, not touched: the assessment is a working system. `RECOMMENDED`: point the link at the corrected inspection guide (one link, three test pins). (3) Drop the citation at that guide's next review. |
 
 ---
 
@@ -216,6 +218,8 @@ The second row is new in this document and is not yet in the funnel baseline fil
 
 **Experiment 1 is running. It was released on 2026-11-04, and its implementation phase is closed (D-019). The page is measured, not modified, until the 8-week review on 2026-12-30. The one exception is correcting a factual error.**
 
+**Experiment 2 is built for review and not released (D-021).** It is the first improvement of the owner's 30-day Evanston SEO Growth Sprint (2026-11-05 to 2026-12-05). It changes a different page, so Experiment 1 stays untouched and measurable.
+
 ### Experiment 1: Evanston costs (`APPROVED` 2026-11-04; released 2026-11-04; implementation closed)
 
 | Field | Detail |
@@ -243,6 +247,20 @@ The second row is new in this document and is not yet in the funnel baseline fil
 **Could change the order:** if the inspection guide's queries are local and the cost guide has none, swap the two.
 
 **Overlap to account for:** the 31 October release is still inside its own review window. R1 is its baseline, and its 8-week mark is 2026-12-26.
+
+### Experiment 2: Evanston inspection records (`APPROVED` for build 2026-11-05; not released)
+
+| Field | Detail |
+|---|---|
+| Source | The owner's 30-day sprint request, 2026-11-05 (D-021). The decision table above already named this guide as Experiment 2. |
+| Change | `/guides/check-illinois-inspection-records/` only. The Hospital Report Card (U13) is replaced with where each kind of record is kept. A new section, "How to check an Evanston community's record", covers nursing care, assisted living, memory care and independent living. Also new: the Nursing Home Care Act's four violation types. The short answer, the description and the Care Compare scope paragraph are corrected. Title, H1, disclosures, assessment and inquiry are unchanged. No community names and no fines. |
+| Hypothesis | A family vetting an Evanston community before a tour searches for its inspection record. A page that says where each part's record is, and what to ask for on the visit, will earn impressions and clicks for inspection queries, including Evanston ones, and send those readers on to the assessment. |
+| Built (`VERIFIED` 2026-11-05) | [PR #12](https://github.com/JGBALL23/evanston-senior-care-guide/pull/12), branch `feature/evanston-inspection-records`, head `c2767bc`, cut from `main` `971b14a`. Sources: 2 to 13, all read 2026-11-05. `check-guides.js`: 1382 to 1418 checks, and 16 mutation tests each fail their intended check. An independent fact-check found no error and six qualifications; all six are applied. Review date 5 November 2026. Only this guide's sitemap date moves; `/guides/` is byte-identical to `main`. Review copy on `esc-preview-evanston-costs` (deploy `6aecbbe3c1d1fc9903728d6c`, `noindex`, no functions). |
+| Baseline | **Not captured.** Before release, Search Console for this page: indexed or not, impressions, clicks, average position, visible queries, with the date range (Section 7). |
+| Release | Needs the owner's approval: merge, then one production deploy through the established upload. Before merge, the owner opens IDPH's facility lookup in a normal browser to see whether it shows assisted living inspection history (PR #12). IndexNow separately (U4). |
+| Intended result | Impressions, average position and clicks rise for this page, especially for queries naming Evanston, inspections or violations. Stored inquiries are counted from server records. |
+| Review | Sprint read on 2026-12-05 (indexing and early impressions only). Full review 8 weeks after release. |
+| Stop condition | If the page is not indexed, indexing comes first. |
 
 ---
 
@@ -290,6 +308,7 @@ The newest row is current production. The "Current production" label on the 2026
 | 2026-11-02 | [Evanston-first memo](https://claude.ai/artifact/Tug4p2g1hKg7BXffcL1157) | Five ranked opportunities and Experiment 1 |
 | 2026-11-03 | Draft quality review of #16 to #20 (Section 5 of this file) | Fact-checks, production compatibility and ranking. Redo only for a draft that changes |
 | 2026-11-04 | Evanston cost figures, done while building Experiment 1 ([PR #11](https://github.com/JGBALL23/evanston-senior-care-guide/pull/11)) | What the CareScout median measures; what four listing websites publish for Evanston and how; what 210 ILCS 9/15, 9/85 and 9/90 require of the contract |
+| 2026-11-05 | Illinois inspection records, done while building Experiment 2 ([PR #12](https://github.com/JGBALL23/evanston-senior-care-guide/pull/12)), with an independent fact-check | Where nursing home and assisted living records are kept; what IDPH's quarterly violator reports contain (latest: April to June 2026); 210 ILCS 45/3-210 and the four violation types; 210 ILCS 9/10 and 9/110; 77 Ill. Adm. Code 295.1020; 210 ILCS 4/15; the Hospital Report Card's real scope. Open: whether IDPH's facility lookup shows assisted living inspection history (no tool here could load it) |
 
 Repository documents from before 2026-10-29 (`ACQUISITION-*.md`, `TOP-PRIORITIES.md`, `WHAT-I-CAN-PROVE.md`, `LAUNCH-CHECKLIST.md`, `VISIT-ATTRIBUTION.md`) are `HISTORICAL`. Where they conflict with this file, this file wins.
 
@@ -301,6 +320,7 @@ Repository documents from before 2026-10-29 (`ACQUISITION-*.md`, `TOP-PRIORITIES
 | Daily drafts routine | `EVANSTON-DAILY-GUIDE-DRAFTS`, enabled. 6 AM Chicago. Last run succeeded 2026-11-03 12:02 UTC. Writes to `drafts` only and never publishes. | Owner chooses what is published |
 | Search Console review | Partial (U3). Cost guide read 2026-11-04 (R4). | Owner |
 | Experiment 1 | Released 2026-11-04 (deploy `6aebd5ef`). Implementation closed (D-019); measuring. | The release-day reading (Section 7), then the 8-week review on 2026-12-30 |
+| Experiment 2 ([PR #12](https://github.com/JGBALL23/evanston-senior-care-guide/pull/12)) | Built, fact-checked and tested; open for review only, with a `noindex` review copy (D-021) | The page's Search Console baseline and the facility-lookup check (Section 7), then the owner's review and approval to merge and deploy |
 
 ### Unpublished guides on `drafts` (`VERIFIED` 2026-11-03)
 
@@ -355,7 +375,8 @@ All five need separate publication approval. All are statewide topics, and none 
 - [ ] Cost guide reading on release day, with its date range stated (Section 4)
 - [ ] Page indexing URL lists and Sitemaps report status
 - [ ] Links report: top linking sites
-- [ ] Queries for the Medicare and inspection-records guides
+- [ ] Queries for the Medicare and inspection-records guides (the inspection guide's is Experiment 2's baseline)
+- [ ] Whether IDPH's facility lookup shows assisted living inspection history (owner, normal browser; PR #12)
 - [ ] Which page earned the one click
 - [ ] A logged-out Google check from Evanston
 - [ ] Section 396.50 against the Life Plan guide
@@ -508,25 +529,40 @@ All five need separate publication approval. All are statewide topics, and none 
 - **Rejected or deferred:** reading or deleting the stored record. That needs the owner's export token, which was not requested. The record deletes itself after 180 days. The test's beacons carry the harness user agent, so they are excluded from visitor counts.
 - **Revisit:** after any change to the inquiry form, the function, consent or the email setup.
 
+### D-021 · 2026-11-05 · `APPROVED` (build only) · 30-day Evanston SEO Growth Sprint; Experiment 2 built for review
+- **Decided:** the inquiry test is closed (D-020, U1). The owner opened a 30-day Evanston SEO Growth Sprint (2026-11-05 to 2026-12-05). He asked for one high-impact improvement, built on a separate branch, with no merge or deploy without his approval. Chosen and built: Experiment 2, the inspection-records guide (Section 4, [PR #12](https://github.com/JGBALL23/evanston-senior-care-guide/pull/12)).
+- **Why this page:** Section 4's decision table already named it as the next experiment. It is the guide a family uses to vet a community before a tour, which is the step nearest a tour inquiry. Building it showed the live page sends families to a hospital-only site (U13), so it also corrects a factual error.
+- **Why before Experiment 1's review:** the owner's sprint asked for the next build now. It is a different page, so the cost guide stays unchanged and measurable. Correcting a factual error is the stated exception to waiting.
+- **Evidence:** the Hospital Report Card's own title and scope, read 2026-11-05; the statutes, rule and IDPH pages listed in Section 5's research row; the independent fact-check in PR #12.
+- **Rejected or deferred:**
+  - a title change, which needs the page's own queries and separate approval;
+  - the assessment's link to the same site (U13), which is a separate approval;
+  - publishing drafts or adding new pages during the sprint;
+  - any change to the cost guide, PR #10, the daily drafts routine, the inquiry system or consent;
+  - IndexNow (U4).
+- **Revisit:** at the sprint read on 2026-12-05, and 8 weeks after release.
+
 ---
 
 ## 7. Next action
 
-Completed on 2026-11-04: the owner reviewed PR #11. It was merged as `971b14a` and released in deploy `6aebd5ef` (D-019), and the review date was set to 2026-12-30.
+Completed on 2026-11-04: the owner reviewed PR #11. It was merged as `971b14a` and released in deploy `6aebd5ef` (D-019), and the review date was set to 2026-12-30. Completed on 2026-11-05: Experiment 2 was built and opened for review as PR #12 (D-021).
 
-**Exactly one action: take the release-day Search Console reading for the cost guide.**
+**Exactly one action: one Search Console sitting for both experiment pages, then the facility-lookup check.**
 
 | | |
 |---|---|
-| Who | Owner, about 5 minutes in Search Console. No site change. Report the figures in chat and Claude records them here as R5. |
-| Page | `https://evanstonseniorcareguide.com/guides/assisted-living-cost-illinois/` |
-| Read | Performance filtered to this page, with the date range stated: impressions, clicks, CTR, average position and the visible queries. Optionally, URL Inspection's last crawl date. |
-| Why | It is Experiment 1's release baseline. R4's date range was not recorded, so R5 is the reading the 8-week result will be compared with. |
+| Who | Owner, about 10 minutes. No site change. Report the figures in chat and Claude records them here as R5 and R6. |
+| Pages | `https://evanstonseniorcareguide.com/guides/assisted-living-cost-illinois/` (R5) and `https://evanstonseniorcareguide.com/guides/check-illinois-inspection-records/` (R6) |
+| Read | For each page, Performance filtered to the page, with the date range stated: impressions, clicks, CTR, average position and the visible queries. For the inspection guide, also URL Inspection: indexed or not, and the last crawl date. |
+| Then | Open IDPH's facility lookup from its assisted living page in a normal browser, find any Evanston assisted living establishment, and say whether an inspection history shows survey results. |
+| Why | R5 is Experiment 1's release baseline (R4's date range was not recorded). R6 is Experiment 2's baseline and must come before its release. The lookup check decides whether PR #12 should send families to an online record. |
 
-After R5 the experiment only waits. The page stays unchanged until 2026-12-30, except to correct a factual error.
+After R5 Experiment 1 only waits; the cost guide stays unchanged until 2026-12-30, except to correct a factual error. After R6 and the lookup check, PR #12 is ready for the owner's decision to merge and deploy.
 
 **Definition of done:**
 
-- [ ] Section 3 has R5, with its date range, and each visible query tagged Evanston, statewide or national.
-- [ ] Section 4's release baseline row names R5.
-- [ ] Section 7 names the 8-week review (2026-12-30) as the next action.
+- [ ] Section 3 has R5 and R6, each with its date range, and each visible query tagged Evanston, statewide or national.
+- [ ] Section 4's release baseline row names R5; Experiment 2's baseline row names R6.
+- [ ] PR #12 records the facility-lookup result, with a small edit before merge if the lookup shows inspection history.
+- [ ] Section 7 names the owner's decision on PR #12 as the next action.
