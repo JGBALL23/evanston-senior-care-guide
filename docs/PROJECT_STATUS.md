@@ -61,7 +61,8 @@
 |---|---|---|
 | Production and `main` | Everything above | Yes |
 | [PR #10](https://github.com/JGBALL23/evanston-senior-care-guide/pull/10), head `bca3f0b` | Illinois Life Plan guide, related-link swaps, citation allowlist | No, URL returns 404 |
-| `drafts`, head `f72ff6f` | 5 unpublished guides (Section 5) | No, all 5 URLs return 404 |
+| `drafts`, head `5be93b6` (`VERIFIED` 2026-11-04) | 6 unpublished guides (Section 5). The routine added #21 on 2026-11-04. | No, all 6 URLs return 404 |
+| [PR #11](https://github.com/JGBALL23/evanston-senior-care-guide/pull/11), head `1c4833c` (`VERIFIED` 2026-11-04) | Experiment 1: the cost guide's rewritten Evanston section | No. Review copy at `esc-preview-evanston-costs.netlify.app` (noindex, no functions) |
 | Claude Docs memos | Research and recommendations | No |
 
 `drafts` has diverged from `main` (12 commits ahead, 25 behind) and lacks PRs #6 to #9. Never merge it wholesale. Publish a guide through a release branch cut from `main`, as PR #5 did.
@@ -71,15 +72,17 @@
 | # | Issue | Evidence | Status |
 |---|---|---|---|
 | U1 | **Nothing shows the inquiry chain working on the current release.** The last notification email is a test from 2026-10-22. Functions moved from Node 20 to Node 24 on 2026-10-30. | Netlify deploy records; notification inbox; [plan](../INQUIRY-E2E-TEST-PLAN.md) marked "Not executed" | One labeled test, needs separate approval |
-| U2 | **No current Search Console data exists.** At the last reading, at most 6 of 18 sitemap pages were indexed. | Section 3 | Section 7 |
+| U2 | **No current Search Console data exists.** At the last reading, at most 6 of 18 sitemap pages were indexed. | Section 3 | Section 7. Partly closed 2026-11-04: R4 covers the cost guide only. |
 | U3 | **The Search Console review is partial.** Unread: Page indexing URL lists, Sitemaps report, Links report, queries for every page except the independent-living guide, and which page earned the one click. | Failure-focused audit, 2026-10-31 | Owner read needed |
 | U4 | **IndexNow is behind.** Last submission 2026-10-28. All 16 tracked `/guides/` URLs have changed since, 3 of them were never submitted, and the homepage is not tracked at all. IndexNow reaches Bing, not Google. | `data/indexnow-ledger.json` compared with `_dist` | Needs separate approval |
 | U5 | **Funnel counts expire after 24 hours.** Only hand-taken readings survive. | [Funnel baseline](../data/funnel-baseline.md) | Scheduled snapshot proposed, not approved |
 | U6 | **A confirmed tour cannot be recorded yet.** A private ledger keyed by reference ID was proposed, not built. No Admissions hand-back exists. | Gap analysis, 2026-10-31 | Priority 3, not started |
 | U7 | **`data/guide-queue.md` is out of date.** It says the routine is paused and lists the Life Plan guide as not yet written. The routine is enabled and picks its own topics, and the guide is in PR #10. | Scheduled-task record; file on `main` | Correct when approved |
-| U8 | **Sitemap `lastmod` is stale.** No entry is later than 2026-10-29, although Netlify shows 17 pages changed on 31 October and 18 on 1 November. | `_dist/sitemap.xml`; deploy summaries | Ride-along fix, `RECOMMENDED` |
+| U8 | **Sitemap `lastmod` is stale.** No entry is later than 2026-10-29, although Netlify shows 17 pages changed on 31 October and 18 on 1 November. | `_dist/sitemap.xml`; deploy summaries | Ride-along fix, `RECOMMENDED`. Note 2026-11-04: the generator stamps the homepage, `/guides/` and the privacy notice with the newest guide date, so PR #11 moves all three to 2026-11-04 although only the cost guide changed. |
 | U9 | **Minor:** `/privacy` and `/privacy.html` both return 200. Live links use the first; the canonical tag and sitemap use the second. | Live check | Negligible, audit 2026-10-31 |
-| U10 | **Housekeeping:** two preview sites remain online (`esc-preview-d9ed1ac`, `esc-preview-simple-first`). Both are `noindex` and block crawlers. | Netlify; live headers | Owner may delete |
+| U10 | **Housekeeping:** two preview sites remain online (`esc-preview-d9ed1ac`, `esc-preview-simple-first`). Both are `noindex` and block crawlers. Since 2026-11-04 a third, `esc-preview-evanston-costs`, holds the review copy of PR #11: static files only, no functions, `noindex`, `robots.txt` blocks everything. | Netlify; live headers | Owner may delete the first two now and the third after PR #11 is decided |
+| U11 | **`ilga.gov` fails the citation checker.** `ilga.gov` sends its certificate without the intermediate, so `check-citations.sh` (curl) reports every `ilga.gov` URL as dead (code 000), although browsers open them. This affects PR #10 and PR #11. The daily routine runs `check-citations.sh` on `drafts` and stops on any dead citation, so `ilga.gov` citations must not reach `drafts` before this is handled. | `openssl s_client`, 2026-11-04: "unable to verify the first certificate" for `ilga.gov`, `www.ilga.gov`, `lrb.ilga.gov` and `witnessslips.ilga.gov`; `beta.ilga.gov` verifies | Owner decision. `RECOMMENDED`: make the checker supply the missing intermediate for `ilga.gov` only |
+| U12 | **CareScout disagrees with itself on the Illinois assisted living figure.** Its Illinois press release (2 March 2026) gives $72,645 a year. Both 2025 data-table PDFs give $74,628 a year and $6,219 a month ("As reported, monthly rate, private, one bedroom"). | Press release on Business Wire; PDFs 298701 and 282102, read 2026-11-04 | The site uses $6,219, the monthly figure both tables print. No page change. Ask CareScout only if the annual figure is ever used |
 
 ---
 
@@ -114,7 +117,7 @@ A click is not an inquiry. An inquiry is not a tour. A beacon is never a busines
 
 ## 3. SEO performance baseline
 
-> **No current Search Console reading exists.** Every Search Console figure below is `HISTORICAL` and predates the 31 October SEO release. Claude has no Search Console connection, so these figures are `OWNER-REPORTED`.
+> **R4 (2026-11-04) is the only current reading, and it covers the cost guide only.** Every other Search Console figure below is `HISTORICAL` and predates the 31 October SEO release. Claude has no Search Console connection, so these figures are `OWNER-REPORTED`.
 
 ### Dated readings
 
@@ -123,6 +126,7 @@ A click is not an inquiry. An inquiry is not a tour. A beacon is never a busines
 | R1 | 2026-10-31 | First impressions (2026-10-21) to before the 31 October release. Exact end date not recorded. | Search Console Performance, owner |
 | R2 | 2026-10-31 | Page indexing report. Date of the report's last update not recorded. | Search Console Page indexing, owner |
 | R3 | 2026-11-01 | Same period as R1 | Search Console queries for the independent-living guide, owner |
+| R4 | 2026-11-04 | Date range not stated by the owner | Search Console, cost guide only (`/guides/assisted-living-cost-illinois/`), owner |
 
 ### Performance by search type
 
@@ -147,6 +151,18 @@ Only the Evanston row is based on actual queries. The statewide and national row
 | independent living community evanston il | 1 | 0 |
 
 The seventh impression's query is withheld by Search Console.
+
+**Cost guide (R4, `OWNER-REPORTED` 2026-11-04).** This is Experiment 1's baseline (Section 4).
+
+| Measure | Value |
+|---|---|
+| Indexed | Yes |
+| Impressions | 19 |
+| Clicks | 0 |
+| CTR | 0% (calculated) |
+| Average position | 40.6 |
+| Visible query | "assisted living cost evanston il" (Evanston). Its own impression count was not reported. |
+| Date range | Not stated. Section 7 had asked for 2026-10-21 to the reading date. |
 
 ### Indexing (R2)
 
@@ -198,19 +214,21 @@ The second row is new in this document and is not yet in the funnel baseline fil
 
 ## 4. Active experiment
 
-**None is running. No experiment has been approved.**
+**Experiment 1 is approved and built for review (D-018). It is not running yet, because nothing has been released.**
 
-### Experiment 1: Evanston costs (`RECOMMENDED`, awaiting the owner)
+### Experiment 1: Evanston costs (`APPROVED` 2026-11-04; built in PR #11, not released)
 
 | Field | Detail |
 |---|---|
 | Source | [Evanston-first memo](https://claude.ai/artifact/Tug4p2g1hKg7BXffcL1157), 2026-11-02 |
 | Change | Rewrite only the "What this means in Evanston" section of `/guides/assisted-living-cost-illinois/`. The title, short answer, sources, disclosures, assessment and optional inquiry stay as they are. No community names or prices. |
 | Hypothesis | Google's page one lacks a current, sourced, neutral answer on Evanston costs. A section explaining why published figures disagree, what the sourced figure is and is not, and how to read a quote will earn Evanston impressions and clicks for this page. |
-| Baseline | **Not captured.** The page's indexing status and queries are unread. Record them before any change (Section 7). |
+| Built (`VERIFIED` 2026-11-04) | [PR #11](https://github.com/JGBALL23/evanston-senior-care-guide/pull/11), branch `feature/evanston-costs-section`, head `1c4833c`, cut from `main` `4ce3249`. Only the Evanston section's text changed. It now relies on CareScout's 2025 methodology, 210 ILCS 9/15 (with Public Act 104-0589), 9/85 and 9/90, and IDPH, so the sources list grew from 2 to 8, `ilga.gov` joined the citation allowlist, and the page's review date moved to 4 November 2026. An independent fact-check found six sentences to fix; all six are fixed in `1c4833c`. The title, description, short answer, other sections, disclosures, assessment and inquiry are unchanged. |
+| Baseline | **Captured (R4, Section 3):** indexed; 19 impressions, 0 clicks, average position 40.6; visible query "assisted living cost evanston il". The date range was not stated. |
+| Release baseline | On release day record the deploy ID and publish time (Deployment History), the release commit, and a fresh Search Console reading for this page with its date range stated. The 8-week result is measured against that reading, with R4 as the earlier reference. |
 | Intended result | Impressions, average position and clicks rise for this page's queries containing "Evanston", compared with guides left unchanged. Stored inquiries are counted from server records. |
 | Review date | 8 weeks after release. No release date exists yet. |
-| Stop condition | If the page is not indexed, indexing comes first and the experiment waits. |
+| Stop condition | If the page is not indexed, indexing comes first and the experiment waits. R4 reports it indexed. |
 
 **Decision criteria at 8 weeks:**
 
@@ -266,6 +284,7 @@ Netlify records no commit for these deploys. The source commit comes from each a
 | 2026-11-01 | [Life Plan guide review draft](https://claude.ai/artifact/BYmnSgmwfbR4U9CEBiDo4j) | Sources, inversion and measurement for PR #10 |
 | 2026-11-02 | [Evanston-first memo](https://claude.ai/artifact/Tug4p2g1hKg7BXffcL1157) | Five ranked opportunities and Experiment 1 |
 | 2026-11-03 | Draft quality review of #16 to #20 (Section 5 of this file) | Fact-checks, production compatibility and ranking. Redo only for a draft that changes |
+| 2026-11-04 | Evanston cost figures, done while building Experiment 1 ([PR #11](https://github.com/JGBALL23/evanston-senior-care-guide/pull/11)) | What the CareScout median measures; what four listing websites publish for Evanston and how; what 210 ILCS 9/15, 9/85 and 9/90 require of the contract |
 
 Repository documents from before 2026-10-29 (`ACQUISITION-*.md`, `TOP-PRIORITIES.md`, `WHAT-I-CAN-PROVE.md`, `LAUNCH-CHECKLIST.md`, `VISIT-ATTRIBUTION.md`) are `HISTORICAL`. Where they conflict with this file, this file wins.
 
@@ -275,7 +294,8 @@ Repository documents from before 2026-10-29 (`ACQUISITION-*.md`, `TOP-PRIORITIES
 |---|---|---|
 | [PR #10](https://github.com/JGBALL23/evanston-senior-care-guide/pull/10) | Open, mergeable, unreviewed. 3 commits, 10 files, head `bca3f0b`. Left untouched since 2026-11-02. | See Blocked |
 | Daily drafts routine | `EVANSTON-DAILY-GUIDE-DRAFTS`, enabled. 6 AM Chicago. Last run succeeded 2026-11-03 12:02 UTC. Writes to `drafts` only and never publishes. | Owner chooses what is published |
-| Search Console review | Partial (U3) | Section 7 |
+| Search Console review | Partial (U3). Cost guide read 2026-11-04 (R4). | Owner |
+| Experiment 1 | Built in [PR #11](https://github.com/JGBALL23/evanston-senior-care-guide/pull/11), all suites pass, review copy online. Not merged, not deployed. | Owner review (Section 7) |
 
 ### Unpublished guides on `drafts` (`VERIFIED` 2026-11-03)
 
@@ -286,6 +306,7 @@ Repository documents from before 2026-10-29 (`ACQUISITION-*.md`, `TOP-PRIORITIES
 | #18 | `illinois-benefit-access-program` | `6ee6a60` | 2026-11-01 |
 | #19 | `illinois-home-delivered-meals` | `b929efc` | 2026-11-02 |
 | #20 | `illinois-elder-abuse-reporting` | `f72ff6f` | 2026-11-03 |
+| #21 | `illinois-nursing-home-resident-rights` | `5be93b6` | 2026-11-04 (added to this table 2026-11-04, not reviewed) |
 
 All five need separate publication approval. All are statewide topics, and none is part of Experiment 1. The routine can add up to two guides a day.
 
@@ -316,7 +337,7 @@ All five need separate publication approval. All are statewide topics, and none 
 | Item | Blocked by | Who |
 |---|---|---|
 | PR #10 merge | Section 396.50 comparison needs Illinois Register Vol. 50, Issue 38, PDF pages 256 to 275 attached, because the Register blocks automated tools. Legal review recommended. Merge, deploy and IndexNow each need approval. | Owner |
-| Experiment 1 | Section 7, then the owner's approval | Owner |
+| Experiment 1 release | Owner review of PR #11 and its review copy. Merge, deploy and IndexNow each need separate approval. | Owner |
 | End-to-end inquiry test (U1) | Separate approval | Owner |
 | IndexNow catch-up (U4) | Separate approval. The ledger commit touches `main`. | Owner |
 | Tour attribution (U6) | A proposal for review and a process with Admissions | Owner |
@@ -325,7 +346,8 @@ All five need separate publication approval. All are statewide topics, and none 
 ### Pending verification
 
 - [ ] One labeled end-to-end inquiry test on the current release
-- [ ] Cost guide: indexed or not, and its queries
+- [x] Cost guide: indexed or not, and its queries (R4, 2026-11-04)
+- [ ] Cost guide reading on release day, with its date range stated (Section 4)
 - [ ] Page indexing URL lists and Sitemaps report status
 - [ ] Links report: top linking sites
 - [ ] Queries for the Medicare and inspection-records guides
@@ -337,7 +359,7 @@ All five need separate publication approval. All are statewide topics, and none 
 
 ## 6. Decision Log (append only)
 
-**Nothing labeled `RECOMMENDED` is authorized.** Today that means D-011, D-015, D-016 and D-017. Revisit conditions are proposed unless the owner set them. Decisions before 2026-10-29 are in the `HISTORICAL` documents listed in Section 5.
+**Nothing labeled `RECOMMENDED` is authorized.** Today that means D-011, D-016 and D-017. D-015 was approved by D-018. Revisit conditions are proposed unless the owner set them. Decisions before 2026-10-29 are in the `HISTORICAL` documents listed in Section 5.
 
 ### D-001 · 2026-10-29 · `APPROVED` · Releases go through a release branch and PR
 - **Why:** `main` is production, and `drafts` holds work awaiting review.
@@ -455,29 +477,37 @@ All five need separate publication approval. All are statewide topics, and none 
 - **Rejected or deferred:** publishing any draft as written; merging `drafts`; renaming statewide topics to Evanston; any change to Experiment 1 or Section 7.
 - **Revisit:** when the owner reviews a corrected draft. Publication would still need D-003's demonstrated gap. The verified gap is informational, and search demand for these topics is unmeasured.
 
+### D-018 · 2026-11-04 · `APPROVED` · Experiment 1 approved for implementation
+- **Decided:** build Experiment 1 (D-015) on a fresh branch from `main`. The cost guide's "What this means in Evanston" section explains why local estimates differ, what each kind of figure includes or leaves out, and how a family reaches the real monthly cost, using attributed, verifiable information. Run the tests, provide a working preview, and record the status and release baseline here.
+- **Why:** the cost guide is indexed and Google has shown it for "assisted living cost evanston il" (R4).
+- **Evidence:** the owner's instruction of 2026-11-04; R4.
+- **Rejected or deferred:** a directory, rankings, sponsored recommendations, misleading comparisons and an invented Evanston median; merging or deploying without approval; any change to PR #10 or the daily drafts routine.
+- **Revisit:** 8 weeks after release (Section 4).
+
 ---
 
 ## 7. Next action
 
-**Exactly one action: take the first dated Search Console reading for the cost guide.**
+The previous action, the first Search Console reading for the cost guide, was completed on 2026-11-04 (R4, D-018).
+
+**Exactly one action: the owner reviews PR #11 and its review copy, then approves or declines the release.**
 
 | | |
 |---|---|
-| Who | Owner, about 10 minutes in Search Console. No code and no site change. Report the figures in chat and Claude records them here. |
-| Page | `https://evanstonseniorcareguide.com/guides/assisted-living-cost-illinois/` |
-| Why it matters | Every Search Console figure here predates the 31 October release, and the cost guide's own data has never been read. It decides whether Experiment 1 can start, and it gives the experiment a baseline. Without it, any change would be unmeasurable. |
+| Who | Owner, about 10 minutes. Read the rewritten section on a phone and a computer, then the PR. |
+| Review copy | `https://esc-preview-evanston-costs.netlify.app/guides/assisted-living-cost-illinois/` (noindex, no functions: the tour form cannot submit there) |
+| PR | [#11](https://github.com/JGBALL23/evanston-senior-care-guide/pull/11) |
 
-**Evidence needed:**
+**If approved, the release steps. Each needs the owner's yes:**
 
-1. **URL Inspection:** indexed or not, Google-selected canonical, last crawl date.
-2. **Performance, filtered to this page, 2026-10-21 to the reading date:** impressions, clicks, CTR, average position, and the visible queries.
-3. **Whole property, same dates:** impressions, clicks, CTR, average position.
-4. **Only if the cost guide has no Evanston queries:** the inspection-records guide's queries, which decide whether Experiments 1 and 2 swap.
+1. Merge PR #11 into `main` with a merge commit.
+2. One production deploy of that `main` commit, recorded in Deployment History.
+3. The same day, the release-day Search Console reading for the cost guide, with its date range stated (Section 4).
+4. IndexNow for the changed URLs, approved separately (U4).
+5. The 8-week review date entered in Section 4.
 
 **Definition of done:**
 
-- [ ] Section 3 has a new dated reading (R4 onward), with each query tagged Evanston, statewide or national. Nothing older is overwritten.
-- [ ] The cost guide is recorded as indexed or not indexed.
-- [ ] Section 4 has the captured baseline.
-- [ ] The Decision Log records one outcome: the owner approves Experiment 1, declines it, or indexing comes first.
+- [ ] The Decision Log records the owner's decision on the release.
+- [ ] If released: Deployment History has the deploy, and Section 4 has the release date, the release-day reading and the review date.
 - [ ] Section 7 names the next single action.
