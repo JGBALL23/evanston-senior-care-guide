@@ -71,7 +71,7 @@
 
 | # | Issue | Evidence | Status |
 |---|---|---|---|
-| U1 | **Nothing shows the inquiry chain working on the current release.** The last notification email is a test from 2026-10-22. Functions moved from Node 20 to Node 24 on 2026-10-30. | Netlify deploy records; notification inbox; [plan](../INQUIRY-E2E-TEST-PLAN.md) marked "Not executed" | One labeled test, needs separate approval |
+| U1 | **Nothing shows the inquiry chain working on the current release.** The last notification email is a test from 2026-10-22. Functions moved from Node 20 to Node 24 on 2026-10-30. | Netlify deploy records; notification inbox; [plan](../INQUIRY-E2E-TEST-PLAN.md) marked "Not executed" | **Closed 2026-11-05: one labeled test passed on deploy `6aebd5ef` (D-020).** |
 | U2 | **No current Search Console data exists.** At the last reading, at most 6 of 18 sitemap pages were indexed. | Section 3 | Section 7. Partly closed 2026-11-04: R4 covers the cost guide only. |
 | U3 | **The Search Console review is partial.** Unread: Page indexing URL lists, Sitemaps report, Links report, queries for every page except the independent-living guide, and which page earned the one click. | Failure-focused audit, 2026-10-31 | Owner read needed |
 | U4 | **IndexNow is behind.** Last submission 2026-10-28. All 16 tracked `/guides/` URLs have changed since, 3 of them were never submitted, and the homepage is not tracked at all. IndexNow reaches Bing, not Google. | `data/indexnow-ledger.json` compared with `_dist` | Needs separate approval. The PR #11 release (2026-11-04) changed the cost guide and the sitemap; nothing was submitted. |
@@ -202,8 +202,8 @@ The second row is new in this document and is not yet in the funnel baseline fil
 
 | Metric | State | Source and date |
 |---|---|---|
-| Stored inquiries | **Not read.** The export needs the owner's token. Exclude test records from any count. | 2026-11-03 |
-| Inquiry notification emails | Tests only. The latest is from 2026-10-22, none since. | Notification inbox, checked 2026-11-03 |
+| Stored inquiries | **Not read.** The export needs the owner's token. Exclude test records from any count, including the labeled test "TEST DO-NOT-CONTACT" of 2026-11-05 16:07 UTC. | 2026-11-05 |
+| Inquiry notification emails | Tests only. The latest is the labeled test of 2026-11-05. | Notification inbox, checked 2026-11-05 |
 | Confirmed tours | None recorded. No reporting process exists. | U6 |
 
 **Not available and never to be estimated:** search volumes, keyword difficulty, conversion rates, local statistics, community prices.
@@ -343,14 +343,14 @@ All five need separate publication approval. All are statewide topics, and none 
 |---|---|---|
 | PR #10 merge | Section 396.50 comparison needs Illinois Register Vol. 50, Issue 38, PDF pages 256 to 275 attached, because the Register blocks automated tools. Legal review recommended. Merge, deploy and IndexNow each need approval. | Owner |
 | Further changes to the cost guide | Closed until the 8-week review on 2026-12-30 (D-019), except to correct a factual error | Owner |
-| End-to-end inquiry test (U1) | Separate approval | Owner |
+| End-to-end inquiry test (U1) | Done 2026-11-05, passed (D-020) | Owner |
 | IndexNow catch-up (U4) | Separate approval. The ledger commit touches `main`. | Owner |
 | Tour attribution (U6) | A proposal for review and a process with Admissions | Owner |
 | Drafts #16 to #20 | Owner review, and a demonstrated gap. Since 2026-11-03, factual corrections come first (Draft quality review). | Owner |
 
 ### Pending verification
 
-- [ ] One labeled end-to-end inquiry test on the current release
+- [x] One labeled end-to-end inquiry test on the current release (2026-11-05, passed, D-020)
 - [x] Cost guide: indexed or not, and its queries (R4, 2026-11-04)
 - [ ] Cost guide reading on release day, with its date range stated (Section 4)
 - [ ] Page indexing URL lists and Sitemaps report status
@@ -495,6 +495,18 @@ All five need separate publication approval. All are statewide topics, and none 
 - **Evidence:** the owner's instruction of 2026-11-04; merge commit `971b14a`; deploy `6aebd5efd56ee67f5aba491d`; live verification in Section 1.
 - **Rejected or deferred:** IndexNow (still not approved, U4); further edits to the cost guide before 2026-12-30, except factual corrections; any change to PR #10, the daily drafts routine, the inquiry system or consent.
 - **Revisit:** at the 8-week review on 2026-12-30, using the decision criteria in Section 4.
+
+### D-020 · 2026-11-05 · `APPROVED` · One labeled end-to-end inquiry test: passed
+- **Decided:** run one production test of the inquiry chain, as described to and approved by the owner. A phone-size browser labeled as the site's test harness took the assessment (Assisted Living) and submitted the tour inquiry once as "TEST DO-NOT-CONTACT", with the owner's own inbox as the email and no phone.
+- **Result (`VERIFIED` 2026-11-05):** PASS.
+  - The server answered stored and verified (the record is written and read back), and the page showed "Your interest has been recorded." with the reference.
+  - The notification reached the operator inbox within a second, with the same reference, addressed to that inbox only.
+  - The browser contacted only this site and Google Fonts.
+  - The function's only outbound calls are the site's own store and the email service.
+  - Nothing went to Westminster Place.
+- **Why:** U1. Nothing had shown the chain working since the 2026-10-30 move to Node 24.
+- **Rejected or deferred:** reading or deleting the stored record. That needs the owner's export token, which was not requested. The record deletes itself after 180 days. The test's beacons carry the harness user agent, so they are excluded from visitor counts.
+- **Revisit:** after any change to the inquiry form, the function, consent or the email setup.
 
 ---
 
