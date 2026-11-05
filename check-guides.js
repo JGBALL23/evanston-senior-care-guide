@@ -225,6 +225,91 @@ check("Evanston section: links the inspection-records guide",
   check("cost guide cites " + u, costPage.indexOf(u) !== -1);
 });
 
+/* ---- EXPERIMENT 2, 2026-11-05: the inspection guide's Evanston section ----
+   The guide told families to search the "Health Care Report Card". That
+   site is the Illinois Hospital Report Card: hospitals and surgery centres,
+   no nursing homes, no assisted living. The rewrite says where each kind of
+   record is kept, checks an Evanston campus part by part, and decodes the
+   Nursing Home Care Act's violation types. Every statute, rule and IDPH page
+   was read on 2026-11-05. Hold each corrected statement in place, and keep
+   the section free of community names and of fines, which go stale and
+   would turn a how-to into a league table. */
+const inspPage = page["check-illinois-inspection-records"];
+const inspLc = lc(inspPage);
+check("inspection guide: the hospital report card is neither cited nor named",
+  inspPage.indexOf("healthcarereportcard.illinois.gov") === -1 &&
+  inspLc.indexOf("health care report card") === -1);
+check("inspection guide: assisted living is not sent to a state 'tool'",
+  inspLc.indexOf("the illinois tool is the one that applies") === -1 &&
+  inspLc.indexOf("so care compare has no record of it") !== -1);
+check("inspection guide: the answer starts from what each part is licensed as",
+  inspLc.indexOf("it depends on what each part of the community is licensed as") !== -1 &&
+  inspLc.indexOf("available for residents to review") !== -1);
+/* The fact-check of 2026-11-05 found that IDPH's licensing portal, linked from
+   its assisted living page, may hold an inspection history that no tool here
+   could load. The page therefore claims neither that results are online nor
+   that they are not, and says the survey rule is written for residents. */
+check("inspection guide: nothing claims assisted living results are, or are not, online",
+  !/found no public online lookup|results (are )?(posted |published )?online|online (inspection|survey) results/.test(inspLc));
+check("inspection guide: Care Compare is scoped to certified nursing homes",
+  inspLc.indexOf("care compare covers nursing homes certified by medicare or medicaid") !== -1);
+const insEv = (flat(inspPage).match(
+  /<h2 class="res__h">How to check an Evanston community's record<\/h2>([\s\S]*?)<\/section>/) || [])[1] || "";
+const insEvLc = insEv.toLowerCase();
+check("inspection guide: Evanston section present", insEv.length > 400, String(insEv.length));
+check("inspection guide: Evanston section checks each part of a campus",
+  ["<strong>nursing care.</strong>", "<strong>assisted living.</strong>",
+   "<strong>memory care.</strong>", "<strong>independent living.</strong>"]
+    .every((k) => insEvLc.indexOf(k) !== -1));
+check("inspection guide: the quarterly reports are searched for Evanston, by facility city",
+  insEvLc.indexOf("search it for &ldquo;evanston&rdquo; and check the facility city") !== -1 &&
+  insEvLc.indexOf("an owner based in evanston can match too") !== -1);
+check("inspection guide: a report entry is said to carry any fine, not always one",
+  insEvLc.indexOf("the type of each violation and any fine") !== -1);
+check("inspection guide: five years of nursing home reports kept for public inspection",
+  insEvLc.indexOf("from the past five years") !== -1 &&
+  insEvLc.indexOf("for public inspection") !== -1);
+check("inspection guide: the assisted living survey must be available for review",
+  insEvLc.indexOf("most recent state survey results") !== -1 &&
+  insEvLc.indexOf("statement of correction") !== -1 &&
+  insEvLc.indexOf("available for review") !== -1);
+check("inspection guide: the yearly unannounced visit is stated",
+  insEvLc.indexOf("unannounced state visit to each establishment every year") !== -1);
+check("inspection guide: the licence list is offered and the survey rule is scoped to residents",
+  insEvLc.indexOf("online list of licensed establishments") !== -1 &&
+  insEvLc.indexOf("the rule is written for residents") !== -1 &&
+  insEvLc.indexOf("ask anyway") !== -1);
+check("inspection guide: the dementia disclosure is written and covers staffing ratios",
+  insEvLc.indexOf("in writing for a potential resident") !== -1 &&
+  insEvLc.indexOf("minimum and maximum staffing ratios") !== -1);
+check("inspection guide: independent living has no inspection record of this kind",
+  insEvLc.indexOf("no state inspection record of this kind") !== -1 &&
+  insEv.indexOf('href="/guides/independent-living-evanston/"') !== -1);
+check("inspection guide: Evanston section names no community, Westminster Place included",
+  !/\b(westminster|presbyterian|trulee|belmont|sunrise|merion|mather|three crowns|avidor|carrington|north shore place|artis|clarendale|arbor terrace)\b/i.test(insEv));
+check("inspection guide: Evanston section prints no fine or other dollar figure",
+  !/\$\s?\d/.test(insEv));
+check("inspection guide: the four Illinois violation types are defined",
+  inspLc.indexOf("proximately caused a resident&rsquo;s death") !== -1 &&
+  inspLc.indexOf("substantial probability of death or serious") !== -1 &&
+  inspLc.indexOf("more likely than not to cause more than minimal") !== -1 &&
+  inspLc.indexOf("less than minimal physical or mental harm") !== -1 &&
+  inspLc.indexOf("they do not describe assisted living findings") !== -1);
+check("inspection guide: absence from a report is not a clean record",
+  inspLc.indexOf("that is not the same as a clean record") !== -1);
+check("inspection guide: the title is unchanged (a title change needs its own approval)",
+  /<title>How to Check Illinois Nursing Home Inspection Records/.test(inspPage));
+["medicare.gov/care-compare/",
+ "nursing-homes/violator-quarterly-reports.html",
+ "health-care-regulation/nursing-homes.html",
+ "021000450K3-210.htm", "021000450K1-128.5.htm", "021000450K1-129.htm",
+ "021000450K1-130.htm", "021000450K1-132.htm",
+ "021000090K10.htm", "021000090K110.htm",
+ "health-care-regulation/assisted-living.html",
+ "077002950A10200R.html", "021000040K15.htm"].forEach((u) => {
+  check("inspection guide cites " + u, inspPage.indexOf(u) !== -1);
+});
+
 /* ---- OWNER FINDING 3, 2026-10-18: skilled coverage is not custodial ---- */
 const med = page["does-medicare-pay-for-senior-care"];
 check("custodial care is named in the answer", lc(med).indexOf("long-term custodial") !== -1);
@@ -825,9 +910,11 @@ check("its JSON-LD dateModified agrees with its printed date",
 /* 2026-11-04: the cost guide was re-verified when its Evanston section was
    rewritten (Experiment 1), so it now carries its own date. The other four
    of the original five were not re-read and must keep 2026-10-18. */
+/* 2026-11-05: the inspection guide was re-verified when it was rewritten
+   (Experiment 2), so it carries its own date too. The other three of the
+   original five were not re-read and must keep 2026-10-18. */
 const ORIGINAL_UNCHANGED = ["does-medicare-pay-for-senior-care",
-  "illinois-supportive-living-program", "check-illinois-inspection-records",
-  "levels-of-senior-care-explained"];
+  "illinois-supportive-living-program", "levels-of-senior-care-explained"];
 check("the original five that were not re-verified keep their 2026-10-18 date",
   ORIGINAL_UNCHANGED.every((s) => dates[SLUGS.indexOf(s)] === "18 October 2026"),
   ORIGINAL_UNCHANGED.map((s) => dates[SLUGS.indexOf(s)]).join(" | "));
@@ -836,6 +923,11 @@ check("the cost guide is dated the day it was re-verified",
   String(dates[SLUGS.indexOf("assisted-living-cost-illinois")]));
 check("the cost guide's JSON-LD dateModified agrees with its printed date",
   page["assisted-living-cost-illinois"].indexOf('"dateModified": "2026-11-04"') !== -1);
+check("the inspection guide is dated the day it was re-verified",
+  dates[SLUGS.indexOf("check-illinois-inspection-records")] === "5 November 2026",
+  String(dates[SLUGS.indexOf("check-illinois-inspection-records")]));
+check("the inspection guide's JSON-LD dateModified agrees with its printed date",
+  page["check-illinois-inspection-records"].indexOf('"dateModified": "2026-11-05"') !== -1);
 
 /* ---- OWNER, 2026-11-04: a re-review re-dates only the guide reviewed ----
    The first build of PR #11 moved the homepage, /guides/ and the privacy
@@ -856,6 +948,9 @@ SLUGS.forEach((s) => {
 });
 check("sitemap: the cost guide's re-review does not re-date the homepage, /guides/ or the privacy notice",
   ["/", "/guides/", "/privacy.html"].every((k) => LM[k] && LM[k] !== "2026-11-04"),
+  ["/", "/guides/", "/privacy.html"].map((k) => k + "=" + LM[k]).join(" "));
+check("sitemap: the inspection guide's re-review does not re-date them either",
+  ["/", "/guides/", "/privacy.html"].every((k) => LM[k] && LM[k] !== "2026-11-05"),
   ["/", "/guides/", "/privacy.html"].map((k) => k + "=" + LM[k]).join(" "));
 const indexDate = (indexPage.match(/Last reviewed ([0-9]+ [A-Za-z]+ [0-9]{4})\./) || [])[1];
 check("the /guides/ footer date agrees with its sitemap date",

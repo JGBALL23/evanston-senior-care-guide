@@ -429,7 +429,10 @@ if (wpNamed) {
    ["the recipient is named",           "your details come to me, and i may pass them to westminster place so they can contact you about a tour"],
    ["purpose of collection is stated",  "a record is kept that your inquiry came through this resource"],
    ["refusal to rank is stated",        "do not rank westminster place"],
-   ["state directory is offered",       "healthcarereportcard.illinois.gov"]
+   /* 2026-11-05: was the Illinois Hospital Report Card, which covers
+      hospitals and surgery centres only. Owner-approved fix in PR #12: the
+      result card links the corrected inspection-records guide instead. */
+   ["inspection-record guide is offered", 'href="/guides/check-illinois-inspection-records/">how to check any community']
   ].forEach(([label, phrase]) => {
     check("disclosure: " + label, shownSrc.indexOf(phrase) !== -1, phrase);
   });
@@ -1040,8 +1043,11 @@ const ORDER = [
   ["the Westminster card with its disclosure", "I work at Westminster Place"],
   ["our own tour-inquiry form",                "COLLECTING ? planFormBlock("],
   ["questions to ask when evaluating options", "Questions to ask when evaluating options"],
-  ["the Illinois state directory",             "healthcarereportcard.illinois.gov"]
+  ["how to check any community's record",      'href="/guides/check-illinois-inspection-records/">How to check any']
 ];
+check("the result card no longer offers the hospital-only report card",
+  appSrcRaw.indexOf("healthcarereportcard.illinois.gov") === -1 &&
+  pageRaw.indexOf("licensed-facility directory") === -1);
 let lastAt = -1;
 let orderOk = true;
 ORDER.forEach(([label, marker]) => {

@@ -175,8 +175,52 @@ SRC = {
     "ilcs_al_90": ('Assisted Living and Shared Housing Act, 210 ILCS 9/90 \u2014 '
                    'contents of the contract',
                    'https://www.ilga.gov/legislation/ilcs/documents/021000090K90.htm'),
+    # 2026-11-05: this site is the Illinois Hospital Report Card. It covers
+    # hospitals and surgery centres only, not nursing homes or assisted living.
+    # The inspection guide no longer cites it (Experiment 2).
     "idph": ('Illinois Department of Public Health — Health Care Report Card',
              'https://healthcarereportcard.illinois.gov/'),
+    # Experiment 2, 2026-11-05: where each kind of Illinois inspection record is
+    # kept. Every page below was read on 2026-11-05. The quarterly reports list
+    # IDPH's actions under the Nursing Home Care Act, one entry per facility
+    # with its name, address, survey date, violation types and fines. The
+    # Type "AA" page is cited on lig.ilga.gov because the web tool could read
+    # it there; the other three types were read on ilga.gov.
+    "idph_nh": ('Illinois Department of Public Health — Nursing Homes',
+                'https://dph.illinois.gov/topics-services/health-care-regulation/nursing-homes.html'),
+    "idph_nh_quarterly": ('Illinois Department of Public Health — Quarterly Reports '
+                          'of Nursing Home Violators',
+                          'https://dph.illinois.gov/topics-services/health-care-regulation/'
+                          'nursing-homes/violator-quarterly-reports.html'),
+    "ilcs_nh_3_210": ('Nursing Home Care Act, 210 ILCS 45/3-210 — records a facility '
+                      'keeps for public inspection',
+                      'https://ilga.gov/legislation/ilcs/documents/021000450K3-210.htm'),
+    "ilcs_nh_aa": ('Nursing Home Care Act, 210 ILCS 45/1-128.5 — Type “AA” '
+                   'violation',
+                   'https://lig.ilga.gov/legislation/ilcs/documents/021000450K1-128.5.htm'),
+    "ilcs_nh_a": ('Nursing Home Care Act, 210 ILCS 45/1-129 — Type “A” violation',
+                  'https://ilga.gov/legislation/ilcs/documents/021000450K1-129.htm'),
+    "ilcs_nh_b": ('Nursing Home Care Act, 210 ILCS 45/1-130 — Type “B” violation',
+                  'https://ilga.gov/legislation/ilcs/documents/021000450K1-130.htm'),
+    "ilcs_nh_c": ('Nursing Home Care Act, 210 ILCS 45/1-132 — Type “C” violation',
+                  'https://ilga.gov/legislation/ilcs/documents/021000450K1-132.htm'),
+    # 9/10 excludes nursing homes from "assisted living establishment" but lets
+    # a nursing home convert distinct parts, and a life care facility convert
+    # sections, to assisted living: one campus, more than one licence.
+    "ilcs_al_10": ('Assisted Living and Shared Housing Act, 210 ILCS 9/10 — '
+                   'definitions',
+                   'https://ilga.gov/legislation/ilcs/documents/021000090K10.htm'),
+    "ilcs_al_110": ('Assisted Living and Shared Housing Act, 210 ILCS 9/110 — powers '
+                    'and duties of the Department',
+                    'https://www.ilga.gov/legislation/ilcs/documents/021000090K110.htm'),
+    "iac_al_1020": ('Illinois Administrative Code, 77 Ill. Adm. Code 295.1020 — '
+                    'information to be made available to the resident',
+                    'https://ilga.gov/ftp/JCAR/AdminCode/077/077002950A10200R.html'),
+    # 4/10 defines "facility" to include nursing homes, assisted living and
+    # shared housing, life care facilities and supportive living.
+    "ilcs_alz_15": ('Alzheimer’s Disease and Related Dementias Special Care '
+                    'Disclosure Act, 210 ILCS 4/15 — disclosure requirements',
+                    'https://ilga.gov/legislation/ilcs/documents/021000040K15.htm'),
     "idoa_ccp": ('Illinois Department on Aging — Community Care Program',
                  'https://ilaging.illinois.gov/programs/ccp.html'),
     "hfs_elderly": ('Illinois HFS — Persons who are Elderly waiver',
@@ -607,34 +651,51 @@ GUIDES = [
         "bridge": ("An inspection record tells you how well a community does its job. "
                "It cannot tell you whether that is the job your parent needs doing "
                "in the first place."),
+        # Experiment 2, 2026-11-05. The page sent families to the "Health Care
+        # Report Card", which is the Illinois Hospital Report Card: hospitals
+        # and surgery centres only. Rewritten to say where each kind of record
+        # is kept, with an Evanston section that checks a campus part by part.
+        # The title is kept until Search Console shows the queries this page
+        # earns; a title change needs its own approval.
+        "reviewed": "2026-11-05",
+        "listed": "2026-10-18",
         "title": "How to Check Illinois Nursing Home Inspection Records",
         "h1": "How to check an Illinois care community's inspection record",
-        "desc": ("Illinois publishes inspection and complaint records for licensed "
-                 "facilities; Medicare publishes staffing and quality data. How to look "
-                 "up a community first."),
+        "desc": ("How to find Illinois nursing home and assisted living inspection "
+                 "records, what the violation types mean, and what to ask an Evanston "
+                 "community to show you."),
         "intent": "how-to / due diligence",
-        "answer": ("Two free public tools. The <strong>Illinois Department of Public "
-                   "Health Health Care Report Card</strong> publishes inspection and "
-                   "complaint information for licensed Illinois facilities. "
-                   "<strong>Medicare Care Compare</strong> publishes staffing levels, "
-                   "inspection findings and quality measures for Medicare-certified "
-                   "nursing homes. Check both before you tour anywhere."),
-        "sources": srcs("idph", "mcompare"),
+        "answer": ("It depends on what each part of the community is licensed as. For "
+                   "a <strong>nursing home</strong>, <strong>Medicare Care "
+                   "Compare</strong> publishes inspection, staffing and quality data. "
+                   "The <strong>Illinois Department of Public Health</strong> "
+                   "publishes quarterly reports of the nursing home violations it has "
+                   "acted on. For <strong>assisted living</strong>, ask the community "
+                   "to show you its most recent state survey. Illinois rules require it "
+                   "to make the results available for residents to review, so ask "
+                   "before your parent becomes one."),
+        "sources": srcs("mcompare", "idph_nh", "idph_nh_quarterly", "ilcs_nh_3_210",
+                        "ilcs_nh_aa", "ilcs_nh_a", "ilcs_nh_b", "ilcs_nh_c",
+                        "ilcs_al_10", "idph_al_div", "ilcs_al_110", "iac_al_1020",
+                        "ilcs_alz_15"),
         "body": [
-            ("Start with the state", [
-                "<p>The Illinois Department of Public Health licenses and inspects "
-                "long-term care facilities in this state and publishes what it finds. "
-                "Search the Health Care Report Card by facility name or location.</p>",
+            ("Start with what each part is licensed as", [
+                "<p>Illinois licenses nursing homes and assisted living under "
+                "different laws. Their records are kept in different places. One "
+                "campus can hold more than one licence. So first ask what each part "
+                "of a community is licensed as. The answer tells you where to "
+                "look.</p>",
                 "<p>What you are looking for is not a perfect record — almost nobody has "
                 "one. You are looking for <em>patterns</em>. A single citation three "
                 "years ago that was corrected is noise. The same category of problem "
                 "appearing in consecutive inspections is a signal.</p>",
             ]),
-            ("Then check Medicare Care Compare", [
-                "<p>Medicare Care Compare covers Medicare-certified nursing homes and "
-                "publishes something the state tool does not emphasise: reported staffing "
-                "levels, including registered nurse hours per resident per day, and "
-                "staff turnover.</p>",
+            ("For a nursing home, check Medicare Care Compare", [
+                "<p>Medicare Care Compare covers nursing homes certified by Medicare "
+                "or Medicaid. "
+                "Besides inspection results, it publishes reported staffing levels, "
+                "including registered nurse hours per resident per day, and staff "
+                "turnover.</p>",
                 "<p>Staffing is the measure most closely tied to daily experience, "
                 "and turnover is worth understanding rather than predicting. A turnover "
                 "rate describes the staff of a building over a year. It does not tell "
@@ -648,18 +709,84 @@ GUIDES = [
                 "how shifts are assigned, and how often agency staff fill in. Compare the "
                 "answers to the published figure. A community whose answers match its "
                 "data has told you something real; so has one where they do not.</p>",
-                "<p>Note the scope limit honestly: Care Compare covers nursing homes. "
+                "<p>Note the scope limit honestly: Care Compare covers nursing homes "
+                "certified by Medicare or Medicaid. "
                 "Assisted living is licensed by the state rather than Medicare-certified, "
-                "so for assisted living the Illinois tool is the one that applies.</p>",
+                "so Care Compare has no record of it. The Evanston section below shows "
+                "where its record is.</p>",
+            ]),
+            ("How to check an Evanston community's record", [
+                "<p>Ask each Evanston community you are considering what each part of "
+                "it is licensed as. Then check each part where its record is kept.</p>",
+                '<ul class="res__list">'
+                "<li><strong>Nursing care.</strong> This means a nursing home, or the "
+                "nursing part of a larger campus. Look it up on Medicare Care Compare. "
+                "If it is not there, ask whether it is certified by Medicare or "
+                "Medicaid. Then open the latest of the Illinois Department of Public "
+                "Health&rsquo;s quarterly reports of nursing home violators. Search it "
+                "for &ldquo;Evanston&rdquo; and check the facility city on each match, "
+                "because an owner based in Evanston can match too. Each entry gives "
+                "the facility&rsquo;s name and address, the survey date, the type of "
+                "each violation and any fine. On your visit, ask to see the inspection "
+                "reports. Illinois requires a nursing home to keep every state "
+                "inspection report and every state or court order from the past five "
+                "years for public inspection.</li>"
+                "<li><strong>Assisted living.</strong> The Illinois Department of "
+                "Public Health licenses it, and the law calls for an unannounced state "
+                "visit to each establishment every year. Check that the community "
+                "appears on the department&rsquo;s online list of licensed establishments, "
+                "linked from its assisted living page. Then ask to see its most recent "
+                "state survey results and any statement of correction still in "
+                "effect. Illinois rules require it to make these available for review. "
+                "The rule is written for residents, so a community may not have to "
+                "show a family before move-in. Ask anyway, and ask how each finding "
+                "was corrected.</li>"
+                "<li><strong>Memory care.</strong> Ask which licence it operates under, "
+                "and check that record as above. Then ask for the written dementia-care "
+                "disclosure. Illinois requires a facility with an Alzheimer&rsquo;s "
+                "special care unit to set out certain facts in writing for a potential "
+                "resident or their representative. They include its admission and "
+                "discharge procedures, its minimum and maximum staffing ratios, its "
+                "activities, the family&rsquo;s role and its costs.</li>"
+                "<li><strong>Independent living.</strong> This site found no Illinois "
+                "care licence for it, so it has no state inspection record of this "
+                "kind. If the campus also has assisted living or nursing care your "
+                "parent might need later, check those records now. The "
+                '<a href="/guides/independent-living-evanston/">independent living '
+                "guide</a> explains why.</li>"
+                "</ul>",
+                "<p>The same steps work anywhere in Illinois. Only the town you search "
+                "for changes.</p>",
+            ]),
+            ("What the Illinois nursing home violation types mean", [
+                "<p>The quarterly reports label each violation with a type. The "
+                "Nursing Home Care Act defines four:</p>",
+                '<ul class="res__list">'
+                "<li><strong>Type AA:</strong> a violation that proximately caused a "
+                "resident&rsquo;s death.</li>"
+                "<li><strong>Type A:</strong> one that created a substantial "
+                "probability of death or serious physical or mental harm to a "
+                "resident, or that caused actual physical or mental harm.</li>"
+                "<li><strong>Type B:</strong> one more likely than not to cause more "
+                "than minimal physical or mental harm.</li>"
+                "<li><strong>Type C:</strong> one with a substantial probability of "
+                "causing less than minimal physical or mental harm.</li>"
+                "</ul>",
+                "<p>These four types come from the nursing home law. They do not "
+                "describe assisted living findings.</p>",
             ]),
             ("Reading a record without panicking", [
                 "<ul class=\"res__list\">"
                 "<li><strong>Check the date.</strong> A finding from four years ago under "
                 "different management is weaker evidence than one from last quarter.</li>"
                 "<li><strong>Check severity.</strong> Citations are scaled. A paperwork "
-                "deficiency is not a resident-harm finding.</li>"
+                "deficiency is not a resident-harm finding. For a nursing home, the "
+                "violation type tells you which you are reading.</li>"
                 "<li><strong>Check whether it recurred.</strong> Correction is normal. "
                 "Repetition is the problem.</li>"
+                "<li><strong>Read absence carefully.</strong> A community missing from "
+                "one quarter&rsquo;s report had no state action listed that quarter. "
+                "That is not the same as a clean record.</li>"
                 "<li><strong>Take it with you.</strong> Print the record and ask the "
                 "community about a specific finding on your visit. How they answer tells "
                 "you as much as the finding did.</li></ul>",

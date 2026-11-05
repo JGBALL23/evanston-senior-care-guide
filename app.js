@@ -930,9 +930,10 @@ function renderResult() {
         <h4 class="res__h">Compare other communities yourself</h4>
         <p class="wp__compare">
           <a data-beacon="idph" rel="noopener" target="_blank"
-             href="https://healthcarereportcard.illinois.gov/">View Illinois&rsquo;
-          official licensed-facility directory</a> &mdash; the state&rsquo;s own
-          lookup, not mine. It lists every licensed facility in Illinois.
+             href="/guides/check-illinois-inspection-records/">How to check any
+          community&rsquo;s inspection record</a> &mdash; where each kind of
+          record is kept, and what to ask to see on a visit. Use it on
+          Westminster Place too.
         </p>
       </section>
 
