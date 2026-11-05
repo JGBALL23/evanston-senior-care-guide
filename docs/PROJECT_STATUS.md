@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| Last verified | 2026-11-03 14:57 Chicago (20:57 UTC), read-only |
+| Last verified | 2026-11-04 19:10 Chicago (2026-11-05 01:10 UTC): GitHub, Netlify and the live site, after the PR #11 release. Search Console as of R4. |
 | Checked against | GitHub, Netlify, the live site, Search Console emails, owner-reported Search Console figures |
 | This document | `DRAFT` on `feature/project-control-center`. Not merged. Not approved. |
 
@@ -25,15 +25,15 @@
 
 ## 1. Current production state
 
-### Production (`VERIFIED` 2026-11-03)
+### Production (`VERIFIED` 2026-11-04, after the PR #11 release)
 
 | Item | State |
 |---|---|
-| `main` | `4ce3249`, merge of PR #9, 2026-11-01 20:47 UTC |
-| Production deploy | `6ae7a5a0661074563afe0c14`, published 2026-11-01 20:48:49 UTC, state `ready` |
-| Does it match `main`? | Yes, by direct comparison. Netlify records no commit for upload deploys, so 32 public files were fetched from production and compared with `_dist` at `4ce3249`: 15 identical, 17 different only by Netlify's rewrite of `/privacy.html` links to `/privacy`. Beacon files under `/t/` were not fetched, to keep the counts clean. |
+| `main` | `971b14a`, merge of PR #11, 2026-11-05 01:03 UTC (19:03 Chicago, 4 November) |
+| Production deploy | `6aebd5efd56ee67f5aba491d`, published 2026-11-05 01:03:59 UTC, state `ready`. 4 functions, identical to the previous release; 1 redirect rule; 5 header rules; 68 files uploaded, secret scan clean. |
+| Does it match `main`? | Yes, by direct comparison. Netlify records no commit for upload deploys, so 32 public files were fetched from production and compared with `_dist` at `971b14a`: 15 identical, 17 different only by Netlify's rewrite of `/privacy.html` links to `/privacy`. Beacon files under `/t/` were not fetched, to keep the counts clean. Only the cost guide and `sitemap.xml` differ from the previous release. |
 | On `main` but not live | Nothing a visitor can see |
-| Rollback point | `6ae63476b0ea0ed172f267a5`, state `ready` |
+| Rollback point | `6ae7a5a0661074563afe0c14` (the PR #9 release, `4ce3249`), state `ready`. The one before it, `6ae63476b0ea0ed172f267a5`, is also still `ready`. |
 | How deploys work | One approved upload of `_dist`, the functions and `netlify.toml`. There is no Git link: a push to GitHub publishes nothing, and `docs/` never reaches the site. |
 
 ### Published pages and systems (`VERIFIED` 2026-11-03)
@@ -62,7 +62,7 @@
 | Production and `main` | Everything above | Yes |
 | [PR #10](https://github.com/JGBALL23/evanston-senior-care-guide/pull/10), head `bca3f0b` | Illinois Life Plan guide, related-link swaps, citation allowlist | No, URL returns 404 |
 | `drafts`, head `5be93b6` (`VERIFIED` 2026-11-04) | 6 unpublished guides (Section 5). The routine added #21 on 2026-11-04. | No, all 6 URLs return 404 |
-| [PR #11](https://github.com/JGBALL23/evanston-senior-care-guide/pull/11), head `1c4833c` (`VERIFIED` 2026-11-04) | Experiment 1: the cost guide's rewritten Evanston section | No. Review copy at `esc-preview-evanston-costs.netlify.app` (noindex, no functions) |
+| [PR #11](https://github.com/JGBALL23/evanston-senior-care-guide/pull/11), merged as `971b14a` (`VERIFIED` 2026-11-04) | Experiment 1: the cost guide's rewritten Evanston section | Yes, since deploy `6aebd5ef` |
 | Claude Docs memos | Research and recommendations | No |
 
 `drafts` has diverged from `main` (12 commits ahead, 25 behind) and lacks PRs #6 to #9. Never merge it wholesale. Publish a guide through a release branch cut from `main`, as PR #5 did.
@@ -74,14 +74,14 @@
 | U1 | **Nothing shows the inquiry chain working on the current release.** The last notification email is a test from 2026-10-22. Functions moved from Node 20 to Node 24 on 2026-10-30. | Netlify deploy records; notification inbox; [plan](../INQUIRY-E2E-TEST-PLAN.md) marked "Not executed" | One labeled test, needs separate approval |
 | U2 | **No current Search Console data exists.** At the last reading, at most 6 of 18 sitemap pages were indexed. | Section 3 | Section 7. Partly closed 2026-11-04: R4 covers the cost guide only. |
 | U3 | **The Search Console review is partial.** Unread: Page indexing URL lists, Sitemaps report, Links report, queries for every page except the independent-living guide, and which page earned the one click. | Failure-focused audit, 2026-10-31 | Owner read needed |
-| U4 | **IndexNow is behind.** Last submission 2026-10-28. All 16 tracked `/guides/` URLs have changed since, 3 of them were never submitted, and the homepage is not tracked at all. IndexNow reaches Bing, not Google. | `data/indexnow-ledger.json` compared with `_dist` | Needs separate approval |
+| U4 | **IndexNow is behind.** Last submission 2026-10-28. All 16 tracked `/guides/` URLs have changed since, 3 of them were never submitted, and the homepage is not tracked at all. IndexNow reaches Bing, not Google. | `data/indexnow-ledger.json` compared with `_dist` | Needs separate approval. The PR #11 release (2026-11-04) changed the cost guide and the sitemap; nothing was submitted. |
 | U5 | **Funnel counts expire after 24 hours.** Only hand-taken readings survive. | [Funnel baseline](../data/funnel-baseline.md) | Scheduled snapshot proposed, not approved |
 | U6 | **A confirmed tour cannot be recorded yet.** A private ledger keyed by reference ID was proposed, not built. No Admissions hand-back exists. | Gap analysis, 2026-10-31 | Priority 3, not started |
 | U7 | **`data/guide-queue.md` is out of date.** It says the routine is paused and lists the Life Plan guide as not yet written. The routine is enabled and picks its own topics, and the guide is in PR #10. | Scheduled-task record; file on `main` | Correct when approved |
-| U8 | **Sitemap `lastmod` is stale.** No entry is later than 2026-10-29, although Netlify shows 17 pages changed on 31 October and 18 on 1 November. | `_dist/sitemap.xml`; deploy summaries | Ride-along fix, `RECOMMENDED`. Note 2026-11-04: the generator stamps the homepage, `/guides/` and the privacy notice with the newest guide date, so PR #11 moves all three to 2026-11-04 although only the cost guide changed. |
+| U8 | **Sitemap `lastmod` is stale.** No entry is later than 2026-10-29, although Netlify shows 17 pages changed on 31 October and 18 on 1 November. | `_dist/sitemap.xml`; deploy summaries | Ride-along fix, `RECOMMENDED`. Partly fixed by PR #11 (owner, 2026-11-04): a re-review now re-dates only the guide reviewed, so only the cost guide moved to 2026-11-04. The homepage, `/guides/` and the privacy notice still show 2026-10-29, although they changed on 31 October and 1 November. That original gap remains. |
 | U9 | **Minor:** `/privacy` and `/privacy.html` both return 200. Live links use the first; the canonical tag and sitemap use the second. | Live check | Negligible, audit 2026-10-31 |
-| U10 | **Housekeeping:** two preview sites remain online (`esc-preview-d9ed1ac`, `esc-preview-simple-first`). Both are `noindex` and block crawlers. Since 2026-11-04 a third, `esc-preview-evanston-costs`, holds the review copy of PR #11: static files only, no functions, `noindex`, `robots.txt` blocks everything. | Netlify; live headers | Owner may delete the first two now and the third after PR #11 is decided |
-| U11 | **`ilga.gov` fails the citation checker.** `ilga.gov` sends its certificate without the intermediate, so `check-citations.sh` (curl) reports every `ilga.gov` URL as dead (code 000), although browsers open them. This affects PR #10 and PR #11. The daily routine runs `check-citations.sh` on `drafts` and stops on any dead citation, so `ilga.gov` citations must not reach `drafts` before this is handled. | `openssl s_client`, 2026-11-04: "unable to verify the first certificate" for `ilga.gov`, `www.ilga.gov`, `lrb.ilga.gov` and `witnessslips.ilga.gov`; `beta.ilga.gov` verifies | Owner decision. `RECOMMENDED`: make the checker supply the missing intermediate for `ilga.gov` only |
+| U10 | **Housekeeping:** two preview sites remain online (`esc-preview-d9ed1ac`, `esc-preview-simple-first`). Both are `noindex` and block crawlers. Since 2026-11-04 a third, `esc-preview-evanston-costs`, holds the review copy of PR #11: static files only, no functions, `noindex`, `robots.txt` blocks everything. | Netlify; live headers | Owner may delete all three. PR #11 is released, so the third is no longer needed. |
+| U11 | **`ilga.gov` fails the citation checker.** `ilga.gov` sends its certificate without the intermediate, so `check-citations.sh` (curl) reports every `ilga.gov` URL as dead (code 000), although browsers open them. This affects PR #10 and PR #11. The daily routine runs `check-citations.sh` on `drafts` and stops on any dead citation, so `ilga.gov` citations must not reach `drafts` before this is handled. | `openssl s_client`, 2026-11-04: "unable to verify the first certificate" for `ilga.gov`, `www.ilga.gov`, `lrb.ilga.gov` and `witnessslips.ilga.gov`; `beta.ilga.gov` verifies | Owner decision. `RECOMMENDED`: make the checker supply the missing intermediate for `ilga.gov` only. Documented in `check-citations.sh` on `main` since PR #11, with certificate validation left on. On `main`, 41 of 45 citations resolve; the 4 failures are the cost guide's `ilga.gov` URLs, all opened in a browser tool on 2026-11-04. |
 | U12 | **CareScout disagrees with itself on the Illinois assisted living figure.** Its Illinois press release (2 March 2026) gives $72,645 a year. Both 2025 data-table PDFs give $74,628 a year and $6,219 a month ("As reported, monthly rate, private, one bedroom"). | Press release on Business Wire; PDFs 298701 and 282102, read 2026-11-04 | The site uses $6,219, the monthly figure both tables print. No page change. Ask CareScout only if the annual figure is ever used |
 
 ---
@@ -214,9 +214,9 @@ The second row is new in this document and is not yet in the funnel baseline fil
 
 ## 4. Active experiment
 
-**Experiment 1 is approved and built for review (D-018). It is not running yet, because nothing has been released.**
+**Experiment 1 is running. It was released on 2026-11-04, and its implementation phase is closed (D-019). The page is measured, not modified, until the 8-week review on 2026-12-30. The one exception is correcting a factual error.**
 
-### Experiment 1: Evanston costs (`APPROVED` 2026-11-04; built in PR #11, not released)
+### Experiment 1: Evanston costs (`APPROVED` 2026-11-04; released 2026-11-04; implementation closed)
 
 | Field | Detail |
 |---|---|
@@ -225,9 +225,10 @@ The second row is new in this document and is not yet in the funnel baseline fil
 | Hypothesis | Google's page one lacks a current, sourced, neutral answer on Evanston costs. A section explaining why published figures disagree, what the sourced figure is and is not, and how to read a quote will earn Evanston impressions and clicks for this page. |
 | Built (`VERIFIED` 2026-11-04) | [PR #11](https://github.com/JGBALL23/evanston-senior-care-guide/pull/11), branch `feature/evanston-costs-section`, head `1c4833c`, cut from `main` `4ce3249`. Only the Evanston section's text changed. It now relies on CareScout's 2025 methodology, 210 ILCS 9/15 (with Public Act 104-0589), 9/85 and 9/90, and IDPH, so the sources list grew from 2 to 8, `ilga.gov` joined the citation allowlist, and the page's review date moved to 4 November 2026. An independent fact-check found six sentences to fix; all six are fixed in `1c4833c`. The title, description, short answer, other sections, disclosures, assessment and inquiry are unchanged. |
 | Baseline | **Captured (R4, Section 3):** indexed; 19 impressions, 0 clicks, average position 40.6; visible query "assisted living cost evanston il". The date range was not stated. |
-| Release baseline | On release day record the deploy ID and publish time (Deployment History), the release commit, and a fresh Search Console reading for this page with its date range stated. The 8-week result is measured against that reading, with R4 as the earlier reference. |
+| Released (`VERIFIED` 2026-11-04) | The owner approved it after reviewing PR #11 and the review copy. Final cleanup `9c44edb`: the sitemap re-dates only the cost guide, and the section was simplified for phones (longest sentence 39 → 25 words) with every fact, qualification, the checklist and the citations kept. Merge commit `971b14a`. Deploy `6aebd5efd56ee67f5aba491d`, published 2026-11-05 01:03:59 UTC (19:03 Chicago, 4 November). Rollback point `6ae7a5a0661074563afe0c14`. IndexNow not submitted. |
+| Release baseline | Recorded: release commit `971b14a`, deploy `6aebd5ef`, publish time above. **Still needed:** the release-day Search Console reading for this page, with its date range stated (Section 7). The 8-week result is measured against that reading, with R4 as the earlier reference. |
 | Intended result | Impressions, average position and clicks rise for this page's queries containing "Evanston", compared with guides left unchanged. Stored inquiries are counted from server records. |
-| Review date | 8 weeks after release. No release date exists yet. |
+| Review date | **2026-12-30**, 8 weeks after the 2026-11-04 release. |
 | Stop condition | If the page is not indexed, indexing comes first and the experiment waits. R4 reports it indexed. |
 
 **Decision criteria at 8 weeks:**
@@ -260,6 +261,7 @@ The second row is new in this document and is not yet in the funnel baseline fil
 | #7 | 2026-10-31 | `65e30a7` | `main` | Related guides by topic, crawlable homepage links, shorter metadata | `6ae63476` |
 | #8 | 2026-10-31 | `c3bba2f` | `main` | Privacy notice corrections | `6ae63476` |
 | #9 | 2026-11-01 | `4ce3249` | `main` | Inquiry disclosure wording | `6ae7a5a0` |
+| #11 | 2026-11-04 | `971b14a` | `main` | Experiment 1: the cost guide's Evanston section; a re-review re-dates only that guide in the sitemap; the `ilga.gov` checker limitation documented | `6aebd5ef` |
 
 ### Deployment History (append only)
 
@@ -272,6 +274,9 @@ Netlify records no commit for these deploys. The source commit comes from each a
 | 2026-10-30 23:26:26 | `6ae52797c8ded650cba8bbbc` | `e38d627` | Simple First |
 | 2026-10-31 18:33:41 | `6ae63476b0ea0ed172f267a5` | `c3bba2f` | PRs #6, #7, #8 |
 | 2026-11-01 20:48:49 | `6ae7a5a0661074563afe0c14` | `4ce3249` | PR #9. **Current production** |
+| 2026-11-05 01:03:59 | `6aebd5efd56ee67f5aba491d` | `971b14a` | PR #11, Experiment 1. Owner-approved, one upload of `_dist`, the 4 functions and `netlify.toml` (68 files). Rollback point: `6ae7a5a0661074563afe0c14`. **Current production** |
+
+The newest row is current production. The "Current production" label on the 2026-11-01 row is historical: rows here are never edited (rule 7).
 
 ### Completed research (do not repeat)
 
@@ -295,7 +300,7 @@ Repository documents from before 2026-10-29 (`ACQUISITION-*.md`, `TOP-PRIORITIES
 | [PR #10](https://github.com/JGBALL23/evanston-senior-care-guide/pull/10) | Open, mergeable, unreviewed. 3 commits, 10 files, head `bca3f0b`. Left untouched since 2026-11-02. | See Blocked |
 | Daily drafts routine | `EVANSTON-DAILY-GUIDE-DRAFTS`, enabled. 6 AM Chicago. Last run succeeded 2026-11-03 12:02 UTC. Writes to `drafts` only and never publishes. | Owner chooses what is published |
 | Search Console review | Partial (U3). Cost guide read 2026-11-04 (R4). | Owner |
-| Experiment 1 | Built in [PR #11](https://github.com/JGBALL23/evanston-senior-care-guide/pull/11), all suites pass, review copy online. Not merged, not deployed. | Owner review (Section 7) |
+| Experiment 1 | Released 2026-11-04 (deploy `6aebd5ef`). Implementation closed (D-019); measuring. | The release-day reading (Section 7), then the 8-week review on 2026-12-30 |
 
 ### Unpublished guides on `drafts` (`VERIFIED` 2026-11-03)
 
@@ -337,7 +342,7 @@ All five need separate publication approval. All are statewide topics, and none 
 | Item | Blocked by | Who |
 |---|---|---|
 | PR #10 merge | Section 396.50 comparison needs Illinois Register Vol. 50, Issue 38, PDF pages 256 to 275 attached, because the Register blocks automated tools. Legal review recommended. Merge, deploy and IndexNow each need approval. | Owner |
-| Experiment 1 release | Owner review of PR #11 and its review copy. Merge, deploy and IndexNow each need separate approval. | Owner |
+| Further changes to the cost guide | Closed until the 8-week review on 2026-12-30 (D-019), except to correct a factual error | Owner |
 | End-to-end inquiry test (U1) | Separate approval | Owner |
 | IndexNow catch-up (U4) | Separate approval. The ledger commit touches `main`. | Owner |
 | Tour attribution (U6) | A proposal for review and a process with Admissions | Owner |
@@ -484,30 +489,32 @@ All five need separate publication approval. All are statewide topics, and none 
 - **Rejected or deferred:** a directory, rankings, sponsored recommendations, misleading comparisons and an invented Evanston median; merging or deploying without approval; any change to PR #10 or the daily drafts routine.
 - **Revisit:** 8 weeks after release (Section 4).
 
+### D-019 · 2026-11-04 · `APPROVED` · Experiment 1 released; its implementation phase is closed
+- **Decided:** a final cleanup first: only the cost guide is re-dated in the sitemap, the Evanston section is simplified for phones, and the `ilga.gov` checker limitation is documented without turning off certificate validation. Then merge PR #11 and deploy it to production once, through the established upload process. Preserve the rollback point and record the release here. The implementation phase then closes: the results are measured, and the page is not modified again before the 8-week review.
+- **Why:** the owner reviewed PR #11 and its review copy and approved the improvement.
+- **Evidence:** the owner's instruction of 2026-11-04; merge commit `971b14a`; deploy `6aebd5efd56ee67f5aba491d`; live verification in Section 1.
+- **Rejected or deferred:** IndexNow (still not approved, U4); further edits to the cost guide before 2026-12-30, except factual corrections; any change to PR #10, the daily drafts routine, the inquiry system or consent.
+- **Revisit:** at the 8-week review on 2026-12-30, using the decision criteria in Section 4.
+
 ---
 
 ## 7. Next action
 
-The previous action, the first Search Console reading for the cost guide, was completed on 2026-11-04 (R4, D-018).
+Completed on 2026-11-04: the owner reviewed PR #11. It was merged as `971b14a` and released in deploy `6aebd5ef` (D-019), and the review date was set to 2026-12-30.
 
-**Exactly one action: the owner reviews PR #11 and its review copy, then approves or declines the release.**
+**Exactly one action: take the release-day Search Console reading for the cost guide.**
 
 | | |
 |---|---|
-| Who | Owner, about 10 minutes. Read the rewritten section on a phone and a computer, then the PR. |
-| Review copy | `https://esc-preview-evanston-costs.netlify.app/guides/assisted-living-cost-illinois/` (noindex, no functions: the tour form cannot submit there) |
-| PR | [#11](https://github.com/JGBALL23/evanston-senior-care-guide/pull/11) |
+| Who | Owner, about 5 minutes in Search Console. No site change. Report the figures in chat and Claude records them here as R5. |
+| Page | `https://evanstonseniorcareguide.com/guides/assisted-living-cost-illinois/` |
+| Read | Performance filtered to this page, with the date range stated: impressions, clicks, CTR, average position and the visible queries. Optionally, URL Inspection's last crawl date. |
+| Why | It is Experiment 1's release baseline. R4's date range was not recorded, so R5 is the reading the 8-week result will be compared with. |
 
-**If approved, the release steps. Each needs the owner's yes:**
-
-1. Merge PR #11 into `main` with a merge commit.
-2. One production deploy of that `main` commit, recorded in Deployment History.
-3. The same day, the release-day Search Console reading for the cost guide, with its date range stated (Section 4).
-4. IndexNow for the changed URLs, approved separately (U4).
-5. The 8-week review date entered in Section 4.
+After R5 the experiment only waits. The page stays unchanged until 2026-12-30, except to correct a factual error.
 
 **Definition of done:**
 
-- [ ] The Decision Log records the owner's decision on the release.
-- [ ] If released: Deployment History has the deploy, and Section 4 has the release date, the release-day reading and the review date.
-- [ ] Section 7 names the next single action.
+- [ ] Section 3 has R5, with its date range, and each visible query tagged Evanston, statewide or national.
+- [ ] Section 4's release baseline row names R5.
+- [ ] Section 7 names the 8-week review (2026-12-30) as the next action.
