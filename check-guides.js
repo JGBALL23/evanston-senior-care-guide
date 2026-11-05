@@ -55,6 +55,12 @@ const PRIMARY_HOSTS = [
   "illinois.gov",      // HFS, Dept on Aging, IDPH, report card
   "va.gov",            // VA pension, Aid & Attendance, survivors
   "assets.carescout.com", // the Cost of Care Survey PDF, exact host only
+  // ilga.gov added 2026-11-04 for the cost guide's Evanston section: what an
+  // Illinois assisted living contract must state is written only in the
+  // statute. Approved as a legal source 2026-10-31 (D-006): cross-check
+  // against current Public Acts, never treat as certified law. PR #10 adds
+  // the same host for its own citations.
+  "ilga.gov",          // Illinois Compiled Statutes and Public Acts
 ];
 function isPrimarySource(href) {
   const m = /^https?:\/\/([^/"?#]+)/.exec(String(href).replace(/^href="/, ""));
@@ -156,6 +162,68 @@ check("the absence of a local median is stated plainly",
   lc(page["assisted-living-cost-illinois"]).indexOf("it does not know") !== -1);
 check("the statewide median is labelled statewide",
   lc(page["assisted-living-cost-illinois"]).indexOf("statewide figure, not an evanston figure") !== -1);
+
+/* ---- EXPERIMENT 1, 2026-11-04: the Evanston costs section ----
+   The owner asked this section to explain why Evanston figures disagree,
+   to separate surveyed medians, website estimates and starting prices, and
+   to show a family how to reach the real monthly cost - without inventing
+   an Evanston median, naming a community, or printing any number that
+   cannot be read from a government or survey source. Listing websites were
+   read to describe them; none of their figures may appear here. */
+const costPage = page["assisted-living-cost-illinois"];
+const evSec = (flat(costPage).match(
+  /<h2 class="res__h">What this means in Evanston<\/h2>([\s\S]*?)<\/section>/) || [])[1] || "";
+const evLc = evSec.toLowerCase();
+check("Evanston section: present", evSec.length > 200, String(evSec.length));
+check("Evanston section: separates the three kinds of figure",
+  evLc.indexOf("a statewide survey median") !== -1 &&
+  evLc.indexOf("a website&rsquo;s estimate") !== -1 &&
+  evLc.indexOf("a starting price") !== -1);
+const AL_MEDIAN = (GEN.match(/"al_median":\s*"(\$[\d,]+)"/) || [])[1] || "missing";
+const evFigs = Array.from(new Set(
+  (evSec.match(/\$[\d,.]*\d/g) || [])));
+check("Evanston section: its only dollar figure is the survey median",
+  evFigs.length === 1 && evFigs[0] === AL_MEDIAN, evFigs.join(" ") + " vs " + AL_MEDIAN);
+check("Evanston section: says no Evanston median is published",
+  evLc.indexOf("no survey we know of publishes an assisted living median for evanston") !== -1);
+check("Evanston section: states what the survey prices, when, and where",
+  evLc.indexOf("private one-bedroom") !== -1 &&
+  evLc.indexOf("july to november 2025") !== -1 &&
+  evLc.indexOf("pdf tables are statewide") !== -1 &&
+  evLc.indexOf("none covers evanston alone") !== -1);
+/* The fact-check of 2026-11-04 found that CareScout's methodology DOES say
+   how care is priced: one-bedroom rates "as they ranged from basic care to
+   more substantial care", the midpoint used where a range was given. An
+   earlier draft said the survey was silent on this. Hold the corrected
+   statement in place. */
+check("Evanston section: states how the survey treats care-level price ranges",
+  evLc.indexOf("from basic care to more substantial care") !== -1 &&
+  evLc.indexOf("midpoint") !== -1 &&
+  evLc.indexOf("does not say whether that rate includes") === -1);
+check("Evanston section: dates its look at listing websites",
+  evLc.indexOf("on 4 november 2026 we checked four") !== -1);
+check("Evanston section: says why website figures disagree",
+  evLc.indexOf("none explained how its figure was calculated") !== -1 &&
+  evLc.indexOf("communities in other towns") !== -1);
+check("Evanston section: the real cost is anchored in the Illinois contract",
+  evLc.indexOf("comprehensive assessment") !== -1 &&
+  evLc.indexOf("a basis for the contract") !== -1 &&
+  evLc.indexOf("base rate") !== -1 &&
+  evLc.indexOf("set out their fees") !== -1 &&
+  evLc.indexOf("whether it is refundable") !== -1);
+check("Evanston section: gives the family a list of figures to ask for",
+  /<ul class="res__list">[\s\S]*?second-person fee[\s\S]*?<\/ul>/.test(evSec));
+check("Evanston section: names no community, Westminster Place included",
+  !/\b(westminster|trulee|belmont|sunrise|merion|mather|three crowns|avidor|carrington|north shore place|artis|clarendale|arbor terrace)\b/i.test(evSec));
+check("Evanston section: names no listing website by its address",
+  !/[a-z0-9-]+\.(com|org|net)\b/i.test(evSec.replace(/href="[^"]*"/g, "")));
+check("Evanston section: links the inspection-records guide",
+  evSec.indexOf('href="/guides/check-illinois-inspection-records/"') !== -1);
+["021000090K15.htm", "021000090K85.htm", "021000090K90.htm",
+ "Legislation/PublicActs/View/104-0589", "assets.carescout.com/x/e3933bfcf1/131168.pdf",
+ "dph.illinois.gov/topics-services/health-care-regulation/assisted-living.html"].forEach((u) => {
+  check("cost guide cites " + u, costPage.indexOf(u) !== -1);
+});
 
 /* ---- OWNER FINDING 3, 2026-10-18: skilled coverage is not custodial ---- */
 const med = page["does-medicare-pay-for-senior-care"];
@@ -261,10 +329,26 @@ SLUGS.forEach((s) => {
 /* The index and the sitemap describe the whole library, so they carry the
    newest date in it - never an older one, which would understate freshness,
    and never a newer one, which would be a claim about a page that does not
-   exist. */
+   exist.
+   OWNER, 2026-11-04: the /guides/ index follows the newest date a guide was
+   ADDED to the library ("listed" in build-guides.py, defaulting to the
+   review date). A re-review of a guide already listed re-dates that guide
+   only; the index, whose content did not change, keeps its date. */
 const NEWEST = SLUGS.map((s) => reviewedOf[s]).sort().slice(-1)[0];
-check("the guides index carries the newest review date in the library",
-  reviewedOf["__index"] === NEWEST, reviewedOf["__index"] + " vs " + NEWEST);
+const LISTED = {};
+SLUGS.forEach((s) => {
+  const i = GEN.indexOf('"slug": "' + s + '"');
+  const j = GEN.indexOf('"slug":', i + 10);
+  const block = GEN.slice(i, j === -1 ? undefined : j);
+  const m = block.match(/"listed":\s*"([0-9]{4}-[0-9]{2}-[0-9]{2})"/);
+  LISTED[s] = m ? m[1] : reviewedOf[s];
+});
+const NEWEST_LISTED = Object.keys(LISTED).map((s) => LISTED[s]).sort().slice(-1)[0];
+check("the guides index carries the newest date a guide was added",
+  reviewedOf["__index"] === NEWEST_LISTED, reviewedOf["__index"] + " vs " + NEWEST_LISTED);
+check("a listed date is never later than the guide's own review date",
+  SLUGS.every((s) => LISTED[s] <= reviewedOf[s]),
+  SLUGS.filter((s) => LISTED[s] > reviewedOf[s]).join(" "));
 check("sitemap lastmod is the newest review date",
   sitemap.indexOf(NEWEST) !== -1, NEWEST);
 check("no sitemap lastmod is in the future",
@@ -738,9 +822,44 @@ check("the Medicaid guide is dated the day it was researched",
   String(dates[SLUGS.indexOf("illinois-medicaid-long-term-care")]));
 check("its JSON-LD dateModified agrees with its printed date",
   mcd.indexOf('"dateModified": "2026-10-23"') !== -1);
-check("the original five keep their own 2026-10-18 date",
-  dates[SLUGS.indexOf("assisted-living-cost-illinois")] === "18 October 2026",
+/* 2026-11-04: the cost guide was re-verified when its Evanston section was
+   rewritten (Experiment 1), so it now carries its own date. The other four
+   of the original five were not re-read and must keep 2026-10-18. */
+const ORIGINAL_UNCHANGED = ["does-medicare-pay-for-senior-care",
+  "illinois-supportive-living-program", "check-illinois-inspection-records",
+  "levels-of-senior-care-explained"];
+check("the original five that were not re-verified keep their 2026-10-18 date",
+  ORIGINAL_UNCHANGED.every((s) => dates[SLUGS.indexOf(s)] === "18 October 2026"),
+  ORIGINAL_UNCHANGED.map((s) => dates[SLUGS.indexOf(s)]).join(" | "));
+check("the cost guide is dated the day it was re-verified",
+  dates[SLUGS.indexOf("assisted-living-cost-illinois")] === "4 November 2026",
   String(dates[SLUGS.indexOf("assisted-living-cost-illinois")]));
+check("the cost guide's JSON-LD dateModified agrees with its printed date",
+  page["assisted-living-cost-illinois"].indexOf('"dateModified": "2026-11-04"') !== -1);
+
+/* ---- OWNER, 2026-11-04: a re-review re-dates only the guide reviewed ----
+   The first build of PR #11 moved the homepage, /guides/ and the privacy
+   notice to 2026-11-04 in the sitemap because they followed the newest
+   review date. None of them changed. They now follow the newest date a
+   guide was ADDED ("listed"), so re-dating one guide leaves them alone. */
+const LM = {};
+(sitemap.match(/<url>[\s\S]*?<\/url>/g) || []).forEach((u) => {
+  const loc = (u.match(/<loc>([^<]+)<\/loc>/) || [])[1];
+  const mod = (u.match(/<lastmod>([^<]+)<\/lastmod>/) || [])[1];
+  if (loc) LM[loc.replace("https://evanstonseniorcareguide.com", "")] = mod;
+});
+// isoOf() and MONTHS are defined with the review-date gate above.
+SLUGS.forEach((s) => {
+  check("sitemap date equals the printed review date: " + s,
+    LM["/guides/" + s + "/"] === isoOf(dates[SLUGS.indexOf(s)]),
+    LM["/guides/" + s + "/"] + " vs " + dates[SLUGS.indexOf(s)]);
+});
+check("sitemap: the cost guide's re-review does not re-date the homepage, /guides/ or the privacy notice",
+  ["/", "/guides/", "/privacy.html"].every((k) => LM[k] && LM[k] !== "2026-11-04"),
+  ["/", "/guides/", "/privacy.html"].map((k) => k + "=" + LM[k]).join(" "));
+const indexDate = (indexPage.match(/Last reviewed ([0-9]+ [A-Za-z]+ [0-9]{4})\./) || [])[1];
+check("the /guides/ footer date agrees with its sitemap date",
+  isoOf(indexDate) === LM["/guides/"], indexDate + " vs " + LM["/guides/"]);
 
 /* ---- OWNER RULE, 2026-10-23: the assessment is the conversion goal ----
    Every guide exists to answer a question honestly AND to put the

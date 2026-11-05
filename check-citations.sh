@@ -9,6 +9,22 @@
 # as verified.
 #
 # Usage:  sh check-citations.sh        (exit 0 = every citation resolves)
+#
+# KNOWN LIMITATION (recorded 2026-11-04): ilga.gov sends its server
+# certificate without the intermediate certificate. Browsers fetch the
+# missing intermediate themselves, so the pages open normally, but curl
+# cannot complete the chain and this script reports every ilga.gov URL as
+# FAIL 000 ("unable to get local issuer certificate"). Checked with
+# `openssl s_client` for ilga.gov, www.ilga.gov, lrb.ilga.gov and
+# witnessslips.ilga.gov; beta.ilga.gov verifies.
+#
+# Do NOT work around this by turning certificate validation off (-k,
+# --insecure, or an empty CA bundle): a citation this script cannot verify
+# must stay a failure. Until the script is taught to supply ilga.gov's
+# missing intermediate, open each ilga.gov citation in a browser and record
+# the date in the pull request. The daily drafts routine stops on any FAIL,
+# so ilga.gov citations must not reach the drafts branch before then.
+# Tracked as U11 in the Project Control Center.
 
 set -u
 cd "$(dirname "$0")" || exit 1
