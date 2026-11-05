@@ -70,10 +70,19 @@ def reviewed_human(g):
     return "%d %s %d" % (d.day, d.strftime("%B"), d.year)
 
 
-def newest_reviewed():
-    """The index and the sitemap describe the whole library, so they carry the
-    most recent review date in it, not the oldest."""
-    return max(reviewed_iso(g) for g in GUIDES)
+def listed_iso(g):
+    """The date a guide joined the library: its review date, unless it was
+    re-reviewed later, in which case "listed" keeps the original date."""
+    return g.get("listed", reviewed_iso(g))
+
+
+def newest_listed():
+    """The /guides/ footer and the sitemap's library-level entries (homepage,
+    /guides/, privacy notice) carry the most recent date a guide was ADDED.
+    A re-review changes only that guide's own page, JSON-LD and sitemap entry:
+    re-dating one guide must not tell crawlers that pages which did not change
+    were rewritten that day (owner, 2026-11-04)."""
+    return max(listed_iso(g) for g in GUIDES)
 
 # --------------------------------------------------------------------------
 # VERIFIED FIGURES — one definition each, reused everywhere.
@@ -259,6 +268,9 @@ GUIDES = [
         # three CareScout figures were read again from the PDF, so this guide
         # now carries its own date instead of the original five's default.
         "reviewed": "2026-11-04",
+        # One of the original five: it joined the library on 2026-10-18. The
+        # re-review moves this page's own date only (see newest_listed).
+        "listed": "2026-10-18",
         "sources": srcs("carescout", "carescout_method", "idph_al_div",
                         "ilcs_al_15", "pa_104_0589", "ilcs_al_85", "ilcs_al_90",
                         "hfs_slf"),
@@ -299,69 +311,67 @@ GUIDES = [
             # answer, disclosures, assessment and inquiry are untouched. The one
             # figure here is the CareScout survey median. Listing-site figures
             # are described, never printed, and no community is named.
+            # Simplified for phones on 2026-11-04 at the owner's request: shorter
+            # sentences and paragraphs, with every fact, qualification, the
+            # checklist and the citations kept.
             ("What this means in Evanston", [
                 "<p>No survey we know of publishes an assisted living median for "
-                "Evanston itself. The figures you will find while researching "
-                "Evanston costs are usually one of three kinds, and they disagree "
-                "because they measure different things. None of them is your "
-                "parent&rsquo;s bill.</p>",
+                "Evanston itself. The figures you will find are usually one of three "
+                "kinds. They disagree because they measure different things, and "
+                "none of them is your parent&rsquo;s bill.</p>",
                 "<p><strong>A statewide survey median.</strong> The " +
                 F["al_median"] + " figure above is CareScout&rsquo;s 2025 median "
-                "monthly rate for a private one-bedroom in Illinois assisted living, "
+                "monthly assisted living rate for a private one-bedroom in Illinois, "
                 "from rates collected July to November 2025. Where a community "
                 "quoted a range, from basic care to more substantial care, CareScout "
-                "used the midpoint. Surveyors noted separately whether a community "
-                "charges a non-refundable community or entrance fee. The "
-                "survey&rsquo;s PDF tables are statewide and its regional figures "
-                "follow metropolitan areas, so none covers Evanston alone.</p>",
+                "used the midpoint. It noted separately whether a community charges "
+                "a non-refundable community or entrance fee. Its PDF tables are "
+                "statewide and its regional figures follow metropolitan areas, so "
+                "none covers Evanston alone.</p>",
                 "<p><strong>A website&rsquo;s estimate.</strong> Listing and referral "
                 "websites publish their own &ldquo;Evanston&rdquo; figures. On "
                 "4 November 2026 we checked four that come up in a web search for "
-                "Evanston assisted living costs. None "
-                "explained how its figure was calculated, and all four counted "
-                "communities in other towns, including Chicago, among their Evanston "
-                "results. One of them is run by CareScout, which also runs the "
-                "survey above; the &ldquo;Evanston area&rdquo; average on that "
-                "listing page is not one of the survey&rsquo;s published "
-                "figures.</p>",
+                "Evanston assisted living costs. None explained how its figure was "
+                "calculated. All four counted communities in other towns, including "
+                "Chicago, as Evanston results. One is run by CareScout, but its "
+                "&ldquo;Evanston area&rdquo; average is not one of the "
+                "survey&rsquo;s published figures.</p>",
                 "<p><strong>A starting price.</strong> A &ldquo;from&rdquo; or "
                 "&ldquo;starting at&rdquo; price is the lowest price shown, "
-                "sometimes for one apartment type. It tells you where prices begin, "
-                "not what your parent&rsquo;s apartment and care will cost.</p>",
+                "sometimes for one apartment type. It shows where prices begin, not "
+                "what your parent&rsquo;s apartment and care will cost.</p>",
                 "<p><strong>The figure that counts is in the contract.</strong> "
-                "Illinois requires a comprehensive assessment before anyone moves "
-                "into a licensed assisted living establishment, and again at least "
-                "once a year and after a significant change in condition. The "
-                "service plan built from it is a basis for the contract. That "
-                "contract must state the base rate and the services it includes, "
-                "describe the services that cost extra, set out their fees, and say "
-                "whether there is a community fee, how much it is and whether it is "
-                "refundable. The resident or their representative must be given a "
-                "complete copy, including any later changes.</p>",
-                "<p>So, once your parent&rsquo;s assessment is done and the community "
-                "has proposed a service plan, ask it for these figures in "
-                "writing:</p>",
+                "Before anyone moves into a licensed assisted living establishment, "
+                "Illinois requires a comprehensive assessment. It is repeated at "
+                "least once a year and after a significant change in condition. The "
+                "service plan built from it is a basis for the contract.</p>",
+                "<p>The contract must state the base rate and what it includes. It "
+                "must describe the services that cost extra and set out their fees. "
+                "It must also say whether there is a community fee, how much it is "
+                "and whether it is refundable. The resident or their representative "
+                "must get a complete copy, including later changes.</p>",
+                "<p>Once the assessment is done and the community has proposed a "
+                "service plan, ask it for these figures in writing:</p>",
                 '<ul class="res__list">'
                 "<li>the base rate for the apartment your parent would actually "
-                "take;</li>"
+                "take</li>"
                 "<li>the fee for each extra service your parent will use, including "
-                "those in the service plan;</li>"
-                "<li>any second-person fee;</li>"
-                "<li>the community fee, and whether any of it is refundable.</li>"
+                "those in the service plan</li>"
+                "<li>any second-person fee</li>"
+                "<li>the community fee, and whether any of it is refundable</li>"
                 "</ul>",
-                "<p>Convert the first three to monthly amounts and add them up: that "
+                "<p>Convert the first three to monthly amounts and add them up. That "
                 "total is the figure to compare between communities. Ask when the "
-                "community fee is due. Against those totals the statewide median is "
-                "only a rough check, because the survey used the midpoint wherever a "
-                "community quoted a range of care prices, and it does not itemise "
-                "charges.</p>",
-                "<p>A listing website&rsquo;s &ldquo;Evanston&rdquo; results are not "
-                "an official list. The Illinois Department of Public Health licenses "
-                "assisted living and publishes a list of assisted living and shared "
-                "housing establishments, "
-                'and <a href="/guides/check-illinois-inspection-records/">How to '
-                "check an Illinois care community&rsquo;s inspection record</a> "
-                "explains how to look up each one&rsquo;s record.</p>",
+                "community fee is due.</p>",
+                "<p>The statewide median is only a rough check against that total. "
+                "The survey used a midpoint wherever a community quoted a range of "
+                "care prices, and it does not itemise charges.</p>",
+                "<p>A listing website&rsquo;s results are not an official list. The "
+                "Illinois Department of Public Health licenses assisted living and "
+                "publishes a list of assisted living and shared housing "
+                'establishments. <a href="/guides/check-illinois-inspection-records/">'
+                "How to check an Illinois care community&rsquo;s inspection "
+                "record</a> explains how to look up each one&rsquo;s record.</p>",
             ]),
             ("If paying privately is not realistic", [
                 "<p>Illinois runs a Medicaid programme that pays for care in approved "
@@ -2819,7 +2829,7 @@ def build_index():
             + '<p class="lib__more-wrap"><button type="button" '
               'class="btn btn--quiet" id="libMore" hidden></button></p>\n'
             + library_assessment()
-            + '<p class="visit__fine">Last reviewed %s.</p>\n' % reviewed_human({"reviewed": newest_reviewed()})
+            + '<p class="visit__fine">Last reviewed %s.</p>\n' % reviewed_human({"reviewed": newest_listed()})
             + FOOT.replace("</body>", '<script src="/guides.js"></script>\n</body>'))
 
 
@@ -2829,7 +2839,7 @@ def build_sitemap():
     # guide changed tells a crawler that six unchanged pages were rewritten -
     # untrue, and the fastest way to teach it to ignore the field entirely.
     # A guide's lastmod is its own review date.
-    newest = newest_reviewed()
+    newest = newest_listed()
     urls = [(SITE + "/", "1.0", "monthly", newest),
             (SITE + "/guides/", "0.8", "monthly", newest)]
     urls += [(SITE + "/guides/%s/" % g["slug"], "0.7", "yearly", reviewed_iso(g))

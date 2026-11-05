@@ -329,10 +329,26 @@ SLUGS.forEach((s) => {
 /* The index and the sitemap describe the whole library, so they carry the
    newest date in it - never an older one, which would understate freshness,
    and never a newer one, which would be a claim about a page that does not
-   exist. */
+   exist.
+   OWNER, 2026-11-04: the /guides/ index follows the newest date a guide was
+   ADDED to the library ("listed" in build-guides.py, defaulting to the
+   review date). A re-review of a guide already listed re-dates that guide
+   only; the index, whose content did not change, keeps its date. */
 const NEWEST = SLUGS.map((s) => reviewedOf[s]).sort().slice(-1)[0];
-check("the guides index carries the newest review date in the library",
-  reviewedOf["__index"] === NEWEST, reviewedOf["__index"] + " vs " + NEWEST);
+const LISTED = {};
+SLUGS.forEach((s) => {
+  const i = GEN.indexOf('"slug": "' + s + '"');
+  const j = GEN.indexOf('"slug":', i + 10);
+  const block = GEN.slice(i, j === -1 ? undefined : j);
+  const m = block.match(/"listed":\s*"([0-9]{4}-[0-9]{2}-[0-9]{2})"/);
+  LISTED[s] = m ? m[1] : reviewedOf[s];
+});
+const NEWEST_LISTED = Object.keys(LISTED).map((s) => LISTED[s]).sort().slice(-1)[0];
+check("the guides index carries the newest date a guide was added",
+  reviewedOf["__index"] === NEWEST_LISTED, reviewedOf["__index"] + " vs " + NEWEST_LISTED);
+check("a listed date is never later than the guide's own review date",
+  SLUGS.every((s) => LISTED[s] <= reviewedOf[s]),
+  SLUGS.filter((s) => LISTED[s] > reviewedOf[s]).join(" "));
 check("sitemap lastmod is the newest review date",
   sitemap.indexOf(NEWEST) !== -1, NEWEST);
 check("no sitemap lastmod is in the future",
@@ -820,6 +836,30 @@ check("the cost guide is dated the day it was re-verified",
   String(dates[SLUGS.indexOf("assisted-living-cost-illinois")]));
 check("the cost guide's JSON-LD dateModified agrees with its printed date",
   page["assisted-living-cost-illinois"].indexOf('"dateModified": "2026-11-04"') !== -1);
+
+/* ---- OWNER, 2026-11-04: a re-review re-dates only the guide reviewed ----
+   The first build of PR #11 moved the homepage, /guides/ and the privacy
+   notice to 2026-11-04 in the sitemap because they followed the newest
+   review date. None of them changed. They now follow the newest date a
+   guide was ADDED ("listed"), so re-dating one guide leaves them alone. */
+const LM = {};
+(sitemap.match(/<url>[\s\S]*?<\/url>/g) || []).forEach((u) => {
+  const loc = (u.match(/<loc>([^<]+)<\/loc>/) || [])[1];
+  const mod = (u.match(/<lastmod>([^<]+)<\/lastmod>/) || [])[1];
+  if (loc) LM[loc.replace("https://evanstonseniorcareguide.com", "")] = mod;
+});
+// isoOf() and MONTHS are defined with the review-date gate above.
+SLUGS.forEach((s) => {
+  check("sitemap date equals the printed review date: " + s,
+    LM["/guides/" + s + "/"] === isoOf(dates[SLUGS.indexOf(s)]),
+    LM["/guides/" + s + "/"] + " vs " + dates[SLUGS.indexOf(s)]);
+});
+check("sitemap: the cost guide's re-review does not re-date the homepage, /guides/ or the privacy notice",
+  ["/", "/guides/", "/privacy.html"].every((k) => LM[k] && LM[k] !== "2026-11-04"),
+  ["/", "/guides/", "/privacy.html"].map((k) => k + "=" + LM[k]).join(" "));
+const indexDate = (indexPage.match(/Last reviewed ([0-9]+ [A-Za-z]+ [0-9]{4})\./) || [])[1];
+check("the /guides/ footer date agrees with its sitemap date",
+  isoOf(indexDate) === LM["/guides/"], indexDate + " vs " + LM["/guides/"]);
 
 /* ---- OWNER RULE, 2026-10-23: the assessment is the conversion goal ----
    Every guide exists to answer a question honestly AND to put the
