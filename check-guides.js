@@ -244,7 +244,15 @@ check("inspection guide: assisted living is not sent to a state 'tool'",
   inspLc.indexOf("so care compare has no record of it") !== -1);
 check("inspection guide: the answer starts from what each part is licensed as",
   inspLc.indexOf("it depends on what each part of the community is licensed as") !== -1 &&
-  inspLc.indexOf("this guide found no public online lookup") !== -1);
+  inspLc.indexOf("available for residents to review") !== -1);
+/* The fact-check of 2026-11-05 found that IDPH's licensing portal, linked from
+   its assisted living page, may hold an inspection history that no tool here
+   could load. The page therefore claims neither that results are online nor
+   that they are not, and says the survey rule is written for residents. */
+check("inspection guide: nothing claims assisted living results are, or are not, online",
+  !/found no public online lookup|results (are )?(posted |published )?online|online (inspection|survey) results/.test(inspLc));
+check("inspection guide: Care Compare is scoped to certified nursing homes",
+  inspLc.indexOf("care compare covers nursing homes certified by medicare or medicaid") !== -1);
 const insEv = (flat(inspPage).match(
   /<h2 class="res__h">How to check an Evanston community's record<\/h2>([\s\S]*?)<\/section>/) || [])[1] || "";
 const insEvLc = insEv.toLowerCase();
@@ -253,8 +261,11 @@ check("inspection guide: Evanston section checks each part of a campus",
   ["<strong>nursing care.</strong>", "<strong>assisted living.</strong>",
    "<strong>memory care.</strong>", "<strong>independent living.</strong>"]
     .every((k) => insEvLc.indexOf(k) !== -1));
-check("inspection guide: the quarterly reports are searched for Evanston",
-  insEvLc.indexOf("search the page for &ldquo;evanston&rdquo;") !== -1);
+check("inspection guide: the quarterly reports are searched for Evanston, by facility city",
+  insEvLc.indexOf("search it for &ldquo;evanston&rdquo; and check the facility city") !== -1 &&
+  insEvLc.indexOf("an owner based in evanston can match too") !== -1);
+check("inspection guide: a report entry is said to carry any fine, not always one",
+  insEvLc.indexOf("the type of each violation and any fine") !== -1);
 check("inspection guide: five years of nursing home reports kept for public inspection",
   insEvLc.indexOf("from the past five years") !== -1 &&
   insEvLc.indexOf("for public inspection") !== -1);
@@ -264,8 +275,10 @@ check("inspection guide: the assisted living survey must be available for review
   insEvLc.indexOf("available for review") !== -1);
 check("inspection guide: the yearly unannounced visit is stated",
   insEvLc.indexOf("unannounced state visit to each establishment every year") !== -1);
-check("inspection guide: no online assisted living lookup is claimed",
-  insEvLc.indexOf("found no public online lookup of the results") !== -1);
+check("inspection guide: the licence list is offered and the survey rule is scoped to residents",
+  insEvLc.indexOf("online list of licensed establishments") !== -1 &&
+  insEvLc.indexOf("the rule is written for residents") !== -1 &&
+  insEvLc.indexOf("ask anyway") !== -1);
 check("inspection guide: the dementia disclosure is written and covers staffing ratios",
   insEvLc.indexOf("in writing for a potential resident") !== -1 &&
   insEvLc.indexOf("minimum and maximum staffing ratios") !== -1);

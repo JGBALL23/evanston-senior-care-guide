@@ -670,10 +670,10 @@ GUIDES = [
                    "Compare</strong> publishes inspection, staffing and quality data. "
                    "The <strong>Illinois Department of Public Health</strong> "
                    "publishes quarterly reports of the nursing home violations it has "
-                   "acted on. For <strong>assisted living</strong>, this guide found no "
-                   "public online lookup, so ask the community for its most recent "
-                   "state survey. Illinois rules require it to make that available for "
-                   "review."),
+                   "acted on. For <strong>assisted living</strong>, ask the community "
+                   "to show you its most recent state survey. Illinois rules require it "
+                   "to make the results available for residents to review, so ask "
+                   "before your parent becomes one."),
         "sources": srcs("mcompare", "idph_nh", "idph_nh_quarterly", "ilcs_nh_3_210",
                         "ilcs_nh_aa", "ilcs_nh_a", "ilcs_nh_b", "ilcs_nh_c",
                         "ilcs_al_10", "idph_al_div", "ilcs_al_110", "iac_al_1020",
@@ -691,7 +691,8 @@ GUIDES = [
                 "appearing in consecutive inspections is a signal.</p>",
             ]),
             ("For a nursing home, check Medicare Care Compare", [
-                "<p>Medicare Care Compare covers Medicare-certified nursing homes. "
+                "<p>Medicare Care Compare covers nursing homes certified by Medicare "
+                "or Medicaid. "
                 "Besides inspection results, it publishes reported staffing levels, "
                 "including registered nurse hours per resident per day, and staff "
                 "turnover.</p>",
@@ -708,7 +709,8 @@ GUIDES = [
                 "how shifts are assigned, and how often agency staff fill in. Compare the "
                 "answers to the published figure. A community whose answers match its "
                 "data has told you something real; so has one where they do not.</p>",
-                "<p>Note the scope limit honestly: Care Compare covers nursing homes. "
+                "<p>Note the scope limit honestly: Care Compare covers nursing homes "
+                "certified by Medicare or Medicaid. "
                 "Assisted living is licensed by the state rather than Medicare-certified, "
                 "so Care Compare has no record of it. The Evanston section below shows "
                 "where its record is.</p>",
@@ -719,20 +721,26 @@ GUIDES = [
                 '<ul class="res__list">'
                 "<li><strong>Nursing care.</strong> This means a nursing home, or the "
                 "nursing part of a larger campus. Look it up on Medicare Care Compare. "
-                "Then open the most recent of the Illinois Department of Public "
-                "Health&rsquo;s quarterly reports of nursing home violators and search "
-                "the page for &ldquo;Evanston&rdquo;. Each entry gives a "
-                "facility&rsquo;s name and address, the survey date, the type of each "
-                "violation and its fine. On your visit, ask to see the inspection "
+                "If it is not there, ask whether it is certified by Medicare or "
+                "Medicaid. Then open the latest of the Illinois Department of Public "
+                "Health&rsquo;s quarterly reports of nursing home violators. Search it "
+                "for &ldquo;Evanston&rdquo; and check the facility city on each match, "
+                "because an owner based in Evanston can match too. Each entry gives "
+                "the facility&rsquo;s name and address, the survey date, the type of "
+                "each violation and any fine. On your visit, ask to see the inspection "
                 "reports. Illinois requires a nursing home to keep every state "
-                "inspection report from the past five years, and every state or court "
-                "order, for public inspection.</li>"
+                "inspection report and every state or court order from the past five "
+                "years for public inspection.</li>"
                 "<li><strong>Assisted living.</strong> The Illinois Department of "
                 "Public Health licenses it, and the law calls for an unannounced state "
-                "visit to each establishment every year. This guide found no public online lookup of the results. So ask "
-                "the community. Illinois rules require it to make its most recent state "
-                "survey results, and any statement of correction still in effect, "
-                "available for review. Ask how each finding was corrected.</li>"
+                "visit to each establishment every year. Check that the community "
+                "appears on the department&rsquo;s online list of licensed establishments, "
+                "linked from its assisted living page. Then ask to see its most recent "
+                "state survey results and any statement of correction still in "
+                "effect. Illinois rules require it to make these available for review. "
+                "The rule is written for residents, so a community may not have to "
+                "show a family before move-in. Ask anyway, and ask how each finding "
+                "was corrected.</li>"
                 "<li><strong>Memory care.</strong> Ask which licence it operates under, "
                 "and check that record as above. Then ask for the written dementia-care "
                 "disclosure. Illinois requires a facility with an Alzheimer&rsquo;s "
