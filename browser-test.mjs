@@ -391,11 +391,12 @@ async function main() {
   check("directions link uses the verified address",
     wpLinks.some((h) => h.includes("3200+Grant+Street+Evanston+IL+60201")), wpLinks[2]);
 
-  /* And the state's own directory must be offered alongside. */
+  /* And a way to check every other community must be offered alongside.
+     2026-11-05: the inspection-records guide, not the hospital-only report card. */
   const compare = await evaluate(
     "document.querySelector('.wp__compare a')?.getAttribute('href') || ''");
-  check("state licensed-facility directory is offered",
-    compare.includes("healthcarereportcard.illinois.gov"), compare);
+  check("inspection-record guide is offered",
+    compare.includes("/guides/check-illinois-inspection-records/"), compare);
 
   /* ---- the three Westminster actions must each fire a beacon ---- */
   /* Strip target and href first: the goal is to prove the tracking handler
