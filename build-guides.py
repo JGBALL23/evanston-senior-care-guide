@@ -101,6 +101,7 @@ F = {
     "va_survivor_basic_1dep": "$15,311",
     "va_survivor_hb_1dep": "$17,902",
     "va_survivor_aa_1dep": "$22,304",
+    "partB_deductible": "$283",
 }
 
 # DERIVED, never typed. VA publishes the Aid and Attendance rate annually; a
@@ -237,6 +238,8 @@ SRC = {
                                       'for People in Long-Term Care Facilities" (brochure, printed 9/25)',
                                       'https://ilaging.illinois.gov/content/dam/soi/en/web/aging/resources/'
                                       'newsandpublications/publications/documents/ltc-resrights.pdf'),
+    "mhha": ('Medicare.gov — Home health services',
+             'https://www.medicare.gov/coverage/home-health-services'),
 }
 
 
@@ -3242,6 +3245,157 @@ GUIDES = [
             ]),
         ],
     },
+
+    {
+        "slug": "medicare-home-health-care",
+        "bridge": ("Qualifying for Medicare&rsquo;s home health benefit turns on a "
+               "doctor&rsquo;s definition of &ldquo;skilled&rdquo; and "
+               "&ldquo;homebound&rdquo; &mdash; not on whether your parent is safe "
+               "to leave alone, which is usually the real question a family is "
+               "asking."),
+        "reviewed": "2026-11-06",
+        "title": "Does Medicare Pay for a Home Health Aide or Nurse at Home?",
+        "h1": "Does Medicare pay for a home health aide or nurse at home?",
+        "desc": ("Medicare pays $0 for a covered home health visit, but only while a "
+                 "doctor-ordered skilled need and homebound status both hold &mdash; "
+                 "and a home health aide alone, with no skilled care alongside it, is "
+                 "never covered. Here is exactly what qualifies."),
+        "intent": "coverage question",
+        "answer": ("<strong>Only for skilled care, and only while your parent is "
+                   "homebound.</strong> Medicare pays <strong>$0</strong> for a "
+                   "covered home health visit from a Medicare-certified agency, but it "
+                   "will only start one when a doctor who has examined your parent in "
+                   "person orders <em>intermittent, skilled</em> nursing or therapy "
+                   "and confirms your parent is homebound. A home health aide for "
+                   "bathing, feeding or help walking is covered only alongside that "
+                   "skilled care &mdash; Medicare does not pay for an aide, or for "
+                   "ongoing personal care, by itself."),
+        "sources": srcs("mhha", "mcosts"),
+        "body": [
+            ("What the home health benefit actually covers", [
+                "<p>Medicare.gov describes home health as a defined set of services "
+                "delivered at home by a <strong>Medicare-certified home health "
+                "agency</strong>, not a general-purpose way to pay for help at home. "
+                "What is covered:</p>",
+                "<ul class=\"res__list\">"
+                "<li><strong>Skilled nursing care</strong> &mdash; &ldquo;medically "
+                "necessary part-time or intermittent skilled nursing care,&rdquo; such "
+                "as wound care, injections, IV or nutrition therapy, and monitoring an "
+                "unstable health condition</li>"
+                "<li><strong>Physical, occupational and speech-language therapy</strong> "
+                "&mdash; if certain conditions are met</li>"
+                "<li><strong>Medical social services</strong></li>"
+                "<li><strong>Home health aide services</strong> &mdash; part-time or "
+                "intermittent, and <strong>only while you are also receiving</strong> "
+                "skilled nursing or therapy. Examples given are bathing, feeding and "
+                "help with walking</li>"
+                "<li><strong>Injectable osteoporosis drugs</strong> for women who meet "
+                "certain criteria</li>"
+                "<li><strong>Durable medical equipment and medical supplies</strong> "
+                "for use at home</li></ul>",
+                "<p>Read that aide line again: it is covered <strong>only while</strong> "
+                "skilled nursing, physical therapy, speech-language pathology or "
+                "occupational therapy is also happening. The next two sections explain "
+                "why that single word decides so much of what follows.</p>",
+            ]),
+            ("The test that decides it: skilled need and homebound, both at once", [
+                "<p>Medicare.gov sets out conditions that all have to hold before a "
+                "home health visit is covered:</p>",
+                "<ul class=\"res__list\">"
+                "<li><strong>A skilled need.</strong> Your parent needs part-time or "
+                "intermittent skilled nursing or therapy &mdash; not an ongoing, "
+                "open-ended need for help</li>"
+                "<li><strong>Homebound status, both parts at once.</strong> Leaving "
+                "home is not recommended, or your parent has trouble leaving without "
+                "help, because of an illness or injury; <strong>and</strong> your "
+                "parent is normally unable to leave home, and leaving takes a "
+                "considerable and taxing effort. Medical treatment and short, "
+                "infrequent non-medical absences &mdash; the page gives religious "
+                "services as an example &mdash; are allowed without losing homebound "
+                "status, and so is adult day care</li>"
+                "<li><strong>A face-to-face encounter.</strong> &ldquo;A doctor or "
+                "other provider (like a nurse practitioner) must see you in person and "
+                "confirm you need home health care&rdquo; &mdash; this cannot be done "
+                "by chart review alone</li>"
+                "<li><strong>A doctor&rsquo;s order</strong>, carried out by a "
+                "Medicare-certified home health agency</li></ul>",
+                "<p>Occupational therapy has its own rule worth knowing: it &ldquo;must "
+                "first be ordered along with nursing, physical therapy, or "
+                "speech-language pathology&rdquo; &mdash; but once that has happened, "
+                "it &ldquo;can continue on its own&rdquo; even after the service that "
+                "started it ends.</p>",
+            ]),
+            ("What it has never covered, however much the need", [
+                "<p>Medicare.gov lists this explicitly as not covered by the home "
+                "health benefit:</p>",
+                "<ul class=\"res__list\">"
+                "<li><strong>24-hour-a-day care</strong> at home</li>"
+                "<li><strong>Home meal delivery</strong></li>"
+                "<li><strong>Homemaker services</strong> &mdash; shopping, cleaning "
+                "&mdash; that are unrelated to the care plan</li>"
+                "<li><strong>Custodial or personal care, such as help with bathing or "
+                "dressing, when that is the only care needed</strong></li></ul>",
+                "<p>That last line is the one families run into. A home health aide is "
+                "part of this benefit only as long as skilled nursing or therapy is "
+                "also underway. The moment the skilled need ends &mdash; a wound heals, "
+                "a therapy goal is met &mdash; the aide visits built around it generally "
+                "end too, even if the bathing or dressing help your parent needs has "
+                "not gone anywhere. Ongoing, non-medical personal care at home in "
+                "Illinois is a different programme with a different eligibility test: "
+                'see <a href="/guides/illinois-community-care-program/">Can my parent '
+                "get paid help at home in Illinois?</a></p>",
+            ]),
+            ("What it costs", [
+                "<p>Medicare.gov states the cost of the core benefit in five words: "
+                "&ldquo;You pay nothing for covered home health services.&rdquo; That "
+                "is $0 coinsurance and $0 copayment for a qualifying visit &mdash; not "
+                "a reduced rate.</p>",
+                "<p>The exception is equipment, not care. For Medicare-covered durable "
+                "medical equipment supplied as part of home health, you pay <strong>20% "
+                "of the Medicare-approved amount</strong> after you meet the Part B "
+                "deductible, which is <strong>" + F["partB_deductible"] +
+                "</strong> for 2026.</p>",
+                "<p>Before giving you anything outside the covered benefit, the agency "
+                "is required to tell you &mdash; verbally and in writing, in advance "
+                "&mdash; what Medicare will not pay for, using a notice called an "
+                "Advance Beneficiary Notice. Ask for it in writing before agreeing to "
+                "anything the agency describes as extra.</p>",
+            ]),
+            ("How much care, and how often", [
+                "<p>If your parent qualifies, Medicare.gov says visits are "
+                "<strong>unlimited</strong> &mdash; there is no cap on the number of "
+                "home health visits over time, only on the intensity of any single "
+                "period of care.</p>",
+                "<p>That intensity cap: skilled nursing and home health aide services "
+                "combined generally run up to <strong>8 hours a day and 28 hours a "
+                "week</strong>. A short-term increase &mdash; under 8 hours a day, up "
+                "to 35 hours a week &mdash; is allowed if your parent&rsquo;s provider "
+                "decides it is necessary. Both figures explain the line above about "
+                "24-hour care: this benefit is built around scheduled, intermittent "
+                "visits, not a presence in the home around the clock, at any "
+                "funding level.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>This site now covers three different ways Medicare pays for care, "
+                "and they answer three different questions. "
+                '<a href="/guides/does-medicare-pay-for-senior-care/">Does Medicare pay '
+                "for assisted living or nursing home care?</a> covers a short-term "
+                "skilled stay <em>inside a facility</em> after a qualifying hospital "
+                "stay. "
+                '<a href="/guides/medicare-hospice-benefit-explained/">Does Medicare pay '
+                "for hospice care at home?</a> covers comfort care once a doctor "
+                "certifies six months or less to live. This guide is the third: skilled "
+                "nursing or therapy visits <em>at home</em>, for a parent who is "
+                "homebound but not terminally ill and not in a facility.</p>",
+                "<p>If what your parent actually needs is ongoing help with bathing, "
+                "meals or supervision &mdash; rather than a nurse or therapist &mdash; "
+                "none of Medicare&rsquo;s coverage answers that. The "
+                '<a href="/">free six-question assessment</a> on this site asks about '
+                "that kind of need directly. It asks for no name, no email and no phone "
+                "number, and your answers never leave your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -3695,6 +3849,12 @@ CARDS = {
         "A VA-run nursing home, a respite stay, and other care VA provides "
         "or pays for directly, not a pension cheque — and the one "
         "thing, in VA.gov's own words, it will not cover."),
+    "medicare-home-health-care": (
+        "Medicare",
+        "Does Medicare pay for a home health aide or nurse at home?",
+        "Medicare pays $0 for a covered home health visit — but only "
+        "while a doctor-ordered skilled need and homebound status both "
+        "hold, and a home health aide alone is never covered."),
 }
 
 
