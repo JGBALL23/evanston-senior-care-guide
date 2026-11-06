@@ -222,6 +222,8 @@ The second row is new in this document and is not yet in the funnel baseline fil
 
 **Experiment 2 was released on 2026-11-05 (D-022) and is now measured, not modified.** It is the first improvement of the owner's 30-day Evanston SEO Growth Sprint (2026-11-05 to 2026-12-05). It changes a different page, so Experiment 1 stays untouched and measurable.
 
+**Experiment 3 was built for review on 2026-11-06 (D-023) and is not released.** The owner directed it: the independent-living guide, aimed at tour inquiries. It changes a third page, so Experiments 1 and 2 stay untouched and measurable.
+
 ### Experiment 1: Evanston costs (`APPROVED` 2026-11-04; released 2026-11-04; implementation closed)
 
 | Field | Detail |
@@ -262,6 +264,19 @@ The second row is new in this document and is not yet in the funnel baseline fil
 | Released (`VERIFIED` 2026-11-05) | The owner approved merge and deploy, and added the assessment's compare-link fix to PR #12 (D-022). Head `9f552ba`; all 13 suites passed on it. Merge commit `84b9e6b`. Deploy `6aecc09906b589d0932fe784`, published 2026-11-05 17:45:11 UTC (11:45 Chicago). Rollback point `6aebd5efd56ee67f5aba491d`. IndexNow not submitted. The facility-lookup check was not done: the owner chose not to be interrupted. The page makes no claim about it either way. |
 | Intended result | Impressions, average position and clicks rise for this page, especially for queries naming Evanston, inspections or violations. Stored inquiries are counted from server records. |
 | Review | Sprint read on 2026-12-05 (indexing and early impressions only). **8-week review on 2026-12-31.** |
+| Stop condition | If the page is not indexed, indexing comes first. |
+
+### Experiment 3: Independent living, Evanston section and tour pathway (`APPROVED` build only, 2026-11-06; built for review)
+
+| Field | Detail |
+|---|---|
+| Source | The owner's request of 2026-11-06 (D-023): real tour inquiries are the next priority. |
+| Change | Only `/guides/independent-living-evanston/` changes. A plain line under the short answer links the existing tour pathway (`/?tour=independent#plan-visit`). It carries the employment disclosure and jumps to the two-way choice, which explains the hand-off. One more plain link closes the visiting section. A new section, "Looking in Evanston: what the lists leave out", covers what three listing websites showed on 6 November 2026. It then covers transit help (NITA reduced fares, Benefit Access free rides, the City's Access Evanston) and HACC's rent subsidy at an income-restricted senior building in Evanston. No community or listing site is named or ranked, and no listing-site price is printed. Title, H1, the fork, the assessment, the form, consent and functions are unchanged. |
+| Hypothesis | People who search independent living in Evanston are choosing places to see: R3's four visible queries all ask for communities. A guide that says what the lists leave out, and offers a tour request without the six questions, will turn more of its readers into tour requests. |
+| Built (`VERIFIED` 2026-11-06) | [PR #13](https://github.com/JGBALL23/evanston-senior-care-guide/pull/13), branch `feature/independent-living-evanston-tours`, head `1fbfea0`, cut from `main` `84b9e6b`. Sources: 3 to 7, all read 2026-11-06. `check-guides.js`: 1418 to 1452 checks, and 43 mutation tests each fail their intended check. Two independent fact-checks. The first covered all 36 claims and found none wrong and five imprecise. The second checked the corrections and tightened four. All are applied. All 13 suites pass. Review date 6 November 2026 (listed date unchanged), and only this guide's sitemap date moves. Review copy on `esc-preview-evanston-costs` (deploy `6aee1f841eda5380b355b5a7`, `noindex`, no functions). |
+| Baseline | `HISTORICAL` only: R1 (7 impressions, average position 41.1) and R3 (four Evanston queries, 0 clicks). **Wanted before release (owner, optional): R7.** That is Search Console for this page, with a date range ending on the release day. It also needs the `guide-choice-tour` count from Netlify's request log for the 14 days before release. |
+| Intended result | More `guide-choice-tour` events and stored tour inquiries from this guide, counted from the request log and server records with test records excluded. Also more impressions and clicks for its Evanston queries, read from Search Console. |
+| Review | The sprint read on 2026-12-05, then 8 weeks after release. |
 | Stop condition | If the page is not indexed, indexing comes first. |
 
 ---
@@ -315,6 +330,7 @@ The newest row is current production. The "Current production" labels on the 202
 | 2026-11-05 | Illinois inspection records, done while building Experiment 2 ([PR #12](https://github.com/JGBALL23/evanston-senior-care-guide/pull/12)), with an independent fact-check | Where nursing home and assisted living records are kept; what IDPH's quarterly violator reports contain (latest: April to June 2026); 210 ILCS 45/3-210 and the four violation types; 210 ILCS 9/10 and 9/110; 77 Ill. Adm. Code 295.1020; 210 ILCS 4/15; the Hospital Report Card's real scope. Open: whether IDPH's facility lookup shows assisted living inspection history (no tool here could load it) |
 | 2026-11-05 | Evanston listing and link opportunities (owner's request; nothing sent) | **Viable, with a published way to submit:** (1) Evanston Public Library's [Programming Proposal](https://epl.org/programming-proposal/) form (Senior 65+ audience, 8 weeks' notice, a reference required, reply only if accepted); (2) Evanston RoundTable letters and guest essays (form, or `letters@evanstonroundtable.com`; Evanston topics; name, email and phone required; 30 days between pieces); (3) the Daily Herald's Evanston submitted-content section (free account at `dailyherald.com/share/article/`; terms ban solicitations and ads). Outreach drafts were given to the owner in chat. **Ruled out:** EPL's old community organizations directory now returns 404 (so ACQUISITION-EXECUTION item 2.4 is obsolete). The City's Senior Resources list has no website links and no listing process. The domain `evanstoncarenetwork.org` now shows a parking page. The City's and Erie's partner lists name service providers only and have no submission route. |
 | 2026-11-05 | Rob Hoffman, "The Most Valuable SEO & AI SEO Training You'll Ever Watch" (YouTube, 15 Oct 2026), studied from the full transcript the owner supplied | **Rejected:** competitor alternatives, versus, review and best-of pages (they would mean ranking named communities); 30-day re-dating without re-verification; more calls to action, since guides already have a sticky Start button and about 10 links to the assessment. **Already done:** pre-tour pages (Experiments 1 and 2), a short-answer box, original checks. **Gaps found:** no comparison tables on any guide; no FAQ sections; "Last reviewed" and the author appear only at the foot of each guide; query-to-page mapping and cannibalization never checked; no AI-visibility tracking (Claude cannot query ChatGPT, Perplexity or AI Overviews from its environment). **Recommended, not approved:** a cannibalization check and page map from one Search Console export; an Experiment 3 candidate (a comparison table and FAQ on the levels-of-care guide, plus U13 item 3); a refresh calendar tied to real source updates; optional owner decisions on a LinkedIn article and a screen-recorded YouTube walkthrough. |
+| 2026-11-06 | Search results for independent living in Evanston, done while building Experiment 3 ([PR #13](https://github.com/JGBALL23/evanston-senior-care-guide/pull/13)), with two independent fact-checks | **Search results:** Google blocks automated queries, so the same searches were run through web search and the ranking pages read. Listing websites dominate. CareScout (where seniorly.com now redirects) says 22 communities, but 2 of the 20 on its first page are in Evanston. Caring.com's "10 best" counts 41, of which 37 are elsewhere, and gives an unexplained $3,775 Evanston average. SeniorHousingNet lists 4 in Evanston plus 20 nearby, with one phone number on every listing. A Place for Mom shows 25 of 90, 2 in Evanston. **Local help:** NITA (formerly RTA) reduced fares at 65 and free rides for Benefit Access enrollees. Access Evanston: 65+ or disabled; $35,000 / $60,000 income limits; $5 one-way taxi coupons or a City-matched debit card. HACC subsidizes rent at one Evanston senior building (62+, very low income, 30% of income); its October 2021 waitlist was open 3 days, online only. **Found, not used:** IDPH's "Life Care Facilities Permit Holders (External Use)", an undated PDF with 86 entries, six of them at Evanston addresses, Westminster Place among them (read 2026-11-06), for PR #10. CareScout's 2 March 2026 Illinois press release gives assisted living $72,645 a year, but its data tables give $74,628 ($6,219 a month). The site uses the tables. |
 
 Repository documents from before 2026-10-29 (`ACQUISITION-*.md`, `TOP-PRIORITIES.md`, `WHAT-I-CAN-PROVE.md`, `LAUNCH-CHECKLIST.md`, `VISIT-ATTRIBUTION.md`) are `HISTORICAL`. Where they conflict with this file, this file wins.
 
@@ -327,6 +343,7 @@ Repository documents from before 2026-10-29 (`ACQUISITION-*.md`, `TOP-PRIORITIES
 | Search Console review | Partial (U3). Cost guide read 2026-11-04 (R4). | Owner |
 | Experiment 1 | Released 2026-11-04 (deploy `6aebd5ef`). Implementation closed (D-019); measuring. | The release-day reading (Section 7), then the 8-week review on 2026-12-30 |
 | Experiment 2 ([PR #12](https://github.com/JGBALL23/evanston-senior-care-guide/pull/12)) | Released 2026-11-05 (deploy `6aecc099`, D-022); measuring | R6 (Section 7), the sprint read on 2026-12-05, then the 8-week review on 2026-12-31 |
+| Experiment 3 ([PR #13](https://github.com/JGBALL23/evanston-senior-care-guide/pull/13)) | Built for review 2026-11-06, head 1fbfea0; preview on `esc-preview-evanston-costs` (deploy 6aee1f84) | Owner review; merge and deploy each need approval |
 
 ### Unpublished guides on `drafts` (`VERIFIED` 2026-11-03)
 
@@ -567,13 +584,37 @@ All five need separate publication approval. All are statewide topics, and none 
   - any other change.
 - **Revisit:** at the sprint read on 2026-12-05 and the 8-week review on 2026-12-31.
 
+### D-023 · 2026-11-06 · `APPROVED` (build only) · Experiment 3: the independent-living guide, aimed at tour inquiries
+- **Decided:** the owner made real tour inquiries the next priority. He asked for the existing independent-living guide to be improved for families considering a move:
+  - research the actual search results;
+  - add genuinely useful Evanston-specific information;
+  - avoid competitor rankings;
+  - make the optional Westminster Place tour inquiry easy to find without the assessment.
+
+  He ruled out duplicated content, changes to other pages, and any merge or deploy without his approval. Built as Experiment 3 (Section 4, [PR #13](https://github.com/JGBALL23/evanston-senior-care-guide/pull/13)).
+- **Supersedes for this change only:** D-011's hold on the independent-living page. D-011's "no community list" still stands: the page names and ranks no community.
+- **Why this page:** it is the guide whose searchers are choosing places to visit (R3), and it already carries the tour pathway.
+- **Evidence:** the search results and agency pages in Section 5's research row, and two independent fact-checks in PR #13. The first fact-check covered all 36 claims and found none wrong and five imprecise, and all five are corrected. Two of them were in older text: IDPH has licensed assisted living since July 2002, and Aid and Attendance requires a pension and a care need. The second checked the corrections and tightened four more: Ride Free needs its own application, Access Evanston coupons cost $5 each, the 2021 waitlist window, and the Medicare line.
+- **Open for the owner:** the page discloses that he works at Westminster Place. If any pay or credit is tied to tours, the disclosure should say so.
+- **Rejected or deferred:**
+  - a community list or ranking;
+  - naming listing websites;
+  - a button, pop-up or sticky element;
+  - any change to the inquiry form, consent, functions or other pages;
+  - IndexNow (U4).
+- **Revisit:** at the sprint read on 2026-12-05, and 8 weeks after release.
+
 ---
 
 ## 7. Next action
 
 Completed on 2026-11-04: PR #11 merged as `971b14a` and released in deploy `6aebd5ef` (D-019); review on 2026-12-30. Completed on 2026-11-05: PR #12 merged as `84b9e6b` and released in deploy `6aecc099` with the assessment's compare-link fix (D-022); review on 2026-12-31.
 
-**Exactly one action, when the owner has 10 minutes: one Search Console sitting for both experiment pages.** Nothing is blocked on it.
+Built on 2026-11-06: Experiment 3, the independent-living guide, for review in [PR #13](https://github.com/JGBALL23/evanston-senior-care-guide/pull/13) with a `noindex` preview (D-023). It is not merged or deployed.
+
+**Exactly one action: the owner reviews PR #13 and its preview, then approves merge and deploy, asks for changes, or declines.** If any pay or credit is tied to tours, he also says so, because the disclosure would then need to say it too.
+
+**After that, when the owner has 10 minutes: one Search Console sitting for the experiment pages.** Nothing is blocked on it. If PR #13 is approved, read R7 (the independent-living guide, date range ending on its release day) in the same sitting.
 
 | | |
 |---|---|
