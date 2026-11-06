@@ -151,6 +151,28 @@ SRC = {
                       'https://hfs.illinois.gov/medicalproviders/medicaidreimbursement/supportivelivinging.html'),
     "idph_al_div": ('Illinois Department of Public Health \u2014 Assisted Living',
                     'https://dph.illinois.gov/topics-services/health-care-regulation/assisted-living.html'),
+    # 2026-11-06, the independent-living guide's Evanston section. Each page
+    # was read that day. NITA is the RTA's new name; Reduced Fare covers
+    # riders 65+, Ride Free covers Benefit Access enrollees. Access Evanston:
+    # 65+ (or disabled), income limits, $5 one-way taxi coupons within
+    # Evanston, a matched transportation debit card, enrolment in person.
+    # HACC: senior apartments in Evanston, 62+, rent 30% of income, online
+    # applications; the two waitlist notices opened for three and four days.
+    "nita_fares": ('Northern Illinois Transit Authority \u2014 free and reduced fare '
+                   'programs',
+                   'https://nita.illinois.gov/riders/free-and-reduced-fare-programs'),
+    "evanston_access": ('City of Evanston \u2014 Access Evanston Program',
+                        'https://www.cityofevanston.org/accessevanston'),
+    "hacc_evanston": ('Housing Authority of Cook County \u2014 senior apartments in '
+                      'Evanston',
+                      'https://thehacc.org/property/ann-rainey-apartments/'),
+    "hacc_waitlist_2021": ('Housing Authority of Cook County \u2014 Evanston senior '
+                           'waitlist notice, October 2021',
+                           'https://thehacc.org/app/uploads/2021/10/Project-Based-Voucher-'
+                           'Wait-List-Opening-Ann-Rainey-Apartments.pdf.pdf'),
+    "hacc_waitlist_2023": ('Housing Authority of Cook County \u2014 senior waitlist '
+                           'notice, November 2023',
+                           'https://thehacc.org/app/uploads/2023/11/Senior-55-and-older-2023.pdf'),
     # CareScout's own methodology for the 2025 survey (document 131168,
     # 03/02/26): one-bedroom private-pay rates "as they ranged from basic care
     # to more substantial care", the midpoint used where a range was given,
@@ -1543,12 +1565,35 @@ GUIDES = [
         "bridge": ("Independent living is the one option on this site that is not "
                    "care. That makes it the easiest to choose, and the easiest to "
                    "choose too late."),
-        "reviewed": "2026-10-26",
+        # 2026-11-06, owner's request: more useful for Evanston families
+        # considering a move, and the optional tour inquiry easy to find
+        # without the assessment. Adds an Evanston section (what three listing
+        # sites showed on 6 November, local transport and housing help) and
+        # two plain tour links, one under the short answer and one after the
+        # visiting advice; the fork keeps the full explanation. No community
+        # is named or ranked. Title and H1 unchanged (D-009).
+        "reviewed": "2026-11-06",
+        "listed": "2026-10-26",
         "title": "Independent Living in Evanston and the North Shore, Explained",
         "h1": "Independent living in Evanston and the North Shore, explained",
         "desc": ("Independent living is housing with services, not care. What the "
-                 "monthly fee covers, how it differs from assisted living, and why no "
-                 "Illinois median is given."),
+                 "monthly fee covers, what Evanston listing sites leave out, and "
+                 "local transport and housing help."),
+        "after_answer": (
+            '<p class="tour-line"><strong>Already comparing places?</strong> You '
+            'can <a href="/?tour=independent#plan-visit">ask about a tour of '
+            'Westminster Place</a> without taking the six-question assessment. '
+            'The person who runs this guide works there; <a href="#two-ways">how '
+            'a request is handled</a> is set out below.</p>'),
+        # The listing-website figures in "Looking in Evanston" were read from
+        # those websites, which this guide deliberately does not link to, so
+        # the sources footnote says so rather than claim every figure came
+        # from the list above.
+        "figures_except": ("the listing-website figures under &ldquo;Looking in "
+                           "Evanston&rdquo;, which were read from those websites "
+                           "the same day"),
+        # The tour line's "how a request is handled" link lands here.
+        "section_ids": {"Two ways to go from here": "two-ways"},
         "intent": "lifestyle question",
         "answer": ("<strong>Independent living is housing with services, not "
                    "care.</strong> A private apartment, cottage or townhouse, with "
@@ -1558,7 +1603,9 @@ GUIDES = [
                    "floor</strong>. Nobody has to need anything to move in, which is "
                    "the point: most people who do it are well, and they do it while "
                    "they still get to choose."),
-        "sources": srcs("idph_al_div", "mcosts", "carescout"),
+        "sources": srcs("idph_al_div", "mcosts", "carescout", "nita_fares",
+                        "evanston_access", "hacc_evanston", "hacc_waitlist_2021",
+                        "hacc_waitlist_2023"),
         "body": [
             ("What you are actually buying", [
                 "<p>Three things, and it helps to price them separately.</p>"
@@ -1659,6 +1706,51 @@ GUIDES = [
                 "place in the care building is held for residents or waitlisted, and "
                 "what the fee becomes. Get the answer in writing.</p>"
             ]),
+            ("Looking in Evanston: what the lists leave out", [
+                "<p>Search for independent living in Evanston and listing websites "
+                "come up alongside the communities themselves. This guide checked "
+                "three of them on 6 November 2026.</p>",
+                '<ul class="res__list">'
+                "<li><strong>Most of a list may not be in Evanston.</strong> One "
+                "site said Evanston offers 22 independent living communities; of "
+                "the 20 on its first page, two had Evanston addresses. Another "
+                "promised the &ldquo;10 best&rdquo; in Evanston, and its own count "
+                "of 41 included 37 elsewhere. The third listed four in Evanston and "
+                "showed 20 more separately as nearby. Check the street address of "
+                "anything on a list.</li>"
+                "<li><strong>The phone number may not be the community&rsquo;s."
+                "</strong> On one site, every community showed the same phone "
+                "number, so it cannot be each community&rsquo;s own line. The other "
+                "two gave no number for any community, only the site&rsquo;s own. "
+                "To reach a community, use the number on its own website.</li>"
+                "<li><strong>No price came with a method.</strong> One site gave an "
+                "Evanston &ldquo;average&rdquo;, another a starting price for each "
+                "community, and the third no price at all. Neither the average nor "
+                "the starting prices came with an explanation on the page of how "
+                "they were worked out. Ask each community for the written fee "
+                "schedule described above.</li>"
+                "<li><strong>No list can be complete.</strong> This guide found no "
+                "state care licence for independent living in Illinois, so there is "
+                "no state register to check a list against.</li></ul>",
+                "<p>Two kinds of local help are worth knowing about before a "
+                "move.</p>"
+                '<ul class="res__list">'
+                "<li><strong>Getting around without the car.</strong> Riders 65 or "
+                "older can get reduced fares on CTA, Metra and Pace through the "
+                "Northern Illinois Transit Authority, formerly the RTA. Those "
+                "enrolled in the state&rsquo;s Benefit Access program ride those "
+                "buses and trains free. Evanston residents 65 or older on lower "
+                "incomes can also join the City&rsquo;s Access Evanston program. It "
+                "sells $5 taxi coupons for rides within Evanston and matches money "
+                "loaded onto a transportation card. Enrol in person at the Levy "
+                "Senior Center or another City community center.</li>"
+                "<li><strong>If market-rate independent living is out of reach."
+                "</strong> The Housing Authority of Cook County runs "
+                "income-restricted apartments for older adults in Evanston, where "
+                "residents pay 30% of their income toward rent. Applications are "
+                "made online, and its past waitlist openings lasted three or four "
+                "days, so check its website often.</li></ul>",
+            ]),
             ("Visiting, and what a brochure cannot tell you", [
                 "<p>Go at a mealtime rather than a scheduled tour slot. The dining "
                 "room answers more than the model apartment does.</p>"
@@ -1672,7 +1764,11 @@ GUIDES = [
                 "<li>Ask what last year&rsquo;s turnover was, and where people "
                 "went.</li></ul>",
                 "<p>Visiting before you need to is the cheapest version of this "
-                "decision. Nothing obliges anyone to move.</p>"
+                "decision. Nothing obliges anyone to move.</p>",
+                "<p>If one of those visits is to Westminster Place, where the person "
+                "who runs this guide works, you can "
+                '<a href="/?tour=independent#plan-visit">ask about a tour</a> '
+                "without the six questions.</p>"
             ]),
             ("Where this fits with the rest of this site", [
                 "<p>If the question is whether someone needs help rather than wants "
@@ -2613,8 +2709,13 @@ def sources_block(g):
             '<h2 class="res__h">Sources</h2>\n'
             '<ul class="res__list">%s</ul>\n'
             '<p class="visit__fine">Every figure on this page was read from the '
-            'source listed above on %s. Figures change; the review date tells you '
-            'how fresh this page is.</p>\n</section>' % (items, reviewed_human(g)))
+            'source listed above on %s%s. Figures change; the review date tells you '
+            'how fresh this page is.</p>\n</section>'
+            % (items, reviewed_human(g),
+               # Optional (independent living, 2026-11-06): names any figures
+               # that did NOT come from the listed sources. Without the key the
+               # sentence renders exactly as before.
+               (", except " + g["figures_except"]) if g.get("figures_except") else ""))
 
 
 BRIDGE_MISSING = """
@@ -2669,14 +2770,24 @@ def build_guide(g):
     parts.append('<h1 class="h2">%s</h1>\n' % g["h1"])
     parts.append('<div class="res__why">\n<p class="res__why-label">Short answer</p>\n'
                  '<p>%s</p>\n</div>\n' % g["answer"])
+    # Optional, one guide only so far (independent living, 2026-11-06): a
+    # plain line straight under the short answer. A guide without the key
+    # renders exactly as before.
+    if g.get("after_answer"):
+        parts.append(g["after_answer"] + "\n")
     lead = DIAGRAMS.get((g["slug"], None))
     if lead:
         parts.append(lead + "\n")
     for i, (heading, paras) in enumerate(g["body"]):
         dia = DIAGRAMS.get((g["slug"], strip_tags(heading)))
         body = "\n".join(paras) + (("\n" + dia) if dia else "")
-        parts.append('<section class="res__block">\n<h2 class="res__h">%s</h2>\n%s\n</section>\n'
-                     % (heading, body))
+        # Optional (independent living, 2026-11-06): an id on one section so
+        # an in-page link lands on its heading; .res__block[id] already has a
+        # scroll margin for the sticky nav. A guide without "section_ids"
+        # renders exactly as before.
+        sid = g.get("section_ids", {}).get(strip_tags(heading))
+        parts.append('<section class="res__block"%s>\n<h2 class="res__h">%s</h2>\n%s\n</section>\n'
+                     % ((' id="%s"' % sid) if sid else "", heading, body))
         # The bridge sits after the FIRST section — the moment the reader
         # has their answer and is most likely to leave. One quiet link,
         # never a second button.
