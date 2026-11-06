@@ -343,19 +343,38 @@ check("IL guide: the sources footnote says the listing-website figures did not c
   /Every figure on this page was read from the source listed above on 6 November 2026, except the listing-website figures under &ldquo;Looking in Evanston&rdquo;, which were read from those websites the same day\./.test(ilFlat));
 check("only the IL guide carries a footnote exception",
   SLUGS.filter((s) => /read from the source listed above on [^.<]*, except /.test(flat(page[s]))).join(",") === "independent-living-evanston");
+/* The only dollar figures allowed in the section are the City's own:
+   the coupon price and the two income limits. */
 check("IL guide: no listing-site price is printed",
-  !/\$\s?\d/.test(ilEv.replace(/\$5 taxi coupons/, "")));
+  !/\$\s?\d/.test(ilEv.replace("taxi coupons that cost $5 each", "")
+    .replace("must be $35,000 or less for one person, or $60,000 or less for two", "")));
 check("IL guide: no list can be complete, worded as this guide's own finding",
-  ilEvLc.indexOf("this guide found no state care licence for independent living") !== -1);
+  ilEvLc.indexOf("this guide found no state licence for independent living as such, so no state register lists every community") !== -1);
 check("IL guide: transport help is stated as the agencies state it",
-  ilEvLc.indexOf("riders 65 or older can get reduced fares on cta, metra and pace") !== -1 &&
-  ilEvLc.indexOf("benefit access program ride those buses and trains free") !== -1 &&
-  ilEvLc.indexOf("$5 taxi coupons for rides within evanston") !== -1 &&
-  ilEvLc.indexOf("enrol in person") !== -1);
-check("IL guide: income-restricted housing is described at agency level",
-  ilEvLc.indexOf("housing authority of cook county runs income-restricted apartments for older adults in evanston") !== -1 &&
-  ilEvLc.indexOf("30% of their income") !== -1 &&
-  ilEvLc.indexOf("three or four days") !== -1);
+  ilEvLc.indexOf("riders 65 or older can get a reduced-fare permit for cta, metra and pace from the northern illinois transit authority, formerly the rta") !== -1 &&
+  /* Second fact-check, 2026-11-06: Ride Free is not automatic. */
+  ilEvLc.indexOf("benefit access program can ride free instead, after applying to the authority&rsquo;s ride free program") !== -1 &&
+  ilEvLc.indexOf("helps residents 65 or older, or over 18 with a disability. income must be $35,000 or less for one person, or $60,000 or less for two") !== -1 &&
+  /* A coupon costs the rider $5; it is not a $5 coupon. */
+  ilEvLc.indexOf("members choose between taxi coupons that cost $5 each, one per one-way ride within evanston, and a transportation debit card") !== -1 &&
+  ilEvLc.indexOf("the city matches money loaded onto the card, up to a monthly limit") !== -1 &&
+  ilEvLc.indexOf("applications are available at the levy senior center and the city&rsquo;s other community centers") !== -1);
+/* Fact-check, 2026-11-06: HACC does not run the Evanston building, it
+   subsidizes rent there; and its 2023 notice covers no Evanston building. */
+check("IL guide: income-restricted housing is described as HACC describes it",
+  ilEvLc.indexOf("the housing authority of cook county subsidizes rent in an income-restricted building in evanston for people 62 or older on very low incomes") !== -1 &&
+  ilEvLc.indexOf("in the units it subsidizes, the resident pays 30% of their income toward rent and the housing authority pays the rest") !== -1 &&
+  ilEvLc.indexOf("opened in october 2021, it took applications online only, from the morning of 13 october to the afternoon of 15 october") !== -1 &&
+  !/housing authority[^.]*\bruns\b/.test(ilEvLc));
+check("IL guide: licensing start stated as IDPH states it (July 2002, under December 2001 regulations)",
+  ilFlat.indexOf("has licensed them since July 2002, under regulations adopted in December 2001") !== -1);
+check("IL guide: Aid and Attendance carries its pension and care-need conditions, and no spending claim",
+  ilFlat.indexOf("For a veteran or surviving spouse who gets a VA pension") !== -1 &&
+  ilFlat.indexOf("raises that pension for someone who needs help with daily activities such as bathing or dressing, or meets one of VA&rsquo;s other conditions. Living in a nursing home is not required.") !== -1 &&
+  ilFlat.indexOf("can be spent in any setting") === -1 && ilFlat.indexOf("can go toward any setting") === -1);
+check("IL guide: Medicare and assisted living stated as Medicare.gov states it, with no claim about most families",
+  ilFlat.indexOf("Medicare does not pay for assisted living either. The everyday personal help it provides is long-term care, and Medicare doesn&rsquo;t pay for long-term care.") !== -1 &&
+  ilFlat.indexOf("most families arrive with") === -1);
 check("IL guide: Evanston section names no community, Westminster Place included",
   !/\b(westminster|presbyterian|trulee|belmont|sunrise|merion|mather|three crowns|avidor|carrington|north shore place|artis|clarendale|arbor terrace|ten twenty|ann rainey|perlman|breakers|summit|elison|senior suites)\b/i.test(ilEv));
 check("IL guide: Evanston section names no listing site",
@@ -389,9 +408,13 @@ check("IL guide: title unchanged (D-009)",
  "cityofevanston.org/accessevanston",
  "thehacc.org/property/ann-rainey-apartments/",
  "Wait-List-Opening-Ann-Rainey-Apartments.pdf.pdf",
- "Senior-55-and-older-2023.pdf"].forEach((u) => {
+ "medicare.gov/coverage/long-term-care"].forEach((u) => {
   check("IL guide cites " + u, ilPage.indexOf(u) !== -1);
 });
+check("IL guide does not cite the 2023 HACC notice, which covers no Evanston building",
+  ilPage.indexOf("Senior-55-and-older-2023.pdf") === -1);
+check("IL guide does not cite the Medicare costs page for a claim it does not make",
+  ilPage.indexOf("basics/costs/medicare-costs") === -1);
 check("no other guide gives a section an id",
   SLUGS.filter((s) => s !== "independent-living-evanston" &&
     /<section class="res__block" id=/.test(page[s])).length === 0);

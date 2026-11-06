@@ -154,10 +154,14 @@ SRC = {
     # 2026-11-06, the independent-living guide's Evanston section. Each page
     # was read that day. NITA is the RTA's new name; Reduced Fare covers
     # riders 65+, Ride Free covers Benefit Access enrollees. Access Evanston:
-    # 65+ (or disabled), income limits, $5 one-way taxi coupons within
-    # Evanston, a matched transportation debit card, enrolment in person.
-    # HACC: senior apartments in Evanston, 62+, rent 30% of income, online
-    # applications; the two waitlist notices opened for three and four days.
+    # 65+ (or under 65 with a disability), income up to $35,000 for one person
+    # or $60,000 for two, a choice of $5 one-way taxi coupons within Evanston
+    # or a City-matched transportation debit card, applications at the City's
+    # community centers. HACC does not run the Evanston building; it
+    # subsidizes rent there (62+, very low income; the resident pays 30% of
+    # income and HACC the rest). Its October 2021 waitlist for that building
+    # was online only and open three days. HACC's November 2023 senior notice
+    # was dropped after the fact-check: it covers no Evanston building.
     "nita_fares": ('Northern Illinois Transit Authority \u2014 free and reduced fare '
                    'programs',
                    'https://nita.illinois.gov/riders/free-and-reduced-fare-programs'),
@@ -170,9 +174,8 @@ SRC = {
                            'waitlist notice, October 2021',
                            'https://thehacc.org/app/uploads/2021/10/Project-Based-Voucher-'
                            'Wait-List-Opening-Ann-Rainey-Apartments.pdf.pdf'),
-    "hacc_waitlist_2023": ('Housing Authority of Cook County \u2014 senior waitlist '
-                           'notice, November 2023',
-                           'https://thehacc.org/app/uploads/2023/11/Senior-55-and-older-2023.pdf'),
+    "medicare_ltc": ('Medicare.gov \u2014 Long-term care coverage',
+                     'https://www.medicare.gov/coverage/long-term-care'),
     # CareScout's own methodology for the 2025 survey (document 131168,
     # 03/02/26): one-bedroom private-pay rates "as they ranged from basic care
     # to more substantial care", the midpoint used where a range was given,
@@ -1603,9 +1606,10 @@ GUIDES = [
                    "floor</strong>. Nobody has to need anything to move in, which is "
                    "the point: most people who do it are well, and they do it while "
                    "they still get to choose."),
-        "sources": srcs("idph_al_div", "mcosts", "carescout", "nita_fares",
-                        "evanston_access", "hacc_evanston", "hacc_waitlist_2021",
-                        "hacc_waitlist_2023"),
+        # 2026-11-06: "mcosts" replaced by Medicare's long-term care page,
+        # which is the one that says Medicare does not pay for it.
+        "sources": srcs("idph_al_div", "medicare_ltc", "carescout", "nita_fares",
+                        "evanston_access", "hacc_evanston", "hacc_waitlist_2021"),
         "body": [
             ("What you are actually buying", [
                 "<p>Three things, and it helps to price them separately.</p>"
@@ -1630,8 +1634,8 @@ GUIDES = [
                 "Assisted Living which, in its own words, &ldquo;is responsible for "
                 "all state licensure and survey processes for Assisted Living and "
                 "Shared Housing establishments&rdquo;, and has licensed them since "
-                "regulations were adopted in December 2001. IDPH publishes the list "
-                "of licensed establishments.</p>",
+                "July 2002, under regulations adopted in December 2001. IDPH "
+                "publishes the list of licensed establishments.</p>",
                 "<p><strong>Independent living does not appear on that licence list, "
                 "and this guide found no state care-licence category for it in "
                 "Illinois.</strong> That is not a loophole and not a warning &mdash; "
@@ -1662,9 +1666,10 @@ GUIDES = [
                 "<li>How the monthly fee moved in each of the last five years. Ask "
                 "for the history, not the policy.</li></ul>",
                 "<p><strong>Medicare pays none of this.</strong> Medicare is health "
-                "insurance; independent living is housing. The same is true of "
-                "assisted living, which is the misunderstanding most families "
-                "arrive with.</p>"
+                "insurance; independent living is housing. Medicare does not pay "
+                "for assisted living either. The everyday personal help it provides "
+                "is long-term care, and Medicare doesn&rsquo;t pay for long-term "
+                "care.</p>"
             ]),
             ("Two ways to go from here", [
                 "<p>Neither is required to finish reading. One asks for "
@@ -1730,26 +1735,34 @@ GUIDES = [
                 "they were worked out. Ask each community for the written fee "
                 "schedule described above.</li>"
                 "<li><strong>No list can be complete.</strong> This guide found no "
-                "state care licence for independent living in Illinois, so there is "
-                "no state register to check a list against.</li></ul>",
+                "state licence for independent living as such, so no state register "
+                "lists every community.</li></ul>",
                 "<p>Two kinds of local help are worth knowing about before a "
                 "move.</p>"
                 '<ul class="res__list">'
                 "<li><strong>Getting around without the car.</strong> Riders 65 or "
-                "older can get reduced fares on CTA, Metra and Pace through the "
-                "Northern Illinois Transit Authority, formerly the RTA. Those "
-                "enrolled in the state&rsquo;s Benefit Access program ride those "
-                "buses and trains free. Evanston residents 65 or older on lower "
-                "incomes can also join the City&rsquo;s Access Evanston program. It "
-                "sells $5 taxi coupons for rides within Evanston and matches money "
-                "loaded onto a transportation card. Enrol in person at the Levy "
-                "Senior Center or another City community center.</li>"
+                "older can get a reduced-fare permit for CTA, Metra and Pace from "
+                "the Northern Illinois Transit Authority, formerly the RTA. Those "
+                "enrolled in the state&rsquo;s Benefit Access program can ride free "
+                "instead, after applying to the authority&rsquo;s Ride Free "
+                "program. In Evanston, the City&rsquo;s Access Evanston program "
+                "helps residents 65 or older, or over 18 with a disability. Income "
+                "must be $35,000 or less for one person, or $60,000 or less for "
+                "two. Members choose between taxi coupons that cost $5 each, one "
+                "per one-way ride within Evanston, and a transportation debit card. "
+                "The City "
+                "matches money loaded onto the card, up to a monthly limit. "
+                "Applications are available at the Levy Senior Center and the "
+                "City&rsquo;s other community centers.</li>"
                 "<li><strong>If market-rate independent living is out of reach."
-                "</strong> The Housing Authority of Cook County runs "
-                "income-restricted apartments for older adults in Evanston, where "
-                "residents pay 30% of their income toward rent. Applications are "
-                "made online, and its past waitlist openings lasted three or four "
-                "days, so check its website often.</li></ul>",
+                "</strong> The Housing Authority of Cook County subsidizes rent in "
+                "an income-restricted building in Evanston for people 62 or older on "
+                "very low incomes. In the units it subsidizes, the resident pays 30% "
+                "of their income toward rent and the Housing Authority pays the "
+                "rest. When its waitlist for that building opened in October 2021, "
+                "it took applications online only, from the morning of 13 October "
+                "to the afternoon of 15 October. Check the Housing "
+                "Authority&rsquo;s website often.</li></ul>",
             ]),
             ("Visiting, and what a brochure cannot tell you", [
                 "<p>Go at a mealtime rather than a scheduled tour slot. The dining "
@@ -1777,10 +1790,13 @@ GUIDES = [
                 "care explained</a>. If the question is cost, "
                 "<a href=\"/guides/assisted-living-cost-illinois/\">what assisted "
                 "living actually costs in Illinois</a> carries the figures this page "
-                "deliberately does not. For a wartime veteran or a surviving spouse, "
+                "deliberately does not. For a veteran or surviving spouse who gets "
+                "a VA pension, "
                 "<a href=\"/guides/va-aid-and-attendance-benefit/\">VA Aid and "
-                "Attendance</a> is a cash benefit that can go toward any setting, "
-                "including this one.</p>",
+                "Attendance</a> raises that pension for someone who needs help with "
+                "daily activities such as bathing or dressing, or meets one of "
+                "VA&rsquo;s other conditions. Living in a nursing home is not "
+                "required.</p>",
                 "<p>This guide did not research entrance-fee refund law, Life Plan or "
                 "continuing-care contract regulation in Illinois, or how an entrance "
                 "fee interacts with Medicaid eligibility later. Those are real "
