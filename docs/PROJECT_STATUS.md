@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| Last verified | 2026-11-05 11:50 Chicago (17:50 UTC): GitHub, Netlify and the live site, after the PR #12 release. Search Console as of R4. |
+| Last verified | 2026-11-06 19:10 Chicago (2026-11-07 01:10 UTC): GitHub, Netlify and the live site, after the PR #13 release. Search Console as of R4. |
 | Checked against | GitHub, Netlify, the live site, Search Console emails, owner-reported Search Console figures |
 | This document | `DRAFT` on `feature/project-control-center`. Not merged. Not approved. |
 
@@ -25,15 +25,15 @@
 
 ## 1. Current production state
 
-### Production (`VERIFIED` 2026-11-05, after the PR #12 release)
+### Production (`VERIFIED` 2026-11-06, after the PR #13 release)
 
 | Item | State |
 |---|---|
-| `main` | `84b9e6b`, merge of PR #12, 2026-11-05 17:44 UTC (11:44 Chicago) |
-| Production deploy | `6aecc09906b589d0932fe784`, published 2026-11-05 17:45:11 UTC, state `ready`. 4 functions, identical to the previous release; 1 redirect rule; 5 header rules; 68 files uploaded, secret scan clean. |
-| Does it match `main`? | Yes, by direct comparison. Netlify records no commit for upload deploys, so 32 public files were fetched from production and compared with `_dist` at `84b9e6b`: 15 identical, 17 different only by Netlify's rewrite of `/privacy.html` links to `/privacy`. Beacon files under `/t/` were not fetched, to keep the counts clean. Only `app.js`, the homepage, the inspection guide and `sitemap.xml` differ from the previous release. |
+| `main` | `0ec0a8b`, merge of PR #13, 2026-11-07 01:03 UTC (19:03 Chicago, 6 November) |
+| Production deploy | `6aee78e5b5c6c75dd3f17336`, published 2026-11-07 01:03:45 UTC, state `ready`. 4 functions, identical to the previous release; 1 redirect rule; 5 header rules; 68 files, Netlify's secret scan clean. |
+| Does it match `main`? | Yes, by direct comparison. Netlify records no commit for upload deploys, so 32 public files were fetched from production and compared with `_dist` at `0ec0a8b`: 15 identical, 17 different only by Netlify's rewrite of `/privacy.html` links to `/privacy`. Beacon files under `/t/` were not fetched, to keep the counts clean. Only the independent-living guide, `styles.css` and `sitemap.xml` differ from the previous release. |
 | On `main` but not live | Nothing a visitor can see |
-| Rollback point | `6aebd5efd56ee67f5aba491d` (the PR #11 release, `971b14a`), state `ready`. The one before it, `6ae7a5a0661074563afe0c14`, is also still `ready`. |
+| Rollback point | `6aecc09906b589d0932fe784` (the PR #12 release, `84b9e6b`), state `ready`. The one before it, `6aebd5efd56ee67f5aba491d`, is also still `ready`. |
 | How deploys work | One approved upload of `_dist`, the functions and `netlify.toml`. There is no Git link: a push to GitHub publishes nothing, and `docs/` never reaches the site. |
 
 ### Published pages and systems (`VERIFIED` 2026-11-03)
@@ -222,7 +222,7 @@ The second row is new in this document and is not yet in the funnel baseline fil
 
 **Experiment 2 was released on 2026-11-05 (D-022) and is now measured, not modified.** It is the first improvement of the owner's 30-day Evanston SEO Growth Sprint (2026-11-05 to 2026-12-05). It changes a different page, so Experiment 1 stays untouched and measurable.
 
-**Experiment 3 was built for review on 2026-11-06 (D-023) and is not released.** The owner directed it: the independent-living guide, aimed at tour inquiries. It changes a third page, so Experiments 1 and 2 stay untouched and measurable.
+**Experiment 3 was released on 2026-11-06 (D-025) and is now measured, not modified.** The owner directed it: the independent-living guide, aimed at tour inquiries, with the tour button he asked for at review (D-024). It changes a third page, so Experiments 1 and 2 stay untouched and measurable.
 
 ### Experiment 1: Evanston costs (`APPROVED` 2026-11-04; released 2026-11-04; implementation closed)
 
@@ -266,7 +266,7 @@ The second row is new in this document and is not yet in the funnel baseline fil
 | Review | Sprint read on 2026-12-05 (indexing and early impressions only). **8-week review on 2026-12-31.** |
 | Stop condition | If the page is not indexed, indexing comes first. |
 
-### Experiment 3: Independent living, Evanston section and tour pathway (`APPROVED` build only, 2026-11-06; built for review)
+### Experiment 3: Independent living, Evanston section and tour pathway (`APPROVED` 2026-11-06; released 2026-11-06)
 
 | Field | Detail |
 |---|---|
@@ -274,9 +274,10 @@ The second row is new in this document and is not yet in the funnel baseline fil
 | Change | Only `/guides/independent-living-evanston/` changes, plus one `styles.css` rule scoped to its button. Under the short answer is a "Request a Westminster Place Tour" button, added at the owner's review (D-024). It uses the existing dark button and the existing tour pathway (`/?tour=independent#plan-visit`). Directly under it: "No assessment needed. The person who runs this guide works at Westminster Place. How a request is handled." That last link jumps to the two-way choice, which explains the hand-off. One more plain link closes the visiting section. A new section, "Looking in Evanston: what the lists leave out", covers what three listing websites showed on 6 November 2026. It then covers transit help (NITA reduced fares, Benefit Access free rides, the City's Access Evanston) and HACC's rent subsidy at an income-restricted senior building in Evanston. No community or listing site is named or ranked, and no listing-site price is printed. Title, H1, the fork, the assessment, the form, consent and functions are unchanged. |
 | Hypothesis | People who search independent living in Evanston are choosing places to see: R3's four visible queries all ask for communities. A guide that says what the lists leave out, and offers a tour request without the six questions, will turn more of its readers into tour requests. |
 | Built (`VERIFIED` 2026-11-06) | [PR #13](https://github.com/JGBALL23/evanston-senior-care-guide/pull/13), branch `feature/independent-living-evanston-tours`, head `8343d72`, cut from `main` `84b9e6b`. Sources: 3 to 7, all read 2026-11-06. `check-guides.js`: 1418 to 1457 checks, and 51 mutation tests each fail their intended check. Two independent fact-checks. The first covered all 36 claims and found none wrong and five imprecise. The second checked the corrections and tightened four. All are applied. All 13 suites pass. A six-phone walk of the button (320 to 430px) passes 72 of 72 checks. On most phones the button sits 60 to 350px below the first screen, under the long short answer. Review date 6 November 2026 (listed date unchanged), and only this guide's sitemap date moves. Review copy on `esc-preview-evanston-costs` (deploy `6aee758e95e7d3fcc39c2904`, `noindex`, no functions). |
-| Baseline | `HISTORICAL` only: R1 (7 impressions, average position 41.1) and R3 (four Evanston queries, 0 clicks). **Wanted before release (owner, optional): R7.** That is Search Console for this page, with a date range ending on the release day. It also needs the `guide-choice-tour` count from Netlify's request log for the 14 days before release. |
+| Released (`VERIFIED` 2026-11-06) | The owner approved the button placement and the release, once the employment and referral-compensation disclosures were confirmed (D-025). Head `8343d72`; all 13 suites passed on it, and the merge commit's tree is identical to it. Merge commit `0ec0a8b`. Deploy `6aee78e5b5c6c75dd3f17336`, published 2026-11-07 01:03:45 UTC (19:03 Chicago, 6 November). Rollback point `6aecc09906b589d0932fe784`. The live button was tapped on two phone sizes: 26 of 26 checks passed, with beacons intercepted and nothing submitted. IndexNow not submitted. |
+| Baseline | `HISTORICAL` only: R1 (7 impressions, average position 41.1) and R3 (four Evanston queries, 0 clicks). **Still needed: R7** (Section 7). That is Search Console for this page, with a date range ending on 2026-11-06, the release day. It also needs the `guide-choice-tour` count for the days before release, from Netlify's request log as far back as it goes. |
 | Intended result | More `guide-choice-tour` events and stored tour inquiries from this guide, counted from the request log and server records with test records excluded. Also more impressions and clicks for its Evanston queries, read from Search Console. |
-| Review | The sprint read on 2026-12-05, then 8 weeks after release. |
+| Review | Sprint read on 2026-12-05 (indexing and early impressions only). **8-week review on 2027-01-01.** |
 | Stop condition | If the page is not indexed, indexing comes first. |
 
 ---
@@ -298,6 +299,7 @@ The second row is new in this document and is not yet in the funnel baseline fil
 | #9 | 2026-11-01 | `4ce3249` | `main` | Inquiry disclosure wording | `6ae7a5a0` |
 | #11 | 2026-11-04 | `971b14a` | `main` | Experiment 1: the cost guide's Evanston section; a re-review re-dates only that guide in the sitemap; the `ilga.gov` checker limitation documented | `6aebd5ef` |
 | #12 | 2026-11-05 | `84b9e6b` | `main` | Experiment 2: the inspection guide corrected, with its Evanston section; the assessment's compare link and the homepage sentence describing it now point to that guide | `6aecc099` |
+| #13 | 2026-11-06 | `0ec0a8b` | `main` | Experiment 3: the independent-living guide's Evanston section, its tour button and both fact-checks' corrections; one `styles.css` rule scoped to the button | `6aee78e5` |
 
 ### Deployment History (append only)
 
@@ -312,8 +314,9 @@ Netlify records no commit for these deploys. The source commit comes from each a
 | 2026-11-01 20:48:49 | `6ae7a5a0661074563afe0c14` | `4ce3249` | PR #9. **Current production** |
 | 2026-11-05 01:03:59 | `6aebd5efd56ee67f5aba491d` | `971b14a` | PR #11, Experiment 1. Owner-approved, one upload of `_dist`, the 4 functions and `netlify.toml` (68 files). Rollback point: `6ae7a5a0661074563afe0c14`. **Current production** |
 | 2026-11-05 17:45:11 | `6aecc09906b589d0932fe784` | `84b9e6b` | PR #12, Experiment 2, with the assessment's compare-link fix. Owner-approved, one upload of `_dist`, the 4 functions and `netlify.toml` (68 files, secret scan clean). Rollback point: `6aebd5efd56ee67f5aba491d`. **Current production** |
+| 2026-11-07 01:03:45 | `6aee78e5b5c6c75dd3f17336` | `0ec0a8b` | PR #13, Experiment 3, with the owner's tour button. Owner-approved, one upload of `_dist`, the 4 functions and `netlify.toml` (68 files, secret scan clean). Rollback point: `6aecc09906b589d0932fe784`. **Current production** |
 
-The newest row is current production. The "Current production" labels on the 2026-11-01 and 2026-11-05 01:03:59 rows are historical: rows here are never edited (rule 7).
+The newest row is current production. The "Current production" labels on the 2026-11-01, 2026-11-05 01:03:59 and 2026-11-05 17:45:11 rows are historical: rows here are never edited (rule 7).
 
 ### Completed research (do not repeat)
 
@@ -343,7 +346,7 @@ Repository documents from before 2026-10-29 (`ACQUISITION-*.md`, `TOP-PRIORITIES
 | Search Console review | Partial (U3). Cost guide read 2026-11-04 (R4). | Owner |
 | Experiment 1 | Released 2026-11-04 (deploy `6aebd5ef`). Implementation closed (D-019); measuring. | The release-day reading (Section 7), then the 8-week review on 2026-12-30 |
 | Experiment 2 ([PR #12](https://github.com/JGBALL23/evanston-senior-care-guide/pull/12)) | Released 2026-11-05 (deploy `6aecc099`, D-022); measuring | R6 (Section 7), the sprint read on 2026-12-05, then the 8-week review on 2026-12-31 |
-| Experiment 3 ([PR #13](https://github.com/JGBALL23/evanston-senior-care-guide/pull/13)) | Built for review 2026-11-06, head `8343d72`, with the owner's tour button (D-024); preview on `esc-preview-evanston-costs` (deploy 6aee758e) | Owner review; merge and deploy each need approval |
+| Experiment 3 ([PR #13](https://github.com/JGBALL23/evanston-senior-care-guide/pull/13)) | Released 2026-11-06 (deploy `6aee78e5`, D-025); measuring | R7 (Section 7), the sprint read on 2026-12-05, then the 8-week review on 2027-01-01 |
 
 ### Unpublished guides on `drafts` (`VERIFIED` 2026-11-03)
 
@@ -387,6 +390,7 @@ All five need separate publication approval. All are statewide topics, and none 
 | PR #10 merge | Section 396.50 comparison needs Illinois Register Vol. 50, Issue 38, PDF pages 256 to 275 attached, because the Register blocks automated tools. Legal review recommended. Merge, deploy and IndexNow each need approval. | Owner |
 | Further changes to the cost guide | Closed until the 8-week review on 2026-12-30 (D-019), except to correct a factual error | Owner |
 | Further changes to the inspection guide | Closed until the 8-week review on 2026-12-31 (D-022), except to correct a factual error, or to point families to IDPH's facility lookup if it proves to show inspection history | Owner |
+| Further changes to the independent-living guide | Closed until the 8-week review on 2027-01-01 (D-025), except to correct a factual error, or to correct the referral-compensation statements if any pay or credit tied to tours ever applies | Owner |
 | End-to-end inquiry test (U1) | Done 2026-11-05, passed (D-020) | Owner |
 | IndexNow catch-up (U4) | Separate approval. The ledger commit touches `main`. | Owner |
 | Tour attribution (U6) | A proposal for review and a process with Admissions | Owner |
@@ -625,29 +629,47 @@ All five need separate publication approval. All are statewide topics, and none 
   - any change to the form, consent, functions or other pages.
 - **Revisit:** with Experiment 3, at the sprint read on 2026-12-05 and 8 weeks after release.
 
+### D-025 · 2026-11-06 · `APPROVED` · Experiment 3 released, with the tour button
+- **Decided:** the owner approved the button placement below the short answer. He asked for the employment and referral-compensation disclosures to be confirmed. Then PR #13 was to be merged and deployed if every test passed, the live tour button verified, and nothing else changed (no IndexNow).
+- **Disclosures (checked 2026-11-06):**
+  - **Employment:** the new line says the person who runs the guide works at Westminster Place. The footer on every page, the homepage, the privacy notice and the tour form say the same. This matches the owner's own description of his job.
+  - **Referral compensation:** four places state that no referral fees are received, and they agree with each other:
+    - the footer on every page;
+    - the homepage ("no referral fee from any community");
+    - the privacy notice ("No referral fees are received from Westminster Place or anyone else"; "Nobody is paid for your inquiry");
+    - the tour form ("I'm not paid for referrals").
+
+    These are the owner's own statements, in the repository since its first commit on 2026-10-23. They are `OWNER-REPORTED`: Claude cannot see employment terms. If any pay, bonus or credit tied to tours or move-ins ever applies, these lines must change before anything else ships. PR #13 adds no compensation claim.
+- **Done (`VERIFIED` 2026-11-06):**
+  - **Merge and tests:** merge `0ec0a8b`, whose tree is identical to the tested head `8343d72`. All 13 suites, 1457 content gates and 51 mutation tests passed.
+  - **Deploy:** `6aee78e5b5c6c75dd3f17336`. All 32 public files match `main` apart from Netlify's privacy-link rewrite.
+  - **Live button:** tapped on two phone sizes, 26 of 26 checks. Each tap opens the tour form with no assessment, the interest preset, the consent box unticked and its wording unchanged. The beacon was intercepted and nothing was submitted.
+- **Rejected or deferred:**
+  - IndexNow (U4);
+  - any other change.
+- **Revisit:** at the sprint read on 2026-12-05 and the 8-week review on 2027-01-01.
+
 ---
 
 ## 7. Next action
 
 Completed on 2026-11-04: PR #11 merged as `971b14a` and released in deploy `6aebd5ef` (D-019); review on 2026-12-30. Completed on 2026-11-05: PR #12 merged as `84b9e6b` and released in deploy `6aecc099` with the assessment's compare-link fix (D-022); review on 2026-12-31.
 
-Built on 2026-11-06: Experiment 3, the independent-living guide, for review in [PR #13](https://github.com/JGBALL23/evanston-senior-care-guide/pull/13) with a `noindex` preview (D-023). After his first review the owner asked for the tour button, which is now built (D-024). It is not merged or deployed.
+Completed on 2026-11-06: PR #13 merged as `0ec0a8b` and released in deploy `6aee78e5` with the owner's tour button (D-025); review on 2027-01-01.
 
-**Exactly one action: the owner reviews PR #13 and its preview, then approves merge and deploy, asks for changes, or declines.** If any pay or credit is tied to tours, he also says so, because the disclosure would then need to say it too.
-
-**After that, when the owner has 10 minutes: one Search Console sitting for the experiment pages.** Nothing is blocked on it. If PR #13 is approved, read R7 (the independent-living guide, date range ending on its release day) in the same sitting.
+**Exactly one action, when the owner has 10 minutes: one Search Console sitting for the three experiment pages.** Nothing is blocked on it.
 
 | | |
 |---|---|
-| Who | Owner. No site change. Report the figures in chat and Claude records them here as R5 and R6. |
-| Pages | `https://evanstonseniorcareguide.com/guides/assisted-living-cost-illinois/` (R5) and `https://evanstonseniorcareguide.com/guides/check-illinois-inspection-records/` (R6) |
-| Read | For each page, Performance filtered to the page: impressions, clicks, CTR, average position and the visible queries. For R6, set the date range to end on 2026-11-05, the release day, and add URL Inspection: indexed or not, and the last crawl date. |
-| Why | R5 is Experiment 1's release baseline (R4's date range was not recorded). R6 is Experiment 2's before-release baseline. Search Console keeps the history, so both can still be read. |
+| Who | Owner. No site change. Report the figures in chat and Claude records them here as R5, R6 and R7. |
+| Pages | `https://evanstonseniorcareguide.com/guides/assisted-living-cost-illinois/` (R5), `https://evanstonseniorcareguide.com/guides/check-illinois-inspection-records/` (R6) and `https://evanstonseniorcareguide.com/guides/independent-living-evanston/` (R7) |
+| Read | For each page, Performance filtered to the page: impressions, clicks, CTR, average position and the visible queries. For R6, set the date range to end on 2026-11-05, and for R7 on 2026-11-06 (each page's release day), and add URL Inspection: indexed or not, and the last crawl date. |
+| Why | R5 is Experiment 1's release baseline (R4's date range was not recorded). R6 and R7 are Experiments 2 and 3's before-release baselines. Search Console keeps the history, so all three can still be read. |
 
-After that both experiments only wait, and their pages stay unchanged until their reviews (2026-12-30 and 2026-12-31), except to correct a factual error. The sprint read on 2026-12-05 checks indexing and early impressions for both.
+After that the three experiments only wait, and their pages stay unchanged until their reviews (2026-12-30, 2026-12-31 and 2027-01-01), except to correct a factual error. The sprint read on 2026-12-05 checks indexing and early impressions for all three.
 
 **Definition of done:**
 
-- [ ] Section 3 has R5 and R6, each with its date range, and each visible query tagged Evanston, statewide or national.
-- [ ] Section 4's baseline rows name R5 and R6.
+- [ ] Section 3 has R5, R6 and R7, each with its date range, and each visible query tagged Evanston, statewide or national.
+- [ ] Section 4's baseline rows name R5, R6 and R7.
 - [ ] Section 7 names the sprint read on 2026-12-05 as the next action.
