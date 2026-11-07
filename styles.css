@@ -2698,3 +2698,9 @@ section[id], header[id] { scroll-margin-top: calc(var(--nav-h) + 14px); }
 .cat__tell a, .words__list a, .cost__note a, .asks a {
   color: var(--sage-deep); text-underline-offset: 3px; font-weight: 500;
 }
+
+/* Independent-living guide only (owner, 2026-11-06, D-024): the "Request a
+   Westminster Place Tour" button under the short answer. Its label wraps on
+   phones narrower than 375px; keep both lines centred. No other page carries
+   .tour-cta. */
+.tour-cta .btn { text-align: center; }

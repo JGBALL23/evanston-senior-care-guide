@@ -61,6 +61,12 @@ const PRIMARY_HOSTS = [
   // against current Public Acts, never treat as certified law. PR #10 adds
   // the same host for its own citations.
   "ilga.gov",          // Illinois Compiled Statutes and Public Acts
+  // Added 2026-11-06 for the independent-living guide's Evanston section.
+  // Both are public bodies publishing their own programs: the City of
+  // Evanston (Access Evanston transport help) and the Housing Authority of
+  // Cook County (income-restricted senior apartments in Evanston).
+  "cityofevanston.org", // City of Evanston programs
+  "thehacc.org",        // Housing Authority of Cook County
 ];
 function isPrimarySource(href) {
   const m = /^https?:\/\/([^/"?#]+)/.exec(String(href).replace(/^href="/, ""));
@@ -310,6 +316,131 @@ check("inspection guide: the title is unchanged (a title change needs its own ap
   check("inspection guide cites " + u, inspPage.indexOf(u) !== -1);
 });
 
+/* ---- INDEPENDENT LIVING, 2026-11-06: Evanston section and tour links ----
+   The owner asked for genuinely useful Evanston information, no competitor
+   rankings, and the optional tour inquiry easy to find without the
+   assessment. Hold each verified statement in place; keep the new section
+   free of community names and listing-site figures; keep the tour links to
+   exactly three (under the short answer, in the fork, after the visiting
+   advice), each with the employment disclosure nearby, and the assessment
+   links in the article at exactly two. */
+const ilPage = page["independent-living-evanston"];
+const ilFlat = flat(ilPage);
+const ilEv = (ilFlat.match(
+  /<h2 class="res__h">Looking in Evanston: what the lists leave out<\/h2>([\s\S]*?)<\/section>/) || [])[1] || "";
+const ilEvLc = ilEv.toLowerCase();
+check("IL guide: Evanston section present", ilEv.length > 800, String(ilEv.length));
+check("IL guide: the listing-site check is dated",
+  ilEvLc.indexOf("checked three of them on 6 november 2026") !== -1);
+check("IL guide: most of a list may not be in Evanston (22 claimed, 2 of 20 shown; 41 with 37 elsewhere; four plus 20 nearby)",
+  ilEvLc.indexOf("one site said evanston offers 22 independent living communities; of the 20 on its first page, two had evanston addresses") !== -1 &&
+  ilEvLc.indexOf("its own count of 41 included 37 elsewhere") !== -1 &&
+  ilEvLc.indexOf("the third listed four in evanston and showed 20 more separately as nearby") !== -1);
+check("IL guide: a shared phone number is flagged as not the community's, on one site only",
+  ilEvLc.indexOf("on one site, every community showed the same phone number, so it cannot be each community&rsquo;s own line") !== -1 &&
+  ilEvLc.indexOf("the other two gave no number for any community") !== -1);
+check("IL guide: the sources footnote says the listing-website figures did not come from the listed sources",
+  /Every figure on this page was read from the source listed above on 6 November 2026, except the listing-website figures under &ldquo;Looking in Evanston&rdquo;, which were read from those websites the same day\./.test(ilFlat));
+check("only the IL guide carries a footnote exception",
+  SLUGS.filter((s) => /read from the source listed above on [^.<]*, except /.test(flat(page[s]))).join(",") === "independent-living-evanston");
+/* The only dollar figures allowed in the section are the City's own:
+   the coupon price and the two income limits. */
+check("IL guide: no listing-site price is printed",
+  !/\$\s?\d/.test(ilEv.replace("taxi coupons that cost $5 each", "")
+    .replace("must be $35,000 or less for one person, or $60,000 or less for two", "")));
+check("IL guide: no list can be complete, worded as this guide's own finding",
+  ilEvLc.indexOf("this guide found no state licence for independent living as such, so no state register lists every community") !== -1);
+check("IL guide: transport help is stated as the agencies state it",
+  ilEvLc.indexOf("riders 65 or older can get a reduced-fare permit for cta, metra and pace from the northern illinois transit authority, formerly the rta") !== -1 &&
+  /* Second fact-check, 2026-11-06: Ride Free is not automatic. */
+  ilEvLc.indexOf("benefit access program can ride free instead, after applying to the authority&rsquo;s ride free program") !== -1 &&
+  ilEvLc.indexOf("helps residents 65 or older, or over 18 with a disability. income must be $35,000 or less for one person, or $60,000 or less for two") !== -1 &&
+  /* A coupon costs the rider $5; it is not a $5 coupon. */
+  ilEvLc.indexOf("members choose between taxi coupons that cost $5 each, one per one-way ride within evanston, and a transportation debit card") !== -1 &&
+  ilEvLc.indexOf("the city matches money loaded onto the card, up to a monthly limit") !== -1 &&
+  ilEvLc.indexOf("applications are available at the levy senior center and the city&rsquo;s other community centers") !== -1);
+/* Fact-check, 2026-11-06: HACC does not run the Evanston building, it
+   subsidizes rent there; and its 2023 notice covers no Evanston building. */
+check("IL guide: income-restricted housing is described as HACC describes it",
+  ilEvLc.indexOf("the housing authority of cook county subsidizes rent in an income-restricted building in evanston for people 62 or older on very low incomes") !== -1 &&
+  ilEvLc.indexOf("in the units it subsidizes, the resident pays 30% of their income toward rent and the housing authority pays the rest") !== -1 &&
+  ilEvLc.indexOf("opened in october 2021, it took applications online only, from the morning of 13 october to the afternoon of 15 october") !== -1 &&
+  !/housing authority[^.]*\bruns\b/.test(ilEvLc));
+check("IL guide: licensing start stated as IDPH states it (July 2002, under December 2001 regulations)",
+  ilFlat.indexOf("has licensed them since July 2002, under regulations adopted in December 2001") !== -1);
+check("IL guide: Aid and Attendance carries its pension and care-need conditions, and no spending claim",
+  ilFlat.indexOf("For a veteran or surviving spouse who gets a VA pension") !== -1 &&
+  ilFlat.indexOf("raises that pension for someone who needs help with daily activities such as bathing or dressing, or meets one of VA&rsquo;s other conditions. Living in a nursing home is not required.") !== -1 &&
+  ilFlat.indexOf("can be spent in any setting") === -1 && ilFlat.indexOf("can go toward any setting") === -1);
+check("IL guide: Medicare and assisted living stated as Medicare.gov states it, with no claim about most families",
+  ilFlat.indexOf("Medicare does not pay for assisted living either. The everyday personal help it provides is long-term care, and Medicare doesn&rsquo;t pay for long-term care.") !== -1 &&
+  ilFlat.indexOf("most families arrive with") === -1);
+check("IL guide: Evanston section names no community, Westminster Place included",
+  !/\b(westminster|presbyterian|trulee|belmont|sunrise|merion|mather|three crowns|avidor|carrington|north shore place|artis|clarendale|arbor terrace|ten twenty|ann rainey|perlman|breakers|summit|elison|senior suites)\b/i.test(ilEv));
+check("IL guide: Evanston section names no listing site",
+  !/(caring|carescout|seniorly|place for mom|seniorhousingnet|senior housing net|livingpath)/i.test(ilEv));
+const ilArt = ilPage.slice(ilPage.indexOf("<h1"), ilPage.indexOf("<footer") === -1 ? ilPage.length : ilPage.indexOf("<footer"));
+const tourLinks = ilArt.match(/href="\/\?tour=independent#plan-visit"/g) || [];
+check("IL guide: exactly three tour links in the article", tourLinks.length === 3, String(tourLinks.length));
+/* Owner, 2026-11-06 (D-024): the link under the short answer becomes a
+   clear button, using the existing dark button so the gold "one action
+   colour" stays with the assessment. The visiting link stays plain text and
+   the fork is unchanged. */
+const tourTags = ilArt.match(/<a [^>]*href="\/\?tour=independent#plan-visit"[^>]*>/g) || [];
+check("IL guide: one tour button (existing dark style), one plain link, one fork option",
+  tourTags.filter((t) => t === '<a class="btn btn--dark" href="/?tour=independent#plan-visit">').length === 1 &&
+  tourTags.filter((t) => t === '<a href="/?tour=independent#plan-visit">').length === 1 &&
+  tourTags.filter((t) => t === '<a class="fork__opt" href="/?tour=independent#plan-visit">').length === 1,
+  tourTags.join(" "));
+check("IL guide: the gold button is still the assessment's alone",
+  (ilPage.match(/class="btn btn--primary"/g) || []).length === 1 &&
+  /<a class="btn btn--primary" href="\/#assessment">Take the free\s+assessment<\/a>/.test(ilFlat));
+check("no other guide gains a button",
+  SLUGS.filter((s) => s !== "independent-living-evanston" &&
+    (page[s].match(/class="btn[ "]/g) || []).length !== 1).length === 0);
+const iAnswerEnd = ilArt.indexOf("</div>", ilArt.indexOf('class="res__why"'));
+const iFirstSection = ilArt.indexOf('<section class="res__block">');
+const iTourTop = ilArt.indexOf('<div class="tour-cta">');
+check("IL guide: the tour button sits between the short answer and the first section",
+  iTourTop > iAnswerEnd && iTourTop < iFirstSection);
+const tourTop = flat(ilArt.slice(iTourTop, ilArt.indexOf("</div>", iTourTop) + 6));
+check("IL guide: the button says exactly what the owner asked for",
+  tourTop.indexOf('<a class="btn btn--dark" href="/?tour=independent#plan-visit">Request a Westminster&nbsp;Place&nbsp;Tour</a>') !== -1);
+check("IL guide: the employment disclosure sits with the button, in body text, not fine print",
+  tourTop.indexOf('<p class="tour-cta__note">No assessment needed. The person who runs this guide works at Westminster Place. <a href="#two-ways">How a request is handled</a>.</p>') !== -1 &&
+  tourTop.indexOf("visit__fine") === -1);
+check("IL guide: the tour button block holds nothing else",
+  (tourTop.match(/<a /g) || []).length === 2 && (tourTop.match(/<p/g) || []).length === 2);
+check("IL guide: the #two-ways anchor is the fork's own section, which keeps both choices",
+  /<section class="res__block" id="two-ways">\s*<h2 class="res__h">Two ways to go from here<\/h2>\s*<p>Neither is required[^<]*<\/p>\s*<div class="fork">/.test(ilArt) &&
+  ilArt.indexOf('href="/?from=il-guide#assessment"') !== -1 &&
+  (ilArt.match(/id="two-ways"/g) || []).length === 1);
+check("IL guide: the visiting tour line carries the disclosure",
+  /If one of those visits is to Westminster Place, where the person who runs this guide works/.test(ilFlat));
+check("IL guide: title unchanged (D-009)",
+  /<title>Independent Living in Evanston and the North Shore, Explained/.test(ilPage));
+["nita.illinois.gov/riders/free-and-reduced-fare-programs",
+ "cityofevanston.org/accessevanston",
+ "thehacc.org/property/ann-rainey-apartments/",
+ "Wait-List-Opening-Ann-Rainey-Apartments.pdf.pdf",
+ "medicare.gov/coverage/long-term-care"].forEach((u) => {
+  check("IL guide cites " + u, ilPage.indexOf(u) !== -1);
+});
+check("IL guide does not cite the 2023 HACC notice, which covers no Evanston building",
+  ilPage.indexOf("Senior-55-and-older-2023.pdf") === -1);
+check("IL guide does not cite the Medicare costs page for a claim it does not make",
+  ilPage.indexOf("basics/costs/medicare-costs") === -1);
+check("no other guide gives a section an id",
+  SLUGS.filter((s) => s !== "independent-living-evanston" &&
+    /<section class="res__block" id=/.test(page[s])).length === 0);
+const ilCss = read(path.join(DIST, "styles.css"));
+check("only the IL guide renders an after-answer block",
+  SLUGS.filter((s) => page[s].indexOf('class="tour-cta"') !== -1).join(",") === "independent-living-evanston" &&
+  indexPage.indexOf("tour-cta") === -1 && read(path.join(DIST, "index.html")).indexOf("tour-cta") === -1);
+check("styles.css: the tour button's one rule is scoped and only centres its label",
+  /\.tour-cta \.btn \{ text-align: center; \}/.test(ilCss) &&
+  (ilCss.match(/tour-cta[^{]*\{[^}]*\}/g) || []).length === 1);
+
 /* ---- OWNER FINDING 3, 2026-10-18: skilled coverage is not custodial ---- */
 const med = page["does-medicare-pay-for-senior-care"];
 check("custodial care is named in the answer", lc(med).indexOf("long-term custodial") !== -1);
@@ -404,7 +535,9 @@ SLUGS.concat(["__index"]).forEach((s) => {
 });
 SLUGS.forEach((s) => {
   const human = (page[s].match(
-    /read from the source listed above on ([0-9]{1,2} [A-Za-z]+ [0-9]{4})\./) || [])[1];
+    // 2026-11-06: the date may be followed by ", except ..." when a guide
+    // names figures that did not come from its listed sources.
+    /read from the source listed above on ([0-9]{1,2} [A-Za-z]+ [0-9]{4})(?:\.|, except )/) || [])[1];
   check("verification date matches the review date: " + s,
     isoOf(human) === reviewedOf[s], human + " vs " + reviewedOf[s]);
   check("dateModified matches the review date: " + s,
@@ -928,6 +1061,14 @@ check("the inspection guide is dated the day it was re-verified",
   String(dates[SLUGS.indexOf("check-illinois-inspection-records")]));
 check("the inspection guide's JSON-LD dateModified agrees with its printed date",
   page["check-illinois-inspection-records"].indexOf('"dateModified": "2026-11-05"') !== -1);
+/* 2026-11-06: the independent-living guide was re-verified when its Evanston
+   section was added, so it carries its own date. Its "listed" date stays
+   2026-10-26, the day it was added to the library. */
+check("the independent-living guide is dated the day it was re-verified",
+  dates[SLUGS.indexOf("independent-living-evanston")] === "6 November 2026",
+  String(dates[SLUGS.indexOf("independent-living-evanston")]));
+check("the independent-living guide's JSON-LD dateModified agrees with its printed date",
+  page["independent-living-evanston"].indexOf('"dateModified": "2026-11-06"') !== -1);
 
 /* ---- OWNER, 2026-11-04: a re-review re-dates only the guide reviewed ----
    The first build of PR #11 moved the homepage, /guides/ and the privacy
@@ -951,6 +1092,9 @@ check("sitemap: the cost guide's re-review does not re-date the homepage, /guide
   ["/", "/guides/", "/privacy.html"].map((k) => k + "=" + LM[k]).join(" "));
 check("sitemap: the inspection guide's re-review does not re-date them either",
   ["/", "/guides/", "/privacy.html"].every((k) => LM[k] && LM[k] !== "2026-11-05"),
+  ["/", "/guides/", "/privacy.html"].map((k) => k + "=" + LM[k]).join(" "));
+check("sitemap: the independent-living guide's re-review does not re-date them either",
+  ["/", "/guides/", "/privacy.html"].every((k) => LM[k] && LM[k] !== "2026-11-06"),
   ["/", "/guides/", "/privacy.html"].map((k) => k + "=" + LM[k]).join(" "));
 const indexDate = (indexPage.match(/Last reviewed ([0-9]+ [A-Za-z]+ [0-9]{4})\./) || [])[1];
 check("the /guides/ footer date agrees with its sitemap date",
