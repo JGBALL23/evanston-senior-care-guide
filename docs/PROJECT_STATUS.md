@@ -271,9 +271,9 @@ The second row is new in this document and is not yet in the funnel baseline fil
 | Field | Detail |
 |---|---|
 | Source | The owner's request of 2026-11-06 (D-023): real tour inquiries are the next priority. |
-| Change | Only `/guides/independent-living-evanston/` changes. A plain line under the short answer links the existing tour pathway (`/?tour=independent#plan-visit`). It carries the employment disclosure and jumps to the two-way choice, which explains the hand-off. One more plain link closes the visiting section. A new section, "Looking in Evanston: what the lists leave out", covers what three listing websites showed on 6 November 2026. It then covers transit help (NITA reduced fares, Benefit Access free rides, the City's Access Evanston) and HACC's rent subsidy at an income-restricted senior building in Evanston. No community or listing site is named or ranked, and no listing-site price is printed. Title, H1, the fork, the assessment, the form, consent and functions are unchanged. |
+| Change | Only `/guides/independent-living-evanston/` changes, plus one `styles.css` rule scoped to its button. Under the short answer is a "Request a Westminster Place Tour" button, added at the owner's review (D-024). It uses the existing dark button and the existing tour pathway (`/?tour=independent#plan-visit`). Directly under it: "No assessment needed. The person who runs this guide works at Westminster Place. How a request is handled." That last link jumps to the two-way choice, which explains the hand-off. One more plain link closes the visiting section. A new section, "Looking in Evanston: what the lists leave out", covers what three listing websites showed on 6 November 2026. It then covers transit help (NITA reduced fares, Benefit Access free rides, the City's Access Evanston) and HACC's rent subsidy at an income-restricted senior building in Evanston. No community or listing site is named or ranked, and no listing-site price is printed. Title, H1, the fork, the assessment, the form, consent and functions are unchanged. |
 | Hypothesis | People who search independent living in Evanston are choosing places to see: R3's four visible queries all ask for communities. A guide that says what the lists leave out, and offers a tour request without the six questions, will turn more of its readers into tour requests. |
-| Built (`VERIFIED` 2026-11-06) | [PR #13](https://github.com/JGBALL23/evanston-senior-care-guide/pull/13), branch `feature/independent-living-evanston-tours`, head `1fbfea0`, cut from `main` `84b9e6b`. Sources: 3 to 7, all read 2026-11-06. `check-guides.js`: 1418 to 1452 checks, and 43 mutation tests each fail their intended check. Two independent fact-checks. The first covered all 36 claims and found none wrong and five imprecise. The second checked the corrections and tightened four. All are applied. All 13 suites pass. Review date 6 November 2026 (listed date unchanged), and only this guide's sitemap date moves. Review copy on `esc-preview-evanston-costs` (deploy `6aee1f841eda5380b355b5a7`, `noindex`, no functions). |
+| Built (`VERIFIED` 2026-11-06) | [PR #13](https://github.com/JGBALL23/evanston-senior-care-guide/pull/13), branch `feature/independent-living-evanston-tours`, head `8343d72`, cut from `main` `84b9e6b`. Sources: 3 to 7, all read 2026-11-06. `check-guides.js`: 1418 to 1457 checks, and 51 mutation tests each fail their intended check. Two independent fact-checks. The first covered all 36 claims and found none wrong and five imprecise. The second checked the corrections and tightened four. All are applied. All 13 suites pass. A six-phone walk of the button (320 to 430px) passes 72 of 72 checks. On most phones the button sits 60 to 350px below the first screen, under the long short answer. Review date 6 November 2026 (listed date unchanged), and only this guide's sitemap date moves. Review copy on `esc-preview-evanston-costs` (deploy `6aee758e95e7d3fcc39c2904`, `noindex`, no functions). |
 | Baseline | `HISTORICAL` only: R1 (7 impressions, average position 41.1) and R3 (four Evanston queries, 0 clicks). **Wanted before release (owner, optional): R7.** That is Search Console for this page, with a date range ending on the release day. It also needs the `guide-choice-tour` count from Netlify's request log for the 14 days before release. |
 | Intended result | More `guide-choice-tour` events and stored tour inquiries from this guide, counted from the request log and server records with test records excluded. Also more impressions and clicks for its Evanston queries, read from Search Console. |
 | Review | The sprint read on 2026-12-05, then 8 weeks after release. |
@@ -343,7 +343,7 @@ Repository documents from before 2026-10-29 (`ACQUISITION-*.md`, `TOP-PRIORITIES
 | Search Console review | Partial (U3). Cost guide read 2026-11-04 (R4). | Owner |
 | Experiment 1 | Released 2026-11-04 (deploy `6aebd5ef`). Implementation closed (D-019); measuring. | The release-day reading (Section 7), then the 8-week review on 2026-12-30 |
 | Experiment 2 ([PR #12](https://github.com/JGBALL23/evanston-senior-care-guide/pull/12)) | Released 2026-11-05 (deploy `6aecc099`, D-022); measuring | R6 (Section 7), the sprint read on 2026-12-05, then the 8-week review on 2026-12-31 |
-| Experiment 3 ([PR #13](https://github.com/JGBALL23/evanston-senior-care-guide/pull/13)) | Built for review 2026-11-06, head 1fbfea0; preview on `esc-preview-evanston-costs` (deploy 6aee1f84) | Owner review; merge and deploy each need approval |
+| Experiment 3 ([PR #13](https://github.com/JGBALL23/evanston-senior-care-guide/pull/13)) | Built for review 2026-11-06, head `8343d72`, with the owner's tour button (D-024); preview on `esc-preview-evanston-costs` (deploy 6aee758e) | Owner review; merge and deploy each need approval |
 
 ### Unpublished guides on `drafts` (`VERIFIED` 2026-11-03)
 
@@ -604,13 +604,34 @@ All five need separate publication approval. All are statewide topics, and none 
   - IndexNow (U4).
 - **Revisit:** at the sprint read on 2026-12-05, and 8 weeks after release.
 
+### D-024 · 2026-11-06 · `APPROVED` (build only) · A tour button on the independent-living guide
+- **Decided:** after reviewing PR #13 ("looks good overall"), the owner asked for the Westminster Place tour invitation to be more noticeable on mobile. He specified:
+  - a clear "Request a Westminster Place Tour" button beneath the short answer;
+  - a concise employment disclosure;
+  - the consent process unchanged;
+  - no pop-ups and no other redesign;
+  - a mobile test and the preview sent to him;
+  - no merge or deploy yet.
+- **Done (`VERIFIED` 2026-11-06):**
+  - The plain line became the site's existing dark (navy) button, on the same tour pathway.
+  - The disclosure sits directly under the button in body text: "No assessment needed. The person who runs this guide works at Westminster Place. How a request is handled."
+  - The gold button stays the assessment's alone (an existing test requires exactly one per guide).
+  - `styles.css` gains one rule scoped to `.tour-cta` that centres a wrapped label. Nothing else is restyled.
+  - Gates, mutation tests and a six-phone walk hold all of this (Section 4).
+- **Overrides, for this guide only:** the 2026-11-05 recommendation against more calls to action (Section 5's video-study row). The owner chose a second button here. Every other guide keeps exactly one.
+- **Rejected or deferred:**
+  - a gold or sticky button;
+  - moving the button above the short answer;
+  - any change to the form, consent, functions or other pages.
+- **Revisit:** with Experiment 3, at the sprint read on 2026-12-05 and 8 weeks after release.
+
 ---
 
 ## 7. Next action
 
 Completed on 2026-11-04: PR #11 merged as `971b14a` and released in deploy `6aebd5ef` (D-019); review on 2026-12-30. Completed on 2026-11-05: PR #12 merged as `84b9e6b` and released in deploy `6aecc099` with the assessment's compare-link fix (D-022); review on 2026-12-31.
 
-Built on 2026-11-06: Experiment 3, the independent-living guide, for review in [PR #13](https://github.com/JGBALL23/evanston-senior-care-guide/pull/13) with a `noindex` preview (D-023). It is not merged or deployed.
+Built on 2026-11-06: Experiment 3, the independent-living guide, for review in [PR #13](https://github.com/JGBALL23/evanston-senior-care-guide/pull/13) with a `noindex` preview (D-023). After his first review the owner asked for the tour button, which is now built (D-024). It is not merged or deployed.
 
 **Exactly one action: the owner reviews PR #13 and its preview, then approves merge and deploy, asks for changes, or declines.** If any pay or credit is tied to tours, he also says so, because the disclosure would then need to say it too.
 
