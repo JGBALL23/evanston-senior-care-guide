@@ -1582,12 +1582,20 @@ GUIDES = [
         "desc": ("Independent living is housing with services, not care. What the "
                  "monthly fee covers, what Evanston listing sites leave out, and "
                  "local transport and housing help."),
+        # Owner, 2026-11-06 (D-024): a clear button under the short answer,
+        # with a concise employment disclosure. It uses the existing dark
+        # button; the gold "one action colour" stays with the assessment, and
+        # the link is the existing tour pathway, so consent is unchanged.
         "after_answer": (
-            '<p class="tour-line"><strong>Already comparing places?</strong> You '
-            'can <a href="/?tour=independent#plan-visit">ask about a tour of '
-            'Westminster Place</a> without taking the six-question assessment. '
-            'The person who runs this guide works there; <a href="#two-ways">how '
-            'a request is handled</a> is set out below.</p>'),
+            '<div class="tour-cta">'
+            '<p><a class="btn btn--dark" href="/?tour=independent#plan-visit">'
+            # Non-breaking spaces keep the name together if the label wraps
+            # on a narrow phone: "Request a / Westminster Place Tour".
+            'Request a Westminster&nbsp;Place&nbsp;Tour</a></p>'
+            '<p class="tour-cta__note">No assessment needed. The person who runs '
+            'this guide works at Westminster Place. <a href="#two-ways">How a '
+            'request is handled</a>.</p>'
+            '</div>'),
         # The listing-website figures in "Looking in Evanston" were read from
         # those websites, which this guide deliberately does not link to, so
         # the sources footnote says so rather than claim every figure came

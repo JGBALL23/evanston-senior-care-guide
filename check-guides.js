@@ -382,20 +382,35 @@ check("IL guide: Evanston section names no listing site",
 const ilArt = ilPage.slice(ilPage.indexOf("<h1"), ilPage.indexOf("<footer") === -1 ? ilPage.length : ilPage.indexOf("<footer"));
 const tourLinks = ilArt.match(/href="\/\?tour=independent#plan-visit"/g) || [];
 check("IL guide: exactly three tour links in the article", tourLinks.length === 3, String(tourLinks.length));
+/* Owner, 2026-11-06 (D-024): the link under the short answer becomes a
+   clear button, using the existing dark button so the gold "one action
+   colour" stays with the assessment. The visiting link stays plain text and
+   the fork is unchanged. */
 const tourTags = ilArt.match(/<a [^>]*href="\/\?tour=independent#plan-visit"[^>]*>/g) || [];
-check("IL guide: the two tour links outside the fork are plain text links, not buttons",
-  tourTags.filter((t) => t === '<a href="/?tour=independent#plan-visit">').length === 2 &&
+check("IL guide: one tour button (existing dark style), one plain link, one fork option",
+  tourTags.filter((t) => t === '<a class="btn btn--dark" href="/?tour=independent#plan-visit">').length === 1 &&
+  tourTags.filter((t) => t === '<a href="/?tour=independent#plan-visit">').length === 1 &&
   tourTags.filter((t) => t === '<a class="fork__opt" href="/?tour=independent#plan-visit">').length === 1,
   tourTags.join(" "));
+check("IL guide: the gold button is still the assessment's alone",
+  (ilPage.match(/class="btn btn--primary"/g) || []).length === 1 &&
+  /<a class="btn btn--primary" href="\/#assessment">Take the free\s+assessment<\/a>/.test(ilFlat));
+check("no other guide gains a button",
+  SLUGS.filter((s) => s !== "independent-living-evanston" &&
+    (page[s].match(/class="btn[ "]/g) || []).length !== 1).length === 0);
 const iAnswerEnd = ilArt.indexOf("</div>", ilArt.indexOf('class="res__why"'));
 const iFirstSection = ilArt.indexOf('<section class="res__block">');
-const iTourTop = ilArt.indexOf('class="tour-line"');
-check("IL guide: the first tour link sits between the short answer and the first section",
+const iTourTop = ilArt.indexOf('<div class="tour-cta">');
+check("IL guide: the tour button sits between the short answer and the first section",
   iTourTop > iAnswerEnd && iTourTop < iFirstSection);
-const tourTop = ilArt.slice(iTourTop, ilArt.indexOf("</p>", iTourTop));
-check("IL guide: the top tour line carries the disclosure and skips the questions",
-  /works there/.test(tourTop) && /without taking the six-question assessment/.test(flat(tourTop)) &&
-  tourTop.indexOf('href="#two-ways"') !== -1);
+const tourTop = flat(ilArt.slice(iTourTop, ilArt.indexOf("</div>", iTourTop) + 6));
+check("IL guide: the button says exactly what the owner asked for",
+  tourTop.indexOf('<a class="btn btn--dark" href="/?tour=independent#plan-visit">Request a Westminster&nbsp;Place&nbsp;Tour</a>') !== -1);
+check("IL guide: the employment disclosure sits with the button, in body text, not fine print",
+  tourTop.indexOf('<p class="tour-cta__note">No assessment needed. The person who runs this guide works at Westminster Place. <a href="#two-ways">How a request is handled</a>.</p>') !== -1 &&
+  tourTop.indexOf("visit__fine") === -1);
+check("IL guide: the tour button block holds nothing else",
+  (tourTop.match(/<a /g) || []).length === 2 && (tourTop.match(/<p/g) || []).length === 2);
 check("IL guide: the #two-ways anchor is the fork's own section, which keeps both choices",
   /<section class="res__block" id="two-ways">\s*<h2 class="res__h">Two ways to go from here<\/h2>\s*<p>Neither is required[^<]*<\/p>\s*<div class="fork">/.test(ilArt) &&
   ilArt.indexOf('href="/?from=il-guide#assessment"') !== -1 &&
@@ -418,8 +433,13 @@ check("IL guide does not cite the Medicare costs page for a claim it does not ma
 check("no other guide gives a section an id",
   SLUGS.filter((s) => s !== "independent-living-evanston" &&
     /<section class="res__block" id=/.test(page[s])).length === 0);
-check("only the IL guide renders an after-answer line",
-  SLUGS.filter((s) => page[s].indexOf('class="tour-line"') !== -1).join(",") === "independent-living-evanston");
+const ilCss = read(path.join(DIST, "styles.css"));
+check("only the IL guide renders an after-answer block",
+  SLUGS.filter((s) => page[s].indexOf('class="tour-cta"') !== -1).join(",") === "independent-living-evanston" &&
+  indexPage.indexOf("tour-cta") === -1 && read(path.join(DIST, "index.html")).indexOf("tour-cta") === -1);
+check("styles.css: the tour button's one rule is scoped and only centres its label",
+  /\.tour-cta \.btn \{ text-align: center; \}/.test(ilCss) &&
+  (ilCss.match(/tour-cta[^{]*\{[^}]*\}/g) || []).length === 1);
 
 /* ---- OWNER FINDING 3, 2026-10-18: skilled coverage is not custodial ---- */
 const med = page["does-medicare-pay-for-senior-care"];
