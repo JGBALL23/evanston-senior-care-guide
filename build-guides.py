@@ -248,6 +248,14 @@ SRC = {
                 'https://www.va.gov/resources/how-are-the-2-va-caregiver-support-programs-different/'),
     "va_caregiver_benefits": ('VA.gov — Family and caregiver benefits',
                 'https://www.va.gov/family-and-caregiver-benefits/'),
+    "hfs_pace": ('Illinois HFS — Program of All-Inclusive Care for the Elderly (PACE)',
+                'https://hfs.illinois.gov/medicalproviders/pace.html'),
+    "hfs_pace_zip": ('Illinois HFS — PACE zip code search',
+                'https://hfs.illinois.gov/medicalproviders/pace/zipsearch.html'),
+    "hfs_pace_orgs": ('Illinois HFS — Designated PACE Organizations',
+                'https://hfs.illinois.gov/medicalproviders/pace/designatedpaceorganizations.html'),
+    "mpace": ('Medicare.gov — PACE (Program of All-Inclusive Care for the Elderly)',
+             'https://www.medicare.gov/health-drug-plans/health-plans/your-coverage-options/other-medicare-health-plans/PACE'),
 }
 
 
@@ -3603,6 +3611,138 @@ GUIDES = [
             ]),
         ],
     },
+
+    {
+        "slug": "illinois-pace-program",
+        "bridge": ("PACE is worth understanding even where it does not yet reach, "
+               "because the question it answers &mdash; can my parent get full "
+               "medical and personal care without leaving home &mdash; is the "
+               "same question every setting on this site is trying to answer."),
+        "reviewed": "2026-11-08",
+        "title": "What Is PACE, and Can a Parent in Evanston Use It?",
+        "h1": "What is PACE, and can a parent in Evanston use it?",
+        "desc": ("PACE pays for full medical and personal care so an older adult "
+                 "can stay out of a nursing home, but Illinois only runs it in "
+                 "five regions so far. What the state's own page says, and "
+                 "whether Evanston is one of them."),
+        "intent": "benefits availability question",
+        "answer": ("<strong>Not yet, if the question is Evanston specifically.</strong> "
+                   "PACE &mdash; the <strong>Program of All-Inclusive Care for the "
+                   "Elderly</strong> &mdash; is a joint Medicare and Medicaid programme "
+                   "that pays for full medical care, prescription drugs, adult day "
+                   "service and more so that an older adult who would otherwise need a "
+                   "nursing home can stay in the community. Illinois HFS runs it in five "
+                   "regions, and its own zip-code tool for finding a local PACE "
+                   "organisation does not list any of Evanston's residential zip codes "
+                   "(60201, 60202, 60203, 60208) as of this review. The programme is "
+                   "still rolling out, so this guide shows where it operates today and "
+                   "how to check again yourself."),
+        "sources": srcs("hfs_pace", "hfs_pace_zip", "hfs_pace_orgs", "mpace"),
+        "body": [
+            ("What PACE actually is", [
+                "<p>Illinois HFS describes PACE as &ldquo;comprehensive health "
+                "services for seniors living in the community&rdquo; who &ldquo;would "
+                "otherwise qualify to live in a nursing facility.&rdquo; Medicare.gov "
+                "sets out four conditions a person has to meet: be <strong>at least "
+                "55</strong>; live in the service area of a PACE organisation, since "
+                "PACE is only available in some states that offer it under Medicaid, "
+                "and then only in the specific local areas a PACE organisation actually "
+                "covers; need a <strong>nursing-home level of care</strong>, which the "
+                "state certifies; and be able to <strong>live safely in the "
+                "community</strong> with PACE's help.</p>",
+                "<p>Each PACE organisation runs a physical centre &mdash; HFS describes "
+                "a primary care clinic together with space for recreation, therapy, "
+                "socialising, personal care and dining &mdash; and is responsible for "
+                "coordinating a participant's care everywhere it happens: at that "
+                "centre, at home, or in a hospital or long-term care admission when one "
+                "is needed. That round-the-clock coordination, not any single service on "
+                "the list, is what makes PACE different from the home-care and "
+                "day-service programmes this site already covers.</p>",
+            ]),
+            ("What it covers, and what it costs", [
+                "<p>Medicare.gov says PACE covers all Medicare- and Medicaid-covered "
+                "care, plus anything else a participant's own PACE care team decides "
+                "they need. The page names prescription drugs, adult day care with "
+                "meals and recreational therapy, and transportation to the PACE centre "
+                "and to medical appointments among the services included.</p>",
+                "<p>Cost depends on what the participant already has. With Medicaid, "
+                "there is <strong>no monthly premium</strong> for the long-term-care "
+                "part of the benefit. With Medicare but no Medicaid, cost depends on "
+                "whether the person has Part A and/or Part B, and includes a premium "
+                "for the long-term-care portion plus a separate Part D drug premium. "
+                "With neither, a person can pay the PACE organisation's premium "
+                "directly. Whichever of those applies, Medicare.gov states that "
+                "<strong>no participant pays a deductible, copayment or coinsurance</strong> "
+                "for any drug, service or care their PACE team approves.</p>",
+                "<p>One trade-off worth knowing before applying: PACE replaces other "
+                "Medicare drug coverage rather than sitting alongside it. Medicare.gov "
+                "says that enrolling in a separate Medicare drug plan while in PACE gets "
+                "a participant disenrolled from PACE &mdash; the two cannot run "
+                "together.</p>",
+            ]),
+            ("Where PACE operates in Illinois today", [
+                "<p>HFS names five Illinois regions: <strong>West Chicago, South "
+                "Chicago, Southern Cook County, Peoria and East St. Louis</strong>. Its "
+                "own page says PACE services &ldquo;began becoming available in some "
+                "regions beginning mid-2024&rdquo; &mdash; this is a recent, rolling "
+                "launch, not a programme that has covered the whole state for years.</p>",
+                "<p>HFS's designated-organisations page names who runs each region: "
+                "Kinship PACE of Illinois, LLC and Lawndale Christian Health Center for "
+                "West Side Chicago; Habitat Health at Annie's Place and Esperanza "
+                "Health Centers for South Side Chicago; BoldAge PACE Illinois for "
+                "Southern Cook County; OSF HealthCare System for Peoria; and Habitat "
+                "Health at Stella's Place for East St. Louis. The page gives no launch "
+                "date for any of them, and describes Kinship specifically as &ldquo;a "
+                "new entrant into the Illinois health care delivery system&rdquo; "
+                "&mdash; so a family calling any of these should ask directly whether it "
+                "is actually taking participants yet, rather than assume active service "
+                "from being named on the list.</p>",
+                "<p>HFS's own zip-code search is how the state tells a family whether "
+                "PACE reaches them, and the tool itself warns up front that PACE "
+                "&ldquo;may not be available in your area.&rdquo; This guide checked it "
+                "directly: none of Evanston's residential zip codes &mdash; 60201, "
+                "60202, 60203 and 60208 &mdash; appear on that list. Southern Cook "
+                "County is the nearest named region, but its zip-code listing does not "
+                "reach Evanston.</p>",
+            ]),
+            ("A figure this guide will not guess at", [
+                "<p>Families will want to know what the Medicare-only premium actually "
+                "costs. Medicare.gov states plainly that it depends on whether a person "
+                "has Part A and/or Part B, and that a separate Part D premium applies "
+                "too &mdash; but the page gives no dollar figure or formula for either "
+                "one, anywhere this guide could find. A premium that varies by "
+                "organisation and by an individual's own Medicare status is not a "
+                "number this guide can publish responsibly, so it will not estimate "
+                "one. The page is also silent on what happens to a separate Medigap "
+                "policy if someone joins PACE. Ask the specific PACE organisation "
+                "covering your area, before assuming a cost in either direction.</p>",
+            ]),
+            ("If PACE is not reachable from Evanston yet", [
+                "<p>Because the zip-code tool above is literally how the state keeps "
+                "this current, and the programme is explicitly still expanding region "
+                "by region, it is worth re-checking that page yourself every so often "
+                "rather than treating today's answer as permanent &mdash; a page "
+                "written this month can be out of date by next year in a way a static "
+                "fact rarely is.</p>",
+                "<p>In the meantime, two Illinois programmes already reach Evanston. "
+                "For paid help at home &mdash; homemaker service, adult day service, "
+                "emergency response &mdash; see "
+                '<a href="/guides/illinois-community-care-program/">Can my parent get '
+                "paid help at home in Illinois?</a> For Medicaid-funded care in an "
+                "assisted-living-style setting, which is not limited to PACE's five "
+                "regions, see "
+                '<a href="/guides/illinois-supportive-living-program/">Illinois '
+                "Supportive Living Program, explained</a>. Neither one coordinates care "
+                "as tightly as PACE is designed to, but both are available to an "
+                "Evanston family now rather than on a future expansion.</p>",
+                "<p>If the open question in your family is which of these settings "
+                'actually fits your parent, the <a href="/">free six-question '
+                "assessment</a> on this site walks through that separately. It asks "
+                "for no name, no email and no phone number, and your answers never "
+                "leave your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -4069,6 +4209,13 @@ CARDS = {
         "caregiver, in VA.gov's own words — who the veteran and the "
         "caregiver each have to be, and the wider programme for "
         "everyone else."),
+    "illinois-pace-program": (
+        "Staying at home",
+        "Is PACE available for a parent in Evanston?",
+        "A joint Medicare and Medicaid programme pays for full medical and "
+        "personal care so an older adult can avoid a nursing home — but "
+        "Illinois runs it in only five regions, and this guide checked "
+        "whether Evanston is one of them."),
 }
 
 
