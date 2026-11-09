@@ -256,6 +256,12 @@ SRC = {
                 'https://hfs.illinois.gov/medicalproviders/pace/designatedpaceorganizations.html'),
     "mpace": ('Medicare.gov — PACE (Program of All-Inclusive Care for the Elderly)',
              'https://www.medicare.gov/health-drug-plans/health-plans/your-coverage-options/other-medicare-health-plans/PACE'),
+    "idoa_inhome": ('Illinois Department on Aging — In-Home Care for Seniors',
+                    'https://ilaging.illinois.gov/programs/caregiver/in-home-care.html'),
+    "dph_hcwr": ('Illinois Department of Public Health — Health Care Worker Registry',
+                'https://dph.illinois.gov/topics-services/health-care-regulation/health-care-worker-registry.html'),
+    "dph_home_services_faq": ('Illinois Department of Public Health — Home Services Agency licensing FAQ',
+                              'https://dph.illinois.gov/topics-services/health-care-regulation/health-care-facilities/home-services/faq.html'),
 }
 
 
@@ -3743,6 +3749,134 @@ GUIDES = [
             ]),
         ],
     },
+
+    {
+        "slug": "illinois-home-caregiver-background-check",
+        "bridge": ("Confirming someone is legally allowed to do this work is a "
+               "different question from knowing whether paid help at home is the "
+               "right level of care for your parent in the first place."),
+        "reviewed": "2026-11-09",
+        "title": "Is It Safe to Hire a Caregiver Directly for Your Parent in Illinois?",
+        "h1": "Is it safe to hire a caregiver directly for your parent in Illinois?",
+        "desc": ("Going through a licensed Illinois home care agency and hiring "
+                 "someone directly are not the same arrangement. One runs a "
+                 "background check for you. The other, the state says, is on you "
+                 "&mdash; and names the free tool that does it."),
+        "intent": "how-to / safety",
+        "answer": ("<strong>It can be, but Illinois puts the work on you if you skip "
+                   "an agency.</strong> The Illinois Department on Aging draws the "
+                   "line plainly: an agency-employed caregiver has their background "
+                   "check, training and supervision handled by the agency, while a "
+                   "family that hires someone directly is told to "
+                   "&ldquo;check the IDPH Healthcare Worker Registry before "
+                   "hiring.&rdquo; That registry records background-check status and "
+                   "any administrative finding of abuse, neglect or misappropriation "
+                   "of property against a direct-care worker &mdash; it is free, and "
+                   "it is the one check this guide found Illinois actually telling "
+                   "families to make themselves."),
+        "sources": srcs("idoa_inhome", "dph_hcwr", "dph_home_services_faq"),
+        "body": [
+            ("Two ways to bring a caregiver into the house", [
+                "<p>The Illinois Department on Aging's own page on in-home care "
+                "splits this into two arrangements, and the difference is who is "
+                "responsible for vetting the person who will be alone with your "
+                "parent. For an <strong>agency-employed caregiver</strong>, the page "
+                "states plainly: &ldquo;the agency handles background checks, "
+                "training, and supervision.&rdquo; For a <strong>directly hired "
+                "caregiver</strong> &mdash; someone a family finds and pays without "
+                "going through an agency &mdash; the same page's instruction is just "
+                "as plain: &ldquo;check the IDPH Healthcare Worker Registry before "
+                "hiring.&rdquo;</p>",
+                "<p>Neither arrangement is wrong. But only one of them comes with the "
+                "check already done for you.</p>",
+            ]),
+            ("What a licensed Illinois home care agency actually is", [
+                "<p>The Department on Aging's page describes three kinds of agency "
+                "the Illinois Department of Public Health (IDPH) licenses, and they "
+                "are not interchangeable. A <strong>Home Services Agency</strong> "
+                "provides non-medical personal care and is paid for out of pocket, "
+                "for a client of any age. A <strong>Home Nursing Agency</strong> "
+                "provides skilled nursing as prescribed. A <strong>Home Health "
+                "Agency</strong> provides skilled nursing plus physical, occupational "
+                "and speech therapy, and Medicare, Medicaid or private insurance may "
+                "cover it. IDPH's own licensing FAQ for Home Services Agencies "
+                "confirms the licence sits under &ldquo;Home Health, Home Services, "
+                "and Home Nursing Agency Code, 77 Ill. Adm. Code 245.&rdquo;</p>",
+                "<p>This is a separate question from the "
+                '<a href="/guides/illinois-community-care-program/">Community Care '
+                "Program</a>, which pays an agency to deliver in-home service to an "
+                "eligible older adult at no out-of-pocket cost. This guide is about "
+                "a family arranging and paying for care itself, inside or outside "
+                "that programme.</p>",
+            ]),
+            ("If you hire directly, the state puts the check on you", [
+                "<p>IDPH describes the Health Care Worker Registry as a list of "
+                "&ldquo;individuals with a background check conducted pursuant to "
+                "the Health Care Worker Background Check Act,&rdquo; 225 ILCS 46. "
+                "The registry shows background-check status, training information "
+                "for certified nursing assistants and other health care workers, and "
+                "&mdash; in IDPH's own words &mdash; &ldquo;displays administrative "
+                "findings of abuse, neglect or misappropriations of property.&rdquo;</p>",
+                "<p>The Act reaches the specific roles a family is most likely to be "
+                "hiring for directly: IDPH names &ldquo;home health care aides, "
+                "nurse aides, personal care assistants, private duty nurse "
+                "aides,&rdquo; alongside similar direct-care roles and employees of "
+                "licensed long-term care facilities who have contact with residents. "
+                "Someone with a disqualifying conviction &ldquo;is prohibited from "
+                "working in any of the above positions unless a waiver has been "
+                "granted&rdquo; by IDPH, and the department states that an employer "
+                "&ldquo;must verify registry status of an individual applying for "
+                "the above positions&rdquo; before employment. The Department on "
+                "Aging's own page extends that same check to a family hiring "
+                "directly, not only to a formal employer.</p>",
+                "<p>IDPH names the registry's public search as the way to do this, "
+                "reachable through the &ldquo;Search the Health Care Worker "
+                "Registry&rdquo; link on its own registry page.</p>",
+            ]),
+            ("What this guide could not verify, and will not guess at", [
+                "<p>The IDPH page this guide read describes what the registry "
+                "contains, but it does not define what a &ldquo;work eligible&rdquo; "
+                "or &ldquo;not work eligible&rdquo; result actually means, and it "
+                "does not walk through what information the search tool asks for. "
+                "This guide did not open the search tool itself, so it will not "
+                "describe its screens or guess at how to read a result. Read "
+                "whatever the tool shows you literally, and call IDPH if a result is "
+                "unclear rather than assuming what it means.</p>",
+                "<p>This guide also could not find a current public list of licensed "
+                "Illinois home care agencies to check a company itself against, "
+                "separate from checking an individual worker. Ask an agency for its "
+                "licence information directly, or confirm it with IDPH, rather than "
+                "assuming a name or a listing found elsewhere is current.</p>",
+            ]),
+            ("If something goes wrong after you have hired someone", [
+                "<p>A concern about a licensed Home Services, Home Nursing or Home "
+                "Health agency goes to IDPH. A concern about abuse, neglect or "
+                "exploitation of a parent living at home &mdash; whether the "
+                "caregiver came from an agency or was hired directly &mdash; is a "
+                "different channel, covered in full in "
+                '<a href="/guides/illinois-elder-abuse-reporting/">What to do about '
+                "suspected elder abuse or neglect at home in Illinois</a>. This guide "
+                "is about the check you can make before any of that becomes "
+                "necessary, not about what to do once it already has.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>Checking a caregiver is a narrower question than choosing how "
+                "your parent gets help at home in the first place. For the "
+                "state-funded route and who qualifies for it, see "
+                '<a href="/guides/illinois-community-care-program/">Can my parent '
+                "get paid help at home in Illinois?</a> If the honest answer is that "
+                "staying at home no longer covers what your parent needs, "
+                '<a href="/guides/levels-of-senior-care-explained/">Assisted living, '
+                "memory care, skilled nursing and rehabilitation &mdash; what is the "
+                "difference?</a> sets out the alternatives.</p>",
+                "<p>If you are not sure which of those describes your parent, the "
+                '<a href="/">free six-question assessment</a> on this site walks '
+                "through the specifics and shows the reasoning behind its answer. It "
+                "asks for no name, no email and no phone number to see your results."
+                "</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -4216,6 +4350,12 @@ CARDS = {
         "personal care so an older adult can avoid a nursing home — but "
         "Illinois runs it in only five regions, and this guide checked "
         "whether Evanston is one of them."),
+    "illinois-home-caregiver-background-check": (
+        "Staying at home",
+        "Is it safe to hire a caregiver directly in Illinois?",
+        "An agency runs the background check for you. Hiring directly, "
+        "the state says the check is yours to make — and names the free "
+        "registry that does it."),
 }
 
 
