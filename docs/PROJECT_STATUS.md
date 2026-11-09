@@ -350,7 +350,8 @@ Repository documents from before 2026-10-29 (`ACQUISITION-*.md`, `TOP-PRIORITIES
 | Experiment 2 ([PR #12](https://github.com/JGBALL23/evanston-senior-care-guide/pull/12)) | Released 2026-11-05 (deploy `6aecc099`, D-022); measuring | R6 (Section 7), the sprint read on 2026-12-05, then the 8-week review on 2026-12-31 |
 | Experiment 3 ([PR #13](https://github.com/JGBALL23/evanston-senior-care-guide/pull/13)) | Released 2026-11-06 (deploy `6aee78e5`, D-025); measuring | R7 (Section 7), the sprint read on 2026-12-05, then the 8-week review on 2027-01-01 |
 | Nextdoor: All of evanston | Request to join sent 2026-11-08. An introduction post is drafted, not published (D-026). | The group's admins, then the owner's approval to post |
-| Facebook: Everything Evanston | Joined 2026-11-08; request to participate pending. The first post is drafted for Friday 2026-11-13 (D-026). | The group's admins, then the owner's approval to post |
+| Facebook: Everything Evanston | Joined 2026-11-08; request to participate pending. The owner approved the assisted-living cost post for Friday 2026-11-13, to go out once participation is approved and the rules are re-checked. The original post is held to 2026-11-20 and needs fresh approval (D-027). | The group's admins |
+| Facebook: Chicago North Shore What's Happening! | [Live since 2026-11-08](https://www.facebook.com/groups/311248470375848/posts/1660494818784533/) (tag `north-shore-happening`). Counted daily, with test and automated traffic excluded (D-027). | Its 7-day result, due 2026-11-15 |
 
 ### Unpublished guides on `drafts` (`VERIFIED` 2026-11-03)
 
@@ -664,6 +665,21 @@ All five need separate publication approval. All are statewide topics, and none 
   - the other two Facebook groups;
   - paid ads and cold emails.
 - **Revisit:** after the first posts, using the `landed` counts for their tags.
+
+### D-027 · 2026-11-08 · `APPROVED` · Facebook posts: what went out, what was declined, and how visits are counted
+- **Published (owner-approved):** the "five questions worth asking on every tour" post, to Chicago North Shore What's Happening! at 22:15 UTC, with the owner's two edits and the tag `north-shore-happening`.
+- **Declined:** the same post, submitted to Wilmette Connection with the tag `wilmette-connection`, was declined by its admins without a reason. The owner: don't resubmit.
+- **Next:** the assisted-living cost post goes to Everything Evanston on Friday 2026-11-13. It goes out only once participation is approved and the group's rules are re-checked, and it uses the tag `ee-costs`, linking to the cost guide.
+  - Its figures were checked on 2026-11-08 against the CareScout 2025 survey PDF ($6,219 a month, the Illinois statewide median) and 210 ILCS 9/90 (contract contents).
+  - The owner's wording: the $6,219 is the statewide median, not an Evanston figure, and extra charges "may include" the listed fees.
+  - The original Everything Evanston post is held to 2026-11-20 and is never published automatically.
+- **Counting (`VERIFIED` 2026-11-08):**
+  - Netlify keeps 24 hours of request logs on this plan, so posts are counted in daily windows.
+  - All 10 landings after the first posts were automated, not genuine. 9 arrived 22:15:37 to 22:15:43 UTC, several in the same second, mostly from a Chrome 74 Windows user agent. The 10th hit the Wilmette link at 22:17:13 UTC, while that post was visible to no one.
+  - Genuine traffic excludes the harness user agent, requests in the 5 minutes after a post goes live, that Chrome 74 user agent, and same-second bursts.
+  - `landed`, `assessment-completed`, `plan-visit-submitted` and `plan-visit-saved` carry the tag, so they count per post, not per person. Assessment starts and form views are site-wide only.
+  - Guide pages run no beacon, so the cost post's visits are browser page requests to its tagged URL.
+  - First-day result: 0 genuine visits, 0 assessments, 0 inquiries.
 
 ---
 
