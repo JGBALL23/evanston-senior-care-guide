@@ -266,6 +266,8 @@ SRC = {
                         'https://ilaging.illinois.gov/programs/money-mgmt.html'),
     "idoa_money_mgmt_sites": ('Illinois Department on Aging — Volunteer Money Management Program Site/Agency List (FY27, 22 October 2026)',
                               'https://ilaging.illinois.gov/content/dam/soi/en/web/aging/programs/documents/ivmmp-programsitelist.pdf'),
+    "idoa_hco": ('Illinois Department on Aging — The Home Care Ombudsman Program',
+                'https://ilaging.illinois.gov/programs/ltcombudsman/the-home-care-ombudsman-program.html'),
 }
 
 
@@ -4035,6 +4037,109 @@ GUIDES = [
             ]),
         ],
     },
+
+    {
+        "slug": "illinois-home-care-ombudsman-program",
+        "bridge": ("Knowing who to call when a paid home-care plan is going wrong "
+               "is a different question from knowing whether your parent should "
+               "still be living at home at all."),
+        "reviewed": "2026-11-11",
+        "title": "Illinois Home Care Ombudsman Program: Free Help When In-Home Care Isn't Working",
+        "h1": "What to do when your parent's in-home care isn't working in Illinois",
+        "desc": ("Illinois runs a free advocate for people getting paid help at home "
+                 "through Medicaid, not just people living in a facility. Who it "
+                 "serves, what it can do, and how to reach it."),
+        "intent": "how-to / advocacy",
+        "answer": ("If your parent gets home care through an Illinois Medicaid "
+                   "managed care plan (a D-SNP) or one of four Home and Community "
+                   "Based Services waivers &mdash; Persons who are Elderly, Persons "
+                   "with Disabilities, Persons with Brain Injury, or Persons with "
+                   "HIV or AIDS &mdash; the Illinois Department on Aging's "
+                   "<strong>Home Care Ombudsman Program</strong> is a free, "
+                   "confidential advocate for exactly this situation: a denial or "
+                   "termination letter, an unresponsive care coordinator, or a "
+                   "service that is not being delivered as promised. Call the "
+                   "Senior HelpLine at <strong>1-800-252-8966 (711 TRS)</strong>, "
+                   "press 4 for &ldquo;other services,&rdquo; and ask for a Home "
+                   "Care Ombudsman."),
+        "sources": srcs("idoa_hco", "idoa_ombudsman"),
+        "body": [
+            ("An ombudsman for people who never left home", [
+                "<p>Most families who search for an Illinois &ldquo;ombudsman&rdquo; "
+                "find the Long-Term Care Ombudsman Program, which advocates for "
+                "residents of nursing homes and other care facilities &mdash; "
+                "covered in "
+                '<a href="/guides/illinois-care-facility-complaint/">How to report '
+                "a problem at an Illinois care facility</a>. Fewer families know "
+                "there is a separate, parallel program for people who get paid "
+                "care at home instead: the Illinois Department on Aging's "
+                "<strong>Home Care Ombudsman Program</strong>. The department's "
+                "page on it states that the Illinois Act on Aging was amended in "
+                "2013 to authorize &ldquo;advocacy services outside of the "
+                "long-term care setting,&rdquo; and that the program began "
+                "providing that advocacy and assistance in 2014.</p>",
+            ]),
+            ("Who it actually serves", [
+                "<p>This program is not for every family paying for help at home "
+                "&mdash; its page describes two specific routes in. The first is "
+                "anyone enrolled in a <strong>Dual Eligible Special Needs Plan "
+                "(D-SNP)</strong> and receiving services through a managed care "
+                "organisation. The second is anyone receiving services through "
+                "one of four Illinois Home and Community Based Services (HCBS) "
+                "Waiver Programs: <strong>Persons who are Elderly</strong>, "
+                "<strong>Persons with Disabilities</strong>, <strong>Persons with "
+                "Brain Injury</strong>, or <strong>Persons with HIV or AIDS</strong>. "
+                "If your parent's home care is arranged through one of those "
+                "routes, this program is built for exactly their situation.</p>",
+            ]),
+            ("What it can actually do for you", [
+                "<p>The department describes home care ombudsmen as people who "
+                "answer questions about services, help when a family has received "
+                "a letter denying or terminating in-home services, and step in "
+                "when a care coordinator cannot be reached. Where a provider has "
+                "violated a person's rights, the program states it will "
+                "&ldquo;assist in filing a grievance&rdquo; and &ldquo;work to "
+                "resolve complaints.&rdquo; That makes it a place to start before "
+                "a problem has become a crisis &mdash; a missed visit, a "
+                "confusing notice, or a care plan that no longer matches what "
+                "your parent actually needs.</p>",
+            ]),
+            ("How to reach one", [
+                "<p>Call the Illinois Department on Aging's Senior HelpLine at "
+                "<strong>1-800-252-8966</strong> (711 TRS), press 4 for &ldquo;other "
+                "services,&rdquo; and ask for a Home Care Ombudsman. The "
+                "department's page also lists a direct email, "
+                "<strong>Aging.HCOProgram@illinois.gov</strong>, for the program "
+                "itself.</p>",
+            ]),
+            ("What this program is not", [
+                "<p>Three limits are worth knowing before you call. It is built "
+                "around the two eligibility routes above &mdash; a caregiver you "
+                "found and pay directly, outside Medicaid or a waiver, is a "
+                "different situation, covered in "
+                '<a href="/guides/illinois-home-caregiver-background-check/">Is it '
+                "safe to hire a caregiver directly in Illinois?</a> It advocates "
+                "and helps resolve a problem; it does not replace an emergency "
+                "response &mdash; if your parent is in immediate danger, call "
+                "911 first. And it is a different program, with a different "
+                "phone script, from the Long-Term Care Ombudsman Program that "
+                "covers facility residents, so naming the right one when you "
+                "call the Senior HelpLine gets you to the right advocate "
+                "faster.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>An unresponsive care coordinator is a service problem. It is "
+                "worth asking, separately, whether the underlying level of care "
+                "is still the right one &mdash; see "
+                '<a href="/guides/illinois-community-care-program/">Can my parent '
+                "get paid help at home in Illinois?</a> for how that paid help is "
+                "arranged in the first place, or take the "
+                '<a href="/">free six-question assessment</a> on this site, which '
+                "asks for no name, no email and no phone number, and keeps your "
+                "answers on your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -4521,6 +4626,12 @@ CARDS = {
         "Social Security representative payee — but only through two "
         "eligibility paths, and only where a Program Site actually "
         "reaches."),
+    "illinois-home-care-ombudsman-program": (
+        "Staying at home",
+        "What to do when in-home care isn't working in Illinois",
+        "A free, confidential advocate for a denial letter, an "
+        "unresponsive care coordinator or a grievance — for home care "
+        "arranged through a Medicaid managed care plan or waiver."),
 }
 
 
