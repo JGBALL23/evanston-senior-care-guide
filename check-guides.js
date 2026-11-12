@@ -68,6 +68,16 @@ const PRIMARY_HOSTS = [
   "cityofevanston.org", // City of Evanston programs
   "thehacc.org",        // Housing Authority of Cook County
 ];
+/* A community's own website is the primary source for its own advertised
+   prices, and for nothing else, so no community host joins PRIMARY_HOSTS.
+   Owner-approved 2026-11-12: exactly these two pages, cited only by the cost
+   guide, for its one Evanston price example. */
+const COMMUNITY_PRICE_PAGES = {
+  "assisted-living-cost-illinois": [
+    "https://truleeevanston.com/floor-plans/",
+    "https://truleeevanston.com/your-choice/",
+  ],
+};
 function isPrimarySource(href) {
   const m = /^https?:\/\/([^/"?#]+)/.exec(String(href).replace(/^href="/, ""));
   if (!m) return false;
@@ -186,10 +196,54 @@ check("Evanston section: separates the three kinds of figure",
   evLc.indexOf("a website&rsquo;s estimate") !== -1 &&
   evLc.indexOf("a starting price") !== -1);
 const AL_MEDIAN = (GEN.match(/"al_median":\s*"(\$[\d,]+)"/) || [])[1] || "missing";
+/* 2026-11-12, owner-approved: ONE neutral, sourced example of a published
+   Evanston price, read from Trulee Evanston's own website on 12 November
+   2026. Its figures may appear only inside that one paragraph, the combined
+   figure must be the sum of the rent and care figures, and it must say it is
+   one community's advertised price that can change. Everywhere else in the
+   section the only dollar figure is still the survey median. */
+const exParas = evSec.match(/<p><strong>One Evanston example\.<\/strong>[\s\S]*?<\/p>/g) || [];
+const exPara = exParas[0] || "";
+const exLc = lc(exPara);
+const evOutside = evSec.replace(exPara, "");
 const evFigs = Array.from(new Set(
-  (evSec.match(/\$[\d,.]*\d/g) || [])));
-check("Evanston section: its only dollar figure is the survey median",
+  (evOutside.match(/\$[\d,.]*\d/g) || [])));
+check("Evanston section: exactly one price example",
+  exParas.length === 1, String(exParas.length));
+check("Evanston section: outside the example, its only dollar figure is the survey median",
   evFigs.length === 1 && evFigs[0] === AL_MEDIAN, evFigs.join(" ") + " vs " + AL_MEDIAN);
+const exFigs = exPara.match(/\$[\d,]+/g) || [];
+const dollars = (x) => Number(String(x).replace(/[$,]/g, ""));
+check("Evanston section: the example gives rent, care, their sum, then the median",
+  exFigs.length === 4 && dollars(exFigs[0]) + dollars(exFigs[1]) === dollars(exFigs[2]) &&
+  exFigs[3] === AL_MEDIAN, exFigs.join(" "));
+check("Evanston section: the example is dated, attributed and says care excludes rent",
+  exLc.indexOf("on 12 november 2026, trulee evanston&rsquo;s website listed") !== -1 &&
+  exLc.indexOf("one-bedroom apartment starting at") !== -1 &&
+  exLc.indexOf("does not include rent") !== -1);
+/* Owner refinement, 2026-11-12: the advertised rent-plus-care package is not
+   directly comparable with CareScout's median, because the two are priced
+   differently. Say so and say why, never set them side by side as equals, and
+   keep "not an Evanston average". */
+check("Evanston section: the example says it is not directly comparable with the median, and why",
+  exLc.indexOf("not directly comparable with the " + AL_MEDIAN.toLowerCase() + " statewide median") !== -1 &&
+  exLc.indexOf("priced differently") !== -1 &&
+  exLc.indexOf("midpoint") !== -1 &&
+  exLc.indexOf("advertised starting rent plus its care program") !== -1 &&
+  exLc.indexOf("not an evanston average") !== -1 &&
+  exLc.indexOf("compared with the") === -1);
+check("Evanston section: the example's rates can change; ask for a written quote",
+  exLc.indexOf("advertised rates can change") !== -1 &&
+  exLc.indexOf("current written quote") !== -1);
+check("Evanston section: the example sits right after the starting-price paragraph",
+  /<p><strong>A starting price\.<\/strong>[\s\S]*?<\/p>\s*<p><strong>One Evanston example\./.test(evSec));
+["https://truleeevanston.com/floor-plans/", "https://truleeevanston.com/your-choice/"].forEach((u) => {
+  check("cost guide cites the example's own page " + u,
+    (costPage.match(/<h2 class="res__h">Sources<\/h2>[\s\S]*?<\/ul>/) || [""])[0].indexOf('href="' + u + '"') !== -1);
+});
+check("only the cost guide names Trulee Evanston",
+  SLUGS.filter((s) => /trulee/i.test(page[s])).join(",") === "assisted-living-cost-illinois" &&
+  !/trulee/i.test(indexPage) && !/trulee/i.test(read(path.join(DIST, "index.html"))));
 check("Evanston section: says no Evanston median is published",
   evLc.indexOf("no survey we know of publishes an assisted living median for evanston") !== -1);
 check("Evanston section: states what the survey prices, when, and where",
@@ -219,8 +273,10 @@ check("Evanston section: the real cost is anchored in the Illinois contract",
   evLc.indexOf("whether it is refundable") !== -1);
 check("Evanston section: gives the family a list of figures to ask for",
   /<ul class="res__list">[\s\S]*?second-person fee[\s\S]*?<\/ul>/.test(evSec));
-check("Evanston section: names no community, Westminster Place included",
-  !/\b(westminster|trulee|belmont|sunrise|merion|mather|three crowns|avidor|carrington|north shore place|artis|clarendale|arbor terrace)\b/i.test(evSec));
+check("Evanston section: names no community outside the one example, Westminster Place included",
+  !/\b(westminster|trulee|belmont|sunrise|merion|mather|three crowns|avidor|carrington|north shore place|artis|clarendale|arbor terrace)\b/i.test(evOutside));
+check("Evanston section: the example names Trulee Evanston only, never Westminster Place",
+  !/\b(westminster|belmont|sunrise|merion|mather|three crowns|avidor|carrington|north shore place|artis|clarendale|arbor terrace)\b/i.test(exPara));
 check("Evanston section: names no listing website by its address",
   !/[a-z0-9-]+\.(com|org|net)\b/i.test(evSec.replace(/href="[^"]*"/g, "")));
 check("Evanston section: links the inspection-records guide",
@@ -606,7 +662,8 @@ SLUGS.forEach((s) => {
   check("every citation opens safely: " + s,
     ((m ? m[1] : "").match(/rel="noopener" target="_blank"/g) || []).length === hrefs.length);
   check("every citation is a primary source: " + s,
-    hrefs.every((h) => isPrimarySource(h)), hrefs.join(" "));
+    hrefs.every((h) => isPrimarySource(h) ||
+      (COMMUNITY_PRICE_PAGES[s] || []).indexOf(h.slice(6, -1)) !== -1), hrefs.join(" "));
   check("no lead-generation citation: " + s,
     !/(caring\.com|aplaceformom|seniorly|seniorliving\.org|brevy|realcostreport)/i.test(page[s]));
 });

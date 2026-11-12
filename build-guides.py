@@ -183,6 +183,12 @@ SRC = {
     # 387 metropolitan areas. Read from the PDF on 2026-11-04.
     "carescout_method": ('CareScout 2025 Cost of Care Survey \u2014 Methodology',
                          'https://assets.carescout.com/x/e3933bfcf1/131168.pdf'),
+    # The cost guide's one published Evanston example (owner-approved
+    # 2026-11-12). Both pages are the community's own, read 12 November 2026.
+    "trulee_plans": ('Trulee Evanston \u2014 Floor plans (assisted living prices, read 12 November 2026)',
+                     'https://truleeevanston.com/floor-plans/'),
+    "trulee_care": ('Trulee Evanston \u2014 Your Choice care program (read 12 November 2026)',
+                    'https://truleeevanston.com/your-choice/'),
     # The Assisted Living and Shared Housing Act, read on ilga.gov 2026-11-04.
     # Section 15 was amended by P.A. 104-0589, and the compiled page has not
     # caught up, so both are cited. The sentences relied on here (assessment
@@ -311,6 +317,33 @@ def srcs(*keys):
     return [SRC[k] for k in keys]
 
 
+# One published Evanston price example for the cost guide, approved by the
+# owner on 2026-11-12: neutral, sourced, no ranking, and no Westminster
+# Place price. Read from Trulee Evanston's own pages on 12 November 2026:
+# assisted living one-bedroom "Prices starting at $9,475" (floor plans) and
+# the Your Choice care program at "$1,850* per month", footnoted "*does not
+# include monthly rental rate". Advertised rates change: the same care page
+# read $1,700 earlier that day. Re-read both pages before changing a figure;
+# the total is computed, never typed. Owner refinement the same day: say the
+# rent-plus-care package is not directly comparable with the survey median,
+# because the two are priced differently, rather than setting them side by
+# side as if they were.
+TRULEE = {"rent_1br": 9475, "care": 1850, "read": "12 November 2026"}
+TRULEE_EXAMPLE = (
+    "<p><strong>One Evanston example.</strong> On " + TRULEE["read"] + ", "
+    "Trulee Evanston&rsquo;s website listed assisted living rent for a "
+    "one-bedroom apartment starting at ${:,} a month, and its ".format(TRULEE["rent_1br"]) +
+    "&ldquo;all-inclusive&rdquo; care program at ${:,} a month, which ".format(TRULEE["care"]) +
+    "it says does not include rent. That is a combined starting figure of "
+    "${:,} a month. It is not directly comparable with the ".format(TRULEE["rent_1br"] + TRULEE["care"]) +
+    F["al_median"] + " statewide median, because the two are priced "
+    "differently: the survey used a midpoint wherever a community quoted a "
+    "range of care prices, while this is one community&rsquo;s advertised "
+    "starting rent plus its care program. It is not an Evanston average "
+    "either. Advertised rates can change at any time, so ask each community "
+    "for a current written quote.</p>")
+
+
 # The free tour checklist (owner-approved PDF, 2026-11-11): one quiet,
 # tappable download link, never a button class, so the gold assessment
 # button stays each page's only primary action. Shared by the homepage's
@@ -360,7 +393,7 @@ GUIDES = [
         "listed": "2026-10-18",
         "sources": srcs("carescout", "carescout_method", "idph_al_div",
                         "ilcs_al_15", "pa_104_0589", "ilcs_al_85", "ilcs_al_90",
-                        "hfs_slf"),
+                        "hfs_slf", "trulee_plans", "trulee_care"),
         "body": [
             ("What the median actually measures", [
                 "<p>A median is the middle of a range. Half of Illinois communities "
@@ -401,6 +434,10 @@ GUIDES = [
             # Simplified for phones on 2026-11-04 at the owner's request: shorter
             # sentences and paragraphs, with every fact, qualification, the
             # checklist and the citations kept.
+            # 2026-11-12, owner-approved: one neutral, sourced example of a
+            # published Evanston starting price (TRULEE_EXAMPLE) follows the
+            # "starting price" paragraph. It is the only community named here,
+            # and no Westminster Place price appears.
             ("What this means in Evanston", [
                 "<p>No survey we know of publishes an assisted living median for "
                 "Evanston itself. The figures you will find are usually one of three "
@@ -427,6 +464,7 @@ GUIDES = [
                 "&ldquo;starting at&rdquo; price is the lowest price shown, "
                 "sometimes for one apartment type. It shows where prices begin, not "
                 "what your parent&rsquo;s apartment and care will cost.</p>",
+                TRULEE_EXAMPLE,
                 "<p><strong>The figure that counts is in the contract.</strong> "
                 "Before anyone moves into a licensed assisted living establishment, "
                 "Illinois requires a comprehensive assessment. It is repeated at "
