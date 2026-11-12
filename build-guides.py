@@ -311,12 +311,30 @@ def srcs(*keys):
     return [SRC[k] for k in keys]
 
 
+# The free tour checklist (owner-approved PDF, 2026-11-11): one quiet,
+# tappable download link, never a button class, so the gold assessment
+# button stays each page's only primary action. Shared by the homepage's
+# tour section (index.html, same markup) and the three guides whose
+# advice the checklist is built from. No email, no sign-up, no script.
+TOUR_CHECKLIST = (
+    '<p class="dl-cta"><a class="dl-link" '
+    'href="/downloads/senior-living-tour-checklist.pdf" '
+    'download="Senior-Living-Tour-Checklist.pdf">'
+    '<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" '
+    'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" '
+    'stroke-linejoin="round"><path d="M12 4v11"/><path d="m7 10 5 5 5-5"/>'
+    '<path d="M5 20h14"/></svg>Download Free Tour Checklist</a>'
+    '<span class="dl-cta__note">A one-page PDF to print and take on every '
+    'tour. No email or sign-up.</span></p>')
+
+
 # --------------------------------------------------------------------------
 # THE GUIDES
 # --------------------------------------------------------------------------
 GUIDES = [
     {
         "slug": "assisted-living-cost-illinois",
+        "after_section": {"The four costs that surprise families": TOUR_CHECKLIST},
         "bridge": ("A price only means something once you know which kind of care "
                "you are pricing. The same parent can be quoted wildly different "
                "monthly figures depending on the level of care a community "
@@ -673,6 +691,7 @@ GUIDES = [
 
     {
         "slug": "check-illinois-inspection-records",
+        "after_section": {"Check every community, including ours": TOUR_CHECKLIST},
         "bridge": ("An inspection record tells you how well a community does its job. "
                "It cannot tell you whether that is the job your parent needs doing "
                "in the first place."),
@@ -1605,6 +1624,7 @@ GUIDES = [
                            "the same day"),
         # The tour line's "how a request is handled" link lands here.
         "section_ids": {"Two ways to go from here": "two-ways"},
+        "after_section": {"Visiting, and what a brochure cannot tell you": TOUR_CHECKLIST},
         "intent": "lifestyle question",
         "answer": ("<strong>Independent living is housing with services, not "
                    "care.</strong> A private apartment, cottage or townhouse, with "
@@ -2805,6 +2825,12 @@ def build_guide(g):
     for i, (heading, paras) in enumerate(g["body"]):
         dia = DIAGRAMS.get((g["slug"], strip_tags(heading)))
         body = "\n".join(paras) + (("\n" + dia) if dia else "")
+        # Optional (tour checklist, 2026-11-11): a block appended to the end
+        # of one named section. A guide without "after_section" renders
+        # exactly as before.
+        extra = g.get("after_section", {}).get(strip_tags(heading))
+        if extra:
+            body += "\n" + extra
         # Optional (independent living, 2026-11-06): an id on one section so
         # an in-page link lands on its heading; .res__block[id] already has a
         # scroll margin for the sticky nav. A guide without "section_ids"

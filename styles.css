@@ -2704,3 +2704,18 @@ section[id], header[id] { scroll-margin-top: calc(var(--nav-h) + 14px); }
    phones narrower than 375px; keep both lines centred. No other page carries
    .tour-cta. */
 .tour-cta .btn { text-align: center; }
+
+/* Free tour checklist download (owner, 2026-11-11): the homepage's tour
+   section and three guides. A plain link drawn as an outlined row, never a
+   .btn, so the gold assessment button stays the only primary action. 44px
+   tall to tap; the note sits under it on every screen width. */
+.dl-cta { margin: 18px 0 0; }
+.dl-link {
+  display: inline-flex; align-items: center; gap: 9px;
+  min-height: 44px; box-sizing: border-box; padding: 10px 16px;
+  border: 1px solid var(--deep-3); border-radius: 10px; background: var(--card);
+  color: var(--deep); font-weight: 600; line-height: 1.25; text-decoration: none;
+}
+.dl-link svg { flex: none; }
+.dl-link:hover { background: var(--sage-tint); text-decoration: underline; text-underline-offset: 3px; }
+.dl-cta__note { display: block; margin-top: 8px; font-size: 15px; color: var(--ink-soft); }
