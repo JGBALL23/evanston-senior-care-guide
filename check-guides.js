@@ -1526,5 +1526,41 @@ homeGuideLinks.forEach((l) => {
   check("homepage guide link resolves: " + l, SLUGS.indexOf(l) !== -1);
 });
 
+/* ---- FREE TOUR CHECKLIST (owner-approved PDF, 2026-11-11) ----
+   One download link on the homepage's tour section and on the three guides
+   the checklist is built from. A plain link, never a button class, so the
+   gold assessment button stays the only primary action. No email, no
+   sign-up, no script: the file is a static download. */
+const CL_PDF = path.join(DIST, "downloads", "senior-living-tour-checklist.pdf");
+const clBuf = fs.existsSync(CL_PDF) ? fs.readFileSync(CL_PDF) : Buffer.alloc(0);
+const clRaw = clBuf.toString("latin1");
+check("tour checklist: the PDF is published", clBuf.length > 0);
+check("tour checklist: it is a real PDF", clRaw.slice(0, 5) === "%PDF-");
+check("tour checklist: exactly one page", (clRaw.match(/\/Type\s*\/Page(?![a-zA-Z])/g) || []).length === 1);
+check("tour checklist: US Letter", /\/MediaBox\s*\[\s*0\s+0\s+612\s+792\s*\]/.test(clRaw));
+check("tour checklist: small enough for a phone (< 200 KB)", clBuf.length > 0 && clBuf.length < 200 * 1024, clBuf.length + " bytes");
+const CL_OPEN = '<a class="dl-link" href="/downloads/senior-living-tour-checklist.pdf" download="Senior-Living-Tour-Checklist.pdf">';
+const CL_SLUGS = ["independent-living-evanston", "assisted-living-cost-illinois", "check-illinois-inspection-records"];
+const clCount = (h) => h.split(CL_OPEN).length - 1;
+const clBlock = (h) => (h.match(/<p class="dl-cta">[\s\S]*?<\/p>/) || [""])[0];
+const clTourSec = (home.match(/<section[^>]*\bid="tour"[^>]*>[\s\S]*?<\/section>/) || [""])[0];
+check("tour checklist: one link on the homepage, inside the tour section",
+  clCount(home) === 1 && clCount(clTourSec) === 1);
+CL_SLUGS.forEach((s) => {
+  check("tour checklist: one link on " + s, clCount(page[s]) === 1);
+  check("tour checklist: the same block as the homepage on " + s,
+    clBlock(page[s]) !== "" && clBlock(page[s]) === clBlock(home));
+});
+check("tour checklist: no other guide, nor the guides index, carries it",
+  SLUGS.filter((s) => CL_SLUGS.indexOf(s) === -1 && page[s].indexOf("dl-link") !== -1).length === 0 &&
+  indexPage.indexOf("dl-link") === -1);
+check("tour checklist: the link says what it is and asks for nothing",
+  />Download Free Tour Checklist<\/a>/.test(clBlock(home)) &&
+  clBlock(home).indexOf("No email or sign-up.") !== -1 &&
+  !/<form|<input|mailto:|onclick/i.test(clBlock(home)));
+check("tour checklist: never a button class", !/class="btn/.test(clBlock(home)));
+check("styles.css: the checklist link is 44px tall to tap and not a .btn",
+  /\.dl-link \{[^}]*min-height: 44px;/.test(css) && !/\.dl-link[^{]*\.btn|\.btn[^{]*\.dl-link/.test(css));
+
 console.log("\n  " + pass + " passed, " + fail + " failed   (" + (pass + fail) + " checks)");
 process.exit(fail === 0 ? 0 : 1);
