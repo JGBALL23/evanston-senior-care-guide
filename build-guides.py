@@ -324,7 +324,10 @@ def srcs(*keys):
 # the Your Choice care program at "$1,850* per month", footnoted "*does not
 # include monthly rental rate". Advertised rates change: the same care page
 # read $1,700 earlier that day. Re-read both pages before changing a figure;
-# the total is computed, never typed.
+# the total is computed, never typed. Owner refinement the same day: say the
+# rent-plus-care package is not directly comparable with the survey median,
+# because the two are priced differently, rather than setting them side by
+# side as if they were.
 TRULEE = {"rent_1br": 9475, "care": 1850, "read": "12 November 2026"}
 TRULEE_EXAMPLE = (
     "<p><strong>One Evanston example.</strong> On " + TRULEE["read"] + ", "
@@ -332,10 +335,13 @@ TRULEE_EXAMPLE = (
     "one-bedroom apartment starting at ${:,} a month, and its ".format(TRULEE["rent_1br"]) +
     "&ldquo;all-inclusive&rdquo; care program at ${:,} a month, which ".format(TRULEE["care"]) +
     "it says does not include rent. That is a combined starting figure of "
-    "${:,} a month, compared with the ".format(TRULEE["rent_1br"] + TRULEE["care"]) +
-    F["al_median"] + " statewide median. It is one community&rsquo;s "
-    "advertised price, not an Evanston average. Advertised rates can change "
-    "at any time, so ask each community for a current written quote.</p>")
+    "${:,} a month. It is not directly comparable with the ".format(TRULEE["rent_1br"] + TRULEE["care"]) +
+    F["al_median"] + " statewide median, because the two are priced "
+    "differently: the survey used a midpoint wherever a community quoted a "
+    "range of care prices, while this is one community&rsquo;s advertised "
+    "starting rent plus its care program. It is not an Evanston average "
+    "either. Advertised rates can change at any time, so ask each community "
+    "for a current written quote.</p>")
 
 
 # The free tour checklist (owner-approved PDF, 2026-11-11): one quiet,

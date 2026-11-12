@@ -221,8 +221,18 @@ check("Evanston section: the example is dated, attributed and says care excludes
   exLc.indexOf("on 12 november 2026, trulee evanston&rsquo;s website listed") !== -1 &&
   exLc.indexOf("one-bedroom apartment starting at") !== -1 &&
   exLc.indexOf("does not include rent") !== -1);
-check("Evanston section: the example is one advertised price that can change; ask for a written quote",
-  exLc.indexOf("one community&rsquo;s advertised price, not an evanston average") !== -1 &&
+/* Owner refinement, 2026-11-12: the advertised rent-plus-care package is not
+   directly comparable with CareScout's median, because the two are priced
+   differently. Say so and say why, never set them side by side as equals, and
+   keep "not an Evanston average". */
+check("Evanston section: the example says it is not directly comparable with the median, and why",
+  exLc.indexOf("not directly comparable with the " + AL_MEDIAN.toLowerCase() + " statewide median") !== -1 &&
+  exLc.indexOf("priced differently") !== -1 &&
+  exLc.indexOf("midpoint") !== -1 &&
+  exLc.indexOf("advertised starting rent plus its care program") !== -1 &&
+  exLc.indexOf("not an evanston average") !== -1 &&
+  exLc.indexOf("compared with the") === -1);
+check("Evanston section: the example's rates can change; ask for a written quote",
   exLc.indexOf("advertised rates can change") !== -1 &&
   exLc.indexOf("current written quote") !== -1);
 check("Evanston section: the example sits right after the starting-price paragraph",
