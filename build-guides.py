@@ -268,6 +268,10 @@ SRC = {
                               'https://ilaging.illinois.gov/content/dam/soi/en/web/aging/programs/documents/ivmmp-programsitelist.pdf'),
     "idoa_hco": ('Illinois Department on Aging — The Home Care Ombudsman Program',
                 'https://ilaging.illinois.gov/programs/ltcombudsman/the-home-care-ombudsman-program.html'),
+    "extra_help": ('Medicare.gov — Costs for prescription drug coverage (Extra Help)',
+                   'https://www.medicare.gov/basics/costs/help/drug-costs'),
+    "msp_extra_help_link": ('Medicare.gov — Medicare Savings Programs',
+                            'https://www.medicare.gov/basics/costs/help/medicare-savings-programs'),
 }
 
 
@@ -4140,6 +4144,161 @@ GUIDES = [
             ]),
         ],
     },
+
+    {
+        "slug": "medicare-extra-help-prescription-drug-costs",
+        "bridge": ("Paying less for a parent's prescriptions says nothing "
+                   "about whether assisted living, home care or a nursing "
+                   "home is the level of care they actually need."),
+        "reviewed": "2026-11-12",
+        "title": "Medicare Extra Help: Lowering a Parent's Prescription Drug Costs",
+        "h1": "Does your parent qualify for Extra Help with Medicare drug costs?",
+        "desc": ("Extra Help pays part or all of a Medicare Part D premium, "
+                 "deductible and copay for people with limited income and "
+                 "resources. Who qualifies automatically, the 2026 limits, "
+                 "what it costs in 2027, and how to apply."),
+        "intent": "eligibility / how-to",
+        "answer": ("<strong>Extra Help is a Medicare program that pays some or "
+                   "all of a Part D prescription drug plan's premium, "
+                   "deductible and copays for someone with limited income and "
+                   "resources.</strong> Medicare.gov states that &ldquo;some "
+                   "people qualify for Extra Help automatically, and other "
+                   "people have to apply&rdquo; &mdash; automatic qualification "
+                   "comes with full Medicaid, a Medicare Savings Program, or "
+                   "Supplemental Security Income (SSI). Anyone else is compared "
+                   "against an income and resource limit the page restates "
+                   "every year."),
+        "sources": srcs("extra_help", "msp_extra_help_link"),
+        "body": [
+            ("What Extra Help actually pays for", [
+                "<p>Medicare.gov describes &ldquo;Extra Help&rdquo; as "
+                "&ldquo;a Medicare program to help people with limited income "
+                "and resources pay Medicare drug coverage (Part D)&rdquo; "
+                "costs, specifically premiums, deductibles, coinsurance and "
+                "other costs. It is not a separate drug plan &mdash; it "
+                "reduces what a parent already owes on whatever Part D plan "
+                "they are enrolled in, and someone receiving it does not pay "
+                "the Part D late enrollment penalty that otherwise applies to "
+                "people who delay signing up.</p>",
+            ]),
+            ("Who qualifies automatically, and who has to apply", [
+                "<p>The page states plainly: &ldquo;Some people qualify for "
+                "Extra Help automatically, and other people have to "
+                "apply.&rdquo; Automatic qualification comes from any one of "
+                "three things: full-benefit Medicaid, state help paying a "
+                "Part B premium through a Medicare Savings Program (QMB, SLMB "
+                "or QI &mdash; see "
+                '<a href="/guides/illinois-medicare-savings-program/">Can '
+                "Illinois help pay my parent's Medicare premium?</a>), or "
+                "Supplemental Security Income (SSI). If none of those apply, "
+                "Medicare.gov is direct about the alternative: &ldquo;In most "
+                "cases, to qualify for Extra Help, you must have income and "
+                "resources below a certain limit.&rdquo;</p>",
+                "<p>Medicare.gov's own page on Medicare Savings Programs "
+                "confirms the link from the other direction: under each of "
+                "QMB, SLMB and QI it states, &ldquo;You'll also get Extra "
+                "Help paying for your prescription drugs,&rdquo; framed as "
+                "something that comes with qualifying for the premium "
+                "programme rather than a second application to fill out.</p>",
+            ]),
+            ("The 2026 income and resource limits", [
+                "<p>For someone applying on income and resources rather than "
+                "qualifying automatically, Medicare.gov's 2026 figures are: "
+                "for one person, an income limit of <strong>$23,940</strong> "
+                "and a resource limit of <strong>$18,090</strong>; for a "
+                "married couple, an income limit of <strong>$32,460</strong> "
+                "and a resource limit of <strong>$36,100</strong>. The page "
+                "notes that different limits apply in Alaska and Hawaii "
+                "without stating the figures, and links out to its own "
+                "definitions of what counts as income and what counts as a "
+                "resource &mdash; this guide did not open those linked pages, "
+                "so treat the categories, not just the totals, as worth "
+                "checking directly before assuming a parent is over or under "
+                "the line.</p>",
+            ]),
+            ("What it actually costs once you qualify, for 2027", [
+                "<p>Medicare.gov lists these as the costs under Extra Help "
+                "for 2027: a plan premium of <strong>$0</strong>, a plan "
+                "deductible of <strong>$0</strong>, and at a plan's "
+                "participating pharmacies, <strong>up to $5.80 for each "
+                "generic drug</strong> and <strong>up to $14.40 for each "
+                "brand-name drug</strong>. Once total drug costs &mdash; "
+                "including certain payments made on a person's behalf, such "
+                "as through Extra Help itself &mdash; reach "
+                "<strong>$2,400</strong>, the page states a parent will "
+                "&ldquo;pay $0 for each covered drug&rdquo; for the rest of "
+                "the year. Someone who also has full Medicaid coverage and is "
+                "enrolled in the Qualified Medicare Beneficiary (QMB) program "
+                "pays even less: the page gives that figure as <strong>no "
+                "more than $4.90 for each covered drug</strong>.</p>",
+                "<p>These are the figures as published for 2027; the income "
+                "and resource limits above are the ones the same page "
+                "currently states for 2026. Confirm both against the live "
+                "page before relying on either, since Medicare republishes "
+                "both sets of numbers on its own schedule.</p>",
+            ]),
+            ("How to apply, and what happens once you do", [
+                "<p>Medicare.gov is specific about the route: &ldquo;If you "
+                "don't get Extra Help automatically, you can apply for "
+                "it&rdquo; through Social Security, and the page's own "
+                "application link points to ssa.gov. This guide did not "
+                "independently open the Social Security site to verify what "
+                "the application screens look like, so treat "
+                "ssa.gov/medicare/part-d-extra-help as a name and address to "
+                "go to, not a page this guide can describe first-hand. "
+                "Illinois's own "
+                '<a href="/guides/illinois-senior-health-insurance-program/">'
+                "Senior Health Insurance Program counselors</a> can also help "
+                "fill out the application at no charge.</p>",
+                "<p>Applying for Extra Help and a Medicare Savings Program "
+                "can happen at the same time: the page states that Social "
+                "Security &ldquo;will send information to your state to "
+                "initiate an MSP application&rdquo; unless the applicant says "
+                "not to on the Extra Help form itself. Once approved, Extra "
+                "Help runs through 31 December regardless of a mid-year "
+                "change in income, and someone who still meets the limits "
+                "keeps it automatically into the next year &mdash; a notice "
+                "only arrives if a parent no longer qualifies or is being "
+                "moved to a different plan. Anyone can reapply at any time if "
+                "income or resources change.</p>",
+            ]),
+            ("If a pharmacy charges the wrong amount, or there is a gap before coverage starts", [
+                "<p>Medicare.gov's advice if a pharmacy charges more than the "
+                "Extra Help amount is to contact the drug plan directly, "
+                "which may ask for proof of Extra Help, and to tell the plan "
+                "how many days of medication are left on hand; "
+                "1-800-MEDICARE (1-800-633-4227, TTY 1-877-486-2048) is the "
+                "number the page gives if the plan does not resolve it.</p>",
+                "<p>For the gap between qualifying and actually being "
+                "enrolled in a Part D plan, the page describes Medicare's "
+                "Limited Income Newly Eligible Transition (LI NET) Program as "
+                "giving &ldquo;temporary Medicare Part D drug coverage to "
+                "people who qualify for Extra Help or Medicaid but who "
+                "aren't enrolled in a Medicare drug plan yet,&rdquo; with "
+                "money back available for covered drugs bought after the "
+                "qualifying date if receipts are kept. The number given for "
+                "LI NET is <strong>1-800-783-1307</strong> (TTY 711), "
+                "8 a.m. to 7 p.m. Eastern.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>Extra Help only ever touches a Part D drug plan's "
+                "premium and copays &mdash; it has nothing to do with paying "
+                "for assisted living, home care or a nursing home. For help "
+                "with a Medicare premium itself, see "
+                '<a href="/guides/illinois-medicare-savings-program/">Can '
+                "Illinois help pay my parent's Medicare premium? QMB, SLMB "
+                "and QI, explained</a>, and for the much larger question of "
+                "Medicaid paying for long-term care, see "
+                '<a href="/guides/illinois-medicaid-long-term-care/">How '
+                "Illinois Medicaid pays for long-term care</a>.</p>",
+                "<p>If the real question is what level of care your parent "
+                'needs in the first place, the <a href="/">free six-question '
+                "assessment</a> on this site walks through that separately. "
+                "It asks for no name, no email and no phone number, and your "
+                "answers never leave your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -4632,6 +4791,12 @@ CARDS = {
         "A free, confidential advocate for a denial letter, an "
         "unresponsive care coordinator or a grievance — for home care "
         "arranged through a Medicaid managed care plan or waiver."),
+    "medicare-extra-help-prescription-drug-costs": (
+        "Medicare",
+        "Does your parent qualify for Extra Help with drug costs?",
+        "A Medicare program that can bring a Part D premium and "
+        "deductible to $0 and cap copays at a few dollars — who "
+        "qualifies automatically, the 2026 limits, and how to apply."),
 }
 
 
