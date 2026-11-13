@@ -272,6 +272,10 @@ SRC = {
                    'https://www.medicare.gov/basics/costs/help/drug-costs'),
     "msp_extra_help_link": ('Medicare.gov — Medicare Savings Programs',
                             'https://www.medicare.gov/basics/costs/help/medicare-savings-programs'),
+    "va_hbpc": ('VA.gov — Home Based Primary Care',
+               'https://www.va.gov/geriatrics/pages/Home_Based_Primary_Care.asp'),
+    "va_hhha": ('VA.gov — Homemaker and Home Health Aide Care',
+               'https://www.va.gov/geriatrics/pages/Homemaker_and_Home_Health_Aide_Care.asp'),
 }
 
 
@@ -4299,6 +4303,192 @@ GUIDES = [
             ]),
         ],
     },
+
+    {
+        "slug": "va-home-based-primary-care-and-aide",
+        "bridge": ("Knowing which VA programme sends help to the house is a "
+               "different question from knowing whether a house, even with "
+               "help, is still the safest place for your veteran parent."),
+        "reviewed": "2026-11-13",
+        "title": "VA Home-Based Primary Care and Home Health Aide Care, Explained",
+        "h1": "Can the VA send a doctor or a home health aide to your veteran&rsquo;s house?",
+        "desc": ("VA.gov names two separate home programmes for an eligible "
+                 "veteran: a medical team that visits for ongoing care, and "
+                 "a trained aide who helps with daily activities. What each "
+                 "actually provides, in VA.gov's own words, and the gate "
+                 "behind both."),
+        "intent": "benefits question",
+        "answer": ("<strong>Yes &mdash; VA runs two separate home programmes, "
+                   "and they are not the same thing.</strong> <strong>Home "
+                   "Based Primary Care</strong> sends a VA medical team, led "
+                   "by a doctor, nurse practitioner or physician assistant, "
+                   "to provide primary care in the veteran's own home. "
+                   "<strong>Homemaker and Home Health Aide Care</strong> "
+                   "sends a trained aide, supervised by a registered nurse, "
+                   "to help with daily activities such as bathing, dressing "
+                   "and grocery shopping. VA.gov states the same basic gate "
+                   "for each: the veteran must be enrolled in VA health "
+                   "care, meet the clinical need for the service, and the "
+                   "service must actually be available where they live."),
+        "sources": srcs("va_hbpc", "va_hhha", "va_ltc_overview"),
+        "body": [
+            ("Two different kinds of help, not one", [
+                "<p>VA.gov's own overview of its long-term care services "
+                "lists five things under &ldquo;Services at Home and in the "
+                "Community&rdquo;, available to &ldquo;all enrolled "
+                "Veterans&rdquo; who have a clinical need and local "
+                "availability: Geriatric Evaluation, Adult Day Health Care, "
+                "Homemaker and Home Health Aide Care, Respite Care, and "
+                "Skilled Home Health Care. That overview page names two of "
+                "them without describing what either involves beyond its "
+                "title. This guide read VA's own dedicated pages for each "
+                "one instead of guessing.</p>",
+                "<p>The two are easy to confuse because both send someone to "
+                "the house, but they are different services with different "
+                "staff. One is <strong>medical care from a VA clinical "
+                "team</strong>. The other is <strong>personal-care help from "
+                "a trained aide</strong>. A veteran parent could plausibly "
+                "need either, both, or neither &mdash; this guide covers "
+                "each on its own terms below.</p>",
+            ]),
+            ("Home Based Primary Care, in VA.gov's own words", [
+                "<p>VA.gov describes Home Based Primary Care (HBPC) as "
+                "&ldquo;health care services provided to Veterans in their "
+                "home&rdquo;, aimed at veterans with &ldquo;ongoing illnesses "
+                "that affect their health and daily activities&rdquo;. The "
+                "page is explicit that a veteran does not have to be "
+                "homebound to qualify &mdash; it also names veterans who are "
+                "isolated, or whose caregiver is under strain, as people the "
+                "programme is meant to serve.</p>",
+                "<p>A team reviews the veteran's needs and provides care for "
+                "the veteran and the caregiver together. The page lists "
+                "in-home primary care visits from a physician, nurse "
+                "practitioner or physician assistant, plus care management, "
+                "social work, rehabilitation, psychology, nutrition and "
+                "pharmacy support.</p>",
+                "<p>On cost, the page says a copay may apply to each "
+                "in-home visit, &ldquo;similar to a VA clinic visit&rdquo;, "
+                "based on the veteran's service-connected disability status "
+                "and financial information &mdash; it gives no dollar "
+                "figure. It points families toward a VA social worker or "
+                "case manager and the Application for Extended Care "
+                "Benefits, VA Form 10-10EC, rather than describing a "
+                "separate HBPC application of its own.</p>",
+            ]),
+            ("Homemaker and Home Health Aide Care, in VA.gov's own words", [
+                "<p>VA.gov's page states the eligibility rule in one line: "
+                "&ldquo;All enrolled Veterans are eligible for Homemaker "
+                "Home Health Aide Care&rdquo; if they are also eligible for "
+                "community care, meet the clinical criteria, and the "
+                "service is available where they live. It serves veterans "
+                "&ldquo;of any age&rdquo;, including those who are isolated "
+                "or whose caregiver is under strain &mdash; the same framing "
+                "HBPC uses.</p>",
+                "<p>The aide is not a nurse. VA.gov is specific that a "
+                "registered nurse supervises the aide, who comes to help "
+                "with &ldquo;self-care and daily activities&rdquo;: eating, "
+                "dressing, grooming, bathing, toileting, moving between "
+                "places, and grocery shopping. &ldquo;Services are based on "
+                "your assessed needs&rdquo;, the page says, and a visit "
+                "schedule can run from several times a week to "
+                "occasionally, continuing &ldquo;as long as extra help is "
+                "needed&rdquo;.</p>",
+                "<p>A copay &ldquo;may be charged based on your VA "
+                "service-connected disability status&rdquo;, again with no "
+                "dollar figure published. The page does not compare this "
+                "programme with hiring a caregiver privately; it only says "
+                "the aide works for an organisation that holds a contract "
+                "with VA, which is the one fact this guide found distinguishing "
+                "it from a family hiring someone itself.</p>",
+            ]),
+            ("The same gate, worded slightly differently each time", [
+                "<p>Both pages come back to the same three conditions: "
+                "enrollment in VA health care, a clinical need for the "
+                "specific service, and local availability. Neither page "
+                "promises the service exists at every VA medical centre "
+                "&mdash; both say availability depends on where the veteran "
+                "lives, and point to a VA social worker or physician to "
+                "confirm it locally rather than assuming a name found on a "
+                "website applies everywhere.</p>",
+                "<p>One wording difference is worth noticing rather than "
+                "flattening: the Homemaker and Home Health Aide page adds "
+                "that the veteran must be &ldquo;eligible for community "
+                "care&rdquo;, a phrase the Home Based Primary Care page does "
+                "not use. This guide did not find a VA.gov page stating "
+                "whether that is a meaningful legal distinction or simply "
+                "different drafting between two pages written at different "
+                "times. Ask the VA social worker handling the case which "
+                "gate actually applies, rather than assuming the two "
+                "programmes are gated identically because this guide treats "
+                "them side by side.</p>",
+            ]),
+            ("Not Veteran Directed Care, and not the caregiver stipend", [
+                "<p>Families researching VA help at home often land on one "
+                "of two other programmes this site covers separately, and "
+                "it is worth being precise about how all four differ. "
+                '<a href="/guides/va-veteran-directed-care-program/">Veteran '
+                "Directed Care</a> hands the veteran a budget and lets them "
+                "hire their own worker, including a family member. Home "
+                "Based Primary Care and Homemaker and Home Health Aide Care, "
+                "by contrast, are both VA-arranged: a VA team or a "
+                "VA-contracted aide comes to the veteran, rather than the "
+                "veteran directing their own hire.</p>",
+                "<p>Separately again, "
+                '<a href="/guides/va-caregiver-support-program/">the VA '
+                "caregiver programmes</a> pay and support the family member "
+                "doing the caring, not an outside aide or clinician visiting "
+                "the veteran. A veteran parent's household could in "
+                "principle touch more than one of these at once; this guide "
+                "found no VA.gov page describing how they interact, and will "
+                "not guess at it.</p>",
+            ]),
+            ("What this guide could not verify", [
+                "<p>Neither VA.gov page this guide read gives a dollar "
+                "copay figure, a typical visit frequency, or a maximum "
+                "number of aide hours. Both describe "
+                "the amount and shape of help as set by an individual "
+                "clinical assessment, not a published rate. This guide will "
+                "not invent a number neither page states &mdash; ask the VA "
+                "social worker handling the case what the assessed plan "
+                "would actually look like.</p>",
+            ]),
+            ("How to start", [
+                "<p>Both pages point to the same first step: talk to a VA "
+                "social worker or case manager. For Home Based Primary "
+                "Care, that conversation runs through the Application for "
+                "Extended Care Benefits, VA Form 10-10EC. For Homemaker and "
+                "Home Health Aide Care, VA.gov simply says to &ldquo;talk "
+                "with a VA social worker to find out what specific help you "
+                "may be able to receive&rdquo;, and mentions a Veteran "
+                "Decision Aid and a Caregiver Self-Assessment as tools that "
+                "can help weigh the options first.</p>",
+                "<p>A veteran who is not yet enrolled in VA health care has "
+                "to clear that step before either programme applies. "
+                '<a href="/guides/va-veteran-directed-care-program/">This '
+                "site's guide to Veteran Directed Care</a> sets out the ways "
+                "to apply for VA health care itself, since the enrollment "
+                "step is identical across all of VA's home programmes.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>If the open question is money rather than who shows up "
+                "at the house, see "
+                '<a href="/guides/va-aid-and-attendance-benefit/">Does the '
+                "VA pay for senior care? Aid and Attendance, explained</a>, "
+                "a cash pension benefit that is separate from everything on "
+                "this page. If a facility, rather than help at home, has "
+                "become the real question, see "
+                '<a href="/guides/va-nursing-home-and-respite-care/">Can the '
+                "VA provide nursing home care, or give a family caregiver a "
+                "break?</a></p>",
+                "<p>If the real question is whether home, even with "
+                "clinical or aide support, is still the right setting for "
+                'your veteran parent, the <a href="/">free six-question '
+                "assessment</a> on this site walks through that separately. "
+                "It asks for no name, no email and no phone number, and "
+                "your answers never leave your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -4797,6 +4987,12 @@ CARDS = {
         "A Medicare program that can bring a Part D premium and "
         "deductible to $0 and cap copays at a few dollars — who "
         "qualifies automatically, the 2026 limits, and how to apply."),
+    "va-home-based-primary-care-and-aide": (
+        "Veterans' benefits",
+        "Can the VA send a doctor or an aide to your veteran's house?",
+        "Two separate VA home programmes, in VA.gov's own words — a "
+        "medical team, and a trained aide — and how each differs from "
+        "Veteran Directed Care and the caregiver stipend."),
 }
 
 
