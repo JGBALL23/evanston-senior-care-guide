@@ -276,6 +276,11 @@ SRC = {
                'https://www.va.gov/geriatrics/pages/Home_Based_Primary_Care.asp'),
     "va_hhha": ('VA.gov — Homemaker and Home Health Aide Care',
                'https://www.va.gov/geriatrics/pages/Homemaker_and_Home_Health_Aide_Care.asp'),
+    "hfs_preadmission_notice": ('Illinois HFS Provider Notice, 4 April 2017 — '
+                                'Pre-admission screening (PASRR and Determination of Need)',
+                                'https://hfs.illinois.gov/medicalproviders/notices/notice.prn170404a.html'),
+    "hfs_ltc_brochure": ('Illinois HFS — Long Term Care Services brochure (HFS 3191)',
+                         'https://hfs.illinois.gov/info/brochures-and-forms/brochures/hfs3191.html'),
 }
 
 
@@ -4489,6 +4494,171 @@ GUIDES = [
             ]),
         ],
     },
+
+    {
+        "slug": "illinois-nursing-home-preadmission-screening",
+        "bridge": ("Knowing that a screening is required is a different "
+               "question from knowing whether a nursing home is even the "
+               "setting your parent actually needs."),
+        "reviewed": "2026-11-14",
+        "title": "Pre-Admission Screening for an Illinois Nursing Home, Explained",
+        "h1": "Does my parent need to be screened before moving into an Illinois nursing home?",
+        "desc": ("Illinois requires a screening before anyone is admitted to a nursing "
+                 "facility, regardless of how they are paying. What the screening "
+                 "actually checks, who performs it, and what this guide could not "
+                 "verify."),
+        "intent": "how-to / process",
+        "answer": ("<strong>Yes.</strong> An Illinois HFS provider notice states that "
+                   "&ldquo;state statutes require that all persons age 18 or older "
+                   "seeking admission to a nursing facility must be screened,&rdquo; and "
+                   "says this applies regardless of income, assets, or funding source "
+                   "&mdash; a private-pay admission is not exempt. Two separate checks "
+                   "are involved: a <strong>Determination of Need (DON)</strong> "
+                   "assessment of the functional need for nursing-facility-level care, "
+                   "and a <strong>PASRR Level I screen</strong> for serious mental "
+                   "illness or an intellectual/developmental disability. Both must be "
+                   "completed before admission."),
+        "sources": srcs("hfs_preadmission_notice", "hfs_ltc_brochure", "idoa_ccp"),
+        "body": [
+            ("Two different checks, not one", [
+                "<p>Families researching this usually find the word "
+                "&ldquo;screening&rdquo; used loosely, as if it were one step. The "
+                "Illinois Department of Healthcare and Family Services (HFS) provider "
+                "notice this guide read describes two separate checks that both apply "
+                "before a nursing facility admission.</p>",
+                "<p>The first is a <strong>Determination of Need (DON)</strong> "
+                "assessment &mdash; a functional evaluation of whether the person "
+                "actually needs the level of care a nursing facility provides. The "
+                "second is a <strong>PASRR Level I screen</strong> (sometimes called an "
+                "OBRA Level I screen), which checks for serious mental illness or an "
+                "intellectual/developmental disability. The notice states that this "
+                "preliminary screen applies to &ldquo;all applicants to "
+                "Medicaid-certified nursing facilities&rdquo;. Someone flagged at Level "
+                "I is referred on for a more detailed Level II evaluation.</p>",
+            ]),
+            ("Who actually does the screening", [
+                "<p>The notice names several different screeners, depending on where "
+                "the person is and what is being assessed. <strong>Care Coordination "
+                "Units (CCUs)</strong> &mdash; contracted by the Illinois Department on "
+                "Aging and described on the Department's own Community Care Program "
+                "page as part of its &ldquo;Aging Network&rdquo; &mdash; conduct most "
+                "Level I screens and DON assessments, both in hospitals and in the "
+                "community.</p>",
+                "<p>Hospital discharge planning staff can also carry out an OBRA Level I "
+                "screen directly. In the community, DHS Division of Rehabilitation "
+                "Services staff perform DON screens, while DHS Mental Health PASRR "
+                "agents handle referrals from hospital psychiatric units and community "
+                "mental health centres. Where a Level I screen suggests an intellectual "
+                "or developmental disability rather than mental illness, an Independent "
+                "Service Coordination entity contracted by the DHS Division of "
+                "Developmental Disabilities handles the nursing-facility level-of-care "
+                "determination instead.</p>",
+                "<p>None of this is a single office or a single phone call. Which "
+                "screener is the right one depends on where your parent is &mdash; "
+                "still at home, or already in hospital awaiting discharge &mdash; and "
+                "that is worth confirming with a hospital social worker or the local CCU "
+                "rather than guessing from this list.</p>",
+            ]),
+            ("Private pay does not exempt you from the screening itself", [
+                "<p>This is the detail that most surprises families who intend to pay "
+                "privately and assume Medicaid rules do not apply to them. The "
+                "screening requirement is a state statute covering <strong>every</strong> "
+                "nursing facility admission &mdash; the HFS notice is explicit that it "
+                "applies &ldquo;regardless of income, assets, or funding source&rdquo;. "
+                "Paying the full bill out of pocket does not remove the requirement to "
+                "be screened before moving in.</p>",
+                "<p>HFS's own consumer brochure on long-term care frames the same rule "
+                "from the other direction, for someone applying for Medicaid: "
+                "&ldquo;the screening must show that you need nursing home care or the "
+                "state will not pay for it.&rdquo; So the screening does two different "
+                "jobs depending on who is asking &mdash; a legal precondition to "
+                "admission for everyone, and a payment precondition specifically for "
+                "Medicaid.</p>",
+                "<p>One reassurance worth knowing: the brochure also states that a "
+                "person keeps the right to enter or remain in a nursing home if they "
+                "can pay for the care, or qualify for state assistance, "
+                "<strong>even if the screening finds they could live safely in the "
+                "community</strong>. A DON result that says &ldquo;this person could "
+                "manage at home with support&rdquo; is not, by itself, a reason a "
+                "facility can turn your parent away or discharge them &mdash; it mainly "
+                "governs whether Medicaid will pay, and it is also the moment a care "
+                "coordinator may raise home and community-based alternatives worth "
+                "hearing out before deciding.</p>",
+            ]),
+            ("Timing, and what happens if it is skipped", [
+                "<p>Both screens have to happen <strong>before</strong> admission to the "
+                "nursing facility, not afterward as paperwork to catch up on. The HFS "
+                "notice sets out minimum timelines for the hospital-discharge case: "
+                "discharge planners must contact the CCU &ldquo;at least 24 hours in "
+                "advance of a pending discharge,&rdquo; and the notice states that, "
+                "since 1 January 2017, &ldquo;CCUs must complete the screening within "
+                "one day of the request.&rdquo; This guide is reading a 2017 notice to "
+                "providers, not a page that states today's timeline, so treat those two "
+                "figures as the rule as written then and confirm the current turnaround "
+                "with the CCU rather than assuming nothing has changed since.</p>",
+                "<p>The consequence of skipping it is stated plainly: the notice says "
+                "the state &ldquo;will continue to reject claims for reimbursement of "
+                "LTC services provided prior to the completion&rdquo; of the required "
+                "screenings, and that Medicaid payment authorization is not allowable "
+                "until pre-admission screening is complete. For a family counting on "
+                "Medicaid to eventually cover a stay that starts as private pay, an "
+                "admission that happened without the screening is not a detail to sort "
+                "out later.</p>",
+            ]),
+            ("If your parent is already living in the nursing home", [
+                "<p>The process is different for someone who is already a resident and "
+                "only now applying for medical benefits. HFS's brochure states that if "
+                "you already live in a nursing home when you apply for medical "
+                "benefits, and you entered the facility on or after 1 July 1996, "
+                "&ldquo;a special needs screening is completed by Healthcare and Family "
+                "Services (HFS)&rdquo; itself, rather than by a CCU before admission. "
+                "That is a different screening route from everything described above, "
+                "run by a different state agency, for a different situation.</p>",
+            ]),
+            ("What this guide could not verify", [
+                "<p>The state's own screening-results form (HFS 2536, the Interagency "
+                "Certification of Screening Results) is the document that would state "
+                "how long a completed screening remains valid before a new one is "
+                "needed. This guide opened that form and could not read a verifiable "
+                "figure off it &mdash; the document did not render as text this guide "
+                "could confirm, as opposed to a page it could read directly. Rather than "
+                "repeat a number picked up secondhand, this guide will not publish a "
+                "validity period. Ask the local CCU or the admitting facility's "
+                "admissions office how long your parent's specific screening result is "
+                "good for before it needs to be redone.</p>",
+            ]),
+            ("How to start", [
+                "<p>If your parent is still at home, the Illinois Department on Aging's "
+                "Community Care Program page describes CCUs as the local point of "
+                "contact and directs families to its own map tool to find the right "
+                "one &mdash; the same CCU that performs the DON assessment also "
+                "coordinates in-home services, covered in full in "
+                '<a href="/guides/illinois-community-care-program/">Can my parent get '
+                "paid help at home in Illinois?</a> If your parent is currently in "
+                "hospital and a nursing home admission is being discussed as part of "
+                "discharge planning, HFS's brochure says to ask the hospital nurse to "
+                "contact the hospital's social service department, which can set the "
+                "screening in motion directly rather than waiting for a CCU referral "
+                "from outside.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>If the open question is whether a nursing home is even the right "
+                "level of care, rather than how to clear the paperwork to get into one, "
+                "see "
+                '<a href="/guides/levels-of-senior-care-explained/">Assisted living, '
+                "memory care, skilled nursing and rehabilitation &mdash; what is the "
+                "difference?</a> If the question is how Medicaid pays once admission is "
+                "settled, including what spend-down means, see "
+                '<a href="/guides/illinois-medicaid-long-term-care/">How Illinois '
+                "Medicaid pays for long-term care, and what spend-down means</a>.</p>",
+                "<p>If you are not sure which of those questions you are actually "
+                'asking, the <a href="/">free six-question assessment</a> on this site '
+                "walks through the specifics and shows the reasoning behind its answer. "
+                "It asks for no name, no email and no phone number to see your results, "
+                "and your answers never leave your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -4993,6 +5163,12 @@ CARDS = {
         "Two separate VA home programmes, in VA.gov's own words — a "
         "medical team, and a trained aide — and how each differs from "
         "Veteran Directed Care and the caregiver stipend."),
+    "illinois-nursing-home-preadmission-screening": (
+        "Paying with Medicaid",
+        "Does my parent need to be screened before a nursing home?",
+        "Illinois law requires a screening before anyone is admitted to a "
+        "nursing facility, regardless of how they are paying — what it "
+        "checks, who performs it, and what happens if it is skipped."),
 }
 
 
