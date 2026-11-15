@@ -281,6 +281,14 @@ SRC = {
                                 'https://hfs.illinois.gov/medicalproviders/notices/notice.prn170404a.html'),
     "hfs_ltc_brochure": ('Illinois HFS — Long Term Care Services brochure (HFS 3191)',
                          'https://hfs.illinois.gov/info/brochures-and-forms/brochures/hfs3191.html'),
+    "hfs_mmai_end": ('Illinois HFS — Medicare Medicaid Alignment Initiative (MMAI) End Date',
+                     'https://hfs.illinois.gov/medicalproviders/cc/mmai.html'),
+    "hfs_managedcare": ('Illinois HFS — Managed Care (for clients)',
+                        'https://hfs.illinois.gov/medicalclients/managedcare.html'),
+    "hfs_fide_enroll": ('Illinois HFS — How To Enroll in a FIDE SNP',
+                        'https://hfs.illinois.gov/medicalproviders/cc/mmai/howtoenrollinafidesnp'),
+    "hfs_fide_info": ('Illinois HFS — Fully Integrated Dual Eligible Special Needs Plans in Illinois',
+                      'https://hfs.illinois.gov/medicalproviders/cc/mmai/fullyintegdesnpii.html'),
 }
 
 
@@ -4659,6 +4667,172 @@ GUIDES = [
             ]),
         ],
     },
+
+    {
+        "slug": "illinois-fide-snp-explained",
+        "bridge": ("Knowing which FIDE SNP plan now administers your parent&rsquo;s "
+               "Medicare and Medicaid coverage is a different question from knowing "
+               "whether the care it arranges is still the right amount of help."),
+        "reviewed": "2026-11-15",
+        "title": "Illinois FIDE SNP: What Replaced MMAI for Dual-Eligible Seniors",
+        "h1": "What happened to my parent&rsquo;s MMAI plan, and what is a FIDE SNP?",
+        "desc": ("Illinois ended the Medicare-Medicaid Alignment Initiative on 31 "
+                 "December 2025 and replaced it with FIDE SNP plans on 1 January "
+                 "2026. What moved automatically, who has to choose, and the one "
+                 "contact detail this guide could not verify."),
+        "intent": "benefits question / policy change",
+        "answer": ("If your parent is enrolled in both Medicare and Medicaid "
+                   "(&ldquo;dually eligible&rdquo;) in Illinois, the plan that used to "
+                   "be called MMAI ended on <strong>31 December 2025</strong>. Illinois "
+                   "HFS states that most MMAI members were "
+                   "<strong>automatically enrolled</strong> in a Fully Integrated Dual "
+                   "Eligible Special Needs Plan (<strong>FIDE SNP</strong>) run by the "
+                   "same company, starting 1 January 2026 &mdash; except Blue Cross "
+                   "Blue Shield, which is not offering one for 2026. A FIDE SNP combines "
+                   "Medicare and Medicaid benefits in a single plan, the same way MMAI "
+                   "did. Some people cannot enrol in one at all, and anyone already in a "
+                   "nursing home or a home care waiver who wants to leave has a "
+                   "different route than everyone else."),
+        "sources": srcs("hfs_mmai_end", "hfs_managedcare", "hfs_fide_enroll",
+                        "hfs_fide_info"),
+        "body": [
+            ("MMAI ended on 31 December 2025", [
+                "<p>Illinois HFS states plainly: &ldquo;The Illinois Medicare-Medicaid "
+                "Alignment Initiative (MMAI) program will end December 31, 2025.&rdquo; "
+                "MMAI was the name Illinois used for over a decade for a managed-care "
+                "plan that combined Medicare and Medicaid coverage for people eligible "
+                "for both. HFS says the change happened because the federal Centers for "
+                "Medicare & Medicaid Services (CMS) &ldquo;is requiring states with a "
+                "MMAI program to convert to the D-SNP model.&rdquo;</p>",
+                "<p>The replacement has a specific name, and HFS is explicit that it is "
+                "the only version available here: &ldquo;FIDE SNPs will be the only type "
+                "of D-SNP model available in Illinois.&rdquo; HFS describes a Fully "
+                "Integrated Dual Eligible Special Needs Plan, or <strong>FIDE SNP</strong>, "
+                "as &ldquo;a type of Medicare Advantage plan that provides both Medicare "
+                "and Medicaid benefits through a single managed care plan&rdquo; &mdash; "
+                "and says FIDE SNPs were chosen as the closest match to MMAI because they "
+                "&ldquo;provide the same level of care coordination.&rdquo;</p>",
+            ]),
+            ("What moved automatically, and who has to choose instead", [
+                "<p>What happened next depended on where your parent&rsquo;s coverage "
+                "stood on 31 December 2025. HFS states that CMS &ldquo;will automatically "
+                "enroll&rdquo; members of the four MMAI companies &mdash; Aetna, Humana, "
+                "Meridian and Molina &mdash; &ldquo;in the Illinois FIDE SNP offered by "
+                "these companies,&rdquo; effective 1 January 2026. If your parent&rsquo;s "
+                "MMAI plan was with one of those four, nothing had to be chosen for "
+                "coverage to continue, under the same company, as a FIDE SNP.</p>",
+                "<p>Blue Cross Blue Shield is the one exception named on the page, and "
+                "it is worth knowing about specifically: &ldquo;Blue Cross Blue Shield "
+                "will not be offering a FIDE SNP for 2026.&rdquo; HFS also flags a "
+                "letter some families may have already seen and should disregard: a "
+                "&ldquo;11/3/2025 BCBS letter&rdquo; telling members they could stay on "
+                "BCBS MMAI from 1 January 2026 &ldquo;should not have been sent,&rdquo; "
+                "and HFS states those members &ldquo;do not have the opportunity to "
+                "enroll in BCBS MMAI effective 1/1/2026.&rdquo; If your parent was on "
+                "BCBS MMAI, that letter was wrong, and a different plan had to be "
+                "chosen.</p>",
+                "<p>Anyone who was dually eligible but <strong>not</strong> already in "
+                "MMAI had a separate, earlier window: HFS states these members &ldquo;can "
+                "enroll in any Illinois FIDE SNP or other forms of coverage beginning "
+                "October 15, 2025.&rdquo;</p>",
+            ]),
+            ("Who cannot enrol in a FIDE SNP at all", [
+                "<p>A FIDE SNP is not open to every Illinois Medicaid recipient, even "
+                "a dually eligible one. HFS&rsquo;s own eligibility list requires &ldquo;"
+                "receiving full Illinois Medicaid benefits&rdquo; in the AABD or "
+                "FamilyCare category, being at least 21, having both Medicare Part A "
+                "and Part B, living in the plan&rsquo;s service area, and being a "
+                "citizen or lawfully present in the US.</p>",
+                "<p>HFS then names several specific exclusions families researching "
+                "long-term care should read carefully: someone is <strong>not</strong> "
+                "eligible for a FIDE SNP if they are under 21, receive developmental "
+                "disability institutional services or are in the related home and "
+                "community-based services waiver, are in the <strong>Medicaid "
+                "spend-down population</strong>, are in the Illinois Breast and Cervical "
+                "Cancer program, are in partial-benefit Medicaid, or have Comprehensive "
+                "Third Party Insurance. If your parent reached Medicaid eligibility "
+                "through spend-down &mdash; covered in "
+                '<a href="/guides/illinois-medicaid-long-term-care/">How Illinois '
+                "Medicaid pays for long-term care, and what spend-down means</a> "
+                "&mdash; a FIDE SNP is not an option for them regardless of what any "
+                "letter about MMAI might have implied.</p>",
+            ]),
+            ("If your parent is in a nursing home or a home care waiver", [
+                "<p>HFS&rsquo;s managed-care page for clients draws a specific line for "
+                "this site&rsquo;s readers: members &ldquo;in a nursing facility or in "
+                "certain Home and Community Based Services waivers&rdquo; who want to "
+                "leave MMAI do not simply pick another Medicare plan &mdash; they "
+                "&ldquo;must move to the HealthChoice Illinois program for MLTSS "
+                "members instead.&rdquo; MLTSS stands for Medicaid Long Term Services "
+                "and Supports. That is a different programme from the FIDE SNP "
+                "enrolment process described above, and this guide did not research "
+                "HealthChoice Illinois MLTSS itself &mdash; ask your parent&rsquo;s care "
+                "coordinator or the CCU handling their waiver which route actually "
+                "applies before assuming either one.</p>",
+            ]),
+            ("How to enrol, switch, or opt out", [
+                "<p>HFS&rsquo;s enrolment page points families toward three channels, "
+                "not one. The first is Medicare.gov itself: use its &ldquo;Find Plans "
+                "Now&rdquo; tool, entering a zip code and selecting Medicaid when asked "
+                "about help with costs, to compare the FIDE SNPs available there. The "
+                "second is contacting a plan directly or visiting its website. The "
+                "third is calling Medicare directly at <strong>1-800-MEDICARE "
+                "(1-800-633-4227)</strong>, TTY 1-877-486-2048.</p>",
+                "<p>Three enrolment windows govern timing. The annual Medicare "
+                "<strong>Open Enrollment Period</strong> runs &ldquo;October 15 - "
+                "December 7 of each year,&rdquo; with coverage starting the following "
+                "1 January. Outside that window, someone eligible for a FIDE SNP &ldquo;"
+                "can enroll once-per-month in a FIDE SNP using the Integrated Care "
+                "SEP.&rdquo; A separate <strong>Dual/LIS SEP</strong> lets a member "
+                "switch to Original Medicare with a standalone drug plan, or between "
+                "standalone drug plans, once a month &mdash; but HFS states neither "
+                "special enrolment period &ldquo;will allow enrollment into non-D-SNP "
+                "Medicare Advantage Plans.&rdquo; One rule applies regardless of which "
+                "window is used: &ldquo;Members cannot opt out of Medicare "
+                "coverage.&rdquo;</p>",
+                "<p>For changing which <em>Medicaid</em> managed care plan a client is "
+                "in, rather than the Medicare side, HFS's enrolment page gives a "
+                "separate number: the <strong>HFS Client Enrollment Broker</strong> at "
+                "<strong>1-877-912-8880</strong>.</p>",
+            ]),
+            ("What this guide could not verify", [
+                "<p>Three things this guide read about but will not state as settled. "
+                "First, cost: neither HFS page this guide fetched gives a premium, "
+                "copay or dollar figure for a FIDE SNP &mdash; the pages describe "
+                "Medicaid as &ldquo;helping with Medicare premiums and cost sharing&rdquo; "
+                "for a dually eligible member without stating an amount, so this guide "
+                "will not guess one. Second, a search result surfaced an email address "
+                "for HFS questions about this change; this guide could not find that "
+                "address stated on any HFS page it actually fetched and read, so it is "
+                "not reprinted here &mdash; use the verified phone numbers above instead. "
+                "Third, this guide read a January 2026 HFS notice describing enrolment "
+                "data problems during the changeover that a manual reconciliation "
+                "process was being built to fix; it did not find a later HFS page "
+                "confirming that fix is complete, so if your parent&rsquo;s plan still "
+                "looks wrong months later, that is worth raising directly with HFS or "
+                "the plan rather than assuming it will resolve itself.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>This site has already named a D-SNP once without stopping to "
+                "explain it: "
+                '<a href="/guides/illinois-home-care-ombudsman-program/">What to do '
+                "when your parent's in-home care isn't working in Illinois</a> covers "
+                "the free advocate for anyone &ldquo;enrolled in a Dual Eligible "
+                "Special Needs Plan (D-SNP)&rdquo; &mdash; this guide is the explainer "
+                "for what that plan actually is. If the open question instead is "
+                "whether Illinois will help pay a Medicare premium at all, rather than "
+                "which plan administers it, see "
+                '<a href="/guides/illinois-medicare-savings-program/">Can Illinois help '
+                "pay my parent's Medicare premium?</a></p>",
+                "<p>None of this changes what level of care your parent actually needs "
+                "&mdash; a FIDE SNP arranges and pays for care, it does not decide how "
+                "much of it is right. The "
+                '<a href="/">free six-question assessment</a> on this site asks for no '
+                "name, no email and no phone number to see your results, and your "
+                "answers never leave your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -5169,6 +5343,12 @@ CARDS = {
         "Illinois law requires a screening before anyone is admitted to a "
         "nursing facility, regardless of how they are paying — what it "
         "checks, who performs it, and what happens if it is skipped."),
+    "illinois-fide-snp-explained": (
+        "Paying with Medicaid",
+        "What replaced MMAI for dual-eligible seniors in Illinois",
+        "Illinois ended MMAI on 31 December 2025 for a FIDE SNP plan — what "
+        "moved automatically, who has to choose, and who cannot enrol in "
+        "one at all."),
 }
 
 
