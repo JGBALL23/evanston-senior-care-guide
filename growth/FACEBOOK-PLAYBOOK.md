@@ -49,22 +49,54 @@ Rules for the copy: use the plain URL with no added parameters. Don't name or co
 
 ## 5. Measurement (existing instruments only, nothing new)
 
-Use Netlify's server-side path counts for `/t/` beacons, which the owner reads. The landing, started, completed and plan-visit beacons carry `?s=<channel>`, taken from the visitor's referrer host.
+Use Netlify's server-side path counts for `/t/` beacons, which the owner reads. Corrected by G15 after reading the source on main `6f32217`.
 
-**Attribution caveat:** clicks from Facebook usually arrive through `l.facebook.com`, `lm.facebook.com` or `m.facebook.com`. So count `s=facebook`, `s=l`, `s=lm` and `s=m` together as Facebook. The in-app browser sometimes strips the referrer, so some Facebook visits will show as `s=direct`. Treat the Facebook figure as a **floor**.
+**How the channel tag is made** (`app.js` lines 61-77): `utm_source`, else `ref`, else the **first label** of the referrer's hostname after dropping `www.`, lowercased, at most 24 characters, else `direct`. It is recomputed on every page load and never stored.
+
+| Referrer host | Tag | Facebook only? |
+|---|---|---|
+| `facebook.com`, `www.facebook.com` | `facebook` | Yes |
+| `lm.facebook.com` | `lm` | Yes in practice; no other common host starts with `lm.` |
+| `l.facebook.com` | `l` | **No.** `l.instagram.com`, `l.messenger.com` and `l.threads.net` give `l` too |
+| `m.facebook.com` | `m` | **No.** `m.youtube.com` and other mobile sites give `m` too |
+| `mbasic.`, `web.`, `touch.facebook.com` | `mbasic`, `web`, `touch` | Yes, but not in the PR #29 list |
+| Referrer stripped (in-app browser, privacy setting) | `direct` | Unknown |
+
+**Which events carry the tag:**
+
+| Event (`/t/...`) | Tagged? | Source line |
+|---|---|---|
+| `landed.txt` | Yes | `app.js:116` |
+| `assessment-started.txt` | Yes | `app.js:1109`, `1141` |
+| `assessment-completed.txt` | Yes | `app.js:670` |
+| `plan-visit-submitted.txt` (attempt) | Yes | `app.js:1038` |
+| `plan-visit-saved.txt` (record saved) | Yes | `app.js:1049` |
+| `inquiry-submitted.txt` | **No**, by design (exact-path filter) | `app.js:35`, `1057` |
+| Stored inquiry record | **No channel field.** `source` is the fixed site name | `plan-visit.mjs:73`, `334` |
+| Confirmed tour | **No instrument** | (none) |
+
+**Supported reporting rule:**
+- **Facebook (confirmed):** `s=facebook` + `s=lm` + `s=mbasic` + `s=web` + `s=touch`.
+- **Facebook-possible (ambiguous):** `s=l` and `s=m`. Report them on a separate line and never add them to the Facebook count. Compare them with the 7 days before the post. Only a clear rise during the window counts as Facebook-likely, and with Instagram on hold, a rise in `s=l` is most plausibly Facebook.
+- **Unattributed:** `s=direct`. It is never counted as Facebook.
+- **Same-tab loss:** a visitor who opens a guide and then returns to the homepage gets a fresh tag of `direct`, because the referrer is now the site itself. So Facebook starts and completions are a **floor**.
+- **Inquiries:** only `plan-visit-saved.txt?s=<Facebook tags>` links a saved record to Facebook, as an aggregate count. A specific record cannot be tied to a channel.
+- **Tours:** they cannot be attributed to any channel with existing instruments. Report the total only.
+- Beacons fire from JavaScript, so link-preview crawlers that don't run scripts fire none. The harness user agent is still excluded.
+- **Owner option (not applied):** adding `?utm_source=facebook` to the post link uses existing, tested code (`tools/test_start_source.mjs:80`) and would make every click read `s=facebook`, ending the ambiguity. It changes the copy rule in section 2, so it is the owner's call.
 
 | Metric | Source | Note |
 |---|---|---|
 | Reach, reactions, comments | Facebook post insights, if the owner shares them | Aggregates only |
-| Facebook landings | `landed.txt?s=facebook\|l\|lm\|m` | Exclude the harness user agent and Facebook's link-preview fetches |
-| Assessment starts and completions | `assessment-started` and `assessment-completed`, Facebook `s=` values | Directional only |
-| Opt-in inquiries | Inquiry or plan-visit records | Count consented submissions only |
-| Confirmed tours | Owner's private match | Strongest signal |
+| Facebook landings | `landed.txt`, confirmed tags, with `l`/`m` reported apart | A floor |
+| Assessment starts and completions | `assessment-started` and `assessment-completed`, same split | A floor; directional only |
+| Opt-in inquiries | `plan-visit-saved.txt`, same split | An aggregate count only; records carry no channel |
+| Confirmed tours | Owner's private total | Not attributable to Facebook |
 
 A missing figure is reported as **unverified, not zero**. Report small numbers as counts, not rates.
 
 **First keep/change gate (at day 7):**
-- **Keep the offer and try a second permitted venue:** at least 3 genuine Facebook landings **and** at least 1 assessment completion, or any opt-in inquiry.
+- **Keep the offer and try a second permitted venue:** at least 3 confirmed-tag Facebook landings **and** at least 1 confirmed-tag assessment completion, or any `plan-visit-saved` with a confirmed tag. Ambiguous `l`/`m` counts never decide the gate alone.
 - **Change the hook (alternate) and keep the venue type:** the post had visible reach or reactions, but fewer than 3 Facebook landings.
 - **Change the venue:** reach was negligible, or the post was held or rejected.
 - **Change the offer:** at least 3 landings but 0 assessment starts. Look at the landing page before writing more copy.
