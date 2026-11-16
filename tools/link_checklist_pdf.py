@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Make the printed site address in the tour checklist PDF tappable.
+"""Make the printed site address and source names in the tour checklist PDF tappable.
 
 The one-page checklist prints "evanstonseniorcareguide.com" in its footer,
 but the PDF had no link annotation, so a caregiver who opens it on a phone
@@ -10,7 +10,15 @@ changes (the annotation has no border), and the file stays one page.
 
 The file is rewritten with a fresh cross-reference table (not an
 incremental update), so it keeps exactly one /Type /Page object.
-Idempotent: a file that already has the link is left unchanged.
+Source links (GP-20261116-164537Z): the "Licence and inspection record"
+question names Medicare Care Compare and IDPH's online list but did not
+link them. Two more borderless /Link annotations go over those printed
+names, pointing to the same official pages the guides already cite
+(the inspection-records guide says the IDPH list is "linked from its
+assisted living page"). Printed text is unchanged.
+
+Idempotent: links already present are left alone; a file that already
+has all three is left byte-for-byte unchanged.
 
 Usage: python3 tools/link_checklist_pdf.py [path]
 """
@@ -18,15 +26,28 @@ import re
 import sys
 
 PATH = "_dist/downloads/senior-living-tour-checklist.pdf"
-URI = "https://evanstonseniorcareguide.com/"
-# PDF user-space box over the printed address (pdftotext -bbox gives
-# x 99.0-250.1, top-down y 710.9-723.2 on a 792pt page), padded ~2pt.
-RECT = "97 67 252 83"
+# (uri, rect in PDF user space, description). Rects come from
+# pdftotext -bbox on the 792pt-high page, padded ~1-2pt, not overlapping
+# neighbouring words.
+LINKS = [
+    # "evanstonseniorcareguide.com": x 99.0-250.1, top-down y 710.9-723.2
+    ("https://evanstonseniorcareguide.com/", "97 67 252 83",
+     "Evanston Senior Care Guide website"),
+    # "Medicare Care Compare": x 282.5-389.1, top-down y 146.5-157.4
+    ("https://www.medicare.gov/care-compare/", "281 633 390 647",
+     "Medicare Care Compare"),
+    # "IDPH's online list": x 457.9-532.1, top-down y 146.5-157.4
+    ("https://dph.illinois.gov/topics-services/health-care-regulation/assisted-living.html",
+     "457 633 534 647",
+     "Illinois Department of Public Health assisted living page"),
+]
+URI = LINKS[0][0]
 
 
 def main(path):
     d = open(path, "rb").read()
-    if b"/URI (" + URI.encode() + b")" in d:
+    todo = [l for l in LINKS if b"/URI (" + l[0].encode() + b")" not in d]
+    if not todo:
         print("already linked:", path)
         return 0
     objs = {}
@@ -37,17 +58,24 @@ def main(path):
     header = d[: min(d.index(o) for o in objs.values())]
     size = int(re.search(rb"/Size (\d+)", d[d.rindex(b"trailer"):]).group(1))
     page_ids = [n for n, b in objs.items() if re.search(rb"/Type\s*/Page(?![a-zA-Z])", b)]
-    if len(page_ids) != 1 or b"/Annots" in objs[page_ids[0]]:
+    if len(page_ids) != 1:
         sys.exit("unexpected structure: pages=%r" % page_ids)
-    pid, aid = page_ids[0], size
-    objs[pid] = objs[pid].replace(b"/Tabs /S", b"/Annots [%d 0 R]\n/Tabs /S" % aid, 1)
-    if b"/Annots" not in objs[pid]:
+    pid = page_ids[0]
+    new_ids = list(range(size, size + len(todo)))
+    refs = b" ".join(b"%d 0 R" % n for n in new_ids)
+    if b"/Annots" in objs[pid]:
+        objs[pid], k = re.subn(rb"/Annots \[([^\]]*)\]", lambda m: b"/Annots [" + m.group(1) + b" " + refs + b"]", objs[pid], 1)
+    else:
+        objs[pid], k = objs[pid].replace(b"/Tabs /S", b"/Annots [" + refs + b"]\n/Tabs /S", 1), 1
+    if k != 1 or b"/Annots" not in objs[pid]:
         sys.exit("could not place /Annots")
-    objs[aid] = (
-        b"%d 0 obj\n<</Type /Annot\n/Subtype /Link\n/Rect [%s]\n/Border [0 0 0]\n"
-        b"/Contents (Evanston Senior Care Guide website)\n"
-        b"/A <</Type /Action\n/S /URI\n/URI (%s)>>>>\nendobj" % (aid, RECT.encode(), URI.encode())
-    )
+    for aid, (uri, rect, desc) in zip(new_ids, todo):
+        objs[aid] = (
+            b"%d 0 obj\n<</Type /Annot\n/Subtype /Link\n/Rect [%s]\n/Border [0 0 0]\n"
+            b"/Contents (%s)\n"
+            b"/A <</Type /Action\n/S /URI\n/URI (%s)>>>>\nendobj" % (aid, rect.encode(), desc.encode(), uri.encode())
+        )
+    size += len(todo) - 1
     trailer_extra = re.search(rb"trailer\s*<<(.*?)>>\s*startxref", d, re.S).group(1)
     trailer_extra = re.sub(rb"/Size \d+", b"/Size %d" % (size + 1), trailer_extra)
     out = bytearray(header)
