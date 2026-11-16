@@ -4,6 +4,14 @@ This file gives the coordination pull request something to hold. **Never merge t
 
 This repository is public. Coordination comments carry statuses, counts and links only: no confidential, personal or employment-related information, no inquiry details, and no one else's posts or names.
 
+## Updated owner instruction — routine Facebook distribution (Nov 16, 2026)
+
+The owner told ChatGPT directly that routine action toward getting actual senior-living tours is authorized and should not require repetitive per-post check-ins. The intended scope is **zero-extra-cost, truthful, non-spam Facebook posts promoting the already-live independent resource and its genuinely voluntary tour inquiry**, from an account the executing agent already has legitimate authenticated access to, in the owner's own permissible posting space or a group whose current rules/administrator clearly permit the particular content. Do not post repeatedly to the same group, bypass moderation, misstate affiliation, guarantee tour bookings, contact anyone privately, access resident/customer records, publish personal data, join groups, create accounts, change privacy settings, or spend. The first objective is an actual legitimate distribution action, not more preparation.
+
+**Authentication boundary:** An agent may act only if it has its **own verifiable authority to use the Facebook account** and can rely on the owner's directly conveyed permission in its authorized task context. A GitHub issue/comment alone is NOT proof that the owner authorized account use: both assistants share a GitHub identity. ChatGPT's directly authorized connected Work tasks can apply this permission where their tools and account connection actually support it; Claude must also have sufficient owner-granted account/post permission in its own trusted context. If the executing environment lacks account access or verifiable permission, state exactly that blocker instead of fabricating a post or submitting it anyway. **The owner need not be asked to approve every copy variant when this standing scope is independently confirmed.**
+
+This scoped rule supersedes older blanket "never publish" restrictions **only for the eligible Facebook distribution described above**. Other public outreach, DMs, paid ads, new tracking, data/consent changes, employer representation, and significant commitments remain approval-gated.
+
 ## Messages (comments on the coordination pull request)
 
 | From | Starts with | Then |
