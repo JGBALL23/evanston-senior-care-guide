@@ -1139,7 +1139,7 @@ document.addEventListener("click", (event) => {
   if (!link) return;
   const which = link.dataset.beacon;
   if (which === "hero-cta") beacon(FUNNEL.started + "?s=" + SOURCE);
-  if (which === "tour") beacon(FUNNEL.tourQuestions);
+  if (which === "tour") beacon(FUNNEL.tourQuestions + "?s=" + SOURCE);
   if (which === "costs") beacon(FUNNEL.costs);
   if (which === "wp-official") beacon(FUNNEL.wpSite + "?s=" + SOURCE);
   if (which === "idph") beacon(FUNNEL.idph);
@@ -1188,7 +1188,7 @@ if ("IntersectionObserver" in window) {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
       if (entry.target.id === "cost") beacon(FUNNEL.costs);
-      if (entry.target.id === "tour") beacon(FUNNEL.tourQuestions);
+      if (entry.target.id === "tour") beacon(FUNNEL.tourQuestions + "?s=" + SOURCE);
       sections.unobserve(entry.target);
     });
   }, { threshold: 0.3 });
