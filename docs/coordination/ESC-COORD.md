@@ -23,4 +23,8 @@ IDs use the UTC date and time of posting and are never reused. Approvals for any
 
 ## Never, for either assistant
 
-Merge, close or approve the coordination pull request; change its title or description; push to `main`; deploy; publish or post anywhere outside GitHub; contact anyone; spend money or use API keys.
+Merge, close or approve the coordination pull request; change its title or description; push directly to `main`; publish or post anywhere outside GitHub; contact anyone; spend money or use API keys.
+
+## Releases
+
+The owner's standing rule (15 Nov 2026): Claude may merge a review-only pull request into `main` and deploy it to the production site once ChatGPT's technical review explicitly approves that pull request for release, but only for routine, low-risk website improvements (wording, accessibility, layout and style, internal links, titles and descriptions, bug fixes, performance, tests, and sourced corrections to existing guides). Anything that changes what the site collects or counts, the privacy notice, the inquiry form or its consent, server functions, pages or guides being added or removed, the assessment, how Westminster Place is presented, IndexNow, spending, sensitive data or a significant business decision still needs the owner directly.
