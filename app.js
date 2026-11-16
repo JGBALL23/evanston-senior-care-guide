@@ -42,7 +42,11 @@ const FUNNEL = {
   /* The third pathway from a guide (Workflow #5): the payment navigator.
      Counted apart from the two above so a reader who came to compare
      funding routes is never mistaken for one who chose the assessment. */
-  guidePay:        "/t/guide-choice-pay.txt"
+  guidePay:        "/t/guide-choice-pay.txt",
+  /* A click on the homepage's free tour-checklist link, tagged with the
+     arrival channel. A click, not a completed download, not a person and
+     not an inquiry. Once per page load, like every other beacon. */
+  checklist:       "/t/checklist-click.txt"
 };
 
 /* ---------- WHERE THEY CAME FROM ----------------------------
@@ -1139,6 +1143,7 @@ document.addEventListener("click", (event) => {
   if (which === "costs") beacon(FUNNEL.costs);
   if (which === "wp-official") beacon(FUNNEL.wpSite + "?s=" + SOURCE);
   if (which === "idph") beacon(FUNNEL.idph);
+  if (which === "checklist") beacon(FUNNEL.checklist + "?s=" + SOURCE);
 });
 
 /* ---------- "MORE" ROWS OPEN WHEN A LINK LANDS INSIDE THEM --------
