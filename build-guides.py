@@ -2519,6 +2519,7 @@ HEAD = """<!DOCTYPE html>
 {jsonld}
 </head>
 <body>
+<a class="skip" href="#main">Skip to main content</a>
 
 <nav class="nav" aria-label="Primary">
   <div class="wrap nav__inner">
@@ -2553,7 +2554,7 @@ HEAD = """<!DOCTYPE html>
   </div>
 </nav>
 
-<main class="band">
+<main class="band" id="main">
   <div class="wrap {wrapcls}">
 """
 
