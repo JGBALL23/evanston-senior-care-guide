@@ -1628,5 +1628,14 @@ check("tour checklist: never a button class", !/class="btn/.test(clBlock(home)))
 check("styles.css: the checklist link is 44px tall to tap and not a .btn",
   /\.dl-link \{[^}]*min-height: 44px;/.test(css) && !/\.dl-link[^{]*\.btn|\.btn[^{]*\.dl-link/.test(css));
 
+/* G03, 16 Nov 2026: calling the Senior HelpLine is the Community Care
+   Program guide's only stated first step, yet the number was plain text,
+   so a phone at 390px offered nothing to tap. Both mentions now dial it;
+   the visible number and its source are unchanged. */
+const ccpTels = page["illinois-community-care-program"].match(/<a href="tel:[^"]*">[^<]*<\/a>/g) || [];
+check("CCP guide: both Senior HelpLine mentions are tap-to-call links",
+  ccpTels.length === 2 &&
+  ccpTels.every((t) => t === '<a href="tel:+18002528966">1-800-252-8966</a>'), ccpTels.join(" "));
+
 console.log("\n  " + pass + " passed, " + fail + " failed   (" + (pass + fail) + " checks)");
 process.exit(fail === 0 ? 0 : 1);
