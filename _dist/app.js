@@ -1102,7 +1102,7 @@ quizEl.addEventListener("click", (event) => {
   }
   const opt = event.target.closest(".opt");
   if (opt) {
-    if (!startedBeaconSent) { beacon(FUNNEL.started); startedBeaconSent = true; }
+    if (!startedBeaconSent) { beacon(FUNNEL.started + "?s=" + SOURCE); startedBeaconSent = true; }
     answers[QUESTIONS[step].id] = Number(opt.dataset.i);
     step += 1;
     if (step >= QUESTIONS.length) renderResult();
@@ -1134,7 +1134,7 @@ document.addEventListener("click", (event) => {
   const link = event.target.closest("[data-beacon]");
   if (!link) return;
   const which = link.dataset.beacon;
-  if (which === "hero-cta") beacon(FUNNEL.started);
+  if (which === "hero-cta") beacon(FUNNEL.started + "?s=" + SOURCE);
   if (which === "tour") beacon(FUNNEL.tourQuestions);
   if (which === "costs") beacon(FUNNEL.costs);
   if (which === "wp-official") beacon(FUNNEL.wpSite + "?s=" + SOURCE);
