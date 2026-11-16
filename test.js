@@ -1429,10 +1429,11 @@ check("the notice lists whether the assessment was taken",
   /Whether you took the six questions/.test(priv) && /assessment was not taken/.test(priv));
 check("the notice says the email also carries the interest",
   /that email contains your[\s\S]{0,200}interested in/.test(priv));
-/* 2026-11-01: the notice changed (wording only), so its own promise
-   "if this notice changes, the date changes with it" moves the date. */
-check("the notice carries the 1 November 2026 review date",
-  priv.indexOf("Last updated: 1 November 2026") !== -1);
+/* 2026-11-15: the counted-steps list now names the checklist click and
+   the steps that carry the arrival note (#18-#20), so the notice's own
+   promise "if this notice changes, the date changes with it" moves the date. */
+check("the notice carries the 15 November 2026 review date",
+  priv.indexOf("Last updated: 15 November 2026") !== -1);
 check("the published notice is byte-identical to the staged copy",
   require("fs").readFileSync("_dist/privacy.html", "utf8") === priv);
 const homeForCounts = require("fs").readFileSync("index.html", "utf8");
