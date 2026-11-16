@@ -1598,8 +1598,13 @@ check("tour checklist: US Letter", /\/MediaBox\s*\[\s*0\s+0\s+612\s+792\s*\]/.te
 check("tour checklist: small enough for a phone (< 200 KB)", clBuf.length > 0 && clBuf.length < 200 * 1024, clBuf.length + " bytes");
 const CL_OPEN = '<a class="dl-link" href="/downloads/senior-living-tour-checklist.pdf" download="Senior-Living-Tour-Checklist.pdf">';
 const CL_SLUGS = ["independent-living-evanston", "assisted-living-cost-illinois", "check-illinois-inspection-records"];
-const clCount = (h) => h.split(CL_OPEN).length - 1;
-const clBlock = (h) => (h.match(/<p class="dl-cta">[\s\S]*?<\/p>/) || [""])[0];
+/* The homepage link alone carries data-beacon="checklist": guides load
+   nav.js only, so the attribute would do nothing there. Comparisons strip
+   it so the visible block stays identical everywhere. */
+const CL_ATTR = ' data-beacon="checklist"';
+const clStrip = (h) => h.split(CL_ATTR).join("");
+const clCount = (h) => clStrip(h).split(CL_OPEN).length - 1;
+const clBlock = (h) => clStrip((h.match(/<p class="dl-cta">[\s\S]*?<\/p>/) || [""])[0]);
 const clTourSec = (home.match(/<section[^>]*\bid="tour"[^>]*>[\s\S]*?<\/section>/) || [""])[0];
 check("tour checklist: one link on the homepage, inside the tour section",
   clCount(home) === 1 && clCount(clTourSec) === 1);
@@ -1608,6 +1613,10 @@ CL_SLUGS.forEach((s) => {
   check("tour checklist: the same block as the homepage on " + s,
     clBlock(page[s]) !== "" && clBlock(page[s]) === clBlock(home));
 });
+check("tour checklist: the homepage link, and only it, fires the click beacon",
+  home.split(CL_OPEN.slice(0, -1) + CL_ATTR + ">").length - 1 === 1 &&
+  home.split(CL_ATTR).length - 1 === 1 &&
+  CL_SLUGS.every((s) => page[s].indexOf(CL_ATTR) === -1));
 check("tour checklist: no other guide, nor the guides index, carries it",
   SLUGS.filter((s) => CL_SLUGS.indexOf(s) === -1 && page[s].indexOf("dl-link") !== -1).length === 0 &&
   indexPage.indexOf("dl-link") === -1);
