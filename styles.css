@@ -1331,6 +1331,16 @@ section[id], header[id] { scroll-margin-top: calc(var(--nav-h) + 14px); }
   box-shadow: 0 0 0 3px var(--sage-tint);
 }
 .plan__field--date input { min-height: 56px; }
+/* Set by app.js only after a tap on "Request a tour" with something
+   missing, and cleared as soon as that field is filled. */
+.plan__field input[aria-invalid="true"] {
+  border-color: #8c3a28;
+  box-shadow: 0 0 0 1px #8c3a28;
+}
+.plan__check input[aria-invalid="true"] {
+  outline: 2px solid #8c3a28;
+  outline-offset: 2px;
+}
 
 .plan__hint {
   font-size: 15.5px;
