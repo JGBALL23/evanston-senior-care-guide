@@ -436,7 +436,10 @@
    "illinois-home-delivered-meals (PR #53)",
    "illinois-elder-abuse-reporting (PR #55)",
    "illinois-benefit-access-program (PR #58)",
-   "medicare-durable-medical-equipment-coverage (PR #60)"
+   "medicare-durable-medical-equipment-coverage (PR #60)",
+   "va-nursing-home-and-respite-care",
+   "illinois-home-caregiver-background-check",
+   "va-caregiver-support-program"
   ],
   "fixes_1117": [
    "Medicare guide unsupported wording removed (PR #26)",
@@ -454,7 +457,10 @@
   ],
   "indexnow_1117": "40 URLs accepted in 13 submissions (HTTP 200)",
   "guides_live": 33,
-  "drafts_unpublished": 6,
+  "drafts_unpublished": [
+   "illinois-money-management-program (deferred: IDoA's own site list shows no Program Site serving Evanston Township, low value here)",
+   "va-home-based-primary-care-and-aide (deferred: largely covered by the VA nursing home and respite guide)"
+  ],
   "why_tour_link": "FB visitors land on #tour; 17 Nov two read the tour questions or opened the checklist, but the section had no way to ask about a visit",
   "verification_note": "each draft re-checked against its official source before publishing; drafts often paraphrased inside quotation marks and once reversed a rule (MSP $25 disregard), so every quotation is compared verbatim",
   "search_console": {
@@ -466,11 +472,6 @@
    "rules": "read-only weekly; no users, settings or tracking"
   },
   "routine": "ROUTINE.md on drafts: quotation and paraphrase integrity rules added (PR #52, owner-approved 11:56 Chicago); the routine trigger itself can only be edited by the owner (created outside agents), and it reads ROUTINE.md as its procedure",
-  "guides_published_today": 17,
-  "last_guide_utc": "2026-11-17T22:54Z",
-  "drafts_remaining": [
-   "illinois-money-management-program (deferred: IDoA's own site list shows no Program Site serving Evanston Township, low value here)",
-   "va-home-based-primary-care-and-aide (deferred: largely covered by the VA nursing home and respite guide)"
-  ]
+  "last_guide_utc": "2026-11-17T22:54Z"
  }
 }
