@@ -327,6 +327,12 @@ SRC = {
                                'https://ilaging.illinois.gov/aboutus/legal-adv-directives.html'),
     "ilaging_legal_assistance": ('Illinois Department on Aging — Legal Assistance',
                                  'https://ilaging.illinois.gov/programs/legalassistance.html'),
+    "hfs_qmb": ('Illinois HFS — Qualified Medicare Beneficiary (QMB) Program brochure (HFS 3352)',
+               'https://hfs.illinois.gov/info/brochures-and-forms/brochures/hfs3352.html'),
+    "ilaging_msp_chart": ('Illinois Department on Aging — 2026 Medicare Savings Programs chart (QMB, SLMB, QI-1)',
+                         'https://ilaging.illinois.gov/content/dam/soi/en/web/aging/ship/documents/medicare-savings-program-chart.pdf'),
+    "mmsp": ('Medicare.gov — Medicare Savings Programs',
+             'https://www.medicare.gov/medicare-savings-programs'),
 }
 
 
@@ -3221,6 +3227,132 @@ GUIDES = [
             ]),
         ],
     },
+    {
+        "slug": "illinois-medicare-savings-program",
+        "bridge": ("Qualifying for help with a Medicare premium says nothing "
+               "about what kind of care your parent actually needs, or "
+               "whether assisted living is even the right next step."),
+        "reviewed": "2026-11-17",
+        "title": "Illinois Medicare Savings Programs: QMB, SLMB and QI Explained",
+        "h1": "Can Illinois help pay my parent's Medicare premium? QMB, SLMB and QI, explained",
+        "desc": ("Three Illinois programs (QMB, SLMB, QI) use Medicaid to pay "
+                 "Medicare premiums. What each covers, the 2026 income and asset "
+                 "limits, and how to apply."),
+        "intent": "how-to / eligibility",
+        "answer": ("<strong>Illinois runs three Medicare Savings Programs &mdash; QMB, "
+                   "SLMB and QI &mdash; that use Medicaid to pay part or all of a "
+                   "Medicare beneficiary's premium, and QMB also pays Medicare's "
+                   "deductibles and coinsurance.</strong> A caseworker decides which "
+                   "of the three a person qualifies for, against income and asset "
+                   "limits the state republishes every April. Medicare.gov's own "
+                   "advice to anyone unsure: &ldquo;Even if you don&rsquo;t think you qualify, you should still apply.&rdquo;"),
+        "sources": srcs("mmsp", "ilaging_msp_chart", "hfs_qmb"),
+        "body": [
+            ("Three programmes that pay Medicare costs through Medicaid", [
+                "<p>The Illinois Department on Aging's own chart describes the "
+                "Medicare Savings Program plainly: it &ldquo;is a State Medicaid program that can help to pay Medicare premiums&rdquo; and, depending on the program, deductibles and coinsurance for Medicare beneficiaries who qualify. It is not a separate pension or a "
+                "new Medicare benefit &mdash; it is Medicaid money covering part of "
+                "what Medicare already charges.</p>",
+                "<p>Medicare.gov describes three tiers a state runs: the "
+                "<strong>Qualified Medicare Beneficiary (QMB)</strong> programme, "
+                "the <strong>Specified Low-Income Medicare Beneficiary (SLMB)</strong> "
+                "programme, and the <strong>Qualifying Individual (QI)</strong> "
+                "programme. QMB has the widest coverage and the lowest income limit; "
+                "SLMB and QI pay for less but allow higher income. Medicare.gov also "
+                "lists a fourth, narrower programme called Qualified Disabled and "
+                "Working Individual (QDWI), limited to a specific group of people "
+                "with disabilities who returned to work and lost premium-free Part "
+                "A. The Illinois chart this guide relied on for state figures does "
+                "not cover QDWI, so neither does this guide.</p>",
+            ]),
+            ("What each programme actually pays for", [
+                "<p>Illinois's own QMB brochure states that the programme covers "
+                "&ldquo;payment of Medicare Part A monthly premiums when "
+                "applicable,&rdquo; the Part A deductible and coinsurance, the Part "
+                "B monthly premium and annual deductible, and the Part B 20 percent "
+                "coinsurance. Medicare.gov adds a practical consequence for people in QMB: &ldquo;Medicare providers aren&rsquo;t allowed to bill you for services and items Medicare covers, including deductibles, coinsurance, and copayments.&rdquo;</p>",
+                "<p>SLMB and QI are narrower &mdash; both pay the Part B premium "
+                "only, nothing toward deductibles or coinsurance. The difference "
+                "between them is mainly procedural: Medicare.gov describes QI as "
+                "&ldquo;only available for people who don't qualify for any other "
+                "Medicaid coverage or benefits,&rdquo; and says it requires a fresh "
+                "application every year, approved first-come, first-served, with "
+                "priority given to people who received it the previous year. SLMB "
+                "carries no such annual reapplication requirement on the Medicare.gov "
+                "page.</p>",
+            ]),
+            ("Illinois's income and asset limits for 2026", [
+                "<p>The Department on Aging's 2026 chart gives these monthly income "
+                "and resource limits: <strong>QMB</strong>, set at 100% of the "
+                "federal poverty level, is <strong>$1,330 a month for one person or "
+                "$1,803 for a couple</strong>, with an asset limit of $9,950 for one "
+                "person or $14,910 for a couple. <strong>SLMB</strong>, at 120% FPL, "
+                "is <strong>$1,596 for one person or $2,164 for a couple</strong>, "
+                "same asset limits. <strong>QI</strong>, at 135% FPL, is "
+                "<strong>$1,796 for one person or $2,435 for a couple</strong>, same "
+                "asset limits again.</p>",
+                "<p>The chart adds three notes worth repeating rather than "
+                "smoothing over: the figures are &ldquo;estimates based on the "
+                "Federal Poverty Level percentages,&rdquo; with the exact figures "
+                "posted by the Illinois Department of Human Services each &ldquo;Early "
+                "April&rdquo;; Illinois automatically disregards $25 of income (the chart&rsquo;s note: &ldquo;Add $25 to incomes because Illinois automatically disregards $25&rdquo;), so the first $25 a month is not counted against the limits above; and the asset limits shown &ldquo;do not include an additional $1,500/$3000 burial allowance deduction.&rdquo;</p>",
+            ]),
+            ("A set of figures this guide will not use", [
+                "<p>Illinois's own QMB brochure (HFS 3352) states a monthly income "
+                "limit of $1,073 for one person or $1,452 for a couple, and an asset "
+                "limit of $7,970 or $11,960 with dependents &mdash; figures well "
+                "below the Department on Aging's dated 2026 chart above. The "
+                "brochure says these limits &ldquo;change every April&rdquo; but "
+                "never states which year its own numbers reflect, which, set "
+                "against a chart that is both dated and self-described as the "
+                "current year's estimate, reads as an older page left live rather "
+                "than a second current figure. This guide uses the dated chart and "
+                "leaves the undated brochure numbers out. Confirm your parent's "
+                "exact current limits when you apply, rather than relying on either "
+                "number once more time has passed.</p>",
+            ]),
+            ("The extra benefit that comes bundled in: Extra Help", [
+                "<p>Medicare.gov says people in QMB, SLMB or QI also get <strong>Extra Help</strong>, the "
+                "federal programme that caps what a beneficiary pays toward Part D "
+                "prescription drug costs. For 2026, Medicare.gov gives that cap as "
+                "<strong>no more than $12.65 for each covered drug</strong>. So a parent approved for one of the three also gets help with prescription drug costs.</p>",
+            ]),
+            ("How to apply", [
+                "<p>Illinois's QMB brochure directs applicants to their nearest "
+                "Illinois Department of Human Services <strong>Family Community "
+                "Resource Center (FCRC)</strong>, where a caseworker can help "
+                "complete the application; bring a Medicare card, or a letter "
+                "stating Medicare eligibility, and the FCRC will notify you in "
+                "writing whether you qualify. Questions can go to the DHS Helpline "
+                "on <strong>1-800-843-6154</strong> (TTY 1-866-324-5553, relay 11), "
+                "Monday&ndash;Friday 8:30 a.m. to 5:00 p.m., excluding state "
+                "holidays.</p>",
+                "<p>The Department on Aging's 2026 chart names a second route: it "
+                "tells applicants &ldquo;you can apply at: "
+                "https://abe.illinois.gov/,&rdquo; the state's online Application "
+                "for Benefits Eligibility portal. This guide did not independently "
+                "open that site to describe what the application screens look like, "
+                "so treat it as a name and address to go to, not a description this "
+                "guide can vouch for beyond what the chart itself says.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>A Medicare Savings Program only ever touches a Medicare "
+                "premium, deductible or coinsurance &mdash; it has nothing to do "
+                "with paying for assisted living, memory care or a nursing home. "
+                "For that much larger kind of Medicaid help, see "
+                '<a href="/guides/illinois-medicaid-long-term-care/">How Illinois '
+                "Medicaid pays for long-term care</a>, and for what Medicare itself "
+                "will and will not cover, see "
+                '<a href="/guides/does-medicare-pay-for-senior-care/">Does Medicare '
+                "pay for assisted living or nursing home care?</a></p>",
+                "<p>If the real question is what level of care your parent needs in "
+                'the first place, the <a href="/">free six-question assessment</a> '
+                "on this site walks through that separately. It asks for no name, "
+                "no email and no phone number, and your answers never leave your "
+                "device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -3416,7 +3548,7 @@ RELATED = {
         "va-aid-and-attendance-benefit"],
     "does-medicare-pay-for-senior-care": [
         "assisted-living-cost-illinois",
-        "illinois-medicaid-long-term-care",
+        "illinois-medicare-savings-program",
         "illinois-senior-health-insurance-program"],
     "illinois-supportive-living-program": [
         "illinois-medicaid-long-term-care",
@@ -3469,7 +3601,7 @@ RELATED = {
     "illinois-senior-health-insurance-program": [
         "does-medicare-pay-for-senior-care",
         "medicare-hospice-benefit-explained",
-        "illinois-medicaid-long-term-care"],
+        "illinois-medicare-savings-program"],
     "illinois-nursing-home-resident-rights": [
         "illinois-care-facility-complaint",
         "check-illinois-inspection-records",
@@ -3490,6 +3622,10 @@ RELATED = {
         "illinois-nursing-home-resident-rights",
         "medicare-hospice-benefit-explained",
         "levels-of-senior-care-explained"],
+    "illinois-medicare-savings-program": [
+        "illinois-senior-health-insurance-program",
+        "does-medicare-pay-for-senior-care",
+        "illinois-medicaid-long-term-care"],
 }
 
 RELATED_MIN_INBOUND = 2
@@ -3827,6 +3963,12 @@ CARDS = {
         "Illinois does not require one, but without it the state still "
         "names a decision-maker in a fixed order you do not get to "
         "choose — what each of Illinois's four advance directives does."),
+    "illinois-medicare-savings-program": (
+        "Paying with Medicaid",
+        "Can Illinois help pay my parent's Medicare premium?",
+        "QMB, SLMB and QI are three Medicaid-run tiers that pay part or "
+        "all of a Medicare premium — what each covers, the state's dated "
+        "2026 limits, and the older figures this guide would not use."),
 }
 
 
