@@ -395,6 +395,14 @@ SRC = {
                               'https://dph.illinois.gov/topics-services/health-care-regulation/health-care-facilities/home-services/faq.html'),
     "idoa_inhome": ('Illinois Department on Aging — In-Home Care for Seniors',
                     'https://ilaging.illinois.gov/programs/caregiver/in-home-care.html'),
+    "va_csp_pgcss": ('VA Caregiver Support Program — Program of General Caregiver Support Services (PGCSS)',
+        'https://www.caregiver.va.gov/care_caregivers.asp'),
+    "va_pcafc": ('VA.gov — Program of Comprehensive Assistance for Family Caregivers',
+                'https://www.va.gov/family-and-caregiver-benefits/health-and-disability/comprehensive-assistance-for-family-caregivers/'),
+    "va_pcafc_stipend": ('VA Caregiver Support Program — PCAFC Monthly Stipend fact sheet (updated 5 November 2024)',
+        'https://www.caregiver.va.gov/pdfs/FactSheets/Monthly-Caregiver-Stipend-Factsheet.pdf'),
+    "va_pgcss_res": ('VA.gov — The Program of General Caregiver Support Services',
+        'https://www.va.gov/resources/the-program-of-general-caregiver-support-services/'),
 }
 
 
@@ -4664,6 +4672,195 @@ GUIDES = [
             ]),
         ],
     },
+    {
+        "slug": "va-caregiver-support-program",
+        "bridge": ("Whether VA will pay a family caregiver says nothing about "
+                   "whether the care a parent needs has moved past what one "
+                   "caregiver can safely provide at home."),
+        "reviewed": "2026-11-17",
+        "title": "Can a Family Caregiver Be Paid by the VA to Care for a Veteran?",
+        "h1": "Can a family caregiver get paid by the VA to care for a veteran at home?",
+        "desc": ("Who qualifies for VA's monthly caregiver stipend (PCAFC), what "
+                 "it includes and how it is set, and the VA caregiver support "
+                 "open to everyone else."),
+        "intent": "benefits question",
+        "answer": ("<strong>Sometimes, through the Program of Comprehensive "
+                   "Assistance for Family Caregivers (PCAFC).</strong> It pays "
+                   "a monthly stipend to an approved primary family caregiver "
+                   "of a veteran who, among other requirements, has a VA "
+                   "disability rating of 70% or higher, needs at least six "
+                   "months of continuous, in-person personal care, and is "
+                   "enrolled in VA health care. A caregiver who does not "
+                   "qualify can still get support, without a stipend, through "
+                   "VA&rsquo;s Program of General Caregiver Support Services "
+                   "(PGCSS)."),
+        "sources": srcs("va_pcafc", "va_pcafc_stipend", "va_pgcss_res",
+                        "va_csp_pgcss"),
+        "body": [
+            ("Two programmes, and only one of them pays the caregiver", [
+                "<p>Families researching VA help often find "
+                '<a href="/guides/va-aid-and-attendance-benefit/">Aid and '
+                "Attendance</a> first, an increased rate of a VA pension. "
+                "VA&rsquo;s caregiver programmes are different. The "
+                "<strong>Program of Comprehensive Assistance for Family "
+                "Caregivers (PCAFC)</strong> is the one with a monthly "
+                "stipend, and it has requirements for both the veteran and "
+                "the caregiver. The <strong>Program of General Caregiver "
+                "Support Services (PGCSS)</strong> offers training and support "
+                "instead. VA.gov says family caregivers of veterans who are "
+                "not eligible for PCAFC &ldquo;may still be able to get "
+                "support&rdquo; and resources through PGCSS.</p>",
+            ]),
+            ("What the veteran has to meet, for PCAFC", [
+                "<p>VA.gov says: &ldquo;All of these must be true for the "
+                "Veteran you&rsquo;re caring for.&rdquo;</p>",
+                '<ul class="res__list"><li>&ldquo;The Veteran has a VA '
+                "disability rating (individual or combined) of 70% or "
+                "higher&rdquo;</li><li>&ldquo;The Veteran was discharged from "
+                "the U.S. military or has a date of medical "
+                "discharge&rdquo;</li><li>&ldquo;The Veteran needs at least 6 "
+                "months of continuous, in-person personal care "
+                "services&rdquo;</li><li>&ldquo;The Veteran needs to be "
+                "enrolled in VA healthcare&rdquo;</li></ul>",
+                "<p>VA.gov says &ldquo;Personal care services are services the "
+                "Veteran needs from another person,&rdquo; and lists three "
+                "kinds: health and well-being; everyday personal needs, like "
+                "feeding, bathing and dressing; and safety, protection or "
+                "instruction in their daily living environment.</p>",
+                "<p>Active-duty service members undergoing a medical "
+                "discharge &ldquo;will need to apply for VA healthcare,&rdquo; "
+                "and VA.gov says they can do that before or after submitting "
+                "their application for caregiver assistance.</p>",
+            ]),
+            ("Who can be the paid caregiver", [
+                "<p>VA.gov&rsquo;s requirement for the caregiver: &ldquo;You "
+                "must be at least 18 years old. And at least 1 of these must "
+                "be true for you:&rdquo;</p>",
+                '<ul class="res__list"><li>&ldquo;You&rsquo;re a spouse, son, '
+                "daughter, parent, stepfamily member, or extended family "
+                "member of the Veteran, or&rdquo;</li><li>&ldquo;You live full "
+                "time with the Veteran, or you&rsquo;re willing to live full "
+                "time with the Veteran&rdquo; if VA designates you as a family "
+                "caregiver</li></ul>",
+                "<p>Because only one of the two has to be true, someone "
+                "outside the listed family relationships can qualify by living "
+                "with the veteran full time, or being willing to. The stipend "
+                "goes to the caregiver VA designates as the primary family "
+                "caregiver; a secondary family caregiver gets a shorter list "
+                "of benefits.</p>",
+            ]),
+            ("What a primary family caregiver can receive", [
+                "<p>VA.gov lists these benefits for both primary and "
+                "secondary family caregivers:</p>",
+                '<ul class="res__list"><li>Caregiver education and '
+                "training</li><li>Mental health counseling</li><li>&ldquo;Certain "
+                "travel benefits when traveling with the Veteran to receive "
+                "care&rdquo;</li></ul>",
+                "<p>A <strong>primary</strong> family caregiver may also "
+                "get:</p>",
+                '<ul class="res__list"><li>A monthly stipend '
+                "(payment)</li><li>Health care through CHAMPVA, the Civilian "
+                "Health and Medical Program of the Department of Veterans "
+                "Affairs, for a caregiver who does not already qualify for "
+                "care or services under another health plan</li><li>&ldquo;Free "
+                "legal and financial planning assistance related to the needs "
+                "of the injured Veteran.&rdquo;</li><li>&ldquo;At least 30 days "
+                "of respite care per year.&rdquo;</li><li>Telehealth therapy "
+                "sessions through VA&rsquo;s virtual psychotherapy programme "
+                "for caregivers</li><li>Access to military commissaries, "
+                "exchanges and recreation retail facilities</li></ul>",
+                "<p>VA.gov adds: &ldquo;You must be enrolled in direct deposit "
+                "using the VA customer engagement portal to get your monthly "
+                "stipend.&rdquo;</p>",
+            ]),
+            ("How the stipend is set", [
+                "<p>VA&rsquo;s PCAFC page says the stipend exists but not how "
+                "much it is. VA&rsquo;s Monthly Caregiver Stipend fact sheet, "
+                "updated 5 November 2024, explains the formula. It starts from "
+                "the Office of Personnel Management&rsquo;s General Schedule "
+                "annual rate for grade 4, step 1, &ldquo;based on the locality "
+                "pay area in which the eligible Veteran resides, divided by "
+                "12.&rdquo; At Level One that monthly figure is multiplied by "
+                "0.625. At Level Two, which applies if VA determines the "
+                "veteran meets the definition of &ldquo;unable to self-sustain "
+                "in the community,&rdquo; it is multiplied by 1.00.</p>",
+                "<p>The fact sheet says OPM may, but will not necessarily, update "
+                "the General Schedule pay tables each year, and that an update "
+                "takes effect on the first of the month after the month OPM "
+                "announces it. This guide does not calculate an amount for "
+                "any family. Ask the caregiver support team at your VA facility "
+                "what the current figure would be.</p>",
+            ]),
+            ("If PCAFC does not fit: general caregiver support", [
+                "<p>VA.gov says PGCSS may be right for a caregiver if all of "
+                "these are true: &ldquo;You care for a Veteran who is enrolled "
+                "in VA health care,&rdquo; &ldquo;You provide personal care "
+                "services to the Veteran,&rdquo; and &ldquo;You want to connect "
+                "with other caregivers, get more support from a professional "
+                "care team, or grow your skills as a caregiver.&rdquo; It adds: "
+                "&ldquo;You don&rsquo;t need to be a relative or live with the "
+                "Veteran to be considered a general caregiver.&rdquo; The page "
+                "lists no disability-rating requirement and no stipend.</p>",
+                "<p>What it offers: peer support mentoring, skills training, "
+                "coaching, telephone support, online programmes, and referrals "
+                "to available resources. To start, VA.gov says to contact the "
+                "caregiver support team or caregiver support coordinator at "
+                "your nearest VA facility, or to ask the veteran&rsquo;s VA "
+                "health care team for a referral. &ldquo;The Veteran must agree "
+                "to receive care from you and have you listed as their "
+                "caregiver in their health care record.&rdquo;</p>",
+            ]),
+            ("How to apply for PCAFC", [
+                "<p>VA.gov says &ldquo;You and the Veteran will need to apply "
+                "together,&rdquo; and both of you sign and date &ldquo;a joint "
+                "Application for the Program of Comprehensive Assistance for "
+                "Family Caregivers (VA Form 10-10CG).&rdquo; It can be submitted "
+                "online, by mail to the 10-10CG Evidence Intake Center, PO Box "
+                "5154, Janesville, WI 53547-5154, or in person: &ldquo;Bring "
+                "your completed VA Form 10-10CG to the caregiver support team "
+                "at your nearest VA medical center.&rdquo; VA.gov also says: "
+                "&ldquo;Don&rsquo;t send medical records along with your "
+                "application.&rdquo;</p>",
+                "<p>VA.gov sets its own deadline: &ldquo;We&rsquo;ll assign "
+                "you as a caregiver no later than 90 days after we get your "
+                "application.&rdquo; For approved caregivers, VA.gov says "
+                "wellness contacts happen &ldquo;at least once every 120 days, "
+                "with 1 annual visit to the Veteran&rsquo;s home.&rdquo; If you "
+                "disagree with a decision, &ldquo;you have options to appeal or "
+                "request a review of the decision.&rdquo;</p>",
+                "<p>For questions about either programme, VA&rsquo;s Caregiver "
+                "Support Line is 1-855-260-3274 (TTY: 711), Monday to Friday, "
+                "8:00 a.m. to 8:00 p.m. Eastern time.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>This site covers four VA paths, and they are not "
+                "interchangeable. "
+                '<a href="/guides/va-aid-and-attendance-benefit/">Aid and '
+                "Attendance</a> is an increased monthly rate of the VA pension "
+                "for veterans and some surviving spouses who already qualify "
+                'for a pension. <a href="/guides/va-veteran-directed-care-program/">'
+                "Veteran Directed Care</a> gives a veteran who qualifies a "
+                "budget to hire their own help at home. "
+                '<a href="/guides/va-nursing-home-and-respite-care/">VA nursing '
+                "home and respite care</a> is care VA provides or pays for "
+                "itself. This guide covers the programme that can pay a family "
+                "caregiver directly. It has not verified whether a household "
+                "can use more than one of these at once, so ask a VA social "
+                "worker about your situation.</p>",
+                "<p>Illinois also runs a caregiver support programme that is "
+                "not limited to veterans&rsquo; families: see "
+                '<a href="/guides/illinois-family-caregiver-support-program/">'
+                "Is there help for the caregiver, not just the parent, in "
+                "Illinois?</a></p>",
+                "<p>If the open question in your family is whether a "
+                "parent&rsquo;s care needs have moved past what one caregiver "
+                'can provide at home, the <a href="/">free six-question '
+                "assessment</a> on this site walks through that separately. It "
+                "asks for no name, no email and no phone number, and your "
+                "answers never leave your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -4904,7 +5101,7 @@ RELATED = {
     "va-veteran-directed-care-program": [
         "va-aid-and-attendance-benefit",
         "va-nursing-home-and-respite-care",
-        "illinois-family-caregiver-support-program"],
+        "va-caregiver-support-program"],
     "illinois-family-caregiver-support-program": [
         "illinois-community-care-program",
         "illinois-home-care-ombudsman-program",
@@ -4967,12 +5164,16 @@ RELATED = {
         "levels-of-senior-care-explained"],
     "va-nursing-home-and-respite-care": [
         "va-aid-and-attendance-benefit",
-        "va-veteran-directed-care-program",
+        "va-caregiver-support-program",
         "check-illinois-inspection-records"],
     "illinois-home-caregiver-background-check": [
         "illinois-community-care-program",
         "illinois-home-care-ombudsman-program",
         "illinois-elder-abuse-reporting"],
+    "va-caregiver-support-program": [
+        "va-aid-and-attendance-benefit",
+        "va-nursing-home-and-respite-care",
+        "illinois-family-caregiver-support-program"],
 }
 
 RELATED_MIN_INBOUND = 2
@@ -5367,6 +5568,10 @@ CARDS = {
         'Staying at home',
         'Is it safe to hire a caregiver directly in Illinois?',
         'What a licensed agency checks for you, the state registry Illinois tells families to check themselves, and where to raise a problem.'),
+    "va-caregiver-support-program": (
+        "Veterans' benefits",
+        'Can a family caregiver be paid by the VA?',
+        "Who qualifies for VA's monthly caregiver stipend, how the stipend is set, and the VA caregiver support open to everyone else."),
 }
 
 
