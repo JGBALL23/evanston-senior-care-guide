@@ -1,8 +1,8 @@
 {
   "entries": {
     "https://evanstonseniorcareguide.com/guides/": {
-      "at": "2026-11-17T18:23:17Z",
-      "hash": "6a9f8869537289295193c7365e1a24dda9ad75533985cad775a0f06f9ed851b2",
+      "at": "2026-11-17T20:30:47Z",
+      "hash": "89921edc22e57d0a1fa336c861e0df90bede73a0073960211d5e835d9ba05649",
       "kind": "submitted",
       "status": 200
     },
@@ -30,9 +30,15 @@
       "kind": "submitted",
       "status": 200
     },
+    "https://evanstonseniorcareguide.com/guides/illinois-benefit-access-program/": {
+      "at": "2026-11-17T20:30:47Z",
+      "hash": "230f4a622c40cad2e47a28d3c5e8528dfe786bf0fecbda0bcf730210112ad4d3",
+      "kind": "submitted",
+      "status": 200
+    },
     "https://evanstonseniorcareguide.com/guides/illinois-care-facility-complaint/": {
-      "at": "2026-11-17T16:02:04Z",
-      "hash": "18e458faf42ebea64f61e4c6af77d64841e5589616b468186d21b2851f6c2397",
+      "at": "2026-11-17T20:30:47Z",
+      "hash": "f5c3a4abd0d6f9cf122fbe745fcba42b71573e98736ea4ad7b804488a5033cb8",
       "kind": "submitted",
       "status": 200
     },
