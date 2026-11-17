@@ -1628,5 +1628,27 @@ check("tour checklist: never a button class", !/class="btn/.test(clBlock(home)))
 check("styles.css: the checklist link is 44px tall to tap and not a .btn",
   /\.dl-link \{[^}]*min-height: 44px;/.test(css) && !/\.dl-link[^{]*\.btn|\.btn[^{]*\.dl-link/.test(css));
 
+/* G03, 16 Nov 2026: calling the Senior HelpLine is the Community Care
+   Program guide's only stated first step, yet the number was plain text,
+   so a phone at 390px offered nothing to tap. Both mentions now dial it;
+   the visible number and its source are unchanged. */
+const ccpTels = page["illinois-community-care-program"].match(/<a href="tel:[^"]*">[^<]*<\/a>/g) || [];
+check("CCP guide: both Senior HelpLine mentions are tap-to-call links",
+  ccpTels.length === 2 &&
+  ccpTels.every((t) => t === '<a href="tel:+18002528966">1-800-252-8966</a>'), ccpTels.join(" "));
+
+/* G04, 16 Nov 2026: the guide directory (and every guide, which shares its
+   header) made keyboard users tab through the whole header before reaching
+   the page. The first focusable element is now a skip link to <main id="main">,
+   the same .skip pattern the homepage already uses. */
+[["guides index", indexPage]].concat(SLUGS.map((s) => [s, page[s]])).forEach(([name, h]) => {
+  const body = h.slice(h.indexOf("<body>") + 6);
+  const firstFocusable = (body.match(/<(a|button|input|select|textarea)\b[^>]*>/) || [""])[0];
+  check("skip link: " + name + " opens with a skip to main content",
+    firstFocusable === '<a class="skip" href="#main">' &&
+    (h.match(/ id="main"/g) || []).length === 1 &&
+    /<main class="band" id="main">/.test(h), firstFocusable);
+});
+
 console.log("\n  " + pass + " passed, " + fail + " failed   (" + (pass + fail) + " checks)");
 process.exit(fail === 0 ? 0 : 1);

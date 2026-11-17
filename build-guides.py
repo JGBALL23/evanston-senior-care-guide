@@ -984,7 +984,8 @@ GUIDES = [
                    "<strong>non-exempt assets of " + F["ccp_assets"] + " or less</strong> "
                    "and an assessed need for long-term care. A house, a car and personal "
                    "furnishings are exempt from that asset figure. You start by calling "
-                   "the Senior HelpLine on <strong>" + F["ccp_line"] + "</strong>."),
+                   "the Senior HelpLine on <strong><a href=\"tel:+1" + F["ccp_line"][2:].replace("-", "") + "\">"
+                   + F["ccp_line"] + "</a></strong>."),
         "sources": srcs("idoa_ccp", "hfs_elderly"),
         "body": [
             ("What the programme actually provides", [
@@ -1045,8 +1046,9 @@ GUIDES = [
                 "is not a promise that home will always be the answer.</p>",
             ]),
             ("How to start", [
-                "<p>Call the <strong>Senior HelpLine</strong> on <strong>"
-                + F["ccp_line"] + "</strong>. HFS instructs callers to choose a language "
+                "<p>Call the <strong>Senior HelpLine</strong> on <strong><a href=\"tel:+1"
+                + F["ccp_line"][2:].replace("-", "") + "\">" + F["ccp_line"]
+                + "</a></strong>. HFS instructs callers to choose a language "
                 "and then press 4. Office hours are Monday to Friday, 8:30 to 5:00. For "
                 "deaf and speech-impaired callers, Illinois Relay is <strong>711</strong>."
                 "</p>",
@@ -2517,6 +2519,7 @@ HEAD = """<!DOCTYPE html>
 {jsonld}
 </head>
 <body>
+<a class="skip" href="#main">Skip to main content</a>
 
 <nav class="nav" aria-label="Primary">
   <div class="wrap nav__inner">
@@ -2551,7 +2554,7 @@ HEAD = """<!DOCTYPE html>
   </div>
 </nav>
 
-<main class="band">
+<main class="band" id="main">
   <div class="wrap {wrapcls}">
 """
 
