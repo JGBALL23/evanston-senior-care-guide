@@ -121,6 +121,38 @@ read off a government page, not absorbed from a search result.
 - No claims about Westminster Place. No invented local figures. No marketing
   language. Plain British-English prose, matching the existing guides.
 
+### Quotation and paraphrase integrity (owner rule, 17 Nov 2026)
+
+Every guide published from `drafts` so far had to be corrected before it went
+live: paraphrases inside quotation marks, conditions or examples the source
+does not state, and once a rule stated backwards (the Medicare Savings
+Programs $25 income disregard). These rules are not optional.
+
+- **Quotation marks mean exact source wording.** Text inside `&ldquo;` and
+  `&rdquo;` must appear word for word on a page you fetched in this run. Copy
+  it from the fetched text; never retype a quote from memory or tidy its
+  grammar. If you cannot confirm the exact words, paraphrase without
+  quotation marks.
+- **Paraphrase accurately.** Do not add conditions, exceptions, examples,
+  frequencies ("often", "most families"), dollar figures or interpretations
+  the source does not state. When a rule is subtle (a disregard, a deduction,
+  an order of priority, who may do what), state it the way the source does,
+  then re-read the source once more to check you have not inverted it.
+- **Name only what the page names.** Statute section numbers, acts, program
+  and form names, phone numbers, emails, hours and dates go on the site only
+  if they are printed on a page you fetched. Do not attach a law, agency or
+  date to a claim because it is probably right.
+- **No unsupported medical, financial, legal, Medicare, Medicaid or benefits
+  claims.** If a claim cannot be traced to a sentence on a fetched page, cut it.
+- **Cite the authoritative page you actually read** for every claim, from the
+  allowed hosts above.
+- **Link only to guides that are live on `main`.** A link to another draft
+  becomes a broken link when this guide is published first.
+- **Quote audit before you commit.** In your final report, list every
+  quotation in the new guide with the URL it came from and confirm each was
+  matched word for word against the fetched text. A quotation you cannot
+  match is removed before the commit, not reported as a caveat.
+
 ## The conversion goal
 
 The six-question assessment is **the** conversion goal of this site. Every
