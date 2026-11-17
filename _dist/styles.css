@@ -2705,7 +2705,7 @@ section[id], header[id] { scroll-margin-top: calc(var(--nav-h) + 14px); }
 /* Links inside the homepage's opened rows (glossary, money words, cost
    sources, the tour questions): the site's link colour, not the browser's
    default blue. */
-.cat__tell a, .words__list a, .cost__note a, .asks a {
+.cat__tell a, .words__list a, .cost__note a, .asks a, .tour-ask a {
   color: var(--sage-deep); text-underline-offset: 3px; font-weight: 500;
 }
 
@@ -2729,3 +2729,7 @@ section[id], header[id] { scroll-margin-top: calc(var(--nav-h) + 14px); }
 .dl-link svg { flex: none; }
 .dl-link:hover { background: var(--sage-tint); text-decoration: underline; text-underline-offset: 3px; }
 .dl-cta__note { display: block; margin-top: 8px; font-size: 15px; color: var(--ink-soft); }
+/* One quiet line under the checklist for visitors already planning visits:
+   a plain link to the tour form (the hero's "Ask about a tour" shortcut),
+   never a button, so the assessment stays the page's only primary action. */
+.tour-ask { margin-top: 16px; }
