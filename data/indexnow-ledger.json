@@ -1,8 +1,8 @@
 {
   "entries": {
     "https://evanstonseniorcareguide.com/guides/": {
-      "at": "2026-11-17T18:15:42Z",
-      "hash": "09c39410cd986cc0088c7f5546376e3c6d5bd0f6aa61046c3e336d09e16e8273",
+      "at": "2026-11-17T18:23:17Z",
+      "hash": "6a9f8869537289295193c7365e1a24dda9ad75533985cad775a0f06f9ed851b2",
       "kind": "submitted",
       "status": 200
     },
@@ -39,6 +39,12 @@
     "https://evanstonseniorcareguide.com/guides/illinois-community-care-program/": {
       "at": "2026-11-17T16:02:04Z",
       "hash": "18ff95c747a3166e4735614a9cca72c573c11e04fd729dc5777cbf36e0e2527c",
+      "kind": "submitted",
+      "status": 200
+    },
+    "https://evanstonseniorcareguide.com/guides/illinois-elder-abuse-reporting/": {
+      "at": "2026-11-17T18:23:17Z",
+      "hash": "9897533ce163bb7b42ea17df1b110ce2890404ce217149d132f175d6459e7b6d",
       "kind": "submitted",
       "status": 200
     },
