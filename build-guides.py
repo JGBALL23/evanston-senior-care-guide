@@ -611,9 +611,9 @@ GUIDES = [
                 "Medicare, the rules differ — some plans charge copayments during the "
                 "first 20 days. Ask the plan directly, in writing.</p>",
             ]),
-            ("Coverage can end early — but not for the reason you will be told", [
-                "<p>Coverage can stop before day 100. Families are often told it is "
-                "ending because their parent <em>has stopped improving</em>. "
+            ("Coverage can end early — but not just because someone stopped improving", [
+                "<p>Coverage can stop before day 100, and you may be told the reason "
+                "is that your parent <em>has stopped improving</em>. "
                 "<strong>That is not the standard.</strong></p>",
                 "<p>Under the <em>Jimmo v. Sebelius</em> settlement, CMS confirmed there "
                 "is no &ldquo;Improvement Standard&rdquo;. Coverage does not turn on "
@@ -3132,8 +3132,8 @@ CARDS = {
     "does-medicare-pay-for-senior-care": (
         "Medicare",
         "Does Medicare pay for assisted living or nursing home care?",
-        "What Medicare covers, what it never covers, and the one reason "
-        "families are most often given wrongly when coverage ends."),
+        "What Medicare covers, what it never covers, and why “no longer "
+        "improving” is not by itself a reason for coverage to end."),
     "illinois-supportive-living-program": (
         "Paying with Medicaid",
         "Illinois Supportive Living Program, explained",
