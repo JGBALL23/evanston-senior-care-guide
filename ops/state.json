@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
-  "updated_utc": "2026-11-17T15:13Z",
+  "updated_utc": "2026-11-17T15:24Z",
   "last_run_utc": "2026-11-17T14:56Z",
   "facebook": {
     "access": "yes via Claude in Chrome (his browser c8d89af0 reconnected 14:04Z after being offline 08:23-14:04Z); a fresh cloud session has none",
@@ -186,7 +186,7 @@
     }
   ],
   "venue_discovery": {
-    "last_utc": "2026-11-17T15:10Z",
+    "last_utc": "2026-11-17T15:23Z",
     "owner_groups_total": 43,
     "owner_local_groups": [
       "group:311248470375848",
@@ -203,20 +203,27 @@
       "group:520770516031533",
       "group:1086282042874547",
       "group:1316163449754368",
-      "group:1398417347116381"
+      "group:1398417347116381",
+      "group:399944149096268",
+      "group:2124965535010095",
+      "group:1651391214956053"
     ],
     "not_yet_checked": [
-      "group:399944149096268 Wilmette Connections (4.7K, about 60 posts a day)"
+      "group:346720145710365 Highland Park neighborhood community page (23K; confirm it is Illinois)",
+      "group:1526647778001131 What's Happening in Glencoe il (243 members)"
     ],
     "skipped_this_round": "search results named Evanston or North Shore but were Vancouver BC, Calgary AB or Evanston WY groups, or banned promotion",
     "verdicts_1117": [
       "group:737824126066420 Evanston & Area Community info.: Evanston in Calgary AB (Alberta businesses in feed), not Illinois; skip",
       "group:1088020282873543 Northbrook/Glenview/Niles/Des Plaines neighbors: Illinois, 5.8K, about 49 posts a day, no rules; neighbors group for towns he neither lives nor works in; skip",
       "group:520770516031533 HomeCare in Illinois, Caregivers, Care for parents: run by a home-care agency, statewide, outside the Evanston/North Shore scope; skip",
-      "caregiver group search (Chicago/North Shore): results were caregiver job boards or out of area; no Evanston/North Shore family group found"
+      "caregiver group search (Chicago/North Shore): results were caregiver job boards or out of area; no Evanston/North Shore family group found",
+      "group:2124965535010095 What's Happening in Glencoe - Uncensored: Glencoe, Alabama; skip"
     ],
     "skipped_no_qualify": [
-      "group:148056482809454 Glenview - Northbrook Neighbors (65K): residents' group for towns he doesn't live in"
+      "group:148056482809454 Glenview - Northbrook Neighbors (65K): residents' group for towns he doesn't live in",
+      "group:399944149096268 Wilmette Connections: for Wilmette residents, describes itself as against businesses",
+      "group:1651391214956053 What's happening in Highland Park/Highwood, IL? (10K): for residents and local businesses; promotions 1 a week local only"
     ]
   },
   "metrics": {
@@ -288,10 +295,11 @@
     "2026-11-17T14:52Z Joseph (08:52 Chicago): run as a continuous operator; hourly schedule is only a fallback",
     "2026-11-17T15:00Z posted template A in Evanston/Skokie (Chicago) neighbors, tag fb-evsk-1117; published at once; cap changed to 1 a day and 5 a week",
     "2026-11-17T15:06Z lead scan: 142 recent posts across 3 member groups, 0 families asking about senior care",
-    "2026-11-17T15:10Z joined What's Happening in Wilmette illinois and What's Happening in Winnetka illinois (public, no questions, ads allowed 2-3 a week with #employed); Skokie & North Shore group is events-only, skipped"
+    "2026-11-17T15:10Z joined What's Happening in Wilmette illinois and What's Happening in Winnetka illinois (public, no questions, ads allowed 2-3 a week with #employed); Skokie & North Shore group is events-only, skipped",
+    "2026-11-17T15:23Z venues: Wilmette Connections (residents, anti-business), Glencoe Uncensored (Alabama) and Highland Park/Highwood (residents and local businesses only) skipped"
   ],
   "next_actions": [
-    "Wed 18 Nov 9:00-19:00 Chicago: post in What's Happening in Wilmette illinois (vary the text; add #employed after the disclosure), tag fb-wil-1118",
+    "Wed 18 Nov 9:00-19:00 Chicago: post template B (costs) naming Wilmette in What's Happening in Wilmette illinois, #employed after the disclosure, tag fb-wil-1118 (A has had 0 engagement in 3 posts, so test the cost angle)",
     "Fri 20 Nov after 15:53 Chicago (cap): post in What's Happening in Winnetka illinois, tag fb-wnk-1120",
     "check fb-evsk-1117 engagement and its site visits about 10:30 Chicago today; lead scan every 4 hours 7:00-22:00",
     "evaluate Wilmette Connections (399944149096268); keep finding North Shore groups he qualifies for",
