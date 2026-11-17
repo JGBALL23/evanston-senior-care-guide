@@ -995,6 +995,34 @@ function wirePlanForm() {
     status.className = "plan__status" + (kind ? " plan__status--" + kind : "");
   };
 
+  const markable = ["firstName", "lastName", "phone", "email", "consent"]
+    .map((name) => form.elements[name]).filter(Boolean);
+  const markInvalid = (list) => {
+    markable.forEach((el) => {
+      if (list.indexOf(el) !== -1) {
+        el.setAttribute("aria-invalid", "true");
+        el.setAttribute("aria-describedby", "plan-status");
+      } else {
+        el.removeAttribute("aria-invalid");
+        el.removeAttribute("aria-describedby");
+      }
+    });
+  };
+  /* Clear a field's mark as soon as it is filled. Phone and email are one
+     requirement, so filling either clears both. */
+  form.addEventListener("input", (event) => {
+    const el = event.target;
+    if (!el || el.getAttribute("aria-invalid") !== "true") return;
+    const filled = el.type === "checkbox" ? el.checked : String(el.value || "").trim();
+    if (!filled) return;
+    const group = (el.name === "phone" || el.name === "email")
+      ? [form.elements.phone, form.elements.email] : [el];
+    group.forEach((g) => {
+      g.removeAttribute("aria-invalid");
+      g.removeAttribute("aria-describedby");
+    });
+  });
+
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     if (button.disabled) return;
@@ -1031,7 +1059,28 @@ function wirePlanForm() {
     if (!payload.consent) {
       local.push("Tick the box to give permission to send your details.");
     }
-    if (local.length) { say(local.join(" "), "error"); return; }
+    /* Mark what is missing and move focus to the first of it. The message
+       renders below the button, so on a 390x844 phone it landed off-screen
+       and a tap on an incomplete form looked like it did nothing
+       (checked 2026-11-16). Focusing the first missing control brings it
+       into view, and aria-invalid lets the style show every missing one. */
+    const missing = [];
+    if (!payload.firstName) missing.push(form.elements.firstName);
+    if (!payload.lastName) missing.push(form.elements.lastName);
+    if (!payload.email && !payload.phone) {
+      missing.push(form.elements.phone, form.elements.email);
+    }
+    if (!payload.consent) missing.push(form.elements.consent);
+    markInvalid(missing);
+    if (local.length) {
+      say(local.join(" "), "error");
+      const first = missing[0];
+      if (first) {
+        first.focus({ preventScroll: true });
+        first.scrollIntoView({ block: "center" });
+      }
+      return;
+    }
 
     button.disabled = true;
     say("Saving…");
