@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
-  "updated_utc": "2026-11-17T00:46Z",
+  "updated_utc": "2026-11-17T00:43Z",
   "last_run_utc": "2026-11-17T00:35Z",
   "facebook": {
     "access": "yes, from Claude's main session through Claude in Chrome (owner's browser 71586d76 connected); a fresh cloud session has none (test 2026-11-17T00:19Z)",
@@ -62,11 +62,11 @@
       "venue_name": "owner's own profile (Public, his existing setting)",
       "content": "tour checklist (template P)",
       "status": "live",
-      "submitted_utc": "2026-11-17T00:44Z",
-      "visible_utc": "2026-11-17T00:44Z",
+      "submitted_utc": "2026-11-17T00:41Z",
+      "visible_utc": "2026-11-17T00:41Z",
       "reactions": 0,
       "comments": 0,
-      "checked_utc": "2026-11-17T00:45Z",
+      "checked_utc": "2026-11-17T00:42Z",
       "note": "requests in the first 5 minutes are automated link previews"
     }
   ],
@@ -103,9 +103,9 @@
       "name": "owner's own profile (his existing audience setting)",
       "eligible": true,
       "min_gap_days": 30,
-      "last_post_utc": "2026-11-17T00:44Z",
+      "last_post_utc": "2026-11-17T00:41Z",
       "authorized": "owner's chat message 2026-11-17T00:39Z: routine Facebook marketing through his account without approving each post",
-      "next_ok_utc": "2026-12-17T00:44Z"
+      "next_ok_utc": "2026-12-17T00:41Z"
     },
     {
       "id": "group:280339146984145",
@@ -209,7 +209,7 @@
     "2026-11-17T00:26Z first operator run (fired at setup): re-armed for 01:23Z; 0 tour requests; Facebook reachable and his session confirmed",
     "2026-11-17T00:33Z no eligible venue: North Shore cooldown to 23 Nov 04:42Z, Everything Evanston has a pending post, Wilmette ineligible, profile awaits owner; no post",
     "2026-11-17T00:34Z retired: ESC-COORD responder disabled (web UI), Daily count #9 and the capability test deleted",
-    "2026-11-17T00:44Z posted template P on the owner's profile (Public, his setting), tag fb-profile-1116; composer text read back and matched; no Facebook warning"
+    "2026-11-17T00:41Z posted template P on the owner's profile (Public, his setting), tag fb-profile-1116; composer text read back and matched; no Facebook warning"
   ],
   "next_actions": [
     "watch the profile post: reactions, comments and tagged visits (fb-profile-1116) in the next runs",
