@@ -1,8 +1,8 @@
 {
   "entries": {
     "https://evanstonseniorcareguide.com/guides/": {
-      "at": "2026-11-17T20:30:47Z",
-      "hash": "89921edc22e57d0a1fa336c861e0df90bede73a0073960211d5e835d9ba05649",
+      "at": "2026-11-17T21:38:18Z",
+      "hash": "9f3ac0af79f76dc167ce077230a8a578bda9e392727da67dd9cceb2457aea532",
       "kind": "submitted",
       "status": 200
     },
@@ -135,6 +135,12 @@
     "https://evanstonseniorcareguide.com/guides/levels-of-senior-care-explained/": {
       "at": "2026-11-17T16:02:04Z",
       "hash": "8805b3f0fa8a1c23913ae5bf4e151098c108b5368fa8e74932fee69a6e07ad2b",
+      "kind": "submitted",
+      "status": 200
+    },
+    "https://evanstonseniorcareguide.com/guides/medicare-durable-medical-equipment-coverage/": {
+      "at": "2026-11-17T21:38:18Z",
+      "hash": "86dae9d495d2e182fdbd4f5cddabf7ce92b60fdcae01248499ae25a25a5b7a75",
       "kind": "submitted",
       "status": 200
     },
