@@ -365,6 +365,16 @@ SRC = {
                                 'https://ilaging.illinois.gov/benefitsaccess/eligibility-20and-20frequently-asked-questions.html'),
     "idoa_benefit_access_ridefree": ('Illinois Department on Aging — Benefit Access, Ride Free Transit Benefit',
                                      'https://ilaging.illinois.gov/benefitsaccess/ride-free-transit-benefit.html'),
+    "mdme_canes": ('Medicare.gov — Canes',
+                  'https://www.medicare.gov/coverage/canes'),
+    "mdme_commodes": ('Medicare.gov — Commode chairs',
+                      'https://www.medicare.gov/coverage/commode-chairs'),
+    "mdme_hospitalbeds": ('Medicare.gov — Hospital beds',
+                         'https://www.medicare.gov/coverage/hospital-beds'),
+    "mdme_walkers": ('Medicare.gov — Walkers',
+                     'https://www.medicare.gov/coverage/walkers'),
+    "mdme_wheelchairs": ('Medicare.gov — Wheelchairs & scooters',
+                        'https://www.medicare.gov/coverage/wheelchairs-scooters'),
 }
 
 
@@ -4152,6 +4162,134 @@ GUIDES = [
             ]),
         ],
     },
+    {
+        "slug": "medicare-durable-medical-equipment-coverage",
+        "bridge": ("Knowing Medicare will pay most of the cost of a wheelchair or a "
+               "hospital bed is a different question from knowing whether your "
+               "parent's needs have already moved past what a piece of equipment "
+               "at home can solve."),
+        "reviewed": "2026-11-17",
+        "title": "Does Medicare Pay for a Wheelchair, Walker or Hospital Bed?",
+        "h1": "Does Medicare pay for a wheelchair, walker or hospital bed at home?",
+        "desc": ("Medicare Part B covers a wheelchair, walker or hospital bed at home "
+                 "with a doctor's order and an enrolled supplier. Power wheelchairs "
+                 "need extra steps."),
+        "intent": "coverage question",
+        "answer": ("<strong>Yes, with conditions.</strong> Medicare Part B covers "
+                   "durable medical equipment — including wheelchairs, scooters, "
+                   "walkers, hospital beds, canes and commode chairs — when a "
+                   "doctor or other health care provider orders it for use in your "
+                   "parent's home. After the Part B deductible (" +
+                   F["partB_deductible"] + " in 2026), you pay 20% of the "
+                   "Medicare-approved amount, and only if the supplier is enrolled "
+                   "in Medicare and accepts assignment. Power wheelchairs and "
+                   "scooters need a face-to-face exam and a written prescription "
+                   "first, and some require Medicare's prior approval before you "
+                   "buy or rent."),
+        "sources": srcs("mdme_wheelchairs", "mdme_hospitalbeds", "mdme_walkers",
+                        "mdme_canes", "mdme_commodes"),
+        "body": [
+            ("The rule that applies to all of it", [
+                "<p>Medicare.gov states the same condition on its walker, cane and commode-chair pages: &ldquo;Part B covers medically "
+                "necessary DME if your doctor or other health care provider orders "
+                "it for use in your home.&rdquo; The wheelchair page adds that Part B covers power wheelchairs and scooters &ldquo;only when they&rsquo;re medically necessary&rdquo; &mdash; no order, no coverage, regardless of how "
+                "obviously your parent needs the item.</p>",
+                "<p>Once that order exists, the cost-sharing is also the same "
+                "across every item: &ldquo;After you meet the Part B deductible, "
+                "you pay 20% of the Medicare-approved amount (if your supplier "
+                "accepts assignment).&rdquo; The Part B deductible is " +
+                F["partB_deductible"] + " for 2026. That last clause &mdash; "
+                "&ldquo;if your supplier accepts assignment&rdquo; &mdash; is not "
+                "a formality, which is why it gets its own section below.</p>",
+            ]),
+            ("What is actually covered, item by item", [
+                "<ul class=\"res__list\">"
+                "<li><strong>Wheelchairs and scooters</strong> &mdash; Medicare.gov: "
+                "&ldquo;Medicare Part B (Medical Insurance) covers wheelchairs and "
+                "power-operated vehicles (scooters) if you're eligible,&rdquo; but "
+                "only &ldquo;when they're medically necessary&rdquo;</li>"
+                "<li><strong>Walkers, including rollators</strong> &mdash; "
+                "&ldquo;Medicare Part B (Medical Insurance) covers walkers, "
+                "including rollators if you're eligible&rdquo;</li>"
+                "<li><strong>Hospital beds</strong> &mdash; &ldquo;Medicare Part B "
+                "(Medical Insurance) may cover hospital beds, if you're "
+                "eligible&rdquo;</li>"
+                "<li><strong>Canes</strong> &mdash; covered, with one named "
+                "exception: &ldquo;Medicare doesn't cover white canes for the "
+                "blind&rdquo;</li>"
+                "<li><strong>Commode chairs</strong> &mdash; &ldquo;Medicare Part B (Medical Insurance) covers commode chairs,&rdquo; on the same doctor&rsquo;s-order and home-use terms</li></ul>",
+                "<p>That cane exclusion is worth sitting with for a moment. Two "
+                "items that look alike to a family &mdash; a mobility cane and a "
+                "cane for someone who is blind &mdash; are covered differently "
+                "because Medicare classifies one as DME and the other as an aid "
+                "for a different purpose. The lesson is not about canes "
+                "specifically; it is that &ldquo;covered&rdquo; is decided item "
+                "by item, on each item's own Medicare.gov page, not by a general "
+                "sense that medical equipment is covered.</p>",
+            ]),
+            ("The supplier matters as much as the doctor's order", [
+                "<p>Medicare.gov is direct about this, repeated near-verbatim "
+                "across its equipment pages: &ldquo;Medicare will only pay for DME "
+                "items if you get them from suppliers who are enrolled in "
+                "Medicare.&rdquo; An order from your parent's own doctor does not "
+                "help if the equipment comes from a supplier Medicare has not "
+                "enrolled &mdash; the claim is not covered, full stop.</p>",
+                "<p>Enrollment alone is not the end of it. The walkers page adds: "
+                "&ldquo;If a supplier participates in Medicare, they must accept "
+                "assignment,&rdquo; and for anything rented rather than bought, "
+                "&ldquo;make sure the supplier is willing to accept assignment for "
+                "all rental months.&rdquo; The hospital-beds page spells out the risk: &ldquo;If a DME supplier doesn&rsquo;t participate in Medicare or won&rsquo;t accept assignment, you may be charged more.&rdquo; Ask "
+                "the question before the equipment is ordered, not after the first "
+                "bill arrives.</p>",
+            ]),
+            ("Wheelchairs and scooters have an extra step", [
+                "<p>Power wheelchairs and scooters carry a requirement the other "
+                "items on this page do not. Medicare.gov's wheelchairs and "
+                "scooters page states you must have &ldquo;a face-to-face "
+                "examination and a written prescription from a treating "
+                "provider&rdquo; before Medicare will cover one.</p>",
+                "<p>On top of that, the page states you &ldquo;may have to get "
+                "prior approval&rdquo; for &ldquo;certain types of power "
+                "wheelchairs,&rdquo; and says &ldquo;your DME supplier will usually submit a prior authorization request and all documentation to Medicare on your behalf.&rdquo; "
+                "Medicare can still say no &mdash; the page describes a denial when &ldquo;Medicare finds you don&rsquo;t medically require a power wheelchair&rdquo; or &ldquo;Medicare doesn&rsquo;t get enough information to make a decision.&rdquo; A "
+                "family that orders a power wheelchair expecting the same process "
+                "as a cane or a walker can be caught out by this extra step; ask "
+                "the supplier, before anything ships, whether prior authorization "
+                "applies to the specific model being ordered.</p>",
+            ]),
+            ("Rent or buy is not always your choice", [
+                "<p>Medicare.gov describes renting and buying as both normal, "
+                "without settling in advance which applies to which item: "
+                "&ldquo;You may need to rent the equipment&rdquo; and separately "
+                "&ldquo;you may need to buy the equipment,&rdquo; and in some "
+                "cases &ldquo;you may be able to choose whether to rent or buy the "
+                "equipment.&rdquo; None of the equipment pages this guide read "
+                "states which rule applies to a wheelchair versus a hospital bed "
+                "specifically &mdash; that is a question for the supplier before "
+                "you commit, not an assumption to make from this page.</p>",
+                "<p>One detail softens a long rental: &ldquo;Some items become "
+                "your property after you've made a certain number of rental "
+                "payments.&rdquo; If your parent will need an item for years "
+                "rather than months, ask the supplier directly how many rental "
+                "payments that conversion takes for the specific equipment being "
+                "ordered.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>A wheelchair, a hospital bed or a grab-bar-height commode "
+                "chair is often how a family first notices that staying at home "
+                "is getting harder, not easier &mdash; see "
+                '<a href="/guides/levels-of-senior-care-explained/">Assisted '
+                "living, memory care, skilled nursing and rehabilitation &mdash; "
+                "what is the difference?</a> for how to tell whether equipment is "
+                "still the right answer or whether the level of care itself has "
+                "changed. Take the "
+                '<a href="/">free six-question assessment</a> on this site for '
+                "that question specifically &mdash; it asks for no name, no "
+                "email and no phone number, and your answers never leave your "
+                "device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -4347,7 +4485,7 @@ RELATED = {
         "va-aid-and-attendance-benefit"],
     "does-medicare-pay-for-senior-care": [
         "medicare-home-health-care",
-        "illinois-medicare-savings-program",
+        "medicare-durable-medical-equipment-coverage",
         "assisted-living-cost-illinois"],
     "illinois-supportive-living-program": [
         "illinois-pace-program",
@@ -4431,7 +4569,7 @@ RELATED = {
         "illinois-home-delivered-meals"],
     "medicare-home-health-care": [
         "does-medicare-pay-for-senior-care",
-        "illinois-community-care-program",
+        "medicare-durable-medical-equipment-coverage",
         "medicare-hospice-benefit-explained"],
     "medicare-extra-help-prescription-drug-costs": [
         "illinois-medicare-savings-program",
@@ -4449,6 +4587,10 @@ RELATED = {
         "illinois-medicare-savings-program",
         "medicare-extra-help-prescription-drug-costs",
         "illinois-home-delivered-meals"],
+    "medicare-durable-medical-equipment-coverage": [
+        "does-medicare-pay-for-senior-care",
+        "medicare-home-health-care",
+        "levels-of-senior-care-explained"],
 }
 
 RELATED_MIN_INBOUND = 2
@@ -4829,6 +4971,12 @@ CARDS = {
         "transit rides and a discounted vehicle registration — the "
         "income limits and how to apply, read off the Department on "
         "Aging's own page."),
+    "medicare-durable-medical-equipment-coverage": (
+        "Medicare",
+        "Does Medicare pay for a wheelchair or hospital bed?",
+        "Part B covers home medical equipment with a doctor's order and "
+        "an enrolled supplier, and a power wheelchair needs a face-to-face "
+        "exam and a written prescription first."),
 }
 
 
