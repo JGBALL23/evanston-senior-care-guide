@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
+  "updated_utc": "2026-11-17T00:35Z",
+  "last_run_utc": null,
+  "facebook": {
+    "access": "yes, from Claude's main session through Claude in Chrome when one of Joseph's two browsers is connected; a fresh cloud session has none (test 2026-11-17T00:19Z)",
+    "last_access_ok_utc": "2026-11-16T18:53Z",
+    "last_checks_utc": "2026-11-16T18:53Z",
+    "unreachable_since_utc": null,
+    "unreachable_reported_utc": null,
+    "blocker": null
+  },
+  "posts": [
+    {"tag": "north-shore-happening", "venue": "group:311248470375848", "venue_name": "Chicago North Shore What's Happening!", "content": "five tour questions", "status": "live", "submitted_utc": "2026-11-08T22:15Z", "visible_utc": "2026-11-08T22:15Z", "reactions": 0, "comments": 0, "checked_utc": "2026-11-16T14:30Z"},
+    {"tag": "wilmette-connection", "venue": "group:wilmette-connection", "venue_name": "Wilmette Connection", "content": "five tour questions", "status": "declined", "submitted_utc": "2026-11-08T22:17Z", "checked_utc": "2026-11-09T01:25Z"},
+    {"tag": "ee-costs", "venue": "group:535636991652468", "venue_name": "Everything Evanston", "content": "assisted living costs", "status": "pending", "submitted_utc": "2026-11-13T21:53Z", "checked_utc": "2026-11-16T18:53Z"},
+    {"tag": "north-shore-checklist", "venue": "group:311248470375848", "venue_name": "Chicago North Shore What's Happening!", "content": "tour checklist", "status": "live", "submitted_utc": "2026-11-15T17:29Z", "visible_utc": "2026-11-16T04:42Z", "reactions": 0, "comments": 0, "checked_utc": "2026-11-16T14:35Z"}
+  ],
+  "venues": [
+    {"id": "group:311248470375848", "name": "Chicago North Shore What's Happening!", "member": true, "eligible": true, "rules": "public; promotion allowed (rule 3: promote your business or someone else's); no day limit", "min_gap_days": 7, "next_ok_utc": "2026-11-23T04:42Z", "checked_utc": "2026-11-15T17:00Z"},
+    {"id": "group:535636991652468", "name": "Everything Evanston", "member": true, "eligible": "only after its pending post is resolved", "rules": "advertising Mondays and Fridays only; posts must relate to Evanston or an adjacent town", "min_gap_days": 7, "checked_utc": "2026-11-13T21:51Z"},
+    {"id": "group:wilmette-connection", "name": "Wilmette Connection", "member": "joined; participation needs his answers", "eligible": false, "rules": "commercial posts need a phone number and business address; 8 Nov post declined", "checked_utc": "2026-11-09T01:25Z"},
+    {"id": "profile", "name": "Joseph's own profile (his existing audience setting)", "eligible": true, "min_gap_days": 30, "last_post_utc": null}
+  ],
+  "venue_discovery": {"last_utc": null, "groups_evaluated": [], "suggest_to_join": [], "suggested_utc": null},
+  "metrics": {
+    "since_utc": "2026-11-08T22:15Z",
+    "as_of_utc": "2026-11-16T14:27Z",
+    "facebook_posts_visible": 2,
+    "facebook_genuine_visitors": 1,
+    "assessment_starts": 0,
+    "assessment_completions": 0,
+    "tour_form_views": 0,
+    "tour_requests_genuine": 0,
+    "tours_confirmed": "UNVERIFIED (none reported by Joseph)",
+    "netlify_checked_to_utc": "2026-11-16T14:27Z",
+    "gmail_checked_to_utc": "2026-11-16T14:38Z",
+    "note": "genuine = real browsers only; harness tests, crawlers, link previews and Joseph's unverified phone excluded"
+  },
+  "owner": {
+    "questions": [
+      {"q": "Everything Evanston cost post still pending since 13 Nov: keep watching or drop it?", "asked_utc": "2026-11-16T18:53Z", "answer": null},
+      {"q": "Release draft PR #22 (tour form scrolls to what's missing on an incomplete tap)?", "asked_utc": "2026-11-16T14:42Z", "answer": null}
+    ],
+    "last_rollup_utc": null,
+    "last_quiet_note_utc": null
+  },
+  "log": [
+    "2026-11-17T00:35Z state created; hourly operator replaces the ChatGPT relay and the daily count chain"
+  ]
+}
