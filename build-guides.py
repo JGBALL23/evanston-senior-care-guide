@@ -2812,6 +2812,143 @@ GUIDES = [
             ]),
         ],
     },
+    {
+        "slug": "illinois-medicaid-look-back-period",
+        "bridge": ("Whether a past gift still counts against your parent today is "
+               "a different question from whether assisted living, memory care "
+               "or skilled nursing is the right fit for them now."),
+        "reviewed": "2026-11-17",
+        "title": "Illinois Medicaid's Five-Year Look-Back and Transfer Penalties",
+        "h1": "Will giving money away affect my parent&rsquo;s Illinois Medicaid eligibility?",
+        "desc": ("Illinois Medicaid looks back five years for gifts and below-value "
+                 "sales before paying for care. What triggers a penalty, "
+                 "what does not, and when it starts."),
+        "intent": "worry / paying for care",
+        "answer": ("<strong>It can.</strong> Illinois HFS reviews the "
+                   "<strong>60 months (five years)</strong> before your parent "
+                   "applies for nursing home, Supportive Living, or Department on "
+                   "Aging in-home waiver services, and a gift or a sale for less "
+                   "than something was worth during that window can trigger a "
+                   "<strong>penalty period</strong> &mdash; a stretch of time "
+                   "Medicaid will not pay toward long-term care. Not every transfer "
+                   "counts: HFS says a transfer to a spouse, or a small gift "
+                   "consistent with your parent&rsquo;s past giving, will not "
+                   "trigger one."),
+        "sources": srcs("hfs_ltc_brochure", "hfs_ltc_clients"),
+        "body": [
+            ("The 60-month look-back, and what it looks back at", [
+                "<p>Illinois HFS's own brochure for long-term care applicants, "
+                "&ldquo;Long Term Services &amp; Information for Couples&rdquo; "
+                "(HFS 3191), states that transfers made &ldquo;within 60 months "
+                "(5 years) of the date you apply for medical coverage&rdquo; can "
+                "affect eligibility for three kinds of Medicaid-paid long-term "
+                "care: a <strong>nursing home</strong>, a "
+                '<a href="/guides/illinois-supportive-living-program/">Supportive '
+                "Living Facility</a>, and the Department on Aging&rsquo;s in-home "
+                "waiver services. The brochure also states that this window used "
+                "to be shorter &mdash; 36 months &mdash; until the 60-month rule "
+                "took effect on 1 January 2012.</p>",
+                "<p>The look-back is not a separate application your parent has to "
+                "make. It is something a caseworker checks as part of the same "
+                "eligibility process covered in "
+                '<a href="/guides/illinois-medicaid-long-term-care/">How Illinois '
+                "Medicaid pays for long-term care, and what spend-down "
+                "means</a> &mdash; so a transfer made years before anyone was "
+                "thinking about a nursing home can still surface the first time "
+                "your parent applies.</p>",
+            ]),
+            ("What counts as a penalised transfer", [
+                "<p>HFS states plainly that &ldquo;giving away or selling your resources for less than what they are worth may affect your eligibility,&rdquo; and that the penalty period is &ldquo;the length of time the state will not pay for your long term care services in a nursing home, SLF or home and community-based services.&rdquo; "
+                "The brochure illustrates this with an example: Joe gave $80,000 "
+                "to his grandchildren for college within the 60-month window, and "
+                "&ldquo;may have a penalty period based on the transfers.&rdquo; "
+                "The point of the example is not the dollar figure &mdash; it is "
+                "that a gift made with good intentions, and no thought of Medicaid "
+                "at all, is treated the same as any other transfer for less than "
+                "fair value.</p>",
+            ]),
+            ("Transfers that do not trigger a penalty", [
+                "<p>HFS carves out specific exceptions, rather than leaving the "
+                "question to judgment call:</p>",
+                "<ul class=\"res__list\">"
+                "<li><strong>Small, consistent gifts.</strong> The brochure's own "
+                "example: Martha's $15 birthday gift was not penalised because it "
+                "was &ldquo;a minimal amount consistent with her past "
+                "behavior.&rdquo; A pattern of modest giving kept up over years "
+                "reads differently from a gift that appears only once, near an "
+                "application.</li>"
+                "<li><strong>Transfers to a spouse.</strong> HFS states: &ldquo;You may transfer this other property to your spouse or to someone else for the sole benefit of your spouse,&rdquo; and that when a person goes into a nursing home, the spouse may keep the home, the car and the household furnishings.</li>"
+                "<li><strong>Returning the property.</strong> HFS states a "
+                "penalty can be eliminated by getting the transferred property "
+                "back.</li></ul>",
+                "<p>This guide is not going to put a current dollar ceiling on "
+                "the spousal exception &mdash; see below for why.</p>",
+            ]),
+            ("When the penalty starts, and how long it lasts", [
+                "<p>HFS sets the start date as &ldquo;the month of application "
+                "or the month you transferred the resources, whichever is "
+                "later.&rdquo; A transfer made long before anyone applies does "
+                "not start a clock running early; the penalty only begins once "
+                "your parent has actually applied.</p>",
+                "<p>The length is tied to what the transfer would have bought: "
+                "HFS states the penalty lasts while &ldquo;the uncompensated "
+                "value of the transferred property would meet the monthly cost "
+                "of nursing care at the private rate.&rdquo; If a second, "
+                "separate transfer is found and penalised while an earlier "
+                "penalty is still running, HFS states the new penalty &ldquo;begins with the month following the month the previous penalty period ends&rdquo; rather than running at the same time. HFS also states: &ldquo;You will still be entitled to other medical services during the penalty period, if you are eligible&rdquo; "
+                "&mdash; it is specifically long-term-care payment that stops, "
+                "not all of Medicaid. Your local Family Community Resource Center "
+                "(FCRC) &mdash; the same office handling the application &mdash; "
+                "is who tells you the actual length in a given case; this guide "
+                "deliberately does not attempt that calculation.</p>",
+            ]),
+            ("A hardship option if the penalty would leave your parent without care", [
+                "<p>HFS states your parent can apply for a hardship exception if "
+                "a penalty would leave them without &ldquo;food, shelter, "
+                "clothing or necessary medical care.&rdquo; The brochure does not "
+                "set out the hardship application process in the same page this "
+                "guide read, so ask the FCRC handling the application how to "
+                "request one rather than assuming the process works the same way "
+                "as the separate hardship waiver that exists for "
+                '<a href="/guides/illinois-medicaid-estate-recovery/">estate '
+                "recovery</a> after death &mdash; that is a different request, to "
+                "a different part of HFS.</p>",
+            ]),
+            ("Figures this guide will not publish", [
+                "<p>The HFS 3191 brochure itself illustrates the spousal transfer "
+                "exception and a related income-diversion rule with dollar "
+                "figures &mdash; but the copy this guide read dates those figures "
+                "to 2015, and the brochure says of the spousal limit, &ldquo;The amount may increase each year.&rdquo; Eleven years on, this guide has no way "
+                "to confirm those 2015 numbers still apply, so it will not repeat "
+                "them. For the amount a spouse at home can currently keep, see "
+                "the Community Spouse Resource Allowance and Community Spouse "
+                "Maintenance Needs Allowance figures in "
+                '<a href="/guides/illinois-medicaid-long-term-care/">How Illinois '
+                "Medicaid pays for long-term care</a>, which this library "
+                "verified against HFS's current 2026 notice &mdash; that is a "
+                "related but legally separate rule from the transfer exception "
+                "on this page, so ask the FCRC which one applies to a specific "
+                "transfer.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>This page only covers whether a past transfer can delay "
+                "Medicaid paying for care &mdash; not whether your parent needs "
+                "that level of care yet, and not what happens to a home after a "
+                "Medicaid recipient dies. For the first question, see "
+                '<a href="/guides/levels-of-senior-care-explained/">Assisted '
+                "living, memory care, skilled nursing and rehabilitation &mdash; "
+                "what is the difference?</a> For the second, "
+                '<a href="/guides/illinois-medicaid-estate-recovery/">Will '
+                "Illinois take my parent's house after Medicaid pays for "
+                "care?</a> covers that separately.</p>",
+                "<p>If you are not yet sure which level of care applies, the "
+                '<a href="/">free six-question assessment</a> on this site walks '
+                "through that question and shows its reasoning. It asks for no "
+                "name, no email and no phone number, and your answers never "
+                "leave your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -3012,7 +3149,7 @@ RELATED = {
     "illinois-supportive-living-program": [
         "illinois-medicaid-long-term-care",
         "illinois-medicaid-estate-recovery",
-        "illinois-community-care-program"],
+        "illinois-medicaid-look-back-period"],
     "check-illinois-inspection-records": [
         "illinois-care-facility-complaint",
         "levels-of-senior-care-explained",
@@ -3035,7 +3172,7 @@ RELATED = {
         "illinois-nursing-home-resident-rights"],
     "illinois-medicaid-estate-recovery": [
         "illinois-medicaid-long-term-care",
-        "illinois-community-care-program",
+        "illinois-medicaid-look-back-period",
         "illinois-supportive-living-program"],
     "medicare-hospice-benefit-explained": [
         "does-medicare-pay-for-senior-care",
@@ -3069,6 +3206,10 @@ RELATED = {
         "levels-of-senior-care-explained",
         "illinois-medicaid-long-term-care",
         "illinois-community-care-program"],
+    "illinois-medicaid-look-back-period": [
+        "illinois-medicaid-long-term-care",
+        "illinois-medicaid-estate-recovery",
+        "illinois-supportive-living-program"],
 }
 
 RELATED_MIN_INBOUND = 2
@@ -3388,6 +3529,12 @@ CARDS = {
         "Illinois law requires a screening before any adult is admitted to "
         "a nursing facility, however they pay — what it checks, who "
         "performs it, and what happens if it is skipped."),
+    "illinois-medicaid-look-back-period": (
+        "Paying with Medicaid",
+        "Will giving money away affect Medicaid eligibility?",
+        "Illinois reviews the five years before a long-term-care application "
+        "for gifts and underpriced transfers — what triggers a penalty, what "
+        "does not, and when it actually starts, read off HFS's own brochure."),
 }
 
 
