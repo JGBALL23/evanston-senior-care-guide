@@ -1,8 +1,8 @@
 {
   "entries": {
     "https://evanstonseniorcareguide.com/guides/": {
-      "at": "2026-11-17T17:18:32Z",
-      "hash": "3ac0502514de23ca91de0cbaefb59bd788920a37a8d13cc6fb4d1f8413fda854",
+      "at": "2026-11-17T17:27:10Z",
+      "hash": "23bc5b23d91f525a57366616158050db54a9e33da6d69ea491d928faf494417e",
       "kind": "submitted",
       "status": 200
     },
@@ -87,6 +87,12 @@
     "https://evanstonseniorcareguide.com/guides/illinois-nursing-home-resident-rights/": {
       "at": "2026-11-17T16:02:04Z",
       "hash": "3eb35938f385dd1f536006265784ea8d8ce5a411ebb26d541074702391be9df3",
+      "kind": "submitted",
+      "status": 200
+    },
+    "https://evanstonseniorcareguide.com/guides/illinois-pace-program/": {
+      "at": "2026-11-17T17:27:10Z",
+      "hash": "2c8b6fc1a95df92937ea463837465ab4eb217ab758c2570facb1a105e738938d",
       "kind": "submitted",
       "status": 200
     },
