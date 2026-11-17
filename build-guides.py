@@ -375,6 +375,18 @@ SRC = {
                      'https://www.medicare.gov/coverage/walkers'),
     "mdme_wheelchairs": ('Medicare.gov — Wheelchairs & scooters',
                         'https://www.medicare.gov/coverage/wheelchairs-scooters'),
+    "idph_vet_homes": ("Illinois Department of Public Health — Veterans' Homes",
+                       'https://dph.illinois.gov/topics-services/health-care-regulation/nursing-homes/veterans-homes.html'),
+    "idva_homes": ('Illinois Department of Veterans’ Affairs — Illinois’ Veterans’ Homes',
+        'https://veterans.illinois.gov/services-benefits/homes/homes.html'),
+    "va_clc": ('VA.gov — VA Community Living Centers',
+              'https://www.va.gov/geriatrics/pages/VA_Community_Living_Centers.asp'),
+    "va_ltc_new": ('VA.gov — Long-term care',
+                   'https://www.va.gov/health-care/about-va-health-benefits/long-term-care/'),
+    "va_ltc_overview": ('VA.gov — VA Long Term Care Services',
+                        'https://www.va.gov/geriatrics/pages/VA_Long_Term_Care_Services.asp'),
+    "va_respite": ('VA.gov — Respite Care',
+                  'https://www.va.gov/geriatrics/pages/Respite_Care.asp'),
 }
 
 
@@ -4290,6 +4302,221 @@ GUIDES = [
             ]),
         ],
     },
+    {
+        "slug": "va-nursing-home-and-respite-care",
+        "bridge": ("Knowing which settings VA can provide is a different question "
+                   "from knowing which kind of care your veteran parent needs "
+                   "now: help at home, a respite stay, assisted living or a "
+                   "nursing home."),
+        "reviewed": "2026-11-17",
+        "title": "VA Nursing Home Care and Respite Care, Explained",
+        "h1": "Can the VA provide nursing home care, or give a family caregiver a break?",
+        "desc": ("What VA.gov says about VA nursing homes, contracted community "
+                 "nursing homes, State Veterans Homes and Respite Care, and the "
+                 "room and board VA does not pay."),
+        "intent": "benefits question",
+        "answer": ("<strong>Yes, for enrolled veterans who meet VA&rsquo;s "
+                   "criteria &mdash; through VA health care, a different path "
+                   "from the Veterans Pension.</strong> VA.gov describes three "
+                   "nursing home settings: VA Community Living Centers, "
+                   "community nursing homes that VA contracts with, and State "
+                   "Veterans Homes. It also describes Respite Care, which pays "
+                   "for short-term care so a family caregiver can take a break. "
+                   "For a VA nursing home or a contracted community nursing "
+                   "home, VA ties eligibility to enrollment in VA health care, "
+                   "clinical need and criteria involving service-connected "
+                   "status, level of disability and income. One limit many "
+                   "families miss: VA says it does not pay room and board in "
+                   "assisted living or adult family homes."),
+        "sources": srcs("va_ltc_new", "va_clc", "va_respite", "va_ltc_overview",
+                        "idva_homes", "idph_vet_homes"),
+        "body": [
+            ("Three nursing home settings VA describes", [
+                "<p>Many families assume VA help with long-term care means a "
+                "pension cheque. VA.gov&rsquo;s long-term care page describes "
+                "three nursing home settings a veteran may be able to use: a "
+                "VA <strong>Community Living Center</strong>, one of the "
+                "&ldquo;VA nursing centers that are designed to feel like "
+                "home&rdquo;; a <strong>community nursing home</strong>, a "
+                "non-VA nursing home that VA contracts with so a veteran can "
+                "get care nearer home and family; and a <strong>State "
+                "Veterans Home</strong>, which VA.gov describes as owned and "
+                "managed by the state.</p>",
+                "<p>VA&rsquo;s Community Living Center page is direct: "
+                "&ldquo;A Community Living Center (CLC) is a VA Nursing "
+                "Home.&rdquo; It offers nursing-home-level care, including "
+                "help with activities of daily living and 24-hour skilled "
+                "nursing care, and the page says a CLC &ldquo;resembles "
+                "&lsquo;home&rsquo; as much as possible,&rdquo; with "
+                "family-friendly places for visiting, rooms veterans are "
+                "invited to decorate, and pets allowed to visit or live "
+                "there.</p>",
+                "<p>For a Community Living Center or a community nursing "
+                "home, VA&rsquo;s long-term care overview says VA provides the "
+                "care &ldquo;IF you meet certain eligibility criteria "
+                "involving your service-connected status, level of "
+                "disability, and income.&rdquo; The Community Living Center "
+                "page adds: &ldquo;You must first be enrolled in the VA health "
+                "system, and be medically and psychiatrically stable,&rdquo; "
+                "and it says eligibility also depends on clinical need and "
+                "whether a place is available. None of this guarantees a "
+                "particular setting. State Veterans Homes are run by the "
+                "states; Illinois&rsquo;s are covered below.</p>",
+            ]),
+            ("Respite care: a break for the family caregiver", [
+                "<p>VA.gov&rsquo;s long-term care page says a veteran "
+                "&ldquo;may be able to get a service called respite care as "
+                "part of your VA healthcare benefits.&rdquo; It pays for a "
+                "person to come into the home, or for the veteran to go to a "
+                "programme outside the home, while the family caregiver takes "
+                "a break. VA&rsquo;s Geriatrics and Extended Care page says "
+                "the programme is for veterans who need help with activities "
+                "of daily living, and also for veterans who are isolated or "
+                "whose caregiver is experiencing burden.</p>",
+                "<p>It comes in two forms. <strong>Home Respite "
+                "Care</strong> &ldquo;pays for a person to come to a "
+                "Veteran&rsquo;s home,&rdquo; or for the veteran to attend an "
+                "adult day health care programme while the family caregiver "
+                "takes a break or runs errands. <strong>Nursing Home Respite "
+                "Care</strong> &ldquo;pays for a Veteran to go to a nursing "
+                "home&rdquo; while the family is away for a few days, and "
+                "VA.gov notes: &ldquo;This type of respite should be scheduled "
+                "in advance.&rdquo;</p>",
+                "<p>VA.gov&rsquo;s eligibility rule: &ldquo;All enrolled "
+                "Veterans are eligible for Respite Care IF they meet the "
+                "clinical criteria for the service and it is "
+                "available.&rdquo; Services vary by location, and if the "
+                "respite is provided by a community agency, an adult day "
+                "health care centre or a nursing home rather than by VA "
+                "itself, the veteran also needs to meet community care "
+                "eligibility.</p>",
+                "<p>A copay may apply: &ldquo;A copay for Respite Care may be "
+                "charged based on your VA service-connected disability status "
+                "and financial information.&rdquo; Neither VA.gov page this "
+                "guide read states an annual day limit for Respite Care, so "
+                "this guide does not publish one. Ask your VA social worker or "
+                "case manager what is available near your parent.</p>",
+            ]),
+            ("What VA will not pay for: room and board in assisted living", [
+                "<p>This is the limit that catches families off guard. "
+                "VA&rsquo;s long-term care overview says: &ldquo;The VA does "
+                "not pay for room and board in residential settings such as "
+                "Assisted Living or Adult Family Homes.&rdquo; It adds that "
+                "residential settings and nursing homes each have their own "
+                "eligibility requirements, and that a veteran may still "
+                "receive some of VA&rsquo;s home and community services while "
+                "living in a residential setting.</p>",
+                "<p>VA.gov&rsquo;s newer long-term care page says of these "
+                "settings: &ldquo;These places are not run, staffed, or paid "
+                "for by VA, but we do inspect and approve each one.&rdquo; VA "
+                "benefits may still help pay for extra services there, such as "
+                "visits from a VA health care provider.</p>",
+                '<p>This is where the <a href="/guides/'
+                'va-aid-and-attendance-benefit/">Aid and Attendance</a> rate '
+                "of the VA pension comes in for veterans and surviving spouses "
+                "who qualify: it is money a family can put toward care costs "
+                'such as the <a href="/guides/assisted-living-cost-illinois/">'
+                "cost of assisted living</a>. As that guide explains, it is a "
+                "contribution toward care costs, not a programme that pays for "
+                "assisted living.</p>",
+            ]),
+            ("Help at home that VA names", [
+                "<p>VA&rsquo;s long-term care overview lists Geriatric "
+                "Evaluation, Adult Day Health Care, Homemaker and Home Health "
+                "Aide Care, Respite Care and Skilled Home Health Care, and "
+                "says: &ldquo;All enrolled Veterans are eligible for these "
+                "services.&rdquo; To get one, the veteran must have a clinical "
+                "need for it and it must be available where they live.</p>",
+                "<p>VA.gov&rsquo;s newer page describes several of them. "
+                "<strong>Adult Day Health Care</strong> is a programme a "
+                "veteran can go to during the day for &ldquo;social "
+                "activities, companionship, and recreation&rdquo; as well as "
+                "care and support. A <strong>homemaker or home health "
+                "aide</strong> is &ldquo;A trained caregiver (supervised by a "
+                "registered nurse) who comes into your home to help you care "
+                "for yourself.&rdquo; <strong>Skilled home health "
+                "care</strong> sends providers from a community-based home "
+                "health agency to the house for care such as wound care, "
+                "physical therapy, social work support and help with daily "
+                "tasks. <strong>Home-Based Primary Care</strong> is &ldquo;A "
+                "VA healthcare team, led by a VA doctor, who provides "
+                "services&rdquo; such as nursing care and physical therapy in "
+                "the home.</p>",
+            ]),
+            ("What it costs", [
+                "<p>VA&rsquo;s long-term care overview states: &ldquo;Long "
+                "term care copays are not charged until the 22nd day of "
+                "care.&rdquo; After that, the Community Living Center page "
+                "says &ldquo;A copay may be charged for CLC care based on your "
+                "VA service-connected disability status and financial "
+                "information,&rdquo; and the application described below is "
+                "what sets the amount.</p>",
+                "<p>Hospice care is treated differently: &ldquo;Copays are NOT "
+                "charged for Hospice Care provided in any setting.&rdquo; For "
+                "services VA health care does not cover, VA.gov&rsquo;s newer "
+                "page says families may be able to pay through Medicaid, "
+                "Medicare or private insurance.</p>",
+                "<p>This guide has not verified how a VA pension interacts "
+                "with a Community Living Center copay. That depends on income "
+                "and disability rules only VA can apply to one person&rsquo;s "
+                "file, so ask the VA social worker handling the "
+                "application.</p>",
+            ]),
+            ("How to apply", [
+                "<p>VA.gov gives the same instruction for Community Living "
+                "Center care and for Respite Care: contact your VA social "
+                "worker or case manager to complete <strong>VA Form 10-10EC, "
+                "Application for Extended Care Benefits</strong>, which also "
+                "tells you the amount of your copay. The veteran must already "
+                "be enrolled in VA health care, and VA&rsquo;s overview warns: "
+                "&ldquo;Receiving financial compensation for a VA disability "
+                "does NOT automatically enroll you in VA health care.&rdquo;</p>",
+            ]),
+            ("Illinois runs five State Veterans Homes", [
+                "<p>The Illinois Department of Veterans&rsquo; Affairs lists "
+                "five Illinois Veterans&rsquo; Homes, in Anna, Chicago, "
+                "LaSalle, Manteno and Quincy, serving &ldquo;Illinois veterans "
+                "and eligible spouses seeking skilled and domiciliary "
+                "care.&rdquo; It says the Anna and Quincy homes offer care to "
+                "qualifying spouses. The Illinois Department of Public Health "
+                "states: &ldquo;Each Home is licensed by IDPH and certified by "
+                "the US Department of Veterans Affairs Medical Center of "
+                "jurisdiction.&rdquo;</p>",
+                "<p>IDPH also describes a protection under Public Act "
+                "100-0632: if two or more residents of an Illinois Veterans "
+                "Home are diagnosed with an infectious disease within one "
+                "month or less, the home must, within 24 hours of being "
+                "notified of the second diagnosis, notify each resident and "
+                "their emergency contact or next of kin in writing, post a "
+                "notice near its main entrance, and notify the Department of "
+                "Veterans&rsquo; Affairs and the Department of Public "
+                "Health.</p>",
+                "<p>This guide has not verified the homes&rsquo; costs or "
+                "admission rules. The Illinois Department of Veterans&rsquo; "
+                "Affairs publishes an admission application for the homes; "
+                "contact it directly before relying on a figure found "
+                "elsewhere.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>This site covers three VA paths, and they are not "
+                "interchangeable. "
+                '<a href="/guides/va-aid-and-attendance-benefit/">Aid and '
+                "Attendance</a> is an increased monthly rate of the VA pension "
+                "for veterans and some surviving spouses who already qualify "
+                'for a pension. <a href="/guides/va-veteran-directed-care-program/">'
+                "Veteran Directed Care</a> gives a veteran who qualifies a "
+                "budget to hire their own help at home. This guide is the "
+                "third: care VA provides or pays for itself, under its own "
+                "eligibility rules rather than a pension calculation.</p>",
+                "<p>If the open question in your family is which level of "
+                "care your parent needs, rather than which VA programme pays "
+                'for it, the <a href="/">free six-question assessment</a> on '
+                "this site walks through that separately. It asks for no name, "
+                "no email and no phone number, and your answers never leave "
+                "your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -4526,10 +4753,10 @@ RELATED = {
     "va-aid-and-attendance-benefit": [
         "va-veteran-directed-care-program",
         "assisted-living-cost-illinois",
-        "illinois-medicaid-long-term-care"],
+        "va-nursing-home-and-respite-care"],
     "va-veteran-directed-care-program": [
         "va-aid-and-attendance-benefit",
-        "illinois-community-care-program",
+        "va-nursing-home-and-respite-care",
         "illinois-family-caregiver-support-program"],
     "illinois-family-caregiver-support-program": [
         "illinois-community-care-program",
@@ -4591,6 +4818,10 @@ RELATED = {
         "does-medicare-pay-for-senior-care",
         "medicare-home-health-care",
         "levels-of-senior-care-explained"],
+    "va-nursing-home-and-respite-care": [
+        "va-aid-and-attendance-benefit",
+        "va-veteran-directed-care-program",
+        "check-illinois-inspection-records"],
 }
 
 RELATED_MIN_INBOUND = 2
@@ -4977,6 +5208,10 @@ CARDS = {
         "Part B covers home medical equipment with a doctor's order and "
         "an enrolled supplier, and a power wheelchair needs a face-to-face "
         "exam and a written prescription first."),
+    "va-nursing-home-and-respite-care": (
+        "Veterans' benefits",
+        'Can the VA provide nursing home care, or give a caregiver a break?',
+        'VA nursing homes, respite stays and help at home that VA provides or pays for directly, not a pension cheque, and the room and board VA.gov says it does not pay.'),
 }
 
 
