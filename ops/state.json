@@ -1,11 +1,11 @@
 {
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
- "updated_utc": "2026-11-17T18:24Z",
- "last_run_utc": "2026-11-17T18:24Z",
+ "updated_utc": "2026-11-17T19:14Z",
+ "last_run_utc": "2026-11-17T19:14Z",
  "facebook": {
   "access": "yes via Claude in Chrome (his browser c8d89af0 reconnected 14:04Z after being offline 08:23-14:04Z); a fresh cloud session has none",
-  "last_access_ok_utc": "2026-11-17T15:10Z",
+  "last_access_ok_utc": "2026-11-17T19:10Z",
   "last_checks_utc": "2026-11-17T14:32Z",
   "unreachable_since_utc": null,
   "unreachable_reported_utc": null,
@@ -257,7 +257,7 @@
  },
  "metrics": {
   "since_utc": "2026-11-08T22:15Z",
-  "as_of_utc": "2026-11-17T16:20Z",
+  "as_of_utc": "2026-11-17T19:14Z",
   "facebook_posts_visible": 4,
   "facebook_genuine_visitors": 4,
   "assessment_starts": 0,
@@ -265,10 +265,10 @@
   "tour_form_views": 0,
   "tour_requests_genuine": 0,
   "tours_confirmed": "UNVERIFIED (none reported by Joseph)",
-  "netlify_checked_to_utc": "2026-11-17T16:13Z",
-  "gmail_checked_to_utc": "2026-11-17T16:14Z",
+  "netlify_checked_to_utc": "2026-11-17T19:09Z",
+  "gmail_checked_to_utc": "2026-11-17T19:08Z",
   "note": "genuine = real browsers only; harness tests, crawlers, link previews and Joseph's unverified phone excluded",
-  "visitor_notes": "2 genuine visitors from the checklist post: 13:49Z 16 Nov (iPhone Safari) and 19:07Z 16 Nov (iPhone, Facebook app; same iOS version as the owner's phone, owner asked whether it was his); both opened the checklist PDF, neither started the assessment or the tour form | 17 Nov fb-evsk-1117: 2 genuine visitors (15:32Z, 15:42Z; two different iPhones in the Facebook app, not the owner's phone); 1 checklist PDF open, 1 tour-questions view; no assessment or tour form"
+  "visitor_notes": "2 genuine visitors from the checklist post: 13:49Z 16 Nov (iPhone Safari) and 19:07Z 16 Nov (iPhone, Facebook app; same iOS version as the owner's phone, owner asked whether it was his); both opened the checklist PDF, neither started the assessment or the tour form | 17 Nov fb-evsk-1117: 2 genuine visitors (15:32Z, 15:42Z; two different iPhones in the Facebook app, not the owner's phone); 1 checklist PDF open, 1 tour-questions view; no assessment or tour form | 16:13-19:09Z: no new Facebook-origin visits; 1 direct visit read the tour questions and costs; no tour-form view"
  },
  "owner": {
   "questions": [
@@ -353,7 +353,8 @@
   "2026-11-17T17:35Z site: published PACE (Evanston not yet served; checked against the HFS zip list) and Medicare home health guides; 8 guides live today; every draft so far had at least one paraphrase inside quotation marks, fixed before publishing",
   "2026-11-17T17:44Z site: published the Medicare Extra Help guide (2026 limits, 2027 costs verified); 9 guides published today, 25 live; Medicare coverage guide links to the cost guide again",
   "2026-11-17T18:09Z Search Console: verified the site (meta tag, PR #51) and resubmitted the sitemap (27 URLs); performance data still processing. ROUTINE.md: quote and paraphrase integrity rules (PR #52). Operator instructions updated with the 11:56 approvals",
-  "2026-11-17T18:23Z site: published the home-delivered meals and elder abuse (APS) guides after removing unsupported claims; 11 guides published today, 27 live"
+  "2026-11-17T18:23Z site: published the home-delivered meals and elder abuse (APS) guides after removing unsupported claims; 11 guides published today, 27 live",
+  "2026-11-17T19:12Z lead scan: 99 recent posts in 5 groups, 0 families asking; Gmail: no tour requests; site: no new Facebook visits since 16:13Z"
  ],
  "next_actions": [
   "Wed 18 Nov 9:00-19:00 Chicago: post template B (costs) naming Wilmette in What's Happening in Wilmette illinois, #employed after the disclosure, tag fb-wil-1118",
@@ -393,6 +394,13 @@
     "posts_scanned": 53,
     "leads": 0,
     "note": "first scan of the Highland Park group"
+   },
+   {
+    "utc": "2026-11-17T19:12Z",
+    "groups": 5,
+    "posts_scanned": 99,
+    "leads": 0,
+    "note": "one match was a yoga studio ad aimed at caregivers, not a request"
    }
   ],
   "method": "chronological feed of each member group, in-page keyword filter (senior-care terms + a request + not a business ad); about 2-4 days of posts per group on the first scan",
@@ -401,12 +409,12 @@
  "due": {
   "post_next": "2026-11-18T15:00Z",
   "fb_checks": "2026-11-17T22:15Z",
-  "lead_scan": "2026-11-17T19:06Z",
-  "metrics": "2026-11-17T19:15Z",
+  "lead_scan": "2026-11-17T23:10Z",
+  "metrics": "2026-11-18T00:05Z",
   "venues": "2026-11-24T15:00Z",
   "evanston_join_status": "2026-11-17T22:15Z",
   "rollup": "2026-11-18T01:00Z",
-  "guides": "next drafts: Benefit Access Program, VA nursing home/respite, VA caregiver support, VA home-based care, FIDE SNP, Medicare DME, money management, caregiver background check; follow-up: the facility-complaint guide can now explain 1-866-800-1409 as the APS hotline (link the new guide)",
+  "guides": "continue (8 drafts left) + facility-complaint guide: explain 1-866-800-1409 as the APS hotline",
   "search_console": "2026-11-19T15:00Z"
  },
  "site": {
