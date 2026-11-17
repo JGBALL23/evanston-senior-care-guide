@@ -1312,7 +1312,7 @@ GUIDES = [
                    "investigates facilities &mdash; call <strong>800-252-4343</strong>, "
                    "Monday&ndash;Friday 8:30 a.m. to 4:30 p.m. You do not have to choose "
                    "just one."),
-        "sources": srcs("idoa_ombudsman", "idoa_ombudsman_contact", "idph_ccr"),
+        "sources": srcs("idoa_ombudsman", "idoa_ombudsman_contact", "idph_ccr", "idoa_aps_program"),
         "body": [
             ("Two kinds of help, and when to use each", [
                 "<p>Families searching for how to complain about a care community "
@@ -1367,14 +1367,16 @@ GUIDES = [
                 "notice of the outcome. Describing who, what, when, where and how gives "
                 "investigators the most to work with.</p>",
             ]),
-            ("A number this guide will not publish", [
-                "<p>The Ombudsman Program's own page carries a separate navigation link "
-                "reading &ldquo;Report Abuse: 1-866-800-1409,&rdquo; but the page itself "
-                "never states what that line reaches or how it relates to the HelpLine "
-                "number above it. Rather than guess at an unexplained number on a "
-                "government page, this guide leaves it out. If you come across it "
-                "elsewhere, confirm what it connects to with the Department on Aging "
-                "before relying on it.</p>",
+            ("The other number on the Ombudsman page", [
+                "<p>The Ombudsman Program's own page also carries a navigation link "
+                "reading &ldquo;Report Abuse: 1-866-800-1409.&rdquo; The Department on "
+                "Aging's Adult Protective Services page identifies that number as "
+                "&ldquo;the statewide, 24-hour Adult Protective Services Hotline,&rdquo; "
+                "and Adult Protective Services covers adults living in the community, "
+                "not residents of a care facility. For a parent who lives at home, see "
+                '<a href="/guides/illinois-elder-abuse-reporting/">What to do about '
+                "suspected elder abuse or neglect at home in Illinois</a>. For a concern "
+                "inside a facility, use the two channels above.</p>",
             ]),
             ("If someone is in immediate danger", [
                 "<p>None of the above is the right channel for an emergency. If a "
