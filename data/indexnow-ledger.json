@@ -1,80 +1,104 @@
 {
   "entries": {
     "https://evanstonseniorcareguide.com/guides/": {
-      "at": "2026-10-26T16:48:12Z",
-      "hash": "6865a269fe36cf193ebf8598b5dbe29cd5d905f45b072e1b50d6f2fba7743ef6",
+      "at": "2026-11-17T16:02:04Z",
+      "hash": "611313fcb00c5df366ae8f60a0a9afcde3c2c08110e4dbfb40386b4f0fc1a28e",
       "kind": "submitted",
       "status": 200
     },
     "https://evanstonseniorcareguide.com/guides/assisted-living-cost-illinois/": {
-      "at": "2026-10-26T16:48:12Z",
-      "hash": "1f7c21b5f020be485276e9ee19710e19fec9d0f094a170da98b2ecae0621f469",
+      "at": "2026-11-17T16:02:04Z",
+      "hash": "f419de2140c911ca8623b3cfb2090c55dbdfc5d48ef795ae136e32fc9b113287",
       "kind": "submitted",
       "status": 200
     },
     "https://evanstonseniorcareguide.com/guides/check-illinois-inspection-records/": {
-      "at": "2026-10-26T16:48:12Z",
-      "hash": "bfd76f7fb318332db76de76a82d63cd80c8ab1e54dcd346aca63195f80fe709d",
+      "at": "2026-11-17T16:02:04Z",
+      "hash": "56d156e8df9a8c1bb298ef2318a23ca634d2933cda1c8159146fd82f42480a61",
       "kind": "submitted",
       "status": 200
     },
     "https://evanstonseniorcareguide.com/guides/does-medicare-pay-for-senior-care/": {
-      "at": "2026-10-26T16:48:12Z",
-      "hash": "d14f968b2d2465f7719b1b209ad9601928daf55a213fab75bb2088211f841d87",
+      "at": "2026-11-17T16:02:04Z",
+      "hash": "6990de34beee698168f7e23b606cad9d34945ce1b005470314e77b2300dc25fa",
       "kind": "submitted",
       "status": 200
     },
     "https://evanstonseniorcareguide.com/guides/illinois-care-facility-complaint/": {
-      "at": "2026-10-26T16:48:12Z",
-      "hash": "88c7dda435e5284f9a88f78dc97030117cad72935f8223f6e62468d6cbabf171",
+      "at": "2026-11-17T16:02:04Z",
+      "hash": "18e458faf42ebea64f61e4c6af77d64841e5589616b468186d21b2851f6c2397",
       "kind": "submitted",
       "status": 200
     },
     "https://evanstonseniorcareguide.com/guides/illinois-community-care-program/": {
-      "at": "2026-10-26T16:48:12Z",
-      "hash": "c11ff267a3629f15f7f71beca908dd814b631a5bdbfc3eee5d65511a2132f026",
+      "at": "2026-11-17T16:02:04Z",
+      "hash": "18ff95c747a3166e4735614a9cca72c573c11e04fd729dc5777cbf36e0e2527c",
+      "kind": "submitted",
+      "status": 200
+    },
+    "https://evanstonseniorcareguide.com/guides/illinois-family-caregiver-support-program/": {
+      "at": "2026-11-17T16:02:04Z",
+      "hash": "3bcecf295e2bb45f17a5e4c67e5ebbbfbd2c7714dc4486bad3505d663c11bf7f",
       "kind": "submitted",
       "status": 200
     },
     "https://evanstonseniorcareguide.com/guides/illinois-medicaid-estate-recovery/": {
-      "at": "2026-10-26T16:48:12Z",
-      "hash": "d6b27cbb34ccebad5f13a132c992a68f84aaaa1379878227c565c8bbf5fccb6d",
+      "at": "2026-11-17T16:02:04Z",
+      "hash": "08056626608742fa340382cd0d8f056b4b23c9c34ba5cdfe6a21f3d24f33bddd",
       "kind": "submitted",
       "status": 200
     },
     "https://evanstonseniorcareguide.com/guides/illinois-medicaid-long-term-care/": {
-      "at": "2026-10-26T16:48:12Z",
-      "hash": "6ed10377a9d91da1e0eaccf2ea6aef821859bb94b4797efe83d98c621b9e0d12",
+      "at": "2026-11-17T16:02:04Z",
+      "hash": "18484f486d99f098dc598768b986fc81fb6c1e1cc397c237225157c8eba12274",
+      "kind": "submitted",
+      "status": 200
+    },
+    "https://evanstonseniorcareguide.com/guides/illinois-nursing-home-resident-rights/": {
+      "at": "2026-11-17T16:02:04Z",
+      "hash": "3eb35938f385dd1f536006265784ea8d8ce5a411ebb26d541074702391be9df3",
+      "kind": "submitted",
+      "status": 200
+    },
+    "https://evanstonseniorcareguide.com/guides/illinois-senior-health-insurance-program/": {
+      "at": "2026-11-17T16:02:04Z",
+      "hash": "bf364e89a7d09f5dd76f857babc84b8df24617910e4ecaed39fe6e4a18eeb044",
       "kind": "submitted",
       "status": 200
     },
     "https://evanstonseniorcareguide.com/guides/illinois-supportive-living-program/": {
-      "at": "2026-10-26T16:48:12Z",
-      "hash": "438c39b8fedaf13a3bea4fd6d84139e7d6014717e8f13cc685a25b560f6554c4",
+      "at": "2026-11-17T16:02:04Z",
+      "hash": "12b1e433eeca65d5f07c18ddc9ed467c9c4863cca237ddb10146534d1cbb3899",
       "kind": "submitted",
       "status": 200
     },
     "https://evanstonseniorcareguide.com/guides/independent-living-evanston/": {
-      "at": "2026-10-28T14:17:55Z",
-      "hash": "40224259e21b7bee3c802866107aa20c7c29439fce234eeac59030c429a7453f",
+      "at": "2026-11-17T16:02:04Z",
+      "hash": "fbbc43e9e427b2e634964d63c37028baf61db26d4f40cf8c1dc3a9143cd6edb6",
       "kind": "submitted",
       "status": 200
     },
     "https://evanstonseniorcareguide.com/guides/levels-of-senior-care-explained/": {
-      "at": "2026-10-26T16:48:12Z",
-      "hash": "0f35790ee9ffddb7cff560982c3f473b3ac89570cc9fe7c1b24c218d1c7982b3",
+      "at": "2026-11-17T16:02:04Z",
+      "hash": "8805b3f0fa8a1c23913ae5bf4e151098c108b5368fa8e74932fee69a6e07ad2b",
       "kind": "submitted",
       "status": 200
     },
     "https://evanstonseniorcareguide.com/guides/medicare-hospice-benefit-explained/": {
-      "at": "2026-10-26T16:48:12Z",
-      "hash": "e620e80c33672d677219b433d37cc9632f8ed3ee7ae3c314c4ac7d5dac844b70",
+      "at": "2026-11-17T16:02:04Z",
+      "hash": "e399992b12958b6f6999170452ee00287309b623857ac6f3c4ecb7bb4cd72be2",
       "kind": "submitted",
       "status": 200
     },
     "https://evanstonseniorcareguide.com/guides/va-aid-and-attendance-benefit/": {
-      "at": "2026-10-26T16:48:12Z",
-      "hash": "6e44b4f3175820f6f92d201531da9410910c4e5dfef2bf548abc1e34c2ef9163",
+      "at": "2026-11-17T16:02:04Z",
+      "hash": "a4a0eef11e940a615e933890322c30227353b97281ffc7055e9e4d4bd385828c",
+      "kind": "submitted",
+      "status": 200
+    },
+    "https://evanstonseniorcareguide.com/guides/va-veteran-directed-care-program/": {
+      "at": "2026-11-17T16:02:04Z",
+      "hash": "987547530b314412fa1e1fe4e62d5429dd0cbc741975753b95cc3c6d7a4dd100",
       "kind": "submitted",
       "status": 200
     }
