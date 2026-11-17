@@ -371,6 +371,15 @@ TOUR_CHECKLIST = (
     '<span class="dl-cta__note">A one-page PDF to print and take on every '
     'tour. No email or sign-up.</span></p>')
 
+# For a reader already planning visits, one quiet sentence under the
+# checklist on the cost and inspection-record guides: the homepage's own
+# "Ask about a tour" shortcut, with the affiliation stated in the sentence.
+# A plain link, never a button; same form, same consent, nothing new counted.
+# (The independent-living guide has its own tour block and does not use it.)
+TOUR_ASK = ('<p class="narrow-p tour-ask">Visiting Westminster Place in Evanston, '
+            'where I work? <a href="/?tour=form#plan-visit">Ask about a tour '
+            'here</a>.</p>')
+
 
 # --------------------------------------------------------------------------
 # THE GUIDES
@@ -378,7 +387,7 @@ TOUR_CHECKLIST = (
 GUIDES = [
     {
         "slug": "assisted-living-cost-illinois",
-        "after_section": {"The four costs that surprise families": TOUR_CHECKLIST},
+        "after_section": {"The four costs that surprise families": TOUR_CHECKLIST + TOUR_ASK},
         "bridge": ("A price only means something once you know which kind of care "
                "you are pricing. The same parent can be quoted wildly different "
                "monthly figures depending on the level of care a community "
@@ -740,7 +749,7 @@ GUIDES = [
 
     {
         "slug": "check-illinois-inspection-records",
-        "after_section": {"Check every community, including ours": TOUR_CHECKLIST},
+        "after_section": {"Check every community, including ours": TOUR_CHECKLIST + TOUR_ASK},
         "bridge": ("An inspection record tells you how well a community does its job. "
                "It cannot tell you whether that is the job your parent needs doing "
                "in the first place."),
