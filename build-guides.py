@@ -359,6 +359,12 @@ SRC = {
                         'https://ilaging.illinois.gov/programs/adult-protective-services-aps-.html'),
     "idoa_engage": ('Illinois Department on Aging — Engage2Change (what happens after a report)',
                     'https://ilaging.illinois.gov/engage.html'),
+    "idoa_benefit_access": ('Illinois Department on Aging — Benefit Access Program',
+                            'https://ilaging.illinois.gov/benefitsaccess.html'),
+    "idoa_benefit_access_faq": ('Illinois Department on Aging — Benefit Access, Eligibility and Frequently Asked Questions',
+                                'https://ilaging.illinois.gov/benefitsaccess/eligibility-20and-20frequently-asked-questions.html'),
+    "idoa_benefit_access_ridefree": ('Illinois Department on Aging — Benefit Access, Ride Free Transit Benefit',
+                                     'https://ilaging.illinois.gov/benefitsaccess/ride-free-transit-benefit.html'),
 }
 
 
@@ -3996,6 +4002,156 @@ GUIDES = [
             ]),
         ],
     },
+    {
+        "slug": "illinois-benefit-access-program",
+        "bridge": ("A cheaper license plate and free transit rides are a "
+               "different question from whether your parent can still get "
+               "around safely enough to use either one."),
+        "reviewed": "2026-11-17",
+        "title": "Illinois Benefit Access: Free Transit and a Cheaper License Plate",
+        "h1": "Illinois Benefit Access Program: free transit and a cheaper license plate",
+        "desc": ("Illinois seniors and people with disabilities under an income limit "
+                 "can ride transit free and get a cheaper license plate. Who "
+                 "qualifies and how to apply."),
+        "intent": "benefits assistance",
+        "answer": ("<strong>Yes &mdash; the Illinois Department on Aging runs "
+                   "the Benefit Access Program</strong>, which gives "
+                   "qualifying seniors and people with disabilities two "
+                   "things: free rides on local public transit, and a "
+                   "discounted license plate sticker through the Secretary "
+                   "of State. To qualify, a person must be 65 or older "
+                   "before January 1 of the current year (or turning 65 "
+                   "this year), live in Illinois, and have had gross "
+                   "household income below a published limit for the last "
+                   "closed tax year &mdash; <strong>$33,562</strong> for one "
+                   "person, <strong>$44,533</strong> for two, or "
+                   "<strong>$55,500</strong> for three, as stated on the "
+                   "Department&rsquo;s own page. Applications are online "
+                   "only, and eligibility can take up to eight weeks to "
+                   "determine."),
+        "sources": srcs("idoa_benefit_access", "idoa_benefit_access_faq",
+                        "idoa_benefit_access_ridefree"),
+        "body": [
+            ("What the programme actually gives you", [
+                "<p>The Illinois Department on Aging describes Benefit "
+                "Access as two separate benefits bundled under one "
+                "application. The first is a <strong>Ride Free Transit "
+                "benefit</strong>: approved seniors and people with "
+                "disabilities ride free on local public transit, and the Department says to &ldquo;contact your local public transit system to find out what their requirements are.&rdquo; The second is a <strong>license plate "
+                "discount</strong>, administered through the Secretary of "
+                "State&rsquo;s Office once a certificate of eligibility is "
+                "presented there.</p>",
+                "<p>The Department&rsquo;s pages describe no separate cash payment or rebate &mdash; the benefit is the "
+                "transit ride and the plate discount themselves, not a "
+                "cheque.</p>",
+            ]),
+            ("Who qualifies", [
+                "<p>Age or disability: the Department&rsquo;s main Benefit "
+                "Access page says an applicant must be &ldquo;65 years of "
+                "age or older before January 1 of the current year&rdquo; "
+                "or must become 65 during the year, and the Department&rsquo;s FAQ page puts the same rule as 65 or older &ldquo;by December 31 of the current year.&rdquo; Both "
+                "pages agree on the alternative path: at least 16 before "
+                "January 1 of the current year and determined &ldquo;totally "
+                "and permanently disabled&rdquo; before that date. In practice, a parent who turns 65 at any point this year meets the age rule.</p>",
+                "<p>The FAQ page lists what counts as proof of disability: a "
+                "determination from the Social Security Administration, the "
+                "Veterans Administration, Civil Service or Railroad "
+                "Retirement; or a Class 2 disability card from the Illinois "
+                "Secretary of State&rsquo;s office; or a completed "
+                "&ldquo;Attachment A Physician&rsquo;s Statement&rdquo; "
+                "meeting the Social Security Administration&rsquo;s total "
+                "disability criteria.</p>",
+                "<p>Residency: the applicant must live in Illinois at the "
+                "time of filing.</p>",
+                "<p>Income: the Department&rsquo;s pages set <strong>total "
+                "gross income for the last closed tax year</strong> below "
+                "<strong>$33,562</strong> for a one-person household (the "
+                "applicant only); <strong>$44,533</strong> for a two-person "
+                "household (the applicant and a spouse, or the applicant "
+                "and one &ldquo;Qualified Additional Resident&rdquo;); or "
+                "<strong>$55,500</strong> for a three-person household "
+                "(applicant, spouse and one Qualified Additional Resident, "
+                "or the applicant and two Qualified Additional Residents). "
+                "The FAQ page is explicit that this is not a fresh annual "
+                "figure: it notes &ldquo;income limit increase effective "
+                "1/1/2020,&rdquo; and gives no later change. A "
+                "spouse&rsquo;s income counts if the couple was married and "
+                "living together on December 31 of the prior year; a "
+                "surviving spouse files as single using only their own "
+                "income; and a Qualified Additional Resident&rsquo;s income "
+                "is explicitly excluded.</p>",
+                "<p>A Qualified Additional Resident, per the FAQ, is someone "
+                "other than a spouse who lived with the applicant for the "
+                "relevant period, received more than half their financial "
+                "support from the applicant (or the applicant and spouse), "
+                "and is not filing their own Benefit Access Application. "
+                "Qualified Additional Residents do not themselves receive "
+                "benefits &mdash; they only affect the household size used "
+                "to set the applicant&rsquo;s income limit.</p>",
+                "<p>Citizenship: the FAQ states a person does <strong>not</strong> "
+                "need to be a U.S. citizen to qualify, but does need a Social Security number to complete the application.</p>",
+            ]),
+            ("How to apply, what happens after, and how long it lasts", [
+                "<p>The Department is explicit that the <strong>Benefit "
+                "Access Application must be filed online</strong> &mdash; "
+                "&ldquo;Paper applications are not available.&rdquo; A "
+                "married couple living together files one joint application "
+                "reporting combined income, except where one or both live "
+                "in a nursing home, or where the couple is legally separated "
+                "and living at different addresses, in which case the FAQ "
+                "describes filing separately (with proof of separation in "
+                "the latter case). Once submitted, an applicant can check "
+                "status on the Department&rsquo;s site 48 hours later. "
+                "Processing to determine eligibility &ldquo;may take up to "
+                "8 weeks, depending on documentation.&rdquo;</p>",
+                "<p>After approval, the applicant prints a certificate of "
+                "eligibility. For the license plate discount, the Department "
+                "says it &ldquo;will be available 10 business days after "
+                "approval,&rdquo; for presentation to the Secretary of "
+                "State&rsquo;s Office. For the transit benefit, the separate "
+                "Ride Free Transit Benefit page says that benefit instead "
+                "&ldquo;will be available to the transit district the "
+                "following day you are approved&rdquo; &mdash; a different, "
+                "faster timeline than the plate discount, before the rider "
+                "then contacts their local transit system about its own "
+                "requirements.</p>",
+                "<p>The FAQ states eligibility &ldquo;is good for <strong>two years</strong>,&rdquo; and that an applicant may "
+                "reapply beginning 90 days before it expires &mdash; "
+                "consistent with the Ride Free page&rsquo;s instruction to "
+                "submit a new application &ldquo;every other year.&rdquo;</p>",
+                "<p>For help with the application, the Department&rsquo;s pages list the Senior HelpLine at "
+                "<strong>" + F["ccp_line"] + "</strong> (711 TRS for deaf and speech-impaired callers).</p>",
+            ]),
+            ("What this guide did not find", [
+                "<p>None of the three Department pages this guide read "
+                "states a specific dollar value for the license plate "
+                "discount itself &mdash; that fee is set by the Secretary of "
+                "State, not the Department on Aging, and this guide will "
+                "not borrow a figure from a page it did not read. The pages "
+                "also do not describe how the Ride Free transit benefit "
+                "interacts with any separate paratransit programme a county "
+                "or transit district might run; the only instruction given "
+                "is to ask the local transit system directly.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>Benefit Access is about the cost of getting around and "
+                "the cost of registering a car &mdash; it has nothing to do "
+                "with paying for assisted living, home care or a nursing "
+                "home. If the bigger question in your family is how "
+                "Illinois helps pay for actual care, see "
+                '<a href="/guides/illinois-medicaid-long-term-care/">How '
+                "Illinois Medicaid pays for long-term care</a> or "
+                '<a href="/guides/illinois-community-care-program/">Can my '
+                "parent get paid help at home in Illinois?</a></p>",
+                "<p>If the real question is whether your parent can still "
+                "get around safely enough for a free bus or train ride to "
+                'matter, the <a href="/">free six-question assessment</a> '
+                "on this site walks through that separately. It asks for no "
+                "name, no email and no phone number, and your answers never "
+                "leave your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -4280,15 +4436,19 @@ RELATED = {
     "medicare-extra-help-prescription-drug-costs": [
         "illinois-medicare-savings-program",
         "illinois-senior-health-insurance-program",
-        "does-medicare-pay-for-senior-care"],
+        "illinois-benefit-access-program"],
     "illinois-home-delivered-meals": [
-        "illinois-community-care-program",
+        "illinois-benefit-access-program",
         "illinois-family-caregiver-support-program",
         "illinois-home-care-ombudsman-program"],
     "illinois-elder-abuse-reporting": [
         "illinois-care-facility-complaint",
         "illinois-home-care-ombudsman-program",
         "illinois-family-caregiver-support-program"],
+    "illinois-benefit-access-program": [
+        "illinois-medicare-savings-program",
+        "medicare-extra-help-prescription-drug-costs",
+        "illinois-home-delivered-meals"],
 }
 
 RELATED_MIN_INBOUND = 2
@@ -4662,6 +4822,13 @@ CARDS = {
         "A statewide Adult Protective Services hotline covers abuse, "
         "neglect, exploitation and self-neglect of an older adult living "
         "at home — a different line from the one for a care facility."),
+    "illinois-benefit-access-program": (
+        "Costs",
+        "Free transit and a cheaper license plate for seniors",
+        "A state programme gives income-eligible seniors free public "
+        "transit rides and a discounted vehicle registration — the "
+        "income limits and how to apply, read off the Department on "
+        "Aging's own page."),
 }
 
 
