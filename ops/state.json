@@ -1,8 +1,8 @@
 {
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
- "updated_utc": "2026-11-17T16:20Z",
- "last_run_utc": "2026-11-17T16:20Z",
+ "updated_utc": "2026-11-17T16:57Z",
+ "last_run_utc": "2026-11-17T16:57Z",
  "facebook": {
   "access": "yes via Claude in Chrome (his browser c8d89af0 reconnected 14:04Z after being offline 08:23-14:04Z); a fresh cloud session has none",
   "last_access_ok_utc": "2026-11-17T15:10Z",
@@ -334,7 +334,8 @@
   "2026-11-17T15:26Z owner approved public replies and guide publishing, with a standing approval for zero-cost tour-generating work; operator instructions updated",
   "2026-11-17T15:52Z venues: requested to join What's Happening in Evanston, Illinois ? (private, business promotion allowed); joined Highland Park neighborhood community page (no rules, scan only)",
   "2026-11-17T16:12Z site: published 2 verified guides (resident rights; nursing home pre-admission screening) and removed unsupported wording from the Medicare guide; deployed twice; IndexNow 19 URLs accepted",
-  "2026-11-17T16:15Z fb-evsk-1117: 0 reactions or comments; 2 genuine visitors, 1 checklist PDF open, 1 tour-questions view; no tour request (Gmail checked)"
+  "2026-11-17T16:15Z fb-evsk-1117: 0 reactions or comments; 2 genuine visitors, 1 checklist PDF open, 1 tour-questions view; no tour request (Gmail checked)",
+  "2026-11-17T16:56Z site: published the Medicaid look-back and home-care ombudsman guides (several draft quotations corrected to the HFS/IDoA wording); added a disclosed \"Ask about a tour here\" line to the homepage tour section and under the checklist on the cost and inspection guides; all suites green; 4 deploys"
  ],
  "next_actions": [
   "Wed 18 Nov 9:00-19:00 Chicago: post template B (costs) naming Wilmette in What's Happening in Wilmette illinois, #employed after the disclosure, tag fb-wil-1118",
@@ -387,22 +388,31 @@
   "venues": "2026-11-24T15:00Z",
   "evanston_join_status": "2026-11-17T22:15Z",
   "rollup": "2026-11-18T01:00Z",
-  "guides": "now: publish the next verified drafts guide"
+  "guides": "next: power of attorney (#17), Medicare Savings Programs (#16, recheck 2026 limits), PACE (Evanston coverage)"
  },
  "site": {
   "guides_published_1117": [
    "illinois-nursing-home-resident-rights (PR #31)",
-   "illinois-nursing-home-preadmission-screening (PR #33)"
+   "illinois-nursing-home-preadmission-screening (PR #33)",
+   "illinois-medicaid-look-back-period (PR #36)",
+   "illinois-home-care-ombudsman-program (PR #38)"
   ],
   "fixes_1117": [
-   "Medicare guide unsupported wording removed (PR #26)"
+   "Medicare guide unsupported wording removed (PR #26)",
+   "homepage tour section: disclosed \"Ask about a tour here\" link to the existing tour form (PR #35)",
+   "cost and inspection guides: same line under the checklist (PR #40)"
   ],
   "deploys_1117": [
    "6afc7a028dfb49aa4cec6106 (main 2b7e5d1)",
-   "6afc7cd73128fb434b720002 (main b6a79ed)"
+   "6afc7cd73128fb434b720002 (main b6a79ed)",
+   "6afc81b650d37a209267d1d8",
+   "6afc83b140ab5facb486ebe4",
+   "6afc858750598629483e4f63",
+   "6afc87298dad5a675f6e5858"
   ],
-  "indexnow_1117": "17 guide URLs at 16:02Z and 2 at 16:12Z, HTTP 200 (ledger PRs #32, #34)",
-  "guides_live": 18,
-  "drafts_unpublished": 17
+  "indexnow_1117": "21 URLs accepted in 4 submissions (HTTP 200); ledger PRs #32 #34 #37 #39",
+  "guides_live": 20,
+  "drafts_unpublished": 15,
+  "why_tour_link": "FB visitors land on #tour; 17 Nov two read the tour questions or opened the checklist, but the section had no way to ask about a visit"
  }
 }
