@@ -1,8 +1,8 @@
 {
   "entries": {
     "https://evanstonseniorcareguide.com/guides/": {
-      "at": "2026-11-17T17:44:15Z",
-      "hash": "4e860c09c2f042f59bd48bed480e3aa62367fcdffd6c184e76ea4691b35a2724",
+      "at": "2026-11-17T18:15:42Z",
+      "hash": "09c39410cd986cc0088c7f5546376e3c6d5bd0f6aa61046c3e336d09e16e8273",
       "kind": "submitted",
       "status": 200
     },
@@ -51,6 +51,12 @@
     "https://evanstonseniorcareguide.com/guides/illinois-home-care-ombudsman-program/": {
       "at": "2026-11-17T16:49:28Z",
       "hash": "8c73a2dfe6e2c9985764b90205a1c683ab4223b4bb637c3800a49b06c8cef139",
+      "kind": "submitted",
+      "status": 200
+    },
+    "https://evanstonseniorcareguide.com/guides/illinois-home-delivered-meals/": {
+      "at": "2026-11-17T18:15:42Z",
+      "hash": "5da92b0841855aa0c559cc39c208f787a927b01add17ae44627556648bcffa78",
       "kind": "submitted",
       "status": 200
     },
