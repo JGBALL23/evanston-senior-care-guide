@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
-  "updated_utc": "2026-11-17T00:35Z",
+  "updated_utc": "2026-11-17T00:46Z",
   "last_run_utc": "2026-11-17T00:35Z",
   "facebook": {
     "access": "yes, from Claude's main session through Claude in Chrome (owner's browser 71586d76 connected); a fresh cloud session has none (test 2026-11-17T00:19Z)",
@@ -55,6 +55,19 @@
       "comments": 0,
       "checked_utc": "2026-11-17T00:33Z",
       "shares": 0
+    },
+    {
+      "tag": "fb-profile-1116",
+      "venue": "profile",
+      "venue_name": "owner's own profile (Public, his existing setting)",
+      "content": "tour checklist (template P)",
+      "status": "live",
+      "submitted_utc": "2026-11-17T00:44Z",
+      "visible_utc": "2026-11-17T00:44Z",
+      "reactions": 0,
+      "comments": 0,
+      "checked_utc": "2026-11-17T00:45Z",
+      "note": "requests in the first 5 minutes are automated link previews"
     }
   ],
   "venues": [
@@ -88,9 +101,11 @@
     {
       "id": "profile",
       "name": "owner's own profile (his existing audience setting)",
-      "eligible": "only after Joseph says yes in chat (ask once)",
+      "eligible": true,
       "min_gap_days": 30,
-      "last_post_utc": null
+      "last_post_utc": "2026-11-17T00:44Z",
+      "authorized": "owner's chat message 2026-11-17T00:39Z: routine Facebook marketing through his account without approving each post",
+      "next_ok_utc": "2026-12-17T00:44Z"
     },
     {
       "id": "group:280339146984145",
@@ -145,7 +160,7 @@
   "metrics": {
     "since_utc": "2026-11-08T22:15Z",
     "as_of_utc": "2026-11-17T00:29Z",
-    "facebook_posts_visible": 2,
+    "facebook_posts_visible": 3,
     "facebook_genuine_visitors": 2,
     "assessment_starts": 0,
     "assessment_completions": 0,
@@ -172,7 +187,7 @@
       {
         "q": "Post once on the owner's own profile? (yes/no)",
         "asked_utc": "2026-11-17T00:35Z",
-        "answer": null
+        "answer": "yes: covered by his 2026-11-17T00:39Z message (no per-post approval)"
       },
       {
         "q": "Join any of the suggested local groups? (the owner joins; Claude never does)",
@@ -193,6 +208,13 @@
     "2026-11-17T00:30Z profile posts need Joseph yes first; venue discovery due on the first run",
     "2026-11-17T00:26Z first operator run (fired at setup): re-armed for 01:23Z; 0 tour requests; Facebook reachable and his session confirmed",
     "2026-11-17T00:33Z no eligible venue: North Shore cooldown to 23 Nov 04:42Z, Everything Evanston has a pending post, Wilmette ineligible, profile awaits owner; no post",
-    "2026-11-17T00:34Z retired: ESC-COORD responder disabled (web UI), Daily count #9 and the capability test deleted"
+    "2026-11-17T00:34Z retired: ESC-COORD responder disabled (web UI), Daily count #9 and the capability test deleted",
+    "2026-11-17T00:44Z posted template P on the owner's profile (Public, his setting), tag fb-profile-1116; composer text read back and matched; no Facebook warning"
+  ],
+  "next_actions": [
+    "watch the profile post: reactions, comments and tagged visits (fb-profile-1116) in the next runs",
+    "North Shore group: next post allowed after 2026-11-23T04:42Z (template B or C, not the checklist again)",
+    "Everything Evanston: blocked while the 13 Nov cost post is pending; owner asked whether to keep waiting",
+    "owner decisions pending: join local groups (he joins), cost post, PR #22, whether the 19:07Z visit was his phone"
   ]
 }
