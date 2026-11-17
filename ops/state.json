@@ -1,8 +1,8 @@
 {
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
- "updated_utc": "2026-11-17T22:59Z",
- "last_run_utc": "2026-11-17T22:59Z",
+ "updated_utc": "2026-11-17T23:01Z",
+ "last_run_utc": "2026-11-17T23:01Z",
  "facebook": {
   "access": "yes via Claude in Chrome (his browser c8d89af0 reconnected 14:04Z after being offline 08:23-14:04Z); a fresh cloud session has none",
   "last_access_ok_utc": "2026-11-17T22:27Z",
@@ -257,7 +257,7 @@
  },
  "metrics": {
   "since_utc": "2026-11-08T22:15Z",
-  "as_of_utc": "2026-11-17T19:14Z",
+  "as_of_utc": "2026-11-17T22:47Z",
   "facebook_posts_visible": 4,
   "facebook_genuine_visitors": 4,
   "assessment_starts": 0,
@@ -265,10 +265,10 @@
   "tour_form_views": 0,
   "tour_requests_genuine": 0,
   "tours_confirmed": "UNVERIFIED (none reported by Joseph)",
-  "netlify_checked_to_utc": "2026-11-17T19:09Z",
+  "netlify_checked_to_utc": "2026-11-17T22:47Z",
   "gmail_checked_to_utc": "2026-11-17T22:18Z",
   "note": "genuine = real browsers only; harness tests, crawlers, link previews and Joseph's unverified phone excluded",
-  "visitor_notes": "2 genuine visitors from the checklist post: 13:49Z 16 Nov (iPhone Safari) and 19:07Z 16 Nov (iPhone, Facebook app; same iOS version as the owner's phone, owner asked whether it was his); both opened the checklist PDF, neither started the assessment or the tour form | 17 Nov fb-evsk-1117: 2 genuine visitors (15:32Z, 15:42Z; two different iPhones in the Facebook app, not the owner's phone); 1 checklist PDF open, 1 tour-questions view; no assessment or tour form | 16:13-19:09Z: no new Facebook-origin visits; 1 direct visit read the tour questions and costs; no tour-form view"
+  "visitor_notes": "2 genuine visitors from the checklist post: 13:49Z 16 Nov (iPhone Safari) and 19:07Z 16 Nov (iPhone, Facebook app; same iOS version as the owner's phone, owner asked whether it was his); both opened the checklist PDF, neither started the assessment or the tour form | 17 Nov fb-evsk-1117: 2 genuine visitors (15:32Z, 15:42Z; two different iPhones in the Facebook app, not the owner's phone); 1 checklist PDF open, 1 tour-questions view; no assessment or tour form | 16:13-19:09Z: no new Facebook-origin visits; 1 direct visit read the tour questions and costs; no tour-form view | 19:00-22:47Z: no production beacons at all; the one ?ref=fb-evsk-1117 request (19:07Z) was Facebook's link-preview crawler; 0 genuine visitors, 0 checklist opens"
  },
  "owner": {
   "questions": [
@@ -321,7 +321,6 @@
   ]
  },
  "log": [
-  "2026-11-17T00:35Z state created; hourly operator replaces the ChatGPT relay and the daily count chain",
   "2026-11-17T00:30Z profile posts need Joseph yes first; venue discovery due on the first run",
   "2026-11-17T00:26Z first operator run (fired at setup): re-armed for 01:23Z; 0 tour requests; Facebook reachable and his session confirmed",
   "2026-11-17T00:33Z no eligible venue: North Shore cooldown to 23 Nov 04:42Z, Everything Evanston has a pending post, Wilmette ineligible, profile awaits owner; no post",
@@ -360,14 +359,15 @@
   "2026-11-17T21:38Z site: published the Medicare equipment guide (quotes made verbatim; removed \"every page word for word\" and two unsupported claims); 13 guides published today, 29 live; Gmail: no tour requests",
   "2026-11-17T22:27Z checks: 4 live posts still 0 reactions and 0 comments; Everything Evanston post still pending; Evanston private-group join still awaiting admin; Gmail: no tour requests",
   "2026-11-17T22:54Z site: published VA nursing home and respite care (IDVA lists five Veterans' Homes; IDPH page still says four), caregiver background check (IDPH registry, directory and complaint line verified) and VA caregiver support (stipend formula from VA fact sheet); 4 draft errors per guide on average fixed first; ROUTINE.md: decision-stage topics preferred, two integrity rules (PR #64)",
-  "2026-11-17T22:59Z site: published the FIDE SNP guide (MMAI ended 31 Dec 2025; HFS LTSS wording replaced stale opt-out text); 33 guides live, 17 published today; Search Console sitemap resubmitted (35 URLs)"
+  "2026-11-17T22:59Z site: published the FIDE SNP guide (MMAI ended 31 Dec 2025; HFS LTSS wording replaced stale opt-out text); 33 guides live, 17 published today; Search Console sitemap resubmitted (35 URLs)",
+  "2026-11-17T23:01Z metrics: 19:00-22:47Z no genuine visitors (one Facebook crawler hit on the fb-evsk-1117 link); waiting for the 23:12Z lead-scan window"
  ],
  "next_actions": [
-  "Wed 18 Nov 9:00-19:00 Chicago: post template B (costs) naming Wilmette in What's Happening in Wilmette illinois, #employed after the disclosure, tag fb-wil-1118",
-  "Fri 20 Nov after 15:53 Chicago (cap): post in What's Happening in Winnetka illinois, tag fb-wnk-1120",
-  "lead scans every 4 hours 7:00-22:00 (next 19:06Z) incl. Highland Park by in-group search; reply publicly under 5c when a lead qualifies",
-  "keep publishing verified drafts guides (10 left); metrics after 18:00 Chicago; daily rollup after 19:00 Chicago",
-  "check the Evanston private group's join status; Everything Evanston stays pending; NS checklist 7-day result after 23 Nov 04:42Z"
+  "23:12Z lead scan of the 5 member groups (+ Highland Park in-group search); reply publicly under 5c only if a lead qualifies",
+  "00:05Z daily metrics; 01:00Z daily rollup (include one owner question: Nextdoor or LinkedIn with his own account?)",
+  "Wed 18 Nov 9:00-19:00 Chicago: template B (costs) naming Wilmette in What's Happening in Wilmette illinois, #employed after the disclosure, tag fb-wil-1118",
+  "18 Nov after the drafts run (~12:02Z): verify and publish any decision-stage draft; Search Console data from 19 Nov",
+  "Fri 20 Nov after 15:53 Chicago: post in What's Happening in Winnetka illinois, tag fb-wnk-1120; Everything Evanston stays pending; NS checklist 7-day result after 23 Nov 04:42Z"
  ],
  "one_offs": {
   "pr22": "done: released 2026-11-17T00:54Z. Merged with main (all suites passed: check-guides 1501, test.js 768, inquiry validation 36, checklist-click 30, start-source 21, tour-source 23, paying-nav 314, checklist PDF, publish 32; build reproduces _dist); consent wording, form fields, server code and inquiry payload unchanged; merge commit 1dc0004; Netlify deploy 6afba5a9ea3f94d69014251e (4 functions); live check 33/33 files, 0 problems; also shipped the reviewed #27 and #28",
@@ -415,7 +415,7 @@
  "due": {
   "post_next": "2026-11-18T15:00Z",
   "fb_checks": "2026-11-18T04:27Z",
-  "lead_scan": "2026-11-17T23:10Z",
+  "lead_scan": "2026-11-17T23:12Z",
   "metrics": "2026-11-18T00:05Z",
   "venues": "2026-11-24T15:00Z",
   "evanston_join_status": "2026-11-18T04:27Z",
