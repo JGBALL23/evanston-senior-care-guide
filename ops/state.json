@@ -1,11 +1,11 @@
 {
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
- "updated_utc": "2026-11-17T23:01Z",
- "last_run_utc": "2026-11-17T23:01Z",
+ "updated_utc": "2026-11-17T23:20Z",
+ "last_run_utc": "2026-11-17T23:20Z",
  "facebook": {
   "access": "yes via Claude in Chrome (his browser c8d89af0 reconnected 14:04Z after being offline 08:23-14:04Z); a fresh cloud session has none",
-  "last_access_ok_utc": "2026-11-17T22:27Z",
+  "last_access_ok_utc": "2026-11-17T23:20Z",
   "last_checks_utc": "2026-11-17T22:27Z",
   "unreachable_since_utc": null,
   "unreachable_reported_utc": null,
@@ -266,7 +266,7 @@
   "tour_requests_genuine": 0,
   "tours_confirmed": "UNVERIFIED (none reported by Joseph)",
   "netlify_checked_to_utc": "2026-11-17T22:47Z",
-  "gmail_checked_to_utc": "2026-11-17T22:18Z",
+  "gmail_checked_to_utc": "2026-11-17T23:14Z",
   "note": "genuine = real browsers only; harness tests, crawlers, link previews and Joseph's unverified phone excluded",
   "visitor_notes": "2 genuine visitors from the checklist post: 13:49Z 16 Nov (iPhone Safari) and 19:07Z 16 Nov (iPhone, Facebook app; same iOS version as the owner's phone, owner asked whether it was his); both opened the checklist PDF, neither started the assessment or the tour form | 17 Nov fb-evsk-1117: 2 genuine visitors (15:32Z, 15:42Z; two different iPhones in the Facebook app, not the owner's phone); 1 checklist PDF open, 1 tour-questions view; no assessment or tour form | 16:13-19:09Z: no new Facebook-origin visits; 1 direct visit read the tour questions and costs; no tour-form view | 19:00-22:47Z: no production beacons at all; the one ?ref=fb-evsk-1117 request (19:07Z) was Facebook's link-preview crawler; 0 genuine visitors, 0 checklist opens"
  },
@@ -321,7 +321,6 @@
   ]
  },
  "log": [
-  "2026-11-17T00:30Z profile posts need Joseph yes first; venue discovery due on the first run",
   "2026-11-17T00:26Z first operator run (fired at setup): re-armed for 01:23Z; 0 tour requests; Facebook reachable and his session confirmed",
   "2026-11-17T00:33Z no eligible venue: North Shore cooldown to 23 Nov 04:42Z, Everything Evanston has a pending post, Wilmette ineligible, profile awaits owner; no post",
   "2026-11-17T00:34Z retired: ESC-COORD responder disabled (web UI), Daily count #9 and the capability test deleted",
@@ -360,10 +359,11 @@
   "2026-11-17T22:27Z checks: 4 live posts still 0 reactions and 0 comments; Everything Evanston post still pending; Evanston private-group join still awaiting admin; Gmail: no tour requests",
   "2026-11-17T22:54Z site: published VA nursing home and respite care (IDVA lists five Veterans' Homes; IDPH page still says four), caregiver background check (IDPH registry, directory and complaint line verified) and VA caregiver support (stipend formula from VA fact sheet); 4 draft errors per guide on average fixed first; ROUTINE.md: decision-stage topics preferred, two integrity rules (PR #64)",
   "2026-11-17T22:59Z site: published the FIDE SNP guide (MMAI ended 31 Dec 2025; HFS LTSS wording replaced stale opt-out text); 33 guides live, 17 published today; Search Console sitemap resubmitted (35 URLs)",
-  "2026-11-17T23:01Z metrics: 19:00-22:47Z no genuine visitors (one Facebook crawler hit on the fb-evsk-1117 link); waiting for the 23:12Z lead-scan window"
+  "2026-11-17T23:01Z metrics: 19:00-22:47Z no genuine visitors (one Facebook crawler hit on the fb-evsk-1117 link); waiting for the 23:12Z lead-scan window",
+  "2026-11-17T23:20Z lead scan: 116 recent posts in 6 groups, 0 families asking (one match was the yoga studio ad again); Gmail: no tour requests"
  ],
  "next_actions": [
-  "23:12Z lead scan of the 5 member groups (+ Highland Park in-group search); reply publicly under 5c only if a lead qualifies",
+  "next lead scan 03:16Z (21:16 Chicago, last of the day), then 13:00Z tomorrow; reply publicly under 5c only if a lead qualifies",
   "00:05Z daily metrics; 01:00Z daily rollup (include one owner question: Nextdoor or LinkedIn with his own account?)",
   "Wed 18 Nov 9:00-19:00 Chicago: template B (costs) naming Wilmette in What's Happening in Wilmette illinois, #employed after the disclosure, tag fb-wil-1118",
   "18 Nov after the drafts run (~12:02Z): verify and publish any decision-stage draft; Search Console data from 19 Nov",
@@ -407,6 +407,13 @@
     "posts_scanned": 99,
     "leads": 0,
     "note": "one match was a yoga studio ad aimed at caregivers, not a request"
+   },
+   {
+    "utc": "2026-11-17T23:16Z",
+    "groups": 6,
+    "posts_scanned": 116,
+    "leads": 0,
+    "note": "only match was the same yoga studio ad aimed at caregivers"
    }
   ],
   "method": "chronological feed of each member group, in-page keyword filter (senior-care terms + a request + not a business ad); about 2-4 days of posts per group on the first scan",
@@ -415,7 +422,7 @@
  "due": {
   "post_next": "2026-11-18T15:00Z",
   "fb_checks": "2026-11-18T04:27Z",
-  "lead_scan": "2026-11-17T23:12Z",
+  "lead_scan": "2026-11-18T03:16Z",
   "metrics": "2026-11-18T00:05Z",
   "venues": "2026-11-24T15:00Z",
   "evanston_join_status": "2026-11-18T04:27Z",
