@@ -1,8 +1,8 @@
 {
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
- "updated_utc": "2026-11-17T17:46Z",
- "last_run_utc": "2026-11-17T17:46Z",
+ "updated_utc": "2026-11-17T18:09Z",
+ "last_run_utc": "2026-11-17T18:09Z",
  "facebook": {
   "access": "yes via Claude in Chrome (his browser c8d89af0 reconnected 14:04Z after being offline 08:23-14:04Z); a fresh cloud session has none",
   "last_access_ok_utc": "2026-11-17T15:10Z",
@@ -305,17 +305,20 @@
    {
     "q": "Set up Google Search Console for the site under his Google account (free; adds a verification tag to the homepage) so real search queries guide the next pages?",
     "asked_utc": "2026-11-17T17:47Z",
-    "answer": null
+    "answer": "approved 17 Nov 11:56 Chicago; done (verified, sitemap submitted)"
    },
    {
     "q": "The daily guide drafts often put paraphrases inside quotation marks (one reversed the MSP $25 disregard). Tighten that routine so drafts quote sources verbatim? (the routine is his; Claude does not change it without approval)",
     "asked_utc": "2026-11-17T17:47Z",
-    "answer": null
+    "answer": "approved 17 Nov 11:56 Chicago; ROUTINE.md updated (PR #52)"
    }
   ],
   "last_rollup_utc": "2026-11-17T01:34Z",
   "last_quiet_note_utc": null,
-  "joining_allowed": true
+  "joining_allowed": true,
+  "standing": [
+   "17 Nov 11:56: browse and research any public website without asking; routine navigation in his own accounts within their permissions; escalate only for spending, sensitive account permissions, protected personal information or binding commitments"
+  ]
  },
  "log": [
   "2026-11-17T00:35Z state created; hourly operator replaces the ChatGPT relay and the daily count chain",
@@ -348,7 +351,8 @@
   "2026-11-17T16:56Z site: published the Medicaid look-back and home-care ombudsman guides (several draft quotations corrected to the HFS/IDoA wording); added a disclosed \"Ask about a tour here\" line to the homepage tour section and under the checklist on the cost and inspection guides; all suites green; 4 deploys",
   "2026-11-17T17:18Z site: published guide #17 (health care power of attorney) and guide #16 (Medicare Savings Programs, 2026 limits verified; draft had the $25 disregard backwards); 6 guides live today in total",
   "2026-11-17T17:35Z site: published PACE (Evanston not yet served; checked against the HFS zip list) and Medicare home health guides; 8 guides live today; every draft so far had at least one paraphrase inside quotation marks, fixed before publishing",
-  "2026-11-17T17:44Z site: published the Medicare Extra Help guide (2026 limits, 2027 costs verified); 9 guides published today, 25 live; Medicare coverage guide links to the cost guide again"
+  "2026-11-17T17:44Z site: published the Medicare Extra Help guide (2026 limits, 2027 costs verified); 9 guides published today, 25 live; Medicare coverage guide links to the cost guide again",
+  "2026-11-17T18:09Z Search Console: verified the site (meta tag, PR #51) and resubmitted the sitemap (27 URLs); performance data still processing. ROUTINE.md: quote and paraphrase integrity rules (PR #52). Operator instructions updated with the 11:56 approvals"
  ],
  "next_actions": [
   "Wed 18 Nov 9:00-19:00 Chicago: post template B (costs) naming Wilmette in What's Happening in Wilmette illinois, #employed after the disclosure, tag fb-wil-1118",
@@ -401,7 +405,8 @@
   "venues": "2026-11-24T15:00Z",
   "evanston_join_status": "2026-11-17T22:15Z",
   "rollup": "2026-11-18T01:00Z",
-  "guides": "next drafts: home-delivered meals, elder abuse reporting, Benefit Access, VA nursing home/respite, VA caregiver support, VA home-based care, FIDE SNP, DME, money management, caregiver background check (link-check: the HCO guide no longer links to it)"
+  "guides": "next drafts: home-delivered meals, elder abuse reporting, Benefit Access, VA nursing home/respite, VA caregiver support, VA home-based care, FIDE SNP, DME, money management, caregiver background check (link-check: the HCO guide no longer links to it)",
+  "search_console": "2026-11-19T15:00Z"
  },
  "site": {
   "guides_published_1117": [
@@ -432,6 +437,15 @@
   "guides_live": 25,
   "drafts_unpublished": 10,
   "why_tour_link": "FB visitors land on #tour; 17 Nov two read the tour questions or opened the checklist, but the section had no way to ask about a visit",
-  "verification_note": "each draft re-checked against its official source before publishing; drafts often paraphrased inside quotation marks and once reversed a rule (MSP $25 disregard), so every quotation is compared verbatim"
+  "verification_note": "each draft re-checked against its official source before publishing; drafts often paraphrased inside quotation marks and once reversed a rule (MSP $25 disregard), so every quotation is compared verbatim",
+  "search_console": {
+   "property": "https://evanstonseniorcareguide.com/ (URL prefix)",
+   "verified_utc": "2026-11-17T18:00Z",
+   "method": "HTML meta tag on the homepage (PR #51); keep it",
+   "sitemap": "sitemap.xml resubmitted 18:01Z: success, 27 URLs discovered (an earlier submission from 19 Oct had 10)",
+   "performance": "processing; first read due 2026-11-19",
+   "rules": "read-only weekly; no users, settings or tracking"
+  },
+  "routine": "ROUTINE.md on drafts: quotation and paraphrase integrity rules added (PR #52, owner-approved 11:56 Chicago); the routine trigger itself can only be edited by the owner (created outside agents), and it reads ROUTINE.md as its procedure"
  }
 }
