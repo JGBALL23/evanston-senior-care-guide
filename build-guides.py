@@ -349,6 +349,10 @@ SRC = {
                    'https://www.medicare.gov/basics/costs/help/drug-costs'),
     "msp_extra_help_link": ('Medicare.gov — Medicare Savings Programs',
                             'https://www.medicare.gov/basics/costs/help/medicare-savings-programs'),
+    "idoa_aaa": ('Illinois Department on Aging — Area Agencies on Aging',
+                'https://ilaging.illinois.gov/forprofessionals/areaagenciesonaging.html'),
+    "idoa_nutrition": ('Illinois Department on Aging — Senior Nutrition Program',
+                       'https://ilaging.illinois.gov/programs/nutrition.html'),
 }
 
 
@@ -3762,6 +3766,103 @@ GUIDES = [
             ]),
         ],
     },
+    {
+        "slug": "illinois-home-delivered-meals",
+        "bridge": ("Knowing your parent can get a meal delivered to the door is a "
+               "different question from knowing whether living alone, even "
+               "well-fed, is still safe."),
+        "reviewed": "2026-11-17",
+        "title": "Can My Parent Get Home-Delivered Meals in Illinois?",
+        "h1": "Can my parent get home-delivered meals in Illinois?",
+        "desc": ("Illinois funds home-delivered meals and group dining for adults "
+                 "60 and over. What the program provides, what its page does not "
+                 "say, and how to reach it."),
+        "intent": "staying at home",
+        "answer": ("Likely yes. The Illinois Department on Aging funds a "
+                   "<strong>Senior Nutrition Program</strong> that pays local "
+                   "providers to deliver meals to the homes of older adults, "
+                   "alongside group dining at community sites. The "
+                   "department's own page states this is for "
+                   "<strong>older adults age 60 and up</strong> &mdash; it does "
+                   "not publish an income limit or a fee for the service. You "
+                   "do not apply to the state directly; you contact your local "
+                   "<strong>Area Agency on Aging</strong> or a nutrition "
+                   "provider in your area; the department&rsquo;s map tool finds both, and its Senior HelpLine is listed on the same page."),
+        "sources": srcs("idoa_nutrition", "idoa_aaa"),
+        "body": [
+            ("What the Senior Nutrition Program actually provides", [
+                "<p>The Illinois Department on Aging funds local providers "
+                "under what it calls the Senior Nutrition Program, with two "
+                "main services. <strong>Home-delivered meals</strong> are "
+                "brought to an older adult's home, largely by volunteers. "
+                "<strong>Group, or congregate, dining</strong> happens at "
+                "around 400 sites statewide &mdash; senior centres, churches, "
+                "senior housing, community buildings, and in some areas "
+                "restaurants and food trucks.</p>",
+                "<p>The department states that every meal served under the "
+                "programme must provide at least one-third of the daily "
+                "recommended dietary allowances. The department also links a nutrition screening, available in Spanish too, and lists education, counselling, cooking classes and other nutrition-related activities.</p>",
+                "<p>A related benefit on the same page is the "
+                "<strong>Senior Farmers Market Nutrition Program</strong>: "
+                "in 37 counties, eligible seniors receive checks, distributed "
+                "at local senior facilities, that can be redeemed for fresh "
+                "produce at participating farmers' markets during a season "
+                "the department runs from 10 July to 31 October. Ask your "
+                "local Area Agency on Aging whether your county is one of "
+                "the 37 and whether your parent qualifies.</p>",
+            ]),
+            ("Who qualifies, and what this guide will not publish", [
+                "<p>The department's nutrition page states home-delivered "
+                "meals are for <strong>older adults age 60+</strong>. It does "
+                "not state an income test for either home-delivered meals or "
+                "group dining, and it does not state a fee or a suggested "
+                "donation amount on that page. Rather than guess at a cost or "
+                "an income cut-off the state's own page does not give, this "
+                "guide leaves both out &mdash; ask the provider you are "
+                "referred to what, if anything, is asked of your household "
+                "when you sign up.</p>",
+                "<p>The page also does not say whether a waiting list exists "
+                "in any given area, or how long it typically takes to start "
+                "receiving meals once contacted. This guide will not predict your parent's wait from a "
+                "state webpage that does not address it. Ask the local agency "
+                "directly when you call.</p>",
+            ]),
+            ("Finding the agency that covers Evanston", [
+                "<p>Illinois delivers this programme through a network of "
+                "<strong>Area Agencies on Aging</strong>, each covering a "
+                "Planning and Service Area the department has drawn across "
+                "the state. The department's own Area Agencies on Aging page "
+                "lets you find yours by clicking a map, browsing a list, or opening a list of counties &mdash; and it lists "
+                "Cook County twice, once for the City of Chicago and once "
+                "for suburban Cook County, so Evanston families need to pick "
+                "the entry that actually matches a north-suburban address, "
+                "not the Chicago one.</p>",
+                "<p>The department's map-based lookup tool is not something "
+                "this guide can read and quote text from, so it will not "
+                "name a specific agency, address or direct phone number here "
+                "that it did not itself verify on the page. The department&rsquo;s nutrition page says to contact your Area Agency on Aging or a nutrition provider in your area, and it also lists the <strong>Senior HelpLine</strong> at <strong>1-800-252-8966 (711 TRS)</strong> if you would rather ask by phone.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>This is a different programme from the one most families "
+                "find first. "
+                '<a href="/guides/illinois-community-care-program/">Can my '
+                "parent get paid help at home in Illinois?</a> covers "
+                "homemaker help, adult day service and emergency response "
+                "through the Community Care Program, which runs on its own "
+                "asset and need test. The nutrition programme described here is a separate programme, and its page states no income test, unlike the Community Care Program.</p>",
+                "<p>If the person who needs support is the one doing the "
+                "caring rather than the one being cared for, see "
+                '<a href="/guides/illinois-family-caregiver-support-program/">Is '
+                "there help for the caregiver, not just the parent?</a></p>",
+                "<p>If the open question in your family is whether home is "
+                "still the right setting at all, rather than whether a meal "
+                'can get delivered to it, the <a href="/">free six-question '
+                "assessment</a> on this site walks through that separately. "
+                "It asks for no name, no email and no phone number, and your "
+                "answers never leave your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -4006,7 +4107,7 @@ RELATED = {
     "illinois-family-caregiver-support-program": [
         "illinois-community-care-program",
         "illinois-home-care-ombudsman-program",
-        "medicare-hospice-benefit-explained"],
+        "illinois-home-delivered-meals"],
     "illinois-senior-health-insurance-program": [
         "medicare-extra-help-prescription-drug-costs",
         "medicare-hospice-benefit-explained",
@@ -4038,7 +4139,7 @@ RELATED = {
     "illinois-pace-program": [
         "illinois-community-care-program",
         "illinois-supportive-living-program",
-        "levels-of-senior-care-explained"],
+        "illinois-home-delivered-meals"],
     "medicare-home-health-care": [
         "does-medicare-pay-for-senior-care",
         "illinois-community-care-program",
@@ -4047,6 +4148,10 @@ RELATED = {
         "illinois-medicare-savings-program",
         "illinois-senior-health-insurance-program",
         "does-medicare-pay-for-senior-care"],
+    "illinois-home-delivered-meals": [
+        "illinois-community-care-program",
+        "illinois-family-caregiver-support-program",
+        "illinois-home-care-ombudsman-program"],
 }
 
 RELATED_MIN_INBOUND = 2
@@ -4409,6 +4514,11 @@ CARDS = {
         "A Medicare program that can bring a Part D premium and "
         "deductible to $0 and cap the copay for each drug — who "
         "qualifies automatically, the 2026 limits, and how to apply."),
+    "illinois-home-delivered-meals": (
+        "Staying at home",
+        "Can my parent get home-delivered meals in Illinois?",
+        "A state-funded nutrition programme delivers meals to adults "
+        "60 and over at home — what it covers, and who to call."),
 }
 
 
