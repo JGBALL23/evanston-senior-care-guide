@@ -1,11 +1,11 @@
 {
   "schema": 1,
   "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
-  "updated_utc": "2026-11-17T14:40Z",
-  "last_run_utc": "2026-11-17T14:23Z",
+  "updated_utc": "2026-11-17T15:40Z",
+  "last_run_utc": "2026-11-17T14:56Z",
   "facebook": {
     "access": "yes via Claude in Chrome (his browser c8d89af0 reconnected 14:04Z after being offline 08:23-14:04Z); a fresh cloud session has none",
-    "last_access_ok_utc": "2026-11-17T14:25Z",
+    "last_access_ok_utc": "2026-11-17T15:38Z",
     "last_checks_utc": "2026-11-17T14:32Z",
     "unreachable_since_utc": null,
     "unreachable_reported_utc": null,
@@ -69,6 +69,20 @@
       "checked_utc": "2026-11-17T14:32Z",
       "note": "first 50 minutes: all site requests automated (Facebook link previews while composing, then a Chrome 139 link scanner from a data center at 00:42Z that also fired the one landed beacon); 0 genuine",
       "shares": 0
+    },
+    {
+      "tag": "fb-evsk-1117",
+      "venue": "group:280339146984145",
+      "venue_name": "Evanston/Skokie (Chicago) neighbors",
+      "content": "tour checklist (template A, Evanston and Skokie)",
+      "status": "live",
+      "submitted_utc": "2026-11-17T15:00Z",
+      "visible_utc": "2026-11-17T15:00Z",
+      "reactions": 0,
+      "comments": 0,
+      "shares": 0,
+      "checked_utc": "2026-11-17T15:01Z",
+      "note": "published without approval; requests in the first 5 minutes are automated"
     }
   ],
   "venues": [
@@ -115,10 +129,11 @@
       "joined_utc": "2026-11-17T01:28Z",
       "eligible": true,
       "rules": "public, no membership questions; no rules posted even for members; business promotions appear in the feed",
-      "notes": "1.8K members, about 14 posts a day; name the towns in the first line",
+      "notes": "1.8K members, about 17 posts a day; no rules (re-read 17 Nov); home-care businesses post there",
       "min_gap_days": 7,
-      "next_ok_utc": null,
-      "checked_utc": "2026-11-17T01:28Z"
+      "next_ok_utc": "2026-11-24T15:00Z",
+      "checked_utc": "2026-11-17T14:59Z",
+      "last_post_utc": "2026-11-17T15:00Z"
     },
     {
       "id": "group:1398934874303150",
@@ -136,10 +151,42 @@
       "eligible": false,
       "rules": "Evanston, Wyoming, not Illinois; no advertising",
       "checked_utc": "2026-11-17T00:31Z"
+    },
+    {
+      "id": "group:1086282042874547",
+      "name": "What's Happening in Wilmette illinois",
+      "member": true,
+      "joined_utc": "2026-11-17T15:22Z",
+      "eligible": true,
+      "rules": "public; business posts allowed if licensed; disclose employment (they suggest #employed); advertising at most 2-3 times a week; no politics, crowdfunding or animal sales",
+      "notes": "3.5K members, about 19 posts a day; no join questions",
+      "min_gap_days": 7,
+      "next_ok_utc": null,
+      "checked_utc": "2026-11-17T15:20Z"
+    },
+    {
+      "id": "group:1316163449754368",
+      "name": "What's Happening in Winnetka illinois",
+      "member": true,
+      "joined_utc": "2026-11-17T15:27Z",
+      "eligible": true,
+      "rules": "same rules as the Wilmette group (same network): disclose (#employed), advertising at most 2-3 times a week",
+      "notes": "4.5K members, about 25 posts a day; no join questions",
+      "min_gap_days": 7,
+      "next_ok_utc": null,
+      "checked_utc": "2026-11-17T15:25Z"
+    },
+    {
+      "id": "group:1398417347116381",
+      "name": "What's Happening in Skokie & the North Shore?",
+      "member": false,
+      "eligible": false,
+      "rules": "admin rule 1: only entertainment events; anything else deleted",
+      "checked_utc": "2026-11-17T15:33Z"
     }
   ],
   "venue_discovery": {
-    "last_utc": "2026-11-17T14:38Z",
+    "last_utc": "2026-11-17T15:35Z",
     "owner_groups_total": 43,
     "owner_local_groups": [
       "group:311248470375848",
@@ -153,10 +200,13 @@
       "group:457491344711359",
       "group:737824126066420",
       "group:1088020282873543",
-      "group:520770516031533"
+      "group:520770516031533",
+      "group:1086282042874547",
+      "group:1316163449754368",
+      "group:1398417347116381"
     ],
     "not_yet_checked": [
-      "What's Happening in Wilmette illinois (public, 3.5K)"
+      "group:399944149096268 Wilmette Connections (4.7K, about 60 posts a day)"
     ],
     "skipped_this_round": "search results named Evanston or North Shore but were Vancouver BC, Calgary AB or Evanston WY groups, or banned promotion",
     "verdicts_1117": [
@@ -164,6 +214,9 @@
       "group:1088020282873543 Northbrook/Glenview/Niles/Des Plaines neighbors: Illinois, 5.8K, about 49 posts a day, no rules; neighbors group for towns he neither lives nor works in; skip",
       "group:520770516031533 HomeCare in Illinois, Caregivers, Care for parents: run by a home-care agency, statewide, outside the Evanston/North Shore scope; skip",
       "caregiver group search (Chicago/North Shore): results were caregiver job boards or out of area; no Evanston/North Shore family group found"
+    ],
+    "skipped_no_qualify": [
+      "group:148056482809454 Glenview - Northbrook Neighbors (65K): residents' group for towns he doesn't live in"
     ]
   },
   "metrics": {
@@ -231,13 +284,18 @@
     "2026-11-17T08:23Z overnight runs 04:23-08:23Z on schedule: 0 tour requests, 0 genuine visitors; his Chrome not connected since 08:23Z (Facebook work skipped until it returns)",
     "2026-11-17T13:24Z runs 09:23-13:24Z on schedule: 0 tour requests, 0 genuine visitors (crawlers and WordPress probes only); his Chrome still offline",
     "2026-11-17T14:32Z Facebook back (his Chrome reconnected 14:04Z); checks: all 3 live posts 0 reactions, 0 comments, 0 shares; Everything Evanston cost post still pending",
-    "2026-11-17T14:38Z venues: 3 groups evaluated, none eligible (Calgary group; neighbors group for other towns; agency-run statewide group); Wilmette happenings group left to check"
+    "2026-11-17T14:38Z venues: 3 groups evaluated, none eligible (Calgary group; neighbors group for other towns; agency-run statewide group); Wilmette happenings group left to check",
+    "2026-11-17T14:52Z Joseph (08:52 Chicago): run as a continuous operator; hourly schedule is only a fallback",
+    "2026-11-17T15:00Z posted template A in Evanston/Skokie (Chicago) neighbors, tag fb-evsk-1117; published at once; cap changed to 1 a day and 5 a week",
+    "2026-11-17T15:15Z lead scan: 142 recent posts across 3 member groups, 0 families asking about senior care",
+    "2026-11-17T15:35Z joined What's Happening in Wilmette illinois and What's Happening in Winnetka illinois (public, no questions, ads allowed 2-3 a week with #employed); Skokie & North Shore group is events-only, skipped"
   ],
   "next_actions": [
-    "Fri 20 Nov 15:53-19:00 Chicago (else Sat 21 Nov 9:00-19:00): re-read Evanston/Skokie neighbors, then post template A naming Evanston and Skokie, tag fb-evsk-1120 (or fb-evsk-1121)",
-    "evaluate What's Happening in Wilmette illinois; keep looking for an Evanston/North Shore group where families ask about senior care",
-    "watch fb-profile-1116 and north-shore-checklist (7-day result due first run after 23 Nov 04:42Z)",
-    "Everything Evanston: leave the cost post pending (owner decision)"
+    "Wed 18 Nov 9:00-19:00 Chicago: post in What's Happening in Wilmette illinois (vary the text; add #employed after the disclosure), tag fb-wil-1118",
+    "Fri 20 Nov after 15:53 Chicago (cap): post in What's Happening in Winnetka illinois, tag fb-wnk-1120",
+    "check fb-evsk-1117 engagement and its site visits about 10:30 Chicago today; lead scan every 4 hours 7:00-22:00",
+    "evaluate Wilmette Connections (399944149096268); keep finding North Shore groups he qualifies for",
+    "Everything Evanston: leave the cost post pending (owner decision); NS checklist 7-day result after 23 Nov 04:42Z"
   ],
   "one_offs": {
     "pr22": "done: released 2026-11-17T00:54Z. Merged with main (all suites passed: check-guides 1501, test.js 768, inquiry validation 36, checklist-click 30, start-source 21, tour-source 23, paying-nav 314, checklist PDF, publish 32; build reproduces _dist); consent wording, form fields, server code and inquiry payload unchanged; merge commit 1dc0004; Netlify deploy 6afba5a9ea3f94d69014251e (4 functions); live check 33/33 files, 0 problems; also shipped the reviewed #27 and #28",
@@ -245,13 +303,33 @@
     "first_scheduled_run": "done: fired by the schedule at 2026-11-17T01:24:03Z (due 01:23Z); re-armed for 02:23Z; Facebook reachable"
   },
   "posting_cap": {
-    "rule": "post only if fewer than 3 posts in the last 7 days; every submitted post counts, including pending ones",
+    "rule": "at most 1 post per Chicago day and at most 5 in the last 7 days (every submitted post counts, pending too); each group at least 7 days apart (profile 30); never the same text twice within 7 days",
+    "changed": "2026-11-17 from 'fewer than 3 in 7 days', after Joseph's 08:52 Chicago message",
     "counted": [
       "ee-costs 2026-11-13T21:53Z (pending)",
       "north-shore-checklist 2026-11-15T17:29Z",
-      "fb-profile-1116 2026-11-17T00:41Z"
+      "fb-profile-1116 2026-11-17T00:41Z",
+      "fb-evsk-1117 2026-11-17T15:00Z"
     ],
-    "next_ok_utc": "2026-11-20T21:53Z",
-    "checked_utc": "2026-11-17T02:29Z"
+    "checked_utc": "2026-11-17T15:40Z"
+  },
+  "leads": {
+    "alerted": [],
+    "scans": [
+      {
+        "utc": "2026-11-17T15:15Z",
+        "groups": 3,
+        "posts_scanned": 142,
+        "leads": 0
+      }
+    ],
+    "method": "chronological feed of each member group, in-page keyword filter (senior-care terms + a request + not a business ad); about 2-4 days of posts per group on the first scan"
+  },
+  "due": {
+    "post_next": "2026-11-18T15:00Z",
+    "fb_checks": "2026-11-17T16:30Z",
+    "lead_scan": "2026-11-17T19:15Z",
+    "metrics": "2026-11-17T16:30Z",
+    "venues": "2026-11-18T15:00Z"
   }
 }
