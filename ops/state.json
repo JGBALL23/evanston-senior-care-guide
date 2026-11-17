@@ -2,11 +2,11 @@
   "schema": 1,
   "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
   "updated_utc": "2026-11-17T00:35Z",
-  "last_run_utc": null,
+  "last_run_utc": "2026-11-17T00:35Z",
   "facebook": {
-    "access": "yes, from Claude's main session through Claude in Chrome when one of Joseph's two browsers is connected; a fresh cloud session has none (test 2026-11-17T00:19Z)",
-    "last_access_ok_utc": "2026-11-16T18:53Z",
-    "last_checks_utc": "2026-11-16T18:53Z",
+    "access": "yes, from Claude's main session through Claude in Chrome (owner's browser 71586d76 connected); a fresh cloud session has none (test 2026-11-17T00:19Z)",
+    "last_access_ok_utc": "2026-11-17T00:28Z",
+    "last_checks_utc": "2026-11-17T00:33Z",
     "unreachable_since_utc": null,
     "unreachable_reported_utc": null,
     "blocker": null
@@ -22,7 +22,8 @@
       "visible_utc": "2026-11-08T22:15Z",
       "reactions": 0,
       "comments": 0,
-      "checked_utc": "2026-11-16T14:30Z"
+      "checked_utc": "2026-11-17T00:33Z",
+      "shares": 0
     },
     {
       "tag": "wilmette-connection",
@@ -40,7 +41,7 @@
       "content": "assisted living costs",
       "status": "pending",
       "submitted_utc": "2026-11-13T21:53Z",
-      "checked_utc": "2026-11-16T18:53Z"
+      "checked_utc": "2026-11-17T00:28Z"
     },
     {
       "tag": "north-shore-checklist",
@@ -52,7 +53,8 @@
       "visible_utc": "2026-11-16T04:42Z",
       "reactions": 0,
       "comments": 0,
-      "checked_utc": "2026-11-16T14:35Z"
+      "checked_utc": "2026-11-17T00:33Z",
+      "shares": 0
     }
   ],
   "venues": [
@@ -85,50 +87,112 @@
     },
     {
       "id": "profile",
-      "name": "Joseph's own profile (his existing audience setting)",
+      "name": "owner's own profile (his existing audience setting)",
       "eligible": "only after Joseph says yes in chat (ask once)",
       "min_gap_days": 30,
       "last_post_utc": null
+    },
+    {
+      "id": "group:280339146984145",
+      "name": "Evanston/Skokie (Chicago) neighbors",
+      "member": false,
+      "eligible": "unknown until the owner joins (no rules posted)",
+      "notes": "public, 1.8K members, about 14 posts a day",
+      "checked_utc": "2026-11-17T00:31Z"
+    },
+    {
+      "id": "group:1398934874303150",
+      "name": "Glenview, Northbrook, Northfield, Wilmette, Evanston, Winnetka, Glencoe",
+      "member": false,
+      "eligible": false,
+      "rules": "business ads need the admin's pre-approval by email; contacting the admin is the owner's call",
+      "notes": "public, 10.3K members",
+      "checked_utc": "2026-11-17T00:32Z"
+    },
+    {
+      "id": "group:457491344711359",
+      "name": "Evanston Happenings",
+      "member": false,
+      "eligible": false,
+      "rules": "Evanston, Wyoming, not Illinois; no advertising",
+      "checked_utc": "2026-11-17T00:31Z"
     }
   ],
   "venue_discovery": {
-    "last_utc": null,
-    "groups_evaluated": [],
-    "suggest_to_join": [],
-    "suggested_utc": null
+    "last_utc": "2026-11-17T00:31Z",
+    "owner_groups_total": 43,
+    "owner_local_groups": [
+      "group:311248470375848",
+      "group:535636991652468",
+      "group:776941812452112 (Wilmette Connection)"
+    ],
+    "groups_evaluated": [
+      "group:280339146984145",
+      "group:1398934874303150",
+      "group:457491344711359"
+    ],
+    "not_yet_checked": [
+      "group:737824126066420 Evanston & Area Community info. (1.1K)",
+      "group:1088020282873543 Northbrook, Glenview, Niles, Des Plaines neighbors (5.7K)"
+    ],
+    "suggest_to_join": [
+      "Evanston/Skokie (Chicago) neighbors",
+      "Evanston & Area Community info.",
+      "Northbrook, Glenview, Niles, Des Plaines neighbors"
+    ],
+    "suggested_utc": "2026-11-17T00:35Z"
   },
   "metrics": {
     "since_utc": "2026-11-08T22:15Z",
-    "as_of_utc": "2026-11-16T14:27Z",
+    "as_of_utc": "2026-11-17T00:29Z",
     "facebook_posts_visible": 2,
-    "facebook_genuine_visitors": 1,
+    "facebook_genuine_visitors": 2,
     "assessment_starts": 0,
     "assessment_completions": 0,
     "tour_form_views": 0,
     "tour_requests_genuine": 0,
     "tours_confirmed": "UNVERIFIED (none reported by Joseph)",
-    "netlify_checked_to_utc": "2026-11-16T14:27Z",
-    "gmail_checked_to_utc": "2026-11-16T14:38Z",
-    "note": "genuine = real browsers only; harness tests, crawlers, link previews and Joseph's unverified phone excluded"
+    "netlify_checked_to_utc": "2026-11-17T00:29Z",
+    "gmail_checked_to_utc": "2026-11-17T00:28Z",
+    "note": "genuine = real browsers only; harness tests, crawlers, link previews and Joseph's unverified phone excluded",
+    "visitor_notes": "2 genuine visitors from the checklist post: 13:49Z 16 Nov (iPhone Safari) and 19:07Z 16 Nov (iPhone, Facebook app; same iOS version as the owner's phone, owner asked whether it was his); both opened the checklist PDF, neither started the assessment or the tour form"
   },
   "owner": {
     "questions": [
       {
         "q": "Everything Evanston cost post still pending since 13 Nov: keep watching or drop it?",
-        "asked_utc": "2026-11-16T18:53Z",
+        "asked_utc": "2026-11-17T00:35Z",
         "answer": null
       },
       {
         "q": "Release draft PR #22 (tour form scrolls to what's missing on an incomplete tap)?",
-        "asked_utc": "2026-11-16T14:42Z",
+        "asked_utc": "2026-11-17T00:35Z",
+        "answer": null
+      },
+      {
+        "q": "Post once on the owner's own profile? (yes/no)",
+        "asked_utc": "2026-11-17T00:35Z",
+        "answer": null
+      },
+      {
+        "q": "Join any of the suggested local groups? (the owner joins; Claude never does)",
+        "asked_utc": "2026-11-17T00:35Z",
+        "answer": null
+      },
+      {
+        "q": "Was the 19:07Z 16 Nov checklist-post visit the owner's own phone?",
+        "asked_utc": "2026-11-17T00:35Z",
         "answer": null
       }
     ],
-    "last_rollup_utc": null,
+    "last_rollup_utc": "2026-11-17T00:35Z",
     "last_quiet_note_utc": null
   },
   "log": [
     "2026-11-17T00:35Z state created; hourly operator replaces the ChatGPT relay and the daily count chain",
-    "2026-11-17T00:30Z profile posts need Joseph yes first; venue discovery due on the first run"
+    "2026-11-17T00:30Z profile posts need Joseph yes first; venue discovery due on the first run",
+    "2026-11-17T00:26Z first operator run (fired at setup): re-armed for 01:23Z; 0 tour requests; Facebook reachable and his session confirmed",
+    "2026-11-17T00:33Z no eligible venue: North Shore cooldown to 23 Nov 04:42Z, Everything Evanston has a pending post, Wilmette ineligible, profile awaits owner; no post",
+    "2026-11-17T00:34Z retired: ESC-COORD responder disabled (web UI), Daily count #9 and the capability test deleted"
   ]
 }
