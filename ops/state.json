@@ -1,11 +1,11 @@
 {
   "schema": 1,
   "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
-  "updated_utc": "2026-11-17T15:40Z",
+  "updated_utc": "2026-11-17T15:13Z",
   "last_run_utc": "2026-11-17T14:56Z",
   "facebook": {
     "access": "yes via Claude in Chrome (his browser c8d89af0 reconnected 14:04Z after being offline 08:23-14:04Z); a fresh cloud session has none",
-    "last_access_ok_utc": "2026-11-17T15:38Z",
+    "last_access_ok_utc": "2026-11-17T15:10Z",
     "last_checks_utc": "2026-11-17T14:32Z",
     "unreachable_since_utc": null,
     "unreachable_reported_utc": null,
@@ -156,25 +156,25 @@
       "id": "group:1086282042874547",
       "name": "What's Happening in Wilmette illinois",
       "member": true,
-      "joined_utc": "2026-11-17T15:22Z",
+      "joined_utc": "2026-11-17T15:08Z",
       "eligible": true,
       "rules": "public; business posts allowed if licensed; disclose employment (they suggest #employed); advertising at most 2-3 times a week; no politics, crowdfunding or animal sales",
       "notes": "3.5K members, about 19 posts a day; no join questions",
       "min_gap_days": 7,
       "next_ok_utc": null,
-      "checked_utc": "2026-11-17T15:20Z"
+      "checked_utc": "2026-11-17T15:07Z"
     },
     {
       "id": "group:1316163449754368",
       "name": "What's Happening in Winnetka illinois",
       "member": true,
-      "joined_utc": "2026-11-17T15:27Z",
+      "joined_utc": "2026-11-17T15:09Z",
       "eligible": true,
       "rules": "same rules as the Wilmette group (same network): disclose (#employed), advertising at most 2-3 times a week",
       "notes": "4.5K members, about 25 posts a day; no join questions",
       "min_gap_days": 7,
       "next_ok_utc": null,
-      "checked_utc": "2026-11-17T15:25Z"
+      "checked_utc": "2026-11-17T15:09Z"
     },
     {
       "id": "group:1398417347116381",
@@ -182,11 +182,11 @@
       "member": false,
       "eligible": false,
       "rules": "admin rule 1: only entertainment events; anything else deleted",
-      "checked_utc": "2026-11-17T15:33Z"
+      "checked_utc": "2026-11-17T15:10Z"
     }
   ],
   "venue_discovery": {
-    "last_utc": "2026-11-17T15:35Z",
+    "last_utc": "2026-11-17T15:10Z",
     "owner_groups_total": 43,
     "owner_local_groups": [
       "group:311248470375848",
@@ -287,8 +287,8 @@
     "2026-11-17T14:38Z venues: 3 groups evaluated, none eligible (Calgary group; neighbors group for other towns; agency-run statewide group); Wilmette happenings group left to check",
     "2026-11-17T14:52Z Joseph (08:52 Chicago): run as a continuous operator; hourly schedule is only a fallback",
     "2026-11-17T15:00Z posted template A in Evanston/Skokie (Chicago) neighbors, tag fb-evsk-1117; published at once; cap changed to 1 a day and 5 a week",
-    "2026-11-17T15:15Z lead scan: 142 recent posts across 3 member groups, 0 families asking about senior care",
-    "2026-11-17T15:35Z joined What's Happening in Wilmette illinois and What's Happening in Winnetka illinois (public, no questions, ads allowed 2-3 a week with #employed); Skokie & North Shore group is events-only, skipped"
+    "2026-11-17T15:06Z lead scan: 142 recent posts across 3 member groups, 0 families asking about senior care",
+    "2026-11-17T15:10Z joined What's Happening in Wilmette illinois and What's Happening in Winnetka illinois (public, no questions, ads allowed 2-3 a week with #employed); Skokie & North Shore group is events-only, skipped"
   ],
   "next_actions": [
     "Wed 18 Nov 9:00-19:00 Chicago: post in What's Happening in Wilmette illinois (vary the text; add #employed after the disclosure), tag fb-wil-1118",
@@ -311,13 +311,13 @@
       "fb-profile-1116 2026-11-17T00:41Z",
       "fb-evsk-1117 2026-11-17T15:00Z"
     ],
-    "checked_utc": "2026-11-17T15:40Z"
+    "checked_utc": "2026-11-17T15:12Z"
   },
   "leads": {
     "alerted": [],
     "scans": [
       {
-        "utc": "2026-11-17T15:15Z",
+        "utc": "2026-11-17T15:06Z",
         "groups": 3,
         "posts_scanned": 142,
         "leads": 0
@@ -328,7 +328,7 @@
   "due": {
     "post_next": "2026-11-18T15:00Z",
     "fb_checks": "2026-11-17T16:30Z",
-    "lead_scan": "2026-11-17T19:15Z",
+    "lead_scan": "2026-11-17T19:06Z",
     "metrics": "2026-11-17T16:30Z",
     "venues": "2026-11-18T15:00Z"
   }
