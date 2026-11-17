@@ -403,6 +403,14 @@ SRC = {
         'https://www.caregiver.va.gov/pdfs/FactSheets/Monthly-Caregiver-Stipend-Factsheet.pdf'),
     "va_pgcss_res": ('VA.gov — The Program of General Caregiver Support Services',
         'https://www.va.gov/resources/the-program-of-general-caregiver-support-services/'),
+    "hfs_fide_enroll": ('Illinois HFS — How To Enroll in a FIDE SNP',
+                        'https://hfs.illinois.gov/medicalproviders/cc/mmai/howtoenrollinafidesnp'),
+    "hfs_fide_info": ('Illinois HFS — Fully Integrated Dual Eligible Special Needs Plans in Illinois',
+                      'https://hfs.illinois.gov/medicalproviders/cc/mmai/fullyintegdesnpii.html'),
+    "hfs_managedcare": ('Illinois HFS — Managed Care (for clients)',
+                        'https://hfs.illinois.gov/medicalclients/managedcare.html'),
+    "hfs_mmai_end": ('Illinois HFS — Medicare Medicaid Alignment Initiative (MMAI) End Date',
+                     'https://hfs.illinois.gov/medicalproviders/cc/mmai.html'),
 }
 
 
@@ -4861,6 +4869,160 @@ GUIDES = [
             ]),
         ],
     },
+    {
+        "slug": "illinois-fide-snp-explained",
+        "bridge": ("Knowing which plan now handles your parent&rsquo;s Medicare "
+                   "and Medicaid coverage is a different question from knowing "
+                   "whether the care it arranges is still the right amount of "
+                   "help."),
+        "reviewed": "2026-11-17",
+        "title": "Illinois FIDE SNP: What Replaced MMAI for Dual-Eligible Seniors",
+        "h1": "What happened to my parent&rsquo;s MMAI plan, and what is a FIDE SNP?",
+        "desc": ("Illinois ended MMAI on 31 December 2025. What a FIDE SNP is, "
+                 "who can join one, what happened to MMAI members, and when a "
+                 "parent can switch plans."),
+        "intent": "benefits question / policy change",
+        "answer": ("If your parent has both Medicare and full Illinois Medicaid "
+                   "(&ldquo;dually eligible&rdquo;), the combined plan Illinois "
+                   "called MMAI ended on <strong>31 December 2025</strong>. "
+                   "Illinois now offers <strong>FIDE SNPs</strong> (fully "
+                   "integrated dual eligible special needs plans), a type of "
+                   "Medicare Advantage plan that provides Medicare and "
+                   "Medicaid benefits through one managed care plan. MMAI "
+                   "members of Aetna, Humana, Meridian and Molina were moved "
+                   "automatically into those companies&rsquo; FIDE SNPs on 1 "
+                   "January 2026; Blue Cross Blue Shield did not offer one. "
+                   "Not every dually eligible person can join, and the annual "
+                   "Medicare Open Enrollment Period runs from 15 October to 7 "
+                   "December."),
+        "sources": srcs("hfs_mmai_end", "hfs_fide_info", "hfs_fide_enroll",
+                        "hfs_managedcare"),
+        "body": [
+            ("MMAI ended on 31 December 2025", [
+                "<p>Illinois HFS states: &ldquo;The Illinois Medicare-Medicaid "
+                "Alignment Initiative (MMAI) program will end December 31, "
+                "2025.&rdquo; HFS says the reason is that &ldquo;the Centers "
+                "for Medicare &amp; Medicaid Services (CMS) is requiring states "
+                "with a MMAI program to convert to the D-SNP model,&rdquo; and "
+                "that &ldquo;FIDE SNPs will be the only type of D-SNP model "
+                "available in Illinois&rdquo;.</p>",
+                "<p>HFS describes a FIDE SNP as &ldquo;a type of Medicare "
+                "Advantage plan&rdquo; that provides both Medicare and "
+                "Medicaid benefits through one managed care plan, and says "
+                "FIDE SNPs are the most like MMAI plans because &ldquo;they "
+                "provide the same level of care coordination&rdquo;. It adds "
+                "that &ldquo;Medicaid wraps around Medicare by helping with "
+                "Medicare premiums and cost sharing.&rdquo;</p>",
+            ]),
+            ("What happened to MMAI members", [
+                "<p>HFS&rsquo;s enrolment page says that for &ldquo;Members of "
+                "an MMAI plan offered by Aetna, Humana, Meridian, and "
+                "Molina,&rdquo; &ldquo;CMS will automatically enroll these "
+                "members in the Illinois FIDE SNP offered by these "
+                "companies&rdquo; with a start date of 1 January 2026. Those "
+                "members did not need to do anything, and could choose other "
+                "coverage instead.</p>",
+                "<p>Blue Cross Blue Shield was different: &ldquo;Blue Cross Blue "
+                "Shield will not be offering a FIDE SNP for 2026.&rdquo; HFS "
+                "says BCBS MMAI members who made no choice before 31 December "
+                "2025 were automatically enrolled by CMS in Original Medicare "
+                "with a Medicare drug plan from 1 January 2026. For their "
+                "Medicaid benefits, members receiving long-term services and "
+                "supports were automatically enrolled in the BCBS HealthChoice "
+                "Illinois MLTSS plan, and other members receive services in "
+                "the HFS fee-for-service program. HFS also says a BCBS letter "
+                "dated 3 November 2025, which told members they could stay in "
+                "BCBS MMAI, &ldquo;should not have been sent by BCBS.&rdquo;</p>",
+            ]),
+            ("Who can join a FIDE SNP, and who cannot", [
+                "<p>HFS&rsquo;s eligibility list requires &ldquo;Receiving full "
+                "Illinois Medicaid benefits&rdquo; in the Aid to the Aged, "
+                "Blind, and Disabled (AABD) or FamilyCare category, being 21 or "
+                "older at enrolment, having Medicare Part A and Part B, living "
+                "in the plan&rsquo;s service area, and being a United States "
+                "citizen or lawfully present in the United States.</p>",
+                "<p>HFS says a person is not eligible if they are under 21, "
+                "receive developmental disability institutional services or "
+                "take part in the HCBS waiver for Adults with Developmental "
+                "Disabilities, are &ldquo;In the Medicaid Spend-down "
+                "population,&rdquo; are in the Illinois Medicaid Breast and "
+                "Cervical Cancer program, are enrolled in partial-benefit "
+                "Medicaid programs, or receive Comprehensive Third Party "
+                "Insurance. If your parent qualifies for Medicaid through "
+                "spend-down, explained in "
+                '<a href="/guides/illinois-medicaid-long-term-care/">How '
+                "Illinois Medicaid pays for long-term care, and what spend-down "
+                "means</a>, a FIDE SNP is not open to them.</p>",
+            ]),
+            ("If your parent is in a nursing home or on a waiver", [
+                "<p>Care in a nursing facility, or under one of Illinois&rsquo;s "
+                "Home and Community Based Services waivers, falls under what "
+                "HFS calls long-term services and supports (LTSS); its managed "
+                "care page says dual-eligible adults receiving certain of these "
+                "services are &ldquo;referred to as the MLTSS population&rdquo;. "
+                "HFS&rsquo;s enrolment page says members receiving LTSS "
+                "&ldquo;must be enrolled in a HealthChoice IL Managed Long-Term "
+                "Services and Support (MLTSS) plan&rdquo; for those services, "
+                "and adds: &ldquo;Currently, to switch plans, members must call "
+                "the HFS Client Enrollment Broker at 1-877-912-8880.&rdquo;</p>",
+                "<p>This guide has not researched HealthChoice Illinois MLTSS "
+                "plans themselves. Ask your parent&rsquo;s care coordinator, "
+                "or the HFS Client Enrollment Broker, which plan your parent is "
+                "in now and what changing it would mean.</p>",
+            ]),
+            ("How and when to enrol or switch", [
+                "<p>HFS&rsquo;s enrolment page names three ways to enrol in a "
+                "FIDE SNP: use the &ldquo;Find Plans Now&rdquo; tool on "
+                "Medicare.gov and select &ldquo;Medicaid&rdquo; when asked if "
+                "you get help with your Medicare health or drug costs; call "
+                "the plan or visit its website; or call 1-800-MEDICARE "
+                "(1-800-633-4227), TTY 1-877-486-2048.</p>",
+                "<p>The Medicare <strong>Open Enrollment Period</strong> runs "
+                "&ldquo;October 15 - December 7 of each year,&rdquo; and "
+                "coverage chosen then starts on 1 January, as long as the plan "
+                "gets the request by 7 December. Outside that window, HFS says "
+                "&ldquo;members eligible for a FIDE SNP can enroll "
+                "once-per-month in a FIDE SNP using the Integrated Care "
+                "SEP,&rdquo; with coverage starting the first of the month "
+                "after the plan gets the request. A separate Dual/LIS special "
+                "enrolment period lets a dually eligible member go back to "
+                "Original Medicare with a standalone prescription drug plan, or "
+                "switch drug plans, once a month. HFS says these special "
+                "enrolment periods &ldquo;won&rsquo;t allow enrollment into "
+                "non-D-SNP Medicare Advantage Plans.&rdquo;</p>",
+                "<p>For free help choosing a plan, see "
+                '<a href="/guides/illinois-senior-health-insurance-program/">'
+                "Who can help my parent choose a Medicare plan for free in "
+                "Illinois?</a></p>",
+            ]),
+            ("What this guide could not verify", [
+                "<p>HFS&rsquo;s pages give no premium, copay or other dollar "
+                "figure for a FIDE SNP, so this guide does not publish one. "
+                "Compare plans&rsquo; costs on Medicare.gov or with the plan "
+                "itself. Several HFS pages still describe the change in the "
+                "future tense, as written before it took effect; this guide "
+                "reports what they say happened on 1 January 2026.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>A FIDE SNP is one way a dually eligible parent&rsquo;s "
+                "Medicare and Medicaid are delivered. Whether Illinois helps "
+                "pay a Medicare premium at all is a separate question, covered "
+                'in <a href="/guides/illinois-medicare-savings-program/">Can '
+                "Illinois help pay my parent&rsquo;s Medicare premium?</a> If "
+                "your parent gets home care through a dual eligible special "
+                "needs plan and something is going wrong, "
+                '<a href="/guides/illinois-home-care-ombudsman-program/">What '
+                "to do when your parent&rsquo;s in-home care isn&rsquo;t "
+                "working in Illinois</a> covers the free advocate.</p>",
+                "<p>None of this decides what level of care your parent "
+                "needs; a plan arranges and pays for care, it does not decide "
+                'how much is right. The <a href="/">free six-question '
+                "assessment</a> on this site walks through that. It asks for "
+                "no name, no email and no phone number, and your answers never "
+                "leave your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -5107,7 +5269,7 @@ RELATED = {
         "illinois-home-care-ombudsman-program",
         "illinois-home-caregiver-background-check"],
     "illinois-senior-health-insurance-program": [
-        "medicare-extra-help-prescription-drug-costs",
+        "illinois-fide-snp-explained",
         "medicare-hospice-benefit-explained",
         "illinois-medicare-savings-program"],
     "illinois-nursing-home-resident-rights": [
@@ -5132,7 +5294,7 @@ RELATED = {
         "levels-of-senior-care-explained"],
     "illinois-medicare-savings-program": [
         "illinois-senior-health-insurance-program",
-        "does-medicare-pay-for-senior-care",
+        "illinois-fide-snp-explained",
         "medicare-extra-help-prescription-drug-costs"],
     "illinois-pace-program": [
         "illinois-community-care-program",
@@ -5174,6 +5336,10 @@ RELATED = {
         "va-aid-and-attendance-benefit",
         "va-nursing-home-and-respite-care",
         "illinois-family-caregiver-support-program"],
+    "illinois-fide-snp-explained": [
+        "illinois-medicare-savings-program",
+        "illinois-senior-health-insurance-program",
+        "illinois-medicaid-long-term-care"],
 }
 
 RELATED_MIN_INBOUND = 2
@@ -5572,6 +5738,10 @@ CARDS = {
         "Veterans' benefits",
         'Can a family caregiver be paid by the VA?',
         "Who qualifies for VA's monthly caregiver stipend, how the stipend is set, and the VA caregiver support open to everyone else."),
+    "illinois-fide-snp-explained": (
+        'Medicare',
+        'What replaced MMAI for parents with Medicare and Medicaid?',
+        'Illinois ended MMAI on 31 December 2025. What a FIDE SNP is, who can join one, and when a dually eligible parent can switch plans.'),
 }
 
 
