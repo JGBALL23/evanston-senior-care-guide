@@ -92,6 +92,16 @@ Choose a genuinely new topic that a family in Evanston would type into a
 search box when a parent needs more help. No duplicates, no near-duplicates,
 no keyword variants of a guide that already exists.
 
+**Prefer decision-stage topics (owner goal, 17 Nov 2026).** The site exists to
+help families who are choosing where a parent will live and get care. When two
+topics can be sourced equally well, pick the one a family asks while comparing
+or visiting communities: what Illinois requires of an assisted living or a
+dementia (memory) care setting, what a residency contract or admission
+agreement must disclose, how to read an inspection or survey result, how a
+move-in assessment works, what happens when care needs change. A benefits
+programme that rarely leads to a move ranks below these. Never name, rank or
+recommend individual communities.
+
 ## Step 3 — rules of evidence
 
 This is the whole job. The library's value is that every number on it was
@@ -148,6 +158,15 @@ Programs $25 income disregard). These rules are not optional.
   allowed hosts above.
 - **Link only to guides that are live on `main`.** A link to another draft
   becomes a broken link when this guide is published first.
+- **A "could not find" sentence is a factual claim too.** Before writing that a
+  page does not describe something, or that no public list exists, search the
+  fetched pages again and run one more search for it. Two drafts on 17 Nov said
+  VA.gov never describes home health aide care and that Illinois publishes no
+  list of licensed home care agencies; both were wrong.
+- **When official pages disagree, follow the agency that runs the programme.**
+  IDPH's Veterans' Homes page still says "all four" homes; the Illinois
+  Department of Veterans' Affairs lists five. Use the operating agency's page,
+  and name the disagreement in your report instead of quoting the stale figure.
 - **Quote audit before you commit.** In your final report, list every
   quotation in the new guide with the URL it came from and confirm each was
   matched word for word against the fetched text. A quotation you cannot
