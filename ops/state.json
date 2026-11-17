@@ -1,13 +1,13 @@
 {
   "schema": 1,
   "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
-  "updated_utc": "2026-11-17T13:26Z",
-  "last_run_utc": "2026-11-17T13:24Z",
+  "updated_utc": "2026-11-17T14:40Z",
+  "last_run_utc": "2026-11-17T14:23Z",
   "facebook": {
-    "access": "yes, from Claude's main session through Claude in Chrome (owner's browser 71586d76); confirmed by the first schedule-fired run at 01:24Z; a fresh cloud session has none (test 2026-11-17T00:19Z)",
-    "last_access_ok_utc": "2026-11-17T07:23Z",
-    "last_checks_utc": "2026-11-17T02:27Z",
-    "unreachable_since_utc": "2026-11-17T08:23Z",
+    "access": "yes via Claude in Chrome (his browser c8d89af0 reconnected 14:04Z after being offline 08:23-14:04Z); a fresh cloud session has none",
+    "last_access_ok_utc": "2026-11-17T14:25Z",
+    "last_checks_utc": "2026-11-17T14:32Z",
+    "unreachable_since_utc": null,
     "unreachable_reported_utc": null,
     "blocker": null
   },
@@ -22,7 +22,7 @@
       "visible_utc": "2026-11-08T22:15Z",
       "reactions": 0,
       "comments": 0,
-      "checked_utc": "2026-11-17T00:33Z",
+      "checked_utc": "2026-11-17T14:32Z",
       "shares": 0
     },
     {
@@ -41,7 +41,7 @@
       "content": "assisted living costs",
       "status": "pending",
       "submitted_utc": "2026-11-13T21:53Z",
-      "checked_utc": "2026-11-17T00:28Z"
+      "checked_utc": "2026-11-17T14:30Z"
     },
     {
       "tag": "north-shore-checklist",
@@ -53,7 +53,7 @@
       "visible_utc": "2026-11-16T04:42Z",
       "reactions": 0,
       "comments": 0,
-      "checked_utc": "2026-11-17T00:33Z",
+      "checked_utc": "2026-11-17T14:32Z",
       "shares": 0
     },
     {
@@ -66,7 +66,7 @@
       "visible_utc": "2026-11-17T00:41Z",
       "reactions": 0,
       "comments": 0,
-      "checked_utc": "2026-11-17T02:27Z",
+      "checked_utc": "2026-11-17T14:32Z",
       "note": "first 50 minutes: all site requests automated (Facebook link previews while composing, then a Chrome 139 link scanner from a data center at 00:42Z that also fired the one landed beacon); 0 genuine",
       "shares": 0
     }
@@ -139,7 +139,7 @@
     }
   ],
   "venue_discovery": {
-    "last_utc": "2026-11-17T01:28Z",
+    "last_utc": "2026-11-17T14:38Z",
     "owner_groups_total": 43,
     "owner_local_groups": [
       "group:311248470375848",
@@ -150,18 +150,25 @@
     "groups_evaluated": [
       "group:280339146984145",
       "group:1398934874303150",
-      "group:457491344711359"
+      "group:457491344711359",
+      "group:737824126066420",
+      "group:1088020282873543",
+      "group:520770516031533"
     ],
     "not_yet_checked": [
-      "group:737824126066420 Evanston & Area Community info. (1.1K)",
-      "group:1088020282873543 Northbrook, Glenview, Niles, Des Plaines neighbors (5.7K)",
       "What's Happening in Wilmette illinois (public, 3.5K)"
     ],
-    "skipped_this_round": "search results named Evanston or North Shore but were Vancouver BC, Calgary AB or Evanston WY groups, or banned promotion"
+    "skipped_this_round": "search results named Evanston or North Shore but were Vancouver BC, Calgary AB or Evanston WY groups, or banned promotion",
+    "verdicts_1117": [
+      "group:737824126066420 Evanston & Area Community info.: Evanston in Calgary AB (Alberta businesses in feed), not Illinois; skip",
+      "group:1088020282873543 Northbrook/Glenview/Niles/Des Plaines neighbors: Illinois, 5.8K, about 49 posts a day, no rules; neighbors group for towns he neither lives nor works in; skip",
+      "group:520770516031533 HomeCare in Illinois, Caregivers, Care for parents: run by a home-care agency, statewide, outside the Evanston/North Shore scope; skip",
+      "caregiver group search (Chicago/North Shore): results were caregiver job boards or out of area; no Evanston/North Shore family group found"
+    ]
   },
   "metrics": {
     "since_utc": "2026-11-08T22:15Z",
-    "as_of_utc": "2026-11-17T13:25Z",
+    "as_of_utc": "2026-11-17T14:25Z",
     "facebook_posts_visible": 3,
     "facebook_genuine_visitors": 2,
     "assessment_starts": 0,
@@ -169,8 +176,8 @@
     "tour_form_views": 0,
     "tour_requests_genuine": 0,
     "tours_confirmed": "UNVERIFIED (none reported by Joseph)",
-    "netlify_checked_to_utc": "2026-11-17T13:25Z",
-    "gmail_checked_to_utc": "2026-11-17T13:25Z",
+    "netlify_checked_to_utc": "2026-11-17T14:25Z",
+    "gmail_checked_to_utc": "2026-11-17T14:23Z",
     "note": "genuine = real browsers only; harness tests, crawlers, link previews and Joseph's unverified phone excluded",
     "visitor_notes": "2 genuine visitors from the checklist post: 13:49Z 16 Nov (iPhone Safari) and 19:07Z 16 Nov (iPhone, Facebook app; same iOS version as the owner's phone, owner asked whether it was his); both opened the checklist PDF, neither started the assessment or the tour form"
   },
@@ -222,11 +229,13 @@
     "2026-11-17T02:23Z run: re-armed for 03:23Z; 0 tour requests; Facebook reachable, his session confirmed; fb-profile-1116 still 0 reactions, comments, shares; site traffic since 01:31Z all automated",
     "2026-11-17T02:29Z cap check: 3 posts submitted in the last 7 days (pending Everything Evanston post included), so the next post moves from Tue 17 Nov to Fri 20 Nov after 15:53 Chicago",
     "2026-11-17T08:23Z overnight runs 04:23-08:23Z on schedule: 0 tour requests, 0 genuine visitors; his Chrome not connected since 08:23Z (Facebook work skipped until it returns)",
-    "2026-11-17T13:24Z runs 09:23-13:24Z on schedule: 0 tour requests, 0 genuine visitors (crawlers and WordPress probes only); his Chrome still offline"
+    "2026-11-17T13:24Z runs 09:23-13:24Z on schedule: 0 tour requests, 0 genuine visitors (crawlers and WordPress probes only); his Chrome still offline",
+    "2026-11-17T14:32Z Facebook back (his Chrome reconnected 14:04Z); checks: all 3 live posts 0 reactions, 0 comments, 0 shares; Everything Evanston cost post still pending",
+    "2026-11-17T14:38Z venues: 3 groups evaluated, none eligible (Calgary group; neighbors group for other towns; agency-run statewide group); Wilmette happenings group left to check"
   ],
   "next_actions": [
     "Fri 20 Nov 15:53-19:00 Chicago (else Sat 21 Nov 9:00-19:00): re-read Evanston/Skokie neighbors, then post template A naming Evanston and Skokie, tag fb-evsk-1120 (or fb-evsk-1121)",
-    "before then, in a daytime run: evaluate the 3 not_yet_checked groups; join only if public, no questions, promotion allowed and he qualifies",
+    "evaluate What's Happening in Wilmette illinois; keep looking for an Evanston/North Shore group where families ask about senior care",
     "watch fb-profile-1116 and north-shore-checklist (7-day result due first run after 23 Nov 04:42Z)",
     "Everything Evanston: leave the cost post pending (owner decision)"
   ],
