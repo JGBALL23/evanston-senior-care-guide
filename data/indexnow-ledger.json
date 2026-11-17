@@ -1,8 +1,8 @@
 {
   "entries": {
     "https://evanstonseniorcareguide.com/guides/": {
-      "at": "2026-11-17T16:49:28Z",
-      "hash": "6b1883f3157e8a667be3e9252e6dc34b997a40afa6608d9512baaf47e321f9fc",
+      "at": "2026-11-17T17:08:29Z",
+      "hash": "ecddc9e869ae29c65960f1a453338816b8aebad625d1fc2c4c23665870caab50",
       "kind": "submitted",
       "status": 200
     },
@@ -21,6 +21,12 @@
     "https://evanstonseniorcareguide.com/guides/does-medicare-pay-for-senior-care/": {
       "at": "2026-11-17T16:02:04Z",
       "hash": "6990de34beee698168f7e23b606cad9d34945ce1b005470314e77b2300dc25fa",
+      "kind": "submitted",
+      "status": 200
+    },
+    "https://evanstonseniorcareguide.com/guides/illinois-advance-directive-power-of-attorney/": {
+      "at": "2026-11-17T17:08:29Z",
+      "hash": "af76b3983edc6ed0b5f3f7480f9de308ab7b790416ff0035a28fcf4cc885b9e8",
       "kind": "submitted",
       "status": 200
     },
