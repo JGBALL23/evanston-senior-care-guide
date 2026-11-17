@@ -1,11 +1,11 @@
 {
   "schema": 1,
   "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
-  "updated_utc": "2026-11-17T02:30Z",
-  "last_run_utc": "2026-11-17T02:23Z",
+  "updated_utc": "2026-11-17T03:27Z",
+  "last_run_utc": "2026-11-17T03:23Z",
   "facebook": {
     "access": "yes, from Claude's main session through Claude in Chrome (owner's browser 71586d76); confirmed by the first schedule-fired run at 01:24Z; a fresh cloud session has none (test 2026-11-17T00:19Z)",
-    "last_access_ok_utc": "2026-11-17T02:26Z",
+    "last_access_ok_utc": "2026-11-17T03:23Z",
     "last_checks_utc": "2026-11-17T02:27Z",
     "unreachable_since_utc": null,
     "unreachable_reported_utc": null,
@@ -161,7 +161,7 @@
   },
   "metrics": {
     "since_utc": "2026-11-08T22:15Z",
-    "as_of_utc": "2026-11-17T02:28Z",
+    "as_of_utc": "2026-11-17T03:26Z",
     "facebook_posts_visible": 3,
     "facebook_genuine_visitors": 2,
     "assessment_starts": 0,
@@ -169,8 +169,8 @@
     "tour_form_views": 0,
     "tour_requests_genuine": 0,
     "tours_confirmed": "UNVERIFIED (none reported by Joseph)",
-    "netlify_checked_to_utc": "2026-11-17T02:28Z",
-    "gmail_checked_to_utc": "2026-11-17T02:25Z",
+    "netlify_checked_to_utc": "2026-11-17T03:26Z",
+    "gmail_checked_to_utc": "2026-11-17T03:23Z",
     "note": "genuine = real browsers only; harness tests, crawlers, link previews and Joseph's unverified phone excluded",
     "visitor_notes": "2 genuine visitors from the checklist post: 13:49Z 16 Nov (iPhone Safari) and 19:07Z 16 Nov (iPhone, Facebook app; same iOS version as the owner's phone, owner asked whether it was his); both opened the checklist PDF, neither started the assessment or the tour form"
   },
