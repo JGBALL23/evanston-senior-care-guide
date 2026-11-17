@@ -1,8 +1,8 @@
 {
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
- "updated_utc": "2026-11-17T17:19Z",
- "last_run_utc": "2026-11-17T17:19Z",
+ "updated_utc": "2026-11-17T17:36Z",
+ "last_run_utc": "2026-11-17T17:36Z",
  "facebook": {
   "access": "yes via Claude in Chrome (his browser c8d89af0 reconnected 14:04Z after being offline 08:23-14:04Z); a fresh cloud session has none",
   "last_access_ok_utc": "2026-11-17T15:10Z",
@@ -336,7 +336,8 @@
   "2026-11-17T16:12Z site: published 2 verified guides (resident rights; nursing home pre-admission screening) and removed unsupported wording from the Medicare guide; deployed twice; IndexNow 19 URLs accepted",
   "2026-11-17T16:15Z fb-evsk-1117: 0 reactions or comments; 2 genuine visitors, 1 checklist PDF open, 1 tour-questions view; no tour request (Gmail checked)",
   "2026-11-17T16:56Z site: published the Medicaid look-back and home-care ombudsman guides (several draft quotations corrected to the HFS/IDoA wording); added a disclosed \"Ask about a tour here\" line to the homepage tour section and under the checklist on the cost and inspection guides; all suites green; 4 deploys",
-  "2026-11-17T17:18Z site: published guide #17 (health care power of attorney) and guide #16 (Medicare Savings Programs, 2026 limits verified; draft had the $25 disregard backwards); 6 guides live today in total"
+  "2026-11-17T17:18Z site: published guide #17 (health care power of attorney) and guide #16 (Medicare Savings Programs, 2026 limits verified; draft had the $25 disregard backwards); 6 guides live today in total",
+  "2026-11-17T17:35Z site: published PACE (Evanston not yet served; checked against the HFS zip list) and Medicare home health guides; 8 guides live today; every draft so far had at least one paraphrase inside quotation marks, fixed before publishing"
  ],
  "next_actions": [
   "Wed 18 Nov 9:00-19:00 Chicago: post template B (costs) naming Wilmette in What's Happening in Wilmette illinois, #employed after the disclosure, tag fb-wil-1118",
@@ -389,7 +390,7 @@
   "venues": "2026-11-24T15:00Z",
   "evanston_join_status": "2026-11-17T22:15Z",
   "rollup": "2026-11-18T01:00Z",
-  "guides": "next drafts by usefulness: PACE (Evanston coverage), Medicare home health, Extra Help, home-delivered meals, elder abuse reporting, Benefit Access, VA x3, FIDE SNP, DME, money management, caregiver background check"
+  "guides": "next drafts: Medicare Extra Help, home-delivered meals, elder abuse reporting, Benefit Access, VA nursing home/respite, VA caregiver support, VA home-based care, FIDE SNP, DME, money management, caregiver background check"
  },
  "site": {
   "guides_published_1117": [
@@ -398,7 +399,9 @@
    "illinois-medicaid-look-back-period (PR #36)",
    "illinois-home-care-ombudsman-program (PR #38)",
    "illinois-advance-directive-power-of-attorney (guide #17, PR #41)",
-   "illinois-medicare-savings-program (guide #16, PR #43)"
+   "illinois-medicare-savings-program (guide #16, PR #43)",
+   "illinois-pace-program (PR #45)",
+   "medicare-home-health-care (PR #47)"
   ],
   "fixes_1117": [
    "Medicare guide unsupported wording removed (PR #26)",
@@ -413,9 +416,9 @@
    "6afc858750598629483e4f63",
    "6afc87298dad5a675f6e5858"
   ],
-  "indexnow_1117": "25 URLs accepted in 6 submissions (HTTP 200)",
-  "guides_live": 22,
-  "drafts_unpublished": 13,
+  "indexnow_1117": "29 URLs accepted in 8 submissions (HTTP 200)",
+  "guides_live": 24,
+  "drafts_unpublished": 11,
   "why_tour_link": "FB visitors land on #tour; 17 Nov two read the tour questions or opened the checklist, but the section had no way to ask about a visit",
   "verification_note": "each draft re-checked against its official source before publishing; drafts often paraphrased inside quotation marks and once reversed a rule (MSP $25 disregard), so every quotation is compared verbatim"
  }
