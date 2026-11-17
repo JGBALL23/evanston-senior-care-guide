@@ -1,8 +1,8 @@
 {
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
- "updated_utc": "2026-11-17T22:54Z",
- "last_run_utc": "2026-11-17T22:54Z",
+ "updated_utc": "2026-11-17T22:59Z",
+ "last_run_utc": "2026-11-17T22:59Z",
  "facebook": {
   "access": "yes via Claude in Chrome (his browser c8d89af0 reconnected 14:04Z after being offline 08:23-14:04Z); a fresh cloud session has none",
   "last_access_ok_utc": "2026-11-17T22:27Z",
@@ -359,7 +359,8 @@
   "2026-11-17T20:30Z site: published the Benefit Access guide (removed unsupported \"formerly Circuit Breaker\", a false age \"discrepancy\" and unsourced help advice); 12 guides published today, 28 live; Gmail: no tour requests",
   "2026-11-17T21:38Z site: published the Medicare equipment guide (quotes made verbatim; removed \"every page word for word\" and two unsupported claims); 13 guides published today, 29 live; Gmail: no tour requests",
   "2026-11-17T22:27Z checks: 4 live posts still 0 reactions and 0 comments; Everything Evanston post still pending; Evanston private-group join still awaiting admin; Gmail: no tour requests",
-  "2026-11-17T22:54Z site: published VA nursing home and respite care (IDVA lists five Veterans' Homes; IDPH page still says four), caregiver background check (IDPH registry, directory and complaint line verified) and VA caregiver support (stipend formula from VA fact sheet); 4 draft errors per guide on average fixed first; ROUTINE.md: decision-stage topics preferred, two integrity rules (PR #64)"
+  "2026-11-17T22:54Z site: published VA nursing home and respite care (IDVA lists five Veterans' Homes; IDPH page still says four), caregiver background check (IDPH registry, directory and complaint line verified) and VA caregiver support (stipend formula from VA fact sheet); 4 draft errors per guide on average fixed first; ROUTINE.md: decision-stage topics preferred, two integrity rules (PR #64)",
+  "2026-11-17T22:59Z site: published the FIDE SNP guide (MMAI ended 31 Dec 2025; HFS LTSS wording replaced stale opt-out text); 33 guides live, 17 published today; Search Console sitemap resubmitted (35 URLs)"
  ],
  "next_actions": [
   "Wed 18 Nov 9:00-19:00 Chicago: post template B (costs) naming Wilmette in What's Happening in Wilmette illinois, #employed after the disclosure, tag fb-wil-1118",
@@ -419,28 +420,11 @@
   "venues": "2026-11-24T15:00Z",
   "evanston_join_status": "2026-11-18T04:27Z",
   "rollup": "2026-11-18T01:00Z",
-  "guides": "FIDE SNP PR #69 pending tests then deploy; next drafts run 18 Nov 12:02Z (ROUTINE.md now prefers decision-stage topics, PR #64)",
+  "guides": "no drafts left worth publishing today (two deferred with reasons); next drafts run 18 Nov ~12:02Z",
   "search_console": "2026-11-19T15:00Z"
  },
  "site": {
-  "guides_published_1117": [
-   "illinois-nursing-home-resident-rights (PR #31)",
-   "illinois-nursing-home-preadmission-screening (PR #33)",
-   "illinois-medicaid-look-back-period (PR #36)",
-   "illinois-home-care-ombudsman-program (PR #38)",
-   "illinois-advance-directive-power-of-attorney (guide #17, PR #41)",
-   "illinois-medicare-savings-program (guide #16, PR #43)",
-   "illinois-pace-program (PR #45)",
-   "medicare-home-health-care (PR #47)",
-   "medicare-extra-help-prescription-drug-costs (PR #49)",
-   "illinois-home-delivered-meals (PR #53)",
-   "illinois-elder-abuse-reporting (PR #55)",
-   "illinois-benefit-access-program (PR #58)",
-   "medicare-durable-medical-equipment-coverage (PR #60)",
-   "va-nursing-home-and-respite-care",
-   "illinois-home-caregiver-background-check",
-   "va-caregiver-support-program"
-  ],
+  "guides_published_1117": 17,
   "fixes_1117": [
    "Medicare guide unsupported wording removed (PR #26)",
    "homepage tour section: disclosed \"Ask about a tour here\" link to the existing tour form (PR #35)",
@@ -453,9 +437,13 @@
    "6afc81b650d37a209267d1d8",
    "6afc83b140ab5facb486ebe4",
    "6afc858750598629483e4f63",
-   "6afc87298dad5a675f6e5858"
+   "6afc87298dad5a675f6e5858",
+   "6afcd723514625ae47d9cd16",
+   "6afcd8daf80959320781b1ff",
+   "6afcda81e4effca7ee74964f",
+   "6afcdc0c02dd1202eb8ae41a"
   ],
-  "indexnow_1117": "40 URLs accepted in 13 submissions (HTTP 200)",
+  "indexnow_1117": "48 URLs accepted in 17 submissions (HTTP 200)",
   "guides_live": 33,
   "drafts_unpublished": [
    "illinois-money-management-program (deferred: IDoA's own site list shows no Program Site serving Evanston Township, low value here)",
@@ -467,11 +455,11 @@
    "property": "https://evanstonseniorcareguide.com/ (URL prefix)",
    "verified_utc": "2026-11-17T18:00Z",
    "method": "HTML meta tag on the homepage (PR #51); keep it",
-   "sitemap": "sitemap.xml resubmitted 18:01Z: success, 27 URLs discovered (an earlier submission from 19 Oct had 10)",
+   "sitemap": "resubmitted 22:59Z 17 Nov with 35 URLs (Google had last read 27): 'Sitemap submitted successfully'",
    "performance": "processing; first read due 2026-11-19",
    "rules": "read-only weekly; no users, settings or tracking"
   },
-  "routine": "ROUTINE.md on drafts: quotation and paraphrase integrity rules added (PR #52, owner-approved 11:56 Chicago); the routine trigger itself can only be edited by the owner (created outside agents), and it reads ROUTINE.md as its procedure",
+  "routine": "ROUTINE.md on drafts: quotation and paraphrase integrity rules added (PR #52, owner-approved 11:56 Chicago); the routine trigger itself can only be edited by the owner (created outside agents), and it reads ROUTINE.md as its procedure; PR #64 (17 Nov): Step 2 prefers decision-stage topics, Step 3 adds two integrity rules",
   "last_guide_utc": "2026-11-17T22:54Z"
  }
 }
