@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
-  "updated_utc": "2026-11-17T08:25Z",
-  "last_run_utc": "2026-11-17T08:23Z",
+  "updated_utc": "2026-11-17T13:26Z",
+  "last_run_utc": "2026-11-17T13:24Z",
   "facebook": {
     "access": "yes, from Claude's main session through Claude in Chrome (owner's browser 71586d76); confirmed by the first schedule-fired run at 01:24Z; a fresh cloud session has none (test 2026-11-17T00:19Z)",
     "last_access_ok_utc": "2026-11-17T07:23Z",
@@ -161,7 +161,7 @@
   },
   "metrics": {
     "since_utc": "2026-11-08T22:15Z",
-    "as_of_utc": "2026-11-17T08:24Z",
+    "as_of_utc": "2026-11-17T13:25Z",
     "facebook_posts_visible": 3,
     "facebook_genuine_visitors": 2,
     "assessment_starts": 0,
@@ -169,8 +169,8 @@
     "tour_form_views": 0,
     "tour_requests_genuine": 0,
     "tours_confirmed": "UNVERIFIED (none reported by Joseph)",
-    "netlify_checked_to_utc": "2026-11-17T08:24Z",
-    "gmail_checked_to_utc": "2026-11-17T08:23Z",
+    "netlify_checked_to_utc": "2026-11-17T13:25Z",
+    "gmail_checked_to_utc": "2026-11-17T13:25Z",
     "note": "genuine = real browsers only; harness tests, crawlers, link previews and Joseph's unverified phone excluded",
     "visitor_notes": "2 genuine visitors from the checklist post: 13:49Z 16 Nov (iPhone Safari) and 19:07Z 16 Nov (iPhone, Facebook app; same iOS version as the owner's phone, owner asked whether it was his); both opened the checklist PDF, neither started the assessment or the tour form"
   },
@@ -221,7 +221,8 @@
     "2026-11-17T01:34Z daily rollup sent (first run after 19:00 Chicago)",
     "2026-11-17T02:23Z run: re-armed for 03:23Z; 0 tour requests; Facebook reachable, his session confirmed; fb-profile-1116 still 0 reactions, comments, shares; site traffic since 01:31Z all automated",
     "2026-11-17T02:29Z cap check: 3 posts submitted in the last 7 days (pending Everything Evanston post included), so the next post moves from Tue 17 Nov to Fri 20 Nov after 15:53 Chicago",
-    "2026-11-17T08:23Z overnight runs 04:23-08:23Z on schedule: 0 tour requests, 0 genuine visitors; his Chrome not connected since 08:23Z (Facebook work skipped until it returns)"
+    "2026-11-17T08:23Z overnight runs 04:23-08:23Z on schedule: 0 tour requests, 0 genuine visitors; his Chrome not connected since 08:23Z (Facebook work skipped until it returns)",
+    "2026-11-17T13:24Z runs 09:23-13:24Z on schedule: 0 tour requests, 0 genuine visitors (crawlers and WordPress probes only); his Chrome still offline"
   ],
   "next_actions": [
     "Fri 20 Nov 15:53-19:00 Chicago (else Sat 21 Nov 9:00-19:00): re-read Evanston/Skokie neighbors, then post template A naming Evanston and Skokie, tag fb-evsk-1120 (or fb-evsk-1121)",
