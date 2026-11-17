@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
-  "updated_utc": "2026-11-17T00:43Z",
+  "updated_utc": "2026-11-17T00:51Z",
   "last_run_utc": "2026-11-17T00:35Z",
   "facebook": {
     "access": "yes, from Claude's main session through Claude in Chrome (owner's browser 71586d76 connected); a fresh cloud session has none (test 2026-11-17T00:19Z)",
@@ -177,12 +177,12 @@
       {
         "q": "Everything Evanston cost post still pending since 13 Nov: keep watching or drop it?",
         "asked_utc": "2026-11-17T00:35Z",
-        "answer": null
+        "answer": "keep it pending; don't delete or resubmit (16 Nov 18:47 Chicago)"
       },
       {
         "q": "Release draft PR #22 (tour form scrolls to what's missing on an incomplete tap)?",
         "asked_utc": "2026-11-17T00:35Z",
-        "answer": null
+        "answer": "approved with conditions: update against latest main, tests pass, consent wording, data collection, server behavior and inquiry payload unchanged; otherwise hold (16 Nov 18:47 Chicago)"
       },
       {
         "q": "Post once on the owner's own profile? (yes/no)",
@@ -192,7 +192,7 @@
       {
         "q": "Join any of the suggested local groups? (the owner joins; Claude never does)",
         "asked_utc": "2026-11-17T00:35Z",
-        "answer": null
+        "answer": "yes: Claude may join relevant public Evanston/North Shore groups with no membership questions that he genuinely qualifies for (16 Nov 18:47 Chicago)"
       },
       {
         "q": "Was the 19:07Z 16 Nov checklist-post visit the owner's own phone?",
@@ -201,7 +201,8 @@
       }
     ],
     "last_rollup_utc": "2026-11-17T00:35Z",
-    "last_quiet_note_utc": null
+    "last_quiet_note_utc": null,
+    "joining_allowed": true
   },
   "log": [
     "2026-11-17T00:35Z state created; hourly operator replaces the ChatGPT relay and the daily count chain",
@@ -209,12 +210,18 @@
     "2026-11-17T00:26Z first operator run (fired at setup): re-armed for 01:23Z; 0 tour requests; Facebook reachable and his session confirmed",
     "2026-11-17T00:33Z no eligible venue: North Shore cooldown to 23 Nov 04:42Z, Everything Evanston has a pending post, Wilmette ineligible, profile awaits owner; no post",
     "2026-11-17T00:34Z retired: ESC-COORD responder disabled (web UI), Daily count #9 and the capability test deleted",
-    "2026-11-17T00:41Z posted template P on the owner's profile (Public, his setting), tag fb-profile-1116; composer text read back and matched; no Facebook warning"
+    "2026-11-17T00:41Z posted template P on the owner's profile (Public, his setting), tag fb-profile-1116; composer text read back and matched; no Facebook warning",
+    "2026-11-17T00:48Z owner decisions: join groups allowed (public, no questions, he qualifies); keep Everything Evanston post pending; PR #22 approved with conditions; Friday reminder deleted"
   ],
   "next_actions": [
-    "watch the profile post: reactions, comments and tagged visits (fb-profile-1116) in the next runs",
-    "North Shore group: next post allowed after 2026-11-23T04:42Z (template B or C, not the checklist again)",
-    "Everything Evanston: blocked while the 13 Nov cost post is pending; owner asked whether to keep waiting",
-    "owner decisions pending: join local groups (he joins), cost post, PR #22, whether the 19:07Z visit was his phone"
-  ]
+    "PR #22: update against main, verify consent/data/server/payload unchanged, run tests, merge and deploy (step 10a)",
+    "join up to 3 qualifying public groups (priority: seniors, aging parents, caregivers near Evanston/North Shore), read rules",
+    "watch the profile post fb-profile-1116 (engagement, tagged visits)",
+    "next group post: Tue 17 Nov 9:00-19:00 Chicago in a newly joined eligible group; North Shore after 23 Nov 04:42Z",
+    "Everything Evanston: leave the cost post pending (owner decision)"
+  ],
+  "one_offs": {
+    "pr22": "approved, pending release (run step 10a)",
+    "friday_reminder": "deleted 2026-11-17T00:48Z at owner's request"
+  }
 }
