@@ -1,8 +1,8 @@
 {
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
- "updated_utc": "2026-11-18T01:51Z",
- "last_run_utc": "2026-11-18T01:51Z",
+ "updated_utc": "2026-11-18T02:50Z",
+ "last_run_utc": "2026-11-18T02:50Z",
  "facebook": {
   "access": "yes via Claude in Chrome (his browser c8d89af0), checked 00:07Z 18 Nov",
   "last_access_ok_utc": "2026-11-18T01:02Z",
@@ -295,7 +295,7 @@
    {
     "q": "Was the 19:07Z 16 Nov checklist-post visit the owner's own phone?",
     "asked_utc": "2026-11-17T00:35Z",
-    "answer": null
+    "answer": "closed without asking again (17 Nov 20:39 Chicago message); that phone stays excluded from metrics"
    },
    {
     "q": "Public Facebook replies and publishing the guide drafts?",
@@ -315,7 +315,7 @@
    {
     "q": "Use his own Nextdoor or LinkedIn account under the Facebook rules (disclosed, public, no DMs, no spending)?",
     "asked_utc": "2026-11-17T23:57Z",
-    "answer": null
+    "answer": "closed by Claude under his standing authorization after his 17 Nov 20:39 Chicago message (no approval requests for routine work): Nextdoor only if already signed in and its rules allow (operator step 6b); LinkedIn skipped"
    }
   ],
   "last_rollup_utc": "2026-11-17T01:34Z",
@@ -326,7 +326,6 @@
   ]
  },
  "log": [
-  "2026-11-17T01:24Z first schedule-fired run (not by hand): re-armed for 02:23Z; 0 tour requests; Facebook reachable, his session confirmed",
   "2026-11-17T01:28Z joined Evanston/Skokie (Chicago) neighbors: public, no questions, no rules, promotions in feed; eligible, first post due Tue 17 Nov",
   "2026-11-17T01:31Z fb-profile-1116: 0 reactions, comments, shares; all its site traffic so far automated; 0 genuine visitors",
   "2026-11-17T01:34Z daily rollup sent (first run after 19:00 Chicago)",
@@ -365,14 +364,15 @@
   "2026-11-18T01:03Z daily rollup sent: 0 tour requests, tours UNVERIFIED, 2 genuine Facebook visitors today, 0 assessments, 4 posts live + 1 pending, 33 guides live (17 added 17 Nov); owner question (Nextdoor/LinkedIn) asked in chat 23:57Z, awaiting answer",
   "2026-11-18T01:12Z owner directive 19:02 Chicago (growth first; Facebook primary; no new guides without demand; new legal/medical claims need his approval): operator instructions updated; cloud watchdog created and test-fired (SUCCEEDED); drafts routine gated on DEMAND.md (PR #73); E1 Wilmette cost-post experiment planned for 18 Nov",
   "2026-11-18T01:43Z 24/7 restructure: cloud operator created (hourly, PC-independent) and verified; recovery test showed scheduled runs cannot re-arm the session operator (refused), so recovery = safety net + watchdog alert; session operator now owns only Facebook/Search Console and sleeps overnight",
-  "2026-11-18T01:51Z owner verification report for the 19:18 request: schedules listed from list_triggers (cloud operator, session operator, watchdog, drafts routine enabled; older tasks disabled); cloud push test returned 'Mobile push requested'; limits stated (Facebook only while his Chrome is on; no automatic recovery); corrected the earlier claim that a watchdog test push would arrive; Issue #25 status comment updated"
+  "2026-11-18T01:51Z owner verification report for the 19:18 request: schedules listed from list_triggers (cloud operator, session operator, watchdog, drafts routine enabled; older tasks disabled); cloud push test returned 'Mobile push requested'; limits stated (Facebook only while his Chrome is on; no automatic recovery); corrected the earlier claim that a watchdog test push would arrive; Issue #25 status comment updated",
+  "2026-11-18T02:50Z owner message 20:39 Chicago (no approval requests for routine work; don't retry platform blocks; max autonomy): operator instructions now carry AUTHORITY and PLATFORM LIMITS; open owner questions closed (Nextdoor if signed in and allowed, LinkedIn skipped); first on-schedule cloud run 02:23Z SUCCEEDED; session operator aligned with the cloud operator's redesign"
  ],
  "next_actions": [
   "Wed 18 Nov 9:00-19:00 Chicago: EXPERIMENT E1, template B in What's Happening in Wilmette illinois (#employed), tag fb-wil-1118; measure at +24h and +48h against fb-evsk-1117",
   "21:16 Chicago session: confirm the cloud operator's first on-schedule run (20:23 Chicago) in list_triggers and ops/cloud.json and say so in one line in the chat (push only if it failed); lead scans 03:16Z tonight, then from 13:00Z; reply publicly under 5c only if a lead qualifies",
   "Fri 20 Nov after 15:53 Chicago: Winnetka post using the E1 winner's hook, tag fb-wnk-1120",
   "Search Console from 19 Nov: add topics with real queries to DEMAND.md; no new guides or legal/medical claims without owner approval (19:02 directive)",
-  "Everything Evanston stays pending; NS checklist 7-day result after 23 Nov 04:42Z; owner question open: Nextdoor/LinkedIn"
+  "Everything Evanston stays pending; NS checklist 7-day result after 23 Nov 04:42Z; Nextdoor check (step 6b) in the first daytime session with Chrome"
  ],
  "one_offs": {
   "pr22": "done: released 2026-11-17T00:54Z. Merged with main (all suites passed: check-guides 1501, test.js 768, inquiry validation 36, checklist-click 30, start-source 21, tour-source 23, paying-nav 314, checklist PDF, publish 32; build reproduces _dist); consent wording, form fields, server code and inquiry payload unchanged; merge commit 1dc0004; Netlify deploy 6afba5a9ea3f94d69014251e (4 functions); live check 33/33 files, 0 problems; also shipped the reviewed #27 and #28",
@@ -477,7 +477,7 @@
  },
  "automation": {
   "session_operator": "trig_012iD5B32YGMx8Q9efdMRzhk: self-re-arming one-shot in the owner's main chat; owns Facebook and Search Console (needs his Chrome); daytime wakes at most 3 hours apart, sleeps overnight until 9:00 Chicago",
-  "cloud_operator": "trig_01HX7n6gwbDtXj9zXHabtQu4: hourly 24/7 (minute 23, Chicago time), fresh cloud sessions; owns tour-request alerts, site check, metrics, campaign results, search signals, daily summary; state ops/cloud.json; verified runs 01:30Z and 01:39Z 18 Nov (Gmail ok, Netlify ok, Facebook tools absent); push test 01:49Z 18 Nov: PushNotification available, returned 'Mobile push requested' (test block removed from the prompt at 01:50Z)",
+  "cloud_operator": "trig_01HX7n6gwbDtXj9zXHabtQu4: hourly 24/7 (minute 23, Chicago time), fresh cloud sessions; owns tour-request alerts, site check, metrics, campaign results, search signals, daily summary; state ops/cloud.json; verified runs 01:30Z and 01:39Z 18 Nov (Gmail ok, Netlify ok, Facebook tools absent); push test 01:49Z 18 Nov: PushNotification available, returned 'Mobile push requested' (test block removed from the prompt at 01:50Z); its instructions were rewritten at 02:22Z 18 Nov by another session of the owner (citing his 19:43 Chicago request): Facebook-interruption records and growth opportunities added, writes via the GitHub MCP tool; kept as is, session operator aligned at 02:49Z",
   "watchdog": "trig_019ZHCm3aun4X2K9tjNEBPCf: 10:37/13:37/16:37/19:37/22:37 Chicago; alerts the owner if last_run_utc is over 200 minutes old; runs: 01:05Z test and 01:38Z scheduled (19:37 slot), both SUCCEEDED; its 01:05Z 'test push' text was ignored by design (fire text is untrusted), so no test push was ever sent",
   "recovery": "NOT automatic: scheduled runs cannot change scheduled tasks (cloud test 01:39Z 18 Nov: refused); only the session's own step-0 safety net re-arms it; the watchdog alerts the owner",
   "facebook_access": "only via the owner's Windows Chrome with the Claude extension; fresh cloud sessions have none (tested 17 Nov 00:19Z and 18 Nov 01:39Z)",
@@ -496,5 +496,6 @@
    "decision": "hook with more genuine visitors or any tour-form view is used for Winnetka on Fri 20 Nov",
    "caveat": "tiny samples: directional only"
   }
- ]
+ ],
+ "opportunities_done": []
 }
