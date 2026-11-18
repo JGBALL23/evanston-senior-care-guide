@@ -33,9 +33,11 @@
    "id": "G4",
    "priority": 4,
    "title": "Professionals who advise families at the decision point (Aging Life Care managers, elder law practices) serving Evanston and the North Shore",
-   "status": "open",
+   "status": "done",
    "why": "civic organizations list agencies, not guides; professionals who guide individual families may share a free tour checklist",
-   "done_when": "up to 8 practices assessed from their public business pages (fit and reason); Gmail drafts for at most 2 clear fits, to published general business addresses only"
+   "done_when": "up to 8 practices assessed from their public business pages (fit and reason); Gmail drafts for at most 2 clear fits, to published general business addresses only",
+   "result": "Operator ran it at 16:35 Chicago instead of waiting for tonight. Verdict DROP for now: search results for Evanston and North Shore care managers are home-care franchises (direct competitors for the same families) or directory listings; the library directory names 2 care-management listings, neither local with a public address; elder law results are lawyer directories of individual attorneys, and firms take contact forms, not general addresses. No clear fit with a published general business address, so no drafts.",
+   "done_utc": "2026-11-18T22:45Z"
   }
  ],
  "channels": {
@@ -164,6 +166,7 @@
  "log": [
   "2026-11-18T16:28Z session operator (daytime loop): channel verdicts for Facebook caregiver groups, national groups, Reddit, Nextdoor, library events; 6 organizations assessed, 2 Gmail drafts created (City of Evanston Senior Services, North Shore Senior Center); search baseline done (site not visible in the research index)",
   "2026-11-18T16:33Z Search Console: key pages indexed; 1 indexing request (caregiver background check guide); 16 Nov performance 38 impressions, 0 clicks, Medicare cost queries",
-  "2026-11-18T16:41Z session operator: G1 and G2 done (verdicts above); added G4 for tonight"
+  "2026-11-18T16:41Z session operator: G1 and G2 done (verdicts above); added G4 for tonight",
+  "2026-11-18T22:45Z operator: G4 done (DROP: no clear-fit care-management or elder-law practice with a public general address; results were home-care franchises and lawyer directories)"
  ]
 }
