@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "about": "State of the ESCG cloud operator (hourly scheduled task trig_01HX7n6gwbDtXj9zXHabtQu4). Public: counts, times, tags and hashes only.",
+ "inquiries": {
+  "alerted": [],
+  "note": "tour-request alerts: sha256(message id) and time only"
+ },
+ "metrics": {
+  "last_utc": "2026-11-18T00:07Z",
+  "note": "seeded from the session operator's daily metrics of 17 Nov"
+ },
+ "summary": {
+  "last_utc": "2026-11-18T01:01Z",
+  "note": "17 Nov daily summary already sent by the session operator"
+ },
+ "site": {
+  "fail_count": 0,
+  "down_since_utc": null
+ },
+ "recovery": {
+  "last_attempt_utc": null,
+  "alerted_utc": null
+ },
+ "campaigns": {},
+ "experiments": {},
+ "search": {},
+ "demand_candidates": [],
+ "log": [
+  "2026-11-18T01:22Z seeded by the session operator when the cloud operator was created"
+ ]
+}
