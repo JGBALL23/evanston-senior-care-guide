@@ -1,8 +1,8 @@
 {
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
- "updated_utc": "2026-11-18T01:12Z",
- "last_run_utc": "2026-11-18T01:12Z",
+ "updated_utc": "2026-11-18T01:43Z",
+ "last_run_utc": "2026-11-18T01:43Z",
  "facebook": {
   "access": "yes via Claude in Chrome (his browser c8d89af0), checked 00:07Z 18 Nov",
   "last_access_ok_utc": "2026-11-18T01:02Z",
@@ -326,7 +326,6 @@
   ]
  },
  "log": [
-  "2026-11-17T00:48Z owner decisions: join groups allowed (public, no questions, he qualifies); keep Everything Evanston post pending; PR #22 approved with conditions; Friday reminder deleted",
   "2026-11-17T00:54Z PR #22 released: merge 1dc0004, deploy 6afba5a9ea3f94d69014251e, live check 0 problems (also shipped #27 tap-to-call and #28 skip links)",
   "2026-11-17T01:24Z first schedule-fired run (not by hand): re-armed for 02:23Z; 0 tour requests; Facebook reachable, his session confirmed",
   "2026-11-17T01:28Z joined Evanston/Skokie (Chicago) neighbors: public, no questions, no rules, promotions in feed; eligible, first post due Tue 17 Nov",
@@ -365,7 +364,8 @@
   "2026-11-18T00:09Z daily metrics (last 24h): 2 genuine Facebook visitors (both fb-evsk-1117, 15:32Z and 15:42Z); 0 assessment starts, 0 tour-form views, 0 tour requests; Gmail: none",
   "2026-11-18T00:30Z site: Supportive Living guide now covers dementia care settings (HFS Cook County list: none in Evanston or nearby suburbs; closest is Asbury Court, Des Plaines; IDPH: 20 certified statewide), PR #71; memory-care statute pages on ilga.gov blocked to the fetch tool, so no unverifiable legal claims published",
   "2026-11-18T01:03Z daily rollup sent: 0 tour requests, tours UNVERIFIED, 2 genuine Facebook visitors today, 0 assessments, 4 posts live + 1 pending, 33 guides live (17 added 17 Nov); owner question (Nextdoor/LinkedIn) asked in chat 23:57Z, awaiting answer",
-  "2026-11-18T01:12Z owner directive 19:02 Chicago (growth first; Facebook primary; no new guides without demand; new legal/medical claims need his approval): operator instructions updated; cloud watchdog created and test-fired (SUCCEEDED); drafts routine gated on DEMAND.md (PR #73); E1 Wilmette cost-post experiment planned for 18 Nov"
+  "2026-11-18T01:12Z owner directive 19:02 Chicago (growth first; Facebook primary; no new guides without demand; new legal/medical claims need his approval): operator instructions updated; cloud watchdog created and test-fired (SUCCEEDED); drafts routine gated on DEMAND.md (PR #73); E1 Wilmette cost-post experiment planned for 18 Nov",
+  "2026-11-18T01:43Z 24/7 restructure: cloud operator created (hourly, PC-independent) and verified; recovery test showed scheduled runs cannot re-arm the session operator (refused), so recovery = safety net + watchdog alert; session operator now owns only Facebook/Search Console and sleeps overnight"
  ],
  "next_actions": [
   "Wed 18 Nov 9:00-19:00 Chicago: EXPERIMENT E1, template B in What's Happening in Wilmette illinois (#employed), tag fb-wil-1118; measure at +24h and +48h against fb-evsk-1117",
@@ -476,10 +476,13 @@
   "last_guide_utc": "2026-11-17T22:54Z"
  },
  "automation": {
-  "operator": "session-bound one-shot that re-arms itself (trig_012iD5B32YGMx8Q9efdMRzhk); fires into the owner's main chat, which has Claude in Chrome; runs confirmed 22:15Z, 23:13Z, 00:06Z, 01:01Z (17-18 Nov)",
-  "facebook_access": "only via the owner's Windows Chrome with the Claude extension (offline 08:23-14:04Z on 17 Nov); fresh cloud sessions have no Facebook (tested 17 Nov 00:19Z)",
-  "watchdog": "ESCG watchdog (cloud) trig_019ZHCm3aun4X2K9tjNEBPCf, cron CRON_TZ=America/Chicago 37 10,13,16,19,22; reads last_run_utc, alerts the owner if the operator stalls (>200 min); test fire 01:05Z 18 Nov: run status SUCCEEDED (owner asked to confirm the test push)",
-  "drafts_routine": "EVANSTON-DAILY-GUIDE-DRAFTS runs independently daily (~12:03Z); since PR #73 it writes a draft only for a topic under Open in DEMAND.md on drafts"
+  "session_operator": "trig_012iD5B32YGMx8Q9efdMRzhk: self-re-arming one-shot in the owner's main chat; owns Facebook and Search Console (needs his Chrome); daytime wakes at most 3 hours apart, sleeps overnight until 9:00 Chicago",
+  "cloud_operator": "trig_01HX7n6gwbDtXj9zXHabtQu4: hourly 24/7 (minute 23, Chicago time), fresh cloud sessions; owns tour-request alerts, site check, metrics, campaign results, search signals, daily summary; state ops/cloud.json; verified runs 01:30Z and 01:39Z 18 Nov (Gmail ok, Netlify ok, Facebook tools absent)",
+  "watchdog": "trig_019ZHCm3aun4X2K9tjNEBPCf: 10:37/13:37/16:37/19:37/22:37 Chicago; alerts the owner if last_run_utc is over 200 minutes old",
+  "recovery": "NOT automatic: scheduled runs cannot change scheduled tasks (cloud test 01:39Z 18 Nov: refused); only the session's own step-0 safety net re-arms it; the watchdog alerts the owner",
+  "facebook_access": "only via the owner's Windows Chrome with the Claude extension; fresh cloud sessions have none (tested 17 Nov 00:19Z and 18 Nov 01:39Z)",
+  "drafts_routine": "EVANSTON-DAILY-GUIDE-DRAFTS daily ~12:03Z; gated on DEMAND.md since PR #73",
+  "blocked_for_claude": "pausing or deleting scheduled tasks is refused by the safety classifier; only the owner can pause them in claude.ai/code/routines"
  },
  "experiments": [
   {
