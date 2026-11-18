@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
- "updated_utc": "2026-11-18T19:45Z",
+ "updated_utc": "2026-11-18T19:52Z",
  "last_run_utc": "2026-11-18T19:45Z",
  "facebook": {
   "access": "yes via Claude in Chrome (his browser c8d89af0), checked 15:08Z 18 Nov",
@@ -407,7 +407,6 @@
   ]
  },
  "log": [
-  "2026-11-17T15:06Z lead scan: 142 recent posts across 3 member groups, 0 families asking about senior care",
   "2026-11-17T15:10Z joined What's Happening in Wilmette illinois and What's Happening in Winnetka illinois (public, no questions, ads allowed 2-3 a week with #employed); Skokie & North Shore group is events-only, skipped",
   "2026-11-17T15:23Z venues: Wilmette Connections (residents, anti-business), Glencoe Uncensored (Alabama) and Highland Park/Highwood (residents and local businesses only) skipped",
   "2026-11-17T15:26Z owner approved public replies and guide publishing, with a standing approval for zero-cost tour-generating work; operator instructions updated",
@@ -446,7 +445,8 @@
   "2026-11-18T16:33Z Search Console: indexing checked (home and 7 key guides indexed), indexing requested for the caregiver background check guide; first performance data: 38 impressions on 16 Nov, Medicare cost queries",
   "2026-11-18T16:40Z venues: read rules of 7 groups; joined What's Happening in Lake Forest (eligible), What's Happening in Glenview and Glenview - Northbrook Neighbors (read-only until he answers participant questions); Chicago caregiver groups are job boards (dropped); 80 more posts scanned, 0 requests",
   "2026-11-18T16:41Z work loop paused: nothing else actionable now; next session 21:05Z (Facebook checks); night growth task runs from 23:07 Chicago on G4",
-  "2026-11-18T19:45Z session operator: Wilmette post was held for admin approval until 17:44Z (visible_utc and E1 times corrected); lead scan 9 groups/367 posts/1 in-home request (no reply, group rules); Glenview IL group now eligible; OP1 handled (link last)"
+  "2026-11-18T19:45Z session operator: Wilmette post was held for admin approval until 17:44Z (visible_utc and E1 times corrected); lead scan 9 groups/367 posts/1 in-home request (no reply, group rules); Glenview IL group now eligible; OP1 handled (link last)",
+  "2026-11-18T19:52Z outreach under the owner's 13:14 authorization: 4 personalized emails to North Shore senior-services organizations (verified public addresses, disclosure included); 8 sent today in all, 0 replies, 1 auto-reply"
  ],
  "next_actions": [
   "E1 posted 15:06Z in Wilmette (fb-wil-1118), approved by admin 17:44Z; cloud operator measures +24h (19 Nov 17:44Z) and +48h (20 Nov 17:44Z) vs fb-evsk-1117",
@@ -642,8 +642,8 @@
  ],
  "outreach": {
   "note": "counts only; correspondence stays in Gmail",
-  "sent_total": 5,
-  "sent_by_session_operator": 1,
+  "sent_total": 8,
+  "sent_by_session_operator": 4,
   "replies": 0,
   "auto_replies": 1,
   "orgs_contacted_sha256": [
@@ -651,8 +651,14 @@
    "a09687215d1ff39f",
    "4357990659af1ff8",
    "3d97ef57df72afca",
-   "f72c4307dabaccfe"
+   "f72c4307dabaccfe",
+   "22ea23bc33a341ff",
+   "964f4bd4085df343",
+   "ab99b70494413dcd"
   ],
-  "last_utc": "2026-11-18T19:31Z"
+  "last_utc": "2026-11-18T19:50Z",
+  "tags": "emails sent by the session operator link the home page with ?ref=em-<org>-<MMDD>; the four sent 17:12Z link the bare home page",
+  "rule": "before any outreach send, search Gmail sent for the domain; no repeat contact after a decline; follow up at most once, after 7+ days, only if useful",
+  "next": "check replies daily; next small batch only after replies are reviewed (19-20 Nov)"
  }
 }
