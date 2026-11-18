@@ -2,7 +2,7 @@
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
  "updated_utc": "2026-11-18T23:05Z",
- "last_run_utc": "2026-11-18T23:16Z",
+ "last_run_utc": "2026-11-18T23:15Z",
  "facebook": {
   "access": "yes via Claude in Chrome (his browser c8d89af0), checked 15:08Z 18 Nov",
   "last_access_ok_utc": "2026-11-18T21:16Z",
@@ -432,7 +432,6 @@
   ]
  },
  "log": [
-  "2026-11-17T19:12Z lead scan: 99 recent posts in 5 groups, 0 families asking; Gmail: no tour requests; site: no new Facebook visits since 16:13Z",
   "2026-11-17T19:21Z site: the facility-complaint guide now names 1-866-800-1409 as the APS hotline (verified) and links the elder-abuse guide",
   "2026-11-17T20:30Z site: published the Benefit Access guide (removed unsupported \"formerly Circuit Breaker\", a false age \"discrepancy\" and unsourced help advice); 12 guides published today, 28 live; Gmail: no tour requests",
   "2026-11-17T21:38Z site: published the Medicare equipment guide (quotes made verbatim; removed \"every page word for word\" and two unsupported claims); 13 guides published today, 29 live; Gmail: no tour requests",
@@ -471,7 +470,8 @@
   "2026-11-18T22:45Z night growth task rebuilt as the 24/7 tour engine (every 3 hours) at Joseph's request; operator ships its ready items each session",
   "2026-11-18T23:05Z loop: complaint guide now links the tour checklist and tour request (PR 74 merged 83c2264, all suites passed, deployed, live check 200); next: ship tour-engine items after its 18:07 run",
   "2026-11-18T22:53Z Joseph asked for a nonstop plan-execute-review loop: next wake is always 2 minutes after a session ends, day and night",
-  "2026-11-18T23:16Z Medicare guide tour path live (PR #75); live page 200 with checklist + tour links. Next tour-path candidate: estate-recovery guide."
+  "2026-11-18T23:16Z Medicare guide tour path live (PR #75); live page 200 with checklist + tour links. Next tour-path candidate: estate-recovery guide.",
+  "2026-11-18T23:15Z loop: no outreach replies (inbox 2d: only notifications); no ready items; posting cap met today; estate-recovery tour path skipped (readers are past the move; page already links the assessment); tour-path work done for every page with search evidence; next real task: lead scan at 23:40Z"
  ],
  "next_actions": [
   "STANDING (Joseph 18 Nov 16:44/17:08): continuous loop, day and night. Each session: plan, do a real tour-focused task, review, re-plan and immediately do the next actionable task in the same session; only when nothing is actionable, set the next wake 2 minutes after the CURRENT time (check the clock, never estimate). Never schedule a long sleep.",
@@ -570,7 +570,7 @@
  "due": {
   "post_next": "2026-11-20T21:53Z",
   "fb_checks": "2026-11-19T15:00Z",
-  "lead_scan": "2026-11-19T19:00Z",
+  "lead_scan": "2026-11-18T23:40Z",
   "metrics": "2026-11-19T00:05Z",
   "venues": "2026-11-25T15:00Z",
   "evanston_join_status": "2026-11-19T15:00Z",
