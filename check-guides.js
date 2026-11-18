@@ -1597,7 +1597,7 @@ check("tour checklist: exactly one page", (clRaw.match(/\/Type\s*\/Page(?![a-zA-
 check("tour checklist: US Letter", /\/MediaBox\s*\[\s*0\s+0\s+612\s+792\s*\]/.test(clRaw));
 check("tour checklist: small enough for a phone (< 200 KB)", clBuf.length > 0 && clBuf.length < 200 * 1024, clBuf.length + " bytes");
 const CL_OPEN = '<a class="dl-link" href="/downloads/senior-living-tour-checklist.pdf" download="Senior-Living-Tour-Checklist.pdf">';
-const CL_SLUGS = ["independent-living-evanston", "assisted-living-cost-illinois", "check-illinois-inspection-records", "illinois-care-facility-complaint"];
+const CL_SLUGS = ["independent-living-evanston", "assisted-living-cost-illinois", "check-illinois-inspection-records", "illinois-care-facility-complaint", "does-medicare-pay-for-senior-care"];
 /* The homepage link alone carries data-beacon="checklist": guides load
    nav.js only, so the attribute would do nothing there. Comparisons strip
    it so the visible block stays identical everywhere. */
