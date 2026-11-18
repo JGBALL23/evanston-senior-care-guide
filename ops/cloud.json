@@ -16,12 +16,15 @@
  "site": {
   "fail_count": 0,
   "down_since_utc": null,
-  "last_check_utc": "2026-11-18T01:28Z",
-  "last_check_method": "Netlify status codes last ~55 min: 200 x22, 301 x3, no 5xx (WebFetch permission not granted in cloud)"
+  "last_check_utc": "2026-11-18T01:39Z",
+  "last_check_method": "Netlify status codes last 2h: 200 x73, 301 x4, 404 x1, no 5xx"
  },
  "recovery": {
-  "last_attempt_utc": null,
-  "alerted_utc": null
+  "last_attempt_utc": "2026-11-18T01:39Z",
+  "alerted_utc": null,
+  "test_utc": "2026-11-18T01:39Z",
+  "test_result": "failed: update_trigger refused in scheduled runs (needs owner approval in a live turn); nothing changed",
+  "last_attempt_ok": false
  },
  "campaigns": {
   "fb-profile-1116": {
@@ -60,6 +63,7 @@
  "demand_candidates": [],
  "log": [
   "2026-11-18T01:22Z seeded by the session operator when the cloud operator was created",
-  "2026-11-18T01:30Z run: 0 tour requests; session operator healthy (last run 01:12Z); site OK via Netlify (WebFetch blocked: permission timeout); campaigns: fb-profile-1116 +24h 0 genuine, NS checklist +24h from state.json, NS happening UNVERIFIED"
+  "2026-11-18T01:30Z run: 0 tour requests; session operator healthy (last run 01:12Z); site OK via Netlify (WebFetch blocked: permission timeout); campaigns: fb-profile-1116 +24h 0 genuine, NS checklist +24h from state.json, NS happening UNVERIFIED",
+  "2026-11-18T01:39Z OWNER-VERIFY-RECOVERY test: re-arm of session operator REFUSED (scheduled runs cannot change scheduled tasks); Gmail ok (0 tour requests); Netlify ok (site up); Facebook tools absent"
  ]
 }
