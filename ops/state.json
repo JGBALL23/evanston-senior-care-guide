@@ -2,7 +2,7 @@
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
  "updated_utc": "2026-11-18T23:05Z",
- "last_run_utc": "2026-11-18T23:05Z",
+ "last_run_utc": "2026-11-18T23:16Z",
  "facebook": {
   "access": "yes via Claude in Chrome (his browser c8d89af0), checked 15:08Z 18 Nov",
   "last_access_ok_utc": "2026-11-18T21:16Z",
@@ -432,7 +432,6 @@
   ]
  },
  "log": [
-  "2026-11-17T18:23Z site: published the home-delivered meals and elder abuse (APS) guides after removing unsupported claims; 11 guides published today, 27 live",
   "2026-11-17T19:12Z lead scan: 99 recent posts in 5 groups, 0 families asking; Gmail: no tour requests; site: no new Facebook visits since 16:13Z",
   "2026-11-17T19:21Z site: the facility-complaint guide now names 1-866-800-1409 as the APS hotline (verified) and links the elder-abuse guide",
   "2026-11-17T20:30Z site: published the Benefit Access guide (removed unsupported \"formerly Circuit Breaker\", a false age \"discrepancy\" and unsourced help advice); 12 guides published today, 28 live; Gmail: no tour requests",
@@ -471,7 +470,8 @@
   "2026-11-18T22:45Z operator: G4 outreach research done now instead of tonight (DROP, nothing to send); owner told plainly where the operator fell short (self-set limits presented as hard limits, deferred work, noisy check-ins, account browsing, public-file details) and what changes",
   "2026-11-18T22:45Z night growth task rebuilt as the 24/7 tour engine (every 3 hours) at Joseph's request; operator ships its ready items each session",
   "2026-11-18T23:05Z loop: complaint guide now links the tour checklist and tour request (PR 74 merged 83c2264, all suites passed, deployed, live check 200); next: ship tour-engine items after its 18:07 run",
-  "2026-11-18T22:53Z Joseph asked for a nonstop plan-execute-review loop: next wake is always 2 minutes after a session ends, day and night"
+  "2026-11-18T22:53Z Joseph asked for a nonstop plan-execute-review loop: next wake is always 2 minutes after a session ends, day and night",
+  "2026-11-18T23:16Z Medicare guide tour path live (PR #75); live page 200 with checklist + tour links. Next tour-path candidate: estate-recovery guide."
  ],
  "next_actions": [
   "STANDING (Joseph 18 Nov 16:52, overrides step 11 timing): continuous loop, day and night. Each session: plan, do one real tour-focused task, review, then set the next wake 2 minutes out. Never schedule a long sleep. If usage runs out, runs pause until it resets (platform limit).",
@@ -988,6 +988,14 @@
    "utc": "2026-11-18T23:05Z",
    "tag": "PR 74, deploy 6afe2b9f1b17979002e1bbfb",
    "kind": "complaint guide: tour checklist and disclosed tour link after the last section (page Google shows near position 7)",
+   "by": "operator"
+  },
+  {
+   "id": "S-1118-02",
+   "type": "site_change",
+   "status": "completed",
+   "utc": "2026-11-18T23:16Z",
+   "kind": "tour path: checklist + tour link on Medicare guide (PR #75, deploy 6afe2d85)",
    "by": "operator"
   }
  ],
