@@ -1,8 +1,8 @@
 {
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
- "updated_utc": "2026-11-18T16:41Z",
- "last_run_utc": "2026-11-18T16:41Z",
+ "updated_utc": "2026-11-18T19:45Z",
+ "last_run_utc": "2026-11-18T19:45Z",
  "facebook": {
   "access": "yes via Claude in Chrome (his browser c8d89af0), checked 15:08Z 18 Nov",
   "last_access_ok_utc": "2026-11-18T15:08Z",
@@ -92,12 +92,12 @@
    "content": "assisted living costs (template B, Wilmette first sentence, #employed)",
    "status": "live",
    "submitted_utc": "2026-11-18T15:06Z",
-   "visible_utc": "2026-11-18T15:06Z",
+   "visible_utc": "2026-11-18T17:44Z",
    "reactions": 0,
    "comments": 0,
    "shares": 0,
-   "checked_utc": "2026-11-18T15:08Z",
-   "note": "experiment E1; group rules re-read before posting (disclosure hashtag, ads at most 2-3 a week); requests in the first 5 minutes are automated"
+   "checked_utc": "2026-11-18T19:45Z",
+   "note": "experiment E1; group rules re-read before posting (disclosure hashtag, ads at most 2-3 a week); requests in the first 5 minutes are automated; held for admin approval 15:06-17:44Z (Facebook notification \"An admin approved your post\"; time from its notif_id), so members first saw it at 17:44Z; 0 reactions, 0 comments at 19:40Z"
   }
  ],
  "venues": [
@@ -240,17 +240,18 @@
    "name": "What's Happening in Glenview, IL?",
    "member": true,
    "joined_utc": "2026-11-18T16:40Z",
-   "eligible": "read-only: posting and commenting need participant answers (his call)",
+   "eligible": true,
    "rules": "events, questions and local business referrals welcome; no sales, politics or GoFundMe; admins remove posts at their discretion",
    "notes": "public, 6.6K members; participant questions (why join, live or work here, county) left unanswered",
-   "checked_utc": "2026-11-18T16:40Z"
+   "checked_utc": "2026-11-18T16:40Z",
+   "verdict_note": "18 Nov 19:45Z: membership approved (\"Now you can post\"), no participant-question prompt; About allows community information and local referral requests, bans sales/merchandise; low activity (31 posts/month, 6.6K members); posts likely need admin approval as in the other What's Happening groups"
   },
   {
    "id": "group:148056482809454",
    "name": "Glenview - Northbrook Neighbors",
    "member": true,
    "joined_utc": "2026-11-18T16:40Z",
-   "eligible": "read-only: posting and commenting need participant answers (his call); local ads only on Tuesdays 7:00-17:00 with full contact information (address, phone), one per advertiser, no virtual businesses unless physically local",
+   "eligible": "no: participation now open (comment box, no question prompt, 18 Nov 19:40Z), but promotion is allowed only as Tuesday ads (5:00-17:00) with full local contact details; no spam or hijacking",
    "rules": "see eligible",
    "notes": "public, 65K members, about 90 posts a day; group search shows occasional senior-living requests that draw many replies (older posts)",
    "checked_utc": "2026-11-18T16:40Z"
@@ -406,7 +407,6 @@
   ]
  },
  "log": [
-  "2026-11-17T15:00Z posted template A in Evanston/Skokie (Chicago) neighbors, tag fb-evsk-1117; published at once; cap changed to 1 a day and 5 a week",
   "2026-11-17T15:06Z lead scan: 142 recent posts across 3 member groups, 0 families asking about senior care",
   "2026-11-17T15:10Z joined What's Happening in Wilmette illinois and What's Happening in Winnetka illinois (public, no questions, ads allowed 2-3 a week with #employed); Skokie & North Shore group is events-only, skipped",
   "2026-11-17T15:23Z venues: Wilmette Connections (residents, anti-business), Glencoe Uncensored (Alabama) and Highland Park/Highwood (residents and local businesses only) skipped",
@@ -445,10 +445,11 @@
   "2026-11-18T16:19Z created the night growth task (cloud, 4 runs a night) per owner 10:13 Chicago; on-demand test run refused by the safety system (platform limit), so its first run is tonight 23:07 Chicago; venue discovery moved up to 17:00Z with a new-audience focus",
   "2026-11-18T16:33Z Search Console: indexing checked (home and 7 key guides indexed), indexing requested for the caregiver background check guide; first performance data: 38 impressions on 16 Nov, Medicare cost queries",
   "2026-11-18T16:40Z venues: read rules of 7 groups; joined What's Happening in Lake Forest (eligible), What's Happening in Glenview and Glenview - Northbrook Neighbors (read-only until he answers participant questions); Chicago caregiver groups are job boards (dropped); 80 more posts scanned, 0 requests",
-  "2026-11-18T16:41Z work loop paused: nothing else actionable now; next session 21:05Z (Facebook checks); night growth task runs from 23:07 Chicago on G4"
+  "2026-11-18T16:41Z work loop paused: nothing else actionable now; next session 21:05Z (Facebook checks); night growth task runs from 23:07 Chicago on G4",
+  "2026-11-18T19:45Z session operator: Wilmette post was held for admin approval until 17:44Z (visible_utc and E1 times corrected); lead scan 9 groups/367 posts/1 in-home request (no reply, group rules); Glenview IL group now eligible; OP1 handled (link last)"
  ],
  "next_actions": [
-  "E1 posted 15:06Z in Wilmette (fb-wil-1118, published); cloud operator measures +24h (19 Nov 15:06Z) and +48h vs fb-evsk-1117",
+  "E1 posted 15:06Z in Wilmette (fb-wil-1118), approved by admin 17:44Z; cloud operator measures +24h (19 Nov 17:44Z) and +48h (20 Nov 17:44Z) vs fb-evsk-1117",
   "Last session each night: set due.lead_scan (and any other morning due item) to the 9:00 Chicago wake, so the cloud operator doesn't log the overnight sleep as a Facebook interruption (it did 18 Nov, 04:30Z-15:11Z, because due said 13:00Z)",
   "Fri 20 Nov after 21:53Z (15:53 Chicago, when the 13 Nov post leaves the 7-day window): Winnetka post using the E1 winner's hook, tag fb-wnk-1120",
   "Lead scans in the 6 town groups: once a day only (0 families asking in about 1,000 posts, 16-18 Nov); spend saved sessions on new audiences from ops/growth.json fb_group_candidates (verify rules, join at most 3 per session)",
@@ -472,7 +473,9 @@
   "checked_utc": "2026-11-17T15:12Z"
  },
  "leads": {
-  "alerted": [],
+  "alerted": [
+   "34e28a42490e3dce45fab65054a84abf8129172da3a985c3bd7b38d08ce317e9"
+  ],
   "scans": [
    {
     "utc": "2026-11-17T15:06Z",
@@ -521,6 +524,13 @@
     "posts_scanned": 80,
     "leads": 0,
     "note": "first scans of Lake Forest (33) and Glenview-Northbrook Neighbors (47)"
+   },
+   {
+    "utc": "2026-11-18T19:40Z",
+    "groups": 9,
+    "posts_scanned": 367,
+    "leads": 1,
+    "note": "1 in-home request (Glenview - Northbrook Neighbors: hiring a private CNA caregiver, many answers already); no reply: the group limits promotion to Tuesday ads with full contact details and bans spam/hijacking, and the ask is a private hire, not a community; the Wilmette match was the same yoga studio ad"
    }
   ],
   "method": "chronological feed of each member group, in-page keyword filter (senior-care terms + a request + not a business ad); about 2-4 days of posts per group on the first scan",
@@ -529,7 +539,7 @@
  "due": {
   "post_next": "2026-11-20T21:53Z",
   "fb_checks": "2026-11-18T21:05Z",
-  "lead_scan": "2026-11-18T19:05Z",
+  "lead_scan": "2026-11-19T19:00Z",
   "metrics": "2026-11-19T00:05Z",
   "venues": "2026-11-25T15:00Z",
   "evanston_join_status": "2026-11-19T15:00Z",
@@ -599,10 +609,13 @@
    "decision": "hook with more genuine visitors or any tour-form view is used for Winnetka on Fri 20 Nov",
    "caveat": "tiny samples: directional only",
    "posted_utc": "2026-11-18T15:06Z",
-   "status": "posted; measure at 2026-11-19T15:06Z (+24h) and 2026-11-20T15:06Z (+48h)"
+   "status": "posted 15:06Z, approved by admin 17:44Z; measure at 2026-11-19T17:44Z (+24h) and 2026-11-20T17:44Z (+48h)",
+   "visible_utc": "2026-11-18T17:44Z"
   }
  ],
- "opportunities_done": [],
+ "opportunities_done": [
+  "OP1-wil-link-tag"
+ ],
  "nextdoor": {
   "checked_utc": "2026-11-18T15:11Z",
   "signed_in": true,
@@ -623,5 +636,23 @@
   "date_chicago": "2026-11-18",
   "count": 3
  },
- "owner_blocker_participation": "Glenview - Northbrook Neighbors (65K) and What's Happening in Glenview (6.6K) need participant answers before he can post or comment there; answering is his call (honest answers: works in Evanston, lives in Chicago)"
+ "owner_blocker_participation": "Glenview - Northbrook Neighbors (65K) and What's Happening in Glenview (6.6K) need participant answers before he can post or comment there; answering is his call (honest answers: works in Evanston, lives in Chicago)",
+ "posting_rules": [
+  "OP1 (cloud 18 Nov): text right after the link merged into it (ref=fb-wil-1118Disclosure). Put the link last in the post, after the disclosure, with nothing after it."
+ ],
+ "outreach": {
+  "note": "counts only; correspondence stays in Gmail",
+  "sent_total": 5,
+  "sent_by_session_operator": 1,
+  "replies": 0,
+  "auto_replies": 1,
+  "orgs_contacted_sha256": [
+   "412e2fc2c04346ee",
+   "a09687215d1ff39f",
+   "4357990659af1ff8",
+   "3d97ef57df72afca",
+   "f72c4307dabaccfe"
+  ],
+  "last_utc": "2026-11-18T19:31Z"
+ }
 }
