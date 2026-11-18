@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
- "updated_utc": "2026-11-18T16:17Z",
+ "updated_utc": "2026-11-18T16:19Z",
  "last_run_utc": "2026-11-18T15:11Z",
  "facebook": {
   "access": "yes via Claude in Chrome (his browser c8d89af0), checked 15:08Z 18 Nov",
@@ -342,7 +342,6 @@
   ]
  },
  "log": [
-  "2026-11-17T13:24Z runs 09:23-13:24Z on schedule: 0 tour requests, 0 genuine visitors (crawlers and WordPress probes only); his Chrome still offline",
   "2026-11-17T14:32Z Facebook back (his Chrome reconnected 14:04Z); checks: all 3 live posts 0 reactions, 0 comments, 0 shares; Everything Evanston cost post still pending",
   "2026-11-17T14:38Z venues: 3 groups evaluated, none eligible (Calgary group; neighbors group for other towns; agency-run statewide group); Wilmette happenings group left to check",
   "2026-11-17T14:52Z Joseph (08:52 Chicago): run as a continuous operator; hourly schedule is only a fallback",
@@ -381,7 +380,8 @@
   "2026-11-18T15:08Z posted E1 in What's Happening in Wilmette (template B, #employed, tag fb-wil-1118): published 15:06Z; pushed Joseph the permalink. Lead scan 15:04Z: 234 posts in 6 groups, 0 families asking. Checks: Everything Evanston still pending, no reactions or comments on live posts, Evanston group join still pending",
   "2026-11-18T15:11Z Nextdoor: signed in as Joseph; its Aug 2026 policy forbids business promotion from personal accounts (posts, comments, DMs), so no guide links there; Business Page would need his authorization; 17 recent posts, 0 families asking. No post possible Thu 19 Nov (5 posts in 7 days); next post Fri after 21:53Z",
   "2026-11-18T15:49Z bookkeeping: the 18 Nov 'Facebook interruption' in cloud.json was the planned overnight sleep (due.lead_scan said 7:00 Chicago, wake was 9:00); due times now follow the actual wake",
-  "2026-11-18T16:17Z owner 10:13 Chicago: overnight must be growth work, not monitoring. Seeded ops/growth.json (G2 channels, G1 referral organizations with Gmail drafts never sent, G3 search baseline) for a new night growth task; lead scans cut to once a day (no requests in ~1,000 posts)"
+  "2026-11-18T16:17Z owner 10:13 Chicago: overnight must be growth work, not monitoring. Seeded ops/growth.json (G2 channels, G1 referral organizations with Gmail drafts never sent, G3 search baseline) for a new night growth task; lead scans cut to once a day (no requests in ~1,000 posts)",
+  "2026-11-18T16:19Z created the night growth task (cloud, 4 runs a night) per owner 10:13 Chicago; on-demand test run refused by the safety system (platform limit), so its first run is tonight 23:07 Chicago; venue discovery moved up to 17:00Z with a new-audience focus"
  ],
  "next_actions": [
   "E1 posted 15:06Z in Wilmette (fb-wil-1118, published); cloud operator measures +24h (19 Nov 15:06Z) and +48h vs fb-evsk-1117",
@@ -460,7 +460,7 @@
   "fb_checks": "2026-11-18T17:00Z",
   "lead_scan": "2026-11-18T19:05Z",
   "metrics": "2026-11-19T00:05Z",
-  "venues": "2026-11-24T15:00Z",
+  "venues": "2026-11-18T17:00Z",
   "evanston_join_status": "2026-11-19T15:00Z",
   "rollup": "2026-11-19T01:00Z",
   "guides": "no drafts left worth publishing today (two deferred with reasons); next drafts run 18 Nov ~12:02Z",
@@ -513,7 +513,8 @@
   "recovery": "NOT automatic: scheduled runs cannot change scheduled tasks (cloud test 01:39Z 18 Nov: refused); only the session's own step-0 safety net re-arms it; the watchdog alerts the owner",
   "facebook_access": "only via the owner's Windows Chrome with the Claude extension; fresh cloud sessions have none (tested 17 Nov 00:19Z and 18 Nov 01:39Z)",
   "drafts_routine": "EVANSTON-DAILY-GUIDE-DRAFTS daily ~12:03Z; gated on DEMAND.md since PR #73",
-  "blocked_for_claude": "pausing or deleting scheduled tasks is refused by the safety classifier; only the owner can pause them in claude.ai/code/routines"
+  "blocked_for_claude": "pausing or deleting scheduled tasks is refused by the safety classifier; only the owner can pause them in claude.ai/code/routines",
+  "night_growth": "trig_011ow9KBnKFdsVvC7qU97Gen 'ESCG night growth (cloud)', CRON_TZ=America/Chicago 7 23,1,3,5, auto approval, no pushes; state ops/growth.json; research + Gmail drafts (never sent) + proposals; first run 23:07 Chicago 18 Nov (an on-demand test run was refused by the safety system)"
  },
  "experiments": [
   {
@@ -539,5 +540,6 @@
   "policy": "Nextdoor self-promotion update (blog, 19 Aug 2026): promoting a business, service or paid opportunity from a personal account is not allowed in main-feed posts or comments or by unsolicited DM; it must come from a free Business Page; Groups follow their admins' rules",
   "verdict": "no guide links or promotional replies from his personal account; a Business Page would need his specific authorization (creating Pages is reserved to him); recent feed read once: 17 posts, 0 families asking",
   "next_check_utc": "2026-12-18T15:00Z"
- }
+ },
+ "venue_focus": "18 Nov: new audiences, because the 6 town groups produced 0 requests in ~1,000 posts. Look for groups of adult children and caregivers (caregiver support, aging parents, Alzheimer's and dementia caregivers, faith-community caregiver groups) and town groups not yet checked (Skokie, Glenview, Northbrook, Rogers Park, Edgewater). Join only public groups with no questions whose stated membership he genuinely qualifies for (skip moms-only groups); read rules before posting."
 }
