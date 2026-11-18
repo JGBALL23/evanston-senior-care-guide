@@ -1,8 +1,8 @@
 {
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
- "updated_utc": "2026-11-18T20:08Z",
- "last_run_utc": "2026-11-18T20:08Z",
+ "updated_utc": "2026-11-18T20:14Z",
+ "last_run_utc": "2026-11-18T20:14Z",
  "facebook": {
   "access": "yes via Claude in Chrome (his browser c8d89af0), checked 15:08Z 18 Nov",
   "last_access_ok_utc": "2026-11-18T15:08Z",
@@ -431,7 +431,6 @@
   ]
  },
  "log": [
-  "2026-11-17T15:23Z venues: Wilmette Connections (residents, anti-business), Glencoe Uncensored (Alabama) and Highland Park/Highwood (residents and local businesses only) skipped",
   "2026-11-17T15:26Z owner approved public replies and guide publishing, with a standing approval for zero-cost tour-generating work; operator instructions updated",
   "2026-11-17T15:52Z venues: requested to join What's Happening in Evanston, Illinois ? (private, business promotion allowed); joined Highland Park neighborhood community page (no rules, scan only)",
   "2026-11-17T16:12Z site: published 2 verified guides (resident rights; nursing home pre-admission screening) and removed unsupported wording from the Medicare guide; deployed twice; IndexNow 19 URLs accepted",
@@ -470,15 +469,15 @@
   "2026-11-18T16:41Z work loop paused: nothing else actionable now; next session 21:05Z (Facebook checks); night growth task runs from 23:07 Chicago on G4",
   "2026-11-18T19:45Z session operator: Wilmette post was held for admin approval until 17:44Z (visible_utc and E1 times corrected); lead scan 9 groups/367 posts/1 in-home request (no reply, group rules); Glenview IL group now eligible; OP1 handled (link last)",
   "2026-11-18T19:52Z outreach under the owner's 13:14 authorization: 4 personalized emails to North Shore senior-services organizations (verified public addresses, disclosure included); 8 sent today in all, 0 replies, 1 auto-reply",
-  "2026-11-18T20:08Z venues (new audiences, north-side Chicago): joined Rogers Park News (49.5K; participation pending admin approval, rules agreement only) and Edgewater Chicago Neighborhood News (6.9K; eligible); 5 joins today"
+  "2026-11-18T20:08Z venues (new audiences, north-side Chicago): joined Rogers Park News (49.5K; participation pending admin approval, rules agreement only) and Edgewater Chicago Neighborhood News (6.9K; eligible); 5 joins today",
+  "2026-11-18T20:14Z outreach: library community-engagement contact emailed (published staff-directory address); 9 sent today, 0 replies, 1 auto-reply; next batch waits for replies"
  ],
  "next_actions": [
+  "Outreach: check Gmail for replies each session; answer questions promptly and accurately; no repeat contact; next small batch after replies are reviewed (night task G4 drafts)",
   "E1 posted 15:06Z in Wilmette (fb-wil-1118), approved by admin 17:44Z; cloud operator measures +24h (19 Nov 17:44Z) and +48h (20 Nov 17:44Z) vs fb-evsk-1117",
   "Last session each night: set due.lead_scan (and any other morning due item) to the 9:00 Chicago wake, so the cloud operator doesn't log the overnight sleep as a Facebook interruption (it did 18 Nov, 04:30Z-15:11Z, because due said 13:00Z)",
   "Fri 20 Nov after 21:53Z (15:53 Chicago, when the 13 Nov post leaves the 7-day window): Winnetka post using the E1 winner's hook, tag fb-wnk-1120",
-  "Lead scans in the 6 town groups: once a day only (0 families asking in about 1,000 posts, 16-18 Nov); spend saved sessions on new audiences from ops/growth.json fb_group_candidates (verify rules, join at most 3 per session)",
-  "Everything Evanston stays pending; NS checklist 7-day result after 23 Nov 04:42Z; Nextdoor: personal-account promotion not allowed (needs a Business Page, his call)",
-  "9:00 session each morning: tell Joseph in this chat what the night growth task did (ops/growth.json brief): actions completed, what was learned, and how it leads to inquiries; then act on its Facebook candidates"
+  "Lead scans in the 6 town groups: once a day only (0 families asking in about 1,000 posts, 16-18 Nov); spend saved sessions on new audiences from ops/growth.json fb_group_candidates (verify rules, join at most 3 per session)"
  ],
  "one_offs": {
   "pr22": "done: released 2026-11-17T00:54Z. Merged with main (all suites passed: check-guides 1501, test.js 768, inquiry validation 36, checklist-click 30, start-source 21, tour-source 23, paying-nav 314, checklist PDF, publish 32; build reproduces _dist); consent wording, form fields, server code and inquiry payload unchanged; merge commit 1dc0004; Netlify deploy 6afba5a9ea3f94d69014251e (4 functions); live check 33/33 files, 0 problems; also shipped the reviewed #27 and #28",
@@ -666,8 +665,8 @@
  ],
  "outreach": {
   "note": "counts only; correspondence stays in Gmail",
-  "sent_total": 8,
-  "sent_by_session_operator": 4,
+  "sent_total": 9,
+  "sent_by_session_operator": 5,
   "replies": 0,
   "auto_replies": 1,
   "orgs_contacted_sha256": [
@@ -678,9 +677,10 @@
    "f72c4307dabaccfe",
    "22ea23bc33a341ff",
    "964f4bd4085df343",
-   "ab99b70494413dcd"
+   "ab99b70494413dcd",
+   "706e1de7aedfe910"
   ],
-  "last_utc": "2026-11-18T19:50Z",
+  "last_utc": "2026-11-18T20:12Z",
   "tags": "emails sent by the session operator link the home page with ?ref=em-<org>-<MMDD>; the four sent 17:12Z link the bare home page",
   "rule": "before any outreach send, search Gmail sent for the domain; no repeat contact after a decline; follow up at most once, after 7+ days, only if useful",
   "next": "check replies daily; next small batch only after replies are reviewed (19-20 Nov)"
