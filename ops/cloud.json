@@ -36,8 +36,8 @@
   "site": {
     "fail_count": 0,
     "down_since_utc": null,
-    "last_check_utc": "2026-11-18T03:23Z",
-    "last_check_method": "Netlify status codes last 2h: 200 x64, 301 x5, 404 x3, no 5xx"
+    "last_check_utc": "2026-11-18T05:25Z",
+    "last_check_method": "Netlify status codes last 2h: 200 x60, 301 x6, 404 x7, no 5xx"
   },
   "recovery": {
     "last_attempt_utc": "2026-11-18T01:39Z",
@@ -70,6 +70,17 @@
         "tour_requests": 0,
         "source": "outside Netlify 24h retention; session operator's figures",
         "written_utc": "2026-11-18T01:30Z"
+      },
+      "h48": {
+        "window_utc": "2026-11-16T04:42Z/2026-11-18T04:42Z",
+        "genuine_visitors": "2 cumulative (both in first 24h per state.json); 0 new tagged landings in Netlify top URLs 2026-11-17T05:24Z-2026-11-18T04:42Z; 04:42-05:24Z 17 Nov unchecked",
+        "checklist_opens": "2 per state.json (first 24h); later opens not attributable",
+        "assessment_starts": 0,
+        "assessment_completions": 0,
+        "tour_form_views": 0,
+        "tour_requests": 0,
+        "source": "state.json visitor_notes + Netlify topk urls_with_query",
+        "written_utc": "2026-11-18T05:30Z"
       }
     },
     "north-shore-happening": {
@@ -86,6 +97,7 @@
     "2026-11-18T01:30Z run: 0 tour requests; session operator healthy (last run 01:12Z); site OK via Netlify (WebFetch blocked: permission timeout); campaigns: fb-profile-1116 +24h 0 genuine, NS checklist +24h from state.json, NS happening UNVERIFIED",
     "2026-11-18T01:39Z OWNER-VERIFY-RECOVERY test: re-arm of session operator REFUSED (scheduled runs cannot change scheduled tasks); Gmail ok (0 tour requests); Netlify ok (site up); Facebook tools absent",
     "2026-11-18T01:49Z push test: PushNotification tool; result: Mobile push requested.",
-    "2026-11-18T03:24Z run: 0 tour requests; site OK; session operator healthy (last run 03:20Z, FB reachable); metrics 00:07Z-03:23Z: 0 genuine visitors, 0 checklist opens, 0 assessments, 0 tour-form views"
+    "2026-11-18T03:24Z run: 0 tour requests; site OK; session operator healthy (last run 03:20Z, FB reachable); metrics 00:07Z-03:23Z: 0 genuine visitors, 0 checklist opens, 0 assessments, 0 tour-form views",
+    "2026-11-18T05:30Z run: 0 tour requests; site OK; session operator healthy (last run 04:30Z, FB reachable); NS checklist +48h written (no new tagged visits after first 24h); metrics not due"
   ]
 }
