@@ -1,8 +1,8 @@
 {
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
- "updated_utc": "2026-11-18T15:08Z",
- "last_run_utc": "2026-11-18T15:08Z",
+ "updated_utc": "2026-11-18T15:11Z",
+ "last_run_utc": "2026-11-18T15:11Z",
  "facebook": {
   "access": "yes via Claude in Chrome (his browser c8d89af0), checked 15:08Z 18 Nov",
   "last_access_ok_utc": "2026-11-18T15:08Z",
@@ -342,7 +342,6 @@
   ]
  },
  "log": [
-  "2026-11-17T02:23Z run: re-armed for 03:23Z; 0 tour requests; Facebook reachable, his session confirmed; fb-profile-1116 still 0 reactions, comments, shares; site traffic since 01:31Z all automated",
   "2026-11-17T02:29Z cap check: 3 posts submitted in the last 7 days (pending Everything Evanston post included), so the next post moves from Tue 17 Nov to Fri 20 Nov after 15:53 Chicago",
   "2026-11-17T08:23Z overnight runs 04:23-08:23Z on schedule: 0 tour requests, 0 genuine visitors; his Chrome not connected since 08:23Z (Facebook work skipped until it returns)",
   "2026-11-17T13:24Z runs 09:23-13:24Z on schedule: 0 tour requests, 0 genuine visitors (crawlers and WordPress probes only); his Chrome still offline",
@@ -381,14 +380,15 @@
   "2026-11-18T02:50Z owner message 20:39 Chicago (no approval requests for routine work; don't retry platform blocks; max autonomy): operator instructions now carry AUTHORITY and PLATFORM LIMITS; open owner questions closed (Nextdoor if signed in and allowed, LinkedIn skipped); first on-schedule cloud run 02:23Z SUCCEEDED; session operator aligned with the cloud operator's redesign",
   "2026-11-18T03:20Z lead scan: 139 recent posts in 6 groups, 0 families asking (only match: the same yoga studio ad); identity OK; first on-schedule cloud run (02:23Z) SUCCEEDED",
   "2026-11-18T04:30Z Facebook checks: Everything Evanston cost post still pending; 4 live posts show no reactions or comments (posts pages and notifications: none); What's Happening in Evanston join request still pending; identity OK; next session 9:00 Chicago",
-  "2026-11-18T15:08Z posted E1 in What's Happening in Wilmette (template B, #employed, tag fb-wil-1118): published 15:06Z; pushed Joseph the permalink. Lead scan 15:04Z: 234 posts in 6 groups, 0 families asking. Checks: Everything Evanston still pending, no reactions or comments on live posts, Evanston group join still pending"
+  "2026-11-18T15:08Z posted E1 in What's Happening in Wilmette (template B, #employed, tag fb-wil-1118): published 15:06Z; pushed Joseph the permalink. Lead scan 15:04Z: 234 posts in 6 groups, 0 families asking. Checks: Everything Evanston still pending, no reactions or comments on live posts, Evanston group join still pending",
+  "2026-11-18T15:11Z Nextdoor: signed in as Joseph; its Aug 2026 policy forbids business promotion from personal accounts (posts, comments, DMs), so no guide links there; Business Page would need his authorization; 17 recent posts, 0 families asking. No post possible Thu 19 Nov (5 posts in 7 days); next post Fri after 21:53Z"
  ],
  "next_actions": [
   "E1 posted 15:06Z in Wilmette (fb-wil-1118, published); cloud operator measures +24h (19 Nov 15:06Z) and +48h vs fb-evsk-1117",
   "9:00 Chicago session (15:00Z): lead scan, Facebook checks, Evanston join status, Nextdoor check (6b); reply publicly under 5c only if a lead qualifies",
-  "Fri 20 Nov after 15:53 Chicago: Winnetka post using the E1 winner's hook, tag fb-wnk-1120",
+  "Fri 20 Nov after 21:53Z (15:53 Chicago, when the 13 Nov post leaves the 7-day window): Winnetka post using the E1 winner's hook, tag fb-wnk-1120",
   "Search Console from 19 Nov: add topics with real queries to DEMAND.md; no new guides or legal/medical claims without owner approval (19:02 directive)",
-  "Everything Evanston stays pending; NS checklist 7-day result after 23 Nov 04:42Z; Nextdoor check (step 6b) in the first daytime session with Chrome"
+  "Everything Evanston stays pending; NS checklist 7-day result after 23 Nov 04:42Z; Nextdoor: personal-account promotion not allowed (needs a Business Page, his call)"
  ],
  "one_offs": {
   "pr22": "done: released 2026-11-17T00:54Z. Merged with main (all suites passed: check-guides 1501, test.js 768, inquiry validation 36, checklist-click 30, start-source 21, tour-source 23, paying-nav 314, checklist PDF, publish 32; build reproduces _dist); consent wording, form fields, server code and inquiry payload unchanged; merge commit 1dc0004; Netlify deploy 6afba5a9ea3f94d69014251e (4 functions); live check 33/33 files, 0 problems; also shipped the reviewed #27 and #28",
@@ -455,7 +455,7 @@
   "replied": []
  },
  "due": {
-  "post_next": "2026-11-19T15:00Z",
+  "post_next": "2026-11-20T21:53Z",
   "fb_checks": "2026-11-18T17:00Z",
   "lead_scan": "2026-11-18T19:05Z",
   "metrics": "2026-11-19T00:05Z",
@@ -529,5 +529,14 @@
    "status": "posted; measure at 2026-11-19T15:06Z (+24h) and 2026-11-20T15:06Z (+48h)"
   }
  ],
- "opportunities_done": []
+ "opportunities_done": [],
+ "nextdoor": {
+  "checked_utc": "2026-11-18T15:11Z",
+  "signed_in": true,
+  "identity": "Joseph Gonzales (confirmed)",
+  "area": "north Chicago and nearby suburbs (his neighborhood feed)",
+  "policy": "Nextdoor self-promotion update (blog, 19 Aug 2026): promoting a business, service or paid opportunity from a personal account is not allowed in main-feed posts or comments or by unsolicited DM; it must come from a free Business Page; Groups follow their admins' rules",
+  "verdict": "no guide links or promotional replies from his personal account; a Business Page would need his specific authorization (creating Pages is reserved to him); recent feed read once: 17 posts, 0 families asking",
+  "next_check_utc": "2026-12-18T15:00Z"
+ }
 }
