@@ -1,0 +1,36 @@
+{
+ "about": "Night growth work by the ESCG night growth task (cloud). Public file: organization and group names, public website URLs, counts, verdicts and short reasons only; never personal names, individuals' contact details, email addresses or links to people's posts.",
+ "owner_request": "Joseph, 18 Nov 2026 10:13 Chicago: use the independent cloud capabilities overnight for the highest-value authorized growth work that doesn't need his computer; no unnecessary guides, reports or technical projects; don't rescan sources that produce nothing; use real evidence to choose the next acquisition actions; report in the morning what was done, what was learned and how it leads to inquiries and tours; free and within existing permissions; say so plainly if the cloud can't do it.",
+ "evidence_so_far": "Facebook community groups: 0 families asking for senior-care help in about 1,000 posts scanned across 6 town groups (16-18 Nov). Facebook posts: 5 genuine visitors since 8 Nov, 0 assessment completions, 0 tour requests. Search: 2 Google-referred requests in 24h, page unknown. Nextdoor: personal-account promotion not allowed (policy of 19 Aug 2026).",
+ "queue": [
+  {
+   "id": "G2",
+   "priority": 1,
+   "title": "Where do Evanston, North Shore and north-side Chicago families ask for senior-care help online, and where may we answer?",
+   "status": "open",
+   "done_when": "every source checked has a verdict (ACT, WATCH or DROP) with request counts and recency, and Facebook groups with ACT or WATCH are in fb_group_candidates for the session operator"
+  },
+  {
+   "id": "G1",
+   "priority": 2,
+   "title": "Organizations families turn to when choosing care that list outside resources; ready-to-send drafts for the best fits",
+   "status": "open",
+   "done_when": "at least 8 organizations assessed with evidence, and Gmail drafts (never sent) for up to 3 high-fit organizations with a published general address"
+  },
+  {
+   "id": "G3",
+   "priority": 3,
+   "title": "Search visibility baseline for high-intent family queries",
+   "status": "open",
+   "done_when": "12 queries checked and at most 3 specific changes to existing pages proposed for the session operator (no new guides)"
+  }
+ ],
+ "channels": {},
+ "fb_group_candidates": [],
+ "orgs": [],
+ "search": {},
+ "drafts": [],
+ "limits": [],
+ "brief": null,
+ "log": []
+}
