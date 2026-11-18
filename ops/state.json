@@ -1,11 +1,11 @@
 {
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
- "updated_utc": "2026-11-18T00:30Z",
- "last_run_utc": "2026-11-18T00:30Z",
+ "updated_utc": "2026-11-18T01:03Z",
+ "last_run_utc": "2026-11-18T01:03Z",
  "facebook": {
   "access": "yes via Claude in Chrome (his browser c8d89af0), checked 00:07Z 18 Nov",
-  "last_access_ok_utc": "2026-11-18T00:07Z",
+  "last_access_ok_utc": "2026-11-18T01:02Z",
   "last_checks_utc": "2026-11-17T22:27Z",
   "unreachable_since_utc": null,
   "unreachable_reported_utc": null,
@@ -266,7 +266,7 @@
   "tour_requests_genuine": 0,
   "tours_confirmed": "UNVERIFIED (none reported by Joseph)",
   "netlify_checked_to_utc": "2026-11-18T00:07Z",
-  "gmail_checked_to_utc": "2026-11-18T00:07Z",
+  "gmail_checked_to_utc": "2026-11-18T01:02Z",
   "note": "genuine = real browsers only; harness tests, crawlers, link previews and Joseph's unverified phone excluded",
   "visitor_notes": "2 genuine visitors from the checklist post: 13:49Z 16 Nov (iPhone Safari) and 19:07Z 16 Nov (iPhone, Facebook app; same iOS version as the owner's phone, owner asked whether it was his); both opened the checklist PDF, neither started the assessment or the tour form | 17 Nov fb-evsk-1117: 2 genuine visitors (15:32Z, 15:42Z; two different iPhones in the Facebook app, not the owner's phone); 1 checklist PDF open, 1 tour-questions view; no assessment or tour form | 16:13-19:09Z: no new Facebook-origin visits; 1 direct visit read the tour questions and costs; no tour-form view | 19:00-22:47Z: no production beacons at all; the one ?ref=fb-evsk-1117 request (19:07Z) was Facebook's link-preview crawler; 0 genuine visitors, 0 checklist opens | 22:47Z-00:07Z: no production beacons; the only fb-evsk-1117 hit (23:14Z) coincided with the lead scan loading that group's feed (Facebook link preview)"
  },
@@ -311,6 +311,11 @@
     "q": "The daily guide drafts often put paraphrases inside quotation marks (one reversed the MSP $25 disregard). Tighten that routine so drafts quote sources verbatim? (the routine is his; Claude does not change it without approval)",
     "asked_utc": "2026-11-17T17:47Z",
     "answer": "approved 17 Nov 11:56 Chicago; ROUTINE.md updated (PR #52)"
+   },
+   {
+    "q": "Use his own Nextdoor or LinkedIn account under the Facebook rules (disclosed, public, no DMs, no spending)?",
+    "asked_utc": "2026-11-17T23:57Z",
+    "answer": null
    }
   ],
   "last_rollup_utc": "2026-11-17T01:34Z",
@@ -321,7 +326,6 @@
   ]
  },
  "log": [
-  "2026-11-17T00:34Z retired: ESC-COORD responder disabled (web UI), Daily count #9 and the capability test deleted",
   "2026-11-17T00:41Z posted template P on the owner's profile (Public, his setting), tag fb-profile-1116; composer text read back and matched; no Facebook warning",
   "2026-11-17T00:48Z owner decisions: join groups allowed (public, no questions, he qualifies); keep Everything Evanston post pending; PR #22 approved with conditions; Friday reminder deleted",
   "2026-11-17T00:54Z PR #22 released: merge 1dc0004, deploy 6afba5a9ea3f94d69014251e, live check 0 problems (also shipped #27 tap-to-call and #28 skip links)",
@@ -360,7 +364,8 @@
   "2026-11-17T23:01Z metrics: 19:00-22:47Z no genuine visitors (one Facebook crawler hit on the fb-evsk-1117 link); waiting for the 23:12Z lead-scan window",
   "2026-11-17T23:20Z lead scan: 116 recent posts in 6 groups, 0 families asking (one match was the yoga studio ad again); Gmail: no tour requests",
   "2026-11-18T00:09Z daily metrics (last 24h): 2 genuine Facebook visitors (both fb-evsk-1117, 15:32Z and 15:42Z); 0 assessment starts, 0 tour-form views, 0 tour requests; Gmail: none",
-  "2026-11-18T00:30Z site: Supportive Living guide now covers dementia care settings (HFS Cook County list: none in Evanston or nearby suburbs; closest is Asbury Court, Des Plaines; IDPH: 20 certified statewide), PR #71; memory-care statute pages on ilga.gov blocked to the fetch tool, so no unverifiable legal claims published"
+  "2026-11-18T00:30Z site: Supportive Living guide now covers dementia care settings (HFS Cook County list: none in Evanston or nearby suburbs; closest is Asbury Court, Des Plaines; IDPH: 20 certified statewide), PR #71; memory-care statute pages on ilga.gov blocked to the fetch tool, so no unverifiable legal claims published",
+  "2026-11-18T01:03Z daily rollup sent: 0 tour requests, tours UNVERIFIED, 2 genuine Facebook visitors today, 0 assessments, 4 posts live + 1 pending, 33 guides live (17 added 17 Nov); owner question (Nextdoor/LinkedIn) asked in chat 23:57Z, awaiting answer"
  ],
  "next_actions": [
   "next lead scan 03:16Z (21:16 Chicago, last of the day), then 13:00Z tomorrow; reply publicly under 5c only if a lead qualifies",
@@ -426,7 +431,7 @@
   "metrics": "2026-11-19T00:05Z",
   "venues": "2026-11-24T15:00Z",
   "evanston_join_status": "2026-11-18T04:27Z",
-  "rollup": "2026-11-18T01:00Z",
+  "rollup": "2026-11-19T01:00Z",
   "guides": "no drafts left worth publishing today (two deferred with reasons); next drafts run 18 Nov ~12:02Z",
   "search_console": "2026-11-19T15:00Z"
  },
