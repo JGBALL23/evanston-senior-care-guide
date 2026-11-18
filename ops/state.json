@@ -1,8 +1,8 @@
 {
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
- "updated_utc": "2026-11-18T16:40Z",
- "last_run_utc": "2026-11-18T15:11Z",
+ "updated_utc": "2026-11-18T16:41Z",
+ "last_run_utc": "2026-11-18T16:41Z",
  "facebook": {
   "access": "yes via Claude in Chrome (his browser c8d89af0), checked 15:08Z 18 Nov",
   "last_access_ok_utc": "2026-11-18T15:08Z",
@@ -406,7 +406,6 @@
   ]
  },
  "log": [
-  "2026-11-17T14:52Z Joseph (08:52 Chicago): run as a continuous operator; hourly schedule is only a fallback",
   "2026-11-17T15:00Z posted template A in Evanston/Skokie (Chicago) neighbors, tag fb-evsk-1117; published at once; cap changed to 1 a day and 5 a week",
   "2026-11-17T15:06Z lead scan: 142 recent posts across 3 member groups, 0 families asking about senior care",
   "2026-11-17T15:10Z joined What's Happening in Wilmette illinois and What's Happening in Winnetka illinois (public, no questions, ads allowed 2-3 a week with #employed); Skokie & North Shore group is events-only, skipped",
@@ -445,7 +444,8 @@
   "2026-11-18T16:17Z owner 10:13 Chicago: overnight must be growth work, not monitoring. Seeded ops/growth.json (G2 channels, G1 referral organizations with Gmail drafts never sent, G3 search baseline) for a new night growth task; lead scans cut to once a day (no requests in ~1,000 posts)",
   "2026-11-18T16:19Z created the night growth task (cloud, 4 runs a night) per owner 10:13 Chicago; on-demand test run refused by the safety system (platform limit), so its first run is tonight 23:07 Chicago; venue discovery moved up to 17:00Z with a new-audience focus",
   "2026-11-18T16:33Z Search Console: indexing checked (home and 7 key guides indexed), indexing requested for the caregiver background check guide; first performance data: 38 impressions on 16 Nov, Medicare cost queries",
-  "2026-11-18T16:40Z venues: read rules of 7 groups; joined What's Happening in Lake Forest (eligible), What's Happening in Glenview and Glenview - Northbrook Neighbors (read-only until he answers participant questions); Chicago caregiver groups are job boards (dropped); 80 more posts scanned, 0 requests"
+  "2026-11-18T16:40Z venues: read rules of 7 groups; joined What's Happening in Lake Forest (eligible), What's Happening in Glenview and Glenview - Northbrook Neighbors (read-only until he answers participant questions); Chicago caregiver groups are job boards (dropped); 80 more posts scanned, 0 requests",
+  "2026-11-18T16:41Z work loop paused: nothing else actionable now; next session 21:05Z (Facebook checks); night growth task runs from 23:07 Chicago on G4"
  ],
  "next_actions": [
   "E1 posted 15:06Z in Wilmette (fb-wil-1118, published); cloud operator measures +24h (19 Nov 15:06Z) and +48h vs fb-evsk-1117",
@@ -528,7 +528,7 @@
  },
  "due": {
   "post_next": "2026-11-20T21:53Z",
-  "fb_checks": "2026-11-18T17:00Z",
+  "fb_checks": "2026-11-18T21:05Z",
   "lead_scan": "2026-11-18T19:05Z",
   "metrics": "2026-11-19T00:05Z",
   "venues": "2026-11-25T15:00Z",

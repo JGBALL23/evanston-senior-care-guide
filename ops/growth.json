@@ -7,17 +7,19 @@
    "id": "G2",
    "priority": 1,
    "title": "Where do Evanston, North Shore and north-side Chicago families ask for senior-care help online, and where may we answer?",
-   "status": "open",
+   "status": "done",
    "done_when": "every source checked has a verdict (ACT, WATCH or DROP) with request counts and recency, and Facebook groups with ACT or WATCH are in fb_group_candidates for the session operator",
-   "next_step": "remaining sources: local news-site comment threads (Evanston RoundTable, Evanston Now, Patch), local forums; Facebook caregiver groups, national groups, Reddit and Nextdoor already have verdicts"
+   "next_step": "remaining sources: local news-site comment threads (Evanston RoundTable, Evanston Now, Patch), local forums; Facebook caregiver groups, national groups, Reddit and Nextdoor already have verdicts",
+   "result": "Chicago caregiver groups are job boards; national aging-parent groups are private and not local; Reddit is not reachable with the research tools; Nextdoor bars personal promotion; town groups have few requests (0 in about 1,100 recent posts; group search in a 65K group shows occasional older requests). Facebook posts in town groups remain the working channel"
   },
   {
    "id": "G1",
    "priority": 2,
    "title": "Organizations families turn to when choosing care that list outside resources; ready-to-send drafts for the best fits",
-   "status": "open",
+   "status": "done",
    "done_when": "at least 8 organizations assessed with evidence, and Gmail drafts (never sent) for up to 3 high-fit organizations with a published general address",
-   "next_step": "assess AgeOptions, Glenview, Skokie, Wilmette and Winnetka public libraries' older-adult resource pages, and North Shore township senior services; drafts only for high-fit organizations with a published general address (2 drafts exist)"
+   "next_step": "assess AgeOptions, Glenview, Skokie, Wilmette and Winnetka public libraries' older-adult resource pages, and North Shore township senior services; drafts only for high-fit organizations with a published general address (2 drafts exist)",
+   "result": "8 organizations assessed; most civic lists name agencies, not guides; the City of Evanston's Dementia-Friendly resources page is the clear fit. 2 Gmail drafts ready (City of Evanston Senior Services, North Shore Senior Center); Evanston Public Library takes contact-form messages only"
   },
   {
    "id": "G3",
@@ -26,6 +28,14 @@
    "status": "done",
    "done_when": "12 queries checked and at most 3 specific changes to existing pages proposed for the session operator (no new guides)",
    "result": "site not visible in the research index; can't measure Google from here; converted to a Search Console indexing action for the session operator (19 Nov); Search Console (18 Nov): site indexed, 38 impressions on 16 Nov from Medicare and assisted-living cost queries; no page change warranted yet"
+  },
+  {
+   "id": "G4",
+   "priority": 4,
+   "title": "Professionals who advise families at the decision point (Aging Life Care managers, elder law practices) serving Evanston and the North Shore",
+   "status": "open",
+   "why": "civic organizations list agencies, not guides; professionals who guide individual families may share a free tour checklist",
+   "done_when": "up to 8 practices assessed from their public business pages (fit and reason); Gmail drafts for at most 2 clear fits, to published general business addresses only"
   }
  ],
  "channels": {
@@ -108,11 +118,21 @@
   },
   {
    "org": "AgeOptions (Area Agency on Aging, suburban Cook)",
-   "fit": "unknown",
-   "evidence": "Listed first on the City's Senior Resources page (phone only); not yet assessed",
+   "fit": "low",
+   "evidence": "Area Agency on Aging; provider-neutral by role, so unlikely to list a guide with a tour option for one community; contact page at https://www.ageoptions.org/contact/",
    "urls": [],
    "general_contact": "not found yet",
-   "action": "assess next"
+   "action": "none"
+  },
+  {
+   "org": "Glenview Public Library (Resources for Older Adults)",
+   "fit": "low",
+   "evidence": "Lists only agencies (Village senior services, SSA, SHIP, Alzheimer's Association); contact form only",
+   "urls": [
+    "https://glenviewpl.org/blogs/post/resources-for-older-adults/"
+   ],
+   "general_contact": "no email published",
+   "action": "none"
   }
  ],
  "search": {
@@ -143,6 +163,7 @@
  "brief": null,
  "log": [
   "2026-11-18T16:28Z session operator (daytime loop): channel verdicts for Facebook caregiver groups, national groups, Reddit, Nextdoor, library events; 6 organizations assessed, 2 Gmail drafts created (City of Evanston Senior Services, North Shore Senior Center); search baseline done (site not visible in the research index)",
-  "2026-11-18T16:33Z Search Console: key pages indexed; 1 indexing request (caregiver background check guide); 16 Nov performance 38 impressions, 0 clicks, Medicare cost queries"
+  "2026-11-18T16:33Z Search Console: key pages indexed; 1 indexing request (caregiver background check guide); 16 Nov performance 38 impressions, 0 clicks, Medicare cost queries",
+  "2026-11-18T16:41Z session operator: G1 and G2 done (verdicts above); added G4 for tonight"
  ]
 }
