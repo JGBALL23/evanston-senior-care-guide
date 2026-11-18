@@ -432,7 +432,6 @@
   ]
  },
  "log": [
-  "2026-11-17T17:35Z site: published PACE (Evanston not yet served; checked against the HFS zip list) and Medicare home health guides; 8 guides live today; every draft so far had at least one paraphrase inside quotation marks, fixed before publishing",
   "2026-11-17T17:44Z site: published the Medicare Extra Help guide (2026 limits, 2027 costs verified); 9 guides published today, 25 live; Medicare coverage guide links to the cost guide again",
   "2026-11-17T18:09Z Search Console: verified the site (meta tag, PR #51) and resubmitted the sitemap (27 URLs); performance data still processing. ROUTINE.md: quote and paraphrase integrity rules (PR #52). Operator instructions updated with the 11:56 approvals",
   "2026-11-17T18:23Z site: published the home-delivered meals and elder abuse (APS) guides after removing unsupported claims; 11 guides published today, 27 live",
@@ -471,14 +470,15 @@
   "2026-11-18T21:16Z operator session: Facebook reachable (identity confirmed); Wilmette, Evanston/Skokie and North Shore posts 0 reactions/0 comments; Everything Evanston still pending; Rogers Park News participation approved (eligible); first lead scan of the 2 new groups: 78 posts, 0 requests; no outreach replies",
   "2026-11-18T21:40Z operator session: first cloud run with the outreach watch (21:24Z) succeeded and wrote nothing, so it found no unrecorded guide email and no reply; learned: em- tag landings within a minute of a send (19:41Z) are mail-security link scanners, not people",
   "2026-11-18T22:12Z verified for Joseph: outreach mailbox renamed (sender \"Evanston Senior Care Guide\", new default address, old address kept as alternate and still receiving); Gmail connector follows the renamed account",
-  "2026-11-18T22:45Z operator: G4 outreach research done now instead of tonight (DROP, nothing to send); owner told plainly where the operator fell short (self-set limits presented as hard limits, deferred work, noisy check-ins, account browsing, public-file details) and what changes"
+  "2026-11-18T22:45Z operator: G4 outreach research done now instead of tonight (DROP, nothing to send); owner told plainly where the operator fell short (self-set limits presented as hard limits, deferred work, noisy check-ins, account browsing, public-file details) and what changes",
+  "2026-11-18T22:45Z night growth task rebuilt as the 24/7 tour engine (every 3 hours) at Joseph's request; operator ships its ready items each session"
  ],
  "next_actions": [
+  "STANDING (Joseph 18 Nov 16:40: a 24/7 system focused on getting tours): every session, first ship growth.json ready items (status ready, for operator) after PREFLIGHT, mark them shipped; judge everything by tour-form visits and tour requests",
   "Outreach: check Gmail for replies each session; answer questions promptly and accurately; no repeat contact; next small batch after replies are reviewed (night task G4 drafts)",
   "E1 posted 15:06Z in Wilmette (fb-wil-1118), approved by admin 17:44Z; cloud operator measures +24h (19 Nov 17:44Z) and +48h (20 Nov 17:44Z) vs fb-evsk-1117",
   "Last session each night: set due.lead_scan (and any other morning due item) to the 9:00 Chicago wake, so the cloud operator doesn't log the overnight sleep as a Facebook interruption (it did 18 Nov, 04:30Z-15:11Z, because due said 13:00Z)",
-  "Fri 20 Nov after 21:53Z (15:53 Chicago, when the 13 Nov post leaves the 7-day window): Winnetka post using the E1 winner's hook, tag fb-wnk-1120",
-  "Lead scans in the 6 town groups: once a day only (0 families asking in about 1,000 posts, 16-18 Nov); spend saved sessions on new audiences from ops/growth.json fb_group_candidates (verify rules, join at most 3 per session)"
+  "Fri 20 Nov after 21:53Z (15:53 Chicago, when the 13 Nov post leaves the 7-day window): Winnetka post using the E1 winner's hook, tag fb-wnk-1120"
  ],
  "one_offs": {
   "pr22": "done: released 2026-11-17T00:54Z. Merged with main (all suites passed: check-guides 1501, test.js 768, inquiry validation 36, checklist-click 30, start-source 21, tour-source 23, paying-nav 314, checklist PDF, publish 32; build reproduces _dist); consent wording, form fields, server code and inquiry payload unchanged; merge commit 1dc0004; Netlify deploy 6afba5a9ea3f94d69014251e (4 functions); live check 33/33 files, 0 problems; also shipped the reviewed #27 and #28",
@@ -719,8 +719,8 @@
    },
    {
     "task": "trig_011ow9KBnKFdsVvC7qU97Gen",
-    "name": "ESCG night growth (cloud)",
-    "role": "research; Gmail drafts only after its own duplicate check; drafts are proposals",
+    "name": "ESCG tour engine (cloud, every 3 hours)",
+    "role": "prepares, never ships: reply drafts, tour-path page fixes, post texts, referral drafts (duplicate-checked) in growth.json ready",
     "may_send_or_post": false
    },
    {

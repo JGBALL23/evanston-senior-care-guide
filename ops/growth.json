@@ -167,6 +167,8 @@
   "2026-11-18T16:28Z session operator (daytime loop): channel verdicts for Facebook caregiver groups, national groups, Reddit, Nextdoor, library events; 6 organizations assessed, 2 Gmail drafts created (City of Evanston Senior Services, North Shore Senior Center); search baseline done (site not visible in the research index)",
   "2026-11-18T16:33Z Search Console: key pages indexed; 1 indexing request (caregiver background check guide); 16 Nov performance 38 impressions, 0 clicks, Medicare cost queries",
   "2026-11-18T16:41Z session operator: G1 and G2 done (verdicts above); added G4 for tonight",
-  "2026-11-18T22:45Z operator: G4 done (DROP: no clear-fit care-management or elder-law practice with a public general address; results were home-care franchises and lawyer directories)"
- ]
+  "2026-11-18T22:45Z operator: G4 done (DROP: no clear-fit care-management or elder-law practice with a public general address; results were home-care franchises and lawyer directories)",
+  "2026-11-18T22:45Z tour engine replaces night growth (every 3 hours, 24/7): prepares reply drafts, tour-path page fixes, post texts and referral drafts for the operator; never ships"
+ ],
+ "ready": []
 }
