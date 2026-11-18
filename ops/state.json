@@ -1,8 +1,8 @@
 {
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
- "updated_utc": "2026-11-18T00:09Z",
- "last_run_utc": "2026-11-18T00:09Z",
+ "updated_utc": "2026-11-18T00:30Z",
+ "last_run_utc": "2026-11-18T00:30Z",
  "facebook": {
   "access": "yes via Claude in Chrome (his browser c8d89af0), checked 00:07Z 18 Nov",
   "last_access_ok_utc": "2026-11-18T00:07Z",
@@ -321,7 +321,6 @@
   ]
  },
  "log": [
-  "2026-11-17T00:33Z no eligible venue: North Shore cooldown to 23 Nov 04:42Z, Everything Evanston has a pending post, Wilmette ineligible, profile awaits owner; no post",
   "2026-11-17T00:34Z retired: ESC-COORD responder disabled (web UI), Daily count #9 and the capability test deleted",
   "2026-11-17T00:41Z posted template P on the owner's profile (Public, his setting), tag fb-profile-1116; composer text read back and matched; no Facebook warning",
   "2026-11-17T00:48Z owner decisions: join groups allowed (public, no questions, he qualifies); keep Everything Evanston post pending; PR #22 approved with conditions; Friday reminder deleted",
@@ -360,7 +359,8 @@
   "2026-11-17T22:59Z site: published the FIDE SNP guide (MMAI ended 31 Dec 2025; HFS LTSS wording replaced stale opt-out text); 33 guides live, 17 published today; Search Console sitemap resubmitted (35 URLs)",
   "2026-11-17T23:01Z metrics: 19:00-22:47Z no genuine visitors (one Facebook crawler hit on the fb-evsk-1117 link); waiting for the 23:12Z lead-scan window",
   "2026-11-17T23:20Z lead scan: 116 recent posts in 6 groups, 0 families asking (one match was the yoga studio ad again); Gmail: no tour requests",
-  "2026-11-18T00:09Z daily metrics (last 24h): 2 genuine Facebook visitors (both fb-evsk-1117, 15:32Z and 15:42Z); 0 assessment starts, 0 tour-form views, 0 tour requests; Gmail: none"
+  "2026-11-18T00:09Z daily metrics (last 24h): 2 genuine Facebook visitors (both fb-evsk-1117, 15:32Z and 15:42Z); 0 assessment starts, 0 tour-form views, 0 tour requests; Gmail: none",
+  "2026-11-18T00:30Z site: Supportive Living guide now covers dementia care settings (HFS Cook County list: none in Evanston or nearby suburbs; closest is Asbury Court, Des Plaines; IDPH: 20 certified statewide), PR #71; memory-care statute pages on ilga.gov blocked to the fetch tool, so no unverifiable legal claims published"
  ],
  "next_actions": [
   "next lead scan 03:16Z (21:16 Chicago, last of the day), then 13:00Z tomorrow; reply publicly under 5c only if a lead qualifies",
@@ -448,9 +448,10 @@
    "6afcd723514625ae47d9cd16",
    "6afcd8daf80959320781b1ff",
    "6afcda81e4effca7ee74964f",
-   "6afcdc0c02dd1202eb8ae41a"
+   "6afcdc0c02dd1202eb8ae41a",
+   "6afcf1210489d745da0b2c01"
   ],
-  "indexnow_1117": "48 URLs accepted in 17 submissions (HTTP 200)",
+  "indexnow_1117": "49 URLs accepted in 18 submissions (HTTP 200)",
   "guides_live": 33,
   "drafts_unpublished": [
    "illinois-money-management-program (deferred: IDoA's own site list shows no Program Site serving Evanston Township, low value here)",
