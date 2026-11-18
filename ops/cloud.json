@@ -15,17 +15,51 @@
  },
  "site": {
   "fail_count": 0,
-  "down_since_utc": null
+  "down_since_utc": null,
+  "last_check_utc": "2026-11-18T01:28Z",
+  "last_check_method": "Netlify status codes last ~55 min: 200 x22, 301 x3, no 5xx (WebFetch permission not granted in cloud)"
  },
  "recovery": {
   "last_attempt_utc": null,
   "alerted_utc": null
  },
- "campaigns": {},
+ "campaigns": {
+  "fb-profile-1116": {
+   "h24": {
+    "window_utc": "2026-11-17T00:41Z/2026-11-18T00:41Z",
+    "genuine_visitors": 0,
+    "checklist_opens": 0,
+    "assessment_starts": 0,
+    "assessment_completions": 0,
+    "tour_form_views": 0,
+    "tour_requests": 0,
+    "source": "Netlify 01:29Z-00:41Z: 1 tagged hit, link preview; 00:41-01:29Z from state.json note (all automated)",
+    "written_utc": "2026-11-18T01:30Z"
+   }
+  },
+  "north-shore-checklist": {
+   "h24": {
+    "window_utc": "2026-11-16T04:42Z/2026-11-17T04:42Z",
+    "genuine_visitors": "2 per state.json visitor_notes (1 possibly owner's phone, unanswered); not rechecked",
+    "checklist_opens": "2 per state.json; not rechecked",
+    "assessment_starts": 0,
+    "tour_form_views": 0,
+    "tour_requests": 0,
+    "source": "outside Netlify 24h retention; session operator's figures",
+    "written_utc": "2026-11-18T01:30Z"
+   }
+  },
+  "north-shore-happening": {
+   "h24": "UNVERIFIED (outside Netlify retention)",
+   "h48": "UNVERIFIED (outside Netlify retention)",
+   "written_utc": "2026-11-18T01:30Z"
+  }
+ },
  "experiments": {},
  "search": {},
  "demand_candidates": [],
  "log": [
-  "2026-11-18T01:22Z seeded by the session operator when the cloud operator was created"
+  "2026-11-18T01:22Z seeded by the session operator when the cloud operator was created",
+  "2026-11-18T01:30Z run: 0 tour requests; session operator healthy (last run 01:12Z); site OK via Netlify (WebFetch blocked: permission timeout); campaigns: fb-profile-1116 +24h 0 genuine, NS checklist +24h from state.json, NS happening UNVERIFIED"
  ]
 }
