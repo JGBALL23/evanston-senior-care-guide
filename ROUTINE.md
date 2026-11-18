@@ -86,6 +86,14 @@ absent, stop and report that — do not improvise a run.
 
 ## Step 2 — pick a gap
 
+**Demand gate (owner directive, 17 Nov 2026, 19:02 Chicago: "Do not continuously
+create new guides without demonstrated demand").** Write a draft only for a
+topic listed under `## Open` in `DEMAND.md` on this branch. The operator adds a
+topic there only with evidence: a real search query from Google Search Console,
+or a question families actually asked. If `DEMAND.md` is missing or lists no
+open topic, ship zero: print `DEMAND GATE: no open topic` and end the run
+without committing anything and without sending a notification.
+
 Run `grep -n '"slug"' build-guides.py` and read each existing `h1`.
 
 Choose a genuinely new topic that a family in Evanston would type into a
