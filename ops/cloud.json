@@ -6,8 +6,28 @@
     "note": "tour-request alerts: sha256(message id) and time only"
   },
   "metrics": {
-    "last_utc": "2026-11-18T00:07Z",
-    "note": "seeded from the session operator's daily metrics of 17 Nov"
+    "last_utc": "2026-11-18T03:24Z",
+    "window_utc": "2026-11-18T00:07Z/2026-11-18T03:23Z",
+    "note": "incremental since the 00:07Z seed; earlier 24h figures are the session operator's",
+    "per_tag": {
+      "fb-evsk-1117": {
+        "genuine_visitors": 0,
+        "checklist_opens": 0,
+        "assessment_starts": 0,
+        "assessment_completions": 0,
+        "tour_form_views": 0,
+        "tour_requests": 0
+      },
+      "direct": {
+        "genuine_visitors": 0,
+        "excluded": "1 landing 02:22Z, outdated Chrome/100 Windows UA, likely automated"
+      }
+    },
+    "checklist_opens": 0,
+    "assessment_starts": 0,
+    "assessment_completions": 0,
+    "tour_form_views": 0,
+    "tour_requests": 0
   },
   "summary": {
     "last_utc": "2026-11-18T01:01Z",
@@ -16,8 +36,8 @@
   "site": {
     "fail_count": 0,
     "down_since_utc": null,
-    "last_check_utc": "2026-11-18T01:39Z",
-    "last_check_method": "Netlify status codes last 2h: 200 x73, 301 x4, 404 x1, no 5xx"
+    "last_check_utc": "2026-11-18T03:23Z",
+    "last_check_method": "Netlify status codes last 2h: 200 x64, 301 x5, 404 x3, no 5xx"
   },
   "recovery": {
     "last_attempt_utc": "2026-11-18T01:39Z",
@@ -65,6 +85,7 @@
     "2026-11-18T01:22Z seeded by the session operator when the cloud operator was created",
     "2026-11-18T01:30Z run: 0 tour requests; session operator healthy (last run 01:12Z); site OK via Netlify (WebFetch blocked: permission timeout); campaigns: fb-profile-1116 +24h 0 genuine, NS checklist +24h from state.json, NS happening UNVERIFIED",
     "2026-11-18T01:39Z OWNER-VERIFY-RECOVERY test: re-arm of session operator REFUSED (scheduled runs cannot change scheduled tasks); Gmail ok (0 tour requests); Netlify ok (site up); Facebook tools absent",
-    "2026-11-18T01:49Z push test: PushNotification tool; result: Mobile push requested."
+    "2026-11-18T01:49Z push test: PushNotification tool; result: Mobile push requested.",
+    "2026-11-18T03:24Z run: 0 tour requests; site OK; session operator healthy (last run 03:20Z, FB reachable); metrics 00:07Z-03:23Z: 0 genuine visitors, 0 checklist opens, 0 assessments, 0 tour-form views"
   ]
 }
