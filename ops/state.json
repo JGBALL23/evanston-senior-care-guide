@@ -1,11 +1,11 @@
 {
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
- "updated_utc": "2026-11-18T20:50Z",
- "last_run_utc": "2026-11-18T20:50Z",
+ "updated_utc": "2026-11-18T21:16Z",
+ "last_run_utc": "2026-11-18T21:16Z",
  "facebook": {
   "access": "yes via Claude in Chrome (his browser c8d89af0), checked 15:08Z 18 Nov",
-  "last_access_ok_utc": "2026-11-18T15:08Z",
+  "last_access_ok_utc": "2026-11-18T21:16Z",
   "last_checks_utc": "2026-11-18T15:08Z",
   "unreachable_since_utc": null,
   "unreachable_reported_utc": null,
@@ -53,7 +53,7 @@
    "visible_utc": "2026-11-16T04:42Z",
    "reactions": 0,
    "comments": 0,
-   "checked_utc": "2026-11-18T04:30Z",
+   "checked_utc": "2026-11-18T21:16Z",
    "shares": 0
   },
   {
@@ -81,7 +81,7 @@
    "reactions": 0,
    "comments": 0,
    "shares": 0,
-   "checked_utc": "2026-11-18T04:30Z",
+   "checked_utc": "2026-11-18T21:16Z",
    "note": "published without approval; requests in the first 5 minutes are automated",
    "site_visits": "2 genuine (Facebook app, iPhone): 15:32Z opened the checklist PDF; 15:42Z landed on the tour section and viewed tour questions and costs; no assessment or tour form; requests in the first 5 minutes excluded as automated"
   },
@@ -96,7 +96,7 @@
    "reactions": 0,
    "comments": 0,
    "shares": 0,
-   "checked_utc": "2026-11-18T19:45Z",
+   "checked_utc": "2026-11-18T21:16Z",
    "note": "experiment E1; group rules re-read before posting (disclosure hashtag, ads at most 2-3 a week); requests in the first 5 minutes are automated; held for admin approval 15:06-17:44Z (Facebook notification \"An admin approved your post\"; time from its notif_id), so members first saw it at 17:44Z; 0 reactions, 0 comments at 19:40Z"
   }
  ],
@@ -293,10 +293,11 @@
    "name": "Rogers Park News",
    "member": true,
    "joined_utc": "2026-11-18T20:03Z",
-   "eligible": "after admins approve his request to participate (rules agreement only, no questions; pending since 20:03Z)",
+   "eligible": true,
    "rules": "posts visible to all; verifiable information with sources; on topic; Rogers Park and nearby-neighborhood business and sales posts accepted; no scams or spam; posts may be quoted in neighborhood news",
    "notes": "public, 49.5K members, about 1,130 posts a month; north-side Chicago audience next to Evanston (new audience per venue_focus 18 Nov)",
-   "checked_utc": "2026-11-18T20:08Z"
+   "checked_utc": "2026-11-18T21:16Z",
+   "verdict_note": "participation approved about 20:15Z 18 Nov (\"You can now post and comment\"); posts must be verifiable with source links; nearby-neighborhood business posts accepted; no spam"
   },
   {
    "id": "group:259937747842535",
@@ -431,7 +432,6 @@
   ]
  },
  "log": [
-  "2026-11-17T16:12Z site: published 2 verified guides (resident rights; nursing home pre-admission screening) and removed unsupported wording from the Medicare guide; deployed twice; IndexNow 19 URLs accepted",
   "2026-11-17T16:15Z fb-evsk-1117: 0 reactions or comments; 2 genuine visitors, 1 checklist PDF open, 1 tour-questions view; no tour request (Gmail checked)",
   "2026-11-17T16:56Z site: published the Medicaid look-back and home-care ombudsman guides (several draft quotations corrected to the HFS/IDoA wording); added a disclosed \"Ask about a tour here\" line to the homepage tour section and under the checklist on the cost and inspection guides; all suites green; 4 deploys",
   "2026-11-17T17:18Z site: published guide #17 (health care power of attorney) and guide #16 (Medicare Savings Programs, 2026 limits verified; draft had the $25 disregard backwards); 6 guides live today in total",
@@ -470,7 +470,8 @@
   "2026-11-18T20:08Z venues (new audiences, north-side Chicago): joined Rogers Park News (49.5K; participation pending admin approval, rules agreement only) and Edgewater Chicago Neighborhood News (6.9K; eligible); 5 joins today",
   "2026-11-18T20:14Z outreach: library community-engagement contact emailed (published staff-directory address); 9 sent today, 0 replies, 1 auto-reply; next batch waits for replies",
   "2026-11-18T20:55Z coordination fix (Joseph 14:30 Chicago): one operator (this session); preflight before every external action; shared action record in state.actions (9 emails, 1 post, 5 joins, 4 pending, 6 blocked)",
-  "2026-11-18T20:50Z coordination audit: 1 operator, 4 assistant tasks aligned (cloud and night prompts updated), 1 task off; Sent = 9, all recorded; Drafts = 0; preflight proven (nssc.org BLOCK, cityofevanston.org BLOCK, skokie.org CLEAR)"
+  "2026-11-18T20:50Z coordination audit: 1 operator, 4 assistant tasks aligned (cloud and night prompts updated), 1 task off; Sent = 9, all recorded; Drafts = 0; preflight proven (nssc.org BLOCK, cityofevanston.org BLOCK, skokie.org CLEAR)",
+  "2026-11-18T21:16Z operator session: Facebook reachable (identity confirmed); Wilmette, Evanston/Skokie and North Shore posts 0 reactions/0 comments; Everything Evanston still pending; Rogers Park News participation approved (eligible); first lead scan of the 2 new groups: 78 posts, 0 requests; no outreach replies"
  ],
  "next_actions": [
   "Outreach: check Gmail for replies each session; answer questions promptly and accurately; no repeat contact; next small batch after replies are reviewed (night task G4 drafts)",
@@ -554,6 +555,13 @@
     "posts_scanned": 367,
     "leads": 1,
     "note": "1 in-home request (Glenview - Northbrook Neighbors: hiring a private CNA caregiver, many answers already); no reply: the group limits promotion to Tuesday ads with full contact details and bans spam/hijacking, and the ask is a private hire, not a community; the Wilmette match was the same yoga studio ad"
+   },
+   {
+    "utc": "2026-11-18T21:14Z",
+    "groups": 2,
+    "posts_scanned": 78,
+    "leads": 0,
+    "note": "first scans of Rogers Park News and Edgewater Chicago Neighborhood News"
    }
   ],
   "method": "chronological feed of each member group, in-page keyword filter (senior-care terms + a request + not a business ad); about 2-4 days of posts per group on the first scan",
@@ -561,7 +569,7 @@
  },
  "due": {
   "post_next": "2026-11-20T21:53Z",
-  "fb_checks": "2026-11-18T21:05Z",
+  "fb_checks": "2026-11-19T15:00Z",
   "lead_scan": "2026-11-19T19:00Z",
   "metrics": "2026-11-19T00:05Z",
   "venues": "2026-11-25T15:00Z",
@@ -934,10 +942,11 @@
   {
    "id": "B-RP",
    "type": "facebook_participation",
-   "status": "blocked",
+   "status": "completed",
    "owner": "group admins",
    "venue": "group:RogersParkNeighborhoodNews",
-   "note": "request to participate pending"
+   "note": "participation approved about 20:15Z 18 Nov",
+   "closed_utc": "2026-11-18T21:16Z"
   },
   {
    "id": "B-GNN",
@@ -960,6 +969,15 @@
    "status": "blocked",
    "owner": "Joseph",
    "note": "outreach shows the Gmail display name of an unrelated brand while signed with his name; changing it is his account setting"
+  },
+  {
+   "id": "P-1122-01",
+   "type": "facebook_post",
+   "status": "pending",
+   "not_before_utc": "2026-11-22T17:29Z",
+   "venue": "group:RogersParkNeighborhoodNews",
+   "tag": "fb-rp-1122",
+   "note": "first post to a new north-side Chicago audience (49.5K); cap frees when the 15 Nov post leaves the 7-day window; sources linked per group rule; link last"
   }
  ]
 }
