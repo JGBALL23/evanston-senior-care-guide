@@ -469,7 +469,7 @@ TOUR_CHECKLIST = (
     'tour. No email or sign-up.</span></p>')
 
 # For a reader already planning visits, one quiet sentence under the
-# checklist on the cost and inspection-record guides: the homepage's own
+# checklist on the cost, inspection-record, complaint and Medicare guides: the homepage's own
 # "Ask about a tour" shortcut, with the affiliation stated in the sentence.
 # A plain link, never a button; same form, same consent, nothing new counted.
 # (The independent-living guide has its own tour block and does not use it.)
@@ -632,6 +632,7 @@ GUIDES = [
 
     {
         "slug": "does-medicare-pay-for-senior-care",
+        "after_section": {"So who does pay for assisted living?": TOUR_CHECKLIST + TOUR_ASK},
         "bridge": ("Knowing what Medicare covers is a different question from knowing "
                "what kind of care your parent actually needs. Coverage follows the "
                "care; it does not decide it."),
