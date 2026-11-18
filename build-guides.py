@@ -411,6 +411,12 @@ SRC = {
                         'https://hfs.illinois.gov/medicalclients/managedcare.html'),
     "hfs_mmai_end": ('Illinois HFS — Medicare Medicaid Alignment Initiative (MMAI) End Date',
                      'https://hfs.illinois.gov/medicalproviders/cc/mmai.html'),
+    "hfs_slp_cook": ('Illinois HFS — Cook County Supportive Living Program sites',
+                     'https://hfs.illinois.gov/medicalprograms/slf/cook.html'),
+    "hfs_slp_resident": ('Illinois HFS — Supportive Living Program resident fact sheet',
+                         'https://hfs.illinois.gov/medicalprograms/slf/residentfactsheet.html'),
+    "idph_dementia_2025": ('Illinois Department of Public Health — Dementia Annual Report: Dementia Capability in Illinois 2025',
+                           'https://dph.illinois.gov/content/dam/soi/en/web/idph/publications/idph/topics-and-services/diseases-and-conditions/alzheimers/dementia-capability-report-2025.pdf'),
 }
 
 
@@ -772,7 +778,7 @@ GUIDES = [
                    "<strong>group care credit</strong> calculated from their own income, "
                    "and keeps a personal needs allowance of <strong>" + F["pna"] +
                    " a month</strong>."),
-        "sources": srcs("hfs_slf", "hfs_rb", "hfs_hcbs", "hfs_slp_rates"),
+        "sources": srcs("hfs_slf", "hfs_rb", "hfs_hcbs", "hfs_slp_rates", "hfs_slp_cook", "hfs_slp_resident", "idph_dementia_2025"),
         "body": [
             ("What it is, and what it is not", [
                 "<p>A Supportive Living facility is not the same thing as a private-pay "
@@ -809,9 +815,35 @@ GUIDES = [
                 "residents owe both charges; a resident avoids the group care credit "
                 "only when their income equals the SSI amount.</p>",
             ]),
+            ("If your parent has dementia: dementia care settings", [
+                "<p>Some Supportive Living facilities are certified as "
+                "<strong>dementia care settings</strong>. HFS&rsquo;s Cook County "
+                "list marks each one with the note &ldquo;Dementia care setting "
+                "that serves residents age 65+&rdquo;. The Illinois Department of "
+                "Public Health&rsquo;s 2025 dementia report says &ldquo;the DCS "
+                "must provide three daily well-being checks and at least three "
+                "daily scheduled activities,&rdquo; and that twenty Supportive "
+                "Living sites are certified dementia care settings, with more "
+                "than 520 apartments.</p>",
+                "<p>Near Evanston the choice is narrow. HFS&rsquo;s Cook County "
+                "list, read on 17 November 2026, shows no Supportive Living site "
+                "in Evanston, Skokie, Wilmette, Niles, Morton Grove, "
+                "Lincolnwood, Glenview or Park Ridge. It marks six Cook County "
+                "sites as dementia care settings: the closest to Evanston is "
+                "Asbury Court in Des Plaines, and the other five are on "
+                "Chicago&rsquo;s far South Side or in the south suburbs. The "
+                "Supportive Living sites it lists on Chicago&rsquo;s North Side "
+                "are not marked as dementia care settings.</p>",
+                "<p>Lists change, so confirm the current one before ruling a "
+                "setting in or out. HFS&rsquo;s resident fact sheet points "
+                "families to its Bureau of Long-Term Care: 217-782-0545, or "
+                "844-528-8444 toll free.</p>",
+            ]),
             ("Questions worth asking before you apply", [
                 "<ul class=\"res__list\">"
                 "<li>Is this specific community an approved Supportive Living facility?</li>"
+                "<li>If my parent has dementia, is this a certified dementia care "
+                "setting?</li>"
                 "<li>Is there a waiting list, and how long is it in practice?</li>"
                 "<li>What is the room and board amount at this facility?</li>"
                 "<li>What happens if my parent's needs exceed what this setting "
