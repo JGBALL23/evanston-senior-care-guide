@@ -6,16 +6,16 @@
     "note": "tour-request alerts: sha256(message id) and time only"
   },
   "metrics": {
-    "last_utc": "2026-11-18T13:25Z",
-    "window_utc": "2026-11-18T10:24Z/2026-11-18T13:25Z",
-    "note": "incremental since previous window; Netlify topk urls_with_query + request detail",
+    "last_utc": "2026-11-18T16:25Z",
+    "window_utc": "2026-11-18T13:25Z/2026-11-18T16:25Z",
+    "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs; fb-wil-1118Disclosure counted as fb-wil-1118",
     "per_tag": {
-      "fb-evsk-1117": {
-        "genuine_visitors": 1,
+      "fb-wil-1118": {
+        "genuine_visitors": 0,
         "checklist_opens": 0,
         "assessment_starts": 0,
         "assessment_completions": 0,
-        "tour_questions_views": 1,
+        "tour_questions_views": 0,
         "tour_form_views": 0,
         "tour_requests": 0
       }
@@ -25,7 +25,7 @@
     "assessment_completions": 0,
     "tour_form_views": 0,
     "tour_requests": 0,
-    "genuine_detail": "fb-evsk-1117 landing 13:23Z, Android Firefox mobile browser, fbclid present (not owner phone, not crawler)"
+    "genuine_detail": "0 genuine. fb-wil-1118: 19 fbclid page hits 15:07-15:18Z = facebookexternalhit x10, Android burst 15:07Z (within 5 min of post) x5, Windows Chrome/139 x4 paired with externalhit on same fbclid, no JS beacons; all /t/ beacons (3) = meta-webindexer; checklist PDF 34 hits all facebookexternalhit"
   },
   "summary": {
     "last_utc": "2026-11-18T01:01Z",
@@ -34,8 +34,8 @@
   "site": {
     "fail_count": 0,
     "down_since_utc": null,
-    "last_check_utc": "2026-11-18T15:24Z",
-    "last_check_method": "Netlify status codes last 2h: 200 x303, 206 x27, 301 x18, 304 x4, 404 x99, no 5xx"
+    "last_check_utc": "2026-11-18T16:25Z",
+    "last_check_method": "Netlify status codes last 2h: 200 x268, 206 x29, 301 x19, 304 x4, 404 x100, no 5xx"
   },
   "recovery": {
     "last_attempt_utc": "2026-11-18T01:39Z",
@@ -108,7 +108,8 @@
     "2026-11-18T06:25Z run: 0 tour requests; site OK; session operator healthy (last run 04:30Z, FB reachable, overnight); metrics 03:23Z-06:24Z: 0 genuine (2 checklist hits = owner phone + FB crawler); search: 2 google-referred requests, page unattributed; no new opportunity",
     "2026-11-18T10:25Z run: 0 tour requests; site OK; session operator overnight (last run 04:30Z, FB reachable, next due 13:00Z); metrics 06:24Z-10:24Z: 0 genuine (1 fb-evsk-1117 hit = Googlebot-Image); no new opportunity",
     "2026-11-18T13:25Z run: 0 tour requests; site OK; FB interruption recorded (session operator last run 04:30Z, lead_scan 13:00Z missed; watchdog owns alert); metrics 10:24Z-13:25Z: 1 genuine fb-evsk-1117 visitor (Android, 13:23Z) with tour-questions view, 0 checklist/assessment/tour-form; no new opportunity (E1 pending)",
-    "2026-11-18T15:24Z run: 0 tour requests; site OK; FB interruption ended (session operator ran 15:11Z, FB reachable; 04:30Z-15:11Z, missed lead_scan 13:00Z); fb-wil-1118 (E1) visible 15:06Z; metrics not due (last 13:25Z)"
+    "2026-11-18T15:24Z run: 0 tour requests; site OK; FB interruption ended (session operator ran 15:11Z, FB reachable; 04:30Z-15:11Z, missed lead_scan 13:00Z); fb-wil-1118 (E1) visible 15:06Z; metrics not due (last 13:25Z)",
+    "2026-11-18T16:25Z run: 0 tour requests; site OK (no 5xx); session operator healthy (last run 15:11Z, FB reachable); metrics 13:25Z-16:25Z: 0 genuine (fb-wil-1118 hits all Meta crawlers/post-time burst); opportunity OP1: Wilmette post link tag reads fb-wil-1118Disclosure"
   ],
   "facebook_interruptions_past": [
     {
@@ -120,6 +121,16 @@
       "recorded_utc": "2026-11-18T13:25Z",
       "ended_utc": "2026-11-18T15:11Z",
       "duration": "10h41m"
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "OP1-wil-link-tag",
+      "created_utc": "2026-11-18T16:25Z",
+      "evidence": "13:25Z-16:25Z Netlify: fb-wil-1118 landings arrive as ?ref=fb-wil-1118Disclosure on 7 of 9 distinct fbclids (text after the link ran into it); tag variant would split E1 counts",
+      "action": "Check the Wilmette post link ends cleanly (space/newline before Disclosure) and count both tag variants when measuring E1",
+      "owner": "session operator",
+      "status": "open"
     }
   ]
 }
