@@ -6,8 +6,8 @@
     "note": "tour-request alerts: sha256(message id) and time only"
   },
   "metrics": {
-    "last_utc": "2026-11-18T20:25Z",
-    "window_utc": "2026-11-18T16:25Z/2026-11-18T20:25Z",
+    "last_utc": "2026-11-18T23:24Z",
+    "window_utc": "2026-11-18T20:25Z/2026-11-18T23:24Z",
     "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs",
     "per_tag": {
       "fb-wil-1118": {
@@ -19,20 +19,8 @@
         "tour_form_views": 0,
         "tour_requests": 0
       },
-      "em-fsg-1118": {
-        "genuine_visitors": "UNVERIFIED (1-2)",
-        "landings": 2,
-        "beacons": 2,
-        "checklist_opens": 0,
-        "assessment_starts": 0,
-        "assessment_completions": 0,
-        "tour_form_views": 0,
-        "tour_requests": 0
-      },
-      "em-lf-1118": {
-        "genuine_visitors": "UNVERIFIED (1)",
-        "landings": 1,
-        "beacons": 1,
+      "fb-evsk-1117": {
+        "genuine_visitors": 0,
         "checklist_opens": 0,
         "assessment_starts": 0,
         "assessment_completions": 0,
@@ -45,7 +33,7 @@
     "assessment_completions": 0,
     "tour_form_views": 0,
     "tour_requests": 0,
-    "genuine_detail": "fb-wil-1118: 2 tagged hits 17:45Z/18:13Z both facebookexternalhit (now clean ?ref, no Disclosure suffix). em-fsg-1118/em-lf-1118 (tags not in state.json): 3 landings 19:41-19:42Z with JS beacons from Windows Chrome 154/155 and Edge 157 within 1 min; could be recipients or email link scanners. 1 checklist PDF hit = iPhone OS 13_2_3 (stale UA, treated as bot). 4 direct landed beacons, Windows Chrome, untagged."
+    "genuine_detail": "fb-wil-1118 1 hit 21:09Z = Googlebot-Image; fb-evsk-1117 1 hit 21:08Z = facebookexternalhit; 0 production /t/ beacons; 0 checklist PDF hits; only deploy-preview landed beacons (excluded); no em- tagged landings"
   },
   "summary": {
     "last_utc": "2026-11-18T01:01Z",
@@ -54,8 +42,8 @@
   "site": {
     "fail_count": 0,
     "down_since_utc": null,
-    "last_check_utc": "2026-11-18T20:25Z",
-    "last_check_method": "Netlify status codes last 2h: 200 x44, 301 x5, 404 x1, no 5xx"
+    "last_check_utc": "2026-11-18T23:24Z",
+    "last_check_method": "Netlify status codes last 2h: 200 x102, 301 x8, 206 x1, 404 x1, no 5xx"
   },
   "recovery": {
     "last_attempt_utc": "2026-11-18T01:39Z",
@@ -145,7 +133,8 @@
     "2026-11-18T15:24Z run: 0 tour requests; site OK; FB interruption ended (session operator ran 15:11Z, FB reachable; 04:30Z-15:11Z, missed lead_scan 13:00Z); fb-wil-1118 (E1) visible 15:06Z; metrics not due (last 13:25Z)",
     "2026-11-18T16:25Z run: 0 tour requests; site OK (no 5xx); session operator healthy (last run 15:11Z, FB reachable); metrics 13:25Z-16:25Z: 0 genuine (fb-wil-1118 hits all Meta crawlers/post-time burst); opportunity OP1: Wilmette post link tag reads fb-wil-1118Disclosure",
     "2026-11-18T18:25Z run: 0 tour requests; site OK (no 5xx); session operator healthy (last run 16:41Z, FB reachable); fb-evsk-1117 +24h written (2 genuine, 1 checklist open, 1 tour-questions view, 0 assessments/tour-form/requests); metrics not due (last 16:25Z)",
-    "2026-11-18T20:25Z run: 0 tour requests; site OK (no 5xx); session operator healthy (last run 20:14Z, FB reachable); metrics 16:25Z-20:25Z: fb-wil-1118 0 genuine (2 crawler hits); unrecorded email tags em-fsg-1118 x2 / em-lf-1118 x1 landings 19:41Z, genuineness UNVERIFIED; 0 checklist/assessment/tour-form; no new opportunity"
+    "2026-11-18T20:25Z run: 0 tour requests; site OK (no 5xx); session operator healthy (last run 20:14Z, FB reachable); metrics 16:25Z-20:25Z: fb-wil-1118 0 genuine (2 crawler hits); unrecorded email tags em-fsg-1118 x2 / em-lf-1118 x1 landings 19:41Z, genuineness UNVERIFIED; 0 checklist/assessment/tour-form; no new opportunity",
+    "2026-11-18T23:24Z run: 0 tour requests; outreach watch: 9 sent all recorded, 1 auto-reply only; site OK (no 5xx); session operator healthy (last run 23:20Z, FB reachable); metrics 20:25Z-23:24Z: 0 genuine (fb-wil-1118 Googlebot-Image, fb-evsk-1117 FB crawler), 0 beacons/checklist/assessment/tour-form; no new opportunity"
   ],
   "facebook_interruptions_past": [
     {
@@ -168,5 +157,11 @@
       "owner": "session operator",
       "status": "open"
     }
-  ]
+  ],
+  "outreach_watch": {
+    "alerted": [],
+    "replies_alerted": [],
+    "last_utc": "2026-11-18T23:24Z",
+    "note": "sent 2d: 9, all in state.json actions; inbox replies: 1 automatic reply (not alerted)"
+  }
 }
