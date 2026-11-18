@@ -432,7 +432,6 @@
   ]
  },
  "log": [
-  "2026-11-17T18:09Z Search Console: verified the site (meta tag, PR #51) and resubmitted the sitemap (27 URLs); performance data still processing. ROUTINE.md: quote and paraphrase integrity rules (PR #52). Operator instructions updated with the 11:56 approvals",
   "2026-11-17T18:23Z site: published the home-delivered meals and elder abuse (APS) guides after removing unsupported claims; 11 guides published today, 27 live",
   "2026-11-17T19:12Z lead scan: 99 recent posts in 5 groups, 0 families asking; Gmail: no tour requests; site: no new Facebook visits since 16:13Z",
   "2026-11-17T19:21Z site: the facility-complaint guide now names 1-866-800-1409 as the APS hotline (verified) and links the elder-abuse guide",
@@ -471,14 +470,15 @@
   "2026-11-18T22:12Z verified for Joseph: outreach mailbox renamed (sender \"Evanston Senior Care Guide\", new default address, old address kept as alternate and still receiving); Gmail connector follows the renamed account",
   "2026-11-18T22:45Z operator: G4 outreach research done now instead of tonight (DROP, nothing to send); owner told plainly where the operator fell short (self-set limits presented as hard limits, deferred work, noisy check-ins, account browsing, public-file details) and what changes",
   "2026-11-18T22:45Z night growth task rebuilt as the 24/7 tour engine (every 3 hours) at Joseph's request; operator ships its ready items each session",
-  "2026-11-18T23:05Z loop: complaint guide now links the tour checklist and tour request (PR 74 merged 83c2264, all suites passed, deployed, live check 200); next: ship tour-engine items after its 18:07 run"
+  "2026-11-18T23:05Z loop: complaint guide now links the tour checklist and tour request (PR 74 merged 83c2264, all suites passed, deployed, live check 200); next: ship tour-engine items after its 18:07 run",
+  "2026-11-18T22:53Z Joseph asked for a nonstop plan-execute-review loop: next wake is always 2 minutes after a session ends, day and night"
  ],
  "next_actions": [
+  "STANDING (Joseph 18 Nov 16:52, overrides step 11 timing): continuous loop, day and night. Each session: plan, do one real tour-focused task, review, then set the next wake 2 minutes out. Never schedule a long sleep. If usage runs out, runs pause until it resets (platform limit).",
   "STANDING (Joseph 18 Nov 16:40: a 24/7 system focused on getting tours): every session, first ship growth.json ready items (status ready, for operator) after PREFLIGHT, mark them shipped; judge everything by tour-form visits and tour requests",
   "Outreach: check Gmail for replies each session; answer questions promptly and accurately; no repeat contact; next small batch after replies are reviewed (night task G4 drafts)",
   "E1 posted 15:06Z in Wilmette (fb-wil-1118), approved by admin 17:44Z; cloud operator measures +24h (19 Nov 17:44Z) and +48h (20 Nov 17:44Z) vs fb-evsk-1117",
-  "Last session each night: set due.lead_scan (and any other morning due item) to the 9:00 Chicago wake, so the cloud operator doesn't log the overnight sleep as a Facebook interruption (it did 18 Nov, 04:30Z-15:11Z, because due said 13:00Z)",
-  "Fri 20 Nov after 21:53Z (15:53 Chicago, when the 13 Nov post leaves the 7-day window): Winnetka post using the E1 winner's hook, tag fb-wnk-1120"
+  "Last session each night: set due.lead_scan (and any other morning due item) to the 9:00 Chicago wake, so the cloud operator doesn't log the overnight sleep as a Facebook interruption (it did 18 Nov, 04:30Z-15:11Z, because due said 13:00Z)"
  ],
  "one_offs": {
   "pr22": "done: released 2026-11-17T00:54Z. Merged with main (all suites passed: check-guides 1501, test.js 768, inquiry validation 36, checklist-click 30, start-source 21, tour-source 23, paying-nav 314, checklist PDF, publish 32; build reproduces _dist); consent wording, form fields, server code and inquiry payload unchanged; merge commit 1dc0004; Netlify deploy 6afba5a9ea3f94d69014251e (4 functions); live check 33/33 files, 0 problems; also shipped the reviewed #27 and #28",
