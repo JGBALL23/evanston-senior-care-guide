@@ -1,8 +1,8 @@
 {
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
- "updated_utc": "2026-11-18T21:16Z",
- "last_run_utc": "2026-11-18T21:16Z",
+ "updated_utc": "2026-11-18T21:40Z",
+ "last_run_utc": "2026-11-18T21:40Z",
  "facebook": {
   "access": "yes via Claude in Chrome (his browser c8d89af0), checked 15:08Z 18 Nov",
   "last_access_ok_utc": "2026-11-18T21:16Z",
@@ -432,7 +432,6 @@
   ]
  },
  "log": [
-  "2026-11-17T16:15Z fb-evsk-1117: 0 reactions or comments; 2 genuine visitors, 1 checklist PDF open, 1 tour-questions view; no tour request (Gmail checked)",
   "2026-11-17T16:56Z site: published the Medicaid look-back and home-care ombudsman guides (several draft quotations corrected to the HFS/IDoA wording); added a disclosed \"Ask about a tour here\" line to the homepage tour section and under the checklist on the cost and inspection guides; all suites green; 4 deploys",
   "2026-11-17T17:18Z site: published guide #17 (health care power of attorney) and guide #16 (Medicare Savings Programs, 2026 limits verified; draft had the $25 disregard backwards); 6 guides live today in total",
   "2026-11-17T17:35Z site: published PACE (Evanston not yet served; checked against the HFS zip list) and Medicare home health guides; 8 guides live today; every draft so far had at least one paraphrase inside quotation marks, fixed before publishing",
@@ -471,7 +470,8 @@
   "2026-11-18T20:14Z outreach: library community-engagement contact emailed (published staff-directory address); 9 sent today, 0 replies, 1 auto-reply; next batch waits for replies",
   "2026-11-18T20:55Z coordination fix (Joseph 14:30 Chicago): one operator (this session); preflight before every external action; shared action record in state.actions (9 emails, 1 post, 5 joins, 4 pending, 6 blocked)",
   "2026-11-18T20:50Z coordination audit: 1 operator, 4 assistant tasks aligned (cloud and night prompts updated), 1 task off; Sent = 9, all recorded; Drafts = 0; preflight proven (nssc.org BLOCK, cityofevanston.org BLOCK, skokie.org CLEAR)",
-  "2026-11-18T21:16Z operator session: Facebook reachable (identity confirmed); Wilmette, Evanston/Skokie and North Shore posts 0 reactions/0 comments; Everything Evanston still pending; Rogers Park News participation approved (eligible); first lead scan of the 2 new groups: 78 posts, 0 requests; no outreach replies"
+  "2026-11-18T21:16Z operator session: Facebook reachable (identity confirmed); Wilmette, Evanston/Skokie and North Shore posts 0 reactions/0 comments; Everything Evanston still pending; Rogers Park News participation approved (eligible); first lead scan of the 2 new groups: 78 posts, 0 requests; no outreach replies",
+  "2026-11-18T21:40Z operator session: first cloud run with the outreach watch (21:24Z) succeeded and wrote nothing, so it found no unrecorded guide email and no reply; learned: em- tag landings within a minute of a send (19:41Z) are mail-security link scanners, not people"
  ],
  "next_actions": [
   "Outreach: check Gmail for replies each session; answer questions promptly and accurately; no repeat contact; next small batch after replies are reviewed (night task G4 drafts)",
@@ -979,5 +979,8 @@
    "tag": "fb-rp-1122",
    "note": "first post to a new north-side Chicago audience (49.5K); cap frees when the 15 Nov post leaves the 7-day window; sources linked per group rule; link last"
   }
+ ],
+ "measurement_notes": [
+  "Email outreach: landings with an em- tag within 15 minutes of the send are mail-security link scanners (seen 18 Nov 19:41Z); count only later visits as genuine."
  ]
 }
