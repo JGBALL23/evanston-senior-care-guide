@@ -1,12 +1,12 @@
 {
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
- "updated_utc": "2026-11-18T03:20Z",
- "last_run_utc": "2026-11-18T03:20Z",
+ "updated_utc": "2026-11-18T04:30Z",
+ "last_run_utc": "2026-11-18T04:30Z",
  "facebook": {
-  "access": "yes via Claude in Chrome (his browser c8d89af0), checked 03:20Z 18 Nov",
-  "last_access_ok_utc": "2026-11-18T03:20Z",
-  "last_checks_utc": "2026-11-17T22:27Z",
+  "access": "yes via Claude in Chrome (his browser c8d89af0), checked 04:30Z 18 Nov",
+  "last_access_ok_utc": "2026-11-18T04:30Z",
+  "last_checks_utc": "2026-11-18T04:30Z",
   "unreachable_since_utc": null,
   "unreachable_reported_utc": null,
   "blocker": null
@@ -22,7 +22,7 @@
    "visible_utc": "2026-11-08T22:15Z",
    "reactions": 0,
    "comments": 0,
-   "checked_utc": "2026-11-17T22:27Z",
+   "checked_utc": "2026-11-18T04:30Z",
    "shares": 0
   },
   {
@@ -41,7 +41,7 @@
    "content": "assisted living costs",
    "status": "pending",
    "submitted_utc": "2026-11-13T21:53Z",
-   "checked_utc": "2026-11-17T22:27Z"
+   "checked_utc": "2026-11-18T04:30Z"
   },
   {
    "tag": "north-shore-checklist",
@@ -53,7 +53,7 @@
    "visible_utc": "2026-11-16T04:42Z",
    "reactions": 0,
    "comments": 0,
-   "checked_utc": "2026-11-17T22:27Z",
+   "checked_utc": "2026-11-18T04:30Z",
    "shares": 0
   },
   {
@@ -66,7 +66,7 @@
    "visible_utc": "2026-11-17T00:41Z",
    "reactions": 0,
    "comments": 0,
-   "checked_utc": "2026-11-17T22:27Z",
+   "checked_utc": "2026-11-18T04:30Z",
    "note": "first 50 minutes: all site requests automated (Facebook link previews while composing, then a Chrome 139 link scanner from a data center at 00:42Z that also fired the one landed beacon); 0 genuine",
    "shares": 0
   },
@@ -81,7 +81,7 @@
    "reactions": 0,
    "comments": 0,
    "shares": 0,
-   "checked_utc": "2026-11-17T22:27Z",
+   "checked_utc": "2026-11-18T04:30Z",
    "note": "published without approval; requests in the first 5 minutes are automated",
    "site_visits": "2 genuine (Facebook app, iPhone): 15:32Z opened the checklist PDF; 15:42Z landed on the tour section and viewed tour questions and costs; no assessment or tour form; requests in the first 5 minutes excluded as automated"
   }
@@ -195,7 +195,8 @@
    "notes": "join asked no questions; waiting for admin approval",
    "min_gap_days": 7,
    "next_ok_utc": null,
-   "checked_utc": "2026-11-17T22:27Z"
+   "checked_utc": "2026-11-17T22:27Z",
+   "join_checked_utc": "2026-11-18T04:30Z"
   },
   {
    "id": "group:346720145710365",
@@ -326,7 +327,6 @@
   ]
  },
  "log": [
-  "2026-11-17T01:31Z fb-profile-1116: 0 reactions, comments, shares; all its site traffic so far automated; 0 genuine visitors",
   "2026-11-17T01:34Z daily rollup sent (first run after 19:00 Chicago)",
   "2026-11-17T02:23Z run: re-armed for 03:23Z; 0 tour requests; Facebook reachable, his session confirmed; fb-profile-1116 still 0 reactions, comments, shares; site traffic since 01:31Z all automated",
   "2026-11-17T02:29Z cap check: 3 posts submitted in the last 7 days (pending Everything Evanston post included), so the next post moves from Tue 17 Nov to Fri 20 Nov after 15:53 Chicago",
@@ -365,11 +365,12 @@
   "2026-11-18T01:43Z 24/7 restructure: cloud operator created (hourly, PC-independent) and verified; recovery test showed scheduled runs cannot re-arm the session operator (refused), so recovery = safety net + watchdog alert; session operator now owns only Facebook/Search Console and sleeps overnight",
   "2026-11-18T01:51Z owner verification report for the 19:18 request: schedules listed from list_triggers (cloud operator, session operator, watchdog, drafts routine enabled; older tasks disabled); cloud push test returned 'Mobile push requested'; limits stated (Facebook only while his Chrome is on; no automatic recovery); corrected the earlier claim that a watchdog test push would arrive; Issue #25 status comment updated",
   "2026-11-18T02:50Z owner message 20:39 Chicago (no approval requests for routine work; don't retry platform blocks; max autonomy): operator instructions now carry AUTHORITY and PLATFORM LIMITS; open owner questions closed (Nextdoor if signed in and allowed, LinkedIn skipped); first on-schedule cloud run 02:23Z SUCCEEDED; session operator aligned with the cloud operator's redesign",
-  "2026-11-18T03:20Z lead scan: 139 recent posts in 6 groups, 0 families asking (only match: the same yoga studio ad); identity OK; first on-schedule cloud run (02:23Z) SUCCEEDED"
+  "2026-11-18T03:20Z lead scan: 139 recent posts in 6 groups, 0 families asking (only match: the same yoga studio ad); identity OK; first on-schedule cloud run (02:23Z) SUCCEEDED",
+  "2026-11-18T04:30Z Facebook checks: Everything Evanston cost post still pending; 4 live posts show no reactions or comments (posts pages and notifications: none); What's Happening in Evanston join request still pending; identity OK; next session 9:00 Chicago"
  ],
  "next_actions": [
   "Wed 18 Nov 9:00-19:00 Chicago: EXPERIMENT E1, template B in What's Happening in Wilmette illinois (#employed), tag fb-wil-1118; measure at +24h and +48h against fb-evsk-1117",
-  "lead scans from 13:00Z (7:00 Chicago); reply publicly under 5c only if a lead qualifies; Facebook checks and Evanston join status at 04:27Z, then sleep until 9:00",
+  "9:00 Chicago session (15:00Z): lead scan, Facebook checks, Evanston join status, Nextdoor check (6b); reply publicly under 5c only if a lead qualifies",
   "Fri 20 Nov after 15:53 Chicago: Winnetka post using the E1 winner's hook, tag fb-wnk-1120",
   "Search Console from 19 Nov: add topics with real queries to DEMAND.md; no new guides or legal/medical claims without owner approval (19:02 directive)",
   "Everything Evanston stays pending; NS checklist 7-day result after 23 Nov 04:42Z; Nextdoor check (step 6b) in the first daytime session with Chrome"
@@ -433,11 +434,11 @@
  },
  "due": {
   "post_next": "2026-11-18T15:00Z",
-  "fb_checks": "2026-11-18T04:27Z",
+  "fb_checks": "2026-11-18T15:00Z",
   "lead_scan": "2026-11-18T13:00Z",
   "metrics": "2026-11-19T00:05Z",
   "venues": "2026-11-24T15:00Z",
-  "evanston_join_status": "2026-11-18T04:27Z",
+  "evanston_join_status": "2026-11-18T15:00Z",
   "rollup": "2026-11-19T01:00Z",
   "guides": "no drafts left worth publishing today (two deferred with reasons); next drafts run 18 Nov ~12:02Z",
   "search_console": "2026-11-19T15:00Z"
