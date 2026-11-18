@@ -34,8 +34,8 @@
   "site": {
     "fail_count": 0,
     "down_since_utc": null,
-    "last_check_utc": "2026-11-18T16:25Z",
-    "last_check_method": "Netlify status codes last 2h: 200 x268, 206 x29, 301 x19, 304 x4, 404 x100, no 5xx"
+    "last_check_utc": "2026-11-18T18:25Z",
+    "last_check_method": "Netlify status codes last 2h: 200 x81, 206 x1, 301 x2, 304 x7, 404 x3, no 5xx"
   },
   "recovery": {
     "last_attempt_utc": "2026-11-18T01:39Z",
@@ -85,6 +85,20 @@
       "h24": "UNVERIFIED (outside Netlify retention)",
       "h48": "UNVERIFIED (outside Netlify retention)",
       "written_utc": "2026-11-18T01:30Z"
+    },
+    "fb-evsk-1117": {
+      "h24": {
+        "window_utc": "2026-11-17T15:00Z/2026-11-18T15:00Z",
+        "genuine_visitors": "2 per state.json E1 baseline; Netlify retained part (from 17 Nov 18:24Z) shows 1 landed + 1 tour-questions beacon (Android 18 Nov 13:23Z, genuine)",
+        "checklist_opens": "1 per state.json; not rechecked",
+        "assessment_starts": 0,
+        "assessment_completions": 0,
+        "tour_questions_views": 1,
+        "tour_form_views": 0,
+        "tour_requests": 0,
+        "source": "state.json baseline + Netlify topk urls_with_query (15:00-18:24Z 17 Nov outside retention)",
+        "written_utc": "2026-11-18T18:25Z"
+      }
     }
   },
   "experiments": {},
@@ -109,7 +123,8 @@
     "2026-11-18T10:25Z run: 0 tour requests; site OK; session operator overnight (last run 04:30Z, FB reachable, next due 13:00Z); metrics 06:24Z-10:24Z: 0 genuine (1 fb-evsk-1117 hit = Googlebot-Image); no new opportunity",
     "2026-11-18T13:25Z run: 0 tour requests; site OK; FB interruption recorded (session operator last run 04:30Z, lead_scan 13:00Z missed; watchdog owns alert); metrics 10:24Z-13:25Z: 1 genuine fb-evsk-1117 visitor (Android, 13:23Z) with tour-questions view, 0 checklist/assessment/tour-form; no new opportunity (E1 pending)",
     "2026-11-18T15:24Z run: 0 tour requests; site OK; FB interruption ended (session operator ran 15:11Z, FB reachable; 04:30Z-15:11Z, missed lead_scan 13:00Z); fb-wil-1118 (E1) visible 15:06Z; metrics not due (last 13:25Z)",
-    "2026-11-18T16:25Z run: 0 tour requests; site OK (no 5xx); session operator healthy (last run 15:11Z, FB reachable); metrics 13:25Z-16:25Z: 0 genuine (fb-wil-1118 hits all Meta crawlers/post-time burst); opportunity OP1: Wilmette post link tag reads fb-wil-1118Disclosure"
+    "2026-11-18T16:25Z run: 0 tour requests; site OK (no 5xx); session operator healthy (last run 15:11Z, FB reachable); metrics 13:25Z-16:25Z: 0 genuine (fb-wil-1118 hits all Meta crawlers/post-time burst); opportunity OP1: Wilmette post link tag reads fb-wil-1118Disclosure",
+    "2026-11-18T18:25Z run: 0 tour requests; site OK (no 5xx); session operator healthy (last run 16:41Z, FB reachable); fb-evsk-1117 +24h written (2 genuine, 1 checklist open, 1 tour-questions view, 0 assessments/tour-form/requests); metrics not due (last 16:25Z)"
   ],
   "facebook_interruptions_past": [
     {
