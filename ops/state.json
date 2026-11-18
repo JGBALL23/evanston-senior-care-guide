@@ -1,8 +1,8 @@
 {
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
- "updated_utc": "2026-11-18T01:03Z",
- "last_run_utc": "2026-11-18T01:03Z",
+ "updated_utc": "2026-11-18T01:12Z",
+ "last_run_utc": "2026-11-18T01:12Z",
  "facebook": {
   "access": "yes via Claude in Chrome (his browser c8d89af0), checked 00:07Z 18 Nov",
   "last_access_ok_utc": "2026-11-18T01:02Z",
@@ -326,7 +326,6 @@
   ]
  },
  "log": [
-  "2026-11-17T00:41Z posted template P on the owner's profile (Public, his setting), tag fb-profile-1116; composer text read back and matched; no Facebook warning",
   "2026-11-17T00:48Z owner decisions: join groups allowed (public, no questions, he qualifies); keep Everything Evanston post pending; PR #22 approved with conditions; Friday reminder deleted",
   "2026-11-17T00:54Z PR #22 released: merge 1dc0004, deploy 6afba5a9ea3f94d69014251e, live check 0 problems (also shipped #27 tap-to-call and #28 skip links)",
   "2026-11-17T01:24Z first schedule-fired run (not by hand): re-armed for 02:23Z; 0 tour requests; Facebook reachable, his session confirmed",
@@ -365,14 +364,15 @@
   "2026-11-17T23:20Z lead scan: 116 recent posts in 6 groups, 0 families asking (one match was the yoga studio ad again); Gmail: no tour requests",
   "2026-11-18T00:09Z daily metrics (last 24h): 2 genuine Facebook visitors (both fb-evsk-1117, 15:32Z and 15:42Z); 0 assessment starts, 0 tour-form views, 0 tour requests; Gmail: none",
   "2026-11-18T00:30Z site: Supportive Living guide now covers dementia care settings (HFS Cook County list: none in Evanston or nearby suburbs; closest is Asbury Court, Des Plaines; IDPH: 20 certified statewide), PR #71; memory-care statute pages on ilga.gov blocked to the fetch tool, so no unverifiable legal claims published",
-  "2026-11-18T01:03Z daily rollup sent: 0 tour requests, tours UNVERIFIED, 2 genuine Facebook visitors today, 0 assessments, 4 posts live + 1 pending, 33 guides live (17 added 17 Nov); owner question (Nextdoor/LinkedIn) asked in chat 23:57Z, awaiting answer"
+  "2026-11-18T01:03Z daily rollup sent: 0 tour requests, tours UNVERIFIED, 2 genuine Facebook visitors today, 0 assessments, 4 posts live + 1 pending, 33 guides live (17 added 17 Nov); owner question (Nextdoor/LinkedIn) asked in chat 23:57Z, awaiting answer",
+  "2026-11-18T01:12Z owner directive 19:02 Chicago (growth first; Facebook primary; no new guides without demand; new legal/medical claims need his approval): operator instructions updated; cloud watchdog created and test-fired (SUCCEEDED); drafts routine gated on DEMAND.md (PR #73); E1 Wilmette cost-post experiment planned for 18 Nov"
  ],
  "next_actions": [
-  "next lead scan 03:16Z (21:16 Chicago, last of the day), then 13:00Z tomorrow; reply publicly under 5c only if a lead qualifies",
-  "00:05Z daily metrics; 01:00Z daily rollup (include one owner question: Nextdoor or LinkedIn with his own account?)",
-  "Wed 18 Nov 9:00-19:00 Chicago: template B (costs) naming Wilmette in What's Happening in Wilmette illinois, #employed after the disclosure, tag fb-wil-1118",
-  "18 Nov after the drafts run (~12:02Z): verify and publish any decision-stage draft; Search Console data from 19 Nov",
-  "Fri 20 Nov after 15:53 Chicago: post in What's Happening in Winnetka illinois, tag fb-wnk-1120; Everything Evanston stays pending; NS checklist 7-day result after 23 Nov 04:42Z"
+  "Wed 18 Nov 9:00-19:00 Chicago: EXPERIMENT E1, template B in What's Happening in Wilmette illinois (#employed), tag fb-wil-1118; measure at +24h and +48h against fb-evsk-1117",
+  "lead scans 03:16Z tonight, then from 13:00Z; reply publicly under 5c only if a lead qualifies",
+  "Fri 20 Nov after 15:53 Chicago: Winnetka post using the E1 winner's hook, tag fb-wnk-1120",
+  "Search Console from 19 Nov: add topics with real queries to DEMAND.md; no new guides or legal/medical claims without owner approval (19:02 directive)",
+  "Everything Evanston stays pending; NS checklist 7-day result after 23 Nov 04:42Z; owner question open: Nextdoor/LinkedIn"
  ],
  "one_offs": {
   "pr22": "done: released 2026-11-17T00:54Z. Merged with main (all suites passed: check-guides 1501, test.js 768, inquiry validation 36, checklist-click 30, start-source 21, tour-source 23, paying-nav 314, checklist PDF, publish 32; build reproduces _dist); consent wording, form fields, server code and inquiry payload unchanged; merge commit 1dc0004; Netlify deploy 6afba5a9ea3f94d69014251e (4 functions); live check 33/33 files, 0 problems; also shipped the reviewed #27 and #28",
@@ -474,5 +474,24 @@
   },
   "routine": "ROUTINE.md on drafts: quotation and paraphrase integrity rules added (PR #52, owner-approved 11:56 Chicago); the routine trigger itself can only be edited by the owner (created outside agents), and it reads ROUTINE.md as its procedure; PR #64 (17 Nov): Step 2 prefers decision-stage topics, Step 3 adds two integrity rules",
   "last_guide_utc": "2026-11-17T22:54Z"
- }
+ },
+ "automation": {
+  "operator": "session-bound one-shot that re-arms itself (trig_012iD5B32YGMx8Q9efdMRzhk); fires into the owner's main chat, which has Claude in Chrome; runs confirmed 22:15Z, 23:13Z, 00:06Z, 01:01Z (17-18 Nov)",
+  "facebook_access": "only via the owner's Windows Chrome with the Claude extension (offline 08:23-14:04Z on 17 Nov); fresh cloud sessions have no Facebook (tested 17 Nov 00:19Z)",
+  "watchdog": "ESCG watchdog (cloud) trig_019ZHCm3aun4X2K9tjNEBPCf, cron CRON_TZ=America/Chicago 37 10,13,16,19,22; reads last_run_utc, alerts the owner if the operator stalls (>200 min); test fire 01:05Z 18 Nov: run status SUCCEEDED (owner asked to confirm the test push)",
+  "drafts_routine": "EVANSTON-DAILY-GUIDE-DRAFTS runs independently daily (~12:03Z); since PR #73 it writes a draft only for a topic under Open in DEMAND.md on drafts"
+ },
+ "experiments": [
+  {
+   "id": "E1",
+   "start": "2026-11-18 9:00-19:00 Chicago",
+   "venue": "group:1086282042874547 What's Happening in Wilmette illinois",
+   "content": "template B (costs -> cost guide with checklist and tour link), #employed",
+   "tag": "fb-wil-1118",
+   "baseline": "fb-evsk-1117 (template A): 2 genuine visitors, 1 checklist open, 1 tour-questions view, 0 assessment starts, 0 tour-form views, 0 inquiries",
+   "measure": "+24h and +48h: genuine visitors, checklist opens, assessment starts/completions, tour-form views, tour requests",
+   "decision": "hook with more genuine visitors or any tour-form view is used for Winnetka on Fri 20 Nov",
+   "caveat": "tiny samples: directional only"
+  }
+ ]
 }
