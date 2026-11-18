@@ -1,12 +1,12 @@
 {
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
- "updated_utc": "2026-11-18T04:30Z",
- "last_run_utc": "2026-11-18T04:30Z",
+ "updated_utc": "2026-11-18T15:08Z",
+ "last_run_utc": "2026-11-18T15:08Z",
  "facebook": {
-  "access": "yes via Claude in Chrome (his browser c8d89af0), checked 04:30Z 18 Nov",
-  "last_access_ok_utc": "2026-11-18T04:30Z",
-  "last_checks_utc": "2026-11-18T04:30Z",
+  "access": "yes via Claude in Chrome (his browser c8d89af0), checked 15:08Z 18 Nov",
+  "last_access_ok_utc": "2026-11-18T15:08Z",
+  "last_checks_utc": "2026-11-18T15:08Z",
   "unreachable_since_utc": null,
   "unreachable_reported_utc": null,
   "blocker": null
@@ -84,6 +84,20 @@
    "checked_utc": "2026-11-18T04:30Z",
    "note": "published without approval; requests in the first 5 minutes are automated",
    "site_visits": "2 genuine (Facebook app, iPhone): 15:32Z opened the checklist PDF; 15:42Z landed on the tour section and viewed tour questions and costs; no assessment or tour form; requests in the first 5 minutes excluded as automated"
+  },
+  {
+   "tag": "fb-wil-1118",
+   "venue": "group:1086282042874547",
+   "venue_name": "What's Happening in Wilmette illinois",
+   "content": "assisted living costs (template B, Wilmette first sentence, #employed)",
+   "status": "live",
+   "submitted_utc": "2026-11-18T15:06Z",
+   "visible_utc": "2026-11-18T15:06Z",
+   "reactions": 0,
+   "comments": 0,
+   "shares": 0,
+   "checked_utc": "2026-11-18T15:08Z",
+   "note": "experiment E1; group rules re-read before posting (disclosure hashtag, ads at most 2-3 a week); requests in the first 5 minutes are automated"
   }
  ],
  "venues": [
@@ -162,8 +176,9 @@
    "rules": "public; business posts allowed if licensed; disclose employment (they suggest #employed); advertising at most 2-3 times a week; no politics, crowdfunding or animal sales",
    "notes": "3.5K members, about 19 posts a day; no join questions",
    "min_gap_days": 7,
-   "next_ok_utc": null,
-   "checked_utc": "2026-11-17T15:07Z"
+   "next_ok_utc": "2026-11-25T15:06Z",
+   "checked_utc": "2026-11-18T15:08Z",
+   "last_post_utc": "2026-11-18T15:06Z"
   },
   {
    "id": "group:1316163449754368",
@@ -327,7 +342,6 @@
   ]
  },
  "log": [
-  "2026-11-17T01:34Z daily rollup sent (first run after 19:00 Chicago)",
   "2026-11-17T02:23Z run: re-armed for 03:23Z; 0 tour requests; Facebook reachable, his session confirmed; fb-profile-1116 still 0 reactions, comments, shares; site traffic since 01:31Z all automated",
   "2026-11-17T02:29Z cap check: 3 posts submitted in the last 7 days (pending Everything Evanston post included), so the next post moves from Tue 17 Nov to Fri 20 Nov after 15:53 Chicago",
   "2026-11-17T08:23Z overnight runs 04:23-08:23Z on schedule: 0 tour requests, 0 genuine visitors; his Chrome not connected since 08:23Z (Facebook work skipped until it returns)",
@@ -366,10 +380,11 @@
   "2026-11-18T01:51Z owner verification report for the 19:18 request: schedules listed from list_triggers (cloud operator, session operator, watchdog, drafts routine enabled; older tasks disabled); cloud push test returned 'Mobile push requested'; limits stated (Facebook only while his Chrome is on; no automatic recovery); corrected the earlier claim that a watchdog test push would arrive; Issue #25 status comment updated",
   "2026-11-18T02:50Z owner message 20:39 Chicago (no approval requests for routine work; don't retry platform blocks; max autonomy): operator instructions now carry AUTHORITY and PLATFORM LIMITS; open owner questions closed (Nextdoor if signed in and allowed, LinkedIn skipped); first on-schedule cloud run 02:23Z SUCCEEDED; session operator aligned with the cloud operator's redesign",
   "2026-11-18T03:20Z lead scan: 139 recent posts in 6 groups, 0 families asking (only match: the same yoga studio ad); identity OK; first on-schedule cloud run (02:23Z) SUCCEEDED",
-  "2026-11-18T04:30Z Facebook checks: Everything Evanston cost post still pending; 4 live posts show no reactions or comments (posts pages and notifications: none); What's Happening in Evanston join request still pending; identity OK; next session 9:00 Chicago"
+  "2026-11-18T04:30Z Facebook checks: Everything Evanston cost post still pending; 4 live posts show no reactions or comments (posts pages and notifications: none); What's Happening in Evanston join request still pending; identity OK; next session 9:00 Chicago",
+  "2026-11-18T15:08Z posted E1 in What's Happening in Wilmette (template B, #employed, tag fb-wil-1118): published 15:06Z; pushed Joseph the permalink. Lead scan 15:04Z: 234 posts in 6 groups, 0 families asking. Checks: Everything Evanston still pending, no reactions or comments on live posts, Evanston group join still pending"
  ],
  "next_actions": [
-  "Wed 18 Nov 9:00-19:00 Chicago: EXPERIMENT E1, template B in What's Happening in Wilmette illinois (#employed), tag fb-wil-1118; measure at +24h and +48h against fb-evsk-1117",
+  "E1 posted 15:06Z in Wilmette (fb-wil-1118, published); cloud operator measures +24h (19 Nov 15:06Z) and +48h vs fb-evsk-1117",
   "9:00 Chicago session (15:00Z): lead scan, Facebook checks, Evanston join status, Nextdoor check (6b); reply publicly under 5c only if a lead qualifies",
   "Fri 20 Nov after 15:53 Chicago: Winnetka post using the E1 winner's hook, tag fb-wnk-1120",
   "Search Console from 19 Nov: add topics with real queries to DEMAND.md; no new guides or legal/medical claims without owner approval (19:02 directive)",
@@ -427,18 +442,25 @@
     "posts_scanned": 139,
     "leads": 0,
     "note": "evening scan of posts since 23:16Z; only match was the same yoga studio ad aimed at caregivers"
+   },
+   {
+    "utc": "2026-11-18T15:04Z",
+    "groups": 6,
+    "posts_scanned": 234,
+    "leads": 0,
+    "note": "first scan of the day; only match was the same yoga studio ad aimed at caregivers"
    }
   ],
   "method": "chronological feed of each member group, in-page keyword filter (senior-care terms + a request + not a business ad); about 2-4 days of posts per group on the first scan",
   "replied": []
  },
  "due": {
-  "post_next": "2026-11-18T15:00Z",
-  "fb_checks": "2026-11-18T15:00Z",
-  "lead_scan": "2026-11-18T13:00Z",
+  "post_next": "2026-11-19T15:00Z",
+  "fb_checks": "2026-11-18T17:00Z",
+  "lead_scan": "2026-11-18T19:05Z",
   "metrics": "2026-11-19T00:05Z",
   "venues": "2026-11-24T15:00Z",
-  "evanston_join_status": "2026-11-18T15:00Z",
+  "evanston_join_status": "2026-11-19T15:00Z",
   "rollup": "2026-11-19T01:00Z",
   "guides": "no drafts left worth publishing today (two deferred with reasons); next drafts run 18 Nov ~12:02Z",
   "search_console": "2026-11-19T15:00Z"
@@ -502,7 +524,9 @@
    "baseline": "fb-evsk-1117 (template A): 2 genuine visitors, 1 checklist open, 1 tour-questions view, 0 assessment starts, 0 tour-form views, 0 inquiries",
    "measure": "+24h and +48h: genuine visitors, checklist opens, assessment starts/completions, tour-form views, tour requests",
    "decision": "hook with more genuine visitors or any tour-form view is used for Winnetka on Fri 20 Nov",
-   "caveat": "tiny samples: directional only"
+   "caveat": "tiny samples: directional only",
+   "posted_utc": "2026-11-18T15:06Z",
+   "status": "posted; measure at 2026-11-19T15:06Z (+24h) and 2026-11-20T15:06Z (+48h)"
   }
  ],
  "opportunities_done": []
