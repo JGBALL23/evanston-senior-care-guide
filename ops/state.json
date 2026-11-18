@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
- "updated_utc": "2026-11-18T15:11Z",
+ "updated_utc": "2026-11-18T15:49Z",
  "last_run_utc": "2026-11-18T15:11Z",
  "facebook": {
   "access": "yes via Claude in Chrome (his browser c8d89af0), checked 15:08Z 18 Nov",
@@ -342,7 +342,6 @@
   ]
  },
  "log": [
-  "2026-11-17T02:29Z cap check: 3 posts submitted in the last 7 days (pending Everything Evanston post included), so the next post moves from Tue 17 Nov to Fri 20 Nov after 15:53 Chicago",
   "2026-11-17T08:23Z overnight runs 04:23-08:23Z on schedule: 0 tour requests, 0 genuine visitors; his Chrome not connected since 08:23Z (Facebook work skipped until it returns)",
   "2026-11-17T13:24Z runs 09:23-13:24Z on schedule: 0 tour requests, 0 genuine visitors (crawlers and WordPress probes only); his Chrome still offline",
   "2026-11-17T14:32Z Facebook back (his Chrome reconnected 14:04Z); checks: all 3 live posts 0 reactions, 0 comments, 0 shares; Everything Evanston cost post still pending",
@@ -381,11 +380,12 @@
   "2026-11-18T03:20Z lead scan: 139 recent posts in 6 groups, 0 families asking (only match: the same yoga studio ad); identity OK; first on-schedule cloud run (02:23Z) SUCCEEDED",
   "2026-11-18T04:30Z Facebook checks: Everything Evanston cost post still pending; 4 live posts show no reactions or comments (posts pages and notifications: none); What's Happening in Evanston join request still pending; identity OK; next session 9:00 Chicago",
   "2026-11-18T15:08Z posted E1 in What's Happening in Wilmette (template B, #employed, tag fb-wil-1118): published 15:06Z; pushed Joseph the permalink. Lead scan 15:04Z: 234 posts in 6 groups, 0 families asking. Checks: Everything Evanston still pending, no reactions or comments on live posts, Evanston group join still pending",
-  "2026-11-18T15:11Z Nextdoor: signed in as Joseph; its Aug 2026 policy forbids business promotion from personal accounts (posts, comments, DMs), so no guide links there; Business Page would need his authorization; 17 recent posts, 0 families asking. No post possible Thu 19 Nov (5 posts in 7 days); next post Fri after 21:53Z"
+  "2026-11-18T15:11Z Nextdoor: signed in as Joseph; its Aug 2026 policy forbids business promotion from personal accounts (posts, comments, DMs), so no guide links there; Business Page would need his authorization; 17 recent posts, 0 families asking. No post possible Thu 19 Nov (5 posts in 7 days); next post Fri after 21:53Z",
+  "2026-11-18T15:49Z bookkeeping: the 18 Nov 'Facebook interruption' in cloud.json was the planned overnight sleep (due.lead_scan said 7:00 Chicago, wake was 9:00); due times now follow the actual wake"
  ],
  "next_actions": [
   "E1 posted 15:06Z in Wilmette (fb-wil-1118, published); cloud operator measures +24h (19 Nov 15:06Z) and +48h vs fb-evsk-1117",
-  "9:00 Chicago session (15:00Z): lead scan, Facebook checks, Evanston join status, Nextdoor check (6b); reply publicly under 5c only if a lead qualifies",
+  "Last session each night: set due.lead_scan (and any other morning due item) to the 9:00 Chicago wake, so the cloud operator doesn't log the overnight sleep as a Facebook interruption (it did 18 Nov, 04:30Z-15:11Z, because due said 13:00Z)",
   "Fri 20 Nov after 21:53Z (15:53 Chicago, when the 13 Nov post leaves the 7-day window): Winnetka post using the E1 winner's hook, tag fb-wnk-1120",
   "Search Console from 19 Nov: add topics with real queries to DEMAND.md; no new guides or legal/medical claims without owner approval (19:02 directive)",
   "Everything Evanston stays pending; NS checklist 7-day result after 23 Nov 04:42Z; Nextdoor: personal-account promotion not allowed (needs a Business Page, his call)"
