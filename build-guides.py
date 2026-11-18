@@ -454,8 +454,9 @@ TRULEE_EXAMPLE = (
 # The free tour checklist (owner-approved PDF, 2026-11-11): one quiet,
 # tappable download link, never a button class, so the gold assessment
 # button stays each page's only primary action. Shared by the homepage's
-# tour section (index.html, same markup) and the three guides whose
-# advice the checklist is built from. No email, no sign-up, no script.
+# tour section (index.html, same markup), the three guides whose
+# advice the checklist is built from, and the complaint guide (a family
+# reporting a facility may be about to compare others). No email, no sign-up, no script.
 TOUR_CHECKLIST = (
     '<p class="dl-cta"><a class="dl-link" '
     'href="/downloads/senior-living-tour-checklist.pdf" '
@@ -1377,6 +1378,7 @@ GUIDES = [
 
     {
         "slug": "illinois-care-facility-complaint",
+        "after_section": {"Where this fits with the rest of this site": TOUR_CHECKLIST + TOUR_ASK},
         "bridge": ("Some concerns are a problem with the care being given. Others are a "
                "sign the setting itself no longer matches what your parent needs. "
                "Those two look alike from the outside."),
