@@ -6,9 +6,9 @@
     "note": "tour-request alerts: sha256(message id) and time only"
   },
   "metrics": {
-    "last_utc": "2026-11-18T16:25Z",
-    "window_utc": "2026-11-18T13:25Z/2026-11-18T16:25Z",
-    "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs; fb-wil-1118Disclosure counted as fb-wil-1118",
+    "last_utc": "2026-11-18T20:25Z",
+    "window_utc": "2026-11-18T16:25Z/2026-11-18T20:25Z",
+    "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs",
     "per_tag": {
       "fb-wil-1118": {
         "genuine_visitors": 0,
@@ -18,6 +18,26 @@
         "tour_questions_views": 0,
         "tour_form_views": 0,
         "tour_requests": 0
+      },
+      "em-fsg-1118": {
+        "genuine_visitors": "UNVERIFIED (1-2)",
+        "landings": 2,
+        "beacons": 2,
+        "checklist_opens": 0,
+        "assessment_starts": 0,
+        "assessment_completions": 0,
+        "tour_form_views": 0,
+        "tour_requests": 0
+      },
+      "em-lf-1118": {
+        "genuine_visitors": "UNVERIFIED (1)",
+        "landings": 1,
+        "beacons": 1,
+        "checklist_opens": 0,
+        "assessment_starts": 0,
+        "assessment_completions": 0,
+        "tour_form_views": 0,
+        "tour_requests": 0
       }
     },
     "checklist_opens": 0,
@@ -25,7 +45,7 @@
     "assessment_completions": 0,
     "tour_form_views": 0,
     "tour_requests": 0,
-    "genuine_detail": "0 genuine. fb-wil-1118: 19 fbclid page hits 15:07-15:18Z = facebookexternalhit x10, Android burst 15:07Z (within 5 min of post) x5, Windows Chrome/139 x4 paired with externalhit on same fbclid, no JS beacons; all /t/ beacons (3) = meta-webindexer; checklist PDF 34 hits all facebookexternalhit"
+    "genuine_detail": "fb-wil-1118: 2 tagged hits 17:45Z/18:13Z both facebookexternalhit (now clean ?ref, no Disclosure suffix). em-fsg-1118/em-lf-1118 (tags not in state.json): 3 landings 19:41-19:42Z with JS beacons from Windows Chrome 154/155 and Edge 157 within 1 min; could be recipients or email link scanners. 1 checklist PDF hit = iPhone OS 13_2_3 (stale UA, treated as bot). 4 direct landed beacons, Windows Chrome, untagged."
   },
   "summary": {
     "last_utc": "2026-11-18T01:01Z",
@@ -34,8 +54,8 @@
   "site": {
     "fail_count": 0,
     "down_since_utc": null,
-    "last_check_utc": "2026-11-18T18:25Z",
-    "last_check_method": "Netlify status codes last 2h: 200 x81, 206 x1, 301 x2, 304 x7, 404 x3, no 5xx"
+    "last_check_utc": "2026-11-18T20:25Z",
+    "last_check_method": "Netlify status codes last 2h: 200 x44, 301 x5, 404 x1, no 5xx"
   },
   "recovery": {
     "last_attempt_utc": "2026-11-18T01:39Z",
@@ -124,7 +144,8 @@
     "2026-11-18T13:25Z run: 0 tour requests; site OK; FB interruption recorded (session operator last run 04:30Z, lead_scan 13:00Z missed; watchdog owns alert); metrics 10:24Z-13:25Z: 1 genuine fb-evsk-1117 visitor (Android, 13:23Z) with tour-questions view, 0 checklist/assessment/tour-form; no new opportunity (E1 pending)",
     "2026-11-18T15:24Z run: 0 tour requests; site OK; FB interruption ended (session operator ran 15:11Z, FB reachable; 04:30Z-15:11Z, missed lead_scan 13:00Z); fb-wil-1118 (E1) visible 15:06Z; metrics not due (last 13:25Z)",
     "2026-11-18T16:25Z run: 0 tour requests; site OK (no 5xx); session operator healthy (last run 15:11Z, FB reachable); metrics 13:25Z-16:25Z: 0 genuine (fb-wil-1118 hits all Meta crawlers/post-time burst); opportunity OP1: Wilmette post link tag reads fb-wil-1118Disclosure",
-    "2026-11-18T18:25Z run: 0 tour requests; site OK (no 5xx); session operator healthy (last run 16:41Z, FB reachable); fb-evsk-1117 +24h written (2 genuine, 1 checklist open, 1 tour-questions view, 0 assessments/tour-form/requests); metrics not due (last 16:25Z)"
+    "2026-11-18T18:25Z run: 0 tour requests; site OK (no 5xx); session operator healthy (last run 16:41Z, FB reachable); fb-evsk-1117 +24h written (2 genuine, 1 checklist open, 1 tour-questions view, 0 assessments/tour-form/requests); metrics not due (last 16:25Z)",
+    "2026-11-18T20:25Z run: 0 tour requests; site OK (no 5xx); session operator healthy (last run 20:14Z, FB reachable); metrics 16:25Z-20:25Z: fb-wil-1118 0 genuine (2 crawler hits); unrecorded email tags em-fsg-1118 x2 / em-lf-1118 x1 landings 19:41Z, genuineness UNVERIFIED; 0 checklist/assessment/tour-form; no new opportunity"
   ],
   "facebook_interruptions_past": [
     {
