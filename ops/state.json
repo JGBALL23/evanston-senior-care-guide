@@ -650,7 +650,7 @@
  "nextdoor": {
   "checked_utc": "2026-11-18T15:11Z",
   "signed_in": true,
-  "identity": "Joseph Gonzales (confirmed)",
+  "identity": "owner (confirmed)",
   "area": "north Chicago and nearby suburbs (his neighborhood feed)",
   "policy": "Nextdoor self-promotion update (blog, 19 Aug 2026): promoting a business, service or paid opportunity from a personal account is not allowed in main-feed posts or comments or by unsolicited DM; it must come from a free Business Page; Groups follow their admins' rules",
   "verdict": "no guide links or promotional replies from his personal account; a Business Page would need his specific authorization (creating Pages is reserved to him); recent feed read once: 17 posts, 0 families asking",
@@ -785,7 +785,7 @@
    "utc": "2026-11-18T17:12:58Z",
    "domain_sha256": "3d97ef57df72afca",
    "msg_sha256": "84853d02d0c9ee30",
-   "kind": "local newspaper: bylined guest essay",
+   "kind": "local publication",
    "by": "sent from Drafts outside this chat; actor unconfirmed",
    "disclosure": true
   },
@@ -928,7 +928,7 @@
    "type": "email",
    "status": "blocked",
    "owner": "Joseph",
-   "note": "newspaper requires a phone number to verify E-1118-04; only Joseph supplies it, privately, in that thread; the operator sends nothing further there"
+   "note": "E-1118-04 needs a verification detail only Joseph can give, privately; the operator sends nothing further there"
   },
   {
    "id": "B-EE",
