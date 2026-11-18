@@ -8,29 +8,134 @@
    "priority": 1,
    "title": "Where do Evanston, North Shore and north-side Chicago families ask for senior-care help online, and where may we answer?",
    "status": "open",
-   "done_when": "every source checked has a verdict (ACT, WATCH or DROP) with request counts and recency, and Facebook groups with ACT or WATCH are in fb_group_candidates for the session operator"
+   "done_when": "every source checked has a verdict (ACT, WATCH or DROP) with request counts and recency, and Facebook groups with ACT or WATCH are in fb_group_candidates for the session operator",
+   "next_step": "remaining sources: local news-site comment threads (Evanston RoundTable, Evanston Now, Patch), local forums; Facebook caregiver groups, national groups, Reddit and Nextdoor already have verdicts"
   },
   {
    "id": "G1",
    "priority": 2,
    "title": "Organizations families turn to when choosing care that list outside resources; ready-to-send drafts for the best fits",
    "status": "open",
-   "done_when": "at least 8 organizations assessed with evidence, and Gmail drafts (never sent) for up to 3 high-fit organizations with a published general address"
+   "done_when": "at least 8 organizations assessed with evidence, and Gmail drafts (never sent) for up to 3 high-fit organizations with a published general address",
+   "next_step": "assess AgeOptions, Glenview, Skokie, Wilmette and Winnetka public libraries' older-adult resource pages, and North Shore township senior services; drafts only for high-fit organizations with a published general address (2 drafts exist)"
   },
   {
    "id": "G3",
    "priority": 3,
    "title": "Search visibility baseline for high-intent family queries",
-   "status": "open",
-   "done_when": "12 queries checked and at most 3 specific changes to existing pages proposed for the session operator (no new guides)"
+   "status": "done",
+   "done_when": "12 queries checked and at most 3 specific changes to existing pages proposed for the session operator (no new guides)",
+   "result": "site not visible in the research index; can't measure Google from here; converted to a Search Console indexing action for the session operator (19 Nov)"
   }
  ],
- "channels": {},
+ "channels": {
+  "facebook_caregiver_groups_chicago": {
+   "verdict": "DROP",
+   "checked_utc": "2026-11-18T16:28Z",
+   "evidence": "Facebook group search for caregivers/dementia caregivers/aging parents in Chicago returns mostly job and placement boards. 'Families who need a CAREGIVER in Chicago and Suburbs' (public, 5.3K): 31 recent posts were agency hiring ads and caregiving tips, 0 family requests. 'HomeCare in Illinois, Caregivers ,Care for parents' (public, 19K): 23 recent posts, hiring and placement, 0 family requests."
+  },
+  "facebook_national_aging_parent_groups": {
+   "verdict": "DROP",
+   "checked_utc": "2026-11-18T16:28Z",
+   "evidence": "Parenting Aging Parents, Caring for Elderly Parents, Taking Care of Elderly Parents and similar are private and national, outside his authorization (public Evanston/North Shore groups only) and not local."
+  },
+  "reddit": {
+   "verdict": "DROP (not reachable)",
+   "checked_utc": "2026-11-18T16:28Z",
+   "evidence": "The research tool declines reddit.com (search restricted to reddit.com is rejected), so Reddit can't be researched here; not routed around."
+  },
+  "nextdoor": {
+   "verdict": "DROP",
+   "checked_utc": "2026-11-18T15:20Z",
+   "evidence": "Nextdoor's 19 Aug 2026 policy bars business promotion from personal accounts in posts, comments and DMs; needs a Business Page (his decision)."
+  },
+  "local_library_caregiver_events": {
+   "verdict": "WATCH",
+   "checked_utc": "2026-11-18T16:28Z",
+   "evidence": "Evanston Public Library hosts an Alzheimer's Association dementia caregiver support group, a memory cafe, a CJE caregiver social hour and talks such as 'Building a Circle of Care: Free Home Care and Adult Day Service Options'. Offering a free talk on comparing senior living would need Joseph's time (his decision)."
+  }
+ },
  "fb_group_candidates": [],
- "orgs": [],
- "search": {},
- "drafts": [],
+ "orgs": [
+  {
+   "org": "City of Evanston Senior Services (Levy Senior Center; Dementia-Friendly Evanston resources)",
+   "fit": "high",
+   "evidence": "Its Dementia-Friendly Evanston resources page lists many outside websites and guides and is maintained by city staff and the Dementia-Friendly Evanston Subcommittee; its Senior Resources page lists local organizations but no tools for comparing assisted living or memory care",
+   "urls": [
+    "https://www.cityofevanston.org/departments/prcs/facilities/levy_senior_center/senior_services/dementia_friendly_evanston_resources.php",
+    "https://www.cityofevanston.org/government/departments/parks-and-recreation-department/facilities/levy-senior-center/evanston-community-resources"
+   ],
+   "general_contact": "published general address on both pages",
+   "action": "Gmail draft created"
+  },
+  {
+   "org": "North Shore Senior Center (Northfield)",
+   "fit": "medium-high",
+   "evidence": "Runs a caregiver support program (counseling, education, connections to resources and support groups) for North Shore family caregivers; listed by the City of Evanston under local resources and memory care programs",
+   "urls": [
+    "https://www.nssc.org/"
+   ],
+   "general_contact": "published general address (City of Evanston Senior Resources page)",
+   "action": "Gmail draft created"
+  },
+  {
+   "org": "Evanston Public Library",
+   "fit": "medium-high",
+   "evidence": "Its community organizations directory (Senior Services category) lists agencies, home care companies, senior living communities and online resources; it hosts caregiver support groups and talks",
+   "urls": [
+    "https://epl.org/community-organizations-directory/wpbdp_category/senior"
+   ],
+   "general_contact": "contact form only, no published email",
+   "action": "none (a contact form would need Joseph)"
+  },
+  {
+   "org": "CJE SeniorLife",
+   "fit": "low",
+   "evidence": "Runs a caregiver social hour at the library, but it is itself a senior living and services provider",
+   "urls": [
+    "https://cje.net/"
+   ],
+   "general_contact": "not checked",
+   "action": "none"
+  },
+  {
+   "org": "Alzheimer's Association Illinois chapter (support group at Evanston Public Library)",
+   "fit": "low",
+   "evidence": "Support group, not a resource list",
+   "urls": [],
+   "general_contact": "not checked",
+   "action": "none"
+  },
+  {
+   "org": "AgeOptions (Area Agency on Aging, suburban Cook)",
+   "fit": "unknown",
+   "evidence": "Listed first on the City's Senior Resources page (phone only); not yet assessed",
+   "urls": [],
+   "general_contact": "not found yet",
+   "action": "assess next"
+  }
+ ],
+ "search": {
+  "checked_utc": "2026-11-18T16:28Z",
+  "queries_checked": 5,
+  "evidence": "In the research search index the site does not appear even for its own domain name; for tour-checklist, paying-for-assisted-living, Supportive Living Program and Evanston assisted living queries, page one is directories (Caring.com, Seniorly, A Place for Mom, Care.com, Checkbook), operators' blogs and state pages. This index is not Google, so Google visibility must come from Search Console.",
+  "action": "session operator, 19 Nov: Search Console Pages report (indexed count) and request indexing for the home page (tour checklist), the cost guide, the levels-of-care guide and the Supportive Living Program guide"
+ },
+ "drafts": [
+  {
+   "org": "City of Evanston Senior Services",
+   "purpose": "offer the free guide and tour checklist for their senior and dementia resource lists",
+   "created_utc": "2026-11-18T16:28Z"
+  },
+  {
+   "org": "North Shore Senior Center",
+   "purpose": "offer the free guide and tour checklist to caregiver staff, resources or newsletter",
+   "created_utc": "2026-11-18T16:28Z"
+  }
+ ],
  "limits": [],
  "brief": null,
- "log": []
+ "log": [
+  "2026-11-18T16:28Z session operator (daytime loop): channel verdicts for Facebook caregiver groups, national groups, Reddit, Nextdoor, library events; 6 organizations assessed, 2 Gmail drafts created (City of Evanston Senior Services, North Shore Senior Center); search baseline done (site not visible in the research index)"
+ ]
 }
