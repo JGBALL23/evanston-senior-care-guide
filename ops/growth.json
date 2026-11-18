@@ -25,7 +25,7 @@
    "title": "Search visibility baseline for high-intent family queries",
    "status": "done",
    "done_when": "12 queries checked and at most 3 specific changes to existing pages proposed for the session operator (no new guides)",
-   "result": "site not visible in the research index; can't measure Google from here; converted to a Search Console indexing action for the session operator (19 Nov)"
+   "result": "site not visible in the research index; can't measure Google from here; converted to a Search Console indexing action for the session operator (19 Nov); Search Console (18 Nov): site indexed, 38 impressions on 16 Nov from Medicare and assisted-living cost queries; no page change warranted yet"
   }
  ],
  "channels": {
@@ -119,7 +119,13 @@
   "checked_utc": "2026-11-18T16:28Z",
   "queries_checked": 5,
   "evidence": "In the research search index the site does not appear even for its own domain name; for tour-checklist, paying-for-assisted-living, Supportive Living Program and Evanston assisted living queries, page one is directories (Caring.com, Seniorly, A Place for Mom, Care.com, Checkbook), operators' blogs and state pages. This index is not Google, so Google visibility must come from Search Console.",
-  "action": "session operator, 19 Nov: Search Console Pages report (indexed count) and request indexing for the home page (tour checklist), the cost guide, the levels-of-care guide and the Supportive Living Program guide"
+  "action": "session operator, 19 Nov: Search Console Pages report (indexed count) and request indexing for the home page (tour checklist), the cost guide, the levels-of-care guide and the Supportive Living Program guide",
+  "google_search_console": {
+   "checked_utc": "2026-11-18T16:33Z",
+   "indexing": "URL inspection: home, cost, levels of care, inspection records, independent living, Supportive Living Program, VA caregiver and VA nursing home guides are indexed; FIDE SNP guide discovered, not yet indexed (request already pending); caregiver background check guide unknown to Google, indexing requested 18 Nov",
+   "performance_16_nov": "38 impressions, 0 clicks, average position 47.4. Queries are all Medicare questions: 'how much does medicare pay for assisted living (facility)' 11, nursing home and Medicare 6, 'does medicare cover assisted living' variants 6. Pages: does-medicare-pay-for-senior-care 25 impressions (position 69), illinois-medicaid-estate-recovery 4 (position 5.8), illinois-care-facility-complaint 4 (position 6.8)",
+   "verdict": "Google search is a real but early channel: families researching what Medicare pays already see the site, at page-7 positions for the main query cluster. The Medicare guide's title already matches those queries, so no change now; recheck weekly"
+  }
  },
  "drafts": [
   {
@@ -136,6 +142,7 @@
  "limits": [],
  "brief": null,
  "log": [
-  "2026-11-18T16:28Z session operator (daytime loop): channel verdicts for Facebook caregiver groups, national groups, Reddit, Nextdoor, library events; 6 organizations assessed, 2 Gmail drafts created (City of Evanston Senior Services, North Shore Senior Center); search baseline done (site not visible in the research index)"
+  "2026-11-18T16:28Z session operator (daytime loop): channel verdicts for Facebook caregiver groups, national groups, Reddit, Nextdoor, library events; 6 organizations assessed, 2 Gmail drafts created (City of Evanston Senior Services, North Shore Senior Center); search baseline done (site not visible in the research index)",
+  "2026-11-18T16:33Z Search Console: key pages indexed; 1 indexing request (caregiver background check guide); 16 Nov performance 38 impressions, 0 clicks, Medicare cost queries"
  ]
 }

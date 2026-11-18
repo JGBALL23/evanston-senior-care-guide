@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
- "updated_utc": "2026-11-18T16:19Z",
+ "updated_utc": "2026-11-18T16:33Z",
  "last_run_utc": "2026-11-18T15:11Z",
  "facebook": {
   "access": "yes via Claude in Chrome (his browser c8d89af0), checked 15:08Z 18 Nov",
@@ -342,7 +342,6 @@
   ]
  },
  "log": [
-  "2026-11-17T14:32Z Facebook back (his Chrome reconnected 14:04Z); checks: all 3 live posts 0 reactions, 0 comments, 0 shares; Everything Evanston cost post still pending",
   "2026-11-17T14:38Z venues: 3 groups evaluated, none eligible (Calgary group; neighbors group for other towns; agency-run statewide group); Wilmette happenings group left to check",
   "2026-11-17T14:52Z Joseph (08:52 Chicago): run as a continuous operator; hourly schedule is only a fallback",
   "2026-11-17T15:00Z posted template A in Evanston/Skokie (Chicago) neighbors, tag fb-evsk-1117; published at once; cap changed to 1 a day and 5 a week",
@@ -381,7 +380,8 @@
   "2026-11-18T15:11Z Nextdoor: signed in as Joseph; its Aug 2026 policy forbids business promotion from personal accounts (posts, comments, DMs), so no guide links there; Business Page would need his authorization; 17 recent posts, 0 families asking. No post possible Thu 19 Nov (5 posts in 7 days); next post Fri after 21:53Z",
   "2026-11-18T15:49Z bookkeeping: the 18 Nov 'Facebook interruption' in cloud.json was the planned overnight sleep (due.lead_scan said 7:00 Chicago, wake was 9:00); due times now follow the actual wake",
   "2026-11-18T16:17Z owner 10:13 Chicago: overnight must be growth work, not monitoring. Seeded ops/growth.json (G2 channels, G1 referral organizations with Gmail drafts never sent, G3 search baseline) for a new night growth task; lead scans cut to once a day (no requests in ~1,000 posts)",
-  "2026-11-18T16:19Z created the night growth task (cloud, 4 runs a night) per owner 10:13 Chicago; on-demand test run refused by the safety system (platform limit), so its first run is tonight 23:07 Chicago; venue discovery moved up to 17:00Z with a new-audience focus"
+  "2026-11-18T16:19Z created the night growth task (cloud, 4 runs a night) per owner 10:13 Chicago; on-demand test run refused by the safety system (platform limit), so its first run is tonight 23:07 Chicago; venue discovery moved up to 17:00Z with a new-audience focus",
+  "2026-11-18T16:33Z Search Console: indexing checked (home and 7 key guides indexed), indexing requested for the caregiver background check guide; first performance data: 38 impressions on 16 Nov, Medicare cost queries"
  ],
  "next_actions": [
   "E1 posted 15:06Z in Wilmette (fb-wil-1118, published); cloud operator measures +24h (19 Nov 15:06Z) and +48h vs fb-evsk-1117",
@@ -464,7 +464,7 @@
   "evanston_join_status": "2026-11-19T15:00Z",
   "rollup": "2026-11-19T01:00Z",
   "guides": "no drafts left worth publishing today (two deferred with reasons); next drafts run 18 Nov ~12:02Z",
-  "search_console": "2026-11-19T15:00Z"
+  "search_console": "2026-11-25T15:00Z"
  },
  "site": {
   "guides_published_1117": 17,
@@ -541,5 +541,11 @@
   "verdict": "no guide links or promotional replies from his personal account; a Business Page would need his specific authorization (creating Pages is reserved to him); recent feed read once: 17 posts, 0 families asking",
   "next_check_utc": "2026-12-18T15:00Z"
  },
- "venue_focus": "18 Nov: new audiences, because the 6 town groups produced 0 requests in ~1,000 posts. Look for groups of adult children and caregivers (caregiver support, aging parents, Alzheimer's and dementia caregivers, faith-community caregiver groups) and town groups not yet checked (Skokie, Glenview, Northbrook, Rogers Park, Edgewater). Join only public groups with no questions whose stated membership he genuinely qualifies for (skip moms-only groups); read rules before posting."
+ "venue_focus": "18 Nov: new audiences, because the 6 town groups produced 0 requests in ~1,000 posts. Look for groups of adult children and caregivers (caregiver support, aging parents, Alzheimer's and dementia caregivers, faith-community caregiver groups) and town groups not yet checked (Skokie, Glenview, Northbrook, Rogers Park, Edgewater). Join only public groups with no questions whose stated membership he genuinely qualifies for (skip moms-only groups); read rules before posting.",
+ "search_console": {
+  "checked_utc": "2026-11-18T16:33Z",
+  "indexed": "home and 7 key guides indexed; FIDE SNP pending; caregiver background check requested 18 Nov",
+  "performance": "16 Nov: 38 impressions, 0 clicks, avg position 47.4; Medicare and assisted-living cost queries",
+  "next": "weekly: Performance (queries, pages) and Pages report"
+ }
 }
