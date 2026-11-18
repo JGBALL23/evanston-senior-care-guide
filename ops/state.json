@@ -1,8 +1,8 @@
 {
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
- "updated_utc": "2026-11-18T19:52Z",
- "last_run_utc": "2026-11-18T19:45Z",
+ "updated_utc": "2026-11-18T20:08Z",
+ "last_run_utc": "2026-11-18T20:08Z",
  "facebook": {
   "access": "yes via Claude in Chrome (his browser c8d89af0), checked 15:08Z 18 Nov",
   "last_access_ok_utc": "2026-11-18T15:08Z",
@@ -287,10 +287,30 @@
    "eligible": false,
    "rules": "job and placement board; no family requests in 23 posts",
    "checked_utc": "2026-11-18T16:40Z"
+  },
+  {
+   "id": "group:RogersParkNeighborhoodNews",
+   "name": "Rogers Park News",
+   "member": true,
+   "joined_utc": "2026-11-18T20:03Z",
+   "eligible": "after admins approve his request to participate (rules agreement only, no questions; pending since 20:03Z)",
+   "rules": "posts visible to all; verifiable information with sources; on topic; Rogers Park and nearby-neighborhood business and sales posts accepted; no scams or spam; posts may be quoted in neighborhood news",
+   "notes": "public, 49.5K members, about 1,130 posts a month; north-side Chicago audience next to Evanston (new audience per venue_focus 18 Nov)",
+   "checked_utc": "2026-11-18T20:08Z"
+  },
+  {
+   "id": "group:259937747842535",
+   "name": "Edgewater Chicago Neighborhood News",
+   "member": true,
+   "joined_utc": "2026-11-18T20:07Z",
+   "eligible": true,
+   "rules": "no rules list; About invites news of new businesses, events and anything that keeps Edgewater residents aware and safe",
+   "notes": "public, 6.9K members, about 136 posts a month; joined at once, no questions",
+   "checked_utc": "2026-11-18T20:08Z"
   }
  ],
  "venue_discovery": {
-  "last_utc": "2026-11-17T16:20Z",
+  "last_utc": "2026-11-18T20:08Z",
   "owner_groups_total": 43,
   "owner_local_groups": [
    "group:311248470375848",
@@ -334,7 +354,11 @@
   "joins_today": {
    "date": "2026-11-17",
    "count": 4
-  }
+  },
+  "verdicts_1118": [
+   "Rogers Park search: Rogers Park News (49.5K, public) joined, participation pending; FLIRP is private; West Rogers Park Community (4.2K) and West Rogers Park Neighborhood (6.3K) public, not yet read; Rogers Park In the '50s and '60s (17K, nostalgia) not checked",
+   "Edgewater search: Edgewater Chicago Neighborhood News (6.9K, public) joined and eligible; Edgewater (Chicago) Neighbors (11K) and Edgewater (Chicago) Neighborhood News (5.6K) are private; buy-sell and Buy Nothing groups skipped"
+  ]
  },
  "metrics": {
   "since_utc": "2026-11-08T22:15Z",
@@ -407,7 +431,6 @@
   ]
  },
  "log": [
-  "2026-11-17T15:10Z joined What's Happening in Wilmette illinois and What's Happening in Winnetka illinois (public, no questions, ads allowed 2-3 a week with #employed); Skokie & North Shore group is events-only, skipped",
   "2026-11-17T15:23Z venues: Wilmette Connections (residents, anti-business), Glencoe Uncensored (Alabama) and Highland Park/Highwood (residents and local businesses only) skipped",
   "2026-11-17T15:26Z owner approved public replies and guide publishing, with a standing approval for zero-cost tour-generating work; operator instructions updated",
   "2026-11-17T15:52Z venues: requested to join What's Happening in Evanston, Illinois ? (private, business promotion allowed); joined Highland Park neighborhood community page (no rules, scan only)",
@@ -446,7 +469,8 @@
   "2026-11-18T16:40Z venues: read rules of 7 groups; joined What's Happening in Lake Forest (eligible), What's Happening in Glenview and Glenview - Northbrook Neighbors (read-only until he answers participant questions); Chicago caregiver groups are job boards (dropped); 80 more posts scanned, 0 requests",
   "2026-11-18T16:41Z work loop paused: nothing else actionable now; next session 21:05Z (Facebook checks); night growth task runs from 23:07 Chicago on G4",
   "2026-11-18T19:45Z session operator: Wilmette post was held for admin approval until 17:44Z (visible_utc and E1 times corrected); lead scan 9 groups/367 posts/1 in-home request (no reply, group rules); Glenview IL group now eligible; OP1 handled (link last)",
-  "2026-11-18T19:52Z outreach under the owner's 13:14 authorization: 4 personalized emails to North Shore senior-services organizations (verified public addresses, disclosure included); 8 sent today in all, 0 replies, 1 auto-reply"
+  "2026-11-18T19:52Z outreach under the owner's 13:14 authorization: 4 personalized emails to North Shore senior-services organizations (verified public addresses, disclosure included); 8 sent today in all, 0 replies, 1 auto-reply",
+  "2026-11-18T20:08Z venues (new audiences, north-side Chicago): joined Rogers Park News (49.5K; participation pending admin approval, rules agreement only) and Edgewater Chicago Neighborhood News (6.9K; eligible); 5 joins today"
  ],
  "next_actions": [
   "E1 posted 15:06Z in Wilmette (fb-wil-1118), approved by admin 17:44Z; cloud operator measures +24h (19 Nov 17:44Z) and +48h (20 Nov 17:44Z) vs fb-evsk-1117",
@@ -634,7 +658,7 @@
  },
  "joins_today": {
   "date_chicago": "2026-11-18",
-  "count": 3
+  "count": 5
  },
  "owner_blocker_participation": "Glenview - Northbrook Neighbors (65K) and What's Happening in Glenview (6.6K) need participant answers before he can post or comment there; answering is his call (honest answers: works in Evanston, lives in Chicago)",
  "posting_rules": [
