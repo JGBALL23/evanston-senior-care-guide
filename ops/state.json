@@ -1,8 +1,8 @@
 {
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
- "updated_utc": "2026-11-18T20:14Z",
- "last_run_utc": "2026-11-18T20:14Z",
+ "updated_utc": "2026-11-18T20:55Z",
+ "last_run_utc": "2026-11-18T20:55Z",
  "facebook": {
   "access": "yes via Claude in Chrome (his browser c8d89af0), checked 15:08Z 18 Nov",
   "last_access_ok_utc": "2026-11-18T15:08Z",
@@ -431,7 +431,6 @@
   ]
  },
  "log": [
-  "2026-11-17T15:26Z owner approved public replies and guide publishing, with a standing approval for zero-cost tour-generating work; operator instructions updated",
   "2026-11-17T15:52Z venues: requested to join What's Happening in Evanston, Illinois ? (private, business promotion allowed); joined Highland Park neighborhood community page (no rules, scan only)",
   "2026-11-17T16:12Z site: published 2 verified guides (resident rights; nursing home pre-admission screening) and removed unsupported wording from the Medicare guide; deployed twice; IndexNow 19 URLs accepted",
   "2026-11-17T16:15Z fb-evsk-1117: 0 reactions or comments; 2 genuine visitors, 1 checklist PDF open, 1 tour-questions view; no tour request (Gmail checked)",
@@ -470,7 +469,8 @@
   "2026-11-18T19:45Z session operator: Wilmette post was held for admin approval until 17:44Z (visible_utc and E1 times corrected); lead scan 9 groups/367 posts/1 in-home request (no reply, group rules); Glenview IL group now eligible; OP1 handled (link last)",
   "2026-11-18T19:52Z outreach under the owner's 13:14 authorization: 4 personalized emails to North Shore senior-services organizations (verified public addresses, disclosure included); 8 sent today in all, 0 replies, 1 auto-reply",
   "2026-11-18T20:08Z venues (new audiences, north-side Chicago): joined Rogers Park News (49.5K; participation pending admin approval, rules agreement only) and Edgewater Chicago Neighborhood News (6.9K; eligible); 5 joins today",
-  "2026-11-18T20:14Z outreach: library community-engagement contact emailed (published staff-directory address); 9 sent today, 0 replies, 1 auto-reply; next batch waits for replies"
+  "2026-11-18T20:14Z outreach: library community-engagement contact emailed (published staff-directory address); 9 sent today, 0 replies, 1 auto-reply; next batch waits for replies",
+  "2026-11-18T20:55Z coordination fix (Joseph 14:30 Chicago): one operator (this session); preflight before every external action; shared action record in state.actions (9 emails, 1 post, 5 joins, 4 pending, 6 blocked)"
  ],
  "next_actions": [
   "Outreach: check Gmail for replies each session; answer questions promptly and accurately; no repeat contact; next small batch after replies are reviewed (night task G4 drafts)",
@@ -664,7 +664,7 @@
   "OP1 (cloud 18 Nov): text right after the link merged into it (ref=fb-wil-1118Disclosure). Put the link last in the post, after the disclosure, with nothing after it."
  ],
  "outreach": {
-  "note": "counts only; correspondence stays in Gmail",
+  "note": "counts only; per-action records in actions; correspondence stays in Gmail",
   "sent_total": 9,
   "sent_by_session_operator": 5,
   "replies": 0,
@@ -684,5 +684,243 @@
   "tags": "emails sent by the session operator link the home page with ?ref=em-<org>-<MMDD>; the four sent 17:12Z link the bare home page",
   "rule": "before any outreach send, search Gmail sent for the domain; no repeat contact after a decline; follow up at most once, after 7+ days, only if useful",
   "next": "check replies daily; next small batch only after replies are reviewed (19-20 Nov)"
- }
+ },
+ "operator": {
+  "designated": "session operator: this Claude Code chat (session_014eaiSbba148WjVrUnjGiX1), woken by trig_012iD5B32YGMx8Q9efdMRzhk",
+  "since_utc": "2026-11-18T20:50Z",
+  "rule": "Joseph, 18 Nov 2026 14:30 Chicago: only one designated operator may send outreach emails, publish social posts or make external commitments; other workers research, draft or monitor and never send or publish",
+  "preflight": {
+   "email": "Gmail search in:sent to:<recipient domain> (no date limit) returns nothing AND sha256(domain)[:16] is not in actions AND no decline from that domain; the address is published on the organization's official site and checked that session. Otherwise do not send (reply only inside a thread they started).",
+   "facebook_post": "step 5 rules plus the group's my_posted_content and my_pending_content and state.posts",
+   "comment": "step 5c plus leads.replied",
+   "record": "append every external action to actions right after it happens, then commit; pending and blocked actions live here too"
+  },
+  "proof_1118": "preflight run 20:45Z: in:sent to the 8 contacted domains = 9 threads, one message each (cityofevanston.org = 2, two departments); in:sent to:nssc.org = 1 -> BLOCK; in:sent to:skokie.org = 0 -> CLEAR; Gmail Drafts = 0"
+ },
+ "actions": [
+  {
+   "id": "E-1118-01",
+   "type": "email",
+   "status": "completed",
+   "utc": "2026-11-18T17:12:51Z",
+   "domain_sha256": "412e2fc2c04346ee",
+   "msg_sha256": "e0d5dae8e31bebc5",
+   "kind": "municipal senior services division",
+   "by": "sent from Drafts outside this chat; actor unconfirmed",
+   "disclosure": true
+  },
+  {
+   "id": "E-1118-02",
+   "type": "email",
+   "status": "completed",
+   "utc": "2026-11-18T17:12:53Z",
+   "domain_sha256": "a09687215d1ff39f",
+   "msg_sha256": "a0ba0686ed838723",
+   "kind": "nonprofit senior center",
+   "by": "sent from Drafts outside this chat; actor unconfirmed",
+   "disclosure": true
+  },
+  {
+   "id": "E-1118-03",
+   "type": "email",
+   "status": "completed",
+   "utc": "2026-11-18T17:12:54Z",
+   "domain_sha256": "4357990659af1ff8",
+   "msg_sha256": "1abb2351607b2d89",
+   "kind": "university HR well-being office",
+   "by": "sent from Drafts outside this chat; actor unconfirmed",
+   "disclosure": true
+  },
+  {
+   "id": "E-1118-04",
+   "type": "email",
+   "status": "completed",
+   "utc": "2026-11-18T17:12:58Z",
+   "domain_sha256": "3d97ef57df72afca",
+   "msg_sha256": "84853d02d0c9ee30",
+   "kind": "local newspaper: bylined guest essay",
+   "by": "sent from Drafts outside this chat; actor unconfirmed",
+   "disclosure": true
+  },
+  {
+   "id": "E-1118-05",
+   "type": "email",
+   "status": "completed",
+   "utc": "2026-11-18T19:29:06Z",
+   "domain_sha256": "f72c4307dabaccfe",
+   "msg_sha256": "906a402f22c48ed6",
+   "kind": "aging-in-place nonprofit",
+   "by": "operator",
+   "disclosure": true
+  },
+  {
+   "id": "E-1118-06",
+   "type": "email",
+   "status": "completed",
+   "utc": "2026-11-18T19:40:37Z",
+   "domain_sha256": "22ea23bc33a341ff",
+   "msg_sha256": "fdd3080bc5a2b56e",
+   "kind": "family service agency (senior services)",
+   "by": "operator",
+   "disclosure": true
+  },
+  {
+   "id": "E-1118-07",
+   "type": "email",
+   "status": "completed",
+   "utc": "2026-11-18T19:41:39Z",
+   "domain_sha256": "964f4bd4085df343",
+   "msg_sha256": "3a7f1d0d22aaa6ab",
+   "kind": "municipal senior services (published staff contact)",
+   "by": "operator",
+   "disclosure": true
+  },
+  {
+   "id": "E-1118-08",
+   "type": "email",
+   "status": "completed",
+   "utc": "2026-11-18T19:41:39Z",
+   "domain_sha256": "ab99b70494413dcd",
+   "msg_sha256": "f7b8630e616216fc",
+   "kind": "municipal senior advocate (published staff contact)",
+   "by": "operator",
+   "disclosure": true
+  },
+  {
+   "id": "E-1118-09",
+   "type": "email",
+   "status": "completed",
+   "utc": "2026-11-18T19:50:00Z",
+   "domain_sha256": "412e2fc2c04346ee",
+   "msg_sha256": "0806c603cedbf427",
+   "kind": "public library engagement services (same parent domain as E-1118-01)",
+   "by": "operator",
+   "disclosure": true
+  },
+  {
+   "id": "F-1118-01",
+   "type": "facebook_post",
+   "status": "completed",
+   "utc": "2026-11-18T15:06Z",
+   "venue": "group:1086282042874547",
+   "tag": "fb-wil-1118",
+   "note": "held for admin approval; visible 17:44Z",
+   "by": "operator"
+  },
+  {
+   "id": "J-1118-01",
+   "type": "facebook_join",
+   "status": "completed",
+   "utc": "2026-11-18T16:40Z",
+   "venue": "group:1032686255213309",
+   "by": "operator"
+  },
+  {
+   "id": "J-1118-02",
+   "type": "facebook_join",
+   "status": "completed",
+   "utc": "2026-11-18T16:40Z",
+   "venue": "group:glenviewil",
+   "by": "operator"
+  },
+  {
+   "id": "J-1118-03",
+   "type": "facebook_join",
+   "status": "completed",
+   "utc": "2026-11-18T16:40Z",
+   "venue": "group:148056482809454",
+   "by": "operator"
+  },
+  {
+   "id": "J-1118-04",
+   "type": "facebook_join",
+   "status": "completed",
+   "utc": "2026-11-18T20:03Z",
+   "venue": "group:RogersParkNeighborhoodNews",
+   "note": "request to participate sent (rules agreement only)",
+   "by": "operator"
+  },
+  {
+   "id": "J-1118-05",
+   "type": "facebook_join",
+   "status": "completed",
+   "utc": "2026-11-18T20:07Z",
+   "venue": "group:259937747842535",
+   "by": "operator"
+  },
+  {
+   "id": "P-1120-01",
+   "type": "facebook_post",
+   "status": "pending",
+   "not_before_utc": "2026-11-20T21:53Z",
+   "venue": "group:1316163449754368",
+   "tag": "fb-wnk-1120",
+   "note": "hook chosen by experiment E1 (+48h verdict 20 Nov 17:44Z)"
+  },
+  {
+   "id": "P-OUT-REPLIES",
+   "type": "email_reply",
+   "status": "pending",
+   "note": "each operator session: check the inbox for replies from contacted domains; answer questions accurately within 1 business day; never contact again after a decline"
+  },
+  {
+   "id": "P-OUT-FOLLOWUP",
+   "type": "email",
+   "status": "pending",
+   "not_before_utc": "2026-11-25T15:00Z",
+   "note": "at most one follow-up per organization, only if useful, never after a decline"
+  },
+  {
+   "id": "P-G4",
+   "type": "email",
+   "status": "pending",
+   "note": "night task G4 may leave up to 2 drafts (care managers, elder law); the operator runs the preflight before sending any"
+  },
+  {
+   "id": "B-RT",
+   "type": "email",
+   "status": "blocked",
+   "owner": "Joseph",
+   "note": "newspaper requires a phone number to verify E-1118-04; only Joseph supplies it, privately, in that thread; the operator sends nothing further there"
+  },
+  {
+   "id": "B-EE",
+   "type": "facebook_post",
+   "status": "blocked",
+   "owner": "group admins",
+   "venue": "group:535636991652468",
+   "tag": "ee-costs",
+   "note": "pending admin approval since 2026-11-13; keep pending (Joseph 16 Nov)"
+  },
+  {
+   "id": "B-RP",
+   "type": "facebook_participation",
+   "status": "blocked",
+   "owner": "group admins",
+   "venue": "group:RogersParkNeighborhoodNews",
+   "note": "request to participate pending"
+  },
+  {
+   "id": "B-GNN",
+   "type": "facebook_post",
+   "status": "blocked",
+   "owner": "Joseph",
+   "venue": "group:148056482809454",
+   "note": "promotion only as Tuesday ads with local contact details; his decision"
+  },
+  {
+   "id": "B-1112",
+   "type": "coordination",
+   "status": "blocked",
+   "owner": "Joseph",
+   "note": "E-1118-01..04 were sent from Drafts at 17:12Z outside this chat (not the operator, not a scheduled task); Joseph to confirm who sent them; no other chat or assistant may send or post"
+  },
+  {
+   "id": "B-NAME",
+   "type": "email_identity",
+   "status": "blocked",
+   "owner": "Joseph",
+   "note": "outreach shows the Gmail display name of an unrelated brand while signed with his name; changing it is his account setting"
+  }
+ ]
 }
