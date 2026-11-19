@@ -11,3 +11,5 @@ Only the Claude event-triggered task should advance this state:
 Do not create any third run intentionally. Stop on failure or a platform limit.
 
 This reset commit was pushed after draft PR #76 was marked Ready for review. It should produce the initial pull_request.synchronize event.
+
+FIRST_RUN_COMPLETE 2026-11-19T02:30:10Z (triggered by pull_request.synchronize on c472437)
