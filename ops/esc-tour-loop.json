@@ -27,9 +27,21 @@
       "ops/operator-state:ops/state.json",
       "ops/operator-state:ops/growth.json",
       "main:ROUTINE.md"
-    ]
+    ],
+    "traffic_19_nov": "cloud operator 19 Nov: 08:24-11:24Z 0 genuine visitors; outreach 9-10 sent, 0 replies, 2 auto-replies"
   },
-  "queue": [],
+  "queue": [
+    {
+      "id": "ACQ-005",
+      "priority": 1,
+      "status": "waiting_on_data",
+      "workstream": "search_acquisition",
+      "hypothesis": "Page-one Illinois guides get impressions but 0 clicks; their titles are 94-99 characters (estate recovery 94, complaint 99) and Google truncates near 60, so the query-matching words may be cut. A shorter, query-first title could lift CTR without new claims.",
+      "evidence_needed": "Search Console Performance (queries, pages, CTR, position) for 17-24 Nov from the operator's 25 Nov check; PR #78 merge status.",
+      "done_when": "If those pages show >=20 impressions at position <=10 with CTR <3%, open one small tested review PR rewriting only their <title>/meta description; otherwise record no-change with numbers.",
+      "not_before_utc": "2026-11-25T15:00Z"
+    }
+  ],
   "completed": [
     {
       "id": "ACQ-001",
@@ -82,17 +94,44 @@
         "curl https://evanstoncarenetwork.org/ on 2026-11-19 -> 200 with window.location='/lander' only"
       ],
       "side_leads_not_acted": "Wilmette Public Library has a senior-services librarian and hosts caregiver programs (domain not in contacted hashes) but no public resource list; possible ACQ-001 input only, needs a general/role address check."
+    },
+    {
+      "id": "ACQ-004",
+      "priority": 1,
+      "status": "done",
+      "workstream": "referral_distribution",
+      "task": "Discovery run on empty queue: find the next uncontacted North Shore municipal/township senior-services referral point with a published general (role) address, so the operator's next small batch after the 19-20 Nov reply review has a duplicate-checked candidate besides Skokie.",
+      "done_utc": "2026-11-19",
+      "why_this": "Traffic is the bottleneck (single-digit genuine visitors, 0 tour-form views, 0 tour requests). Facebook belongs to the session operator and waits on the E1 +48h verdict; technical SEO is clean (35/35 sitemap URLs 200, self-canonical, title+description, JSON-LD, no noindex; checked live 19 Nov); Search Console is due 25 Nov. Referral organizations reach families at the decision point, and the operator's standing priority names township and village senior services.",
+      "opportunity": "Village of Niles Senior Center (municipal; information and referral, nursing and social services, case management for residents 60+ by Family Services social workers)",
+      "result": "Verified previously uncontacted, medium-high fit referral point. Village directory (did=10) publishes a general Senior Center role address (not a personal address) and phone 847-588-8420. sha256(vniles.com)[:16]=8b3af4515eca6297 is not in outreach.orgs_contacted_sha256 or state.actions. Niles adjoins Skokie and Morton Grove (Morton Grove was sent 18 Nov).",
+      "requirements": "One disclosed email to the published Senior Center role address only (not individual staff, not Family Services as well); operator PREFLIGHT (Gmail in:sent to:vniles.com, no decline); offer the free tour checklist and cost/Medicare guides for families they advise; no endorsement request; ?ref=em-niles-<MMDD>.",
+      "proposal_for_operator": "After the reply review clears the next small batch, send Skokie (ACQ-001) and Niles as the two municipal referral notes; add the phone-only items below to Joseph's call list. This loop sent nothing and created no Gmail draft.",
+      "phone_only_for_call_list": [
+        "New Trier Township (Winnetka) social services for seniors: 847-446-8202 (Winnetka-Northfield Chamber guide); no senior-services email found",
+        "Village of Northbrook: 'Senior Housing Resources' directory (https://northbrook.il.us/440/Senior-Housing-Resources) lists senior living communities and a Care Options category but no email or suggestion route; Village Hall 847-272-5050"
+      ],
+      "also_checked_low_fit": [
+        "Northfield Township: financial assistance and Dial-A-Ride only; its senior services are North Shore Senior Center (already contacted)",
+        "Village of Wilmette: no village senior social worker or senior-services page found"
+      ],
+      "sources": [
+        "https://www.vniles.com/directory.aspx?did=10",
+        "https://www.vniles.com/directory.aspx",
+        "https://northbrook.il.us/440/Senior-Housing-Resources",
+        "https://issuu.com/makeitbetter/docs/wncc_2021/29"
+      ]
     }
   ],
   "blocked": [],
-  "next_work_source": "Reassess latest outcomes, shared operator state and source evidence after every task. Add a new task only when its expected tour-acquisition value and evidence justify it. Queue is empty after ACQ-001: the next run should add an item only for genuinely new evidence (an organization reply, E1 +48h verdict on 20 Nov 17:44Z, new Search Console data) and otherwise stop without committing.",
+  "next_work_source": "Discovery-first: an empty or waiting queue is a trigger to find work, not completion. Each run reads fresh evidence (org replies, E1 +48h verdict 20 Nov 17:44Z, Search Console 25 Nov, PR #78 status), identifies the bottleneck and executes the strongest authorized action. If nothing worthwhile exists, stop without a commit; the hourly cloud monitor reactivates the loop on new evidence.",
   "last_run": {
     "utc": "2026-11-19",
-    "event": "pull_request.synchronize 37b1e23",
-    "picked": "ACQ-001",
-    "why": "only ready item; research-only deliverable with no outbound side effect"
+    "event": "pull_request.synchronize eb05766",
+    "picked": "ACQ-004 (discovered)",
+    "why": "queue empty; referral distribution is the only acquisition channel this loop can advance today without data it lacks"
   },
-  "last_verified_action": "ACQ-001: verified uncontacted Village of Skokie Human Services referral opportunity, proposal handed to the outreach operator (not sent)",
+  "last_verified_action": "ACQ-004: verified uncontacted Village of Niles Senior Center referral point with published role address; proposal handed to the outreach operator (not sent)",
   "last_stop": null,
   "safety": {
     "no_idle_commits": true,
@@ -110,7 +149,8 @@
   },
   "owner_review_needed": [
     "PR #78: review and merge if acceptable (this loop does not merge)",
-    "Stray branch claude/estate-recovery-tour-path (same commit as PR #78) could not be deleted by the worker; safe to delete",
-    "ACQ-001 proposal: one disclosed email to the Village of Skokie Human Services Program Specialist after the 19-20 Nov reply review (operator sends; this loop did not)"
+    "Stray branch claude/estate-recovery-tour-path (same commit as PR #78) is safe to delete",
+    "Next referral batch (operator sends, after the 19-20 Nov reply review): Village of Skokie Human Services (ACQ-001) and Village of Niles Senior Center (ACQ-004)",
+    "Call list (Joseph, optional): New Trier Township social services 847-446-8202; Village of Northbrook 847-272-5050 re its Senior Housing Resources directory"
   ]
 }
