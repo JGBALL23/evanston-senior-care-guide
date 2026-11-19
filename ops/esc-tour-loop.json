@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "system": "ESCG Tour Acquisition — Event-Driven Production Loop",
-  "status": "READY_FOR_CLAUDE_EVENT_TASK",
+  "status": "ACTIVATED_AWAITING_FIRST_EVENT_RUN",
   "objective": "Generate qualified voluntary senior-living tour inquiries for Evanston/North Shore families, without pretending inquiries are confirmed tours.",
   "trigger": {
     "provider": "Claude Scheduled Tasks",
@@ -9,7 +9,7 @@
     "repository": "JGBALL23/evanston-senior-care-guide",
     "head_branch": "automation/esc-tour-loop",
     "test_pr": "https://github.com/JGBALL23/evanston-senior-care-guide/pull/76",
-    "production_pr": null
+    "production_pr": "https://github.com/JGBALL23/evanston-senior-care-guide/pull/77"
   },
   "authority": {
     "github_loop": "May autonomously research, verify, analyze, prepare drafts, and make isolated, tested GitHub changes or review PRs in scope.",
@@ -68,5 +68,11 @@
     "public_metadata_only": true,
     "never_force_push": true,
     "never_trigger_only_to_trigger": true
+  },
+  "activation": {
+    "kind": "owner-confirmed-Claude-scheduler",
+    "date": "2026-11-19",
+    "purpose": "Seed first production PR synchronize event once after owner showed active Claude routine. Never generate subsequent empty commits.",
+    "confirmation": "Claude Scheduled Tasks screenshot: ESCG Tour Acquisition Loop active, Pull request: Commits pushed on matching repository. Previous setup screenshot: head branch automation/esc-tour-loop."
   }
 }
