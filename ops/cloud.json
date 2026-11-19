@@ -6,8 +6,8 @@
     "note": "tour-request alerts: sha256(message id) and time only"
   },
   "metrics": {
-    "last_utc": "2026-11-18T23:24Z",
-    "window_utc": "2026-11-18T20:25Z/2026-11-18T23:24Z",
+    "last_utc": "2026-11-19T01:24Z",
+    "window_utc": "2026-11-18T23:24Z/2026-11-19T01:24Z",
     "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs",
     "per_tag": {
       "fb-wil-1118": {
@@ -26,6 +26,14 @@
         "assessment_completions": 0,
         "tour_form_views": 0,
         "tour_requests": 0
+      },
+      "em-1118j": {
+        "genuine_visitors": "UNVERIFIED (1 landing 23s after send, datacenter, no beacon; likely mail scanner)",
+        "checklist_opens": 0,
+        "assessment_starts": 0,
+        "assessment_completions": 0,
+        "tour_form_views": 0,
+        "tour_requests": 0
       }
     },
     "checklist_opens": 0,
@@ -33,17 +41,17 @@
     "assessment_completions": 0,
     "tour_form_views": 0,
     "tour_requests": 0,
-    "genuine_detail": "fb-wil-1118 1 hit 21:09Z = Googlebot-Image; fb-evsk-1117 1 hit 21:08Z = facebookexternalhit; 0 production /t/ beacons; 0 checklist PDF hits; only deploy-preview landed beacons (excluded); no em- tagged landings"
+    "genuine_detail": "fb-wil-1118 1 hit 23:43Z = facebookexternalhit; em-1118j 1 hit 00:16:46Z (23s after E-1118-10 send, no /t/ beacon, likely scanner); 0 production /t/ beacons; 0 checklist PDF hits; deploy-preview beacons excluded"
   },
   "summary": {
-    "last_utc": "2026-11-18T01:01Z",
-    "note": "17 Nov daily summary already sent by the session operator"
+    "last_utc": "2026-11-19T01:24Z",
+    "note": "18 Nov (Chicago) summary pushed by cloud operator"
   },
   "site": {
     "fail_count": 0,
     "down_since_utc": null,
-    "last_check_utc": "2026-11-18T23:24Z",
-    "last_check_method": "Netlify status codes last 2h: 200 x102, 301 x8, 206 x1, 404 x1, no 5xx"
+    "last_check_utc": "2026-11-19T01:24Z",
+    "last_check_method": "Netlify status codes last 2h: 200 x132, 301 x6, 404 x2, 304 x1, no 5xx"
   },
   "recovery": {
     "last_attempt_utc": "2026-11-18T01:39Z",
@@ -134,7 +142,8 @@
     "2026-11-18T16:25Z run: 0 tour requests; site OK (no 5xx); session operator healthy (last run 15:11Z, FB reachable); metrics 13:25Z-16:25Z: 0 genuine (fb-wil-1118 hits all Meta crawlers/post-time burst); opportunity OP1: Wilmette post link tag reads fb-wil-1118Disclosure",
     "2026-11-18T18:25Z run: 0 tour requests; site OK (no 5xx); session operator healthy (last run 16:41Z, FB reachable); fb-evsk-1117 +24h written (2 genuine, 1 checklist open, 1 tour-questions view, 0 assessments/tour-form/requests); metrics not due (last 16:25Z)",
     "2026-11-18T20:25Z run: 0 tour requests; site OK (no 5xx); session operator healthy (last run 20:14Z, FB reachable); metrics 16:25Z-20:25Z: fb-wil-1118 0 genuine (2 crawler hits); unrecorded email tags em-fsg-1118 x2 / em-lf-1118 x1 landings 19:41Z, genuineness UNVERIFIED; 0 checklist/assessment/tour-form; no new opportunity",
-    "2026-11-18T23:24Z run: 0 tour requests; outreach watch: 9 sent all recorded, 1 auto-reply only; site OK (no 5xx); session operator healthy (last run 23:20Z, FB reachable); metrics 20:25Z-23:24Z: 0 genuine (fb-wil-1118 Googlebot-Image, fb-evsk-1117 FB crawler), 0 beacons/checklist/assessment/tour-form; no new opportunity"
+    "2026-11-18T23:24Z run: 0 tour requests; outreach watch: 9 sent all recorded, 1 auto-reply only; site OK (no 5xx); session operator healthy (last run 23:20Z, FB reachable); metrics 20:25Z-23:24Z: 0 genuine (fb-wil-1118 Googlebot-Image, fb-evsk-1117 FB crawler), 0 beacons/checklist/assessment/tour-form; no new opportunity",
+    "2026-11-19T01:24Z run: 0 tour requests; outreach watch: 10 sent all recorded, no replies; site OK (no 5xx); session operator healthy (last run 00:32Z, FB reachable); daily metrics 23:24Z-01:24Z: 0 genuine (fb-wil-1118 FB crawler, em-1118j likely mail scanner); daily summary pushed; no new opportunity"
   ],
   "facebook_interruptions_past": [
     {
@@ -161,7 +170,7 @@
   "outreach_watch": {
     "alerted": [],
     "replies_alerted": [],
-    "last_utc": "2026-11-18T23:24Z",
-    "note": "sent 2d: 9, all in state.json actions; inbox replies: 1 automatic reply (not alerted)"
+    "last_utc": "2026-11-19T01:24Z",
+    "note": "sent 2d: 10, all in state.json actions; inbox replies: none new (1 earlier automatic reply)"
   }
 }
