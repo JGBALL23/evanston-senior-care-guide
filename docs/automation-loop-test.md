@@ -9,3 +9,5 @@ This is a controlled, non-production test of an event-triggered Claude routine.
 - Run 2: observe `FIRST_RUN_COMPLETE`, report `SECOND_RUN_TRIGGERED_AUTOMATICALLY`, and do not create further commits
 
 The `FIRST_RUN_COMPLETE` marker must be written by the Claude event-triggered task, not by the setup operator.
+
+- Setup trigger commit: created to fire the first pull-request synchronize event
