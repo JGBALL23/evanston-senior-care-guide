@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "system": "ESCG Tour Acquisition — Event-Driven Production Loop",
+  "status": "READY_FOR_CLAUDE_EVENT_TASK",
+  "objective": "Generate qualified voluntary senior-living tour inquiries for Evanston/North Shore families, without pretending inquiries are confirmed tours.",
+  "trigger": {
+    "provider": "Claude Scheduled Tasks",
+    "event": "Pull request: Commits pushed",
+    "repository": "JGBALL23/evanston-senior-care-guide",
+    "head_branch": "automation/esc-tour-loop",
+    "test_pr": "https://github.com/JGBALL23/evanston-senior-care-guide/pull/76",
+    "production_pr": null
+  },
+  "authority": {
+    "github_loop": "May autonomously research, verify, analyze, prepare drafts, and make isolated, tested GitHub changes or review PRs in scope.",
+    "external_messages": "NOT OWNED BY THIS LOOP while existing session operator is active. Prepare drafts/proposals; no sending, posting, joining groups, or making commitments.",
+    "site_publication": "Do not merge to main, publish, or deploy. Keep tested code improvements in separate review PRs unless authority is explicitly transferred.",
+    "excluded": "No spending, invented claims, protected personal data, client records, privacy/form changes, employer endorsements, or safeguards bypass."
+  },
+  "baseline": {
+    "evidence_as_of": "2026-11-19T00:32:00Z",
+    "prior_outreach": "Ten organizational emails reportedly sent (operator state summary counter lags its action log). Recheck actual Gmail Sent before any future outreach.",
+    "tour_requests": "0 reported; not independently confirmed by this setup",
+    "demand": "Single-digit attributable real visitors in prior operator review; traffic acquisition is the immediate bottleneck.",
+    "recent_work": "Complaint and Medicare guide tour pathways improved Nov 18; don't duplicate.",
+    "sources": [
+      "ops/operator-state:ops/state.json",
+      "ops/operator-state:ops/growth.json",
+      "main:ROUTINE.md"
+    ]
+  },
+  "queue": [
+    {
+      "id": "ACQ-001",
+      "priority": 1,
+      "status": "ready",
+      "workstream": "referral_distribution",
+      "task": "Find one genuinely new, relevant Evanston/North Shore referral or caregiver-resource placement opportunity that has an explicit public resource submission process or a verified official organizational general contact route. Compare against existing outreach records before recommending anything. Produce source-backed opportunity notes and an actionable next step for the designated outreach operator. Do not send.",
+      "done_when": "One verified, previously uncontacted high-fit opportunity with actual requirements and a concrete proposal, or a documented DROP with sources and no fabricated contact data."
+    },
+    {
+      "id": "ACQ-002",
+      "priority": 2,
+      "status": "ready",
+      "workstream": "search_acquisition",
+      "task": "Use current evidence, not historical guesses, to identify the highest-intent search landing page where a small, factual change could make a real family more likely to reach the tour request. Inspect the actual deployed page and current code. Do not duplicate Nov 18 complaint/Medicare fixes or publish new unverifiable care claims. If there is a measurable defect, prepare a separate tested review PR, not a direct publish.",
+      "done_when": "Reproducible conversion/search issue with a verified small fix in a review PR and checks, or explicit evidence why changing pages is currently low-value."
+    },
+    {
+      "id": "ACQ-003",
+      "priority": 3,
+      "status": "ready",
+      "workstream": "qualified_audience",
+      "task": "Identify one practical free distribution channel with clear evidence of families choosing senior care, rather than repeating low-yield general Facebook scans. Prefer legitimate public directories, community resource listings, and older-adult service referrals. Evaluate suitability and eligibility honestly.",
+      "done_when": "One verified channel proposal with a no-cost authorized execution route or a sourced reason to drop the channel."
+    }
+  ],
+  "completed": [],
+  "blocked": [],
+  "next_work_source": "Reassess latest outcomes, shared operator state and source evidence after every task. Add a new task only when its expected tour-acquisition value and evidence justify it.",
+  "last_run": null,
+  "last_verified_action": null,
+  "last_stop": null,
+  "safety": {
+    "no_idle_commits": true,
+    "one_completed_action_per_event": true,
+    "fail_closed_on_conflicts": true,
+    "public_metadata_only": true,
+    "never_force_push": true,
+    "never_trigger_only_to_trigger": true
+  }
+}
