@@ -1,11 +1,13 @@
 # ESCG Autonomous Loop Test
 
-Controlled test only. Do not change production code or send outreach.
+This is an isolated test of the Claude GitHub-event routine. No production changes, outbound email, or Facebook actions are authorized.
 
 State: ARMED
 
-Claude's event-triggered task owns the next state transition. It should execute run 1 and write its completion marker and UTC timestamp to this file. If automatically invoked again, it should report run 2 without making another commit.
+Only the Claude event-triggered task should advance this state:
+- Run 1: append the completion marker with a UTC timestamp, commit and push to this branch.
+- Run 2: detect the completed state, report that automatic triggering worked, and do not commit again.
 
-Setup note: Claude GitHub App repository permissions were confirmed by the owner before this new synchronization commit.
+Do not create any third run intentionally. Stop on failure or a platform limit.
 
-FIRST_RUN_COMPLETE 2026-11-19T02:24:22Z
+This reset commit was pushed after draft PR #76 was marked Ready for review. It should produce the initial pull_request.synchronize event.
