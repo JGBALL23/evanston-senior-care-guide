@@ -1,13 +1,9 @@
 # ESCG Autonomous Loop Test
 
-This is a controlled, non-production test of an event-triggered Claude routine.
+Controlled test only. Do not change production code or send outreach.
 
-- Current state: ARMED
-- Test scope: two Claude runs maximum
-- No production code, outreach messages, or social posts may be changed by this test
-- Run 1: append `FIRST_RUN_COMPLETE` with a UTC timestamp and push the change to this branch
-- Run 2: observe `FIRST_RUN_COMPLETE`, report `SECOND_RUN_TRIGGERED_AUTOMATICALLY`, and do not create further commits
+State: ARMED
 
-The `FIRST_RUN_COMPLETE` marker must be written by the Claude event-triggered task, not by the setup operator.
+Claude's event-triggered task owns the next state transition. It should execute run 1 and write its completion marker and UTC timestamp to this file. If automatically invoked again, it should report run 2 without making another commit.
 
-- Setup trigger commit: created to fire the first pull-request synchronize event
+Setup note: Claude GitHub App repository permissions were confirmed by the owner before this new synchronization commit.
