@@ -2,7 +2,7 @@
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
  "updated_utc": "2026-11-18T23:05Z",
- "last_run_utc": "2026-11-18T23:50Z",
+ "last_run_utc": "2026-11-19T00:32Z",
  "facebook": {
   "access": "yes 2026-11-18T23:20Z",
   "last_access_ok_utc": "2026-11-18T21:16Z",
@@ -453,7 +453,6 @@
   ]
  },
  "log": [
-  "2026-11-17T22:54Z site: published VA nursing home and respite care (IDVA lists five Veterans' Homes; IDPH page still says four), caregiver background check (IDPH registry, directory and complaint line verified) and VA caregiver support (stipend formula from VA fact sheet); 4 draft errors per guide on average fixed first; ROUTINE.md: decision-stage topics preferred, two integrity rules (PR #64)",
   "2026-11-17T22:59Z site: published the FIDE SNP guide (MMAI ended 31 Dec 2025; HFS LTSS wording replaced stale opt-out text); 33 guides live, 17 published today; Search Console sitemap resubmitted (35 URLs)",
   "2026-11-17T23:01Z metrics: 19:00-22:47Z no genuine visitors (one Facebook crawler hit on the fb-evsk-1117 link); waiting for the 23:12Z lead-scan window",
   "2026-11-17T23:20Z lead scan: 116 recent posts in 6 groups, 0 families asking (one match was the yoga studio ad again); Gmail: no tour requests",
@@ -492,11 +491,13 @@
   "2026-11-18T23:20Z loop: Chrome connected; nothing actionable until the lead scan opens at 23:40Z, so the next wake is set to that time (waking every 2 min until then would only re-poll unchanged data)",
   "2026-11-18T23:50Z loop: lead scan of all 11 member groups, 358 posts, 0 new leads; next: ship tour-engine items after its 00:07Z run, last lead scan of the evening 03:40Z",
   "2026-11-19T00:00Z venue search (owner asked to use the wait): 3 groups read, 0 eligible; caregiver groups are mostly national job boards; joins already at 5 today",
-  "2026-11-19T00:24Z outreach: E-1118-10 sent (municipal senior services, published role address; preflight clean)"
+  "2026-11-19T00:24Z outreach: E-1118-10 sent (municipal senior services, published role address; preflight clean)",
+  "2026-11-19T00:32Z review: tour engine ready list empty; funnel since 16 Nov = single-digit genuine visitors, some checklist opens, 1 tour-questions view, 0 assessment starts, 0 tour-form views; homepage tour section already links the tour request, so the bottleneck is volume of families reached, not the page. Shift effort to referral outreach (business hours) and owner phone/flyer drops; scanning gets leftover time"
  ],
  "next_actions": [
   "STANDING (Joseph 18 Nov 16:44/17:08): continuous loop, day and night. Each session: plan, do a real tour-focused task, review, re-plan and immediately do the next actionable task in the same session; only when nothing is actionable, set the next wake 2 minutes after the CURRENT time (check the clock, never estimate). Never schedule a long sleep.",
   "STANDING (Joseph 18 Nov 16:40: a 24/7 system focused on getting tours): every session, first ship growth.json ready items (status ready, for operator) after PREFLIGHT, mark them shipped; judge everything by tour-form visits and tour requests",
+  "PRIORITY (Joseph 18 Nov 18:06: scanning isn't moving us closer): weekday business hours, find and email new referral organizations with published addresses (care managers, hospital/rehab social work, township and village senior services, faith care ministries); phone-only ones go to Joseph's call list",
   "Outreach: check Gmail for replies each session; answer questions promptly and accurately; no repeat contact; next small batch after replies are reviewed (night task G4 drafts)",
   "E1 posted 15:06Z in Wilmette (fb-wil-1118), approved by admin 17:44Z; cloud operator measures +24h (19 Nov 17:44Z) and +48h (20 Nov 17:44Z) vs fb-evsk-1117",
   "Last session each night: set due.lead_scan (and any other morning due item) to the 9:00 Chicago wake, so the cloud operator doesn't log the overnight sleep as a Facebook interruption (it did 18 Nov, 04:30Z-15:11Z, because due said 13:00Z)"
@@ -598,7 +599,7 @@
  "due": {
   "post_next": "2026-11-20T21:53Z",
   "fb_checks": "2026-11-19T15:00Z",
-  "lead_scan": "2026-11-19T03:40Z",
+  "lead_scan": "2026-11-19T03:45Z",
   "metrics": "2026-11-19T00:05Z",
   "venues": "2026-11-25T15:00Z",
   "evanston_join_status": "2026-11-19T15:00Z",
