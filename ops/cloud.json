@@ -6,8 +6,8 @@
     "note": "tour-request alerts: sha256(message id) and time only"
   },
   "metrics": {
-    "last_utc": "2026-11-19T17:24Z",
-    "window_utc": "2026-11-19T14:24Z/2026-11-19T17:24Z",
+    "last_utc": "2026-11-19T20:24Z",
+    "window_utc": "2026-11-19T17:24Z/2026-11-19T20:24Z",
     "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs",
     "per_tag": {
       "fb-wil-1118": {
@@ -49,7 +49,7 @@
     "assessment_completions": 0,
     "tour_form_views": 0,
     "tour_requests": 0,
-    "genuine_detail": "14:24Z-17:24Z: 0 genuine; no tagged landings; 16:23:49-56Z burst (/, /assessment/, /tour/, ?tour=form, checklist PDF, functions OPTIONS in 7s) = session operator 16:22Z site check; 17:23Z = this run's check; single guide hits = crawlers; rest og-card crawlers and WordPress scanners"
+    "genuine_detail": "17:24Z-20:24Z: 0 genuine; no tagged landings; /api/plan-visit 2 + /assessment,/tour 404s = this and prior cloud checks (curl); iOS 13_2_3 Safari home-only hits with http->https redirects at 19:10Z/20:14Z/20:22Z = monitor bot (no assets); 2 guide hits 19:00:47Z same second = crawler; checklist PDF 2 = curl checks; rest facebookexternalhit, Googlebot, OAI-SearchBot and WordPress/cache.php scanners"
   },
   "summary": {
     "last_utc": "2026-11-19T01:24Z",
@@ -58,8 +58,8 @@
   "site": {
     "fail_count": 0,
     "down_since_utc": null,
-    "last_check_utc": "2026-11-19T17:24Z",
-    "last_check_method": "Netlify status codes last 2h: 200 x47, 206 x1, 301 x1, 404 x9 (scanner/probe paths), no 5xx; home 200"
+    "last_check_utc": "2026-11-19T20:24Z",
+    "last_check_method": "Netlify status codes 17:24Z-20:24Z: 200 x51, 301 x24, 404 x27 (scanner paths), 405 x4 (/api/plan-visit GET/OPTIONS from checks; POST-only), no 5xx; home, ?tour=form, assessment.js, checklist PDF, top guides 200"
   },
   "recovery": {
     "last_attempt_utc": "2026-11-18T01:39Z",
@@ -169,7 +169,8 @@
     "2026-11-19T08:24Z run: 0 tour requests; outreach watch: 10 sent all recorded, all threads 1 message (no replies); site OK (no 5xx; 280 404s from a scanner); session operator not interrupted (last run 03:50Z, overnight, no FB due item past); metrics 04:24Z-08:24Z: 0 genuine (no tagged landings; beacons/checklist hit automated); no new opportunity",
     "2026-11-19T11:24Z run: 0 tour requests; outreach watch: 10 sent all recorded, all threads 1 message (no replies); site OK (no 5xx); session operator not interrupted (last run 03:50Z, overnight, next FB due 15:00Z); metrics 08:24Z-11:24Z: 0 genuine (no tagged landings/beacons; crawlers and scanners only); no new opportunity",
     "2026-11-19T14:24Z run: 0 tour requests; outreach watch: 10 sent all recorded, all threads 1 message (no replies); site OK (no 5xx); session operator healthy (last run 13:45Z); metrics 11:24Z-14:24Z: 1 genuine north-shore-checklist visitor (no beacons), fb-wil-1118 0 genuine, beacons were meta-webindexer; E1 +24h due 17:44Z; no new opportunity",
-    "2026-11-19T17:24Z run: 0 tour requests; outreach watch: no org replies (inbox 24h: Search Console canonical notice, Nextdoor digests only); site OK (no 5xx); session operator healthy (last run 16:22Z, next 18:00Z after E1 +24h); metrics 14:24Z-17:24Z: 0 genuine; acquisition loop idle gate holds (ACQ-005 waits to 25 Nov), no new opportunity"
+    "2026-11-19T17:24Z run: 0 tour requests; outreach watch: no org replies (inbox 24h: Search Console canonical notice, Nextdoor digests only); site OK (no 5xx); session operator healthy (last run 16:22Z, next 18:00Z after E1 +24h); metrics 14:24Z-17:24Z: 0 genuine; acquisition loop idle gate holds (ACQ-005 waits to 25 Nov), no new opportunity",
+    "2026-11-19T20:24Z run: 0 tour requests; outreach watch: no org replies (all 10 sent threads 1 message); site OK (no 5xx); FB interruption recorded (session operator last run 16:22Z, 18:00Z wake missed; watchdog owns alert, next slot 22:37Z); metrics 17:24Z-20:24Z: 0 genuine; acquisition loop idle gate holds (PR #78 open unmerged, no send/reply, E1 +48h 20 Nov, ACQ-005 25 Nov), no new task"
   ],
   "facebook_interruptions_past": [
     {
@@ -196,7 +197,16 @@
   "outreach_watch": {
     "alerted": [],
     "replies_alerted": [],
-    "last_utc": "2026-11-19T17:24Z",
-    "note": "sent 2d: 10, all in state.json actions; inbox replies: none new (1 earlier automatic reply)"
+    "last_utc": "2026-11-19T20:24Z",
+    "note": "sent 4d: 10, all threads 1 message (no replies); inbox 24h: Search Console canonical notice and Google account notices only"
+  },
+  "facebook_interruption": {
+    "since_utc": "2026-11-19T16:22Z",
+    "reason": "session operator last_run_utc 16:22Z (>200 min at 20:24Z) and its own next wake 18:00Z (after E1 +24h at 17:44Z) passed",
+    "missed": [
+      "E1 +24h measurement 2026-11-19T17:44Z",
+      "session wake 2026-11-19T18:00Z"
+    ],
+    "recorded_utc": "2026-11-19T20:24Z"
   }
 }
