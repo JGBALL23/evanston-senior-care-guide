@@ -121,18 +121,45 @@
         "https://northbrook.il.us/440/Senior-Housing-Resources",
         "https://issuu.com/makeitbetter/docs/wncc_2021/29"
       ]
+    },
+    {
+      "id": "ACQ-006",
+      "priority": 1,
+      "status": "dropped",
+      "workstream": "referral_distribution",
+      "task": "Discovery run on a waiting queue: assess the operator-priority referral classes not yet checked (faith care ministries, hospital social work) plus two unassessed G1 leads (Glenview Public Library older-adult list, a North Shore parenting blog with an aging-parents post).",
+      "done_utc": "2026-11-19",
+      "result": "No new qualified candidate. Faith: Unitarian Church of Evanston care teams serve members only via an internal Request for Care form and a phone line; First Congregational Evanston care is deacon-led for members; Glenview church caregiver groups are support meetings listed in the Alzheimer's Association resource finder, with no resource list or general address. Hospital: Endeavor Health (Evanston Hospital) shows no public senior-services or social-work contact route, only system geriatric and memory-care pages. Glenview Public Library 'Resources for Older Adults' (7 Jul 2026) links only government and nonprofit agencies and has no email (comments box or phone 847-729-7500), the same pattern as Skokie Library. Chicago North Shore Moms: the only route is a business partnership (likely paid, so excluded) and the site blocks automated reading behind a bot challenge, which was not routed around.",
+      "lesson": "The referral pipeline is now ahead of sending: Skokie (ACQ-001) and Niles (ACQ-004) are verified but unsent, 10 sends have 0 replies, and the remaining North Shore classes return government-only lists, member-only care teams or phone-only routes. More referral discovery has diminishing returns until the operator sends the next batch and replies come in.",
+      "sources": [
+        "https://ucevanston.org/?p=16051",
+        "https://firstchurchevanston.org/ministries",
+        "https://glenviewpl.org/blogs/post/resources-for-older-adults/",
+        "https://www.endeavorhealth.org/services/primary-care/adult-care/geriatric-medicine",
+        "https://www.communityresourcefinder.org/ResourceView/Index?id=3313907"
+      ]
     }
   ],
   "blocked": [],
-  "next_work_source": "Discovery-first: an empty or waiting queue is a trigger to find work, not completion. Each run reads fresh evidence (org replies, E1 +48h verdict 20 Nov 17:44Z, Search Console 25 Nov, PR #78 status), identifies the bottleneck and executes the strongest authorized action. If nothing worthwhile exists, stop without a commit; the hourly cloud monitor reactivates the loop on new evidence.",
+  "next_work_source": "Discovery-first: an empty or waiting queue is a trigger to find work, not completion. Each run reads fresh evidence (org replies, E1 +48h verdict 20 Nov 17:44Z, Search Console 25 Nov, PR #78 status), identifies the bottleneck and executes the strongest authorized action. If nothing worthwhile exists, stop without a commit; the hourly cloud monitor reactivates the loop on new evidence. Referral discovery is paused after ACQ-006 (pipeline ahead of sending); restart it only once the Skokie/Niles batch is sent or a reply shows which kind of organization responds.",
   "last_run": {
     "utc": "2026-11-19",
-    "event": "pull_request.synchronize eb05766",
-    "picked": "ACQ-004 (discovered)",
-    "why": "queue empty; referral distribution is the only acquisition channel this loop can advance today without data it lacks"
+    "event": "pull_request.synchronize bd63bb3",
+    "picked": "ACQ-006 (discovered)",
+    "why": "queue only held ACQ-005 (not before 25 Nov); checked the referral classes the operator prioritises that nobody had assessed"
   },
-  "last_verified_action": "ACQ-004: verified uncontacted Village of Niles Senior Center referral point with published role address; proposal handed to the outreach operator (not sent)",
-  "last_stop": null,
+  "last_verified_action": "ACQ-006: 4 referral leads assessed, all low-fit or no route; nothing proposed or sent",
+  "last_stop": {
+    "utc": "2026-11-19",
+    "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
+    "reactivate_on": [
+      "operator sends the Skokie/Niles batch, or any organizational reply arrives (follow-through and attribution of ?ref=em-skokie/em-niles visits)",
+      "E1 +48h verdict (2026-11-20T17:44Z) produces a Winnetka post text needing a tour-path landing check",
+      "PR #78 merged (then measure the estate-recovery tour path)",
+      "Search Console 17-24 Nov data (ACQ-005, not before 2026-11-25T15:00Z)",
+      "any genuine tour-form view or inquiry (conversion and handoff check)"
+    ]
+  },
   "safety": {
     "no_idle_commits": true,
     "one_completed_action_per_event": true,
