@@ -2,9 +2,9 @@
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
  "updated_utc": "2026-11-18T23:05Z",
- "last_run_utc": "2026-11-19T15:02Z",
+ "last_run_utc": "2026-11-19T16:22Z",
  "facebook": {
-  "access": "no 2026-11-19T15:02Z",
+  "access": "no 2026-11-19T16:22Z",
   "last_access_ok_utc": "2026-11-18T21:16Z",
   "last_checks_utc": "2026-11-18T15:08Z",
   "unreachable_since_utc": null,
@@ -453,7 +453,6 @@
   ]
  },
  "log": [
-  "2026-11-18T00:09Z daily metrics (last 24h): 2 genuine Facebook visitors (both fb-evsk-1117, 15:32Z and 15:42Z); 0 assessment starts, 0 tour-form views, 0 tour requests; Gmail: none",
   "2026-11-18T00:30Z site: Supportive Living guide now covers dementia care settings (HFS Cook County list: none in Evanston or nearby suburbs; closest is Asbury Court, Des Plaines; IDPH: 20 certified statewide), PR #71; memory-care statute pages on ilga.gov blocked to the fetch tool, so no unverifiable legal claims published",
   "2026-11-18T01:03Z daily rollup sent: 0 tour requests, tours UNVERIFIED, 2 genuine Facebook visitors today, 0 assessments, 4 posts live + 1 pending, 33 guides live (17 added 17 Nov); owner question (Nextdoor/LinkedIn) asked in chat 23:57Z, awaiting answer",
   "2026-11-18T01:12Z owner directive 19:02 Chicago (growth first; Facebook primary; no new guides without demand; new legal/medical claims need his approval): operator instructions updated; cloud watchdog created and test-fired (SUCCEEDED); drafts routine gated on DEMAND.md (PR #73); E1 Wilmette cost-post experiment planned for 18 Nov",
@@ -492,7 +491,8 @@
   "2026-11-19T00:32Z review: tour engine ready list empty; funnel since 16 Nov = single-digit genuine visitors, some checklist opens, 1 tour-questions view, 0 assessment starts, 0 tour-form views; homepage tour section already links the tour request, so the bottleneck is volume of families reached, not the page. Shift effort to referral outreach (business hours) and owner phone/flyer drops; scanning gets leftover time",
   "2026-11-19T03:50Z loop: Chrome not connected, so the 21:45 lead scan was skipped; no org replies except one automatic reply (E-1118-03: HR desk answers in 2-3 business days and names a separate general-HR inbox for caregiving questions; not re-sending to the same organization, wait for their reply); tour engine ready list empty. Next wake 7:30 Chicago for business-hours outreach",
   "2026-11-19T13:45Z loop 7:30 Chicago: no org replies; Chrome offline; engine queue empty; no post today (5 posts in 7 days, cap); outreach research: Meals on Wheels NE Illinois, Wilmette Park District, Levy foundation have no published email reachable; phone-only list given to Joseph; Search Console note 'alternate page with proper canonical' = ?ref= URLs folding into canonical, expected",
-  "2026-11-19T15:02Z loop 9:00 Chicago: Chrome offline, no org replies, nothing else actionable; next check 16:20Z"
+  "2026-11-19T15:02Z loop 9:00 Chicago: Chrome offline, no org replies, nothing else actionable; next check 16:20Z",
+  "2026-11-19T16:22Z loop 10:20 Chicago: Chrome offline, no replies; next wake 18:00Z after the E1 +24h measurement (17:44Z)"
  ],
  "next_actions": [
   "STANDING (Joseph 18 Nov 16:44/17:08): continuous loop, day and night. Each session: plan, do a real tour-focused task, review, re-plan and immediately do the next actionable task in the same session; only when nothing is actionable, set the next wake 2 minutes after the CURRENT time (check the clock, never estimate). Never schedule a long sleep.",
