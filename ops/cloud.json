@@ -6,8 +6,8 @@
     "note": "tour-request alerts: sha256(message id) and time only"
   },
   "metrics": {
-    "last_utc": "2026-11-19T20:24Z",
-    "window_utc": "2026-11-19T17:24Z/2026-11-19T20:24Z",
+    "last_utc": "2026-11-19T23:24Z",
+    "window_utc": "2026-11-19T22:24Z/2026-11-19T23:24Z",
     "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs",
     "per_tag": {
       "fb-wil-1118": {
@@ -49,7 +49,7 @@
     "assessment_completions": 0,
     "tour_form_views": 0,
     "tour_requests": 0,
-    "genuine_detail": "17:24Z-20:24Z: 0 genuine; no tagged landings; /api/plan-visit 2 + /assessment,/tour 404s = this and prior cloud checks (curl); iOS 13_2_3 Safari home-only hits with http->https redirects at 19:10Z/20:14Z/20:22Z = monitor bot (no assets); 2 guide hits 19:00:47Z same second = crawler; checklist PDF 2 = curl checks; rest facebookexternalhit, Googlebot, OAI-SearchBot and WordPress/cache.php scanners"
+    "genuine_detail": "22:24Z-23:27Z: 0 confirmed genuine; 27 requests: curl checks 14 (incl. /assessment,/tour,/contact 404s and 1 /api/plan-visit 405), facebookexternalhit 7 (home + og-card previews), tiina.ai outreach bot 2, wp-admin scanner 2, Chrome prefetch proxy 1, 1 Windows Chrome/157 single hit on supportive-living guide (no assets, no referrer tag; unverified); 0 POSTs; no tagged landings"
   },
   "summary": {
     "last_utc": "2026-11-19T01:24Z",
@@ -58,8 +58,8 @@
   "site": {
     "fail_count": 0,
     "down_since_utc": null,
-    "last_check_utc": "2026-11-19T22:24Z",
-    "last_check_method": "Netlify status codes 20:24Z-23:04Z: 200 x40, 301 x4, 404 x7 (scanner/probe paths), 405 x3 (/api/plan-visit GET from checks), no 5xx; home, ?tour=form, assessment.js 200"
+    "last_check_utc": "2026-11-19T23:24Z",
+    "last_check_method": "curl: home, ?tour=form, assessment.js, checklist PDF, Medicare and Medicaid LTC guides 200; Netlify 22:24Z-23:27Z: 200 x18, 301 x1, 404 x7 (probe/check paths), 405 x1, no 5xx"
   },
   "recovery": {
     "last_attempt_utc": "2026-11-18T01:39Z",
@@ -171,7 +171,8 @@
     "2026-11-19T14:24Z run: 0 tour requests; outreach watch: 10 sent all recorded, all threads 1 message (no replies); site OK (no 5xx); session operator healthy (last run 13:45Z); metrics 11:24Z-14:24Z: 1 genuine north-shore-checklist visitor (no beacons), fb-wil-1118 0 genuine, beacons were meta-webindexer; E1 +24h due 17:44Z; no new opportunity",
     "2026-11-19T17:24Z run: 0 tour requests; outreach watch: no org replies (inbox 24h: Search Console canonical notice, Nextdoor digests only); site OK (no 5xx); session operator healthy (last run 16:22Z, next 18:00Z after E1 +24h); metrics 14:24Z-17:24Z: 0 genuine; acquisition loop idle gate holds (ACQ-005 waits to 25 Nov), no new opportunity",
     "2026-11-19T20:24Z run: 0 tour requests; outreach watch: no org replies (all 10 sent threads 1 message); site OK (no 5xx); FB interruption recorded (session operator last run 16:22Z, 18:00Z wake missed; watchdog owns alert, next slot 22:37Z); metrics 17:24Z-20:24Z: 0 genuine; acquisition loop idle gate holds (PR #78 open unmerged, no send/reply, E1 +48h 20 Nov, ACQ-005 25 Nov), no new task",
-    "2026-11-19T22:24Z run: 0 tour requests (no POSTs to /api/plan-visit); outreach watch: no org replies (inbox since 20:24Z: Nextdoor digests only); site OK (no 5xx); session operator still idle since 16:22Z (interruption already recorded 20:24Z; watchdog 22:37Z slot owns the alert); metrics 20:24Z-22:24Z: 0 genuine (checks, prefetch and previews only); acquisition loop idle gate holds (PR #78 open unmerged, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task"
+    "2026-11-19T22:24Z run: 0 tour requests (no POSTs to /api/plan-visit); outreach watch: no org replies (inbox since 20:24Z: Nextdoor digests only); site OK (no 5xx); session operator still idle since 16:22Z (interruption already recorded 20:24Z; watchdog 22:37Z slot owns the alert); metrics 20:24Z-22:24Z: 0 genuine (checks, prefetch and previews only); acquisition loop idle gate holds (PR #78 open unmerged, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task",
+    "2026-11-19T23:24Z run: 0 tour requests (no POSTs); outreach watch: no org replies (all 10 sent threads 1 message); site OK (no 5xx); session operator still idle since 16:22Z (watchdog 22:37Z slot ran with AGE ~375 min, owns the alert); metrics 22:24Z-23:24Z: 0 confirmed genuine (checks, previews, bots); acquisition loop idle gate holds (PR #78 open, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task"
   ],
   "facebook_interruptions_past": [
     {
@@ -198,8 +199,8 @@
   "outreach_watch": {
     "alerted": [],
     "replies_alerted": [],
-    "last_utc": "2026-11-19T20:24Z",
-    "note": "sent 4d: 10, all threads 1 message (no replies); inbox 24h: Search Console canonical notice and Google account notices only"
+    "last_utc": "2026-11-19T23:24Z",
+    "note": "sent 5d: 10, all threads 1 message (no replies); inbox 24h: Search Console canonical notice and a vendor newsletter only"
   },
   "facebook_interruption": {
     "since_utc": "2026-11-19T16:22Z",
