@@ -29,17 +29,31 @@
       "main:ROUTINE.md"
     ]
   },
-  "queue": [
+  "queue": [],
+  "completed": [
     {
       "id": "ACQ-001",
       "priority": 1,
-      "status": "ready",
+      "status": "done",
       "workstream": "referral_distribution",
       "task": "Find one genuinely new, relevant Evanston/North Shore referral or caregiver-resource placement opportunity that has an explicit public resource submission process or a verified official organizational general contact route. Compare against existing outreach records before recommending anything. Produce source-backed opportunity notes and an actionable next step for the designated outreach operator. Do not send.",
-      "done_when": "One verified, previously uncontacted high-fit opportunity with actual requirements and a concrete proposal, or a documented DROP with sources and no fabricated contact data."
-    }
-  ],
-  "completed": [
+      "done_when": "One verified, previously uncontacted high-fit opportunity with actual requirements and a concrete proposal, or a documented DROP with sources and no fabricated contact data.",
+      "done_utc": "2026-11-19",
+      "opportunity": "Village of Skokie Health and Human Services, Human Services division (information and referral on local senior programs, village social workers, Senior Reassurance, SHIP)",
+      "result": "Verified previously uncontacted, high-fit municipal senior-services referral point in the town adjoining Evanston, matching the operator's 'township and village senior services' priority and the precedent of the Highland Park, Lake Forest and Morton Grove sends. Domain not among the 10 contacted domain hashes; Gmail search for skokie returns only Nextdoor digests (no sent mail, no decline). The division has no general mailbox: the official department directory lists individual staff addresses, of which the Program Specialist role is the appropriate single recipient (same pattern as E-1118-07/08 'published staff contact').",
+      "requirements": "No resource-submission form. One email to one published staff address only; disclosed independent site with the senior-living employment tie; offer the free tour checklist and cost/Medicare guides for families they refer; no request to endorse; ?ref=em-skokie-<MMDD> tag; never also email the social workers.",
+      "proposal_for_operator": "After the 19-20 Nov reply review clears the next small batch, send one disclosed note to the Program Specialist address on https://www.skokie.org/directory.aspx?did=20 (phone 847-933-8208 for a call-list fallback). This loop sent nothing and created no Gmail draft (drafts were previously sent by an unknown actor, B-1112).",
+      "also_checked_low_fit": [
+        "Skokie Public Library: Health & Wellness info guide lists only government/national authorities (CDC, NIH, NIA, IDHS, HFS); no older-adult category; general address exists but placement unlikely. https://www.skokielibrary.info/info-guides/health-wellness",
+        "Wilmette Public Library: no older-adult resource page and no published email (phone/contact page only). https://www.wilmettelibrary.info/",
+        "Niles Township government site: no senior-services page or general email found on the home page."
+      ],
+      "sources": [
+        "https://www.skokie.org/1534/Human-Services",
+        "https://www.skokie.org/directory.aspx?did=20",
+        "https://www.skokie.org/1543/Senior-Reassurance-Program"
+      ]
+    },
     {
       "id": "ACQ-002",
       "priority": 2,
@@ -71,14 +85,14 @@
     }
   ],
   "blocked": [],
-  "next_work_source": "Reassess latest outcomes, shared operator state and source evidence after every task. Add a new task only when its expected tour-acquisition value and evidence justify it.",
+  "next_work_source": "Reassess latest outcomes, shared operator state and source evidence after every task. Add a new task only when its expected tour-acquisition value and evidence justify it. Queue is empty after ACQ-001: the next run should add an item only for genuinely new evidence (an organization reply, E1 +48h verdict on 20 Nov 17:44Z, new Search Console data) and otherwise stop without committing.",
   "last_run": {
     "utc": "2026-11-19",
-    "event": "pull_request.synchronize f408c9c",
-    "picked": "ACQ-003",
-    "why": "ACQ-001 referral drafts are held until the operator reviews replies (19-20 Nov); ACQ-003 could be resolved by research alone"
+    "event": "pull_request.synchronize 37b1e23",
+    "picked": "ACQ-001",
+    "why": "only ready item; research-only deliverable with no outbound side effect"
   },
-  "last_verified_action": "ACQ-003: sourced DROP of Evanston Care Network / findhelp listing channel",
+  "last_verified_action": "ACQ-001: verified uncontacted Village of Skokie Human Services referral opportunity, proposal handed to the outreach operator (not sent)",
   "last_stop": null,
   "safety": {
     "no_idle_commits": true,
@@ -96,6 +110,7 @@
   },
   "owner_review_needed": [
     "PR #78: review and merge if acceptable (this loop does not merge)",
-    "Stray branch claude/estate-recovery-tour-path (same commit as PR #78) could not be deleted by the worker; safe to delete"
+    "Stray branch claude/estate-recovery-tour-path (same commit as PR #78) could not be deleted by the worker; safe to delete",
+    "ACQ-001 proposal: one disclosed email to the Village of Skokie Human Services Program Specialist after the 19-20 Nov reply review (operator sends; this loop did not)"
   ]
 }
