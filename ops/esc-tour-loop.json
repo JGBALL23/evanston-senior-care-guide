@@ -37,14 +37,6 @@
       "workstream": "referral_distribution",
       "task": "Find one genuinely new, relevant Evanston/North Shore referral or caregiver-resource placement opportunity that has an explicit public resource submission process or a verified official organizational general contact route. Compare against existing outreach records before recommending anything. Produce source-backed opportunity notes and an actionable next step for the designated outreach operator. Do not send.",
       "done_when": "One verified, previously uncontacted high-fit opportunity with actual requirements and a concrete proposal, or a documented DROP with sources and no fabricated contact data."
-    },
-    {
-      "id": "ACQ-003",
-      "priority": 3,
-      "status": "ready",
-      "workstream": "qualified_audience",
-      "task": "Identify one practical free distribution channel with clear evidence of families choosing senior care, rather than repeating low-yield general Facebook scans. Prefer legitimate public directories, community resource listings, and older-adult service referrals. Evaluate suitability and eligibility honestly.",
-      "done_when": "One verified channel proposal with a no-cost authorized execution route or a sourced reason to drop the channel."
     }
   ],
   "completed": [
@@ -59,17 +51,34 @@
       "result": "Search Console 16 Nov: illinois-medicaid-estate-recovery is the best-ranked page (avg position 5.8) and was the only page-one guide lacking the tour checklist + disclosed tour link (complaint and Medicare guides got it 18 Nov). Added the identical existing block after 'Where this fits with the rest of this site'; no new claims, data or form changes.",
       "artifact": "https://github.com/JGBALL23/evanston-senior-care-guide/pull/78 (review only, not merged or deployed)",
       "verification": "build-guides.py rebuilt only that guide; check-guides.js 2697/2697; test.js 768/768; check-citations.sh 15 dead citations, none touched by this change (the sandbox network is a likely cause, unconfirmed)"
+    },
+    {
+      "id": "ACQ-003",
+      "priority": 3,
+      "status": "dropped",
+      "workstream": "qualified_audience",
+      "task": "Identify one practical free distribution channel with clear evidence of families choosing senior care, rather than repeating low-yield general Facebook scans. Prefer legitimate public directories, community resource listings, and older-adult service referrals. Evaluate suitability and eligibility honestly.",
+      "done_when": "One verified channel proposal with a no-cost authorized execution route or a sourced reason to drop the channel.",
+      "done_utc": "2026-11-19",
+      "channel": "Evanston Care Network (City of Evanston social-care directory, launched May 2020 on Aunt Bertha, now findhelp)",
+      "result": "DROP. (1) evanstoncarenetwork.org now serves only a JS redirect to /lander (parked-domain pattern), so the city-branded directory is not a live channel. (2) The underlying findhelp platform lists 'non-profit organizations or local, state, or federally funded agencies that provide free or reduced cost services'; ESCG is an independent informational site with a disclosed senior-living employment tie and a tour option, so it does not qualify and a suggestion would misrepresent it. No submission made or proposed.",
+      "sources": [
+        "https://patch.com/illinois/evanston/local-organizations-launch-care-network",
+        "https://preventchildabuse.org/connect-with-services-in-your-community/ (quotes findhelp eligibility)",
+        "curl https://evanstoncarenetwork.org/ on 2026-11-19 -> 200 with window.location='/lander' only"
+      ],
+      "side_leads_not_acted": "Wilmette Public Library has a senior-services librarian and hosts caregiver programs (domain not in contacted hashes) but no public resource list; possible ACQ-001 input only, needs a general/role address check."
     }
   ],
   "blocked": [],
   "next_work_source": "Reassess latest outcomes, shared operator state and source evidence after every task. Add a new task only when its expected tour-acquisition value and evidence justify it.",
   "last_run": {
     "utc": "2026-11-19",
-    "event": "pull_request.synchronize 335a15a",
-    "picked": "ACQ-002",
-    "why": "only evidence-backed page-one conversion gap; referral outreach is held until the operator reviews replies (outreach plan 19-20 Nov)"
+    "event": "pull_request.synchronize f408c9c",
+    "picked": "ACQ-003",
+    "why": "ACQ-001 referral drafts are held until the operator reviews replies (19-20 Nov); ACQ-003 could be resolved by research alone"
   },
-  "last_verified_action": "ACQ-002: review PR #78 (estate-recovery guide tour path), checks passing",
+  "last_verified_action": "ACQ-003: sourced DROP of Evanston Care Network / findhelp listing channel",
   "last_stop": null,
   "safety": {
     "no_idle_commits": true,
