@@ -50,8 +50,8 @@
   "site": {
     "fail_count": 0,
     "down_since_utc": null,
-    "last_check_utc": "2026-11-19T01:24Z",
-    "last_check_method": "Netlify status codes last 2h: 200 x132, 301 x6, 404 x2, 304 x1, no 5xx"
+    "last_check_utc": "2026-11-19T02:26Z",
+    "last_check_method": "Netlify status codes last 2h: 200 x103, 301 x7, 404 x2, 304 x1, no 5xx"
   },
   "recovery": {
     "last_attempt_utc": "2026-11-18T01:39Z",
@@ -72,6 +72,17 @@
         "tour_requests": 0,
         "source": "Netlify 01:29Z-00:41Z: 1 tagged hit, link preview; 00:41-01:29Z from state.json note (all automated)",
         "written_utc": "2026-11-18T01:30Z"
+      },
+      "h48": {
+        "window_utc": "2026-11-17T00:41Z/2026-11-19T00:41Z",
+        "genuine_visitors": 0,
+        "checklist_opens": 0,
+        "assessment_starts": 0,
+        "assessment_completions": 0,
+        "tour_form_views": 0,
+        "tour_requests": 0,
+        "source": "h24 0; 18 Nov 00:07-03:23Z metrics run 0 genuine; Netlify topk urls_with_query (top 200) 18 Nov 02:30Z-19 Nov 00:41Z: no fb-profile-1116 landings",
+        "written_utc": "2026-11-19T02:26Z"
       }
     },
     "north-shore-checklist": {
@@ -143,7 +154,8 @@
     "2026-11-18T18:25Z run: 0 tour requests; site OK (no 5xx); session operator healthy (last run 16:41Z, FB reachable); fb-evsk-1117 +24h written (2 genuine, 1 checklist open, 1 tour-questions view, 0 assessments/tour-form/requests); metrics not due (last 16:25Z)",
     "2026-11-18T20:25Z run: 0 tour requests; site OK (no 5xx); session operator healthy (last run 20:14Z, FB reachable); metrics 16:25Z-20:25Z: fb-wil-1118 0 genuine (2 crawler hits); unrecorded email tags em-fsg-1118 x2 / em-lf-1118 x1 landings 19:41Z, genuineness UNVERIFIED; 0 checklist/assessment/tour-form; no new opportunity",
     "2026-11-18T23:24Z run: 0 tour requests; outreach watch: 9 sent all recorded, 1 auto-reply only; site OK (no 5xx); session operator healthy (last run 23:20Z, FB reachable); metrics 20:25Z-23:24Z: 0 genuine (fb-wil-1118 Googlebot-Image, fb-evsk-1117 FB crawler), 0 beacons/checklist/assessment/tour-form; no new opportunity",
-    "2026-11-19T01:24Z run: 0 tour requests; outreach watch: 10 sent all recorded, no replies; site OK (no 5xx); session operator healthy (last run 00:32Z, FB reachable); daily metrics 23:24Z-01:24Z: 0 genuine (fb-wil-1118 FB crawler, em-1118j likely mail scanner); daily summary pushed; no new opportunity"
+    "2026-11-19T01:24Z run: 0 tour requests; outreach watch: 10 sent all recorded, no replies; site OK (no 5xx); session operator healthy (last run 00:32Z, FB reachable); daily metrics 23:24Z-01:24Z: 0 genuine (fb-wil-1118 FB crawler, em-1118j likely mail scanner); daily summary pushed; no new opportunity",
+    "2026-11-19T02:26Z run: 0 tour requests; outreach watch: 10 sent all recorded, no new replies; site OK (no 5xx); session operator healthy (last run 00:32Z, FB reachable); fb-profile-1116 +48h written (0 genuine); metrics not due (last 01:24Z); no new opportunity"
   ],
   "facebook_interruptions_past": [
     {
@@ -170,7 +182,7 @@
   "outreach_watch": {
     "alerted": [],
     "replies_alerted": [],
-    "last_utc": "2026-11-19T01:24Z",
+    "last_utc": "2026-11-19T02:26Z",
     "note": "sent 2d: 10, all in state.json actions; inbox replies: none new (1 earlier automatic reply)"
   }
 }
