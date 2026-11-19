@@ -163,11 +163,11 @@
  ],
  "limits": [],
  "brief": {
-  "date_chicago": "2026-11-18",
+  "date_chicago": "2026-11-19",
   "ready": "nothing waiting; Winnetka post text (P-1120-01) will be prepared after the E1 +48h verdict (20 Nov 11:44 Chicago)",
   "learned": [
-   "0 replies so far to the 8 outreach emails sent 18 Nov",
-   "browser page views last 24h: home 46, assisted-living cost guide 9; both already lead to the tour checklist and tour section"
+   "0 organization replies to the 10 outreach emails sent 18 Nov (2 auto-replies); next referral batch waits for the operator's reply review, per the outreach plan",
+   "no tagged visitors overnight; 02:24-05:24 Chicago traffic was link-preview crawlers, SEO bots and scanners"
   ]
  },
  "log": [
@@ -176,7 +176,8 @@
   "2026-11-18T16:41Z session operator: G1 and G2 done (verdicts above); added G4 for tonight",
   "2026-11-18T22:45Z operator: G4 done (DROP: no clear-fit care-management or elder-law practice with a public general address; results were home-care franchises and lawyer directories)",
   "2026-11-18T22:45Z tour engine replaces night growth (every 3 hours, 24/7): prepares reply drafts, tour-path page fixes, post texts and referral drafts for the operator; never ships",
-  "2026-11-19T00:15Z tour engine: no org replies; top-visited pages already have tour next steps; P-1120-01 waits for E1 verdict; referral drafts at daily cap (2 on 18 Nov); brief set; no action"
+  "2026-11-19T00:15Z tour engine: no org replies; top-visited pages already have tour next steps; P-1120-01 waits for E1 verdict; referral drafts at daily cap (2 on 18 Nov); brief set; no action",
+  "2026-11-19T12:10Z tour engine: no org replies; P-1120-01 waits for E1 verdict; referral drafts held until the operator reviews replies (outreach plan 19-20 Nov); brief set; no action"
  ],
  "ready": []
 }
