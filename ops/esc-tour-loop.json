@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "system": "ESCG Tour Acquisition — Event-Driven Production Loop",
-  "status": "ACTIVATED_AWAITING_FIRST_EVENT_RUN",
+  "status": "ACTIVE",
   "objective": "Generate qualified voluntary senior-living tour inquiries for Evanston/North Shore families, without pretending inquiries are confirmed tours.",
   "trigger": {
     "provider": "Claude Scheduled Tasks",
@@ -39,14 +39,6 @@
       "done_when": "One verified, previously uncontacted high-fit opportunity with actual requirements and a concrete proposal, or a documented DROP with sources and no fabricated contact data."
     },
     {
-      "id": "ACQ-002",
-      "priority": 2,
-      "status": "ready",
-      "workstream": "search_acquisition",
-      "task": "Use current evidence, not historical guesses, to identify the highest-intent search landing page where a small, factual change could make a real family more likely to reach the tour request. Inspect the actual deployed page and current code. Do not duplicate Nov 18 complaint/Medicare fixes or publish new unverifiable care claims. If there is a measurable defect, prepare a separate tested review PR, not a direct publish.",
-      "done_when": "Reproducible conversion/search issue with a verified small fix in a review PR and checks, or explicit evidence why changing pages is currently low-value."
-    },
-    {
       "id": "ACQ-003",
       "priority": 3,
       "status": "ready",
@@ -55,11 +47,29 @@
       "done_when": "One verified channel proposal with a no-cost authorized execution route or a sourced reason to drop the channel."
     }
   ],
-  "completed": [],
+  "completed": [
+    {
+      "id": "ACQ-002",
+      "priority": 2,
+      "status": "done",
+      "workstream": "search_acquisition",
+      "task": "Use current evidence, not historical guesses, to identify the highest-intent search landing page where a small, factual change could make a real family more likely to reach the tour request. Inspect the actual deployed page and current code. Do not duplicate Nov 18 complaint/Medicare fixes or publish new unverifiable care claims. If there is a measurable defect, prepare a separate tested review PR, not a direct publish.",
+      "done_when": "Reproducible conversion/search issue with a verified small fix in a review PR and checks, or explicit evidence why changing pages is currently low-value.",
+      "done_utc": "2026-11-19",
+      "result": "Search Console 16 Nov: illinois-medicaid-estate-recovery is the best-ranked page (avg position 5.8) and was the only page-one guide lacking the tour checklist + disclosed tour link (complaint and Medicare guides got it 18 Nov). Added the identical existing block after 'Where this fits with the rest of this site'; no new claims, data or form changes.",
+      "artifact": "https://github.com/JGBALL23/evanston-senior-care-guide/pull/78 (review only, not merged or deployed)",
+      "verification": "build-guides.py rebuilt only that guide; check-guides.js 2697/2697; test.js 768/768; check-citations.sh 15 dead citations, none touched by this change (the sandbox network is a likely cause, unconfirmed)"
+    }
+  ],
   "blocked": [],
   "next_work_source": "Reassess latest outcomes, shared operator state and source evidence after every task. Add a new task only when its expected tour-acquisition value and evidence justify it.",
-  "last_run": null,
-  "last_verified_action": null,
+  "last_run": {
+    "utc": "2026-11-19",
+    "event": "pull_request.synchronize 335a15a",
+    "picked": "ACQ-002",
+    "why": "only evidence-backed page-one conversion gap; referral outreach is held until the operator reviews replies (outreach plan 19-20 Nov)"
+  },
+  "last_verified_action": "ACQ-002: review PR #78 (estate-recovery guide tour path), checks passing",
   "last_stop": null,
   "safety": {
     "no_idle_commits": true,
@@ -74,5 +84,9 @@
     "date": "2026-11-19",
     "purpose": "Seed first production PR synchronize event once after owner showed active Claude routine. Never generate subsequent empty commits.",
     "confirmation": "Claude Scheduled Tasks screenshot: ESCG Tour Acquisition Loop active, Pull request: Commits pushed on matching repository. Previous setup screenshot: head branch automation/esc-tour-loop."
-  }
+  },
+  "owner_review_needed": [
+    "PR #78: review and merge if acceptable (this loop does not merge)",
+    "Stray branch claude/estate-recovery-tour-path (same commit as PR #78) could not be deleted by the worker; safe to delete"
+  ]
 }
