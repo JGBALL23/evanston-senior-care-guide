@@ -40,6 +40,20 @@
       "evidence_needed": "Search Console Performance (queries, pages, CTR, position) for 17-24 Nov from the operator's 25 Nov check; PR #78 merge status.",
       "done_when": "If those pages show >=20 impressions at position <=10 with CTR <3%, open one small tested review PR rewriting only their <title>/meta description; otherwise record no-change with numbers.",
       "not_before_utc": "2026-11-25T15:00Z"
+    },
+    {
+      "id": "ACQ-007",
+      "priority": 2,
+      "status": "blocked",
+      "workstream": "conversion",
+      "task": "Give families who open the free tour checklist PDF a disclosed route to the Westminster Place tour request; today the PDF is a dead end for the tour step.",
+      "evidence": "Operator metrics 16-17 Nov: 3 of 4 genuine Facebook-origin visitors opened the checklist PDF; 0 started the assessment or reached the tour form. The PDF (main, _dist/downloads/senior-living-tour-checklist.pdf, checked 2026-11-20) has exactly 3 link annotations: the homepage, Medicare Care Compare and IDPH assisted living. None goes to /?tour=form#plan-visit, and nothing printed mentions a tour request, while every guide and the homepage put a disclosed 'Ask about a tour here' line beside the same download. On a phone the PDF opens full-screen, so the most engaged visitors end on a page with no tour step. Sample is tiny; this is a structural gap, not a measured effect.",
+      "why_blocked": "The PDF is owner-approved (check-guides.js 'owner-approved PDF, 2026-11-11') and tools/test_checklist_pdf.py enforces exactly three links with no query string or fragment. There is no HTML source in the repo (Chromium/Skia output), so a visible line means regenerating or editing the page content. Changing an owner-locked asset needs Joseph's yes.",
+      "proposal_for_owner": "Approve one added printed line under the footer disclosure, e.g. 'Touring Westminster Place in Evanston, where the author works? Ask at evanstonseniorcareguide.com', linked to https://evanstonseniorcareguide.com/?tour=form#plan-visit, and relax the test to allow that one link. Then this loop opens a tested review PR (one page, < 200 KB, other links unchanged).",
+      "expected_tour_acquisition_value": "Medium: the checklist is the most-used action by genuine visitors so far and is the asset referral partners (Skokie, Niles proposals) are offered; it is also printed and carried on tours.",
+      "executor": "Joseph (decision), then this loop (review PR)",
+      "done_when": "Joseph approves or declines; if approved, a tested review PR exists; measure tour-form views with ?tour=form after merge.",
+      "found_utc": "2026-11-20T02:45Z"
     }
   ],
   "completed": [
@@ -143,16 +157,17 @@
   "blocked": [],
   "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
   "last_run": {
-    "utc": "2026-11-19",
-    "event": "pull_request.synchronize bd63bb3",
-    "picked": "ACQ-006 (discovered)",
-    "why": "queue only held ACQ-005 (not before 25 Nov); checked the referral classes the operator prioritises that nobody had assessed"
+    "utc": "2026-11-20T02:45Z",
+    "event": "pull_request.synchronize bc2c280",
+    "picked": "ACQ-007 (discovered, conversion)",
+    "why": "no new sends, replies or traffic since ACQ-006; checked the conversion path of the one asset genuine visitors actually use"
   },
-  "last_verified_action": "ACQ-006: 4 referral leads assessed, all low-fit or no route; nothing proposed or sent",
+  "last_verified_action": "ACQ-007: checklist PDF confirmed to have no tour route; owner-locked, so recorded as an owner decision (no PR opened, nothing sent)",
   "last_stop": {
-    "utc": "2026-11-19",
+    "utc": "2026-11-20T02:45Z",
     "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
     "reactivate_on": [
+      "Joseph answers ACQ-007 (then open the PDF review PR)",
       "operator sends the Skokie/Niles batch, or any organizational reply arrives (follow-through and attribution of ?ref=em-skokie/em-niles visits)",
       "E1 +48h verdict (2026-11-20T17:44Z) produces a Winnetka post text needing a tour-path landing check",
       "PR #78 merged (then measure the estate-recovery tour path)",
@@ -178,7 +193,8 @@
     "PR #78: review and merge if acceptable (this loop does not merge)",
     "Stray branch claude/estate-recovery-tour-path (same commit as PR #78) is safe to delete",
     "Next referral batch (operator sends, after the 19-20 Nov reply review): Village of Skokie Human Services (ACQ-001) and Village of Niles Senior Center (ACQ-004)",
-    "Call list (Joseph, optional): New Trier Township social services 847-446-8202; Village of Northbrook 847-272-5050 re its Senior Housing Resources directory"
+    "Call list (Joseph, optional): New Trier Township social services 847-446-8202; Village of Northbrook 847-272-5050 re its Senior Housing Resources directory",
+    "ACQ-007 decision: may the owner-approved checklist PDF get one disclosed, linked 'Ask about a tour' line? 3 of 4 genuine visitors opened it and it currently has no tour route."
   ],
   "hourly_backlog_policy": {
     "enabled": true,
