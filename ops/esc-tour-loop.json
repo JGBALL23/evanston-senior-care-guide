@@ -224,17 +224,30 @@
    "expected_tour_acquisition_value": "Medium, slow: lets the tour-form page compete for local tour-intent queries; effect measurable only weeks after merge.",
    "executor": "this loop (done); Joseph (merge)",
    "done_utc": "2026-11-20T20:10Z"
+  },
+  {
+   "id": "ACQ-013",
+   "priority": 1,
+   "status": "done",
+   "workstream": "conversion",
+   "task": "Pre-post check for P-1122-01 (Rogers Park News, 49.5K, first post to a north-side Chicago audience, not before 2026-11-22T17:29Z, tag fb-rp-1122): landing path at phone width, and verified official source links, because that group's rule requires verifiable information with sources and no post text exists yet.",
+   "evidence": "ops/operator-state state.json: P-1122-01 pending with note 'sources linked per group rule; link last'; venue rules 'verifiable information with sources'. Template A (tour checklist) is the E1 +48h winner and the only hook with genuine visitors.",
+   "result": "Landing PASS: /?ref=fb-rp-1122#tour at 390x844 settles with #tour at 74px, no horizontal scroll (390), checklist PDF link and disclosed 'Ask about a tour here' both in the tour section; landing and tour-questions beacons carry s=fb-rp-1122 (beacons were intercepted and aborted in the test, so production counts are not polluted). Known gap unchanged: the tour click drops ref until PR #79 merges (post not blocked). Sources HTTP 200 on 2026-11-20: IDPH assisted living https://dph.illinois.gov/topics-services/health-care-regulation/assisted-living.html ; Medicare Care Compare https://www.medicare.gov/care-compare/ ; City of Chicago DFSS senior services https://www.chicago.gov/city/en/depts/fss/provdrs/senior.html (local to Rogers Park).",
+   "handoff": "Written to ops/operator-state growth.json for the tour engine/operator: use template A, cite IDPH + Care Compare (the checklist's own sources) and optionally the City of Chicago senior services page, put the site link last as ?ref=fb-rp-1122#tour (homepage, not a guide, per ACQ-010 until #80), end the link on its own line so no text runs into the tag, and confirm in the composer that the preview card is the site's (a source link placed first may become the card).",
+   "expected_tour_acquisition_value": "Medium: largest single new audience queued; a rule-compliant post avoids admin removal and keeps the result measurable.",
+   "executor": "esc-tour-loop (check, done); tour engine/session operator (text and post)",
+   "done_utc": "2026-11-20T18:55Z"
   }
  ],
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-20T20:10Z",
-  "event": "pull_request.synchronize 99e6b26",
-  "picked": "ACQ-011 (discovered; queue had no ready item)",
-  "why": "All external execution waits on the session operator (idle since 19 Nov 16:22Z, watchdog owns that alert); the highest-value in-authority lever left was search intent on the tour-form page."
+  "utc": "2026-11-20T18:55Z",
+  "event": "pull_request.synchronize af34594",
+  "picked": "ACQ-013 (discovered; no ready item, no PR merged, no new operator evidence since 18:35Z)",
+  "why": "P-1122-01 is the next scheduled distribution step to the biggest new audience and its venue requires source links; checking it before text is written is cheap and time-bound."
  },
- "last_verified_action": "ACQ-011: homepage title/description now name assisted living and memory care in Evanston; review PR #81, all suites pass. ACQ-012 measures it.",
+ "last_verified_action": "ACQ-013: Rogers Park landing path passes at 390px with ref kept on landing; verified source links handed to the tour engine for P-1122-01.",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -317,5 +330,6 @@
   "commit_rule": "After adding >=1 genuinely new evidence-backed task or verified outcome, make one consolidated commit to automation/esc-tour-loop and confirm PR #77 head. Otherwise do not commit.",
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
- }
+ },
+ "next_discovery": "Queue has no ready item. Reactivate on: PR #78-#81 merge (post-merge tag check), P-1120-01/P-1122-01 going live (+24h tagged visitor review), any org reply or Skokie/Niles send, Search Console 25 Nov (ACQ-005/012), Joseph's ACQ-007 answer, any tour-form view or inquiry."
 }
