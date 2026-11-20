@@ -76,6 +76,26 @@ function channel() {
 }
 const SOURCE = channel();
 
+/* ---------- THE CHANNEL SURVIVES THE TOUR CLICK --------------
+   "Ask about a tour" and the other homepage pathways are /?... links,
+   so following one reloads the page. Without this the new load has no
+   ref and a same-site referrer, and a family who arrived from a tagged
+   post is counted as "direct" at the form view and the submission.
+   Only the same short, sanitised token is carried (never the referrer
+   URL or anything personal), only on same-site /? links, only when the
+   visitor arrived tagged, and never over a tag the link already has. */
+document.addEventListener("click", (event) => {
+  if (SOURCE === "direct") return;
+  const link = event.target.closest && event.target.closest('a[href^="/?"]');
+  if (!link) return;
+  try {
+    const url = new URL(link.getAttribute("href"), window.location.origin);
+    if (url.searchParams.has("ref") || url.searchParams.has("utm_source")) return;
+    url.searchParams.set("ref", SOURCE);
+    link.setAttribute("href", url.pathname + url.search + url.hash);
+  } catch (err) { /* a broken href must never break the click */ }
+}, true);
+
 /* ---------- PATHWAY FROM A GUIDE ---------------------------
    Guide pages carry nav.js only, so they cannot render the form or fire a
    beacon. Instead each of the two choices is a plain anchor whose pathway
