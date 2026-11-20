@@ -1,221 +1,222 @@
 {
-  "schema": 1,
-  "about": "State of the ESCG cloud operator (hourly scheduled task trig_01HX7n6gwbDtXj9zXHabtQu4). Public: counts, times, tags and hashes only.",
-  "inquiries": {
-    "alerted": [],
-    "note": "tour-request alerts: sha256(message id) and time only"
+ "schema": 1,
+ "about": "State of the ESCG cloud operator (hourly scheduled task trig_01HX7n6gwbDtXj9zXHabtQu4). Public: counts, times, tags and hashes only.",
+ "inquiries": {
+  "alerted": [],
+  "note": "tour-request alerts: sha256(message id) and time only"
+ },
+ "metrics": {
+  "last_utc": "2026-11-20T07:24Z",
+  "window_utc": "2026-11-20T06:24Z/2026-11-20T07:24Z",
+  "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs",
+  "per_tag": {
+   "fb-wil-1118": {
+    "genuine_visitors": 0,
+    "checklist_opens": 0,
+    "assessment_starts": 0,
+    "assessment_completions": 0,
+    "tour_questions_views": 0,
+    "tour_form_views": 0,
+    "tour_requests": 0
+   },
+   "fb-evsk-1117": {
+    "genuine_visitors": 0,
+    "checklist_opens": 0,
+    "assessment_starts": 0,
+    "assessment_completions": 0,
+    "tour_form_views": 0,
+    "tour_requests": 0
+   },
+   "em-1118j": {
+    "genuine_visitors": 0,
+    "checklist_opens": 0,
+    "assessment_starts": 0,
+    "assessment_completions": 0,
+    "tour_form_views": 0,
+    "tour_requests": 0
+   },
+   "north-shore-checklist": {
+    "genuine_visitors": 0,
+    "checklist_opens": 0,
+    "assessment_starts": 0,
+    "assessment_completions": 0,
+    "tour_form_views": 0,
+    "tour_requests": 0
+   }
   },
-  "metrics": {
-    "last_utc": "2026-11-20T06:24Z",
-    "window_utc": "2026-11-20T05:24Z/2026-11-20T06:24Z",
-    "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs",
-    "per_tag": {
-      "fb-wil-1118": {
-        "genuine_visitors": 0,
-        "checklist_opens": 0,
-        "assessment_starts": 0,
-        "assessment_completions": 0,
-        "tour_questions_views": 0,
-        "tour_form_views": 0,
-        "tour_requests": 0
-      },
-      "fb-evsk-1117": {
-        "genuine_visitors": 0,
-        "checklist_opens": 0,
-        "assessment_starts": 0,
-        "assessment_completions": 0,
-        "tour_form_views": 0,
-        "tour_requests": 0
-      },
-      "em-1118j": {
-        "genuine_visitors": 0,
-        "checklist_opens": 0,
-        "assessment_starts": 0,
-        "assessment_completions": 0,
-        "tour_form_views": 0,
-        "tour_requests": 0
-      },
-      "north-shore-checklist": {
-        "genuine_visitors": 0,
-        "checklist_opens": 0,
-        "assessment_starts": 0,
-        "assessment_completions": 0,
-        "tour_form_views": 0,
-        "tour_requests": 0
-      }
-    },
+  "checklist_opens": 0,
+  "assessment_starts": 0,
+  "assessment_completions": 0,
+  "tour_form_views": 0,
+  "tour_requests": 0,
+  "genuine_detail": "06:24Z-07:24Z: 0 genuine; 10 requests (all GET): curl checks 5, contact-path probe scanner 5 (/contact, /contact-us, /kontakt, /contacto 404); 0 POSTs, 0 plan-visit submissions; no tagged landings"
+ },
+ "summary": {
+  "last_utc": "2026-11-19T01:24Z",
+  "note": "18 Nov (Chicago) summary pushed by cloud operator"
+ },
+ "site": {
+  "fail_count": 0,
+  "down_since_utc": null,
+  "last_check_utc": "2026-11-20T07:24Z",
+  "last_check_method": "curl: home, ?tour=form, assessment.js, /downloads/senior-living-tour-checklist.pdf 200, /api/plan-visit GET 405 (expected); Netlify 06:24Z-07:24Z: no 5xx, 404s only on probe paths"
+ },
+ "recovery": {
+  "last_attempt_utc": "2026-11-18T01:39Z",
+  "alerted_utc": null,
+  "test_utc": "2026-11-18T01:39Z",
+  "test_result": "failed: update_trigger refused in scheduled runs (needs owner approval in a live turn); nothing changed",
+  "last_attempt_ok": false
+ },
+ "campaigns": {
+  "fb-profile-1116": {
+   "h24": {
+    "window_utc": "2026-11-17T00:41Z/2026-11-18T00:41Z",
+    "genuine_visitors": 0,
     "checklist_opens": 0,
     "assessment_starts": 0,
     "assessment_completions": 0,
     "tour_form_views": 0,
     "tour_requests": 0,
-    "genuine_detail": "05:24Z-06:24Z: 0 genuine; 16 requests (all GET): curl checks 11, facebookexternalhit 3 (og-card previews), wp-admin scanner 2; 0 POSTs, 0 plan-visit submissions; no tagged landings"
+    "source": "Netlify 01:29Z-00:41Z: 1 tagged hit, link preview; 00:41-01:29Z from state.json note (all automated)",
+    "written_utc": "2026-11-18T01:30Z"
+   },
+   "h48": {
+    "window_utc": "2026-11-17T00:41Z/2026-11-19T00:41Z",
+    "genuine_visitors": 0,
+    "checklist_opens": 0,
+    "assessment_starts": 0,
+    "assessment_completions": 0,
+    "tour_form_views": 0,
+    "tour_requests": 0,
+    "source": "h24 0; 18 Nov 00:07-03:23Z metrics run 0 genuine; Netlify topk urls_with_query (top 200) 18 Nov 02:30Z-19 Nov 00:41Z: no fb-profile-1116 landings",
+    "written_utc": "2026-11-19T02:26Z"
+   }
   },
-  "summary": {
-    "last_utc": "2026-11-19T01:24Z",
-    "note": "18 Nov (Chicago) summary pushed by cloud operator"
+  "north-shore-checklist": {
+   "h24": {
+    "window_utc": "2026-11-16T04:42Z/2026-11-17T04:42Z",
+    "genuine_visitors": "2 per state.json visitor_notes (1 possibly owner's phone, unanswered); not rechecked",
+    "checklist_opens": "2 per state.json; not rechecked",
+    "assessment_starts": 0,
+    "tour_form_views": 0,
+    "tour_requests": 0,
+    "source": "outside Netlify 24h retention; session operator's figures",
+    "written_utc": "2026-11-18T01:30Z"
+   },
+   "h48": {
+    "window_utc": "2026-11-16T04:42Z/2026-11-18T04:42Z",
+    "genuine_visitors": "2 cumulative (both in first 24h per state.json); 0 new tagged landings in Netlify top URLs 2026-11-17T05:24Z-2026-11-18T04:42Z; 04:42-05:24Z 17 Nov unchecked",
+    "checklist_opens": "2 per state.json (first 24h); later opens not attributable",
+    "assessment_starts": 0,
+    "assessment_completions": 0,
+    "tour_form_views": 0,
+    "tour_requests": 0,
+    "source": "state.json visitor_notes + Netlify topk urls_with_query",
+    "written_utc": "2026-11-18T05:30Z"
+   }
   },
-  "site": {
-    "fail_count": 0,
-    "down_since_utc": null,
-    "last_check_utc": "2026-11-20T06:24Z",
-    "last_check_method": "curl: home, ?tour=form, assessment.js, /downloads/senior-living-tour-checklist.pdf 200, /api/plan-visit GET 405 (expected); Netlify 05:24Z-06:24Z: no 5xx, 404s only on probe paths"
+  "north-shore-happening": {
+   "h24": "UNVERIFIED (outside Netlify retention)",
+   "h48": "UNVERIFIED (outside Netlify retention)",
+   "written_utc": "2026-11-18T01:30Z"
   },
-  "recovery": {
-    "last_attempt_utc": "2026-11-18T01:39Z",
-    "alerted_utc": null,
-    "test_utc": "2026-11-18T01:39Z",
-    "test_result": "failed: update_trigger refused in scheduled runs (needs owner approval in a live turn); nothing changed",
-    "last_attempt_ok": false
-  },
-  "campaigns": {
-    "fb-profile-1116": {
-      "h24": {
-        "window_utc": "2026-11-17T00:41Z/2026-11-18T00:41Z",
-        "genuine_visitors": 0,
-        "checklist_opens": 0,
-        "assessment_starts": 0,
-        "assessment_completions": 0,
-        "tour_form_views": 0,
-        "tour_requests": 0,
-        "source": "Netlify 01:29Z-00:41Z: 1 tagged hit, link preview; 00:41-01:29Z from state.json note (all automated)",
-        "written_utc": "2026-11-18T01:30Z"
-      },
-      "h48": {
-        "window_utc": "2026-11-17T00:41Z/2026-11-19T00:41Z",
-        "genuine_visitors": 0,
-        "checklist_opens": 0,
-        "assessment_starts": 0,
-        "assessment_completions": 0,
-        "tour_form_views": 0,
-        "tour_requests": 0,
-        "source": "h24 0; 18 Nov 00:07-03:23Z metrics run 0 genuine; Netlify topk urls_with_query (top 200) 18 Nov 02:30Z-19 Nov 00:41Z: no fb-profile-1116 landings",
-        "written_utc": "2026-11-19T02:26Z"
-      }
-    },
-    "north-shore-checklist": {
-      "h24": {
-        "window_utc": "2026-11-16T04:42Z/2026-11-17T04:42Z",
-        "genuine_visitors": "2 per state.json visitor_notes (1 possibly owner's phone, unanswered); not rechecked",
-        "checklist_opens": "2 per state.json; not rechecked",
-        "assessment_starts": 0,
-        "tour_form_views": 0,
-        "tour_requests": 0,
-        "source": "outside Netlify 24h retention; session operator's figures",
-        "written_utc": "2026-11-18T01:30Z"
-      },
-      "h48": {
-        "window_utc": "2026-11-16T04:42Z/2026-11-18T04:42Z",
-        "genuine_visitors": "2 cumulative (both in first 24h per state.json); 0 new tagged landings in Netlify top URLs 2026-11-17T05:24Z-2026-11-18T04:42Z; 04:42-05:24Z 17 Nov unchecked",
-        "checklist_opens": "2 per state.json (first 24h); later opens not attributable",
-        "assessment_starts": 0,
-        "assessment_completions": 0,
-        "tour_form_views": 0,
-        "tour_requests": 0,
-        "source": "state.json visitor_notes + Netlify topk urls_with_query",
-        "written_utc": "2026-11-18T05:30Z"
-      }
-    },
-    "north-shore-happening": {
-      "h24": "UNVERIFIED (outside Netlify retention)",
-      "h48": "UNVERIFIED (outside Netlify retention)",
-      "written_utc": "2026-11-18T01:30Z"
-    },
-    "fb-evsk-1117": {
-      "h24": {
-        "window_utc": "2026-11-17T15:00Z/2026-11-18T15:00Z",
-        "genuine_visitors": "2 per state.json E1 baseline; Netlify retained part (from 17 Nov 18:24Z) shows 1 landed + 1 tour-questions beacon (Android 18 Nov 13:23Z, genuine)",
-        "checklist_opens": "1 per state.json; not rechecked",
-        "assessment_starts": 0,
-        "assessment_completions": 0,
-        "tour_questions_views": 1,
-        "tour_form_views": 0,
-        "tour_requests": 0,
-        "source": "state.json baseline + Netlify topk urls_with_query (15:00-18:24Z 17 Nov outside retention)",
-        "written_utc": "2026-11-18T18:25Z"
-      }
-    }
-  },
-  "experiments": {},
-  "search": {
-    "date_chicago": "2026-11-19",
-    "window_utc": "2026-11-18T06:24Z/2026-11-19T06:24Z",
-    "google": "2 requests referred by www.google.com; landing page not attributable (Netlify referrer topk has no page dimension); UNVERIFIED as genuine",
-    "bing": 0,
-    "duckduckgo": 0,
-    "yahoo": 0,
-    "written_utc": "2026-11-19T06:25Z"
-  },
-  "demand_candidates": [],
-  "log": [
-    "2026-11-18T01:22Z seeded by the session operator when the cloud operator was created",
-    "2026-11-18T01:30Z run: 0 tour requests; session operator healthy (last run 01:12Z); site OK via Netlify (WebFetch blocked: permission timeout); campaigns: fb-profile-1116 +24h 0 genuine, NS checklist +24h from state.json, NS happening UNVERIFIED",
-    "2026-11-18T01:39Z OWNER-VERIFY-RECOVERY test: re-arm of session operator REFUSED (scheduled runs cannot change scheduled tasks); Gmail ok (0 tour requests); Netlify ok (site up); Facebook tools absent",
-    "2026-11-18T01:49Z push test: PushNotification tool; result: Mobile push requested.",
-    "2026-11-18T03:24Z run: 0 tour requests; site OK; session operator healthy (last run 03:20Z, FB reachable); metrics 00:07Z-03:23Z: 0 genuine visitors, 0 checklist opens, 0 assessments, 0 tour-form views",
-    "2026-11-18T05:30Z run: 0 tour requests; site OK; session operator healthy (last run 04:30Z, FB reachable); NS checklist +48h written (no new tagged visits after first 24h); metrics not due",
-    "2026-11-18T06:25Z run: 0 tour requests; site OK; session operator healthy (last run 04:30Z, FB reachable, overnight); metrics 03:23Z-06:24Z: 0 genuine (2 checklist hits = owner phone + FB crawler); search: 2 google-referred requests, page unattributed; no new opportunity",
-    "2026-11-18T10:25Z run: 0 tour requests; site OK; session operator overnight (last run 04:30Z, FB reachable, next due 13:00Z); metrics 06:24Z-10:24Z: 0 genuine (1 fb-evsk-1117 hit = Googlebot-Image); no new opportunity",
-    "2026-11-18T13:25Z run: 0 tour requests; site OK; FB interruption recorded (session operator last run 04:30Z, lead_scan 13:00Z missed; watchdog owns alert); metrics 10:24Z-13:25Z: 1 genuine fb-evsk-1117 visitor (Android, 13:23Z) with tour-questions view, 0 checklist/assessment/tour-form; no new opportunity (E1 pending)",
-    "2026-11-18T15:24Z run: 0 tour requests; site OK; FB interruption ended (session operator ran 15:11Z, FB reachable; 04:30Z-15:11Z, missed lead_scan 13:00Z); fb-wil-1118 (E1) visible 15:06Z; metrics not due (last 13:25Z)",
-    "2026-11-18T16:25Z run: 0 tour requests; site OK (no 5xx); session operator healthy (last run 15:11Z, FB reachable); metrics 13:25Z-16:25Z: 0 genuine (fb-wil-1118 hits all Meta crawlers/post-time burst); opportunity OP1: Wilmette post link tag reads fb-wil-1118Disclosure",
-    "2026-11-18T18:25Z run: 0 tour requests; site OK (no 5xx); session operator healthy (last run 16:41Z, FB reachable); fb-evsk-1117 +24h written (2 genuine, 1 checklist open, 1 tour-questions view, 0 assessments/tour-form/requests); metrics not due (last 16:25Z)",
-    "2026-11-18T20:25Z run: 0 tour requests; site OK (no 5xx); session operator healthy (last run 20:14Z, FB reachable); metrics 16:25Z-20:25Z: fb-wil-1118 0 genuine (2 crawler hits); unrecorded email tags em-fsg-1118 x2 / em-lf-1118 x1 landings 19:41Z, genuineness UNVERIFIED; 0 checklist/assessment/tour-form; no new opportunity",
-    "2026-11-18T23:24Z run: 0 tour requests; outreach watch: 9 sent all recorded, 1 auto-reply only; site OK (no 5xx); session operator healthy (last run 23:20Z, FB reachable); metrics 20:25Z-23:24Z: 0 genuine (fb-wil-1118 Googlebot-Image, fb-evsk-1117 FB crawler), 0 beacons/checklist/assessment/tour-form; no new opportunity",
-    "2026-11-19T01:24Z run: 0 tour requests; outreach watch: 10 sent all recorded, no replies; site OK (no 5xx); session operator healthy (last run 00:32Z, FB reachable); daily metrics 23:24Z-01:24Z: 0 genuine (fb-wil-1118 FB crawler, em-1118j likely mail scanner); daily summary pushed; no new opportunity",
-    "2026-11-19T02:26Z run: 0 tour requests; outreach watch: 10 sent all recorded, no new replies; site OK (no 5xx); session operator healthy (last run 00:32Z, FB reachable); fb-profile-1116 +48h written (0 genuine); metrics not due (last 01:24Z); no new opportunity",
-    "2026-11-19T04:24Z run: 0 tour requests; outreach watch: 10 sent all recorded, no new replies; site OK (no 5xx); session operator healthy (last run 03:50Z, FB not flagged unreachable); metrics 01:24Z-04:24Z: 0 genuine tagged visitors, 0 beacons/checklist/assessment/tour-form; no new opportunity",
-    "2026-11-19T06:25Z run: 0 tour requests; outreach watch: 10 sent all recorded, no new replies; site OK (no 5xx); session operator not interrupted (last run 03:50Z, overnight); search 24h: google 2 (page unattributed, UNVERIFIED), bing/ddg/yahoo 0; no demand candidate; metrics not due (last 04:24Z); no new opportunity",
-    "2026-11-19T08:24Z run: 0 tour requests; outreach watch: 10 sent all recorded, all threads 1 message (no replies); site OK (no 5xx; 280 404s from a scanner); session operator not interrupted (last run 03:50Z, overnight, no FB due item past); metrics 04:24Z-08:24Z: 0 genuine (no tagged landings; beacons/checklist hit automated); no new opportunity",
-    "2026-11-19T11:24Z run: 0 tour requests; outreach watch: 10 sent all recorded, all threads 1 message (no replies); site OK (no 5xx); session operator not interrupted (last run 03:50Z, overnight, next FB due 15:00Z); metrics 08:24Z-11:24Z: 0 genuine (no tagged landings/beacons; crawlers and scanners only); no new opportunity",
-    "2026-11-19T14:24Z run: 0 tour requests; outreach watch: 10 sent all recorded, all threads 1 message (no replies); site OK (no 5xx); session operator healthy (last run 13:45Z); metrics 11:24Z-14:24Z: 1 genuine north-shore-checklist visitor (no beacons), fb-wil-1118 0 genuine, beacons were meta-webindexer; E1 +24h due 17:44Z; no new opportunity",
-    "2026-11-19T17:24Z run: 0 tour requests; outreach watch: no org replies (inbox 24h: Search Console canonical notice, Nextdoor digests only); site OK (no 5xx); session operator healthy (last run 16:22Z, next 18:00Z after E1 +24h); metrics 14:24Z-17:24Z: 0 genuine; acquisition loop idle gate holds (ACQ-005 waits to 25 Nov), no new opportunity",
-    "2026-11-19T20:24Z run: 0 tour requests; outreach watch: no org replies (all 10 sent threads 1 message); site OK (no 5xx); FB interruption recorded (session operator last run 16:22Z, 18:00Z wake missed; watchdog owns alert, next slot 22:37Z); metrics 17:24Z-20:24Z: 0 genuine; acquisition loop idle gate holds (PR #78 open unmerged, no send/reply, E1 +48h 20 Nov, ACQ-005 25 Nov), no new task",
-    "2026-11-19T22:24Z run: 0 tour requests (no POSTs to /api/plan-visit); outreach watch: no org replies (inbox since 20:24Z: Nextdoor digests only); site OK (no 5xx); session operator still idle since 16:22Z (interruption already recorded 20:24Z; watchdog 22:37Z slot owns the alert); metrics 20:24Z-22:24Z: 0 genuine (checks, prefetch and previews only); acquisition loop idle gate holds (PR #78 open unmerged, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task",
-    "2026-11-19T23:24Z run: 0 tour requests (no POSTs); outreach watch: no org replies (all 10 sent threads 1 message); site OK (no 5xx); session operator still idle since 16:22Z (watchdog 22:37Z slot ran with AGE ~375 min, owns the alert); metrics 22:24Z-23:24Z: 0 confirmed genuine (checks, previews, bots); acquisition loop idle gate holds (PR #78 open, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task",
-    "2026-11-20T00:24Z run: 0 tour requests (only POST = retention scheduler); outreach watch: no org replies; site OK (no 5xx); session operator still idle since 16:22Z 19 Nov (interruption recorded, watchdog owns alert); metrics 23:24Z-00:24Z: 1 genuine organic Google-app visitor on estate-recovery guide (the page PR #78 adds a tour path to; PR still open), no tour path; acquisition loop idle gate holds (no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task",
-    "2026-11-20T01:24Z run: 0 tour requests (no plan-visit POSTs); outreach watch: no org replies; site OK (no 5xx); session operator still idle since 16:22Z 19 Nov (interruption recorded, watchdog owns alert); metrics 00:24Z-01:24Z: 0 genuine (checks, scanners, crawler); acquisition loop idle gate holds (PR #78 open unmerged, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task",
-    "2026-11-20T02:24Z run: 0 tour requests (no POSTs); outreach watch: no org replies; site OK (no 5xx); session operator still idle since 16:22Z 19 Nov (interruption recorded, watchdog owns alert); metrics 01:24Z-02:24Z: 0 genuine (checks, scanner, crawler, preview); acquisition loop idle gate holds (PR #78 open unmerged, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task",
-    "2026-11-20T03:24Z run: 0 tour requests (no POSTs); outreach watch: no org replies; site OK (no 5xx); session operator still idle since 16:22Z 19 Nov (interruption recorded, watchdog owns alert); metrics 02:24Z-03:24Z: 0 genuine (checks, crawler, scanners, previews); acquisition loop ran 02:45Z (ACQ-007 checklist-PDF tour route, blocked on owner decision; Joseph notified once); idle gate holds (PR #78 open, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task",
-    "2026-11-20T04:24Z run: 0 tour requests (no POSTs); outreach watch: no org replies; site OK (no 5xx); session operator still idle since 16:22Z 19 Nov (interruption recorded, watchdog owns alert); metrics 03:24Z-04:24Z: 0 genuine (checks, previews, scanner, crawlers); acquisition loop idle gate holds (PR #78 open, ACQ-007 awaiting owner, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task",
-    "2026-11-20T05:24Z run: 0 tour requests (no POSTs); outreach watch: no org replies; site OK (no 5xx); session operator still idle since 16:22Z 19 Nov (interruption recorded, watchdog owns alert); metrics 04:24Z-05:24Z: 0 genuine (checks, previews, scanners, crawlers); acquisition loop idle gate holds (PR #78 open, ACQ-007 awaiting owner, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task",
-    "2026-11-20T06:24Z run: 0 tour requests (no POSTs); outreach watch: no org replies; site OK (no 5xx); session operator still idle since 16:22Z 19 Nov (interruption recorded, watchdog owns alert); metrics 05:24Z-06:24Z: 0 genuine (checks, previews, scanner); acquisition loop idle gate holds (PR #78 open, ACQ-007 awaiting owner, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task"
-  ],
-  "facebook_interruptions_past": [
-    {
-      "since_utc": "2026-11-18T04:30Z",
-      "reason": "session operator last_run_utc 04:30Z (>200 min) and due lead_scan 13:00Z passed",
-      "missed": [
-        "lead_scan 2026-11-18T13:00Z"
-      ],
-      "recorded_utc": "2026-11-18T13:25Z",
-      "ended_utc": "2026-11-18T15:11Z",
-      "duration": "10h41m"
-    }
-  ],
-  "opportunities": [
-    {
-      "id": "OP1-wil-link-tag",
-      "created_utc": "2026-11-18T16:25Z",
-      "evidence": "13:25Z-16:25Z Netlify: fb-wil-1118 landings arrive as ?ref=fb-wil-1118Disclosure on 7 of 9 distinct fbclids (text after the link ran into it); tag variant would split E1 counts",
-      "action": "Check the Wilmette post link ends cleanly (space/newline before Disclosure) and count both tag variants when measuring E1",
-      "owner": "session operator",
-      "status": "open"
-    }
-  ],
-  "outreach_watch": {
-    "alerted": [],
-    "replies_alerted": [],
-    "last_utc": "2026-11-20T06:24Z",
-    "note": "no org replies; inbox since 05:24Z: nothing new (latest 00:10Z Microsoft Advertising promo)"
-  },
-  "facebook_interruption": {
-    "since_utc": "2026-11-19T16:22Z",
-    "reason": "session operator last_run_utc 16:22Z (>200 min at 20:24Z) and its own next wake 18:00Z (after E1 +24h at 17:44Z) passed",
-    "missed": [
-      "E1 +24h measurement 2026-11-19T17:44Z",
-      "session wake 2026-11-19T18:00Z"
-    ],
-    "recorded_utc": "2026-11-19T20:24Z"
+  "fb-evsk-1117": {
+   "h24": {
+    "window_utc": "2026-11-17T15:00Z/2026-11-18T15:00Z",
+    "genuine_visitors": "2 per state.json E1 baseline; Netlify retained part (from 17 Nov 18:24Z) shows 1 landed + 1 tour-questions beacon (Android 18 Nov 13:23Z, genuine)",
+    "checklist_opens": "1 per state.json; not rechecked",
+    "assessment_starts": 0,
+    "assessment_completions": 0,
+    "tour_questions_views": 1,
+    "tour_form_views": 0,
+    "tour_requests": 0,
+    "source": "state.json baseline + Netlify topk urls_with_query (15:00-18:24Z 17 Nov outside retention)",
+    "written_utc": "2026-11-18T18:25Z"
+   }
   }
+ },
+ "experiments": {},
+ "search": {
+  "date_chicago": "2026-11-19",
+  "window_utc": "2026-11-18T06:24Z/2026-11-19T06:24Z",
+  "google": "2 requests referred by www.google.com; landing page not attributable (Netlify referrer topk has no page dimension); UNVERIFIED as genuine",
+  "bing": 0,
+  "duckduckgo": 0,
+  "yahoo": 0,
+  "written_utc": "2026-11-19T06:25Z"
+ },
+ "demand_candidates": [],
+ "log": [
+  "2026-11-18T01:22Z seeded by the session operator when the cloud operator was created",
+  "2026-11-18T01:30Z run: 0 tour requests; session operator healthy (last run 01:12Z); site OK via Netlify (WebFetch blocked: permission timeout); campaigns: fb-profile-1116 +24h 0 genuine, NS checklist +24h from state.json, NS happening UNVERIFIED",
+  "2026-11-18T01:39Z OWNER-VERIFY-RECOVERY test: re-arm of session operator REFUSED (scheduled runs cannot change scheduled tasks); Gmail ok (0 tour requests); Netlify ok (site up); Facebook tools absent",
+  "2026-11-18T01:49Z push test: PushNotification tool; result: Mobile push requested.",
+  "2026-11-18T03:24Z run: 0 tour requests; site OK; session operator healthy (last run 03:20Z, FB reachable); metrics 00:07Z-03:23Z: 0 genuine visitors, 0 checklist opens, 0 assessments, 0 tour-form views",
+  "2026-11-18T05:30Z run: 0 tour requests; site OK; session operator healthy (last run 04:30Z, FB reachable); NS checklist +48h written (no new tagged visits after first 24h); metrics not due",
+  "2026-11-18T06:25Z run: 0 tour requests; site OK; session operator healthy (last run 04:30Z, FB reachable, overnight); metrics 03:23Z-06:24Z: 0 genuine (2 checklist hits = owner phone + FB crawler); search: 2 google-referred requests, page unattributed; no new opportunity",
+  "2026-11-18T10:25Z run: 0 tour requests; site OK; session operator overnight (last run 04:30Z, FB reachable, next due 13:00Z); metrics 06:24Z-10:24Z: 0 genuine (1 fb-evsk-1117 hit = Googlebot-Image); no new opportunity",
+  "2026-11-18T13:25Z run: 0 tour requests; site OK; FB interruption recorded (session operator last run 04:30Z, lead_scan 13:00Z missed; watchdog owns alert); metrics 10:24Z-13:25Z: 1 genuine fb-evsk-1117 visitor (Android, 13:23Z) with tour-questions view, 0 checklist/assessment/tour-form; no new opportunity (E1 pending)",
+  "2026-11-18T15:24Z run: 0 tour requests; site OK; FB interruption ended (session operator ran 15:11Z, FB reachable; 04:30Z-15:11Z, missed lead_scan 13:00Z); fb-wil-1118 (E1) visible 15:06Z; metrics not due (last 13:25Z)",
+  "2026-11-18T16:25Z run: 0 tour requests; site OK (no 5xx); session operator healthy (last run 15:11Z, FB reachable); metrics 13:25Z-16:25Z: 0 genuine (fb-wil-1118 hits all Meta crawlers/post-time burst); opportunity OP1: Wilmette post link tag reads fb-wil-1118Disclosure",
+  "2026-11-18T18:25Z run: 0 tour requests; site OK (no 5xx); session operator healthy (last run 16:41Z, FB reachable); fb-evsk-1117 +24h written (2 genuine, 1 checklist open, 1 tour-questions view, 0 assessments/tour-form/requests); metrics not due (last 16:25Z)",
+  "2026-11-18T20:25Z run: 0 tour requests; site OK (no 5xx); session operator healthy (last run 20:14Z, FB reachable); metrics 16:25Z-20:25Z: fb-wil-1118 0 genuine (2 crawler hits); unrecorded email tags em-fsg-1118 x2 / em-lf-1118 x1 landings 19:41Z, genuineness UNVERIFIED; 0 checklist/assessment/tour-form; no new opportunity",
+  "2026-11-18T23:24Z run: 0 tour requests; outreach watch: 9 sent all recorded, 1 auto-reply only; site OK (no 5xx); session operator healthy (last run 23:20Z, FB reachable); metrics 20:25Z-23:24Z: 0 genuine (fb-wil-1118 Googlebot-Image, fb-evsk-1117 FB crawler), 0 beacons/checklist/assessment/tour-form; no new opportunity",
+  "2026-11-19T01:24Z run: 0 tour requests; outreach watch: 10 sent all recorded, no replies; site OK (no 5xx); session operator healthy (last run 00:32Z, FB reachable); daily metrics 23:24Z-01:24Z: 0 genuine (fb-wil-1118 FB crawler, em-1118j likely mail scanner); daily summary pushed; no new opportunity",
+  "2026-11-19T02:26Z run: 0 tour requests; outreach watch: 10 sent all recorded, no new replies; site OK (no 5xx); session operator healthy (last run 00:32Z, FB reachable); fb-profile-1116 +48h written (0 genuine); metrics not due (last 01:24Z); no new opportunity",
+  "2026-11-19T04:24Z run: 0 tour requests; outreach watch: 10 sent all recorded, no new replies; site OK (no 5xx); session operator healthy (last run 03:50Z, FB not flagged unreachable); metrics 01:24Z-04:24Z: 0 genuine tagged visitors, 0 beacons/checklist/assessment/tour-form; no new opportunity",
+  "2026-11-19T06:25Z run: 0 tour requests; outreach watch: 10 sent all recorded, no new replies; site OK (no 5xx); session operator not interrupted (last run 03:50Z, overnight); search 24h: google 2 (page unattributed, UNVERIFIED), bing/ddg/yahoo 0; no demand candidate; metrics not due (last 04:24Z); no new opportunity",
+  "2026-11-19T08:24Z run: 0 tour requests; outreach watch: 10 sent all recorded, all threads 1 message (no replies); site OK (no 5xx; 280 404s from a scanner); session operator not interrupted (last run 03:50Z, overnight, no FB due item past); metrics 04:24Z-08:24Z: 0 genuine (no tagged landings; beacons/checklist hit automated); no new opportunity",
+  "2026-11-19T11:24Z run: 0 tour requests; outreach watch: 10 sent all recorded, all threads 1 message (no replies); site OK (no 5xx); session operator not interrupted (last run 03:50Z, overnight, next FB due 15:00Z); metrics 08:24Z-11:24Z: 0 genuine (no tagged landings/beacons; crawlers and scanners only); no new opportunity",
+  "2026-11-19T14:24Z run: 0 tour requests; outreach watch: 10 sent all recorded, all threads 1 message (no replies); site OK (no 5xx); session operator healthy (last run 13:45Z); metrics 11:24Z-14:24Z: 1 genuine north-shore-checklist visitor (no beacons), fb-wil-1118 0 genuine, beacons were meta-webindexer; E1 +24h due 17:44Z; no new opportunity",
+  "2026-11-19T17:24Z run: 0 tour requests; outreach watch: no org replies (inbox 24h: Search Console canonical notice, Nextdoor digests only); site OK (no 5xx); session operator healthy (last run 16:22Z, next 18:00Z after E1 +24h); metrics 14:24Z-17:24Z: 0 genuine; acquisition loop idle gate holds (ACQ-005 waits to 25 Nov), no new opportunity",
+  "2026-11-19T20:24Z run: 0 tour requests; outreach watch: no org replies (all 10 sent threads 1 message); site OK (no 5xx); FB interruption recorded (session operator last run 16:22Z, 18:00Z wake missed; watchdog owns alert, next slot 22:37Z); metrics 17:24Z-20:24Z: 0 genuine; acquisition loop idle gate holds (PR #78 open unmerged, no send/reply, E1 +48h 20 Nov, ACQ-005 25 Nov), no new task",
+  "2026-11-19T22:24Z run: 0 tour requests (no POSTs to /api/plan-visit); outreach watch: no org replies (inbox since 20:24Z: Nextdoor digests only); site OK (no 5xx); session operator still idle since 16:22Z (interruption already recorded 20:24Z; watchdog 22:37Z slot owns the alert); metrics 20:24Z-22:24Z: 0 genuine (checks, prefetch and previews only); acquisition loop idle gate holds (PR #78 open unmerged, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task",
+  "2026-11-19T23:24Z run: 0 tour requests (no POSTs); outreach watch: no org replies (all 10 sent threads 1 message); site OK (no 5xx); session operator still idle since 16:22Z (watchdog 22:37Z slot ran with AGE ~375 min, owns the alert); metrics 22:24Z-23:24Z: 0 confirmed genuine (checks, previews, bots); acquisition loop idle gate holds (PR #78 open, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task",
+  "2026-11-20T00:24Z run: 0 tour requests (only POST = retention scheduler); outreach watch: no org replies; site OK (no 5xx); session operator still idle since 16:22Z 19 Nov (interruption recorded, watchdog owns alert); metrics 23:24Z-00:24Z: 1 genuine organic Google-app visitor on estate-recovery guide (the page PR #78 adds a tour path to; PR still open), no tour path; acquisition loop idle gate holds (no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task",
+  "2026-11-20T01:24Z run: 0 tour requests (no plan-visit POSTs); outreach watch: no org replies; site OK (no 5xx); session operator still idle since 16:22Z 19 Nov (interruption recorded, watchdog owns alert); metrics 00:24Z-01:24Z: 0 genuine (checks, scanners, crawler); acquisition loop idle gate holds (PR #78 open unmerged, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task",
+  "2026-11-20T02:24Z run: 0 tour requests (no POSTs); outreach watch: no org replies; site OK (no 5xx); session operator still idle since 16:22Z 19 Nov (interruption recorded, watchdog owns alert); metrics 01:24Z-02:24Z: 0 genuine (checks, scanner, crawler, preview); acquisition loop idle gate holds (PR #78 open unmerged, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task",
+  "2026-11-20T03:24Z run: 0 tour requests (no POSTs); outreach watch: no org replies; site OK (no 5xx); session operator still idle since 16:22Z 19 Nov (interruption recorded, watchdog owns alert); metrics 02:24Z-03:24Z: 0 genuine (checks, crawler, scanners, previews); acquisition loop ran 02:45Z (ACQ-007 checklist-PDF tour route, blocked on owner decision; Joseph notified once); idle gate holds (PR #78 open, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task",
+  "2026-11-20T04:24Z run: 0 tour requests (no POSTs); outreach watch: no org replies; site OK (no 5xx); session operator still idle since 16:22Z 19 Nov (interruption recorded, watchdog owns alert); metrics 03:24Z-04:24Z: 0 genuine (checks, previews, scanner, crawlers); acquisition loop idle gate holds (PR #78 open, ACQ-007 awaiting owner, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task",
+  "2026-11-20T05:24Z run: 0 tour requests (no POSTs); outreach watch: no org replies; site OK (no 5xx); session operator still idle since 16:22Z 19 Nov (interruption recorded, watchdog owns alert); metrics 04:24Z-05:24Z: 0 genuine (checks, previews, scanners, crawlers); acquisition loop idle gate holds (PR #78 open, ACQ-007 awaiting owner, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task",
+  "2026-11-20T06:24Z run: 0 tour requests (no POSTs); outreach watch: no org replies; site OK (no 5xx); session operator still idle since 16:22Z 19 Nov (interruption recorded, watchdog owns alert); metrics 05:24Z-06:24Z: 0 genuine (checks, previews, scanner); acquisition loop idle gate holds (PR #78 open, ACQ-007 awaiting owner, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task",
+  "2026-11-20T07:24Z run: 0 tour requests (no POSTs); outreach watch: no org replies; site OK (no 5xx); session operator still idle since 16:22Z 19 Nov (interruption recorded, watchdog owns alert); metrics 06:24Z-07:24Z: 0 genuine (checks, contact-path scanner); acquisition loop idle gate holds (PR #78 open, ACQ-007 awaiting owner, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task"
+ ],
+ "facebook_interruptions_past": [
+  {
+   "since_utc": "2026-11-18T04:30Z",
+   "reason": "session operator last_run_utc 04:30Z (>200 min) and due lead_scan 13:00Z passed",
+   "missed": [
+    "lead_scan 2026-11-18T13:00Z"
+   ],
+   "recorded_utc": "2026-11-18T13:25Z",
+   "ended_utc": "2026-11-18T15:11Z",
+   "duration": "10h41m"
+  }
+ ],
+ "opportunities": [
+  {
+   "id": "OP1-wil-link-tag",
+   "created_utc": "2026-11-18T16:25Z",
+   "evidence": "13:25Z-16:25Z Netlify: fb-wil-1118 landings arrive as ?ref=fb-wil-1118Disclosure on 7 of 9 distinct fbclids (text after the link ran into it); tag variant would split E1 counts",
+   "action": "Check the Wilmette post link ends cleanly (space/newline before Disclosure) and count both tag variants when measuring E1",
+   "owner": "session operator",
+   "status": "open"
+  }
+ ],
+ "outreach_watch": {
+  "alerted": [],
+  "replies_alerted": [],
+  "last_utc": "2026-11-20T07:24Z",
+  "note": "no org replies; inbox since 06:24Z: nothing new (latest 00:10Z Microsoft Advertising promo)"
+ },
+ "facebook_interruption": {
+  "since_utc": "2026-11-19T16:22Z",
+  "reason": "session operator last_run_utc 16:22Z (>200 min at 20:24Z) and its own next wake 18:00Z (after E1 +24h at 17:44Z) passed",
+  "missed": [
+   "E1 +24h measurement 2026-11-19T17:44Z",
+   "session wake 2026-11-19T18:00Z"
+  ],
+  "recorded_utc": "2026-11-19T20:24Z"
+ }
 }
