@@ -56,16 +56,16 @@
    "found_utc": "2026-11-20T02:45Z"
   },
   {
-   "id": "ACQ-009",
-   "priority": 2,
-   "status": "ready",
-   "workstream": "conversion",
-   "task": "Guide-page landings: check whether a tagged arrival on a guide (e.g. referral ?ref=em-skokie-<MMDD> on a cost or Medicare guide) keeps its tag when the reader clicks the guide's tour link to the homepage form. Guides load nav.js only, so the tag is probably dropped the same way ACQ-008 found on the homepage. If confirmed, open one small tested review PR (nav.js carries the sanitised ref on same-site /? links) after PR #79, reusing its rule.",
-   "evidence": "ACQ-008 defect on the homepage; nav.js has no ref handling (grep, main 2026-11-20); guide pathway links are /?tour=..., /?from=..., /?pay=... and the guide tour blocks link to the tour form.",
-   "expected_tour_acquisition_value": "Medium: referral proposals (Skokie, Niles) and search land on guides. Without this, any inquiry they produce shows as direct and the channel that earned it can't be scaled.",
-   "executor": "esc-tour-loop (review PR only)",
-   "done_when": "A recorded pass/fail on a tagged guide landing, plus a tested review PR if it fails.",
-   "depends_on": "PR #79 (same rule; avoid two diverging implementations)"
+   "id": "ACQ-010",
+   "priority": 1,
+   "status": "delegated",
+   "workstream": "referral_distribution",
+   "task": "Before the operator sends the Skokie (ACQ-001) and Niles (ACQ-004) referral notes, make the link in each note point to the homepage tour section, https://evanstonseniorcareguide.com/?ref=em-<org>-<MMDD>#tour, not to a guide, until PR #80 is merged. Once #80 is live, guide links are fine.",
+   "evidence": "ACQ-009 (2026-11-20): on main a tagged guide landing fires no beacon, and its tour click loses the ref, so a referral that links to a guide shows 0 tagged visitors and any resulting inquiry counts as direct. The homepage landing beacon records the ref (ACQ-008 (a)), and its #tour section passed the 390px check.",
+   "expected_tour_acquisition_value": "High for measurement: these are the next two sends of the only referral channel not yet measured. Without this, a reply or an inquiry cannot be credited to the channel, and the decision to scale referral outreach would rest on zero data.",
+   "executor": "session outreach operator (link choice at send time); this loop sends nothing",
+   "done_when": "The operator records the link used for each send in ops/operator-state; the loop then attributes ?ref=em-skokie/em-niles landings in the next metrics review.",
+   "found_utc": "2026-11-20T19:40Z"
   }
  ],
  "completed": [
@@ -182,17 +182,34 @@
    "verification": "tools/test_tour_source.mjs section 8 (exact P-1120-01 URL): 4 new checks fail on main, 30/30 pass on the branch; test.js 768/768, check-guides.js 2695/2695, test_start_source 21/21, test_checklist_click 30/30, test_inquiry_validation 36/36, direct_inquiry_consistency 29/29.",
    "operator_note": "Written to the P-1120-01 ready item on ops/operator-state. The post is not blocked: tagged landings, tour-section views and checklist clicks are counted correctly. Until #79 ships, the step from the tour click to the form shows up as direct.",
    "lesson": "Every earlier tag check stopped at the landing beacon. Attribution has to be followed through the reload to the form, or the stage that matters most (inquiry) is the one that loses the channel."
+  },
+  {
+   "id": "ACQ-009",
+   "priority": 2,
+   "status": "done",
+   "workstream": "conversion",
+   "task": "Guide-page landings: check whether a tagged arrival on a guide (e.g. referral ?ref=em-skokie-<MMDD> on a cost or Medicare guide) keeps its tag when the reader clicks the guide's tour link to the homepage form. Guides load nav.js only, so the tag is probably dropped the same way ACQ-008 found on the homepage. If confirmed, open one small tested review PR (nav.js carries the sanitised ref on same-site /? links) after PR #79, reusing its rule.",
+   "evidence": "ACQ-008 defect on the homepage; nav.js has no ref handling (grep, main 2026-11-20); guide pathway links are /?tour=..., /?from=..., /?pay=... and the guide tour blocks link to the tour form.",
+   "expected_tour_acquisition_value": "Medium: referral proposals (Skokie, Niles) and search land on guides. Without this, any inquiry they produce shows as direct and the channel that earned it can't be scaled.",
+   "executor": "esc-tour-loop (review PR only)",
+   "done_when": "A recorded pass/fail on a tagged guide landing, plus a tested review PR if it fails.",
+   "depends_on": "PR #79 (same rule; avoid two diverging implementations)",
+   "done_utc": "2026-11-20T19:40Z",
+   "result": "FAIL confirmed on main: /guides/does-medicare-pay-for-senior-care/?ref=em-skokie-1120 -> 'Ask about a tour here' loads /?tour=form#plan-visit with no ref; homepage landing beacons s=direct, so the plan-visit submission would also be direct. Same for utm_source and search-referrer arrivals, and for guide -> guide -> tour reading paths. Fixed in nav.js (guide pages only) using the same token rule as app.js channel().",
+   "artifact": "https://github.com/JGBALL23/evanston-senior-care-guide/pull/80 (review only, not merged or deployed). Independent of #79 (guide->homepage vs homepage->homepage); either can merge first.",
+   "verification": "tools/test_guide_ref_carry.mjs: 8 checks fail on main, 18/18 pass on branch; build-guides.py changes only _dist/nav.js; test.js 768/768, check-guides.js 2695/2695, test_tour_source 23/23, test_start_source 21/21, test_checklist_click 30/30, test_inquiry_validation 36/36, direct_inquiry_consistency 29/29, test_paying_nav 331/331.",
+   "lesson": "Built #80 on main rather than waiting on #79: the rule is copied (same token function), not shared, because guides cannot load app.js. Keep both in sync if channel() ever changes."
   }
  ],
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-20T18:55Z",
-  "event": "pull_request.synchronize 38c28a3",
-  "picked": "ACQ-008 (ready, time-bound before the 21:53Z post)",
-  "why": "the only ready item; it guards the one measured distribution step (template A) that has produced genuine visitors"
+  "utc": "2026-11-20T19:40Z",
+  "event": "pull_request.synchronize 2eddbae",
+  "picked": "ACQ-009 (the only ready item)",
+  "why": "Referral and search traffic land on guides; without this, any inquiry they produce shows as direct and the channel can't be scaled."
  },
- "last_verified_action": "ACQ-008: Winnetka landing path passes the anchor and visibility checks, but the tour click drops ?ref. Fixed in review PR #79 (tested); operator told on P-1120-01.",
+ "last_verified_action": "ACQ-009: tagged guide landings lose the channel at the tour click (8 failing checks on main). Fixed in review PR #80 (18/18). ACQ-010 handed to the operator: link referral notes to /?ref=...#tour until #80 ships.",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -227,6 +244,7 @@
   "confirmation": "Claude Scheduled Tasks screenshot: ESCG Tour Acquisition Loop active, Pull request: Commits pushed on matching repository. Previous setup screenshot: head branch automation/esc-tour-loop."
  },
  "owner_review_needed": [
+  "PR #80: a guide visitor from a tagged link keeps the tag through the tour click (independent of #79). Merge #79 and #80 together if acceptable; this loop does not merge.",
   "PR #79: tour click keeps the arrival tag. Without it, a tour inquiry from the Winnetka post or any tagged post counts as direct. Review and merge if acceptable (this loop does not merge).",
   "PR #78: review and merge if acceptable (this loop does not merge)",
   "Stray branch claude/estate-recovery-tour-path (same commit as PR #78) is safe to delete",
