@@ -6,8 +6,8 @@
     "note": "tour-request alerts: sha256(message id) and time only"
   },
   "metrics": {
-    "last_utc": "2026-11-20T14:24Z",
-    "window_utc": "2026-11-20T13:25Z/2026-11-20T14:24Z",
+    "last_utc": "2026-11-20T15:24Z",
+    "window_utc": "2026-11-20T14:24Z/2026-11-20T15:24Z",
     "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs",
     "per_tag": {
       "fb-wil-1118": {
@@ -49,7 +49,7 @@
     "assessment_completions": 0,
     "tour_form_views": 0,
     "tour_requests": 0,
-    "genuine_detail": "13:25Z-14:24Z: 0 genuine; 22 requests (all GET): own curl checks 9, .git/config and WordPress install probes 3, robots-then-page crawler on the cost guide 2, http->https home/favicon fetches with no assets 6, robots 1; 0 plan-visit POSTs; no tagged landings"
+    "genuine_detail": "14:24Z-15:24Z: 0 genuine; 35 requests (all GET): own curl checks 13, WordPress wlwmanifest/xmlrpc probes 9 + its home fetches 2, http/www->https home fetches with no assets 10, single SHIP-guide fetch with no assets 1; 0 plan-visit POSTs; no tagged landings"
   },
   "summary": {
     "last_utc": "2026-11-19T01:24Z",
@@ -58,8 +58,8 @@
   "site": {
     "fail_count": 0,
     "down_since_utc": null,
-    "last_check_utc": "2026-11-20T14:24Z",
-    "last_check_method": "curl: home, ?tour=form, /downloads/senior-living-tour-checklist.pdf, sitemap 200; home has plan-visit; Netlify 13:25Z-14:24Z: no 5xx, 22 requests all automated; Gmail 24h: no org replies or inquiries (Nextdoor digests, MS Advertising only); PR #78 open; loop head 29ae465 unchanged"
+    "last_check_utc": "2026-11-20T15:24Z",
+    "last_check_method": "curl: home, ?tour=form, /downloads/senior-living-tour-checklist.pdf, sitemap 200; home has plan-visit; Netlify 14:24Z-15:24Z: no 5xx, 35 requests all automated; Gmail 24h: no org replies or inquiries (Nextdoor digests, MS Advertising only); PR #78 open; loop head 29ae465 unchanged"
   },
   "recovery": {
     "last_attempt_utc": "2026-11-18T01:39Z",
@@ -186,7 +186,8 @@
     "2026-11-20T11:24Z run: site OK; 0 genuine (beacons at 11:18Z were Meta webindexer), 0 tour requests (no POSTs); no org replies; PR #78 still open, loop head 29ae465 unchanged; no reactivation trigger fired (next: E1 +48h 17:44Z); no new loop task",
     "2026-11-20T12:24Z run: site OK; 0 genuine (own checks, WP probe, bingbot), 0 tour requests (no POSTs); no org replies; PR #78 still open, loop head 29ae465 unchanged; no reactivation trigger fired (next: E1 +48h 17:44Z); no new loop task",
     "2026-11-20T13:25Z run: 0 tour requests; site OK; 0 genuine visitors 12:24Z-13:25Z; no org replies; no new loop task (reactivation conditions unmet)",
-    "2026-11-20T14:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; PR #78 open, loop head 29ae465 unchanged; no reactivation trigger fired (next: E1 +48h 17:44Z); no new loop task"
+    "2026-11-20T14:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; PR #78 open, loop head 29ae465 unchanged; no reactivation trigger fired (next: E1 +48h 17:44Z); no new loop task",
+    "2026-11-20T15:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; PR #78 open, loop head 29ae465 unchanged; no reactivation trigger fired (next: E1 +48h 17:44Z); no new loop task"
   ],
   "facebook_interruptions_past": [
     {
@@ -213,8 +214,8 @@
   "outreach_watch": {
     "alerted": [],
     "replies_alerted": [],
-    "last_utc": "2026-11-20T14:24Z",
-    "note": "no org replies; inbox since 13:25Z: nothing new"
+    "last_utc": "2026-11-20T15:24Z",
+    "note": "no org replies; inbox since 14:24Z: nothing new"
   },
   "facebook_interruption": {
     "since_utc": "2026-11-19T16:22Z",
