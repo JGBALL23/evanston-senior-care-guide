@@ -28,7 +28,8 @@
    "ops/operator-state:ops/growth.json",
    "main:ROUTINE.md"
   ],
-  "traffic_19_nov": "cloud operator 19 Nov: 08:24-11:24Z 0 genuine visitors; outreach 9-10 sent, 0 replies, 2 auto-replies"
+  "traffic_19_nov": "cloud operator 19 Nov: 08:24-11:24Z 0 genuine visitors; outreach 9-10 sent, 0 replies, 2 auto-replies",
+  "session_operator": "idle since 2026-11-19T16:22Z per cloud.json (Winnetka post, Skokie/Niles referrals unsent); watchdog owns the alert; this loop does not re-alert."
  },
  "queue": [
   {
@@ -66,6 +67,18 @@
    "executor": "session outreach operator (link choice at send time); this loop sends nothing",
    "done_when": "The operator records the link used for each send in ops/operator-state; the loop then attributes ?ref=em-skokie/em-niles landings in the next metrics review.",
    "found_utc": "2026-11-20T19:40Z"
+  },
+  {
+   "id": "ACQ-012",
+   "priority": 2,
+   "status": "waiting_on_data",
+   "workstream": "search_acquisition",
+   "task": "After PR #81 merges, measure homepage impressions and queries containing 'assisted living', 'memory care' or 'Evanston' vs the pre-merge baseline (16 Nov: none).",
+   "evidence": "ACQ-011; baseline Search Console 16 Nov.",
+   "expected_tour_acquisition_value": "Tells whether local tour-intent search is a reachable channel before investing in any local page (owner rule: no new guides without demand).",
+   "executor": "this loop with the operator's Search Console export (bundle with ACQ-005)",
+   "done_when": "With >=14 days of post-merge data: record numbers; if local queries appear at position <=20, propose the next on-page step; if none, record no-change and do not build local pages.",
+   "not_before_utc": "2026-11-25T15:00Z"
   }
  ],
  "completed": [
@@ -199,17 +212,29 @@
    "artifact": "https://github.com/JGBALL23/evanston-senior-care-guide/pull/80 (review only, not merged or deployed). Independent of #79 (guide->homepage vs homepage->homepage); either can merge first.",
    "verification": "tools/test_guide_ref_carry.mjs: 8 checks fail on main, 18/18 pass on branch; build-guides.py changes only _dist/nav.js; test.js 768/768, check-guides.js 2695/2695, test_tour_source 23/23, test_start_source 21/21, test_checklist_click 30/30, test_inquiry_validation 36/36, direct_inquiry_consistency 29/29, test_paying_nav 331/331.",
    "lesson": "Built #80 on main rather than waiting on #79: the rule is copied (same token function), not shared, because guides cannot load app.js. Keep both in sync if channel() ever changes."
+  },
+  {
+   "id": "ACQ-011",
+   "priority": 1,
+   "status": "done",
+   "workstream": "search_acquisition",
+   "task": "Make the homepage (the only page with the tour form) eligible for local tour-intent searches.",
+   "evidence": "main index.html title 'Evanston Senior Care Guide — independent living to nursing care, explained' names neither assisted living nor memory care; 31 of 33 guides are statewide informational; Search Console 16 Nov: 38 impressions, all national Medicare queries, no local query. Search traffic does arrive (cloud 20 Nov 00:24Z: 1 genuine organic Google-app visitor on the estate-recovery guide).",
+   "result": "Review PR #81: title 'Evanston Assisted Living & Memory Care — independent living to nursing care'; description names the free tour checklist. Head and meta only, no claims, form, consent or tracking changes. All suites pass (check-guides 2695, test.js 768, paying-nav 331, tour/start source, checklist click, inquiry validation, PDF, publish). NOT published: awaiting owner merge.",
+   "expected_tour_acquisition_value": "Medium, slow: lets the tour-form page compete for local tour-intent queries; effect measurable only weeks after merge.",
+   "executor": "this loop (done); Joseph (merge)",
+   "done_utc": "2026-11-20T20:10Z"
   }
  ],
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-20T19:40Z",
-  "event": "pull_request.synchronize 2eddbae",
-  "picked": "ACQ-009 (the only ready item)",
-  "why": "Referral and search traffic land on guides; without this, any inquiry they produce shows as direct and the channel can't be scaled."
+  "utc": "2026-11-20T20:10Z",
+  "event": "pull_request.synchronize 99e6b26",
+  "picked": "ACQ-011 (discovered; queue had no ready item)",
+  "why": "All external execution waits on the session operator (idle since 19 Nov 16:22Z, watchdog owns that alert); the highest-value in-authority lever left was search intent on the tour-form page."
  },
- "last_verified_action": "ACQ-009: tagged guide landings lose the channel at the tour click (8 failing checks on main). Fixed in review PR #80 (18/18). ACQ-010 handed to the operator: link referral notes to /?ref=...#tour until #80 ships.",
+ "last_verified_action": "ACQ-011: homepage title/description now name assisted living and memory care in Evanston; review PR #81, all suites pass. ACQ-012 measures it.",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -244,6 +269,7 @@
   "confirmation": "Claude Scheduled Tasks screenshot: ESCG Tour Acquisition Loop active, Pull request: Commits pushed on matching repository. Previous setup screenshot: head branch automation/esc-tour-loop."
  },
  "owner_review_needed": [
+  "PR #81: homepage title names assisted living and memory care in Evanston (head/meta only). Review and merge if acceptable.",
   "PR #80: a guide visitor from a tagged link keeps the tag through the tour click (independent of #79). Merge #79 and #80 together if acceptable; this loop does not merge.",
   "PR #79: tour click keeps the arrival tag. Without it, a tour inquiry from the Winnetka post or any tagged post counts as direct. Review and merge if acceptable (this loop does not merge).",
   "PR #78: review and merge if acceptable (this loop does not merge)",
