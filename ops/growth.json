@@ -164,7 +164,7 @@
   "limits": [],
   "brief": {
     "date_chicago": "2026-11-20",
-    "ready": "Winnetka post text P-1120-01 (template A, tour checklist, per E1 +48h) ready for the operator; postable from 15:53 Chicago today",
+    "ready": "Winnetka post text P-1120-01 (postable from 15:53 Chicago 20 Nov) and Rogers Park post text P-1122-01 (postable from 11:29 Chicago 22 Nov) ready for the operator",
     "learned": [
       "still 0 organization replies to the 10 outreach emails (2 auto-replies); referral drafts wait for the operator's reply review, and the operator has not run since 19 Nov 10:22 Chicago",
       "no genuine visitors in the latest hourly metrics; no new search data since 19 Nov"
@@ -182,7 +182,8 @@
     "2026-11-20T18:15Z tour engine: no org replies (inbox: auto-reply and digests only); E1 +48h: template A (tour checklist) beat template B (0 genuine); P-1120-01 Winnetka post text ready for the operator",
     "2026-11-20T18:55Z esc-tour-loop ACQ-008: P-1120-01 landing path passes the anchor and visibility checks at 390px; the tour click drops ref (counts as direct). Fix in review PR #79. The post is not blocked.",
     "2026-11-20T19:40Z esc-tour-loop ACQ-009/010: a tagged GUIDE landing fires no beacon and its tour click drops ref (fix in review PR #80). Until #80 merges, link the Skokie/Niles referral notes to https://evanstonseniorcareguide.com/?ref=em-<org>-<MMDD>#tour (homepage), not to a guide.",
-    "2026-11-20T18:55Z esc-tour-loop ACQ-013 (for the tour engine, P-1122-01 Rogers Park News, not before 22 Nov 17:29Z): landing /?ref=fb-rp-1122#tour passes at 390px and keeps the tag on landing. The group requires source links: use template A and cite the checklist's own sources, IDPH assisted living https://dph.illinois.gov/topics-services/health-care-regulation/assisted-living.html and Medicare Care Compare https://www.medicare.gov/care-compare/ (optionally City of Chicago senior services https://www.chicago.gov/city/en/depts/fss/provdrs/senior.html), all 200 on 20 Nov. Site link last on its own line, homepage #tour not a guide; in the composer confirm the preview card is the site's (a source link placed first may become the card)."
+    "2026-11-20T18:55Z esc-tour-loop ACQ-013 (for the tour engine, P-1122-01 Rogers Park News, not before 22 Nov 17:29Z): landing /?ref=fb-rp-1122#tour passes at 390px and keeps the tag on landing. The group requires source links: use template A and cite the checklist's own sources, IDPH assisted living https://dph.illinois.gov/topics-services/health-care-regulation/assisted-living.html and Medicare Care Compare https://www.medicare.gov/care-compare/ (optionally City of Chicago senior services https://www.chicago.gov/city/en/depts/fss/provdrs/senior.html), all 200 on 20 Nov. Site link last on its own line, homepage #tour not a guide; in the composer confirm the preview card is the site's (a source link placed first may become the card).",
+    "2026-11-20T21:15Z tour engine: no org replies (inbox: Nextdoor digests and promos only); no genuine visitors in latest metrics; P-1122-01 Rogers Park post text ready (template A, IDPH and Care Compare sources, link last)"
   ],
   "ready": [
     {
@@ -197,7 +198,26 @@
       "text": "Touring assisted living or memory care for a parent in Winnetka or nearby? Every place shows you the dining room. I put together a free one-page checklist of twelve questions that show you the rest: what the base rate includes and what is billed on top, how care levels are assessed and how often the price changes as a result, and what staffing looks like overnight. Print it and take it on every tour. No email or sign-up.\n\n#employed Disclosure: I work at Westminster Place in Evanston. The guide is my own independent project, it includes an optional way to request a tour there, and I receive no referral fees.\n\nhttps://evanstonseniorcareguide.com/?ref=fb-wnk-1120#tour",
       "checks": "Winnetka in the first sentence; claims match the homepage tour section (twelve questions, one-page PDF, no email or sign-up); #employed per group rules; link last with nothing after it (OP1); re-read group rules on the day",
       "created_utc": "2026-11-20T18:15Z",
-      "landing_check": {"utc": "2026-11-20T18:55Z", "by": "esc-tour-loop ACQ-008", "anchor_390px": "pass: #tour at top; checklist and disclosed tour link both on the first screen", "ref_to_tour_form": "FAIL until PR #79 merges: 'Ask about a tour here' reloads to /?tour=form#plan-visit without ref, so the form view and any inquiry count as direct. Landing, tour-questions and checklist beacons keep fb-wnk-1120.", "post_blocked": false, "fix": "https://github.com/JGBALL23/evanston-senior-care-guide/pull/79 (review only)"}
+      "landing_check": {
+        "utc": "2026-11-20T18:55Z",
+        "by": "esc-tour-loop ACQ-008",
+        "anchor_390px": "pass: #tour at top; checklist and disclosed tour link both on the first screen",
+        "ref_to_tour_form": "FAIL until PR #79 merges: 'Ask about a tour here' reloads to /?tour=form#plan-visit without ref, so the form view and any inquiry count as direct. Landing, tour-questions and checklist beacons keep fb-wnk-1120.",
+        "post_blocked": false,
+        "fix": "https://github.com/JGBALL23/evanston-senior-care-guide/pull/79 (review only)"
+      }
+    },
+    {
+      "type": "post_text",
+      "action_id": "P-1122-01",
+      "for": "operator",
+      "status": "ready",
+      "venue": "group:RogersParkNeighborhoodNews Rogers Park News",
+      "not_before_utc": "2026-11-22T17:29Z",
+      "hook": "template A (tour checklist), per E1 +48h verdict",
+      "text": "Touring assisted living or memory care for a parent in Rogers Park or nearby? Every place shows you the dining room. I put together a free one-page checklist of twelve questions that show you the rest: what the base rate includes and what is billed on top, how care levels are assessed and how often the price changes as a result, and what staffing looks like overnight. Print it and take it on every tour. No email or sign-up.\n\nSources the checklist points to: Illinois Department of Public Health, assisted living licensing: https://dph.illinois.gov/topics-services/health-care-regulation/assisted-living.html\nMedicare Care Compare (nursing home inspections and staffing): https://www.medicare.gov/care-compare/\n\nDisclosure: I work at Westminster Place in Evanston. The guide is my own independent project, it includes an optional way to request a tour there, and I receive no referral fees.\n\nhttps://evanstonseniorcareguide.com/?ref=fb-rp-1122#tour",
+      "checks": "Rogers Park in the first sentence; claims match the homepage tour section (twelve questions, one page, no email or sign-up) and both source URLs appear on the homepage (ACQ-013: 200 on 20 Nov); group rule: verifiable with sources; disclosure before link; site link last on its own line with nothing after it (OP1); homepage #tour, not a guide; no #employed (not a rule of this group, re-read rules on the day); in the composer confirm the preview card is the site's, not a source link's",
+      "created_utc": "2026-11-20T21:15Z"
     }
   ]
 }
