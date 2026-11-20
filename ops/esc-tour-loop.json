@@ -56,16 +56,16 @@
    "found_utc": "2026-11-20T02:45Z"
   },
   {
-   "id": "ACQ-008",
-   "priority": 1,
+   "id": "ACQ-009",
+   "priority": 2,
    "status": "ready",
    "workstream": "conversion",
-   "task": "Before P-1120-01 goes live (not before 2026-11-20T21:53Z), verify the Winnetka post's landing path end to end: https://evanstonseniorcareguide.com/?ref=fb-wnk-1120#tour on a phone-width render scrolls to the tour section, the twelve-question checklist and the disclosed tour-request route are visible from there, and the ref tag fb-wnk-1120 survives to the plan-visit form and its attribution record (cf. the fb-wil-1118 tag-splitting bug where text after the link ran into ?ref). Report any defect to the operator via ops/growth.json ready item before the post time; open a small tested review PR only if a site fix is needed.",
-   "evidence": "Reactivation condition 3 of last_stop fired: tour engine commit e317fb9 (ops/operator-state, 2026-11-20T18:15Z) recorded the E1 +48h verdict (template A, tour checklist: fb-evsk-1117 2 genuine visitors, 1 checklist open, 1 tour-questions view vs fb-wil-1118 0) and made P-1120-01 ready with link ?ref=fb-wnk-1120#tour. Cloud operator confirmed the 17:24-17:44Z E1 window: 0 tagged landings, 0 genuine. Cloud curl 18:24Z: home with ?ref=fb-wnk-1120 returns 200 and contains id=\"tour\" and the twelve-questions text; attribution of the new tag and the phone-width tour-request route are not yet verified.",
-   "expected_tour_acquisition_value": "Template A is the only hook that has produced genuine visitors; this post is the next measured distribution step. A broken anchor, hidden tour route or lost ref tag would waste the post and make E1 follow-up unmeasurable. Cheap, time-bound check before publication.",
-   "executor": "esc-tour-loop (GitHub-only verification; no posting, the session operator alone publishes)",
-   "done_when": "Before 2026-11-20T21:53Z: a recorded pass/fail for (a) #tour anchor lands on the tour section at 390px width, (b) a disclosed tour-request route is visible in that section, (c) fb-wnk-1120 reaches the plan-visit attribution (by code read or test), with any failure written to the P-1120-01 ready item for the operator.",
-   "source": "cloud operator 2026-11-20T18:24Z"
+   "task": "Guide-page landings: check whether a tagged arrival on a guide (e.g. referral ?ref=em-skokie-<MMDD> on a cost or Medicare guide) keeps its tag when the reader clicks the guide's tour link to the homepage form. Guides load nav.js only, so the tag is probably dropped the same way ACQ-008 found on the homepage. If confirmed, open one small tested review PR (nav.js carries the sanitised ref on same-site /? links) after PR #79, reusing its rule.",
+   "evidence": "ACQ-008 defect on the homepage; nav.js has no ref handling (grep, main 2026-11-20); guide pathway links are /?tour=..., /?from=..., /?pay=... and the guide tour blocks link to the tour form.",
+   "expected_tour_acquisition_value": "Medium: referral proposals (Skokie, Niles) and search land on guides. Without this, any inquiry they produce shows as direct and the channel that earned it can't be scaled.",
+   "executor": "esc-tour-loop (review PR only)",
+   "done_when": "A recorded pass/fail on a tagged guide landing, plus a tested review PR if it fails.",
+   "depends_on": "PR #79 (same rule; avoid two diverging implementations)"
   }
  ],
  "completed": [
@@ -164,17 +164,35 @@
     "https://www.endeavorhealth.org/services/primary-care/adult-care/geriatric-medicine",
     "https://www.communityresourcefinder.org/ResourceView/Index?id=3313907"
    ]
+  },
+  {
+   "id": "ACQ-008",
+   "priority": 1,
+   "status": "done",
+   "workstream": "conversion",
+   "task": "Before P-1120-01 goes live (not before 2026-11-20T21:53Z), verify the Winnetka post's landing path end to end: https://evanstonseniorcareguide.com/?ref=fb-wnk-1120#tour on a phone-width render scrolls to the tour section, the twelve-question checklist and the disclosed tour-request route are visible from there, and the ref tag fb-wnk-1120 survives to the plan-visit form and its attribution record (cf. the fb-wil-1118 tag-splitting bug where text after the link ran into ?ref). Report any defect to the operator via ops/growth.json ready item before the post time; open a small tested review PR only if a site fix is needed.",
+   "evidence": "Reactivation condition 3 of last_stop fired: tour engine commit e317fb9 (ops/operator-state, 2026-11-20T18:15Z) recorded the E1 +48h verdict (template A, tour checklist: fb-evsk-1117 2 genuine visitors, 1 checklist open, 1 tour-questions view vs fb-wil-1118 0) and made P-1120-01 ready with link ?ref=fb-wnk-1120#tour. Cloud operator confirmed the 17:24-17:44Z E1 window: 0 tagged landings, 0 genuine. Cloud curl 18:24Z: home with ?ref=fb-wnk-1120 returns 200 and contains id=\"tour\" and the twelve-questions text; attribution of the new tag and the phone-width tour-request route are not yet verified.",
+   "expected_tour_acquisition_value": "Template A is the only hook that has produced genuine visitors; this post is the next measured distribution step. A broken anchor, hidden tour route or lost ref tag would waste the post and make E1 follow-up unmeasurable. Cheap, time-bound check before publication.",
+   "executor": "esc-tour-loop (GitHub-only verification; no posting, the session operator alone publishes)",
+   "done_when": "Before 2026-11-20T21:53Z: a recorded pass/fail for (a) #tour anchor lands on the tour section at 390px width, (b) a disclosed tour-request route is visible in that section, (c) fb-wnk-1120 reaches the plan-visit attribution (by code read or test), with any failure written to the P-1120-01 ready item for the operator.",
+   "source": "cloud operator 2026-11-20T18:24Z",
+   "done_utc": "2026-11-20T18:55Z",
+   "result": "(a) PASS: /?ref=fb-wnk-1120#tour at 390x844 lands with #tour at top (73px), checklist link at 339px and the disclosed 'Ask about a tour here' link at 492px, all on the first screen, no horizontal scroll. (b) PASS. (c) FAIL: that link is /?tour=form#plan-visit, a full reload that drops ?ref; the second load beacons landed?s=direct, and plan-visit submit/saved would be s=direct, so a tour inquiry from the post would not be attributable to it. Live app.js is byte-identical to main; the render ran on main _dist served locally because the sandbox browser timed out on the live domain.",
+   "artifact": "https://github.com/JGBALL23/evanston-senior-care-guide/pull/79 (review only, not merged or deployed): same-site /? link clicks carry the sanitised SOURCE token as ref when the visitor arrived tagged.",
+   "verification": "tools/test_tour_source.mjs section 8 (exact P-1120-01 URL): 4 new checks fail on main, 30/30 pass on the branch; test.js 768/768, check-guides.js 2695/2695, test_start_source 21/21, test_checklist_click 30/30, test_inquiry_validation 36/36, direct_inquiry_consistency 29/29.",
+   "operator_note": "Written to the P-1120-01 ready item on ops/operator-state. The post is not blocked: tagged landings, tour-section views and checklist clicks are counted correctly. Until #79 ships, the step from the tour click to the form shows up as direct.",
+   "lesson": "Every earlier tag check stopped at the landing beacon. Attribution has to be followed through the reload to the form, or the stage that matters most (inquiry) is the one that loses the channel."
   }
  ],
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-20T02:45Z",
-  "event": "pull_request.synchronize bc2c280",
-  "picked": "ACQ-007 (discovered, conversion)",
-  "why": "no new sends, replies or traffic since ACQ-006; checked the conversion path of the one asset genuine visitors actually use"
+  "utc": "2026-11-20T18:55Z",
+  "event": "pull_request.synchronize 38c28a3",
+  "picked": "ACQ-008 (ready, time-bound before the 21:53Z post)",
+  "why": "the only ready item; it guards the one measured distribution step (template A) that has produced genuine visitors"
  },
- "last_verified_action": "ACQ-007: checklist PDF confirmed to have no tour route; owner-locked, so recorded as an owner decision (no PR opened, nothing sent)",
+ "last_verified_action": "ACQ-008: Winnetka landing path passes the anchor and visibility checks, but the tour click drops ?ref. Fixed in review PR #79 (tested); operator told on P-1120-01.",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -190,7 +208,8 @@
    "utc": "2026-11-20T18:24Z",
    "by": "ESCG cloud operator",
    "condition": "E1 +48h verdict produced Winnetka post text P-1120-01 needing a tour-path landing check",
-   "task": "ACQ-008"
+   "task": "ACQ-008",
+   "outcome": "ACQ-008 done; PR #79 opened; ACQ-009 added"
   }
  },
  "safety": {
@@ -208,6 +227,7 @@
   "confirmation": "Claude Scheduled Tasks screenshot: ESCG Tour Acquisition Loop active, Pull request: Commits pushed on matching repository. Previous setup screenshot: head branch automation/esc-tour-loop."
  },
  "owner_review_needed": [
+  "PR #79: tour click keeps the arrival tag. Without it, a tour inquiry from the Winnetka post or any tagged post counts as direct. Review and merge if acceptable (this loop does not merge).",
   "PR #78: review and merge if acceptable (this loop does not merge)",
   "Stray branch claude/estate-recovery-tour-path (same commit as PR #78) is safe to delete",
   "Next referral batch (operator sends, after the 19-20 Nov reply review): Village of Skokie Human Services (ACQ-001) and Village of Niles Senior Center (ACQ-004)",
