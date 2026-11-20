@@ -141,7 +141,7 @@
     }
   ],
   "blocked": [],
-  "next_work_source": "Discovery-first: an empty or waiting queue is a trigger to find work, not completion. Each run reads fresh evidence (org replies, E1 +48h verdict 20 Nov 17:44Z, Search Console 25 Nov, PR #78 status), identifies the bottleneck and executes the strongest authorized action. If nothing worthwhile exists, stop without a commit; the hourly cloud monitor reactivates the loop on new evidence. Referral discovery is paused after ACQ-006 (pipeline ahead of sending); restart it only once the Skokie/Niles batch is sent or a reply shows which kind of organization responds.",
+  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
   "last_run": {
     "utc": "2026-11-19",
     "event": "pull_request.synchronize bd63bb3",
@@ -179,5 +179,45 @@
     "Stray branch claude/estate-recovery-tour-path (same commit as PR #78) is safe to delete",
     "Next referral batch (operator sends, after the 19-20 Nov reply review): Village of Skokie Human Services (ACQ-001) and Village of Niles Senior Center (ACQ-004)",
     "Call list (Joseph, optional): New Trier Township social services 847-446-8202; Village of Northbrook 847-272-5050 re its Senior Housing Resources directory"
-  ]
+  ],
+  "hourly_backlog_policy": {
+    "enabled": true,
+    "version": 1,
+    "builder": "ESCG cloud operator (hourly, 24/7)",
+    "trigger": "existing hourly scheduled execution",
+    "target_candidates_researched_per_hour": 10,
+    "max_new_verified_tasks_per_hour": 10,
+    "min_required_new_tasks": 0,
+    "max_pending_items": 100,
+    "retain_unfinished_between_runs": true,
+    "statuses": {
+      "ready": "Authorized and immediately executable",
+      "waiting_on_data": "Needs named evidence/date",
+      "delegated": "Assigned to existing authorized operator, not done",
+      "blocked": "Blocked by permission or dependency",
+      "done": "Verified completed business work",
+      "dropped": "Unfit or disproven with reason"
+    },
+    "required_task_fields": [
+      "id",
+      "workstream",
+      "status",
+      "task",
+      "evidence",
+      "expected_tour_acquisition_value",
+      "executor",
+      "done_when"
+    ],
+    "dedup_scope": [
+      "queue",
+      "completed",
+      "blocked",
+      "ops/operator-state actions",
+      "existing review PRs",
+      "Gmail Sent when relevant and available"
+    ],
+    "commit_rule": "After adding >=1 genuinely new evidence-backed task or verified outcome, make one consolidated commit to automation/esc-tour-loop and confirm PR #77 head. Otherwise do not commit.",
+    "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
+    "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
+  }
 }
