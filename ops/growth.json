@@ -164,7 +164,7 @@
   "limits": [],
   "brief": {
     "date_chicago": "2026-11-20",
-    "ready": "nothing waiting; Winnetka post text (P-1120-01, due 15:53 Chicago) will be prepared after the E1 +48h verdict (11:44 Chicago)",
+    "ready": "Winnetka post text P-1120-01 (template A, tour checklist, per E1 +48h) ready for the operator; postable from 15:53 Chicago today",
     "learned": [
       "still 0 organization replies to the 10 outreach emails (2 auto-replies); referral drafts wait for the operator's reply review, and the operator has not run since 19 Nov 10:22 Chicago",
       "no genuine visitors in the latest hourly metrics; no new search data since 19 Nov"
@@ -178,7 +178,22 @@
     "2026-11-18T22:45Z tour engine replaces night growth (every 3 hours, 24/7): prepares reply drafts, tour-path page fixes, post texts and referral drafts for the operator; never ships",
     "2026-11-19T00:15Z tour engine: no org replies; top-visited pages already have tour next steps; P-1120-01 waits for E1 verdict; referral drafts at daily cap (2 on 18 Nov); brief set; no action",
     "2026-11-19T12:10Z tour engine: no org replies; P-1120-01 waits for E1 verdict; referral drafts held until the operator reviews replies (outreach plan 19-20 Nov); brief set; no action",
-    "2026-11-20T12:10Z tour engine: no org replies; P-1120-01 waits for E1 +48h verdict (17:44Z); referral drafts held (operator reply review pending, operator idle since 19 Nov 16:22Z); brief set; no action"
+    "2026-11-20T12:10Z tour engine: no org replies; P-1120-01 waits for E1 +48h verdict (17:44Z); referral drafts held (operator reply review pending, operator idle since 19 Nov 16:22Z); brief set; no action",
+    "2026-11-20T18:15Z tour engine: no org replies (inbox: auto-reply and digests only); E1 +48h: template A (tour checklist) beat template B (0 genuine); P-1120-01 Winnetka post text ready for the operator"
   ],
-  "ready": []
+  "ready": [
+    {
+      "type": "post_text",
+      "action_id": "P-1120-01",
+      "for": "operator",
+      "status": "ready",
+      "venue": "group:1316163449754368 What's Happening in Winnetka illinois",
+      "not_before_utc": "2026-11-20T21:53Z",
+      "hook": "template A (tour checklist), per E1",
+      "e1_verdict": "template A wins: fb-wil-1118 (template B, costs) had 0 genuine visitors in every logged window 18 Nov 17:44Z to 20 Nov 17:24Z (both tag variants) vs fb-evsk-1117 (template A) 2 genuine visitors, 1 checklist open, 1 tour-questions view; neither had a tour-form view. Tiny samples, directional only. Confirm the 17:24-17:44Z window in cloud.json before posting.",
+      "text": "Touring assisted living or memory care for a parent in Winnetka or nearby? Every place shows you the dining room. I put together a free one-page checklist of twelve questions that show you the rest: what the base rate includes and what is billed on top, how care levels are assessed and how often the price changes as a result, and what staffing looks like overnight. Print it and take it on every tour. No email or sign-up.\n\n#employed Disclosure: I work at Westminster Place in Evanston. The guide is my own independent project, it includes an optional way to request a tour there, and I receive no referral fees.\n\nhttps://evanstonseniorcareguide.com/?ref=fb-wnk-1120#tour",
+      "checks": "Winnetka in the first sentence; claims match the homepage tour section (twelve questions, one-page PDF, no email or sign-up); #employed per group rules; link last with nothing after it (OP1); re-read group rules on the day",
+      "created_utc": "2026-11-20T18:15Z"
+    }
+  ]
 }
