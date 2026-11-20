@@ -6,8 +6,8 @@
     "note": "tour-request alerts: sha256(message id) and time only"
   },
   "metrics": {
-    "last_utc": "2026-11-20T21:24Z",
-    "window_utc": "2026-11-20T18:24Z/2026-11-20T21:24Z",
+    "last_utc": "2026-11-20T22:24Z",
+    "window_utc": "2026-11-20T21:24Z/2026-11-20T22:24Z",
     "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs",
     "per_tag": {
       "fb-wil-1118": {
@@ -49,7 +49,7 @@
     "assessment_completions": 0,
     "tour_form_views": 0,
     "tour_requests": 0,
-    "genuine_detail": "18:24Z-21:24Z: 0 genuine; 0 plan-visit POSTs (only this run's empty-body validation probe, 400 as expected); 0 tour-form-view beacons in 24h; tagged landings ?ref=fb-wnk-1120 x3 (18:24-18:26Z) and ?ref=fb-rp-1122 x3 (18:39-18:40Z) all match the loop's ACQ-008/ACQ-013 landing checks; rest = own curl checks, HeadlessChrome loop checks, an iOS 13.2.3 scanner UA, Semrush/Bing/DuckDuckGo/Exa bots, WordPress install probes, og-card fetches"
+    "genuine_detail": "21:24Z-22:24Z: 0 genuine; 0 plan-visit POSTs (only previous run probe at 21:24:36Z, 400); 2 GET 405 on /api/plan-visit (automated); no tagged landings; rest = own curl checks, facebookexternalhit og-card fetches x4, iOS 13.2.3 scanner UA x3, bingbot"
   },
   "summary": {
     "last_utc": "2026-11-19T01:24Z",
@@ -58,8 +58,8 @@
   "site": {
     "fail_count": 0,
     "down_since_utc": null,
-    "last_check_utc": "2026-11-20T21:24Z",
-    "last_check_method": "curl: home, ?tour=form, checklist PDF, sitemap (35 URLs all 200); home has plan-visit; /api/plan-visit validates (400 on empty POST); Netlify 18:24Z-21:24Z: no 5xx, 0 genuine; Gmail 24h: no org replies or inquiries (Nextdoor digests, MS Advertising only); loop head 01e619b unchanged; PRs #78-#81 open, unmerged"
+    "last_check_utc": "2026-11-20T22:24Z",
+    "last_check_method": "curl: home, ?tour=form 200; Netlify 21:24Z-22:24Z: no 5xx, 0 genuine; Gmail 24h: no org replies or inquiries (MS Advertising only); loop head 01e619b unchanged; PRs #78-#81 open, unmerged"
   },
   "recovery": {
     "last_attempt_utc": "2026-11-18T01:39Z",
@@ -191,7 +191,8 @@
     "2026-11-20T16:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; loop head 29ae465 unchanged; no reactivation trigger fired (next: E1 +48h 17:44Z); no new loop task",
     "2026-11-20T17:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; loop head 29ae465 unchanged; no reactivation trigger fired (E1 +48h due 17:44Z, next run); no new loop task",
     "2026-11-20T18:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; E1 17:24-17:44Z window 0 tagged landings (confirms tour engine verdict); reactivation trigger fired (P-1120-01 Winnetka post text ready) -> ACQ-008 pre-post tour-path landing check committed to automation/esc-tour-loop 38c28a3",
-    "2026-11-20T21:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; PRs #78-#81 unmerged; P-1120-01/P-1122-01 not yet live (only loop landing checks on their tags); loop head 01e619b, queue has no ready item; no reactivation trigger fired; no new loop task"
+    "2026-11-20T21:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; PRs #78-#81 unmerged; P-1120-01/P-1122-01 not yet live (only loop landing checks on their tags); loop head 01e619b, queue has no ready item; no reactivation trigger fired; no new loop task",
+    "2026-11-20T22:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; PRs #78-#81 unmerged; no tagged landings for P-1120-01/P-1122-01; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task"
   ],
   "facebook_interruptions_past": [
     {
@@ -218,8 +219,8 @@
   "outreach_watch": {
     "alerted": [],
     "replies_alerted": [],
-    "last_utc": "2026-11-20T21:24Z",
-    "note": "no org replies; inbox since 18:24Z: nothing new"
+    "last_utc": "2026-11-20T22:24Z",
+    "note": "no org replies; inbox since 21:24Z: nothing new"
   },
   "facebook_interruption": {
     "since_utc": "2026-11-19T16:22Z",
