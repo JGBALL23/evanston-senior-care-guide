@@ -1,0 +1,24 @@
+# Enabled only after a deliberate operator/permissions check and secret setup.
+# Hourly cloud wake-up: the existing Claude routine does the work, not this workflow.
+name: ESCG authorized outreach operator — hourly cloud wake
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: escg-authorized-outreach-operator-wake
+  cancel-in-progress: false
+jobs:
+  start-operator:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      ESCG_WAKE_ENABLED: ${{ vars.ESCG_WAKE_ENABLED }}
+      ESCG_OPERATOR_FIRE_URL: ${{ secrets.ESCG_OPERATOR_FIRE_URL }}
+      ESCG_OPERATOR_FIRE_TOKEN: ${{ secrets.ESCG_OPERATOR_FIRE_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Wake existing sole authorized outreach operator
+        run: node tools/escg-wake-operator.mjs
