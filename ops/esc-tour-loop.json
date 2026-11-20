@@ -1,239 +1,257 @@
 {
-  "schema_version": 1,
-  "system": "ESCG Tour Acquisition — Event-Driven Production Loop",
-  "status": "ACTIVE",
-  "objective": "Generate qualified voluntary senior-living tour inquiries for Evanston/North Shore families, without pretending inquiries are confirmed tours.",
-  "trigger": {
-    "provider": "Claude Scheduled Tasks",
-    "event": "Pull request: Commits pushed",
-    "repository": "JGBALL23/evanston-senior-care-guide",
-    "head_branch": "automation/esc-tour-loop",
-    "test_pr": "https://github.com/JGBALL23/evanston-senior-care-guide/pull/76",
-    "production_pr": "https://github.com/JGBALL23/evanston-senior-care-guide/pull/77"
-  },
-  "authority": {
-    "github_loop": "May autonomously research, verify, analyze, prepare drafts, and make isolated, tested GitHub changes or review PRs in scope.",
-    "external_messages": "NOT OWNED BY THIS LOOP while existing session operator is active. Prepare drafts/proposals; no sending, posting, joining groups, or making commitments.",
-    "site_publication": "Do not merge to main, publish, or deploy. Keep tested code improvements in separate review PRs unless authority is explicitly transferred.",
-    "excluded": "No spending, invented claims, protected personal data, client records, privacy/form changes, employer endorsements, or safeguards bypass."
-  },
-  "baseline": {
-    "evidence_as_of": "2026-11-19T00:32:00Z",
-    "prior_outreach": "Ten organizational emails reportedly sent (operator state summary counter lags its action log). Recheck actual Gmail Sent before any future outreach.",
-    "tour_requests": "0 reported; not independently confirmed by this setup",
-    "demand": "Single-digit attributable real visitors in prior operator review; traffic acquisition is the immediate bottleneck.",
-    "recent_work": "Complaint and Medicare guide tour pathways improved Nov 18; don't duplicate.",
-    "sources": [
-      "ops/operator-state:ops/state.json",
-      "ops/operator-state:ops/growth.json",
-      "main:ROUTINE.md"
-    ],
-    "traffic_19_nov": "cloud operator 19 Nov: 08:24-11:24Z 0 genuine visitors; outreach 9-10 sent, 0 replies, 2 auto-replies"
-  },
-  "queue": [
-    {
-      "id": "ACQ-005",
-      "priority": 1,
-      "status": "waiting_on_data",
-      "workstream": "search_acquisition",
-      "hypothesis": "Page-one Illinois guides get impressions but 0 clicks; their titles are 94-99 characters (estate recovery 94, complaint 99) and Google truncates near 60, so the query-matching words may be cut. A shorter, query-first title could lift CTR without new claims.",
-      "evidence_needed": "Search Console Performance (queries, pages, CTR, position) for 17-24 Nov from the operator's 25 Nov check; PR #78 merge status.",
-      "done_when": "If those pages show >=20 impressions at position <=10 with CTR <3%, open one small tested review PR rewriting only their <title>/meta description; otherwise record no-change with numbers.",
-      "not_before_utc": "2026-11-25T15:00Z"
-    },
-    {
-      "id": "ACQ-007",
-      "priority": 2,
-      "status": "blocked",
-      "workstream": "conversion",
-      "task": "Give families who open the free tour checklist PDF a disclosed route to the Westminster Place tour request; today the PDF is a dead end for the tour step.",
-      "evidence": "Operator metrics 16-17 Nov: 3 of 4 genuine Facebook-origin visitors opened the checklist PDF; 0 started the assessment or reached the tour form. The PDF (main, _dist/downloads/senior-living-tour-checklist.pdf, checked 2026-11-20) has exactly 3 link annotations: the homepage, Medicare Care Compare and IDPH assisted living. None goes to /?tour=form#plan-visit, and nothing printed mentions a tour request, while every guide and the homepage put a disclosed 'Ask about a tour here' line beside the same download. On a phone the PDF opens full-screen, so the most engaged visitors end on a page with no tour step. Sample is tiny; this is a structural gap, not a measured effect.",
-      "why_blocked": "The PDF is owner-approved (check-guides.js 'owner-approved PDF, 2026-11-11') and tools/test_checklist_pdf.py enforces exactly three links with no query string or fragment. There is no HTML source in the repo (Chromium/Skia output), so a visible line means regenerating or editing the page content. Changing an owner-locked asset needs Joseph's yes.",
-      "proposal_for_owner": "Approve one added printed line under the footer disclosure, e.g. 'Touring Westminster Place in Evanston, where the author works? Ask at evanstonseniorcareguide.com', linked to https://evanstonseniorcareguide.com/?tour=form#plan-visit, and relax the test to allow that one link. Then this loop opens a tested review PR (one page, < 200 KB, other links unchanged).",
-      "expected_tour_acquisition_value": "Medium: the checklist is the most-used action by genuine visitors so far and is the asset referral partners (Skokie, Niles proposals) are offered; it is also printed and carried on tours.",
-      "executor": "Joseph (decision), then this loop (review PR)",
-      "done_when": "Joseph approves or declines; if approved, a tested review PR exists; measure tour-form views with ?tour=form after merge.",
-      "found_utc": "2026-11-20T02:45Z"
-    }
+ "schema_version": 1,
+ "system": "ESCG Tour Acquisition — Event-Driven Production Loop",
+ "status": "ACTIVE",
+ "objective": "Generate qualified voluntary senior-living tour inquiries for Evanston/North Shore families, without pretending inquiries are confirmed tours.",
+ "trigger": {
+  "provider": "Claude Scheduled Tasks",
+  "event": "Pull request: Commits pushed",
+  "repository": "JGBALL23/evanston-senior-care-guide",
+  "head_branch": "automation/esc-tour-loop",
+  "test_pr": "https://github.com/JGBALL23/evanston-senior-care-guide/pull/76",
+  "production_pr": "https://github.com/JGBALL23/evanston-senior-care-guide/pull/77"
+ },
+ "authority": {
+  "github_loop": "May autonomously research, verify, analyze, prepare drafts, and make isolated, tested GitHub changes or review PRs in scope.",
+  "external_messages": "NOT OWNED BY THIS LOOP while existing session operator is active. Prepare drafts/proposals; no sending, posting, joining groups, or making commitments.",
+  "site_publication": "Do not merge to main, publish, or deploy. Keep tested code improvements in separate review PRs unless authority is explicitly transferred.",
+  "excluded": "No spending, invented claims, protected personal data, client records, privacy/form changes, employer endorsements, or safeguards bypass."
+ },
+ "baseline": {
+  "evidence_as_of": "2026-11-19T00:32:00Z",
+  "prior_outreach": "Ten organizational emails reportedly sent (operator state summary counter lags its action log). Recheck actual Gmail Sent before any future outreach.",
+  "tour_requests": "0 reported; not independently confirmed by this setup",
+  "demand": "Single-digit attributable real visitors in prior operator review; traffic acquisition is the immediate bottleneck.",
+  "recent_work": "Complaint and Medicare guide tour pathways improved Nov 18; don't duplicate.",
+  "sources": [
+   "ops/operator-state:ops/state.json",
+   "ops/operator-state:ops/growth.json",
+   "main:ROUTINE.md"
   ],
-  "completed": [
-    {
-      "id": "ACQ-001",
-      "priority": 1,
-      "status": "done",
-      "workstream": "referral_distribution",
-      "task": "Find one genuinely new, relevant Evanston/North Shore referral or caregiver-resource placement opportunity that has an explicit public resource submission process or a verified official organizational general contact route. Compare against existing outreach records before recommending anything. Produce source-backed opportunity notes and an actionable next step for the designated outreach operator. Do not send.",
-      "done_when": "One verified, previously uncontacted high-fit opportunity with actual requirements and a concrete proposal, or a documented DROP with sources and no fabricated contact data.",
-      "done_utc": "2026-11-19",
-      "opportunity": "Village of Skokie Health and Human Services, Human Services division (information and referral on local senior programs, village social workers, Senior Reassurance, SHIP)",
-      "result": "Verified previously uncontacted, high-fit municipal senior-services referral point in the town adjoining Evanston, matching the operator's 'township and village senior services' priority and the precedent of the Highland Park, Lake Forest and Morton Grove sends. Domain not among the 10 contacted domain hashes; Gmail search for skokie returns only Nextdoor digests (no sent mail, no decline). The division has no general mailbox: the official department directory lists individual staff addresses, of which the Program Specialist role is the appropriate single recipient (same pattern as E-1118-07/08 'published staff contact').",
-      "requirements": "No resource-submission form. One email to one published staff address only; disclosed independent site with the senior-living employment tie; offer the free tour checklist and cost/Medicare guides for families they refer; no request to endorse; ?ref=em-skokie-<MMDD> tag; never also email the social workers.",
-      "proposal_for_operator": "After the 19-20 Nov reply review clears the next small batch, send one disclosed note to the Program Specialist address on https://www.skokie.org/directory.aspx?did=20 (phone 847-933-8208 for a call-list fallback). This loop sent nothing and created no Gmail draft (drafts were previously sent by an unknown actor, B-1112).",
-      "also_checked_low_fit": [
-        "Skokie Public Library: Health & Wellness info guide lists only government/national authorities (CDC, NIH, NIA, IDHS, HFS); no older-adult category; general address exists but placement unlikely. https://www.skokielibrary.info/info-guides/health-wellness",
-        "Wilmette Public Library: no older-adult resource page and no published email (phone/contact page only). https://www.wilmettelibrary.info/",
-        "Niles Township government site: no senior-services page or general email found on the home page."
-      ],
-      "sources": [
-        "https://www.skokie.org/1534/Human-Services",
-        "https://www.skokie.org/directory.aspx?did=20",
-        "https://www.skokie.org/1543/Senior-Reassurance-Program"
-      ]
-    },
-    {
-      "id": "ACQ-002",
-      "priority": 2,
-      "status": "done",
-      "workstream": "search_acquisition",
-      "task": "Use current evidence, not historical guesses, to identify the highest-intent search landing page where a small, factual change could make a real family more likely to reach the tour request. Inspect the actual deployed page and current code. Do not duplicate Nov 18 complaint/Medicare fixes or publish new unverifiable care claims. If there is a measurable defect, prepare a separate tested review PR, not a direct publish.",
-      "done_when": "Reproducible conversion/search issue with a verified small fix in a review PR and checks, or explicit evidence why changing pages is currently low-value.",
-      "done_utc": "2026-11-19",
-      "result": "Search Console 16 Nov: illinois-medicaid-estate-recovery is the best-ranked page (avg position 5.8) and was the only page-one guide lacking the tour checklist + disclosed tour link (complaint and Medicare guides got it 18 Nov). Added the identical existing block after 'Where this fits with the rest of this site'; no new claims, data or form changes.",
-      "artifact": "https://github.com/JGBALL23/evanston-senior-care-guide/pull/78 (review only, not merged or deployed)",
-      "verification": "build-guides.py rebuilt only that guide; check-guides.js 2697/2697; test.js 768/768; check-citations.sh 15 dead citations, none touched by this change (the sandbox network is a likely cause, unconfirmed)"
-    },
-    {
-      "id": "ACQ-003",
-      "priority": 3,
-      "status": "dropped",
-      "workstream": "qualified_audience",
-      "task": "Identify one practical free distribution channel with clear evidence of families choosing senior care, rather than repeating low-yield general Facebook scans. Prefer legitimate public directories, community resource listings, and older-adult service referrals. Evaluate suitability and eligibility honestly.",
-      "done_when": "One verified channel proposal with a no-cost authorized execution route or a sourced reason to drop the channel.",
-      "done_utc": "2026-11-19",
-      "channel": "Evanston Care Network (City of Evanston social-care directory, launched May 2020 on Aunt Bertha, now findhelp)",
-      "result": "DROP. (1) evanstoncarenetwork.org now serves only a JS redirect to /lander (parked-domain pattern), so the city-branded directory is not a live channel. (2) The underlying findhelp platform lists 'non-profit organizations or local, state, or federally funded agencies that provide free or reduced cost services'; ESCG is an independent informational site with a disclosed senior-living employment tie and a tour option, so it does not qualify and a suggestion would misrepresent it. No submission made or proposed.",
-      "sources": [
-        "https://patch.com/illinois/evanston/local-organizations-launch-care-network",
-        "https://preventchildabuse.org/connect-with-services-in-your-community/ (quotes findhelp eligibility)",
-        "curl https://evanstoncarenetwork.org/ on 2026-11-19 -> 200 with window.location='/lander' only"
-      ],
-      "side_leads_not_acted": "Wilmette Public Library has a senior-services librarian and hosts caregiver programs (domain not in contacted hashes) but no public resource list; possible ACQ-001 input only, needs a general/role address check."
-    },
-    {
-      "id": "ACQ-004",
-      "priority": 1,
-      "status": "done",
-      "workstream": "referral_distribution",
-      "task": "Discovery run on empty queue: find the next uncontacted North Shore municipal/township senior-services referral point with a published general (role) address, so the operator's next small batch after the 19-20 Nov reply review has a duplicate-checked candidate besides Skokie.",
-      "done_utc": "2026-11-19",
-      "why_this": "Traffic is the bottleneck (single-digit genuine visitors, 0 tour-form views, 0 tour requests). Facebook belongs to the session operator and waits on the E1 +48h verdict; technical SEO is clean (35/35 sitemap URLs 200, self-canonical, title+description, JSON-LD, no noindex; checked live 19 Nov); Search Console is due 25 Nov. Referral organizations reach families at the decision point, and the operator's standing priority names township and village senior services.",
-      "opportunity": "Village of Niles Senior Center (municipal; information and referral, nursing and social services, case management for residents 60+ by Family Services social workers)",
-      "result": "Verified previously uncontacted, medium-high fit referral point. Village directory (did=10) publishes a general Senior Center role address (not a personal address) and phone 847-588-8420. sha256(vniles.com)[:16]=8b3af4515eca6297 is not in outreach.orgs_contacted_sha256 or state.actions. Niles adjoins Skokie and Morton Grove (Morton Grove was sent 18 Nov).",
-      "requirements": "One disclosed email to the published Senior Center role address only (not individual staff, not Family Services as well); operator PREFLIGHT (Gmail in:sent to:vniles.com, no decline); offer the free tour checklist and cost/Medicare guides for families they advise; no endorsement request; ?ref=em-niles-<MMDD>.",
-      "proposal_for_operator": "After the reply review clears the next small batch, send Skokie (ACQ-001) and Niles as the two municipal referral notes; add the phone-only items below to Joseph's call list. This loop sent nothing and created no Gmail draft.",
-      "phone_only_for_call_list": [
-        "New Trier Township (Winnetka) social services for seniors: 847-446-8202 (Winnetka-Northfield Chamber guide); no senior-services email found",
-        "Village of Northbrook: 'Senior Housing Resources' directory (https://northbrook.il.us/440/Senior-Housing-Resources) lists senior living communities and a Care Options category but no email or suggestion route; Village Hall 847-272-5050"
-      ],
-      "also_checked_low_fit": [
-        "Northfield Township: financial assistance and Dial-A-Ride only; its senior services are North Shore Senior Center (already contacted)",
-        "Village of Wilmette: no village senior social worker or senior-services page found"
-      ],
-      "sources": [
-        "https://www.vniles.com/directory.aspx?did=10",
-        "https://www.vniles.com/directory.aspx",
-        "https://northbrook.il.us/440/Senior-Housing-Resources",
-        "https://issuu.com/makeitbetter/docs/wncc_2021/29"
-      ]
-    },
-    {
-      "id": "ACQ-006",
-      "priority": 1,
-      "status": "dropped",
-      "workstream": "referral_distribution",
-      "task": "Discovery run on a waiting queue: assess the operator-priority referral classes not yet checked (faith care ministries, hospital social work) plus two unassessed G1 leads (Glenview Public Library older-adult list, a North Shore parenting blog with an aging-parents post).",
-      "done_utc": "2026-11-19",
-      "result": "No new qualified candidate. Faith: Unitarian Church of Evanston care teams serve members only via an internal Request for Care form and a phone line; First Congregational Evanston care is deacon-led for members; Glenview church caregiver groups are support meetings listed in the Alzheimer's Association resource finder, with no resource list or general address. Hospital: Endeavor Health (Evanston Hospital) shows no public senior-services or social-work contact route, only system geriatric and memory-care pages. Glenview Public Library 'Resources for Older Adults' (7 Jul 2026) links only government and nonprofit agencies and has no email (comments box or phone 847-729-7500), the same pattern as Skokie Library. Chicago North Shore Moms: the only route is a business partnership (likely paid, so excluded) and the site blocks automated reading behind a bot challenge, which was not routed around.",
-      "lesson": "The referral pipeline is now ahead of sending: Skokie (ACQ-001) and Niles (ACQ-004) are verified but unsent, 10 sends have 0 replies, and the remaining North Shore classes return government-only lists, member-only care teams or phone-only routes. More referral discovery has diminishing returns until the operator sends the next batch and replies come in.",
-      "sources": [
-        "https://ucevanston.org/?p=16051",
-        "https://firstchurchevanston.org/ministries",
-        "https://glenviewpl.org/blogs/post/resources-for-older-adults/",
-        "https://www.endeavorhealth.org/services/primary-care/adult-care/geriatric-medicine",
-        "https://www.communityresourcefinder.org/ResourceView/Index?id=3313907"
-      ]
-    }
-  ],
-  "blocked": [],
-  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
-  "last_run": {
-    "utc": "2026-11-20T02:45Z",
-    "event": "pull_request.synchronize bc2c280",
-    "picked": "ACQ-007 (discovered, conversion)",
-    "why": "no new sends, replies or traffic since ACQ-006; checked the conversion path of the one asset genuine visitors actually use"
+  "traffic_19_nov": "cloud operator 19 Nov: 08:24-11:24Z 0 genuine visitors; outreach 9-10 sent, 0 replies, 2 auto-replies"
+ },
+ "queue": [
+  {
+   "id": "ACQ-005",
+   "priority": 1,
+   "status": "waiting_on_data",
+   "workstream": "search_acquisition",
+   "hypothesis": "Page-one Illinois guides get impressions but 0 clicks; their titles are 94-99 characters (estate recovery 94, complaint 99) and Google truncates near 60, so the query-matching words may be cut. A shorter, query-first title could lift CTR without new claims.",
+   "evidence_needed": "Search Console Performance (queries, pages, CTR, position) for 17-24 Nov from the operator's 25 Nov check; PR #78 merge status.",
+   "done_when": "If those pages show >=20 impressions at position <=10 with CTR <3%, open one small tested review PR rewriting only their <title>/meta description; otherwise record no-change with numbers.",
+   "not_before_utc": "2026-11-25T15:00Z"
   },
-  "last_verified_action": "ACQ-007: checklist PDF confirmed to have no tour route; owner-locked, so recorded as an owner decision (no PR opened, nothing sent)",
-  "last_stop": {
-    "utc": "2026-11-20T02:45Z",
-    "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
-    "reactivate_on": [
-      "Joseph answers ACQ-007 (then open the PDF review PR)",
-      "operator sends the Skokie/Niles batch, or any organizational reply arrives (follow-through and attribution of ?ref=em-skokie/em-niles visits)",
-      "E1 +48h verdict (2026-11-20T17:44Z) produces a Winnetka post text needing a tour-path landing check",
-      "PR #78 merged (then measure the estate-recovery tour path)",
-      "Search Console 17-24 Nov data (ACQ-005, not before 2026-11-25T15:00Z)",
-      "any genuine tour-form view or inquiry (conversion and handoff check)"
-    ]
+  {
+   "id": "ACQ-007",
+   "priority": 2,
+   "status": "blocked",
+   "workstream": "conversion",
+   "task": "Give families who open the free tour checklist PDF a disclosed route to the Westminster Place tour request; today the PDF is a dead end for the tour step.",
+   "evidence": "Operator metrics 16-17 Nov: 3 of 4 genuine Facebook-origin visitors opened the checklist PDF; 0 started the assessment or reached the tour form. The PDF (main, _dist/downloads/senior-living-tour-checklist.pdf, checked 2026-11-20) has exactly 3 link annotations: the homepage, Medicare Care Compare and IDPH assisted living. None goes to /?tour=form#plan-visit, and nothing printed mentions a tour request, while every guide and the homepage put a disclosed 'Ask about a tour here' line beside the same download. On a phone the PDF opens full-screen, so the most engaged visitors end on a page with no tour step. Sample is tiny; this is a structural gap, not a measured effect.",
+   "why_blocked": "The PDF is owner-approved (check-guides.js 'owner-approved PDF, 2026-11-11') and tools/test_checklist_pdf.py enforces exactly three links with no query string or fragment. There is no HTML source in the repo (Chromium/Skia output), so a visible line means regenerating or editing the page content. Changing an owner-locked asset needs Joseph's yes.",
+   "proposal_for_owner": "Approve one added printed line under the footer disclosure, e.g. 'Touring Westminster Place in Evanston, where the author works? Ask at evanstonseniorcareguide.com', linked to https://evanstonseniorcareguide.com/?tour=form#plan-visit, and relax the test to allow that one link. Then this loop opens a tested review PR (one page, < 200 KB, other links unchanged).",
+   "expected_tour_acquisition_value": "Medium: the checklist is the most-used action by genuine visitors so far and is the asset referral partners (Skokie, Niles proposals) are offered; it is also printed and carried on tours.",
+   "executor": "Joseph (decision), then this loop (review PR)",
+   "done_when": "Joseph approves or declines; if approved, a tested review PR exists; measure tour-form views with ?tour=form after merge.",
+   "found_utc": "2026-11-20T02:45Z"
   },
-  "safety": {
-    "no_idle_commits": true,
-    "one_completed_action_per_event": true,
-    "fail_closed_on_conflicts": true,
-    "public_metadata_only": true,
-    "never_force_push": true,
-    "never_trigger_only_to_trigger": true
-  },
-  "activation": {
-    "kind": "owner-confirmed-Claude-scheduler",
-    "date": "2026-11-19",
-    "purpose": "Seed first production PR synchronize event once after owner showed active Claude routine. Never generate subsequent empty commits.",
-    "confirmation": "Claude Scheduled Tasks screenshot: ESCG Tour Acquisition Loop active, Pull request: Commits pushed on matching repository. Previous setup screenshot: head branch automation/esc-tour-loop."
-  },
-  "owner_review_needed": [
-    "PR #78: review and merge if acceptable (this loop does not merge)",
-    "Stray branch claude/estate-recovery-tour-path (same commit as PR #78) is safe to delete",
-    "Next referral batch (operator sends, after the 19-20 Nov reply review): Village of Skokie Human Services (ACQ-001) and Village of Niles Senior Center (ACQ-004)",
-    "Call list (Joseph, optional): New Trier Township social services 847-446-8202; Village of Northbrook 847-272-5050 re its Senior Housing Resources directory",
-    "ACQ-007 decision: may the owner-approved checklist PDF get one disclosed, linked 'Ask about a tour' line? 3 of 4 genuine visitors opened it and it currently has no tour route."
-  ],
-  "hourly_backlog_policy": {
-    "enabled": true,
-    "version": 1,
-    "builder": "ESCG cloud operator (hourly, 24/7)",
-    "trigger": "existing hourly scheduled execution",
-    "target_candidates_researched_per_hour": 10,
-    "max_new_verified_tasks_per_hour": 10,
-    "min_required_new_tasks": 0,
-    "max_pending_items": 100,
-    "retain_unfinished_between_runs": true,
-    "statuses": {
-      "ready": "Authorized and immediately executable",
-      "waiting_on_data": "Needs named evidence/date",
-      "delegated": "Assigned to existing authorized operator, not done",
-      "blocked": "Blocked by permission or dependency",
-      "done": "Verified completed business work",
-      "dropped": "Unfit or disproven with reason"
-    },
-    "required_task_fields": [
-      "id",
-      "workstream",
-      "status",
-      "task",
-      "evidence",
-      "expected_tour_acquisition_value",
-      "executor",
-      "done_when"
-    ],
-    "dedup_scope": [
-      "queue",
-      "completed",
-      "blocked",
-      "ops/operator-state actions",
-      "existing review PRs",
-      "Gmail Sent when relevant and available"
-    ],
-    "commit_rule": "After adding >=1 genuinely new evidence-backed task or verified outcome, make one consolidated commit to automation/esc-tour-loop and confirm PR #77 head. Otherwise do not commit.",
-    "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
-    "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
+  {
+   "id": "ACQ-008",
+   "priority": 1,
+   "status": "ready",
+   "workstream": "conversion",
+   "task": "Before P-1120-01 goes live (not before 2026-11-20T21:53Z), verify the Winnetka post's landing path end to end: https://evanstonseniorcareguide.com/?ref=fb-wnk-1120#tour on a phone-width render scrolls to the tour section, the twelve-question checklist and the disclosed tour-request route are visible from there, and the ref tag fb-wnk-1120 survives to the plan-visit form and its attribution record (cf. the fb-wil-1118 tag-splitting bug where text after the link ran into ?ref). Report any defect to the operator via ops/growth.json ready item before the post time; open a small tested review PR only if a site fix is needed.",
+   "evidence": "Reactivation condition 3 of last_stop fired: tour engine commit e317fb9 (ops/operator-state, 2026-11-20T18:15Z) recorded the E1 +48h verdict (template A, tour checklist: fb-evsk-1117 2 genuine visitors, 1 checklist open, 1 tour-questions view vs fb-wil-1118 0) and made P-1120-01 ready with link ?ref=fb-wnk-1120#tour. Cloud operator confirmed the 17:24-17:44Z E1 window: 0 tagged landings, 0 genuine. Cloud curl 18:24Z: home with ?ref=fb-wnk-1120 returns 200 and contains id=\"tour\" and the twelve-questions text; attribution of the new tag and the phone-width tour-request route are not yet verified.",
+   "expected_tour_acquisition_value": "Template A is the only hook that has produced genuine visitors; this post is the next measured distribution step. A broken anchor, hidden tour route or lost ref tag would waste the post and make E1 follow-up unmeasurable. Cheap, time-bound check before publication.",
+   "executor": "esc-tour-loop (GitHub-only verification; no posting, the session operator alone publishes)",
+   "done_when": "Before 2026-11-20T21:53Z: a recorded pass/fail for (a) #tour anchor lands on the tour section at 390px width, (b) a disclosed tour-request route is visible in that section, (c) fb-wnk-1120 reaches the plan-visit attribution (by code read or test), with any failure written to the P-1120-01 ready item for the operator.",
+   "source": "cloud operator 2026-11-20T18:24Z"
   }
+ ],
+ "completed": [
+  {
+   "id": "ACQ-001",
+   "priority": 1,
+   "status": "done",
+   "workstream": "referral_distribution",
+   "task": "Find one genuinely new, relevant Evanston/North Shore referral or caregiver-resource placement opportunity that has an explicit public resource submission process or a verified official organizational general contact route. Compare against existing outreach records before recommending anything. Produce source-backed opportunity notes and an actionable next step for the designated outreach operator. Do not send.",
+   "done_when": "One verified, previously uncontacted high-fit opportunity with actual requirements and a concrete proposal, or a documented DROP with sources and no fabricated contact data.",
+   "done_utc": "2026-11-19",
+   "opportunity": "Village of Skokie Health and Human Services, Human Services division (information and referral on local senior programs, village social workers, Senior Reassurance, SHIP)",
+   "result": "Verified previously uncontacted, high-fit municipal senior-services referral point in the town adjoining Evanston, matching the operator's 'township and village senior services' priority and the precedent of the Highland Park, Lake Forest and Morton Grove sends. Domain not among the 10 contacted domain hashes; Gmail search for skokie returns only Nextdoor digests (no sent mail, no decline). The division has no general mailbox: the official department directory lists individual staff addresses, of which the Program Specialist role is the appropriate single recipient (same pattern as E-1118-07/08 'published staff contact').",
+   "requirements": "No resource-submission form. One email to one published staff address only; disclosed independent site with the senior-living employment tie; offer the free tour checklist and cost/Medicare guides for families they refer; no request to endorse; ?ref=em-skokie-<MMDD> tag; never also email the social workers.",
+   "proposal_for_operator": "After the 19-20 Nov reply review clears the next small batch, send one disclosed note to the Program Specialist address on https://www.skokie.org/directory.aspx?did=20 (phone 847-933-8208 for a call-list fallback). This loop sent nothing and created no Gmail draft (drafts were previously sent by an unknown actor, B-1112).",
+   "also_checked_low_fit": [
+    "Skokie Public Library: Health & Wellness info guide lists only government/national authorities (CDC, NIH, NIA, IDHS, HFS); no older-adult category; general address exists but placement unlikely. https://www.skokielibrary.info/info-guides/health-wellness",
+    "Wilmette Public Library: no older-adult resource page and no published email (phone/contact page only). https://www.wilmettelibrary.info/",
+    "Niles Township government site: no senior-services page or general email found on the home page."
+   ],
+   "sources": [
+    "https://www.skokie.org/1534/Human-Services",
+    "https://www.skokie.org/directory.aspx?did=20",
+    "https://www.skokie.org/1543/Senior-Reassurance-Program"
+   ]
+  },
+  {
+   "id": "ACQ-002",
+   "priority": 2,
+   "status": "done",
+   "workstream": "search_acquisition",
+   "task": "Use current evidence, not historical guesses, to identify the highest-intent search landing page where a small, factual change could make a real family more likely to reach the tour request. Inspect the actual deployed page and current code. Do not duplicate Nov 18 complaint/Medicare fixes or publish new unverifiable care claims. If there is a measurable defect, prepare a separate tested review PR, not a direct publish.",
+   "done_when": "Reproducible conversion/search issue with a verified small fix in a review PR and checks, or explicit evidence why changing pages is currently low-value.",
+   "done_utc": "2026-11-19",
+   "result": "Search Console 16 Nov: illinois-medicaid-estate-recovery is the best-ranked page (avg position 5.8) and was the only page-one guide lacking the tour checklist + disclosed tour link (complaint and Medicare guides got it 18 Nov). Added the identical existing block after 'Where this fits with the rest of this site'; no new claims, data or form changes.",
+   "artifact": "https://github.com/JGBALL23/evanston-senior-care-guide/pull/78 (review only, not merged or deployed)",
+   "verification": "build-guides.py rebuilt only that guide; check-guides.js 2697/2697; test.js 768/768; check-citations.sh 15 dead citations, none touched by this change (the sandbox network is a likely cause, unconfirmed)"
+  },
+  {
+   "id": "ACQ-003",
+   "priority": 3,
+   "status": "dropped",
+   "workstream": "qualified_audience",
+   "task": "Identify one practical free distribution channel with clear evidence of families choosing senior care, rather than repeating low-yield general Facebook scans. Prefer legitimate public directories, community resource listings, and older-adult service referrals. Evaluate suitability and eligibility honestly.",
+   "done_when": "One verified channel proposal with a no-cost authorized execution route or a sourced reason to drop the channel.",
+   "done_utc": "2026-11-19",
+   "channel": "Evanston Care Network (City of Evanston social-care directory, launched May 2020 on Aunt Bertha, now findhelp)",
+   "result": "DROP. (1) evanstoncarenetwork.org now serves only a JS redirect to /lander (parked-domain pattern), so the city-branded directory is not a live channel. (2) The underlying findhelp platform lists 'non-profit organizations or local, state, or federally funded agencies that provide free or reduced cost services'; ESCG is an independent informational site with a disclosed senior-living employment tie and a tour option, so it does not qualify and a suggestion would misrepresent it. No submission made or proposed.",
+   "sources": [
+    "https://patch.com/illinois/evanston/local-organizations-launch-care-network",
+    "https://preventchildabuse.org/connect-with-services-in-your-community/ (quotes findhelp eligibility)",
+    "curl https://evanstoncarenetwork.org/ on 2026-11-19 -> 200 with window.location='/lander' only"
+   ],
+   "side_leads_not_acted": "Wilmette Public Library has a senior-services librarian and hosts caregiver programs (domain not in contacted hashes) but no public resource list; possible ACQ-001 input only, needs a general/role address check."
+  },
+  {
+   "id": "ACQ-004",
+   "priority": 1,
+   "status": "done",
+   "workstream": "referral_distribution",
+   "task": "Discovery run on empty queue: find the next uncontacted North Shore municipal/township senior-services referral point with a published general (role) address, so the operator's next small batch after the 19-20 Nov reply review has a duplicate-checked candidate besides Skokie.",
+   "done_utc": "2026-11-19",
+   "why_this": "Traffic is the bottleneck (single-digit genuine visitors, 0 tour-form views, 0 tour requests). Facebook belongs to the session operator and waits on the E1 +48h verdict; technical SEO is clean (35/35 sitemap URLs 200, self-canonical, title+description, JSON-LD, no noindex; checked live 19 Nov); Search Console is due 25 Nov. Referral organizations reach families at the decision point, and the operator's standing priority names township and village senior services.",
+   "opportunity": "Village of Niles Senior Center (municipal; information and referral, nursing and social services, case management for residents 60+ by Family Services social workers)",
+   "result": "Verified previously uncontacted, medium-high fit referral point. Village directory (did=10) publishes a general Senior Center role address (not a personal address) and phone 847-588-8420. sha256(vniles.com)[:16]=8b3af4515eca6297 is not in outreach.orgs_contacted_sha256 or state.actions. Niles adjoins Skokie and Morton Grove (Morton Grove was sent 18 Nov).",
+   "requirements": "One disclosed email to the published Senior Center role address only (not individual staff, not Family Services as well); operator PREFLIGHT (Gmail in:sent to:vniles.com, no decline); offer the free tour checklist and cost/Medicare guides for families they advise; no endorsement request; ?ref=em-niles-<MMDD>.",
+   "proposal_for_operator": "After the reply review clears the next small batch, send Skokie (ACQ-001) and Niles as the two municipal referral notes; add the phone-only items below to Joseph's call list. This loop sent nothing and created no Gmail draft.",
+   "phone_only_for_call_list": [
+    "New Trier Township (Winnetka) social services for seniors: 847-446-8202 (Winnetka-Northfield Chamber guide); no senior-services email found",
+    "Village of Northbrook: 'Senior Housing Resources' directory (https://northbrook.il.us/440/Senior-Housing-Resources) lists senior living communities and a Care Options category but no email or suggestion route; Village Hall 847-272-5050"
+   ],
+   "also_checked_low_fit": [
+    "Northfield Township: financial assistance and Dial-A-Ride only; its senior services are North Shore Senior Center (already contacted)",
+    "Village of Wilmette: no village senior social worker or senior-services page found"
+   ],
+   "sources": [
+    "https://www.vniles.com/directory.aspx?did=10",
+    "https://www.vniles.com/directory.aspx",
+    "https://northbrook.il.us/440/Senior-Housing-Resources",
+    "https://issuu.com/makeitbetter/docs/wncc_2021/29"
+   ]
+  },
+  {
+   "id": "ACQ-006",
+   "priority": 1,
+   "status": "dropped",
+   "workstream": "referral_distribution",
+   "task": "Discovery run on a waiting queue: assess the operator-priority referral classes not yet checked (faith care ministries, hospital social work) plus two unassessed G1 leads (Glenview Public Library older-adult list, a North Shore parenting blog with an aging-parents post).",
+   "done_utc": "2026-11-19",
+   "result": "No new qualified candidate. Faith: Unitarian Church of Evanston care teams serve members only via an internal Request for Care form and a phone line; First Congregational Evanston care is deacon-led for members; Glenview church caregiver groups are support meetings listed in the Alzheimer's Association resource finder, with no resource list or general address. Hospital: Endeavor Health (Evanston Hospital) shows no public senior-services or social-work contact route, only system geriatric and memory-care pages. Glenview Public Library 'Resources for Older Adults' (7 Jul 2026) links only government and nonprofit agencies and has no email (comments box or phone 847-729-7500), the same pattern as Skokie Library. Chicago North Shore Moms: the only route is a business partnership (likely paid, so excluded) and the site blocks automated reading behind a bot challenge, which was not routed around.",
+   "lesson": "The referral pipeline is now ahead of sending: Skokie (ACQ-001) and Niles (ACQ-004) are verified but unsent, 10 sends have 0 replies, and the remaining North Shore classes return government-only lists, member-only care teams or phone-only routes. More referral discovery has diminishing returns until the operator sends the next batch and replies come in.",
+   "sources": [
+    "https://ucevanston.org/?p=16051",
+    "https://firstchurchevanston.org/ministries",
+    "https://glenviewpl.org/blogs/post/resources-for-older-adults/",
+    "https://www.endeavorhealth.org/services/primary-care/adult-care/geriatric-medicine",
+    "https://www.communityresourcefinder.org/ResourceView/Index?id=3313907"
+   ]
+  }
+ ],
+ "blocked": [],
+ "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
+ "last_run": {
+  "utc": "2026-11-20T02:45Z",
+  "event": "pull_request.synchronize bc2c280",
+  "picked": "ACQ-007 (discovered, conversion)",
+  "why": "no new sends, replies or traffic since ACQ-006; checked the conversion path of the one asset genuine visitors actually use"
+ },
+ "last_verified_action": "ACQ-007: checklist PDF confirmed to have no tour route; owner-locked, so recorded as an owner decision (no PR opened, nothing sent)",
+ "last_stop": {
+  "utc": "2026-11-20T02:45Z",
+  "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
+  "reactivate_on": [
+   "Joseph answers ACQ-007 (then open the PDF review PR)",
+   "operator sends the Skokie/Niles batch, or any organizational reply arrives (follow-through and attribution of ?ref=em-skokie/em-niles visits)",
+   "E1 +48h verdict (2026-11-20T17:44Z) produces a Winnetka post text needing a tour-path landing check",
+   "PR #78 merged (then measure the estate-recovery tour path)",
+   "Search Console 17-24 Nov data (ACQ-005, not before 2026-11-25T15:00Z)",
+   "any genuine tour-form view or inquiry (conversion and handoff check)"
+  ],
+  "reactivated": {
+   "utc": "2026-11-20T18:24Z",
+   "by": "ESCG cloud operator",
+   "condition": "E1 +48h verdict produced Winnetka post text P-1120-01 needing a tour-path landing check",
+   "task": "ACQ-008"
+  }
+ },
+ "safety": {
+  "no_idle_commits": true,
+  "one_completed_action_per_event": true,
+  "fail_closed_on_conflicts": true,
+  "public_metadata_only": true,
+  "never_force_push": true,
+  "never_trigger_only_to_trigger": true
+ },
+ "activation": {
+  "kind": "owner-confirmed-Claude-scheduler",
+  "date": "2026-11-19",
+  "purpose": "Seed first production PR synchronize event once after owner showed active Claude routine. Never generate subsequent empty commits.",
+  "confirmation": "Claude Scheduled Tasks screenshot: ESCG Tour Acquisition Loop active, Pull request: Commits pushed on matching repository. Previous setup screenshot: head branch automation/esc-tour-loop."
+ },
+ "owner_review_needed": [
+  "PR #78: review and merge if acceptable (this loop does not merge)",
+  "Stray branch claude/estate-recovery-tour-path (same commit as PR #78) is safe to delete",
+  "Next referral batch (operator sends, after the 19-20 Nov reply review): Village of Skokie Human Services (ACQ-001) and Village of Niles Senior Center (ACQ-004)",
+  "Call list (Joseph, optional): New Trier Township social services 847-446-8202; Village of Northbrook 847-272-5050 re its Senior Housing Resources directory",
+  "ACQ-007 decision: may the owner-approved checklist PDF get one disclosed, linked 'Ask about a tour' line? 3 of 4 genuine visitors opened it and it currently has no tour route."
+ ],
+ "hourly_backlog_policy": {
+  "enabled": true,
+  "version": 1,
+  "builder": "ESCG cloud operator (hourly, 24/7)",
+  "trigger": "existing hourly scheduled execution",
+  "target_candidates_researched_per_hour": 10,
+  "max_new_verified_tasks_per_hour": 10,
+  "min_required_new_tasks": 0,
+  "max_pending_items": 100,
+  "retain_unfinished_between_runs": true,
+  "statuses": {
+   "ready": "Authorized and immediately executable",
+   "waiting_on_data": "Needs named evidence/date",
+   "delegated": "Assigned to existing authorized operator, not done",
+   "blocked": "Blocked by permission or dependency",
+   "done": "Verified completed business work",
+   "dropped": "Unfit or disproven with reason"
+  },
+  "required_task_fields": [
+   "id",
+   "workstream",
+   "status",
+   "task",
+   "evidence",
+   "expected_tour_acquisition_value",
+   "executor",
+   "done_when"
+  ],
+  "dedup_scope": [
+   "queue",
+   "completed",
+   "blocked",
+   "ops/operator-state actions",
+   "existing review PRs",
+   "Gmail Sent when relevant and available"
+  ],
+  "commit_rule": "After adding >=1 genuinely new evidence-backed task or verified outcome, make one consolidated commit to automation/esc-tour-loop and confirm PR #77 head. Otherwise do not commit.",
+  "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
+  "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
+ }
 }
