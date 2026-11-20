@@ -6,8 +6,8 @@
     "note": "tour-request alerts: sha256(message id) and time only"
   },
   "metrics": {
-    "last_utc": "2026-11-20T16:24Z",
-    "window_utc": "2026-11-20T15:24Z/2026-11-20T16:24Z",
+    "last_utc": "2026-11-20T17:24Z",
+    "window_utc": "2026-11-20T16:24Z/2026-11-20T17:24Z",
     "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs",
     "per_tag": {
       "fb-wil-1118": {
@@ -49,7 +49,7 @@
     "assessment_completions": 0,
     "tour_form_views": 0,
     "tour_requests": 0,
-    "genuine_detail": "15:24Z-16:24Z: 0 genuine; 31 requests (all GET): own curl checks 9 (incl. 404 probes of /assessment, /tour, /contact), facebookexternalhit og-card refetches 10 (no tagged landings), single-page fetches with no assets or referrer 4 (PACE guide, SHIP guide, home x2), http www->https 1; 0 plan-visit POSTs"
+    "genuine_detail": "16:24Z-17:24Z: 0 genuine; 26 requests (all GET): own curl checks 13 (incl. 404 probes of /assessment, /tour), WordPress install probe 2, og-card fetch 1, Chrome prefetch of Supportive Living guide from Google (traffic-advice fetch, no assets) 2, Calgary datacenter-IP Chrome 141 home+JS with no CSS/images/beacons 5; 0 plan-visit POSTs; no tagged landings"
   },
   "summary": {
     "last_utc": "2026-11-19T01:24Z",
@@ -58,8 +58,8 @@
   "site": {
     "fail_count": 0,
     "down_since_utc": null,
-    "last_check_utc": "2026-11-20T16:24Z",
-    "last_check_method": "curl: home, ?tour=form, /downloads/senior-living-tour-checklist.pdf, sitemap 200; home has plan-visit; Netlify 15:24Z-16:24Z: no 5xx, all automated; Gmail 24h: no org replies or inquiries (Nextdoor digests, MS Advertising only); loop head 29ae465 unchanged"
+    "last_check_utc": "2026-11-20T17:24Z",
+    "last_check_method": "curl: home, ?tour=form, /downloads/senior-living-tour-checklist.pdf, sitemap 200; home has plan-visit; Netlify 16:24Z-17:24Z: no 5xx, all automated; Gmail 24h: no org replies or inquiries (MS Advertising only); loop head 29ae465 unchanged"
   },
   "recovery": {
     "last_attempt_utc": "2026-11-18T01:39Z",
@@ -188,7 +188,8 @@
     "2026-11-20T13:25Z run: 0 tour requests; site OK; 0 genuine visitors 12:24Z-13:25Z; no org replies; no new loop task (reactivation conditions unmet)",
     "2026-11-20T14:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; PR #78 open, loop head 29ae465 unchanged; no reactivation trigger fired (next: E1 +48h 17:44Z); no new loop task",
     "2026-11-20T15:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; PR #78 open, loop head 29ae465 unchanged; no reactivation trigger fired (next: E1 +48h 17:44Z); no new loop task",
-    "2026-11-20T16:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; loop head 29ae465 unchanged; no reactivation trigger fired (next: E1 +48h 17:44Z); no new loop task"
+    "2026-11-20T16:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; loop head 29ae465 unchanged; no reactivation trigger fired (next: E1 +48h 17:44Z); no new loop task",
+    "2026-11-20T17:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; loop head 29ae465 unchanged; no reactivation trigger fired (E1 +48h due 17:44Z, next run); no new loop task"
   ],
   "facebook_interruptions_past": [
     {
@@ -215,8 +216,8 @@
   "outreach_watch": {
     "alerted": [],
     "replies_alerted": [],
-    "last_utc": "2026-11-20T16:24Z",
-    "note": "no org replies; inbox since 15:24Z: nothing new"
+    "last_utc": "2026-11-20T17:24Z",
+    "note": "no org replies; inbox since 16:24Z: nothing new"
   },
   "facebook_interruption": {
     "since_utc": "2026-11-19T16:22Z",
