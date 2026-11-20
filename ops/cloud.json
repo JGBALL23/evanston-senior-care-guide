@@ -6,8 +6,8 @@
     "note": "tour-request alerts: sha256(message id) and time only"
   },
   "metrics": {
-    "last_utc": "2026-11-20T22:24Z",
-    "window_utc": "2026-11-20T21:24Z/2026-11-20T22:24Z",
+    "last_utc": "2026-11-20T23:24Z",
+    "window_utc": "2026-11-20T22:24Z/2026-11-20T23:24Z",
     "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs",
     "per_tag": {
       "fb-wil-1118": {
@@ -49,7 +49,7 @@
     "assessment_completions": 0,
     "tour_form_views": 0,
     "tour_requests": 0,
-    "genuine_detail": "21:24Z-22:24Z: 0 genuine; 0 plan-visit POSTs (only previous run probe at 21:24:36Z, 400); 2 GET 405 on /api/plan-visit (automated); no tagged landings; rest = own curl checks, facebookexternalhit og-card fetches x4, iOS 13.2.3 scanner UA x3, bingbot"
+    "genuine_detail": "22:24Z-23:24Z: 0 genuine; 0 plan-visit POSTs (only this run's empty-body probe, 400); no tagged landings; rest = own curl checks, a Chrome/129 crawler (sitemap_index, wp-sitemap, /guides/ and 3 guides, ?tour=form) 23:12-23:15Z, iOS 13.2.3 scanner x2, paired Mac Chrome 142 + Safari 26.2 hits on the SHIP guide 0.5s apart 23:05Z (no beacon, treated as automated), meta-webindexer, facebookexternalhit og-card, bingbot, WordPress install probe"
   },
   "summary": {
     "last_utc": "2026-11-19T01:24Z",
@@ -58,8 +58,8 @@
   "site": {
     "fail_count": 0,
     "down_since_utc": null,
-    "last_check_utc": "2026-11-20T22:24Z",
-    "last_check_method": "curl: home, ?tour=form 200; Netlify 21:24Z-22:24Z: no 5xx, 0 genuine; Gmail 24h: no org replies or inquiries (MS Advertising only); loop head 01e619b unchanged; PRs #78-#81 open, unmerged"
+    "last_check_utc": "2026-11-20T23:24Z",
+    "last_check_method": "curl: home, ?tour=form, checklist PDF, sitemap 200; home has plan-visit and #assessment section; /api/plan-visit validates (400 on empty POST); Netlify 22:24Z-23:24Z: no 5xx, 0 genuine; Gmail 24h: no org replies or inquiries (Nextdoor digests, MS Advertising only); loop head 01e619b unchanged; PRs #78-#81 open, unmerged"
   },
   "recovery": {
     "last_attempt_utc": "2026-11-18T01:39Z",
@@ -192,7 +192,8 @@
     "2026-11-20T17:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; loop head 29ae465 unchanged; no reactivation trigger fired (E1 +48h due 17:44Z, next run); no new loop task",
     "2026-11-20T18:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; E1 17:24-17:44Z window 0 tagged landings (confirms tour engine verdict); reactivation trigger fired (P-1120-01 Winnetka post text ready) -> ACQ-008 pre-post tour-path landing check committed to automation/esc-tour-loop 38c28a3",
     "2026-11-20T21:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; PRs #78-#81 unmerged; P-1120-01/P-1122-01 not yet live (only loop landing checks on their tags); loop head 01e619b, queue has no ready item; no reactivation trigger fired; no new loop task",
-    "2026-11-20T22:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; PRs #78-#81 unmerged; no tagged landings for P-1120-01/P-1122-01; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task"
+    "2026-11-20T22:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; PRs #78-#81 unmerged; no tagged landings for P-1120-01/P-1122-01; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task",
+    "2026-11-20T23:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; PRs #78-#81 unmerged; no tagged landings for P-1120-01/P-1122-01; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task"
   ],
   "facebook_interruptions_past": [
     {
@@ -219,8 +220,8 @@
   "outreach_watch": {
     "alerted": [],
     "replies_alerted": [],
-    "last_utc": "2026-11-20T22:24Z",
-    "note": "no org replies; inbox since 21:24Z: nothing new"
+    "last_utc": "2026-11-20T23:24Z",
+    "note": "no org replies; inbox since 22:24Z: nothing new"
   },
   "facebook_interruption": {
     "since_utc": "2026-11-19T16:22Z",
