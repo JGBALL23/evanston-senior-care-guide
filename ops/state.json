@@ -2,9 +2,9 @@
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
  "updated_utc": "2026-11-18T23:05Z",
- "last_run_utc": "2026-11-19T16:22Z",
+ "last_run_utc": "2026-11-21T02:35Z",
  "facebook": {
-  "access": "no 2026-11-19T16:22Z",
+  "access": "no 2026-11-21T02:35Z",
   "last_access_ok_utc": "2026-11-18T21:16Z",
   "last_checks_utc": "2026-11-18T15:08Z",
   "unreachable_since_utc": null,
@@ -453,7 +453,6 @@
   ]
  },
  "log": [
-  "2026-11-18T00:30Z site: Supportive Living guide now covers dementia care settings (HFS Cook County list: none in Evanston or nearby suburbs; closest is Asbury Court, Des Plaines; IDPH: 20 certified statewide), PR #71; memory-care statute pages on ilga.gov blocked to the fetch tool, so no unverifiable legal claims published",
   "2026-11-18T01:03Z daily rollup sent: 0 tour requests, tours UNVERIFIED, 2 genuine Facebook visitors today, 0 assessments, 4 posts live + 1 pending, 33 guides live (17 added 17 Nov); owner question (Nextdoor/LinkedIn) asked in chat 23:57Z, awaiting answer",
   "2026-11-18T01:12Z owner directive 19:02 Chicago (growth first; Facebook primary; no new guides without demand; new legal/medical claims need his approval): operator instructions updated; cloud watchdog created and test-fired (SUCCEEDED); drafts routine gated on DEMAND.md (PR #73); E1 Wilmette cost-post experiment planned for 18 Nov",
   "2026-11-18T01:43Z 24/7 restructure: cloud operator created (hourly, PC-independent) and verified; recovery test showed scheduled runs cannot re-arm the session operator (refused), so recovery = safety net + watchdog alert; session operator now owns only Facebook/Search Console and sleeps overnight",
@@ -492,7 +491,8 @@
   "2026-11-19T03:50Z loop: Chrome not connected, so the 21:45 lead scan was skipped; no org replies except one automatic reply (E-1118-03: HR desk answers in 2-3 business days and names a separate general-HR inbox for caregiving questions; not re-sending to the same organization, wait for their reply); tour engine ready list empty. Next wake 7:30 Chicago for business-hours outreach",
   "2026-11-19T13:45Z loop 7:30 Chicago: no org replies; Chrome offline; engine queue empty; no post today (5 posts in 7 days, cap); outreach research: Meals on Wheels NE Illinois, Wilmette Park District, Levy foundation have no published email reachable; phone-only list given to Joseph; Search Console note 'alternate page with proper canonical' = ?ref= URLs folding into canonical, expected",
   "2026-11-19T15:02Z loop 9:00 Chicago: Chrome offline, no org replies, nothing else actionable; next check 16:20Z",
-  "2026-11-19T16:22Z loop 10:20 Chicago: Chrome offline, no replies; next wake 18:00Z after the E1 +24h measurement (17:44Z)"
+  "2026-11-19T16:22Z loop 10:20 Chicago: Chrome offline, no replies; next wake 18:00Z after the E1 +24h measurement (17:44Z)",
+  "2026-11-21T02:35Z operator resumed after a gap (no sessions 19 Nov 16:22Z to 21 Nov 02:25Z): Niles Senior Center email was sent 21 Nov 01:11Z outside the operator (recorded E-1120-01, not repeated); Skokie Human Services has no published email (phone only, blocked to Joseph's call list); 0 org replies; Winnetka post P-1120-01 missed its Friday window; Chrome offline"
  ],
  "next_actions": [
   "STANDING (Joseph 18 Nov 16:44/17:08): continuous loop, day and night. Each session: plan, do a real tour-focused task, review, re-plan and immediately do the next actionable task in the same session; only when nothing is actionable, set the next wake 2 minutes after the CURRENT time (check the clock, never estimate). Never schedule a long sleep.",
@@ -933,11 +933,12 @@
   {
    "id": "P-1120-01",
    "type": "facebook_post",
-   "status": "pending",
+   "status": "blocked",
    "not_before_utc": "2026-11-20T21:53Z",
    "venue": "group:1316163449754368",
    "tag": "fb-wnk-1120",
-   "note": "hook chosen by experiment E1 (+48h verdict 20 Nov 17:44Z)"
+   "note": "hook chosen by experiment E1 (+48h verdict 20 Nov 17:44Z); missed: operator sessions stopped 19 Nov 16:22Z to 21 Nov 02:25Z and Chrome was offline; reschedule within the posting window after the 5-in-7 cap check",
+   "owner": "operator"
   },
   {
    "id": "P-OUT-REPLIES",
@@ -1043,6 +1044,26 @@
    "domain_sha256": "f01f2ad34d0855a4",
    "msg_sha256": "746dcbb73246b235",
    "by": "operator"
+  },
+  {
+   "id": "E-1120-01",
+   "type": "email",
+   "status": "completed",
+   "utc": "2026-11-21T01:11Z",
+   "tag": "em-1120a",
+   "kind": "municipal senior center (information and referral)",
+   "domain_sha256": "8b3af4515eca6297",
+   "msg_sha256": "6f4deee2cef3ecad",
+   "by": "outside the operator (found in Gmail Sent 21 Nov 02:30Z; content follows the outreach rules)"
+  },
+  {
+   "id": "B-SKOKIE-HS",
+   "type": "email",
+   "status": "blocked",
+   "owner": "Joseph (phone)",
+   "kind": "municipal human services (senior and disability services)",
+   "domain_sha256": "5c614ad549b895ad",
+   "note": "the Village's own Human Services page publishes phone numbers only, no email (checked 21 Nov 02:33Z); call list"
   }
  ],
  "measurement_notes": [
