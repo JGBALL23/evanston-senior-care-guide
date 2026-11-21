@@ -6,8 +6,8 @@
     "note": "tour-request alerts: sha256(message id) and time only"
   },
   "metrics": {
-    "last_utc": "2026-11-21T02:24Z",
-    "window_utc": "2026-11-21T01:24Z/2026-11-21T02:24Z",
+    "last_utc": "2026-11-21T03:24Z",
+    "window_utc": "2026-11-21T02:24Z/2026-11-21T03:24Z",
     "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs",
     "per_tag": {
       "fb-wil-1118": {
@@ -49,7 +49,7 @@
     "assessment_completions": 0,
     "tour_form_views": 0,
     "tour_requests": 0,
-    "genuine_detail": "01:24Z-02:24Z: 0 genuine; 0 plan-visit POSTs (only two runs' empty-body probes, 400); no tagged landings; rest = own curl checks, bingbot x4 (guides), iOS 13.2.3 scanner x3, OAI-SearchBot robots, facebookexternalhit og-card, meta-webindexer CCP guide, WordPress.com xmlrpc probe"
+    "genuine_detail": "02:24Z-03:24Z: 0 genuine; 0 plan-visit POSTs (only own empty-body probes, 400); no tagged landings; iOS 27.2 NetworkingExtension 02:36Z fetched only og-card and icons (iMessage/Messages link preview of the home page, no page load or beacon; not a visitor); rest = panscient.com crawler x88 (all guides), own curl checks, iOS 13.2.3 scanner x5, meta-webindexer, facebookexternalhit, WordPress install probe"
   },
   "summary": {
     "last_utc": "2026-11-19T01:24Z",
@@ -58,8 +58,8 @@
   "site": {
     "fail_count": 0,
     "down_since_utc": null,
-    "last_check_utc": "2026-11-21T02:24Z",
-    "last_check_method": "curl: home, ?tour=form, sitemap 200; home has plan-visit and #assessment section; /api/plan-visit validates (400 on empty POST); Netlify 01:24Z-02:24Z: no 5xx (3 404s are probes of /assessment, /tour, xmlrpc.php), 0 genuine; Gmail 2h: no org replies or inquiries (only Google/Airtable account-connection notices for Airtable and Make); loop head 01e619b unchanged; PRs #78-#82 open, unmerged"
+    "last_check_utc": "2026-11-21T03:24Z",
+    "last_check_method": "curl: home, ?tour=form, sitemap 200; home has plan-visit and #assessment section; /api/plan-visit validates (400 on empty POST); Netlify 02:24Z-03:24Z: no 5xx (3 404s: apple-touch-icon x2 from a Messages preview, wp-admin probe), 0 genuine; Gmail 1d: no org replies or inquiries (Nextdoor digests, Make/Airtable notices only); loop head 01e619b unchanged; PRs #78-#82 open, unmerged"
   },
   "recovery": {
     "last_attempt_utc": "2026-11-18T01:39Z",
@@ -196,7 +196,8 @@
     "2026-11-20T23:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; PRs #78-#81 unmerged; no tagged landings for P-1120-01/P-1122-01; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task",
     "2026-11-21T00:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; PRs #78-#81 unmerged, review PR #82 opened 23:57Z by another worker (awaits owner); no tagged landings for P-1120-01/P-1122-01; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task",
     "2026-11-21T01:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; em-1120a landings were an email-security scanner (Phoenix DC, 2 Chrome builds, instant beacons), not a reader; PRs #78-#82 unmerged; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task",
-    "2026-11-21T02:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies (inbox: Airtable/Make account-connection notices only); PRs #78-#82 unmerged; no tagged landings for P-1120-01/P-1122-01; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task"
+    "2026-11-21T02:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies (inbox: Airtable/Make account-connection notices only); PRs #78-#82 unmerged; no tagged landings for P-1120-01/P-1122-01; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task",
+    "2026-11-21T03:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; one Messages link preview of the home page 02:36Z (no visit); operator resumed 02:35Z: Niles sent (em-1120a, homepage link, satisfies ACQ-010 for Niles), Skokie phone-only, Winnetka P-1120-01 moved to Sat 21 Nov 15:00Z (landing already verified by the loop); loop head 01e619b, no ready item; no new executable loop work, no new loop task"
   ],
   "facebook_interruptions_past": [
     {
@@ -223,8 +224,8 @@
   "outreach_watch": {
     "alerted": [],
     "replies_alerted": [],
-    "last_utc": "2026-11-21T02:24Z",
-    "note": "no org replies; inbox since 01:24Z: nothing new"
+    "last_utc": "2026-11-21T03:24Z",
+    "note": "no org replies; inbox since 02:24Z: Make marketing email only; E-1120-01 (Niles, em-1120a, homepage link) awaits reply"
   },
   "facebook_interruption": {
     "since_utc": "2026-11-19T16:22Z",
