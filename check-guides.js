@@ -1508,9 +1508,22 @@ if (fs.existsSync(ROUTINE)) {
 }
 
 check("sitemap has one url per page",
-  (sitemap.match(/<url>/g) || []).length === SLUGS.length + 3,
+  (sitemap.match(/<url>/g) || []).length === SLUGS.length + 4,
   (sitemap.match(/<url>/g) || []).length + " urls for "
     + SLUGS.length + " guides");
+check("local assisted living landing page is canonical and disclosed", (() => {
+  const localPath = path.join(DIST, "assisted-living-evanston", "index.html");
+  const local = read(localPath);
+  const source = read(path.join(__dirname, "assisted-living-evanston", "index.html"));
+  return local === source &&
+    local.includes('rel="canonical" href="https://evanstonseniorcareguide.com/assisted-living-evanston/"') &&
+    local.includes('href="/?tour=assisted#plan-visit"') &&
+    local.includes("I work at Westminster Place") &&
+    local.includes("Illinois Department of Public Health") &&
+    (local.match(/<h1[\\s>]/g) || []).length === 1 &&
+    sitemap.includes("https://evanstonseniorcareguide.com/assisted-living-evanston/") &&
+    read(path.join(DIST, "index.html")).includes('/assisted-living-evanston/');
+})());
 check("guides index links every guide",
   SLUGS.every((s) => indexPage.indexOf("/guides/" + s + "/") !== -1));
 check("Guides is in the main nav",
