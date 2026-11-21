@@ -6,8 +6,8 @@
     "note": "tour-request alerts: sha256(message id) and time only"
   },
   "metrics": {
-    "last_utc": "2026-11-21T05:24Z",
-    "window_utc": "2026-11-21T04:24Z/2026-11-21T05:24Z",
+    "last_utc": "2026-11-21T06:24Z",
+    "window_utc": "2026-11-21T05:24Z/2026-11-21T06:24Z",
     "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs",
     "per_tag": {
       "fb-wil-1118": {
@@ -49,7 +49,7 @@
     "assessment_completions": 0,
     "tour_form_views": 0,
     "tour_requests": 0,
-    "genuine_detail": "04:24Z-05:24Z: 0 genuine; 0 plan-visit POSTs (own empty-body probe, 400); no tagged landings; rest = own curl checks, iOS 13.2.3 scanner x8, Mac Safari 17.3.1 and iPhone iOS 17.1.2 HTML-only home fetches x2 each (no assets or beacon; scanners), facebookexternalhit robots.txt"
+    "genuine_detail": "05:24Z-06:24Z: 0 genuine; 0 plan-visit POSTs with data (2 own empty-body probes, 400); no tagged landings; rest = own curl checks, iOS 13.2.3 scanner x3, 360Spider x2, WordPress install probe x2, Win Chrome 149 http->https redirect only"
   },
   "summary": {
     "last_utc": "2026-11-19T01:24Z",
@@ -58,8 +58,8 @@
   "site": {
     "fail_count": 0,
     "down_since_utc": null,
-    "last_check_utc": "2026-11-21T05:24Z",
-    "last_check_method": "curl: home, ?tour=form, /guides/, sitemap 200; home has plan-visit, #tour and #assessment; /api/plan-visit validates (400 on empty POST); Netlify 04:24Z-05:24Z: no 5xx (2 404s: own curl of /assessment and /tour, paths that do not exist), 0 genuine; Gmail 1d: no org replies or inquiries (Airtable/Make/Google notices, Nextdoor digests); loop head 01e619b unchanged; PRs #78-#82 open, unmerged"
+    "last_check_utc": "2026-11-21T06:24Z",
+    "last_check_method": "curl: home, ?tour=form, /guides/, sitemap 200; home has plan-visit, #tour and #assessment; /api/plan-visit validates (400 on empty POST); Netlify 05:24Z-06:24Z: no 5xx (3 404s: own curl of /assessment and /tour, wp-admin probe), 0 genuine; Gmail 1d: no org replies or inquiries (Airtable/Make/Google notices, Nextdoor digests); loop head 01e619b unchanged"
   },
   "recovery": {
     "last_attempt_utc": "2026-11-18T01:39Z",
@@ -199,7 +199,8 @@
     "2026-11-21T02:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies (inbox: Airtable/Make account-connection notices only); PRs #78-#82 unmerged; no tagged landings for P-1120-01/P-1122-01; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task",
     "2026-11-21T03:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; one Messages link preview of the home page 02:36Z (no visit); operator resumed 02:35Z: Niles sent (em-1120a, homepage link, satisfies ACQ-010 for Niles), Skokie phone-only, Winnetka P-1120-01 moved to Sat 21 Nov 15:00Z (landing already verified by the loop); loop head 01e619b, no ready item; no new executable loop work, no new loop task",
     "2026-11-21T04:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; PRs #78-#82 unmerged; no tagged landings for P-1120-01 (posts Sat 15:00Z)/P-1122-01; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task",
-    "2026-11-21T05:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; PRs #78-#82 unmerged; no tagged landings for P-1120-01 (posts Sat 15:00Z)/P-1122-01; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task"
+    "2026-11-21T05:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; PRs #78-#82 unmerged; no tagged landings for P-1120-01 (posts Sat 15:00Z)/P-1122-01; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task",
+    "2026-11-21T06:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; no tagged landings for P-1120-01 (posts Sat 15:00Z)/P-1122-01; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task"
   ],
   "facebook_interruptions_past": [
     {
@@ -226,8 +227,8 @@
   "outreach_watch": {
     "alerted": [],
     "replies_alerted": [],
-    "last_utc": "2026-11-21T05:24Z",
-    "note": "no org replies; inbox since 04:24Z: nothing new from orgs; E-1120-01 (Niles, em-1120a) awaits reply"
+    "last_utc": "2026-11-21T06:24Z",
+    "note": "no org replies; inbox since 05:24Z: nothing new from orgs; E-1120-01 (Niles, em-1120a) awaits reply"
   },
   "facebook_interruption": {
     "since_utc": "2026-11-19T16:22Z",
