@@ -2,9 +2,9 @@
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
  "updated_utc": "2026-11-18T23:05Z",
- "last_run_utc": "2026-11-21T02:35Z",
+ "last_run_utc": "2026-11-21T15:02Z",
  "facebook": {
-  "access": "no 2026-11-21T02:35Z",
+  "access": "no 2026-11-21T15:02Z",
   "last_access_ok_utc": "2026-11-18T21:16Z",
   "last_checks_utc": "2026-11-18T15:08Z",
   "unreachable_since_utc": null,
@@ -453,7 +453,6 @@
   ]
  },
  "log": [
-  "2026-11-18T01:03Z daily rollup sent: 0 tour requests, tours UNVERIFIED, 2 genuine Facebook visitors today, 0 assessments, 4 posts live + 1 pending, 33 guides live (17 added 17 Nov); owner question (Nextdoor/LinkedIn) asked in chat 23:57Z, awaiting answer",
   "2026-11-18T01:12Z owner directive 19:02 Chicago (growth first; Facebook primary; no new guides without demand; new legal/medical claims need his approval): operator instructions updated; cloud watchdog created and test-fired (SUCCEEDED); drafts routine gated on DEMAND.md (PR #73); E1 Wilmette cost-post experiment planned for 18 Nov",
   "2026-11-18T01:43Z 24/7 restructure: cloud operator created (hourly, PC-independent) and verified; recovery test showed scheduled runs cannot re-arm the session operator (refused), so recovery = safety net + watchdog alert; session operator now owns only Facebook/Search Console and sleeps overnight",
   "2026-11-18T01:51Z owner verification report for the 19:18 request: schedules listed from list_triggers (cloud operator, session operator, watchdog, drafts routine enabled; older tasks disabled); cloud push test returned 'Mobile push requested'; limits stated (Facebook only while his Chrome is on; no automatic recovery); corrected the earlier claim that a watchdog test push would arrive; Issue #25 status comment updated",
@@ -492,7 +491,8 @@
   "2026-11-19T13:45Z loop 7:30 Chicago: no org replies; Chrome offline; engine queue empty; no post today (5 posts in 7 days, cap); outreach research: Meals on Wheels NE Illinois, Wilmette Park District, Levy foundation have no published email reachable; phone-only list given to Joseph; Search Console note 'alternate page with proper canonical' = ?ref= URLs folding into canonical, expected",
   "2026-11-19T15:02Z loop 9:00 Chicago: Chrome offline, no org replies, nothing else actionable; next check 16:20Z",
   "2026-11-19T16:22Z loop 10:20 Chicago: Chrome offline, no replies; next wake 18:00Z after the E1 +24h measurement (17:44Z)",
-  "2026-11-21T02:35Z operator resumed after a gap (no sessions 19 Nov 16:22Z to 21 Nov 02:25Z): Niles Senior Center email was sent 21 Nov 01:11Z outside the operator (recorded E-1120-01, not repeated); Skokie Human Services has no published email (phone only, blocked to Joseph's call list); 0 org replies; Winnetka post P-1120-01 missed its Friday window; Chrome offline"
+  "2026-11-21T02:35Z operator resumed after a gap (no sessions 19 Nov 16:22Z to 21 Nov 02:25Z): Niles Senior Center email was sent 21 Nov 01:11Z outside the operator (recorded E-1120-01, not repeated); Skokie Human Services has no published email (phone only, blocked to Joseph's call list); 0 org replies; Winnetka post P-1120-01 missed its Friday window; Chrome offline",
+  "2026-11-21T15:02Z Sat 9:00 Chicago: Chrome offline, so the Winnetka post (P-1120-01) and lead scan wait; no org replies; no new sends; hourly re-check until 19:00 Chicago while the post is planned"
  ],
  "next_actions": [
   "STANDING (Joseph 18 Nov 16:44/17:08): continuous loop, day and night. Each session: plan, do a real tour-focused task, review, re-plan and immediately do the next actionable task in the same session; only when nothing is actionable, set the next wake 2 minutes after the CURRENT time (check the clock, never estimate). Never schedule a long sleep.",
