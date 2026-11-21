@@ -6,8 +6,8 @@
     "note": "tour-request alerts: sha256(message id) and time only"
   },
   "metrics": {
-    "last_utc": "2026-11-21T01:24Z",
-    "window_utc": "2026-11-21T00:24Z/2026-11-21T01:24Z",
+    "last_utc": "2026-11-21T02:24Z",
+    "window_utc": "2026-11-21T01:24Z/2026-11-21T02:24Z",
     "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs",
     "per_tag": {
       "fb-wil-1118": {
@@ -49,7 +49,7 @@
     "assessment_completions": 0,
     "tour_form_views": 0,
     "tour_requests": 0,
-    "genuine_detail": "00:24Z-01:24Z: 0 genuine; 0 plan-visit POSTs (only two runs' empty-body probes, 400); ?ref=em-1120a landed x2 at 01:12:07Z and 01:13:01Z from one Phoenix data-center /24, Chrome 154 then Chrome 153, no referrer, landed + tour-questions/costs beacons within 1-3s of load = email-security link scanner (automated, not counted); ?ref=em-niles-1120 01:11Z = curl link check; rest = own curl checks, SemrushBot (robots, 2 guides), iOS 13.2.3 scanner x2, MSIE 8 scanner x2, Mac Chrome 142 single SHIP guide hit (no assets/beacon, automated), meta-webindexer Medicare guide, WordPress install probe"
+    "genuine_detail": "01:24Z-02:24Z: 0 genuine; 0 plan-visit POSTs (only two runs' empty-body probes, 400); no tagged landings; rest = own curl checks, bingbot x4 (guides), iOS 13.2.3 scanner x3, OAI-SearchBot robots, facebookexternalhit og-card, meta-webindexer CCP guide, WordPress.com xmlrpc probe"
   },
   "summary": {
     "last_utc": "2026-11-19T01:24Z",
@@ -58,8 +58,8 @@
   "site": {
     "fail_count": 0,
     "down_since_utc": null,
-    "last_check_utc": "2026-11-21T01:24Z",
-    "last_check_method": "curl: home, ?tour=form, sitemap 200; home has plan-visit and #assessment section; /api/plan-visit validates (400 on empty POST); Netlify 00:24Z-01:24Z: no 5xx (4 404s are probes of /assessment, /tour, /contact, wp-admin), 0 genuine; Gmail 2h: no org replies or inquiries (Nextdoor digest only); loop head 01e619b unchanged; PRs #78-#82 open, unmerged"
+    "last_check_utc": "2026-11-21T02:24Z",
+    "last_check_method": "curl: home, ?tour=form, sitemap 200; home has plan-visit and #assessment section; /api/plan-visit validates (400 on empty POST); Netlify 01:24Z-02:24Z: no 5xx (3 404s are probes of /assessment, /tour, xmlrpc.php), 0 genuine; Gmail 2h: no org replies or inquiries (only Google/Airtable account-connection notices for Airtable and Make); loop head 01e619b unchanged; PRs #78-#82 open, unmerged"
   },
   "recovery": {
     "last_attempt_utc": "2026-11-18T01:39Z",
@@ -195,7 +195,8 @@
     "2026-11-20T22:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; PRs #78-#81 unmerged; no tagged landings for P-1120-01/P-1122-01; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task",
     "2026-11-20T23:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; PRs #78-#81 unmerged; no tagged landings for P-1120-01/P-1122-01; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task",
     "2026-11-21T00:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; PRs #78-#81 unmerged, review PR #82 opened 23:57Z by another worker (awaits owner); no tagged landings for P-1120-01/P-1122-01; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task",
-    "2026-11-21T01:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; em-1120a landings were an email-security scanner (Phoenix DC, 2 Chrome builds, instant beacons), not a reader; PRs #78-#82 unmerged; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task"
+    "2026-11-21T01:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; em-1120a landings were an email-security scanner (Phoenix DC, 2 Chrome builds, instant beacons), not a reader; PRs #78-#82 unmerged; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task",
+    "2026-11-21T02:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies (inbox: Airtable/Make account-connection notices only); PRs #78-#82 unmerged; no tagged landings for P-1120-01/P-1122-01; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task"
   ],
   "facebook_interruptions_past": [
     {
@@ -222,8 +223,8 @@
   "outreach_watch": {
     "alerted": [],
     "replies_alerted": [],
-    "last_utc": "2026-11-21T01:24Z",
-    "note": "no org replies; inbox since 00:24Z: nothing new"
+    "last_utc": "2026-11-21T02:24Z",
+    "note": "no org replies; inbox since 01:24Z: nothing new"
   },
   "facebook_interruption": {
     "since_utc": "2026-11-19T16:22Z",
