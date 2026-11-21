@@ -6,8 +6,8 @@
     "note": "tour-request alerts: sha256(message id) and time only"
   },
   "metrics": {
-    "last_utc": "2026-11-21T00:24Z",
-    "window_utc": "2026-11-20T23:24Z/2026-11-21T00:24Z",
+    "last_utc": "2026-11-21T01:24Z",
+    "window_utc": "2026-11-21T00:24Z/2026-11-21T01:24Z",
     "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs",
     "per_tag": {
       "fb-wil-1118": {
@@ -49,7 +49,7 @@
     "assessment_completions": 0,
     "tour_form_views": 0,
     "tour_requests": 0,
-    "genuine_detail": "23:24Z-00:24Z: 0 genuine; 0 plan-visit POSTs (only the two runs' empty-body probes, 400); no tagged landings; rest = own curl checks, facebookexternalhit og-card x13, SemrushBot (robots, 2 guides), Linux Chrome 137 scanner (http->https home 00:17Z), OAI-SearchBot robots, meta-webindexer SHIP guide, retention-daily scheduler (removed 0)"
+    "genuine_detail": "00:24Z-01:24Z: 0 genuine; 0 plan-visit POSTs (only two runs' empty-body probes, 400); ?ref=em-1120a landed x2 at 01:12:07Z and 01:13:01Z from one Phoenix data-center /24, Chrome 154 then Chrome 153, no referrer, landed + tour-questions/costs beacons within 1-3s of load = email-security link scanner (automated, not counted); ?ref=em-niles-1120 01:11Z = curl link check; rest = own curl checks, SemrushBot (robots, 2 guides), iOS 13.2.3 scanner x2, MSIE 8 scanner x2, Mac Chrome 142 single SHIP guide hit (no assets/beacon, automated), meta-webindexer Medicare guide, WordPress install probe"
   },
   "summary": {
     "last_utc": "2026-11-19T01:24Z",
@@ -58,8 +58,8 @@
   "site": {
     "fail_count": 0,
     "down_since_utc": null,
-    "last_check_utc": "2026-11-21T00:24Z",
-    "last_check_method": "curl: home, ?tour=form, sitemap 200; home has plan-visit and #assessment section; /api/plan-visit validates (400 on empty POST); Netlify 23:24Z-00:24Z: no 5xx, 0 genuine; Gmail 24h: no org replies or inquiries (Nextdoor digests only); loop head 01e619b unchanged; PRs #78-#81 open, unmerged; new review PR #82 open (owner decision)"
+    "last_check_utc": "2026-11-21T01:24Z",
+    "last_check_method": "curl: home, ?tour=form, sitemap 200; home has plan-visit and #assessment section; /api/plan-visit validates (400 on empty POST); Netlify 00:24Z-01:24Z: no 5xx (4 404s are probes of /assessment, /tour, /contact, wp-admin), 0 genuine; Gmail 2h: no org replies or inquiries (Nextdoor digest only); loop head 01e619b unchanged; PRs #78-#82 open, unmerged"
   },
   "recovery": {
     "last_attempt_utc": "2026-11-18T01:39Z",
@@ -148,14 +148,6 @@
   },
   "demand_candidates": [],
   "log": [
-    "2026-11-18T01:22Z seeded by the session operator when the cloud operator was created",
-    "2026-11-18T01:30Z run: 0 tour requests; session operator healthy (last run 01:12Z); site OK via Netlify (WebFetch blocked: permission timeout); campaigns: fb-profile-1116 +24h 0 genuine, NS checklist +24h from state.json, NS happening UNVERIFIED",
-    "2026-11-18T01:39Z OWNER-VERIFY-RECOVERY test: re-arm of session operator REFUSED (scheduled runs cannot change scheduled tasks); Gmail ok (0 tour requests); Netlify ok (site up); Facebook tools absent",
-    "2026-11-18T01:49Z push test: PushNotification tool; result: Mobile push requested.",
-    "2026-11-18T03:24Z run: 0 tour requests; site OK; session operator healthy (last run 03:20Z, FB reachable); metrics 00:07Z-03:23Z: 0 genuine visitors, 0 checklist opens, 0 assessments, 0 tour-form views",
-    "2026-11-18T05:30Z run: 0 tour requests; site OK; session operator healthy (last run 04:30Z, FB reachable); NS checklist +48h written (no new tagged visits after first 24h); metrics not due",
-    "2026-11-18T06:25Z run: 0 tour requests; site OK; session operator healthy (last run 04:30Z, FB reachable, overnight); metrics 03:23Z-06:24Z: 0 genuine (2 checklist hits = owner phone + FB crawler); search: 2 google-referred requests, page unattributed; no new opportunity",
-    "2026-11-18T10:25Z run: 0 tour requests; site OK; session operator overnight (last run 04:30Z, FB reachable, next due 13:00Z); metrics 06:24Z-10:24Z: 0 genuine (1 fb-evsk-1117 hit = Googlebot-Image); no new opportunity",
     "2026-11-18T13:25Z run: 0 tour requests; site OK; FB interruption recorded (session operator last run 04:30Z, lead_scan 13:00Z missed; watchdog owns alert); metrics 10:24Z-13:25Z: 1 genuine fb-evsk-1117 visitor (Android, 13:23Z) with tour-questions view, 0 checklist/assessment/tour-form; no new opportunity (E1 pending)",
     "2026-11-18T15:24Z run: 0 tour requests; site OK; FB interruption ended (session operator ran 15:11Z, FB reachable; 04:30Z-15:11Z, missed lead_scan 13:00Z); fb-wil-1118 (E1) visible 15:06Z; metrics not due (last 13:25Z)",
     "2026-11-18T16:25Z run: 0 tour requests; site OK (no 5xx); session operator healthy (last run 15:11Z, FB reachable); metrics 13:25Z-16:25Z: 0 genuine (fb-wil-1118 hits all Meta crawlers/post-time burst); opportunity OP1: Wilmette post link tag reads fb-wil-1118Disclosure",
@@ -194,7 +186,8 @@
     "2026-11-20T21:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; PRs #78-#81 unmerged; P-1120-01/P-1122-01 not yet live (only loop landing checks on their tags); loop head 01e619b, queue has no ready item; no reactivation trigger fired; no new loop task",
     "2026-11-20T22:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; PRs #78-#81 unmerged; no tagged landings for P-1120-01/P-1122-01; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task",
     "2026-11-20T23:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; PRs #78-#81 unmerged; no tagged landings for P-1120-01/P-1122-01; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task",
-    "2026-11-21T00:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; PRs #78-#81 unmerged, review PR #82 opened 23:57Z by another worker (awaits owner); no tagged landings for P-1120-01/P-1122-01; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task"
+    "2026-11-21T00:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; PRs #78-#81 unmerged, review PR #82 opened 23:57Z by another worker (awaits owner); no tagged landings for P-1120-01/P-1122-01; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task",
+    "2026-11-21T01:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; em-1120a landings were an email-security scanner (Phoenix DC, 2 Chrome builds, instant beacons), not a reader; PRs #78-#82 unmerged; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task"
   ],
   "facebook_interruptions_past": [
     {
@@ -221,8 +214,8 @@
   "outreach_watch": {
     "alerted": [],
     "replies_alerted": [],
-    "last_utc": "2026-11-21T00:24Z",
-    "note": "no org replies; inbox since 23:24Z: nothing new"
+    "last_utc": "2026-11-21T01:24Z",
+    "note": "no org replies; inbox since 00:24Z: nothing new"
   },
   "facebook_interruption": {
     "since_utc": "2026-11-19T16:22Z",
