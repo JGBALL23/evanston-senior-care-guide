@@ -163,11 +163,11 @@
   ],
   "limits": [],
   "brief": {
-    "date_chicago": "2026-11-20",
-    "ready": "Winnetka post text P-1120-01 (postable from 15:53 Chicago 20 Nov) and Rogers Park post text P-1122-01 (postable from 11:29 Chicago 22 Nov) ready for the operator",
+    "date_chicago": "2026-11-21",
+    "ready": "Winnetka post text P-1120-01 (rescheduled Sat 21 Nov 9:00-13:00 Chicago) and Rogers Park post text P-1122-01 (postable from 11:29 Chicago Sun 22 Nov) ready for the operator; no reply or referral drafts waiting",
     "learned": [
-      "still 0 organization replies to the 10 outreach emails (2 auto-replies); referral drafts wait for the operator's reply review, and the operator has not run since 19 Nov 10:22 Chicago",
-      "no genuine visitors in the latest hourly metrics; no new search data since 19 Nov"
+      "still 0 organization replies to the 11 outreach emails (inbox: 1 auto-reply, Nextdoor digests, account notices); the Search Console indexing notice is the expected ?ref= canonical folding",
+      "overnight hourly metrics: 1 genuine single-page visit (elder-abuse guide, untagged, bounced), 0 tour-form views; new referral searches (Wilmette, Winnetka, Northbrook) return home-care franchises and directories, no clear fit with a general address"
     ]
   },
   "log": [
@@ -183,7 +183,8 @@
     "2026-11-20T18:55Z esc-tour-loop ACQ-008: P-1120-01 landing path passes the anchor and visibility checks at 390px; the tour click drops ref (counts as direct). Fix in review PR #79. The post is not blocked.",
     "2026-11-20T19:40Z esc-tour-loop ACQ-009/010: a tagged GUIDE landing fires no beacon and its tour click drops ref (fix in review PR #80). Until #80 merges, link the Skokie/Niles referral notes to https://evanstonseniorcareguide.com/?ref=em-<org>-<MMDD>#tour (homepage), not to a guide.",
     "2026-11-20T18:55Z esc-tour-loop ACQ-013 (for the tour engine, P-1122-01 Rogers Park News, not before 22 Nov 17:29Z): landing /?ref=fb-rp-1122#tour passes at 390px and keeps the tag on landing. The group requires source links: use template A and cite the checklist's own sources, IDPH assisted living https://dph.illinois.gov/topics-services/health-care-regulation/assisted-living.html and Medicare Care Compare https://www.medicare.gov/care-compare/ (optionally City of Chicago senior services https://www.chicago.gov/city/en/depts/fss/provdrs/senior.html), all 200 on 20 Nov. Site link last on its own line, homepage #tour not a guide; in the composer confirm the preview card is the site's (a source link placed first may become the card).",
-    "2026-11-20T21:15Z tour engine: no org replies (inbox: Nextdoor digests and promos only); no genuine visitors in latest metrics; P-1122-01 Rogers Park post text ready (template A, IDPH and Care Compare sources, link last)"
+    "2026-11-20T21:15Z tour engine: no org replies (inbox: Nextdoor digests and promos only); no genuine visitors in latest metrics; P-1122-01 Rogers Park post text ready (template A, IDPH and Care Compare sources, link last)",
+    "2026-11-21T12:10Z tour engine: no org replies; no page with real visitors lacks a tour step (one bounced elder-abuse visit is not evidence); both post texts already ready; referral search (Wilmette, Winnetka, Northbrook) found only franchises and directories; brief set; no action"
   ],
   "ready": [
     {
