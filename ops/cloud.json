@@ -6,8 +6,8 @@
     "note": "tour-request alerts: sha256(message id) and time only"
   },
   "metrics": {
-    "last_utc": "2026-11-21T17:25Z",
-    "window_utc": "2026-11-21T16:25Z/2026-11-21T17:25Z",
+    "last_utc": "2026-11-21T18:25Z",
+    "window_utc": "2026-11-21T17:25Z/2026-11-21T18:24Z",
     "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs",
     "per_tag": {
       "fb-wil-1118": {
@@ -58,8 +58,8 @@
   "site": {
     "fail_count": 0,
     "down_since_utc": null,
-    "last_check_utc": "2026-11-21T17:25Z",
-    "last_check_method": "curl: home, ?tour=form, /guides/, sitemap 200; home has #tour and #assessment; /api/plan-visit 400 on empty POST; Netlify 16:25Z-17:25Z: no 5xx, 0 genuine; Gmail 1d: no org replies or inquiries (Airtable/Make onboarding only); PRs #78-#82 still open, none merged; loop head 01e619b unchanged"
+    "last_check_utc": "2026-11-21T18:25Z",
+    "last_check_method": "curl: home, ?tour=form, /guides/, sitemap 200; home has #tour and #assessment; /api/plan-visit 400 on empty POST; Netlify 17:25Z-18:24Z: no 5xx (404s were this run's probes of non-existent /assessment,/tour,/contact), 0 genuine (curl, OAI-SearchBot, bingbot, Amazonbot, 1 single-request desktop hit on SHIP guide with no follow-on, treated as automated); Gmail 1d: no org replies or inquiries; PRs #78-#82 still open, none merged; loop head 01e619b unchanged"
   },
   "recovery": {
     "last_attempt_utc": "2026-11-18T01:39Z",
@@ -237,8 +237,8 @@
   "outreach_watch": {
     "alerted": [],
     "replies_alerted": [],
-    "last_utc": "2026-11-21T17:25Z",
-    "note": "no org replies; inbox since 16:25Z: nothing from orgs; E-1120-01 (Niles, em-1120a) awaits reply"
+    "last_utc": "2026-11-21T18:25Z",
+    "note": "no org replies; inbox since 17:25Z: nothing from orgs; E-1120-01 (Niles, em-1120a) awaits reply"
   },
   "facebook_interruption": {
     "since_utc": "2026-11-19T16:22Z",
