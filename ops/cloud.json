@@ -6,8 +6,8 @@
     "note": "tour-request alerts: sha256(message id) and time only"
   },
   "metrics": {
-    "last_utc": "2026-11-21T21:24Z",
-    "window_utc": "2026-11-21T20:24Z/2026-11-21T21:24Z",
+    "last_utc": "2026-11-21T22:24Z",
+    "window_utc": "2026-11-21T21:24Z/2026-11-21T22:24Z",
     "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs",
     "per_tag": {
       "fb-wil-1118": {
@@ -49,7 +49,7 @@
     "assessment_completions": 0,
     "tour_form_views": 0,
     "tour_requests": 0,
-    "genuine_detail": "20:24Z-21:24Z: 0 confirmed genuine, 0 tour requests; 2 plan-visit POSTs = own empty-body probes (400); no tagged landings (fb-wnk-1120 none yet); 1 ambiguous: Windows Chrome 102 (outdated UA) entered via http:// home 21:14Z, loaded assets, fired landed beacon s=direct, then levels-of-care guide 21:22Z (CSS/nav only); stale UA + http entry, counted as probable automated; rest = own curl x16, iOS 13 Safari UA x13 (automated, as before), WP install probes x3, GPTBot x1, Amazonbot x1, Chrome 153 single guide hit (no assets)"
+    "genuine_detail": "21:24Z-22:24Z: 0 confirmed genuine, 0 tour requests; 1 plan-visit POST = own empty-body probe (400); no tagged landings (fb-wnk-1120 none); the same outdated Windows Chrome 102 UA returned (16 requests: direct landed beacon 21:42Z, Medicaid LTC guide 21:29Z, independent-living guide 21:36Z), consistent with the 21:14Z pattern, still counted as probable automated; rest = own curl x10"
   },
   "summary": {
     "last_utc": "2026-11-19T01:24Z",
@@ -58,8 +58,8 @@
   "site": {
     "fail_count": 0,
     "down_since_utc": null,
-    "last_check_utc": "2026-11-21T21:24Z",
-    "last_check_method": "curl: home, ?tour=form, /guides/, sitemap 200; home has #tour and #assessment; /api/plan-visit 400 on empty POST; Netlify 20:24Z-21:24Z: no 5xx (404s: own /assessment,/tour,/contact probes, WP scanner); Gmail 1d: no org replies or inquiries (Google account notices only); PRs #78-#82 still open, none merged; loop head 01e619b unchanged"
+    "last_check_utc": "2026-11-21T22:24Z",
+    "last_check_method": "curl: home, ?tour=form, /guides/, sitemap 200; home has #tour and #assessment; /api/plan-visit 400 on empty POST; Netlify 21:24Z-22:24Z: no 5xx (404s: own /assessment,/tour,/contact probes, WP scanner); Gmail 1d: no org replies or inquiries (Nextdoor/Make/Airtable notices only); PRs #78-#82 still open, none merged; loop head 01e619b unchanged"
   },
   "recovery": {
     "last_attempt_utc": "2026-11-18T01:39Z",
@@ -213,7 +213,8 @@
     "2026-11-21T17:25Z run: 0 tour requests; site OK; 0 genuine visitors 16:25Z-17:25Z; no org replies; no PR merged; no new acquisition task (all reactivation conditions unmet: P-1122-01 not before 22 Nov 17:29Z, Search Console 25 Nov)",
     "2026-11-21T19:25Z run: site OK; 0 genuine, 0 tour requests (POSTs were own probes); no org replies; PRs #78-#82 unmerged; Winnetka text handed to Joseph 18:16Z, FB link-preview fetches 18:24-19:25Z but no fb-wnk-1120 landings yet; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task",
     "2026-11-21T20:25Z run: site OK; 0 genuine, 0 tour requests (POSTs were own probes); no org replies; PRs #78-#82 unmerged; no fb-wnk-1120 landings yet (Joseph's manual post unconfirmed); first ChatGPT-User fetch (home + background-check guide) noted, single event, not a task; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task",
-    "2026-11-21T21:24Z run: site OK; 0 confirmed genuine, 0 tour requests; one ambiguous Chrome 102 direct visit (home + levels guide) treated as probable automated; no org replies; PRs #78-#82 unmerged; no fb-wnk-1120 landings; loop head 01e619b, no ready item; no reactivation trigger; no new loop task"
+    "2026-11-21T21:24Z run: site OK; 0 confirmed genuine, 0 tour requests; one ambiguous Chrome 102 direct visit (home + levels guide) treated as probable automated; no org replies; PRs #78-#82 unmerged; no fb-wnk-1120 landings; loop head 01e619b, no ready item; no reactivation trigger; no new loop task",
+    "2026-11-21T22:24Z run: site OK; 0 confirmed genuine, 0 tour requests; Chrome 102 direct visitor returned (2 guides), still probable automated; no org replies; PRs #78-#82 unmerged; no fb-wnk-1120 landings; loop head 01e619b, no ready item; no reactivation trigger; no new loop task"
   ],
   "facebook_interruptions_past": [
     {
@@ -240,8 +241,8 @@
   "outreach_watch": {
     "alerted": [],
     "replies_alerted": [],
-    "last_utc": "2026-11-21T21:24Z",
-    "note": "no org replies; inbox since 20:25Z: nothing from orgs; E-1120-01 (Niles, em-1120a) awaits reply"
+    "last_utc": "2026-11-21T22:24Z",
+    "note": "no org replies; inbox since 21:24Z: nothing from orgs; E-1120-01 (Niles, em-1120a) awaits reply"
   },
   "facebook_interruption": {
     "since_utc": "2026-11-19T16:22Z",
