@@ -5907,6 +5907,7 @@ def build_sitemap():
             (SITE + "/guides/", "0.8", "monthly", newest)]
     urls += [(SITE + "/guides/%s/" % g["slug"], "0.7", "yearly", reviewed_iso(g))
              for g in GUIDES]
+    urls.append((SITE + "/assisted-living-evanston/", "0.8", "monthly", "2026-11-21"))
     urls.append((SITE + "/privacy.html", "0.3", "yearly", newest))
     body = "".join(
         "  <url>\n    <loc>%s</loc>\n    <lastmod>%s</lastmod>\n"
@@ -5957,7 +5958,8 @@ def write_indexnow_key():
 # Exactly the drift that already bit styles.css. The generator syncs it now
 # and check-guides fails the build if the two ever disagree.
 SHARED_ASSETS = ["styles.css", "app.js", "assessment.js", "nav.js",
-                 "guides.js", "index.html", "paying-nav.js"]
+                 "guides.js", "index.html", "paying-nav.js",
+                 "assisted-living-evanston/index.html"]
 
 
 BEACON_LEVELS = ["independent", "assisted", "memory", "skilled", "rehab",
@@ -6021,6 +6023,7 @@ def sync_assets():
         a = io.open(name, encoding="utf-8").read()
         b = io.open(dest, encoding="utf-8").read() if os.path.isfile(dest) else None
         if a != b:
+            os.makedirs(os.path.dirname(dest), exist_ok=True)
             shutil.copyfile(name, dest)
             copied.append(name)
     return copied
@@ -6048,7 +6051,7 @@ def main():
     print("  %-42s %6d bytes" % ("/guides/", os.path.getsize(p)))
     io.open("_dist/sitemap.xml", "w", encoding="utf-8", newline="").write(build_sitemap())
     io.open("sitemap.xml", "w", encoding="utf-8", newline="").write(build_sitemap())
-    print("  sitemap.xml regenerated with %d URLs" % (len(GUIDES) + 3))
+    print("  sitemap.xml regenerated with %d URLs" % (len(GUIDES) + 4))
 
 
 if __name__ == "__main__":
