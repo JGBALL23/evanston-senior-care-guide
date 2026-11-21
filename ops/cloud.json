@@ -6,8 +6,8 @@
     "note": "tour-request alerts: sha256(message id) and time only"
   },
   "metrics": {
-    "last_utc": "2026-11-21T16:25Z",
-    "window_utc": "2026-11-21T15:24Z/2026-11-21T16:25Z",
+    "last_utc": "2026-11-21T17:25Z",
+    "window_utc": "2026-11-21T16:25Z/2026-11-21T17:25Z",
     "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs",
     "per_tag": {
       "fb-wil-1118": {
@@ -49,7 +49,7 @@
     "assessment_completions": 0,
     "tour_form_views": 0,
     "tour_requests": 0,
-    "genuine_detail": "14:24Z-15:24Z: 0 genuine; 0 plan-visit POSTs with data (1 own empty-body probe, 400); no tagged landings (P-1120-01 not posted: session operator reports Chrome offline at 15:02Z); rest = own curl checks (incl. /assessment,/tour,/contact 404 probes), facebookexternalhit x10 (og-card), iOS 13.2.3 scanner x7, WordPress install probes x2"
+    "genuine_detail": "16:25Z-17:25Z: 0 genuine; 0 plan-visit POSTs with data (1 own empty-body probe, 400); no tagged landings; rest = own curl checks x6, SemrushBot x3 (2 guides, robots), facebookexternalhit x2 (og-card), fake Firefox 3.6 UA x1 (home), WordPress/xmlrpc install probes x3"
   },
   "summary": {
     "last_utc": "2026-11-19T01:24Z",
@@ -58,8 +58,8 @@
   "site": {
     "fail_count": 0,
     "down_since_utc": null,
-    "last_check_utc": "2026-11-21T16:25Z",
-    "last_check_method": "curl: home, ?tour=form, /guides/, sitemap 200; home has #tour and #assessment; /api/plan-visit 400 on empty POST; Netlify 15:24Z-16:25Z: no 5xx (404s = own probes, scanner), 0 genuine (15:53Z landed/costs/tour-questions beacons = meta-webindexer crawler; 21 facebookexternalhit og-card previews); Gmail 1d: no org replies or inquiries (Make.com onboarding only); PRs #78-#82 still open; loop head 01e619b unchanged"
+    "last_check_utc": "2026-11-21T17:25Z",
+    "last_check_method": "curl: home, ?tour=form, /guides/, sitemap 200; home has #tour and #assessment; /api/plan-visit 400 on empty POST; Netlify 16:25Z-17:25Z: no 5xx, 0 genuine; Gmail 1d: no org replies or inquiries (Airtable/Make onboarding only); PRs #78-#82 still open, none merged; loop head 01e619b unchanged"
   },
   "recovery": {
     "last_attempt_utc": "2026-11-18T01:39Z",
@@ -209,7 +209,8 @@
     "2026-11-21T13:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; PRs #78-#82 unmerged; no tagged landings for P-1120-01 (posts Sat 15:00Z)/P-1122-01; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task",
     "2026-11-21T14:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; no tagged landings for P-1120-01 (posts Sat 15:00Z)/P-1122-01; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task",
     "2026-11-21T15:24Z run: site OK; 0 genuine, 0 tour requests (no POSTs); no org replies; P-1120-01 still unposted (Chrome offline per session operator 15:02Z, its domain); loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task",
-    "2026-11-21T16:25Z run: 0 tour requests, 0 genuine visitors; site OK; no org replies; no PR merges; no new loop task (no new evidence; reactivation conditions unchanged)"
+    "2026-11-21T16:25Z run: 0 tour requests, 0 genuine visitors; site OK; no org replies; no PR merges; no new loop task (no new evidence; reactivation conditions unchanged)",
+    "2026-11-21T17:25Z run: 0 tour requests; site OK; 0 genuine visitors 16:25Z-17:25Z; no org replies; no PR merged; no new acquisition task (all reactivation conditions unmet: P-1122-01 not before 22 Nov 17:29Z, Search Console 25 Nov)"
   ],
   "facebook_interruptions_past": [
     {
@@ -236,8 +237,8 @@
   "outreach_watch": {
     "alerted": [],
     "replies_alerted": [],
-    "last_utc": "2026-11-21T16:25Z",
-    "note": "no org replies; inbox since 15:24Z: nothing from orgs; E-1120-01 (Niles, em-1120a) awaits reply"
+    "last_utc": "2026-11-21T17:25Z",
+    "note": "no org replies; inbox since 16:25Z: nothing from orgs; E-1120-01 (Niles, em-1120a) awaits reply"
   },
   "facebook_interruption": {
     "since_utc": "2026-11-19T16:22Z",
