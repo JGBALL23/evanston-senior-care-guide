@@ -1520,7 +1520,7 @@ check("local assisted living landing page is canonical and disclosed", (() => {
     local.includes('href="/?tour=assisted#plan-visit"') &&
     local.includes("I work at Westminster Place") &&
     local.includes("Illinois Department of Public Health") &&
-    (local.match(/<h1[\\s>]/g) || []).length === 1 &&
+    (local.match(/<h1[\s>]/g) || []).length === 1 &&
     sitemap.includes("https://evanstonseniorcareguide.com/assisted-living-evanston/") &&
     read(path.join(DIST, "index.html")).includes('/assisted-living-evanston/');
 })());
