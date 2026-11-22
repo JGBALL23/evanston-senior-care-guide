@@ -95,18 +95,18 @@
    "found_utc": "2026-11-22T17:40Z"
   },
   {
-   "id": "ACQ-027",
+   "id": "ACQ-028",
    "priority": 1,
    "status": "ready",
    "workstream": "referral_partnerships",
-   "map_item": "R8",
-   "task": "Find aging-in-place membership ('village') groups and senior housing counseling nonprofits serving Evanston and the North Shore, excluding the one aging-in-place nonprofit (E-1118-05) and family service agency (E-1118-06) already emailed: for each, check whether its site publishes a resource list that includes outside websites, find its published contact route, check Gmail Sent and state files for earlier contact, and give a verdict.",
-   "evidence": "R8 is the highest-ranked open map item after R6. ACQ-025 lesson: most fitting lists belong to orgs already emailed, so first confirm that the R8 candidates are not already covered.",
-   "guardrails": "Research and preparation only; at most three proposals before any response; disclose Joseph's Westminster Place employment; no sending.",
-   "expected_tour_acquisition_value": "Low-medium: members are older adults planning ahead, some near a move decision.",
+   "map_item": "R2",
+   "task": "Examine older-adult / caregiver resource pages of public libraries beyond Evanston, Glenview and Skokie (Wilmette, Winnetka-Northfield, Kenilworth, Northbrook, Highland Park, Lake Forest, Morton Grove, Niles-Maine, Glencoe, Deerfield): for each, find whether a published list links outside, non-government guides; the published staff or reference email (not a form); check Gmail Sent and state files for earlier contact (Niles library may overlap E-1120-01 senior center only); give a verdict. At most three disclosed proposals.",
+   "evidence": "R2 is the highest-ranked open map item after R8. ACQ-027 lesson: lists that already include non-government entries (Open Communities) are the realistic placements; ACQ-006 found Glenview/Skokie libraries government/nonprofit-only, so check each list's actual entries first.",
+   "guardrails": "Research and preparation only; no forms; disclose Joseph's Westminster Place employment; no sending.",
+   "expected_tour_acquisition_value": "Low-medium: library caregiver pages reach adult children researching care, but most lists are government-only.",
    "executor": "this loop (research); designated outreach operator (any send)",
-   "done_when": "Each candidate has a verdict with source URL; up to three ACT proposals handed off; R8 and channel_yield updated.",
-   "found_utc": "2026-11-22T23:40Z"
+   "done_when": "Each library has a verdict with source URL; up to three ACT proposals handed off; R2 and channel_yield updated.",
+   "found_utc": "2026-11-22T17:55Z"
   }
  ],
  "completed": [
@@ -783,15 +783,43 @@
    ],
    "result": "0 ACT across 7 targets. The senior move-manager market serving Evanston is franchises (Caring Transitions), estate-sale chains and lead-gen directories; none publishes an outside local-resources list. Nothing prepared, sent or submitted.",
    "lesson": "Seventh discovery class in a row (D9, D10, D11, R3, S4, R7, R6) with 0 new ACT. Same pattern as R4/R5 (G4, 18 Nov): commercial senior-service categories in this market are franchised and do not link outside guides. Do not reopen commercial referral classes without a named independent firm. Remaining open referral classes (R8, R2, R9) are nonprofit/public and should be worked, but the bottleneck remains response on the 11 existing sends and Search Console evidence from 25 Nov."
+  },
+  {
+   "id": "ACQ-027",
+   "priority": 1,
+   "status": "done",
+   "workstream": "referral_partnerships",
+   "map_item": "R8",
+   "task": "Find aging-in-place membership ('village') groups and senior housing counseling nonprofits serving Evanston and the North Shore, excluding the one aging-in-place nonprofit (E-1118-05) and family service agency (E-1118-06) already emailed: for each, check whether its site publishes a resource list that includes outside websites, find its published contact route, check Gmail Sent and state files for earlier contact, and give a verdict.",
+   "evidence": "R8 is the highest-ranked open map item after R6. ACQ-025 lesson: most fitting lists belong to orgs already emailed, so first confirm that the R8 candidates are not already covered.",
+   "guardrails": "Research and preparation only; at most three proposals before any response; disclose Joseph's Westminster Place employment; no sending.",
+   "expected_tour_acquisition_value": "Low-medium: members are older adults planning ahead, some near a move decision.",
+   "executor": "this loop (research); designated outreach operator (any send)",
+   "done_when": "Each candidate has a verdict with source URL; up to three ACT proposals handed off; R8 and channel_yield updated.",
+   "found_utc": "2026-11-22T23:40Z",
+   "done_utc": "2026-11-22T17:55Z",
+   "method": "Web search (2 queries: North Shore aging-in-place villages; HUD/senior housing counseling Evanston-Skokie); page reads of open-communities.org/howwehelp and /resources (raw HTML parsed for link targets); Gmail search for nsvnetwork / North Shore Village / Open Communities (60 days) and inbox (3 days).",
+   "result": "1 ACT, 1 already-covered, 2 DROP. (1) North Shore Village Network (nsvnetwork.org; members in Evanston, Wilmette, Glenview, Skokie, Northbrook, Rogers Park, Winnetka) is the only aging-in-place village on the North Shore found, and it IS E-1118-05 (Gmail Sent 18 Nov, 'A free tour checklist for members comparing senior living', 1 message, 0 replies). No new contact; fold into its single follow-up after 25 Nov. (2) ACT: Open Communities (Evanston, 1740 Ridge Ave; HUD-approved housing counseling and fair-housing nonprofit for the north and northwest suburbs; open-communities.org). Its Resources page (open-communities.org/resources) has an 'Older Adult Housing Resources' section that already links outside sites including for-profit ones: Levy Senior Center, CJE SeniorLife, Elderwerks (senior-living placement/referral), Senior Helpers (home-care franchise), Creative Care Management, HOME (homeseniors.org) and AgeOptions Thrive with Pride. Its older-adult services are reverse-mortgage counseling and age/disability fair-housing help, and it states it gives no housing location services, so a free, provider-neutral checklist and how-to-check-a-community guide fills a gap its list sends people elsewhere for. Published route: info@open-communities.org (also contact form and 847-501-5760, open-communities.org/howwehelp). Gmail: never contacted. (3) DROP: HOME (homeseniors.org) serves Chicago, not the North Shore, and is a housing provider, not a list. (4) DROP: no other HUD-approved housing counseling agency serving Evanston/North Shore seniors was found (CFPB/HUD lookup routes to the same agency); CJE remains R10 drop.",
+   "handoff": {
+    "to": "designated outreach operator (via owner_review_needed / next_discovery); this loop sent nothing and created no Gmail draft",
+    "target": "Open Communities, info@open-communities.org (published on open-communities.org/howwehelp)",
+    "when": "With the 25 Nov+ follow-up batch, as a NEW organization (counts in 'referral_emails_other', 5 shipped -> 6; still under the 8-send close rule).",
+    "subject": "A free senior-living tour checklist for your Older Adult Housing Resources list",
+    "body_outline": "1) I run evanstonseniorcareguide.com, a free guide for Evanston and North Shore families comparing assisted living and memory care; disclosure: I work at Westminster Place in Evanston, and the guide does not rank or recommend communities. 2) Your Older Adult Housing Resources list helps people find services but you note you do not do housing location; families at that step often ask how to check a community. 3) The guide has a free printable tour checklist and plain steps for checking any Illinois community's IDPH inspection record and Medicare Care Compare rating. 4) Ask: would it fit as one line in that list? Link: https://evanstonseniorcareguide.com/?ref=em-oc-1125#tour (homepage tour section, per ACQ-010, until PR #80/#84 is live). 5) Happy to change or remove it on request.",
+    "guardrails": "One email, no follow-up before 7 days; no claims about Westminster Place; do not describe the guide as fair-housing or HUD advice.",
+    "measure": "ref=em-oc-* landings, checklist opens and tour-form views for 14 days after send; any reply.",
+    "sent": false
+   },
+   "lesson": "Referral-list fit is best where an org explicitly does NOT do housing search but keeps an older-adult links section (Open Communities); aging-in-place villages on the North Shore = one org, already emailed. R8 is exhausted after this handoff."
   }
  ],
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-23T00:40Z",
-  "event": "pull_request.synchronize 14a64fb",
-  "picked": "ACQ-026 (R6 move managers)",
-  "why": "Highest-priority ready item; no fresh evidence (Gmail inbox 3 days: 0 org replies; no PR merged since 21 Nov; Search Console read not before 25 Nov)."
+  "utc": "2026-11-22T17:55Z",
+  "event": "pull_request.synchronize fa58dd8",
+  "picked": "ACQ-027 (R8 aging-in-place/housing counseling)",
+  "why": "Highest-priority ready referral item; no fresh evidence (Gmail inbox 3 days: 0 org replies; Search Console read not before 25 Nov)."
  },
  "last_verified_action": "ACQ-026: 7 move-manager/downsizing targets checked, 0 ACT (franchise/directory market); R6 dropped; ACQ-027 (R8) is next. Nothing sent or submitted.",
  "last_stop": {
@@ -828,6 +856,7 @@
   "confirmation": "Claude Scheduled Tasks screenshot: ESCG Tour Acquisition Loop active, Pull request: Commits pushed on matching repository. Previous setup screenshot: head branch automation/esc-tour-loop."
  },
  "owner_review_needed": [
+  "ACQ-027 (22 Nov): one new referral proposal ready for the outreach operator: Open Communities (Evanston fair-housing/HUD counseling nonprofit) keeps an Older Adult Housing Resources list that already links senior-placement and home-care sites. Text outline in ops/esc-tour-loop.json completed ACQ-027 handoff; send with the 25 Nov+ batch if acceptable.",
   "D8/D10 (22 Nov): newsletters and calendars give the outreach operator no route of its own. One free public talk by you (e.g. 'What to ask on a senior-living tour' at the library, Levy or North Shore Senior Center) would open the Evanston Now calendar, Daily Herald share, Patch calendars and Rotary at once. Would you do one? Yes or no is enough.",
   "ACQ-018: would you write one disclosed first-person guest essay for Evanston Now (submit via their contact form under your name)? Brief in ops/esc-tour-loop.json completed ACQ-018 handoff. Separately: do you want a free Patch Evanston account/business listing for the guide (decide after the essay)? The Record North Shore takes no reader submissions.",
   "Optional: request indexing for https://evanstonseniorcareguide.com/assisted-living-evanston/ in Search Console (live since 2026-11-22T00:38Z, deploy 6b0238b3). Merge #84 (+#79) and redeploy if you want its search visitors counted at the tour click.",
@@ -881,7 +910,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Ready: ACQ-027 (R8 aging-in-place/housing counseling), ACQ-019 (S3 local-intent demand). Highest-value items from 25 Nov 15:00Z: Search Console read (ACQ-005/012/017) and the outreach operator's single follow-ups to the 11 sends of 17-22 Nov (naming the Evanston and Glencoe dementia-resources pages). Open map items after these: R2, R9. Waiting: org replies, PR merges (#78-#85), Joseph's ACQ-007/ACQ-018/D8 answers.",
+ "next_discovery": "Ready: ACQ-028 (R2 libraries beyond Evanston/Glenview/Skokie), ACQ-019 (S3 local-intent demand). Handed off, not sent: Open Communities proposal (ACQ-027) for the 25 Nov+ batch. Highest-value from 25 Nov 15:00Z: Search Console read (ACQ-005/012/017) and the outreach operator's single follow-ups to the 11 sends of 17-22 Nov. Open after these: R9. Waiting: org replies, PR merges (#78-#85), Joseph's ACQ-007/ACQ-018/D8 answers.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -1074,9 +1103,9 @@
     "id": "R2",
     "lane": "referral_partnerships",
     "class": "public libraries' older-adult resource pages beyond Evanston, Glenview and Skokie",
-    "status": "open",
+    "status": "queued",
     "note": "Evanston: form only (owner); Glenview and Skokie: government/nonprofit-only lists, no email (ACQ-006)",
-    "checked_utc": null
+    "checked_utc": "2026-11-22T17:55Z"
    },
    {
     "id": "R3",
@@ -1123,9 +1152,9 @@
     "id": "R8",
     "lane": "referral_partnerships",
     "class": "aging-in-place membership groups and senior housing counseling nonprofits serving Evanston and the North Shore",
-    "status": "queued",
-    "note": "one aging-in-place nonprofit already emailed 18 Nov (E-1118-05, 0 replies) — exclude it; one family service agency (E-1118-06) likewise; queued as ACQ-027 (22 Nov)",
-    "checked_utc": "2026-11-22T23:40Z"
+    "status": "waiting",
+    "note": "ACQ-027 (22 Nov): North Shore Village Network is the only village and = E-1118-05 (0 replies; follow-up after 25 Nov). ACT: Open Communities (open-communities.org/resources, Older Adult Housing Resources list already links Elderwerks, Senior Helpers, CJE); one disclosed proposal handed off, not sent. HOME (Chicago) and other HUD counselors DROP. Reopen only on a reply.",
+    "checked_utc": "2026-11-22T17:55Z"
    },
    {
     "id": "R9",
@@ -1258,6 +1287,15 @@
     "inquiries": 0,
     "as_of_utc": "2026-11-23T00:40Z",
     "decision": "dropped: franchised/directory market, no outside-resource lists"
+   },
+   {
+    "class": "R8 aging-in-place / housing counseling",
+    "shipped": 0,
+    "responses": null,
+    "genuine_visitors": 0,
+    "inquiries": 0,
+    "as_of_utc": "2026-11-22T17:55Z",
+    "decision": "1 ACT (Open Communities) handed off, not sent; village already emailed (E-1118-05)"
    }
   ]
  }
