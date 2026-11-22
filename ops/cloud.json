@@ -67,8 +67,8 @@
  "site": {
   "fail_count": 0,
   "down_since_utc": null,
-  "last_check_utc": "2026-11-22T20:23Z",
-  "last_check_method": "curl: home, ?tour=form, /assisted-living-evanston/ 200, checklist PDF linked; Netlify 19:24Z-20:24Z: 54 req, no 5xx, 404s only scanner probes (.git/config, xmlrpc.php); all automated: Meta re-scrape of ?ref=fb-evsk-1117 at 19:50Z (facebookexternalhit x20 + Meta-IP Chrome UAs firing landed/viewed-tour-questions beacons and checklist PDF; not a human), Hetzner 49.13.211.144 home x4, iOS 13.2.3 crawler x8 on guides, meta-webindexer, Googlebot, operator checks; Gmail 1d: no org replies or inquiries; no PR merged since #83; loop head b69b137 (17:49Z, 154 min), no ready task, no open map item, no next_discovery event: no loop write"
+  "last_check_utc": "2026-11-22T21:23Z",
+  "last_check_method": "curl: home, ?tour=form, /assisted-living-evanston/ 200, checklist PDF linked; Netlify 20:24Z-21:25Z: 31 req, 28x200, 3x301, no 4xx/5xx; all automated (iOS 13.2.3 crawler x12 on guides and ?pay=guide, curl operator checks x8, facebookexternalhit og-card x7, Semrush x2, OAI-SearchBot, GPTBot); Gmail 1d: no org replies or inquiries (Nextdoor digests only); no PR merged since #83 (#86 opened for ACQ-007, open); loop head b69b137 (17:49Z, 214 min), no ready task -> created opportunity_map.discovery and queued ACQ-031..033 (scouts SC1, SC2, SC4) in loop commit 186b7ba"
  },
  "recovery": {
   "last_attempt_utc": "2026-11-18T01:39Z",
@@ -247,7 +247,8 @@
   "2026-11-22T17:25Z Opportunity-map section added to this hourly task on 22 Nov 2026 at Joseph's request (opportunity_map in ops/esc-tour-loop.json; scoreboard here).",
   "2026-11-22T17:40Z run: site OK; 0 genuine, 0 tour requests; no org replies; loop idle since 00:37Z with no ready item -> created opportunity_map (statuses corrected from Gmail Sent/state: D7 and D9 partly touched, R1 count 6 of 11 sends) and queued map tasks ACQ-018 (D7 local news routes), ACQ-019 (S3 local-intent demand), ACQ-020 (D9 employer elder-care pages) in one loop commit",
   "2026-11-22T19:24Z run: site OK; 0 genuine (30 automated req); no org replies/inquiries; no merges; loop idle by design (no ready, no open map item, next events 25 Nov), no loop write",
-  "2026-11-22T20:23Z run: site OK; 0 genuine (54 automated req incl. Meta re-scrape of fb-evsk-1117 that fired beacons from Meta IPs - beacon counts this hour are not visitors); no org replies/inquiries; no merges; loop idle by design, no loop write"
+  "2026-11-22T20:23Z run: site OK; 0 genuine (54 automated req incl. Meta re-scrape of fb-evsk-1117 that fired beacons from Meta IPs - beacon counts this hour are not visitors); no org replies/inquiries; no merges; loop idle by design, no loop write",
+  "2026-11-22T21:23Z run: site OK; 0 genuine (31 automated req); no org replies/inquiries; no merges (PR #86 open); loop idle with no ready item -> one loop commit 186b7ba: discovery scouts created, ACQ-031 SC1 / ACQ-032 SC2 / ACQ-033 SC4 ready, Joseph's 22 Nov answers recorded (ACQ-007 -> PR #86; D7 essay draft with him), 22 Nov worker timestamps corrected from commit times"
  ],
  "facebook_interruptions_past": [
   {
