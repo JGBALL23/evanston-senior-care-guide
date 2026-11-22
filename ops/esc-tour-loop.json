@@ -94,19 +94,6 @@
    "not_before": "PR #85 deployed (production guide HTML contains /assisted-living-evanston/)"
   },
   {
-   "id": "ACQ-018",
-   "priority": 1,
-   "status": "ready",
-   "workstream": "distribution",
-   "map_item": "D7",
-   "task": "Examine free community routes on Evanston and North Shore local news sites (reader posts, letters or guest essays, events calendars, resource listings), excluding the publication already contacted under E-1118-04 / B-RT: find the concrete targets, read each target's own pages for its rules and published contact route, check Gmail Sent and the state files for earlier contact, and give each target a verdict.",
-   "evidence": "growth.json G2 next_step left local news routes unexamined; Gmail Sent shows only one outlet ever contacted (E-1118-04, blocked on Joseph). Site has had 4-5 genuine visitors since 8 Nov, all from Facebook, so a second distribution channel is the main gap.",
-   "expected_tour_acquisition_value": "Local news readers include adult children in Evanston and North Shore towns; a free calendar listing, resource listing or published reader piece puts the tour checklist in front of families at or near a senior-living decision, leading to checklist opens and tour inquiries.",
-   "executor": "this loop (research and preparation only)",
-   "done_when": "Every target has a verdict (ACT, WATCH or DROP) with its source URL; the best ACT target has one prepared handoff; the map item and channel_yield are updated.",
-   "found_utc": "2026-11-22T17:40Z"
-  },
-  {
    "id": "ACQ-019",
    "priority": 1,
    "status": "ready",
@@ -131,6 +118,19 @@
    "executor": "this loop (research and preparation only)",
    "done_when": "Every target has a verdict (ACT, WATCH or DROP) with its source URL; the best ACT target has one prepared handoff; the map item and channel_yield are updated.",
    "found_utc": "2026-11-22T17:40Z"
+  },
+  {
+   "id": "ACQ-021",
+   "priority": 1,
+   "status": "ready",
+   "workstream": "distribution",
+   "map_item": "D10",
+   "task": "Examine community newsletters and mailing lists in Evanston and nearby North Shore towns that publish community items for free (ward/alderperson newsletters, neighborhood associations, retiree and alumni associations, service clubs): find the concrete targets, read each target's own pages for whether it accepts outside items and its published route, check Gmail Sent and state files for earlier contact, and give each a verdict.",
+   "evidence": "D10 open since the map was built; no newsletter has ever been examined or contacted (Gmail Sent Nov: 11 org emails, none to a newsletter). ACQ-018 showed news outlets' free routes mostly need Joseph personally, so routes the outreach operator can use under existing authority are the gap.",
+   "expected_tour_acquisition_value": "Ward and neighbourhood newsletters reach Evanston households including adult children and older residents; a listed free resource (tour checklist) can bring decision-stage families to the site and tour request.",
+   "executor": "this loop (research and preparation only)",
+   "done_when": "Every target has a verdict (ACT, WATCH or DROP) with its source URL; the best ACT target has one prepared, duplicate-checked handoff; D10 and channel_yield updated.",
+   "found_utc": "2026-11-22T17:55Z"
   }
  ],
  "completed": [
@@ -331,17 +331,87 @@
    "done_utc": "2026-11-22",
    "outcome": "Review PR #85 (branch claude/guides-link-local-al, d436843): one 'Looking in Evanston itself?' related-section sentence on assisted-living-cost-illinois, levels-of-senior-care-explained, check-illinois-inspection-records, independent-living-evanston, wording restating the landing page's own title/description. check-guides 2728/2728 (new per-guide link assertion), test.js 768/768, claim-audit unchanged vs main, 390px: visible, no horizontal scroll, click reaches the page. Only 4 _dist guide files change; no conflict with #84 (nav.js). Status: PREPARED, not merged/deployed; no visitor effect yet.",
    "lesson": "A new page shipped with a single internal link; future page launches should include inbound guide links in the same PR."
+  },
+  {
+   "id": "ACQ-018",
+   "priority": 1,
+   "status": "done",
+   "workstream": "distribution",
+   "map_item": "D7",
+   "task": "Examine free community routes on Evanston and North Shore local news sites (reader posts, letters or guest essays, events calendars, resource listings), excluding the publication already contacted under E-1118-04 / B-RT: find the concrete targets, read each target's own pages for its rules and published contact route, check Gmail Sent and the state files for earlier contact, and give each target a verdict.",
+   "evidence": "growth.json G2 next_step left local news routes unexamined; Gmail Sent shows only one outlet ever contacted (E-1118-04, blocked on Joseph). Site has had 4-5 genuine visitors since 8 Nov, all from Facebook, so a second distribution channel is the main gap.",
+   "expected_tour_acquisition_value": "Local news readers include adult children in Evanston and North Shore towns; a free calendar listing, resource listing or published reader piece puts the tour checklist in front of families at or near a senior-living decision, leading to checklist opens and tour inquiries.",
+   "executor": "this loop (research and preparation only)",
+   "done_when": "Every target has a verdict (ACT, WATCH or DROP) with its source URL; the best ACT target has one prepared handoff; the map item and channel_yield are updated.",
+   "found_utc": "2026-11-22T17:40Z",
+   "done_utc": "2026-11-22T17:55Z",
+   "result": "5 outlets/routes examined; 1 ACT (owner), 1 ACT (owner decision, second), 2 WATCH, 3 DROP, 1 excluded. Nothing sent, posted or submitted. Gmail Sent (Nov) shows no prior contact with Evanston Now, Patch or The Record North Shore; only the excluded publication (E-1118-04).",
+   "verdicts": [
+    {
+     "target": "Evanston Now — reader guest essay",
+     "verdict": "ACT (owner)",
+     "source": "https://evanstonnow.com/guest-essays/",
+     "rules": "Reader essays on Evanston issues; must be original, unpublished and not under consideration elsewhere; submit full draft text via the site's contact form (https://evanstonnow.com/contact/). Editor-reviewed. Free.",
+     "why": "Editor-reviewed Evanston outlet with a daily newsletter; a disclosed first-person piece on what families should check before and during a senior-living tour reaches adult children at the decision stage without paying. Byline and form submission must be Joseph's (this loop and the outreach operator may not submit forms or speak for him)."
+    },
+    {
+     "target": "Evanston Now — events calendar",
+     "verdict": "WATCH",
+     "source": "https://portal.cityspark.com/add/event/EvanstonNow",
+     "rules": "All items editor-reviewed; 'we generally do not publish listings for events happening outside of Evanston' (https://evanstonnow.com/got-news-share-it/).",
+     "why": "Only fits a real dated Evanston event; reopen if D8 produces a library or senior-center talk."
+    },
+    {
+     "target": "Evanston Now — news tip / press release",
+     "verdict": "DROP",
+     "source": "https://evanstonnow.com/got-news-share-it/",
+     "why": "No news hook; a guide or page launch would read as promotion."
+    },
+    {
+     "target": "Patch Evanston — free business listing + business announcement (classifieds), later a Neighbor News column",
+     "verdict": "ACT (owner decision, second)",
+     "source": "https://patch.com/info/posting-instructions ; https://patch.com/illinois/evanston/platform",
+     "rules": "Requires a Patch account; articles (columns, op-eds, letters) need an extra verification step and are labelled Neighbor News; 'announcement about your business or org' goes under Classifieds; posting in the home Patch is free, regional 'Featured' promotion is paid ($2/day/community) — never pay. Patch is moving commercial publishers to a business user role. Evanston Patch currently shows business listings (dentist, physical therapy, laundry) and a real-estate firm's classified announcement, so local businesses do post there.",
+     "why": "Free, persistent, indexed local presence plus Evanston readers' email digest. Creating the account is a business-identity decision like the Nextdoor Business Page (D6), so Joseph decides; do it after the Evanston Now essay is decided so the essay is not 'under consideration elsewhere'."
+    },
+    {
+     "target": "Patch editions for neighbouring towns (Wilmette, Glenview, Skokie, Northbrook, Winnetka)",
+     "verdict": "WATCH",
+     "source": "https://patch.com/info/posting-instructions",
+     "why": "Free only in one home Patch; cross-town promotion is paid. Revisit only if the Evanston Patch posts produce tagged visitors."
+    },
+    {
+     "target": "The Record North Shore (Wilmette, Winnetka, Northfield, Kenilworth, Glencoe, Highland Park, Highwood, Skokie)",
+     "verdict": "DROP",
+     "source": "https://therecordnorthshore.org/faq/",
+     "why": "FAQ: 'Do you accept op-eds or letters to the editor? We do not.' No calendar or announcement route found. News tips only — no news hook."
+    },
+    {
+     "target": "Evanston RoundTable",
+     "verdict": "EXCLUDED",
+     "source": "state.json B-RT",
+     "why": "Already contacted (E-1118-04), blocked on Joseph; never contact again from this loop."
+    }
+   ],
+   "handoff": {
+    "to": "Joseph (owner_review_needed)",
+    "what": "Decide whether to write and submit one guest essay to Evanston Now under your own name.",
+    "brief": "600-800 words, first person, original. Suggested angle: 'What Evanston families should check before touring senior living' — use public, verifiable steps already on the site (IDPH inspection records, the difference between assisted living, supportive living and memory care, what Medicare does and does not pay, questions to ask on a tour). Disclose plainly in the essay that you work at Westminster Place in Evanston and that you run evanstonseniorcareguide.com as an independent guide; do not recommend or rank any community and make no claims about Westminster Place. Mention the site by name once (editors may strip links). If it is published, the operator can share the Evanston Now link in the Facebook posts within the existing cap.",
+    "measure": "Referrer evanstonnow.com landings, checklist opens and tour-form views for 14 days after publication.",
+    "sent": false
+   },
+   "lesson": "Local-news free routes are few and mostly need Joseph personally (byline, accounts). The Record does not take reader submissions at all. The channel's value depends on one owner action; it is not a channel the loop or the outreach operator can scale."
   }
  ],
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-22",
-  "event": "pull_request.synchronize a1586c4",
-  "picked": "ACQ-016 (discovery; no ready item)",
-  "why": "The highest-intent local page went live with one internal link; strengthening its discoverability is the cheapest authorized step toward local tour-intent search traffic while Search Console data is not due until 25 Nov."
+  "utc": "2026-11-22T17:55Z",
+  "event": "pull_request.synchronize 1e1da0b",
+  "picked": "ACQ-018 (D7 local news routes)",
+  "why": "Distribution is the bottleneck (4-5 genuine visitors since 8 Nov, all Facebook); D7 ranked first in the distribution lane."
  },
- "last_verified_action": "ACQ-016: review PR #85 links four choosing-stage guides to /assisted-living-evanston/ (tests pass); not merged or deployed.",
+ "last_verified_action": "ACQ-018: local news routes examined with sources; Evanston Now guest essay handed to Joseph as the one ACT; nothing sent or submitted. ACQ-021 (D10 newsletters) queued.",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -376,6 +446,7 @@
   "confirmation": "Claude Scheduled Tasks screenshot: ESCG Tour Acquisition Loop active, Pull request: Commits pushed on matching repository. Previous setup screenshot: head branch automation/esc-tour-loop."
  },
  "owner_review_needed": [
+  "ACQ-018: would you write one disclosed first-person guest essay for Evanston Now (submit via their contact form under your name)? Brief in ops/esc-tour-loop.json completed ACQ-018 handoff. Separately: do you want a free Patch Evanston account/business listing for the guide (decide after the essay)? The Record North Shore takes no reader submissions.",
   "Optional: request indexing for https://evanstonseniorcareguide.com/assisted-living-evanston/ in Search Console (live since 2026-11-22T00:38Z, deploy 6b0238b3). Merge #84 (+#79) and redeploy if you want its search visitors counted at the tour click.",
   "PR #85: four choosing-stage guides link to the new /assisted-living-evanston/ page (today only the homepage does). Small, tested, no new claims; merge + redeploy if acceptable, ideally with the Search Console indexing request.",
   "PR #84 = PR #80 + the same tag-carry on the new assisted-living page (25/25 tests). Merge #84 and close #80, or merge #80 then #84. Merge with #79 either way; this loop does not merge.",
@@ -427,7 +498,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "No ready item. Reactivate on: #85 deploy (ACQ-017); #79/#80/#81/#84 merge (post-merge tag check); P-1120-01/P-1122-01 going live (+24h tagged visitor review); any org reply (Niles E-1120-01 awaits reply) or Skokie send; Search Console 25 Nov (ACQ-005/012/017); Joseph's ACQ-007 answer; any tour-form view or inquiry. Candidate not yet taken: /guides/ index also lacks a link to the local page (bundle into #85 only if the owner wants it).",
+ "next_discovery": "Ready: ACQ-019 (S3 local-intent demand), ACQ-020 (D9 employer elder-care pages), ACQ-021 (D10 community newsletters). Waiting: Search Console 25 Nov (ACQ-005/012/017), PR merges, Joseph's ACQ-007 and ACQ-018 answers.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -491,9 +562,9 @@
     "id": "D7",
     "lane": "distribution",
     "class": "free community routes on local news sites (Evanston RoundTable, Evanston Now, Patch editions for Evanston and neighbors, other North Shore local news): reader posts, letters or guest essays, events calendars, resource listings",
-    "status": "queued",
-    "note": "Only one outlet touched so far: a letters address at one local publication was emailed 18 Nov (E-1118-04, Gmail Sent) and is blocked on Joseph (state.json B-RT): never contact that outlet again. All other outlets and routes unexamined (growth.json G2 next_step). $0 routes only; read each outlet's own submission rules.",
-    "checked_utc": "2026-11-22T17:40Z"
+    "status": "owner",
+    "note": "ACQ-018 (22 Nov): Evanston Now guest essay = ACT, Joseph's byline and form submission; Patch Evanston free business listing/announcement = ACT after his decision on an account; Evanston Now calendar and neighbouring Patch editions WATCH; The Record North Shore DROP (no op-eds/letters); Evanston Now press release DROP; the contacted publication stays excluded (B-RT). Reopen for the loop only if he publishes something there (then measure referrer).",
+    "checked_utc": "2026-11-22T17:55Z"
    },
    {
     "id": "D8",
@@ -515,9 +586,9 @@
     "id": "D10",
     "lane": "distribution",
     "class": "community newsletters and mailing lists that accept community items (ward and neighborhood newsletters, retiree associations, service clubs)",
-    "status": "open",
+    "status": "queued",
     "note": "",
-    "checked_utc": null
+    "checked_utc": "2026-11-22T17:55Z"
    },
    {
     "id": "D11",
