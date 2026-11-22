@@ -98,6 +98,18 @@
    "executor": "this loop (proposal); Joseph (decision to build)",
    "done_when": "If /assisted-living-evanston/ shows >=1 impression for a local query by its ~14-day mark, hand Joseph one yes/no proposal with the autocomplete evidence; if 0 impressions, record that indexing/authority is the bottleneck and keep S3 at watch.",
    "not_before_utc": "2026-12-06T15:00Z"
+  },
+  {
+   "id": "TEST-07",
+   "priority": 1,
+   "status": "ready",
+   "workstream": "system_test",
+   "task": "Resume test. Make was refused when it tried to start a session, paused itself, and started this session after the pause. Record START (from the clock) and LAUNCH (the fire payload text) in the result. Nothing else.",
+   "evidence": "System test of the Make-controlled worker on the test copy, 22 Nov 2026. Not acquisition work.",
+   "expected_tour_acquisition_value": "none; proves that work left waiting by a refused start is picked up after the pause",
+   "executor": "worker (read only)",
+   "done_when": "Result gives START and LAUNCH.",
+   "found_utc": "2026-11-22T23:39Z"
   }
  ],
  "completed": [
