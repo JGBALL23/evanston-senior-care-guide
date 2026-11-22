@@ -6,8 +6,8 @@
   "note": "tour-request alerts: sha256(message id) and time only"
  },
  "metrics": {
-  "last_utc": "2026-11-22T15:27Z",
-  "window_utc": "2026-11-22T14:25Z/2026-11-22T15:25Z",
+  "last_utc": "2026-11-22T16:25Z",
+  "window_utc": "2026-11-22T15:25Z/2026-11-22T16:25Z",
   "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs",
   "per_tag": {
    "fb-wil-1118": {
@@ -59,7 +59,7 @@
   "assessment_completions": 0,
   "tour_form_views": 0,
   "tour_requests": 0,
-  "genuine_detail": "14:25Z-15:25Z: 0 genuine, 0 tour requests. Winnetka post P-1120-01 (fb-wnk-1120) published ~15:02Z: 217 facebookexternalhit requests (link previews while composing, incl. truncated ?ref=f..fb-wnk-112 variants, og-card); one fbclid landing 15:02:34Z from Windows Chrome 131 that beaconed landed + viewed-costs + viewed-tour-questions within 24s of posting = automated link scanner (first-5-minutes rule), second fbclid hit 15:03:08Z; curl probes x5; iPhone OS 13 UA on www/http redirects 15:10/15:19Z (no page beacons, stale UA, likely scanner); meta-webindexer x2 (guides); wp-admin probe 404; no 5xx"
+  "genuine_detail": "15:25Z-16:25Z: 0 confirmed genuine, 0 tour requests, 0 assessment/tour-form views. 1 unverified Mac Chrome 143 visit to the SHIP guide 15:28:20Z (no referrer data; followed 20s later by a Linux Chrome 158 render of the same page with assets = preview/scanner). Winnetka post: 15 facebookexternalhit (og-card) only, 0 fbclid landings. iPhone OS 13 stale-UA http->https home 15:48Z (scanner, as before). curl = this run's probes. No 5xx."
  },
  "summary": {
   "last_utc": "2026-11-19T01:24Z",
@@ -68,8 +68,8 @@
  "site": {
   "fail_count": 0,
   "down_since_utc": null,
-  "last_check_utc": "2026-11-22T15:27Z",
-  "last_check_method": "curl: home, ?tour=form, /assisted-living-evanston/, checklist PDF 200; home has #tour/#assessment/plan-visit; Netlify 14:25Z-15:25Z: no 5xx; current deploy 6b0238b3; Gmail 2d: no org replies or inquiries (Niles E-1120-01 still unanswered); no PR merged (#79/#80/#81/#84/#85 open); loop head 4187994"
+  "last_check_utc": "2026-11-22T16:25Z",
+  "last_check_method": "curl: home, ?tour=form, /assisted-living-evanston/, checklist PDF 200; home has #tour/#assessment/plan-visit; Netlify 15:25Z-16:25Z: no 5xx; Gmail 1d: no org replies or inquiries (Niles E-1120-01 still unanswered); no PR merged (#79/#80/#81/#84/#85 open, main 2ebc9fd); loop head 4187994"
  },
  "recovery": {
   "last_attempt_utc": "2026-11-18T01:39Z",
@@ -243,7 +243,8 @@
   "2026-11-22T06:24Z run: 0 tour requests; site OK (deploy 6b0238b3); metrics 05:24Z-06:24Z 0 genuine; no org replies; no PR merges; no new loop task",
   "2026-11-22T08:24Z run: 0 tour requests; site OK (deploy 6b0238b3); metrics 06:24Z-08:24Z 0 genuine (07:24Z run absent, window covers it); no org replies; no PR merges; no new loop task",
   "2026-11-22T09:24Z run: 0 tour requests; site OK (deploy 6b0238b3); metrics 08:24Z-09:24Z 0 genuine (crawler/probe only); no org replies; no PR merges; no new loop task",
-  "2026-11-22T15:27Z run: 0 tour requests; site OK (deploy 6b0238b3); metrics 14:25Z-15:25Z 0 genuine (Winnetka post went live 15:02Z: previews + one scanner landing only); Wilmette post fb-wil-1118 gone per session operator; no org replies; no PR merges; no new loop task (fb-wnk-1120 +24h review due 2026-11-23T15:02Z, will reactivate the loop with data)"
+  "2026-11-22T15:27Z run: 0 tour requests; site OK (deploy 6b0238b3); metrics 14:25Z-15:25Z 0 genuine (Winnetka post went live 15:02Z: previews + one scanner landing only); Wilmette post fb-wil-1118 gone per session operator; no org replies; no PR merges; no new loop task (fb-wnk-1120 +24h review due 2026-11-23T15:02Z, will reactivate the loop with data)",
+  "2026-11-22T16:25Z run: site OK; 0 genuine tagged visitors, 0 tour requests; Winnetka post +1h20m: link previews only; no org replies; no PR merged; no new evidence, no loop task"
  ],
  "facebook_interruptions_past": [
   {
@@ -270,7 +271,7 @@
  "outreach_watch": {
   "alerted": [],
   "replies_alerted": [],
-  "last_utc": "2026-11-22T15:27Z",
+  "last_utc": "2026-11-22T16:25Z",
   "note": "no org replies; inbox 1d: nothing from orgs; E-1120-01 (Niles, em-1120a) awaits reply"
  },
  "facebook_interruption": {
