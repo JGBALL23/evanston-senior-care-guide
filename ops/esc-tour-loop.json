@@ -100,18 +100,6 @@
    "not_before_utc": "2026-12-06T15:00Z"
   },
   {
-   "id": "TEST-04",
-   "priority": 4,
-   "status": "ready",
-   "workstream": "system_test",
-   "task": "Fetch https://evanstonseniorcareguide.com/ and https://evanstonseniorcareguide.com/assisted-living-evanston/ once each (curl, or a web fetch tool if curl is refused). Record the HTTP status of each and whether each page links to the tour request (?tour=form or #plan-visit). Read only.",
-   "evidence": "System test of the Make-controlled worker on the test copy, 22 Nov 2026. Not acquisition work.",
-   "expected_tour_acquisition_value": "none; proves the worker can read the store, the repository, the live site and the scoreboard before production is switched",
-   "executor": "worker (read only)",
-   "done_when": "Result gives the status and a yes or no for each of the two pages, and the method used.",
-   "found_utc": "2026-11-22T23:13Z"
-  },
-  {
    "id": "TEST-05",
    "priority": 5,
    "status": "ready",
@@ -1368,6 +1356,21 @@
     "gh api pulls/78,79,81,84,85,86 at 2026-11-22T23:31Z"
    ],
    "done_utc": "2026-11-22T23:32Z"
+  },
+  {
+   "id": "TEST-04",
+   "priority": 4,
+   "status": "done",
+   "workstream": "system_test",
+   "task": "Fetch https://evanstonseniorcareguide.com/ and https://evanstonseniorcareguide.com/assisted-living-evanston/ once each (curl, or a web fetch tool if curl is refused). Record the HTTP status of each and whether each page links to the tour request (?tour=form or #plan-visit). Read only.",
+   "evidence": "System test of the Make-controlled worker on the test copy, 22 Nov 2026. Not acquisition work.",
+   "expected_tour_acquisition_value": "none; proves the worker can read the store, the repository, the live site and the scoreboard before production is switched",
+   "executor": "worker (read only)",
+   "done_when": "Result gives the status and a yes or no for each of the two pages, and the method used.",
+   "found_utc": "2026-11-22T23:13Z",
+   "result": "Read only, curl -sS -L once each at 2026-11-22T23:33Z. Home page https://evanstonseniorcareguide.com/: HTTP 200, links to tour request: yes (2 matches of ?tour=form or #plan-visit). /assisted-living-evanston/: HTTP 200, links to tour request: yes (3 matches). Method: curl plus grep for ?tour=form|#plan-visit.",
+   "verified_utc": "2026-11-22T23:33Z",
+   "done_utc": "2026-11-22T23:33Z"
   }
  ],
  "blocked": [],
@@ -1378,7 +1381,7 @@
   "picked": "TEST-01 done, TEST-02 done, TEST-03 done",
   "why": "Worked: 3 test tasks done, monitor ran"
  },
- "last_verified_action": "TEST-03 done 2026-11-22T23:32Z: Method: gh api repos/JGBALL23/evanston-senior-care-guide/pulls/<n> --jq '.state,.merged' (worked). #78 open (not merged), #79 open, #81 open, #84 open, #85 ope…",
+ "last_verified_action": "TEST-04 done 2026-11-22T23:33Z: Read only, curl -sS -L once each at 2026-11-22T23:33Z. Home page https://evanstonseniorcareguide.com/: HTTP 200, links to tour request: yes (2 matches of ?tour…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
