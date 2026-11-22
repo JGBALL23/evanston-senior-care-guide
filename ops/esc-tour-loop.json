@@ -1399,10 +1399,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-22T23:33Z",
-  "event": "Make controller: completion of cse_014eaiSdh5wg12q1pDbXw19e",
-  "picked": "TEST-04 done, TEST-05 done",
-  "why": "Worked: TEST-04 and TEST-05 done"
+  "utc": "2026-11-22T23:38Z",
+  "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
+  "picked": "TEST-06 done",
+  "why": "Worked: TEST-06 done, dead lock taken over"
  },
  "last_verified_action": "TEST-06 done 2026-11-22T23:38Z: controller.sessions holds 3 session records. The abandoned run is dead-session-test (started 2026-11-22T21:37Z, no close recorded; lock 120 min old, live=false…",
  "last_stop": {
@@ -1494,7 +1494,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "TEST copy: all test tasks done (TEST-01..05). Real items next due 25 Nov 15:00Z (ACQ-005/012 Search Console read) and SC3 25 Nov 16:00Z; monitor next due 23 Nov 11:32Z. Waiting on Joseph: PRs #78 #79 #81 #84 #85 #86 (all open), D8 talk, Search Console indexing request; stray probe branch ops/make-loop-probe still present (delete was refused).",
+ "next_discovery": "Monitor due 2026-11-23T11:32Z; ACQ-005/ACQ-012 rechecks 2026-11-25. Waiting on Joseph: PR #85 merge (ACQ-017) and ACQ-007 decision.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -2070,13 +2070,26 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062), control record V3",
   "since_utc": "2026-11-22T23:15Z",
   "lock": {
-   "holder": "cse_014eaiSdEuqo8texUfhrZMPA",
-   "utc": "2026-11-22T23:37Z"
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-22T23:32Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSdEuqo8texUfhrZMPA",
+    "start_utc": "2026-11-22T23:37Z",
+    "end_utc": "2026-11-22T23:38Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: TEST-06 done, dead lock taken over",
+    "done": 1,
+    "changed": 0,
+    "tasks": "TEST-06 done",
+    "next": "no",
+    "wake_minutes": 714,
+    "next_due_utc": "2026-11-23T11:32Z"
+   },
    {
     "run": "dead-session-test",
     "start_utc": "2026-11-22T21:37Z",
@@ -2119,7 +2132,7 @@
    "tools": "netlify-observability-services-reader, search_threads, create_draft, PushNotification, add_repo, create_or_update_file all listed"
   },
   "next": {
-   "written_utc": "2026-11-22T23:33Z",
+   "written_utc": "2026-11-22T23:38Z",
    "eligible_now": 0,
    "next_due": [
     {
