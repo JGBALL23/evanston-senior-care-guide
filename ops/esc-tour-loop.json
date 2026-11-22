@@ -102,62 +102,72 @@
   {
    "id": "TEST-01",
    "priority": 1,
-   "status": "ready",
+   "status": "waiting_on_data",
    "workstream": "system_test",
    "task": "Verify this test copy against its source. Clone the source read-only (git clone --depth 1 --single-branch --branch automation/esc-tour-loop https://github.com/JGBALL23/evanston-senior-care-guide /tmp/src) and compare ops/esc-tour-loop.json there with the copy here: the number of completed tasks, the ids in the queue, the number of map items and how many have each status, each scout's next_due_utc, and the number of owner_review_needed lines. Ignore the controller block, test_copy and tasks whose id starts with TEST-.",
    "evidence": "System test of the Make-controlled worker on the test copy, 22 Nov 2026. Not acquisition work.",
    "expected_tour_acquisition_value": "none; proves the worker can read the store, the repository, the live site and the scoreboard before production is switched",
    "executor": "worker (read only)",
    "done_when": "Result gives every compared value for the copy and for the source and says MATCH, or names each difference.",
-   "found_utc": "2026-11-22T23:13Z"
+   "found_utc": "2026-11-22T23:13Z",
+   "not_before_utc": "2026-12-31T00:00Z",
+   "note": "parked for the empty-queue test"
   },
   {
    "id": "TEST-02",
    "priority": 2,
-   "status": "ready",
+   "status": "waiting_on_data",
    "workstream": "system_test",
    "task": "Using only the output of python3 ops/loopctl.py status, state which real items (not TEST- tasks) come due next and when, and compare that with the file's own next_discovery sentence (print only that field).",
    "evidence": "System test of the Make-controlled worker on the test copy, 22 Nov 2026. Not acquisition work.",
    "expected_tour_acquisition_value": "none; proves the worker can read the store, the repository, the live site and the scoreboard before production is switched",
    "executor": "worker (read only)",
    "done_when": "Result gives next_due_utc, the next three due items with their times, and says whether they agree with next_discovery.",
-   "found_utc": "2026-11-22T23:13Z"
+   "found_utc": "2026-11-22T23:13Z",
+   "not_before_utc": "2026-12-31T00:00Z",
+   "note": "parked for the empty-queue test"
   },
   {
    "id": "TEST-03",
    "priority": 3,
-   "status": "ready",
+   "status": "waiting_on_data",
    "workstream": "system_test",
    "task": "Record the state (open, merged or closed) of pull requests 78, 79, 81, 84, 85 and 86 of JGBALL23/evanston-senior-care-guide. Read only: use gh api repos/JGBALL23/evanston-senior-care-guide/pulls/<number> if it works, otherwise git ls-remote https://github.com/JGBALL23/evanston-senior-care-guide 'refs/pull/*/head' 'refs/pull/*/merge' (a pull request with a merge ref is open).",
    "evidence": "System test of the Make-controlled worker on the test copy, 22 Nov 2026. Not acquisition work.",
    "expected_tour_acquisition_value": "none; proves the worker can read the store, the repository, the live site and the scoreboard before production is switched",
    "executor": "worker (read only)",
    "done_when": "Result lists the six states and names the method used.",
-   "found_utc": "2026-11-22T23:13Z"
+   "found_utc": "2026-11-22T23:13Z",
+   "not_before_utc": "2026-12-31T00:00Z",
+   "note": "parked for the empty-queue test"
   },
   {
    "id": "TEST-04",
    "priority": 4,
-   "status": "ready",
+   "status": "waiting_on_data",
    "workstream": "system_test",
    "task": "Fetch https://evanstonseniorcareguide.com/ and https://evanstonseniorcareguide.com/assisted-living-evanston/ once each (curl, or a web fetch tool if curl is refused). Record the HTTP status of each and whether each page links to the tour request (?tour=form or #plan-visit). Read only.",
    "evidence": "System test of the Make-controlled worker on the test copy, 22 Nov 2026. Not acquisition work.",
    "expected_tour_acquisition_value": "none; proves the worker can read the store, the repository, the live site and the scoreboard before production is switched",
    "executor": "worker (read only)",
    "done_when": "Result gives the status and a yes or no for each of the two pages, and the method used.",
-   "found_utc": "2026-11-22T23:13Z"
+   "found_utc": "2026-11-22T23:13Z",
+   "not_before_utc": "2026-12-31T00:00Z",
+   "note": "parked for the empty-queue test"
   },
   {
    "id": "TEST-05",
    "priority": 5,
-   "status": "ready",
+   "status": "waiting_on_data",
    "workstream": "system_test",
    "task": "From ops/cloud.json print only scoreboard.daily and scoreboard.totals. State the number of daily rows, the newest date_chicago and the four totals. Change nothing in that file.",
    "evidence": "System test of the Make-controlled worker on the test copy, 22 Nov 2026. Not acquisition work.",
    "expected_tour_acquisition_value": "none; proves the worker can read the store, the repository, the live site and the scoreboard before production is switched",
    "executor": "worker (read only)",
    "done_when": "Result gives the row count, the newest date_chicago and the four totals exactly as stored.",
-   "found_utc": "2026-11-22T23:13Z"
+   "found_utc": "2026-11-22T23:13Z",
+   "not_before_utc": "2026-12-31T00:00Z",
+   "note": "parked for the empty-queue test"
   }
  ],
  "completed": [
@@ -2018,7 +2028,7 @@
    "utc": ""
   },
   "monitor": {
-   "last_utc": ""
+   "last_utc": "2026-11-22T23:23Z"
   },
   "sessions": []
  }
