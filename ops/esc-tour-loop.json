@@ -109,18 +109,18 @@
    "found_utc": "2026-11-22T19:40Z"
   },
   {
-   "id": "ACQ-024",
+   "id": "ACQ-025",
    "priority": 1,
    "status": "ready",
    "workstream": "referral_partnerships",
-   "map_item": "R3",
-   "task": "Examine hospital and rehab discharge planning / social work / case management routes in Evanston and the North Shore other than Evanston Hospital (already checked: no public route): Endeavor Health Glenbrook, Highland Park and Skokie hospitals, Ascension Saint Francis, Shirley Ryan AbilityLab outpatient sites, and licensed skilled-nursing rehab units. For each, find whether it publishes a patient/family resource list that includes outside websites or a public contact route for community resources, check Gmail Sent and state files for earlier contact, and give a verdict.",
-   "evidence": "R3 is the highest-ranked open map item. Families leaving hospital or short-term rehab often have days to choose assisted living or memory care, so a discharge-planning resource list is the most decision-stage referral class not yet examined; Gmail Sent shows no email ever sent to this class.",
-   "guardrails": "Research and preparation only; at most three proposals before any response; disclose Joseph's Westminster Place employment in any prepared text; no patient data.",
-   "expected_tour_acquisition_value": "High if any route exists: discharge families are choosing within days.",
+   "map_item": "R7",
+   "task": "Examine resource lists published by memory clinics and dementia caregiver programs serving Evanston and the North Shore (Northwestern Mesulam Center caregiver resources, Endeavor Health memory/neurology patient support, Alzheimer's Association Illinois chapter local resources, CJE SeniorLife, Lambs/other adult day programs, township caregiver support groups): for each, find whether the list includes outside websites (local guides), whether there is a published suggestion route or address, check Gmail Sent and state files for earlier contact (university is excluded per E-1118-03), and give a verdict.",
+   "evidence": "R7 is the next open map item after R3 dropped. Memory care is a decision with frequent tours; caregiver programs meet families at diagnosis. ACQ-024 lesson: hospital systems route through internal lists, so prefer nonprofit caregiver programs that publish link lists.",
+   "guardrails": "Research and preparation only; at most three proposals before any response; disclose Joseph's Westminster Place employment; no medical claims.",
+   "expected_tour_acquisition_value": "Medium-high if any list accepts outside guides: memory-care families tour within weeks of diagnosis milestones.",
    "executor": "this loop (research and preparation only); sending is the outreach operator's",
-   "done_when": "Every target has a verdict (ACT, WATCH, DROP or OWNER) with its source URL; best ACT target has one duplicate-checked handoff; R3 and channel_yield updated.",
-   "found_utc": "2026-11-22T20:40Z"
+   "done_when": "Every target has a verdict (ACT, WATCH, DROP or OWNER) with its source URL; best ACT target has one duplicate-checked handoff; R7 and channel_yield updated.",
+   "found_utc": "2026-11-22T21:40Z"
   }
  ],
  "completed": [
@@ -559,17 +559,41 @@
     "cook_county_assessor_fairs": "DROP",
     "hinsdale_elderwerks": "DROP"
    }
+  },
+  {
+   "id": "ACQ-024",
+   "priority": 1,
+   "status": "done",
+   "workstream": "referral_partnerships",
+   "map_item": "R3",
+   "task": "Examine hospital and rehab discharge planning / social work / case management routes in Evanston and the North Shore other than Evanston Hospital (already checked: no public route): Endeavor Health Glenbrook, Highland Park and Skokie hospitals, Ascension Saint Francis, Shirley Ryan AbilityLab outpatient sites, and licensed skilled-nursing rehab units. For each, find whether it publishes a patient/family resource list that includes outside websites or a public contact route for community resources, check Gmail Sent and state files for earlier contact, and give a verdict.",
+   "evidence": "R3 is the highest-ranked open map item. Families leaving hospital or short-term rehab often have days to choose assisted living or memory care, so a discharge-planning resource list is the most decision-stage referral class not yet examined; Gmail Sent shows no email ever sent to this class.",
+   "guardrails": "Research and preparation only; at most three proposals before any response; disclose Joseph's Westminster Place employment in any prepared text; no patient data.",
+   "expected_tour_acquisition_value": "High if any route exists: discharge families are choosing within days.",
+   "executor": "this loop (research and preparation only); sending is the outreach operator's",
+   "done_when": "Every target has a verdict (ACT, WATCH, DROP or OWNER) with its source URL; best ACT target has one duplicate-checked handoff; R3 and channel_yield updated.",
+   "found_utc": "2026-11-22T20:40Z",
+   "done_utc": "2026-11-22T21:40Z",
+   "result": "0 ACT across 6 routes. No North Shore hospital or rehab publishes a patient/family resource list with outside websites or a public social-work/discharge email; their discharge teams work by phone and internal (vendor) referral lists. (1) Endeavor Glenbrook, Skokie, Highland Park hospitals: no case-management/social-work page or address; only system-wide patient-advocacy email (endeavorhealth.org/patients-visitors/patient-services/patient-experience), which is a complaints route and wrong for a resource proposal -> DROP. Glenbrook social-work roles exist only in job postings. (2) Saint Francis Hospital Evanston (now Prime Healthcare, saintfrancisevanston.org): no social-work/discharge page or email, main line 847-316-4000 only; its senior-care-services URL now 404 -> DROP (phone-only, cold call to discharge staff is not a fit). (3) Shirley Ryan AbilityLab LIFE Center resource guides (sralab.org/lifecenter/resources/life-center-resource-guides): national/condition-based informational lists, downtown Chicago, no suggestion route; no North Shore outpatient-site lists -> DROP. (4) Illinois Dept on Aging hospital discharge page (ilaging.illinois.gov/programs/caregiver/hospital-discharge-planning.html): links only national/state sources, no suggestion process -> DROP. (5) Skilled-nursing rehab units in Evanston: no public discharge resource lists; EPL community directory still 404 (matches ACQ-021) -> DROP. (6) Evanston Hospital: unchanged from ACQ-006 (no public route) -> DROP. Gmail Sent: no email ever sent to this class; no new org replies in the last 3 days (inbox shows only Nextdoor/vendor notices). Handoff note for the outreach operator: state.json lists 'hospital/rehab social work' among email targets, but none publishes an address, so do not cold-email hospital staff; phone routes are Joseph's call list only if he wants them. Lesson: discharge planners refer through internal/vendor lists (and senior-living sales relationships, an employer conflict for Joseph), not public web lists; this class has no web-reachable entry point.",
+   "verdicts": {
+    "endeavor_glenbrook_skokie_highland_park": "DROP",
+    "saint_francis_evanston_prime": "DROP",
+    "sralab_life_center": "DROP",
+    "il_dept_aging_discharge_page": "DROP",
+    "evanston_snf_rehab_units": "DROP",
+    "evanston_hospital": "DROP (ACQ-006)"
+   }
   }
  ],
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-22T20:40Z",
-  "event": "pull_request.synchronize 1ced947",
-  "picked": "ACQ-022 (D11 free resource fairs)",
-  "why": "Distribution remains the bottleneck (0 genuine visitors 22 Nov, 0 org replies); D11 was the last never-examined distribution class with a possible operator-executable route."
+  "utc": "2026-11-22T21:40Z",
+  "event": "pull_request.synchronize 9c3b8b2",
+  "picked": "ACQ-024 (R3 hospital/rehab discharge resource lists)",
+  "why": "Distribution/referral reach remains the bottleneck (0 genuine visitors, 0 org replies); R3 was the highest-ranked open map item and most decision-stage referral class."
  },
- "last_verified_action": "ACQ-020: 5 employers examined with sources, 0 ACT; D9 dropped. ACQ-010 closed: Niles sent 21 Nov with a tagged homepage tour link (ref=em-1120a), 0 replies. ACQ-023 (S4 community-name searches) queued. Nothing sent or submitted.",
+ "last_verified_action": "ACQ-024: 6 hospital/rehab routes examined with sources, 0 ACT; R3 dropped. No new org replies. ACQ-025 (R7 memory clinic / caregiver program resource lists) queued. Nothing sent or submitted.",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -657,7 +681,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Ready: ACQ-019 (S3 local-intent demand), ACQ-023 (S4 community-name searches), ACQ-024 (R3 hospital/rehab discharge resource lists). Waiting: Search Console 25 Nov (ACQ-005/012/017), Niles/other org replies (ref=em-1120a), PR merges, Joseph's ACQ-007/ACQ-018/D8 answers. D11 recheck 2027-02-15. Open map items after these: R7, R6, R8, R2, R9.",
+ "next_discovery": "Ready: ACQ-019 (S3 local-intent demand), ACQ-023 (S4 community-name searches), ACQ-025 (R7 memory/caregiver resource lists). Waiting: Search Console 25 Nov (ACQ-005/012/017), Niles/other org replies (ref=em-1120a), PR merges, Joseph's ACQ-007/ACQ-018/D8 answers. D11 recheck 2027-02-15. Open map items after these: R6, R8, R2, R9.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -857,9 +881,9 @@
     "id": "R3",
     "lane": "referral_partnerships",
     "class": "hospital and rehab social work or case management",
-    "status": "queued",
-    "note": "Records: no email ever sent to this class (Gmail Sent); ACQ-006 (19 Nov) found Evanston Hospital shows no public senior-services or social-work contact route. Other North Shore hospitals and rehab / skilled-nursing discharge planners unexamined.",
-    "checked_utc": "2026-11-22T20:40Z"
+    "status": "drop",
+    "note": "ACQ-024 (22 Nov): 0 ACT across 6 routes (Endeavor Glenbrook/Skokie/Highland Park, Saint Francis Evanston (Prime), SRAL LIFE Center, IL Dept on Aging discharge page, Evanston SNF rehab units, Evanston Hospital). No public resource list or social-work address; referrals run through internal/vendor lists. Reopen only if a hospital publishes a community resource list that includes outside websites.",
+    "checked_utc": "2026-11-22T21:40Z"
    },
    {
     "id": "R4",
@@ -889,9 +913,9 @@
     "id": "R7",
     "lane": "referral_partnerships",
     "class": "memory clinics' and caregiver programs' resource lists",
-    "status": "open",
+    "status": "queued",
     "note": "only lists that include outside websites",
-    "checked_utc": null
+    "checked_utc": "2026-11-22T21:40Z"
    },
    {
     "id": "R8",
@@ -996,6 +1020,15 @@
     "inquiries": 0,
     "as_of_utc": "2026-11-22T20:40Z",
     "decision": "watch: no free table published for Dec 2026-mid 2027; fee-based Evanston expo dropped; recheck 2027-02-15"
+   },
+   {
+    "class": "R3 hospital/rehab discharge",
+    "shipped": 0,
+    "responses": null,
+    "genuine_visitors": 0,
+    "inquiries": 0,
+    "as_of_utc": "2026-11-22T21:40Z",
+    "decision": "dropped: no public, operator-executable route"
    }
   ]
  }
