@@ -98,18 +98,6 @@
    "executor": "this loop (proposal); Joseph (decision to build)",
    "done_when": "If /assisted-living-evanston/ shows >=1 impression for a local query by its ~14-day mark, hand Joseph one yes/no proposal with the autocomplete evidence; if 0 impressions, record that indexing/authority is the bottleneck and keep S3 at watch.",
    "not_before_utc": "2026-12-06T15:00Z"
-  },
-  {
-   "id": "TEST-06",
-   "priority": 1,
-   "status": "ready",
-   "workstream": "system_test",
-   "task": "Crash-recovery test. A session called dead-session-test took the lock two hours ago and never closed. After you have taken the lock over, print only controller.sessions from ops/esc-tour-loop.json and report how many session records there are and which run is recorded as abandoned.",
-   "evidence": "System test of the Make-controlled worker on the test copy, 22 Nov 2026. Not acquisition work.",
-   "expected_tour_acquisition_value": "none; proves that a session that died is detected and its work is picked up",
-   "executor": "worker (read only)",
-   "done_when": "Result gives the number of session records and names the abandoned run.",
-   "found_utc": "2026-11-22T23:37Z"
   }
  ],
  "completed": [
@@ -1386,6 +1374,26 @@
    "result": "Read ops/cloud.json scoreboard only, nothing changed. daily rows: 1; newest date_chicago: 2026-11-22. totals: referral_emails_sent 11, org_replies 0, placements_live 0, tours_confirmed \"unverified\".",
    "verified_utc": "2026-11-22T23:33Z",
    "done_utc": "2026-11-22T23:33Z"
+  },
+  {
+   "id": "TEST-06",
+   "priority": 1,
+   "status": "done",
+   "workstream": "system_test",
+   "task": "Crash-recovery test. A session called dead-session-test took the lock two hours ago and never closed. After you have taken the lock over, print only controller.sessions from ops/esc-tour-loop.json and report how many session records there are and which run is recorded as abandoned.",
+   "evidence": "System test of the Make-controlled worker on the test copy, 22 Nov 2026. Not acquisition work.",
+   "expected_tour_acquisition_value": "none; proves that a session that died is detected and its work is picked up",
+   "executor": "worker (read only)",
+   "done_when": "Result gives the number of session records and names the abandoned run.",
+   "found_utc": "2026-11-22T23:37Z",
+   "result": "controller.sessions holds 3 session records. The abandoned run is dead-session-test (started 2026-11-22T21:37Z, no close recorded; lock 120 min old, live=false), taken over by cse_014eaiSdEuqo8texUfhrZMPA. The other two records are cse_014eaiSeskuwUN1qqaHV4Bun and cse_014eaiSdh5wg12q1pDbXw19e, both closed normally.",
+   "verdicts": [],
+   "sources": [
+    "ops/esc-tour-loop.json controller.sessions",
+    "loopctl.py status/lock output"
+   ],
+   "lesson": "Dead-lock takeover works: status reported lock.live=false at age 120 min and lock recorded took_over with an abandoned session record.",
+   "done_utc": "2026-11-22T23:38Z"
   }
  ],
  "blocked": [],
@@ -1396,7 +1404,7 @@
   "picked": "TEST-04 done, TEST-05 done",
   "why": "Worked: TEST-04 and TEST-05 done"
  },
- "last_verified_action": "TEST-05 done 2026-11-22T23:33Z: Read ops/cloud.json scoreboard only, nothing changed. daily rows: 1; newest date_chicago: 2026-11-22. totals: referral_emails_sent 11, org_replies 0, placement…",
+ "last_verified_action": "TEST-06 done 2026-11-22T23:38Z: controller.sessions holds 3 session records. The abandoned run is dead-session-test (started 2026-11-22T21:37Z, no close recorded; lock 120 min old, live=false…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
