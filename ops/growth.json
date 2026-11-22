@@ -1,224 +1,225 @@
 {
-  "about": "Night growth work by the ESCG night growth task (cloud). Public file: organization and group names, public website URLs, counts, verdicts and short reasons only; never personal names, individuals' contact details, email addresses or links to people's posts.",
-  "owner_request": "Joseph, 18 Nov 2026 10:13 Chicago: use the independent cloud capabilities overnight for the highest-value authorized growth work that doesn't need his computer; no unnecessary guides, reports or technical projects; don't rescan sources that produce nothing; use real evidence to choose the next acquisition actions; report in the morning what was done, what was learned and how it leads to inquiries and tours; free and within existing permissions; say so plainly if the cloud can't do it.",
-  "evidence_so_far": "Facebook community groups: 0 families asking for senior-care help in about 1,000 posts scanned across 6 town groups (16-18 Nov). Facebook posts: 5 genuine visitors since 8 Nov, 0 assessment completions, 0 tour requests. Search: 2 Google-referred requests in 24h, page unknown. Nextdoor: personal-account promotion not allowed (policy of 19 Aug 2026).",
-  "queue": [
-    {
-      "id": "G2",
-      "priority": 1,
-      "title": "Where do Evanston, North Shore and north-side Chicago families ask for senior-care help online, and where may we answer?",
-      "status": "done",
-      "done_when": "every source checked has a verdict (ACT, WATCH or DROP) with request counts and recency, and Facebook groups with ACT or WATCH are in fb_group_candidates for the session operator",
-      "next_step": "remaining sources: local news-site comment threads (Evanston RoundTable, Evanston Now, Patch), local forums; Facebook caregiver groups, national groups, Reddit and Nextdoor already have verdicts",
-      "result": "Chicago caregiver groups are job boards; national aging-parent groups are private and not local; Reddit is not reachable with the research tools; Nextdoor bars personal promotion; town groups have few requests (0 in about 1,100 recent posts; group search in a 65K group shows occasional older requests). Facebook posts in town groups remain the working channel"
-    },
-    {
-      "id": "G1",
-      "priority": 2,
-      "title": "Organizations families turn to when choosing care that list outside resources; ready-to-send drafts for the best fits",
-      "status": "done",
-      "done_when": "at least 8 organizations assessed with evidence, and Gmail drafts (never sent) for up to 3 high-fit organizations with a published general address",
-      "next_step": "assess AgeOptions, Glenview, Skokie, Wilmette and Winnetka public libraries' older-adult resource pages, and North Shore township senior services; drafts only for high-fit organizations with a published general address (2 drafts exist)",
-      "result": "8 organizations assessed; most civic lists name agencies, not guides; the City of Evanston's Dementia-Friendly resources page is the clear fit. 2 Gmail drafts ready (City of Evanston Senior Services, North Shore Senior Center); Evanston Public Library takes contact-form messages only"
-    },
-    {
-      "id": "G3",
-      "priority": 3,
-      "title": "Search visibility baseline for high-intent family queries",
-      "status": "done",
-      "done_when": "12 queries checked and at most 3 specific changes to existing pages proposed for the session operator (no new guides)",
-      "result": "site not visible in the research index; can't measure Google from here; converted to a Search Console indexing action for the session operator (19 Nov); Search Console (18 Nov): site indexed, 38 impressions on 16 Nov from Medicare and assisted-living cost queries; no page change warranted yet"
-    },
-    {
-      "id": "G4",
-      "priority": 4,
-      "title": "Professionals who advise families at the decision point (Aging Life Care managers, elder law practices) serving Evanston and the North Shore",
-      "status": "done",
-      "why": "civic organizations list agencies, not guides; professionals who guide individual families may share a free tour checklist",
-      "done_when": "up to 8 practices assessed from their public business pages (fit and reason); Gmail drafts for at most 2 clear fits, to published general business addresses only",
-      "result": "Operator ran it at 16:35 Chicago instead of waiting for tonight. Verdict DROP for now: search results for Evanston and North Shore care managers are home-care franchises (direct competitors for the same families) or directory listings; the library directory names 2 care-management listings, neither local with a public address; elder law results are lawyer directories of individual attorneys, and firms take contact forms, not general addresses. No clear fit with a published general business address, so no drafts.",
-      "done_utc": "2026-11-18T22:45Z"
-    }
-  ],
-  "channels": {
-    "facebook_caregiver_groups_chicago": {
-      "verdict": "DROP",
-      "checked_utc": "2026-11-18T16:28Z",
-      "evidence": "Facebook group search for caregivers/dementia caregivers/aging parents in Chicago returns mostly job and placement boards. 'Families who need a CAREGIVER in Chicago and Suburbs' (public, 5.3K): 31 recent posts were agency hiring ads and caregiving tips, 0 family requests. 'HomeCare in Illinois, Caregivers ,Care for parents' (public, 19K): 23 recent posts, hiring and placement, 0 family requests."
-    },
-    "facebook_national_aging_parent_groups": {
-      "verdict": "DROP",
-      "checked_utc": "2026-11-18T16:28Z",
-      "evidence": "Parenting Aging Parents, Caring for Elderly Parents, Taking Care of Elderly Parents and similar are private and national, outside his authorization (public Evanston/North Shore groups only) and not local."
-    },
-    "reddit": {
-      "verdict": "DROP (not reachable)",
-      "checked_utc": "2026-11-18T16:28Z",
-      "evidence": "The research tool declines reddit.com (search restricted to reddit.com is rejected), so Reddit can't be researched here; not routed around."
-    },
-    "nextdoor": {
-      "verdict": "DROP",
-      "checked_utc": "2026-11-18T15:20Z",
-      "evidence": "Nextdoor's 19 Aug 2026 policy bars business promotion from personal accounts in posts, comments and DMs; needs a Business Page (his decision)."
-    },
-    "local_library_caregiver_events": {
-      "verdict": "WATCH",
-      "checked_utc": "2026-11-18T16:28Z",
-      "evidence": "Evanston Public Library hosts an Alzheimer's Association dementia caregiver support group, a memory cafe, a CJE caregiver social hour and talks such as 'Building a Circle of Care: Free Home Care and Adult Day Service Options'. Offering a free talk on comparing senior living would need Joseph's time (his decision)."
-    }
+ "about": "Night growth work by the ESCG night growth task (cloud). Public file: organization and group names, public website URLs, counts, verdicts and short reasons only; never personal names, individuals' contact details, email addresses or links to people's posts.",
+ "owner_request": "Joseph, 18 Nov 2026 10:13 Chicago: use the independent cloud capabilities overnight for the highest-value authorized growth work that doesn't need his computer; no unnecessary guides, reports or technical projects; don't rescan sources that produce nothing; use real evidence to choose the next acquisition actions; report in the morning what was done, what was learned and how it leads to inquiries and tours; free and within existing permissions; say so plainly if the cloud can't do it.",
+ "evidence_so_far": "Facebook community groups: 0 families asking for senior-care help in about 1,000 posts scanned across 6 town groups (16-18 Nov). Facebook posts: 5 genuine visitors since 8 Nov, 0 assessment completions, 0 tour requests. Search: 2 Google-referred requests in 24h, page unknown. Nextdoor: personal-account promotion not allowed (policy of 19 Aug 2026).",
+ "queue": [
+  {
+   "id": "G2",
+   "priority": 1,
+   "title": "Where do Evanston, North Shore and north-side Chicago families ask for senior-care help online, and where may we answer?",
+   "status": "done",
+   "done_when": "every source checked has a verdict (ACT, WATCH or DROP) with request counts and recency, and Facebook groups with ACT or WATCH are in fb_group_candidates for the session operator",
+   "next_step": "remaining sources: local news-site comment threads (Evanston RoundTable, Evanston Now, Patch), local forums; Facebook caregiver groups, national groups, Reddit and Nextdoor already have verdicts",
+   "result": "Chicago caregiver groups are job boards; national aging-parent groups are private and not local; Reddit is not reachable with the research tools; Nextdoor bars personal promotion; town groups have few requests (0 in about 1,100 recent posts; group search in a 65K group shows occasional older requests). Facebook posts in town groups remain the working channel"
   },
-  "fb_group_candidates": [],
-  "orgs": [
-    {
-      "org": "City of Evanston Senior Services (Levy Senior Center; Dementia-Friendly Evanston resources)",
-      "fit": "high",
-      "evidence": "Its Dementia-Friendly Evanston resources page lists many outside websites and guides and is maintained by city staff and the Dementia-Friendly Evanston Subcommittee; its Senior Resources page lists local organizations but no tools for comparing assisted living or memory care",
-      "urls": [
-        "https://www.cityofevanston.org/departments/prcs/facilities/levy_senior_center/senior_services/dementia_friendly_evanston_resources.php",
-        "https://www.cityofevanston.org/government/departments/parks-and-recreation-department/facilities/levy-senior-center/evanston-community-resources"
-      ],
-      "general_contact": "published general address on both pages",
-      "action": "Gmail draft created"
-    },
-    {
-      "org": "North Shore Senior Center (Northfield)",
-      "fit": "medium-high",
-      "evidence": "Runs a caregiver support program (counseling, education, connections to resources and support groups) for North Shore family caregivers; listed by the City of Evanston under local resources and memory care programs",
-      "urls": [
-        "https://www.nssc.org/"
-      ],
-      "general_contact": "published general address (City of Evanston Senior Resources page)",
-      "action": "Gmail draft created"
-    },
-    {
-      "org": "Evanston Public Library",
-      "fit": "medium-high",
-      "evidence": "Its community organizations directory (Senior Services category) lists agencies, home care companies, senior living communities and online resources; it hosts caregiver support groups and talks",
-      "urls": [
-        "https://epl.org/community-organizations-directory/wpbdp_category/senior"
-      ],
-      "general_contact": "contact form only, no published email",
-      "action": "none (a contact form would need Joseph)"
-    },
-    {
-      "org": "CJE SeniorLife",
-      "fit": "low",
-      "evidence": "Runs a caregiver social hour at the library, but it is itself a senior living and services provider",
-      "urls": [
-        "https://cje.net/"
-      ],
-      "general_contact": "not checked",
-      "action": "none"
-    },
-    {
-      "org": "Alzheimer's Association Illinois chapter (support group at Evanston Public Library)",
-      "fit": "low",
-      "evidence": "Support group, not a resource list",
-      "urls": [],
-      "general_contact": "not checked",
-      "action": "none"
-    },
-    {
-      "org": "AgeOptions (Area Agency on Aging, suburban Cook)",
-      "fit": "low",
-      "evidence": "Area Agency on Aging; provider-neutral by role, so unlikely to list a guide with a tour option for one community; contact page at https://www.ageoptions.org/contact/",
-      "urls": [],
-      "general_contact": "not found yet",
-      "action": "none"
-    },
-    {
-      "org": "Glenview Public Library (Resources for Older Adults)",
-      "fit": "low",
-      "evidence": "Lists only agencies (Village senior services, SSA, SHIP, Alzheimer's Association); contact form only",
-      "urls": [
-        "https://glenviewpl.org/blogs/post/resources-for-older-adults/"
-      ],
-      "general_contact": "no email published",
-      "action": "none"
-    }
-  ],
-  "search": {
-    "checked_utc": "2026-11-18T16:28Z",
-    "queries_checked": 5,
-    "evidence": "In the research search index the site does not appear even for its own domain name; for tour-checklist, paying-for-assisted-living, Supportive Living Program and Evanston assisted living queries, page one is directories (Caring.com, Seniorly, A Place for Mom, Care.com, Checkbook), operators' blogs and state pages. This index is not Google, so Google visibility must come from Search Console.",
-    "action": "session operator, 19 Nov: Search Console Pages report (indexed count) and request indexing for the home page (tour checklist), the cost guide, the levels-of-care guide and the Supportive Living Program guide",
-    "google_search_console": {
-      "checked_utc": "2026-11-18T16:33Z",
-      "indexing": "URL inspection: home, cost, levels of care, inspection records, independent living, Supportive Living Program, VA caregiver and VA nursing home guides are indexed; FIDE SNP guide discovered, not yet indexed (request already pending); caregiver background check guide unknown to Google, indexing requested 18 Nov",
-      "performance_16_nov": "38 impressions, 0 clicks, average position 47.4. Queries are all Medicare questions: 'how much does medicare pay for assisted living (facility)' 11, nursing home and Medicare 6, 'does medicare cover assisted living' variants 6. Pages: does-medicare-pay-for-senior-care 25 impressions (position 69), illinois-medicaid-estate-recovery 4 (position 5.8), illinois-care-facility-complaint 4 (position 6.8)",
-      "verdict": "Google search is a real but early channel: families researching what Medicare pays already see the site, at page-7 positions for the main query cluster. The Medicare guide's title already matches those queries, so no change now; recheck weekly"
-    }
+  {
+   "id": "G1",
+   "priority": 2,
+   "title": "Organizations families turn to when choosing care that list outside resources; ready-to-send drafts for the best fits",
+   "status": "done",
+   "done_when": "at least 8 organizations assessed with evidence, and Gmail drafts (never sent) for up to 3 high-fit organizations with a published general address",
+   "next_step": "assess AgeOptions, Glenview, Skokie, Wilmette and Winnetka public libraries' older-adult resource pages, and North Shore township senior services; drafts only for high-fit organizations with a published general address (2 drafts exist)",
+   "result": "8 organizations assessed; most civic lists name agencies, not guides; the City of Evanston's Dementia-Friendly resources page is the clear fit. 2 Gmail drafts ready (City of Evanston Senior Services, North Shore Senior Center); Evanston Public Library takes contact-form messages only"
   },
-  "drafts": [
-    {
-      "org": "City of Evanston Senior Services",
-      "purpose": "offer the free guide and tour checklist for their senior and dementia resource lists",
-      "created_utc": "2026-11-18T16:28Z"
-    },
-    {
-      "org": "North Shore Senior Center",
-      "purpose": "offer the free guide and tour checklist to caregiver staff, resources or newsletter",
-      "created_utc": "2026-11-18T16:28Z"
-    }
-  ],
-  "limits": [],
-  "brief": {
-    "date_chicago": "2026-11-21",
-    "ready": "Winnetka post text P-1120-01 (rescheduled Sat 21 Nov 9:00-13:00 Chicago) and Rogers Park post text P-1122-01 (postable from 11:29 Chicago Sun 22 Nov) ready for the operator; no reply or referral drafts waiting",
-    "learned": [
-      "still 0 organization replies to the 11 outreach emails (inbox: 1 auto-reply, Nextdoor digests, account notices); the Search Console indexing notice is the expected ?ref= canonical folding",
-      "overnight hourly metrics: 1 genuine single-page visit (elder-abuse guide, untagged, bounced), 0 tour-form views; new referral searches (Wilmette, Winnetka, Northbrook) return home-care franchises and directories, no clear fit with a general address"
-    ]
+  {
+   "id": "G3",
+   "priority": 3,
+   "title": "Search visibility baseline for high-intent family queries",
+   "status": "done",
+   "done_when": "12 queries checked and at most 3 specific changes to existing pages proposed for the session operator (no new guides)",
+   "result": "site not visible in the research index; can't measure Google from here; converted to a Search Console indexing action for the session operator (19 Nov); Search Console (18 Nov): site indexed, 38 impressions on 16 Nov from Medicare and assisted-living cost queries; no page change warranted yet"
   },
-  "log": [
-    "2026-11-18T16:28Z session operator (daytime loop): channel verdicts for Facebook caregiver groups, national groups, Reddit, Nextdoor, library events; 6 organizations assessed, 2 Gmail drafts created (City of Evanston Senior Services, North Shore Senior Center); search baseline done (site not visible in the research index)",
-    "2026-11-18T16:33Z Search Console: key pages indexed; 1 indexing request (caregiver background check guide); 16 Nov performance 38 impressions, 0 clicks, Medicare cost queries",
-    "2026-11-18T16:41Z session operator: G1 and G2 done (verdicts above); added G4 for tonight",
-    "2026-11-18T22:45Z operator: G4 done (DROP: no clear-fit care-management or elder-law practice with a public general address; results were home-care franchises and lawyer directories)",
-    "2026-11-18T22:45Z tour engine replaces night growth (every 3 hours, 24/7): prepares reply drafts, tour-path page fixes, post texts and referral drafts for the operator; never ships",
-    "2026-11-19T00:15Z tour engine: no org replies; top-visited pages already have tour next steps; P-1120-01 waits for E1 verdict; referral drafts at daily cap (2 on 18 Nov); brief set; no action",
-    "2026-11-19T12:10Z tour engine: no org replies; P-1120-01 waits for E1 verdict; referral drafts held until the operator reviews replies (outreach plan 19-20 Nov); brief set; no action",
-    "2026-11-20T12:10Z tour engine: no org replies; P-1120-01 waits for E1 +48h verdict (17:44Z); referral drafts held (operator reply review pending, operator idle since 19 Nov 16:22Z); brief set; no action",
-    "2026-11-20T18:15Z tour engine: no org replies (inbox: auto-reply and digests only); E1 +48h: template A (tour checklist) beat template B (0 genuine); P-1120-01 Winnetka post text ready for the operator",
-    "2026-11-20T18:55Z esc-tour-loop ACQ-008: P-1120-01 landing path passes the anchor and visibility checks at 390px; the tour click drops ref (counts as direct). Fix in review PR #79. The post is not blocked.",
-    "2026-11-20T19:40Z esc-tour-loop ACQ-009/010: a tagged GUIDE landing fires no beacon and its tour click drops ref (fix in review PR #80). Until #80 merges, link the Skokie/Niles referral notes to https://evanstonseniorcareguide.com/?ref=em-<org>-<MMDD>#tour (homepage), not to a guide.",
-    "2026-11-20T18:55Z esc-tour-loop ACQ-013 (for the tour engine, P-1122-01 Rogers Park News, not before 22 Nov 17:29Z): landing /?ref=fb-rp-1122#tour passes at 390px and keeps the tag on landing. The group requires source links: use template A and cite the checklist's own sources, IDPH assisted living https://dph.illinois.gov/topics-services/health-care-regulation/assisted-living.html and Medicare Care Compare https://www.medicare.gov/care-compare/ (optionally City of Chicago senior services https://www.chicago.gov/city/en/depts/fss/provdrs/senior.html), all 200 on 20 Nov. Site link last on its own line, homepage #tour not a guide; in the composer confirm the preview card is the site's (a source link placed first may become the card).",
-    "2026-11-20T21:15Z tour engine: no org replies (inbox: Nextdoor digests and promos only); no genuine visitors in latest metrics; P-1122-01 Rogers Park post text ready (template A, IDPH and Care Compare sources, link last)",
-    "2026-11-21T12:10Z tour engine: no org replies; no page with real visitors lacks a tour step (one bounced elder-abuse visit is not evidence); both post texts already ready; referral search (Wilmette, Winnetka, Northbrook) found only franchises and directories; brief set; no action"
-  ],
-  "ready": [
-    {
-      "type": "post_text",
-      "action_id": "P-1120-01",
-      "for": "operator",
-      "status": "ready",
-      "venue": "group:1316163449754368 What's Happening in Winnetka illinois",
-      "not_before_utc": "2026-11-20T21:53Z",
-      "hook": "template A (tour checklist), per E1",
-      "e1_verdict": "template A wins: fb-wil-1118 (template B, costs) had 0 genuine visitors in every logged window 18 Nov 17:44Z to 20 Nov 17:24Z (both tag variants) vs fb-evsk-1117 (template A) 2 genuine visitors, 1 checklist open, 1 tour-questions view; neither had a tour-form view. Tiny samples, directional only. Confirm the 17:24-17:44Z window in cloud.json before posting.",
-      "text": "Touring assisted living or memory care for a parent in Winnetka or nearby? Every place shows you the dining room. I put together a free one-page checklist of twelve questions that show you the rest: what the base rate includes and what is billed on top, how care levels are assessed and how often the price changes as a result, and what staffing looks like overnight. Print it and take it on every tour. No email or sign-up.\n\n#employed Disclosure: I work at Westminster Place in Evanston. The guide is my own independent project, it includes an optional way to request a tour there, and I receive no referral fees.\n\nhttps://evanstonseniorcareguide.com/?ref=fb-wnk-1120#tour",
-      "checks": "Winnetka in the first sentence; claims match the homepage tour section (twelve questions, one-page PDF, no email or sign-up); #employed per group rules; link last with nothing after it (OP1); re-read group rules on the day",
-      "created_utc": "2026-11-20T18:15Z",
-      "landing_check": {
-        "utc": "2026-11-20T18:55Z",
-        "by": "esc-tour-loop ACQ-008",
-        "anchor_390px": "pass: #tour at top; checklist and disclosed tour link both on the first screen",
-        "ref_to_tour_form": "FAIL until PR #79 merges: 'Ask about a tour here' reloads to /?tour=form#plan-visit without ref, so the form view and any inquiry count as direct. Landing, tour-questions and checklist beacons keep fb-wnk-1120.",
-        "post_blocked": false,
-        "fix": "https://github.com/JGBALL23/evanston-senior-care-guide/pull/79 (review only)"
-      }
-    },
-    {
-      "type": "post_text",
-      "action_id": "P-1122-01",
-      "for": "operator",
-      "status": "ready",
-      "venue": "group:RogersParkNeighborhoodNews Rogers Park News",
-      "not_before_utc": "2026-11-22T17:29Z",
-      "hook": "template A (tour checklist), per E1 +48h verdict",
-      "text": "Touring assisted living or memory care for a parent in Rogers Park or nearby? Every place shows you the dining room. I put together a free one-page checklist of twelve questions that show you the rest: what the base rate includes and what is billed on top, how care levels are assessed and how often the price changes as a result, and what staffing looks like overnight. Print it and take it on every tour. No email or sign-up.\n\nSources the checklist points to: Illinois Department of Public Health, assisted living licensing: https://dph.illinois.gov/topics-services/health-care-regulation/assisted-living.html\nMedicare Care Compare (nursing home inspections and staffing): https://www.medicare.gov/care-compare/\n\nDisclosure: I work at Westminster Place in Evanston. The guide is my own independent project, it includes an optional way to request a tour there, and I receive no referral fees.\n\nhttps://evanstonseniorcareguide.com/?ref=fb-rp-1122#tour",
-      "checks": "Rogers Park in the first sentence; claims match the homepage tour section (twelve questions, one page, no email or sign-up) and both source URLs appear on the homepage (ACQ-013: 200 on 20 Nov); group rule: verifiable with sources; disclosure before link; site link last on its own line with nothing after it (OP1); homepage #tour, not a guide; no #employed (not a rule of this group, re-read rules on the day); in the composer confirm the preview card is the site's, not a source link's",
-      "created_utc": "2026-11-20T21:15Z"
-    }
+  {
+   "id": "G4",
+   "priority": 4,
+   "title": "Professionals who advise families at the decision point (Aging Life Care managers, elder law practices) serving Evanston and the North Shore",
+   "status": "done",
+   "why": "civic organizations list agencies, not guides; professionals who guide individual families may share a free tour checklist",
+   "done_when": "up to 8 practices assessed from their public business pages (fit and reason); Gmail drafts for at most 2 clear fits, to published general business addresses only",
+   "result": "Operator ran it at 16:35 Chicago instead of waiting for tonight. Verdict DROP for now: search results for Evanston and North Shore care managers are home-care franchises (direct competitors for the same families) or directory listings; the library directory names 2 care-management listings, neither local with a public address; elder law results are lawyer directories of individual attorneys, and firms take contact forms, not general addresses. No clear fit with a published general business address, so no drafts.",
+   "done_utc": "2026-11-18T22:45Z"
+  }
+ ],
+ "channels": {
+  "facebook_caregiver_groups_chicago": {
+   "verdict": "DROP",
+   "checked_utc": "2026-11-18T16:28Z",
+   "evidence": "Facebook group search for caregivers/dementia caregivers/aging parents in Chicago returns mostly job and placement boards. 'Families who need a CAREGIVER in Chicago and Suburbs' (public, 5.3K): 31 recent posts were agency hiring ads and caregiving tips, 0 family requests. 'HomeCare in Illinois, Caregivers ,Care for parents' (public, 19K): 23 recent posts, hiring and placement, 0 family requests."
+  },
+  "facebook_national_aging_parent_groups": {
+   "verdict": "DROP",
+   "checked_utc": "2026-11-18T16:28Z",
+   "evidence": "Parenting Aging Parents, Caring for Elderly Parents, Taking Care of Elderly Parents and similar are private and national, outside his authorization (public Evanston/North Shore groups only) and not local."
+  },
+  "reddit": {
+   "verdict": "DROP (not reachable)",
+   "checked_utc": "2026-11-18T16:28Z",
+   "evidence": "The research tool declines reddit.com (search restricted to reddit.com is rejected), so Reddit can't be researched here; not routed around."
+  },
+  "nextdoor": {
+   "verdict": "DROP",
+   "checked_utc": "2026-11-18T15:20Z",
+   "evidence": "Nextdoor's 19 Aug 2026 policy bars business promotion from personal accounts in posts, comments and DMs; needs a Business Page (his decision)."
+  },
+  "local_library_caregiver_events": {
+   "verdict": "WATCH",
+   "checked_utc": "2026-11-18T16:28Z",
+   "evidence": "Evanston Public Library hosts an Alzheimer's Association dementia caregiver support group, a memory cafe, a CJE caregiver social hour and talks such as 'Building a Circle of Care: Free Home Care and Adult Day Service Options'. Offering a free talk on comparing senior living would need Joseph's time (his decision)."
+  }
+ },
+ "fb_group_candidates": [],
+ "orgs": [
+  {
+   "org": "City of Evanston Senior Services (Levy Senior Center; Dementia-Friendly Evanston resources)",
+   "fit": "high",
+   "evidence": "Its Dementia-Friendly Evanston resources page lists many outside websites and guides and is maintained by city staff and the Dementia-Friendly Evanston Subcommittee; its Senior Resources page lists local organizations but no tools for comparing assisted living or memory care",
+   "urls": [
+    "https://www.cityofevanston.org/departments/prcs/facilities/levy_senior_center/senior_services/dementia_friendly_evanston_resources.php",
+    "https://www.cityofevanston.org/government/departments/parks-and-recreation-department/facilities/levy-senior-center/evanston-community-resources"
+   ],
+   "general_contact": "published general address on both pages",
+   "action": "Gmail draft created"
+  },
+  {
+   "org": "North Shore Senior Center (Northfield)",
+   "fit": "medium-high",
+   "evidence": "Runs a caregiver support program (counseling, education, connections to resources and support groups) for North Shore family caregivers; listed by the City of Evanston under local resources and memory care programs",
+   "urls": [
+    "https://www.nssc.org/"
+   ],
+   "general_contact": "published general address (City of Evanston Senior Resources page)",
+   "action": "Gmail draft created"
+  },
+  {
+   "org": "Evanston Public Library",
+   "fit": "medium-high",
+   "evidence": "Its community organizations directory (Senior Services category) lists agencies, home care companies, senior living communities and online resources; it hosts caregiver support groups and talks",
+   "urls": [
+    "https://epl.org/community-organizations-directory/wpbdp_category/senior"
+   ],
+   "general_contact": "contact form only, no published email",
+   "action": "none (a contact form would need Joseph)"
+  },
+  {
+   "org": "CJE SeniorLife",
+   "fit": "low",
+   "evidence": "Runs a caregiver social hour at the library, but it is itself a senior living and services provider",
+   "urls": [
+    "https://cje.net/"
+   ],
+   "general_contact": "not checked",
+   "action": "none"
+  },
+  {
+   "org": "Alzheimer's Association Illinois chapter (support group at Evanston Public Library)",
+   "fit": "low",
+   "evidence": "Support group, not a resource list",
+   "urls": [],
+   "general_contact": "not checked",
+   "action": "none"
+  },
+  {
+   "org": "AgeOptions (Area Agency on Aging, suburban Cook)",
+   "fit": "low",
+   "evidence": "Area Agency on Aging; provider-neutral by role, so unlikely to list a guide with a tour option for one community; contact page at https://www.ageoptions.org/contact/",
+   "urls": [],
+   "general_contact": "not found yet",
+   "action": "none"
+  },
+  {
+   "org": "Glenview Public Library (Resources for Older Adults)",
+   "fit": "low",
+   "evidence": "Lists only agencies (Village senior services, SSA, SHIP, Alzheimer's Association); contact form only",
+   "urls": [
+    "https://glenviewpl.org/blogs/post/resources-for-older-adults/"
+   ],
+   "general_contact": "no email published",
+   "action": "none"
+  }
+ ],
+ "search": {
+  "checked_utc": "2026-11-18T16:28Z",
+  "queries_checked": 5,
+  "evidence": "In the research search index the site does not appear even for its own domain name; for tour-checklist, paying-for-assisted-living, Supportive Living Program and Evanston assisted living queries, page one is directories (Caring.com, Seniorly, A Place for Mom, Care.com, Checkbook), operators' blogs and state pages. This index is not Google, so Google visibility must come from Search Console.",
+  "action": "session operator, 19 Nov: Search Console Pages report (indexed count) and request indexing for the home page (tour checklist), the cost guide, the levels-of-care guide and the Supportive Living Program guide",
+  "google_search_console": {
+   "checked_utc": "2026-11-18T16:33Z",
+   "indexing": "URL inspection: home, cost, levels of care, inspection records, independent living, Supportive Living Program, VA caregiver and VA nursing home guides are indexed; FIDE SNP guide discovered, not yet indexed (request already pending); caregiver background check guide unknown to Google, indexing requested 18 Nov",
+   "performance_16_nov": "38 impressions, 0 clicks, average position 47.4. Queries are all Medicare questions: 'how much does medicare pay for assisted living (facility)' 11, nursing home and Medicare 6, 'does medicare cover assisted living' variants 6. Pages: does-medicare-pay-for-senior-care 25 impressions (position 69), illinois-medicaid-estate-recovery 4 (position 5.8), illinois-care-facility-complaint 4 (position 6.8)",
+   "verdict": "Google search is a real but early channel: families researching what Medicare pays already see the site, at page-7 positions for the main query cluster. The Medicare guide's title already matches those queries, so no change now; recheck weekly"
+  }
+ },
+ "drafts": [
+  {
+   "org": "City of Evanston Senior Services",
+   "purpose": "offer the free guide and tour checklist for their senior and dementia resource lists",
+   "created_utc": "2026-11-18T16:28Z"
+  },
+  {
+   "org": "North Shore Senior Center",
+   "purpose": "offer the free guide and tour checklist to caregiver staff, resources or newsletter",
+   "created_utc": "2026-11-18T16:28Z"
+  }
+ ],
+ "limits": [],
+ "brief": {
+  "date_chicago": "2026-11-21",
+  "ready": "Winnetka post text P-1120-01 (rescheduled Sat 21 Nov 9:00-13:00 Chicago) and Rogers Park post text P-1122-01 (postable from 11:29 Chicago Sun 22 Nov) ready for the operator; no reply or referral drafts waiting",
+  "learned": [
+   "still 0 organization replies to the 11 outreach emails (inbox: 1 auto-reply, Nextdoor digests, account notices); the Search Console indexing notice is the expected ?ref= canonical folding",
+   "overnight hourly metrics: 1 genuine single-page visit (elder-abuse guide, untagged, bounced), 0 tour-form views; new referral searches (Wilmette, Winnetka, Northbrook) return home-care franchises and directories, no clear fit with a general address"
   ]
+ },
+ "log": [
+  "2026-11-18T16:28Z session operator (daytime loop): channel verdicts for Facebook caregiver groups, national groups, Reddit, Nextdoor, library events; 6 organizations assessed, 2 Gmail drafts created (City of Evanston Senior Services, North Shore Senior Center); search baseline done (site not visible in the research index)",
+  "2026-11-18T16:33Z Search Console: key pages indexed; 1 indexing request (caregiver background check guide); 16 Nov performance 38 impressions, 0 clicks, Medicare cost queries",
+  "2026-11-18T16:41Z session operator: G1 and G2 done (verdicts above); added G4 for tonight",
+  "2026-11-18T22:45Z operator: G4 done (DROP: no clear-fit care-management or elder-law practice with a public general address; results were home-care franchises and lawyer directories)",
+  "2026-11-18T22:45Z tour engine replaces night growth (every 3 hours, 24/7): prepares reply drafts, tour-path page fixes, post texts and referral drafts for the operator; never ships",
+  "2026-11-19T00:15Z tour engine: no org replies; top-visited pages already have tour next steps; P-1120-01 waits for E1 verdict; referral drafts at daily cap (2 on 18 Nov); brief set; no action",
+  "2026-11-19T12:10Z tour engine: no org replies; P-1120-01 waits for E1 verdict; referral drafts held until the operator reviews replies (outreach plan 19-20 Nov); brief set; no action",
+  "2026-11-20T12:10Z tour engine: no org replies; P-1120-01 waits for E1 +48h verdict (17:44Z); referral drafts held (operator reply review pending, operator idle since 19 Nov 16:22Z); brief set; no action",
+  "2026-11-20T18:15Z tour engine: no org replies (inbox: auto-reply and digests only); E1 +48h: template A (tour checklist) beat template B (0 genuine); P-1120-01 Winnetka post text ready for the operator",
+  "2026-11-20T18:55Z esc-tour-loop ACQ-008: P-1120-01 landing path passes the anchor and visibility checks at 390px; the tour click drops ref (counts as direct). Fix in review PR #79. The post is not blocked.",
+  "2026-11-20T19:40Z esc-tour-loop ACQ-009/010: a tagged GUIDE landing fires no beacon and its tour click drops ref (fix in review PR #80). Until #80 merges, link the Skokie/Niles referral notes to https://evanstonseniorcareguide.com/?ref=em-<org>-<MMDD>#tour (homepage), not to a guide.",
+  "2026-11-20T18:55Z esc-tour-loop ACQ-013 (for the tour engine, P-1122-01 Rogers Park News, not before 22 Nov 17:29Z): landing /?ref=fb-rp-1122#tour passes at 390px and keeps the tag on landing. The group requires source links: use template A and cite the checklist's own sources, IDPH assisted living https://dph.illinois.gov/topics-services/health-care-regulation/assisted-living.html and Medicare Care Compare https://www.medicare.gov/care-compare/ (optionally City of Chicago senior services https://www.chicago.gov/city/en/depts/fss/provdrs/senior.html), all 200 on 20 Nov. Site link last on its own line, homepage #tour not a guide; in the composer confirm the preview card is the site's (a source link placed first may become the card).",
+  "2026-11-20T21:15Z tour engine: no org replies (inbox: Nextdoor digests and promos only); no genuine visitors in latest metrics; P-1122-01 Rogers Park post text ready (template A, IDPH and Care Compare sources, link last)",
+  "2026-11-21T12:10Z tour engine: no org replies; no page with real visitors lacks a tour step (one bounced elder-abuse visit is not evidence); both post texts already ready; referral search (Wilmette, Winnetka, Northbrook) found only franchises and directories; brief set; no action",
+  "2026-11-22T00:07Z tour engine: no org replies (inbox: account notices, Nextdoor digests); 0 genuine visitors in latest metrics window; both post texts already ready (P-1120-01 still pending); township senior-services search (New Trier, Northfield) found no page with a general address; no action"
+ ],
+ "ready": [
+  {
+   "type": "post_text",
+   "action_id": "P-1120-01",
+   "for": "operator",
+   "status": "ready",
+   "venue": "group:1316163449754368 What's Happening in Winnetka illinois",
+   "not_before_utc": "2026-11-20T21:53Z",
+   "hook": "template A (tour checklist), per E1",
+   "e1_verdict": "template A wins: fb-wil-1118 (template B, costs) had 0 genuine visitors in every logged window 18 Nov 17:44Z to 20 Nov 17:24Z (both tag variants) vs fb-evsk-1117 (template A) 2 genuine visitors, 1 checklist open, 1 tour-questions view; neither had a tour-form view. Tiny samples, directional only. Confirm the 17:24-17:44Z window in cloud.json before posting.",
+   "text": "Touring assisted living or memory care for a parent in Winnetka or nearby? Every place shows you the dining room. I put together a free one-page checklist of twelve questions that show you the rest: what the base rate includes and what is billed on top, how care levels are assessed and how often the price changes as a result, and what staffing looks like overnight. Print it and take it on every tour. No email or sign-up.\n\n#employed Disclosure: I work at Westminster Place in Evanston. The guide is my own independent project, it includes an optional way to request a tour there, and I receive no referral fees.\n\nhttps://evanstonseniorcareguide.com/?ref=fb-wnk-1120#tour",
+   "checks": "Winnetka in the first sentence; claims match the homepage tour section (twelve questions, one-page PDF, no email or sign-up); #employed per group rules; link last with nothing after it (OP1); re-read group rules on the day",
+   "created_utc": "2026-11-20T18:15Z",
+   "landing_check": {
+    "utc": "2026-11-20T18:55Z",
+    "by": "esc-tour-loop ACQ-008",
+    "anchor_390px": "pass: #tour at top; checklist and disclosed tour link both on the first screen",
+    "ref_to_tour_form": "FAIL until PR #79 merges: 'Ask about a tour here' reloads to /?tour=form#plan-visit without ref, so the form view and any inquiry count as direct. Landing, tour-questions and checklist beacons keep fb-wnk-1120.",
+    "post_blocked": false,
+    "fix": "https://github.com/JGBALL23/evanston-senior-care-guide/pull/79 (review only)"
+   }
+  },
+  {
+   "type": "post_text",
+   "action_id": "P-1122-01",
+   "for": "operator",
+   "status": "ready",
+   "venue": "group:RogersParkNeighborhoodNews Rogers Park News",
+   "not_before_utc": "2026-11-22T17:29Z",
+   "hook": "template A (tour checklist), per E1 +48h verdict",
+   "text": "Touring assisted living or memory care for a parent in Rogers Park or nearby? Every place shows you the dining room. I put together a free one-page checklist of twelve questions that show you the rest: what the base rate includes and what is billed on top, how care levels are assessed and how often the price changes as a result, and what staffing looks like overnight. Print it and take it on every tour. No email or sign-up.\n\nSources the checklist points to: Illinois Department of Public Health, assisted living licensing: https://dph.illinois.gov/topics-services/health-care-regulation/assisted-living.html\nMedicare Care Compare (nursing home inspections and staffing): https://www.medicare.gov/care-compare/\n\nDisclosure: I work at Westminster Place in Evanston. The guide is my own independent project, it includes an optional way to request a tour there, and I receive no referral fees.\n\nhttps://evanstonseniorcareguide.com/?ref=fb-rp-1122#tour",
+   "checks": "Rogers Park in the first sentence; claims match the homepage tour section (twelve questions, one page, no email or sign-up) and both source URLs appear on the homepage (ACQ-013: 200 on 20 Nov); group rule: verifiable with sources; disclosure before link; site link last on its own line with nothing after it (OP1); homepage #tour, not a guide; no #employed (not a rule of this group, re-read rules on the day); in the composer confirm the preview card is the site's, not a source link's",
+   "created_utc": "2026-11-20T21:15Z"
+  }
+ ]
 }
