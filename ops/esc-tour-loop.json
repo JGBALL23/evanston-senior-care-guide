@@ -2062,13 +2062,19 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062), control record V3",
   "since_utc": "2026-11-22T23:15Z",
   "lock": {
-   "holder": "dead-session-test",
-   "utc": "2026-11-22T21:37Z"
+   "holder": "cse_014eaiSdEuqo8texUfhrZMPA",
+   "utc": "2026-11-22T23:37Z"
   },
   "monitor": {
    "last_utc": "2026-11-22T23:32Z"
   },
   "sessions": [
+   {
+    "run": "dead-session-test",
+    "start_utc": "2026-11-22T21:37Z",
+    "end_utc": null,
+    "outcome": "abandoned: no close recorded; lock taken over by cse_014eaiSdEuqo8texUfhrZMPA"
+   },
    {
     "run": "cse_014eaiSeskuwUN1qqaHV4Bun",
     "start_utc": "2026-11-22T23:33Z",
