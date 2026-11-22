@@ -95,19 +95,6 @@
    "found_utc": "2026-11-22T17:40Z"
   },
   {
-   "id": "ACQ-022",
-   "priority": 1,
-   "status": "ready",
-   "workstream": "distribution",
-   "map_item": "D11",
-   "task": "Examine free senior resource fairs, expos and caregiver events in Evanston and the North Shore for Dec 2026 to mid-2027 (municipal senior centers, townships, park districts, libraries, hospital community health, Area Agency on Aging). For each, find the date, organizer, whether outside free resource tables or printed-material displays are allowed, any fee (a fee means DROP), and the published route. Check Gmail Sent and the state files for earlier contact, and give each a verdict.",
-   "evidence": "D11 has never been examined. ACQ-021 showed that free listing routes need a real event, and a fair table is the cheapest way to put the printed tour checklist in families' hands. Two senior-center caregiver series exist (NSSC, Glenview 2026), so organizers in this class are active.",
-   "expected_tour_acquisition_value": "Families at fairs are often at the decision stage. A free table or a checklist stack with a tagged QR/URL puts the tour step directly in front of them, and a fair date also unlocks the calendar WATCH routes.",
-   "executor": "this loop (research and preparation only); any booking and any staffing are Joseph's",
-   "done_when": "Every target has a verdict (ACT, WATCH, DROP or OWNER) with its source URL; the best ACT target has one prepared handoff; D11 and channel_yield are updated.",
-   "found_utc": "2026-11-22T18:40Z"
-  },
-  {
    "id": "ACQ-023",
    "priority": 1,
    "status": "ready",
@@ -120,6 +107,20 @@
    "executor": "this loop (research and preparation only)",
    "done_when": "Every community has a row (results-page owners, gaps, whether the site appears) with source URLs; a verdict on S4 (ACT with one small proposal for Joseph, WATCH or DROP); channel_yield updated.",
    "found_utc": "2026-11-22T19:40Z"
+  },
+  {
+   "id": "ACQ-024",
+   "priority": 1,
+   "status": "ready",
+   "workstream": "referral_partnerships",
+   "map_item": "R3",
+   "task": "Examine hospital and rehab discharge planning / social work / case management routes in Evanston and the North Shore other than Evanston Hospital (already checked: no public route): Endeavor Health Glenbrook, Highland Park and Skokie hospitals, Ascension Saint Francis, Shirley Ryan AbilityLab outpatient sites, and licensed skilled-nursing rehab units. For each, find whether it publishes a patient/family resource list that includes outside websites or a public contact route for community resources, check Gmail Sent and state files for earlier contact, and give a verdict.",
+   "evidence": "R3 is the highest-ranked open map item. Families leaving hospital or short-term rehab often have days to choose assisted living or memory care, so a discharge-planning resource list is the most decision-stage referral class not yet examined; Gmail Sent shows no email ever sent to this class.",
+   "guardrails": "Research and preparation only; at most three proposals before any response; disclose Joseph's Westminster Place employment in any prepared text; no patient data.",
+   "expected_tour_acquisition_value": "High if any route exists: discharge families are choosing within days.",
+   "executor": "this loop (research and preparation only); sending is the outreach operator's",
+   "done_when": "Every target has a verdict (ACT, WATCH, DROP or OWNER) with its source URL; best ACT target has one duplicate-checked handoff; R3 and channel_yield updated.",
+   "found_utc": "2026-11-22T20:40Z"
   }
  ],
  "completed": [
@@ -533,15 +534,40 @@
    "found_utc": "2026-11-20T19:40Z",
    "done_utc": "2026-11-22T19:40Z",
    "result": "Gmail Sent: Niles Senior Center email went out 2026-11-21T01:11Z from the guide account and linked the homepage tour section, tagged ?ref=em-1120a#tour, as this task asked (state.json records it as E-1120-01). 0 replies as of 2026-11-22T19:40Z. Skokie Human Services publishes no email, so it is phone-only and on Joseph's call list. Attribute ref=em-1120a landings to Niles in the next metrics review."
+  },
+  {
+   "id": "ACQ-022",
+   "priority": 1,
+   "status": "done",
+   "workstream": "distribution",
+   "map_item": "D11",
+   "task": "Examine free senior resource fairs, expos and caregiver events in Evanston and the North Shore for Dec 2026 to mid-2027 (municipal senior centers, townships, park districts, libraries, hospital community health, Area Agency on Aging). For each, find the date, organizer, whether outside free resource tables or printed-material displays are allowed, any fee (a fee means DROP), and the published route. Check Gmail Sent and the state files for earlier contact, and give each a verdict.",
+   "evidence": "D11 has never been examined. ACQ-021 showed that free listing routes need a real event, and a fair table is the cheapest way to put the printed tour checklist in families' hands. Two senior-center caregiver series exist (NSSC, Glenview 2026), so organizers in this class are active.",
+   "expected_tour_acquisition_value": "Families at fairs are often at the decision stage. A free table or a checklist stack with a tagged QR/URL puts the tour step directly in front of them, and a fair date also unlocks the calendar WATCH routes.",
+   "executor": "this loop (research and preparation only); any booking and any staffing are Joseph's",
+   "done_when": "Every target has a verdict (ACT, WATCH, DROP or OWNER) with its source URL; the best ACT target has one prepared handoff; D11 and channel_yield are updated.",
+   "found_utc": "2026-11-22T18:40Z",
+   "done_utc": "2026-11-22T20:40Z",
+   "result": "0 ACT across 8 fair routes. No free outside table exists for Dec 2026 to mid-2027 that the outreach operator could book. (1) Evanston Aging Well Expo, Fri 7 May 2027 9-12, Levy Senior Center (cityofevanston.org .../levy_senior_center/senior_services/aging_well_conference.php): 2026 vendor fee $250/table (cityofevanston.org/news_detail_T10_R111.php); 2027 terms 'finalized in early 2027' -> DROP for a table (fee); aging@cityofevanston.org was already emailed by the operator (Gmail Sent, 1-message thread, no reply) so no new contact. (2) Skokie Park District Live Well Age Well fair (last 7 Nov 2025, Oakton CC; event pages now 404; no fair in Prime Times Fall 2026 guide) -> WATCH, vendor terms unpublished, phone only 847-674-1500. (3) NSSC + New Trier Township FallFest wellness fair (Oct, past years; no 2026/27 listing) -> WATCH; NSSC already emailed (info@nssc.org, no reply), do not re-contact on a new topic. (4) North Suburban YMCA SeniorPLAYooza brain-health fair (12 May 2026, Northbrook, 30+ vendors, Alzheimer's Association partner; patch.com/illinois/glenview/nsymca-host-their-inaugural-seniorplayooza...) -> WATCH for a 2027 date; vendor terms unpublished. (5) Glenview Park District Senior Resource Fair (2025 flyer, glenviewparks.org/wp-content/uploads/2025/06/Flier.pdf; no 2026/27 date) -> WATCH. (6) Maine Township MaineStreamers Senior Expo (Niles, latest found 2019; historically booked exhibitors) -> DROP (no current info, likely fee). (7) Cook County Assessor senior resource fairs -> DROP (government-agency tables). (8) Hinsdale Aging Well fair, Elderwerks Kildeer expo -> DROP (outside the service area; commercial). Structural lesson: senior fairs are where communities (including the author's employer) pay to exhibit; a guide table staffed by Joseph is both a fee and an employer-disclosure question, so it is OWNER at best. Recheck WATCH routes 2027-02-15 (Evanston terms, NSYMCA/Glenview/Skokie dates).",
+   "verdicts": {
+    "evanston_aging_well_expo_2027": "DROP (fee)",
+    "skokie_live_well_age_well": "WATCH",
+    "nssc_fallfest": "WATCH",
+    "nsymca_seniorplayooza": "WATCH",
+    "glenview_senior_resource_fair": "WATCH",
+    "maine_twp_senior_expo": "DROP",
+    "cook_county_assessor_fairs": "DROP",
+    "hinsdale_elderwerks": "DROP"
+   }
   }
  ],
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-22T19:40Z",
-  "event": "pull_request.synchronize 3f82346",
-  "picked": "ACQ-020 (D9 employer caregiver pages)",
-  "why": "Distribution is still the bottleneck. D9 was the remaining ready distribution item with a chance of an operator-executable route. Gmail Sent was checked first: it confirmed the Niles send, which closes ACQ-010."
+  "utc": "2026-11-22T20:40Z",
+  "event": "pull_request.synchronize 1ced947",
+  "picked": "ACQ-022 (D11 free resource fairs)",
+  "why": "Distribution remains the bottleneck (0 genuine visitors 22 Nov, 0 org replies); D11 was the last never-examined distribution class with a possible operator-executable route."
  },
  "last_verified_action": "ACQ-020: 5 employers examined with sources, 0 ACT; D9 dropped. ACQ-010 closed: Niles sent 21 Nov with a tagged homepage tour link (ref=em-1120a), 0 replies. ACQ-023 (S4 community-name searches) queued. Nothing sent or submitted.",
  "last_stop": {
@@ -631,7 +657,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Ready: ACQ-022 (D11 free resource fairs), ACQ-019 (S3 local-intent demand), ACQ-023 (S4 community-name searches). Waiting: Search Console 25 Nov (ACQ-005/012/017), Niles/other org replies (attribute ref=em-1120a), PR merges, Joseph's ACQ-007 and ACQ-018 answers, and the D8 talk decision. Open map items after these: R3, R7, R6, R8, R2, R9.",
+ "next_discovery": "Ready: ACQ-019 (S3 local-intent demand), ACQ-023 (S4 community-name searches), ACQ-024 (R3 hospital/rehab discharge resource lists). Waiting: Search Console 25 Nov (ACQ-005/012/017), Niles/other org replies (ref=em-1120a), PR merges, Joseph's ACQ-007/ACQ-018/D8 answers. D11 recheck 2027-02-15. Open map items after these: R7, R6, R8, R2, R9.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -727,9 +753,9 @@
     "id": "D11",
     "lane": "distribution",
     "class": "free listings or free tables at local senior resource fairs and expos, 2026-27",
-    "status": "queued",
-    "note": "anything with a fee is DROP",
-    "checked_utc": "2026-11-22T18:40Z"
+    "status": "watch",
+    "note": "ACQ-022 (22 Nov): 0 ACT. Evanston Aging Well Expo 7 May 2027 charges $250/table (2026) = DROP; Skokie, NSSC FallFest, NSYMCA, Glenview fairs WATCH (no 2027 dates/vendor terms published); Maine Twp, Cook County Assessor, out-of-area expos DROP. Reopen 2027-02-15 or when a free table/literature display is published.",
+    "checked_utc": "2026-11-22T20:40Z"
    },
    {
     "id": "D12",
@@ -831,9 +857,9 @@
     "id": "R3",
     "lane": "referral_partnerships",
     "class": "hospital and rehab social work or case management",
-    "status": "open",
+    "status": "queued",
     "note": "Records: no email ever sent to this class (Gmail Sent); ACQ-006 (19 Nov) found Evanston Hospital shows no public senior-services or social-work contact route. Other North Shore hospitals and rehab / skilled-nursing discharge planners unexamined.",
-    "checked_utc": null
+    "checked_utc": "2026-11-22T20:40Z"
    },
    {
     "id": "R4",
@@ -961,6 +987,15 @@
     "inquiries": 0,
     "as_of_utc": "2026-11-22T19:40Z",
     "decision": "dropped: no public, operator-executable route; vendor-mediated benefits"
+   },
+   {
+    "class": "D11 resource fairs",
+    "shipped": 0,
+    "responses": null,
+    "genuine_visitors": 0,
+    "inquiries": 0,
+    "as_of_utc": "2026-11-22T20:40Z",
+    "decision": "watch: no free table published for Dec 2026-mid 2027; fee-based Evanston expo dropped; recheck 2027-02-15"
    }
   ]
  }
