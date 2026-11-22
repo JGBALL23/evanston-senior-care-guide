@@ -97,19 +97,6 @@
    "executor": "this loop (proposal); Joseph (decision to build)",
    "done_when": "If /assisted-living-evanston/ shows >=1 impression for a local query by its ~14-day mark, hand Joseph one yes/no proposal with the autocomplete evidence; if 0 impressions, record that indexing/authority is the bottleneck and keep S3 at watch.",
    "not_before_utc": "2026-12-06T15:00Z"
-  },
-  {
-   "id": "ACQ-034",
-   "priority": 2,
-   "status": "ready",
-   "workstream": "discovery",
-   "scout": "SC6",
-   "task": "Scout SC6 (New kinds of channel): How do comparable independent local guides and senior-care advisers in other places reach families at no cost, in ways not on the map? Evidence to use: Where three to five such sites are mentioned or linked, and what they publish that others cite. Bring back only what has a first step here.",
-   "evidence": "SC2 (ACQ-032) found the guide absent from all 18 decision-stage searches and no landing page accepting outside resources; channel ideas so far came from local inspection only. SC6 is due (next_due 2026-11-22T21:24Z) and has never run.",
-   "expected_tour_acquisition_value": "Finds new legitimate, free routes by which Evanston and North Shore families at or near a senior-living decision would see the guide, feeding open map items to the loop.",
-   "executor": "this loop (research and preparation only)",
-   "done_when": "Every candidate has a source URL or data row and a gate result; candidates that pass are on the map as open items; the scout's last_run_utc, next_due_utc, last_result and interval_days are updated; one line is added to discovery.log.",
-   "found_utc": "2026-11-22T21:30Z"
   }
  ],
  "completed": [
@@ -1241,17 +1228,66 @@
    },
    "result": "Two post texts, venues, window and measure ready for the outreach operator. Nothing posted.",
    "verified": "ready for external execution; not sent, not posted"
+  },
+  {
+   "id": "ACQ-034",
+   "priority": 2,
+   "status": "done",
+   "workstream": "discovery",
+   "scout": "SC6",
+   "task": "Scout SC6 (New kinds of channel): How do comparable independent local guides and senior-care advisers in other places reach families at no cost, in ways not on the map? Evidence to use: Where three to five such sites are mentioned or linked, and what they publish that others cite. Bring back only what has a first step here.",
+   "evidence": "SC2 (ACQ-032) found the guide absent from all 18 decision-stage searches and no landing page accepting outside resources; channel ideas so far came from local inspection only. SC6 is due (next_due 2026-11-22T21:24Z) and has never run.",
+   "expected_tour_acquisition_value": "Finds new legitimate, free routes by which Evanston and North Shore families at or near a senior-living decision would see the guide, feeding open map items to the loop.",
+   "executor": "this loop (research and preparation only)",
+   "done_when": "Every candidate has a source URL or data row and a gate result; candidates that pass are on the map as open items; the scout's last_run_utc, next_due_utc, last_result and interval_days are updated; one line is added to discovery.log.",
+   "found_utc": "2026-11-22T21:30Z",
+   "done_utc": "2026-11-22T21:40Z",
+   "method": "Web search for comparable independent local senior guides and advisers elsewhere (Wichita Active Age 55+ Resource Guide, Spokane Directory for Seniors, Lane County Senior Guide, Seniors Blue Book editions, Naperville 'Aging in Place' podcast, Libertyville 'Senior Issues Etc.' public-access show) and how they reach families; each route then tested for a local equivalent against discovery.gate. Dedup against map, queue, growth.json and state.json.",
+   "candidates": [
+    {
+     "route": "Independent printed senior directories in racks, libraries, senior centers (Active Age Wichita, Spokane, Lane County)",
+     "source": "https://issuu.com/theactiveage/docs/2025-2026_resource_guide",
+     "local_equivalent": "Elderwerks Senior Resource Directory (Palatine, advertiser-funded, biennial) https://www.prweb.com/releases/chicagoland-nonprofit-elderwerks-announces-release-of-20252026-senior-resource-directory-free-guide-provides-seniors-caregivers-information-about-various-services-302404204.html",
+     "gate": "DROP: advertiser-funded, outside the service area, placement/referral business already examined (ACQ-022, ACQ-027)"
+    },
+    {
+     "route": "Franchise print guides (Seniors Blue Book Chicago North)",
+     "source": "https://issuu.com/seniorsbluebook/docs/chi_n_dprn_",
+     "gate": "DROP: paid listings (not free)"
+    },
+    {
+     "route": "Municipal printed senior resource guides (Broomfield, Longmont, Bloomington, Des Plaines)",
+     "source": "https://www.desplainesil.gov/files/assets/city/v/1/human-services/2026-community-resource-guide.pdf",
+     "gate": "DROP: same audience by same route as R1 (municipal senior services), closed to more emails"
+    },
+    {
+     "route": "Alzheimer's Association/AARP Community Resource Finder (free provider profile)",
+     "source": "https://communityresourcefinder.org/Alz/FAQ",
+     "gate": "DROP: lists senior service providers (housing, at-home care, medical, community services) via a provider profile; an information website is not a provider, so listing it would misrepresent it"
+    },
+    {
+     "route": "Local podcast featuring area professionals (Seniors Helping Seniors Greater Naperville, 4 episodes, 2026)",
+     "source": "https://podcasts.apple.com/podcast/id1896576225",
+     "gate": "DROP: no North Shore aging podcast that books guests was found; starting one is owner effort with no audience; AgeGuide podcast is a provider-neutral agency (R10)"
+    },
+    {
+     "route": "Public-access cable program (Libertyville 'Senior Issues Etc.'; Evanston Access TV Channel 6)",
+     "source": "https://cityofevanston.org/residents/city_communications/public_access_television.php",
+     "gate": "PASS as WATCH -> D14: new class; free membership for 60201/60202 residents (non-residents may request airtime if Evanston-relevant); submission-only, member shows air twice a week for two weeks; first step exists only if Joseph gives a D8 talk that is recorded. Commercial-content rules are in the membership manual (not read). Not an owner ask: Joseph already has 6+ open items."
+    }
+   ],
+   "result": "6 routes checked, 1 passed the gate (D14 public-access cable, WATCH tied to D8), 0 reopened. Lesson: comparable guides elsewhere reach families mainly through print racks, sponsors and paid directories; the free, local ones depend on an author appearing in person (talks, shows), which keeps the binding constraint at D8/D7 (Joseph's time), not at undiscovered channels."
   }
  ],
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-22T22:05Z",
-  "event": "pull_request.synchronize aae1150",
-  "picked": "ACQ-035 (D13 post-holiday post texts)",
-  "why": "Priority-1 ready item; no fresh demand data until the 25 Nov Search Console read."
+  "utc": "2026-11-22T21:40Z",
+  "event": "pull_request.synchronize c282321",
+  "picked": "ACQ-034 (SC6 new kinds of channel)",
+  "why": "Only ready item; no fresh demand data until the 25 Nov Search Console read."
  },
- "last_verified_action": "ACQ-035 done 2026-11-22T22:05Z: two disclosed post-holiday post texts ready for the outreach operator (P-1228-01 Evanston/Skokie from 28 Dec, P-0102-01 North Shore What's Happening from 2 Jan; landing #assessment; read +24h/+48h); not posted. Next: ACQ-034 (SC6).",
+ "last_verified_action": "ACQ-034 done 2026-11-22T21:40Z: SC6 found 1 new class (D14 public-access cable, WATCH tied to D8 talk); 5 routes dropped with sources. Research only; nothing sent. No ready task remains; next work is SC3 (25 Nov 16:00Z) and the Search Console read (ACQ-005/012/017, from 25 Nov 15:00Z).",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -1341,7 +1377,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "SC1 next 2026-12-22, SC2 next 2026-12-06, SC4 next 2026-11-29 (interval 7); ready: ACQ-034 SC6 new kinds of channel; operator: P-1228-01 from 28 Dec, P-0102-01 from 2 Jan (ACQ-035); SC3 due 2026-11-25T16:00Z, SC5 due 2026-11-29T16:00Z. From 25 Nov 15:00Z: Search Console read (ACQ-005/012/017) and the outreach operator's follow-ups to the 11 sends of 17-22 Nov. From 6 Dec: ACQ-030. Still unanswered by Joseph: D8 talk, Patch account, Nextdoor Business Page, PRs #85 #84 #79 #81 #78, Search Console indexing request; essay timing note (by ~10 Dec).",
+ "next_discovery": "No ready task and no open map item after ACQ-034. Next: from 25 Nov 15:00Z Search Console read (ACQ-005/012/017) and SC3 (due 25 Nov 16:00Z); SC5 29 Nov; SC4 29 Nov; SC2 6 Dec; SC6 7 Dec; SC1 22 Dec; ACQ-030 from 6 Dec; operator: P-1228-01 from 28 Dec, P-0102-01 from 2 Jan. Runs before 25 Nov 15:00Z with no new evidence (reply, PR merge, Joseph answer, genuine tour-form view) stop without a commit. Still unanswered by Joseph: D8 talk (also unlocks D14), Patch account, Nextdoor Business Page, PRs #86 #85 #84 #81 #79 #78, Search Console indexing request; essay timing (by ~10 Dec).",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -1635,6 +1671,14 @@
     "status": "ready for operator",
     "note": "ACQ-033 (22 Nov): trade sources report inquiry peak about 3-4 Jan after holiday visits (vendor/trade data, not independent); local precedent on Patch Evanston/Wilmette. Landing /?ref=...#assessment passes at 390px. ACQ-035 prepares the post text; operator posts inside the cap 27 Dec - 4 Jan. Drop after 15 Jan if not posted. ACQ-035 done 22 Nov: P-1228-01 (Evanston/Skokie, fb-hol-evsk-1228, from 28 Dec) and P-0102-01 (North Shore What's Happening, fb-hol-ns-0102, from 2 Jan) handed off; read +24h/+48h.",
     "checked_utc": "2026-11-22T22:05Z"
+   },
+   {
+    "id": "D14",
+    "lane": "distribution",
+    "class": "public-access cable (Evanston Access TV, Channel 6; neighbouring village channels)",
+    "status": "watch",
+    "note": "ACQ-034 (SC6, 22 Nov): free, submission-only; member shows air twice a week for two weeks; membership for Evanston 60201/60202 residents, non-residents may request airtime for Evanston-relevant content (https://cityofevanston.org/residents/city_communications/public_access_television.php). Reopen only if Joseph says yes to a D8 talk: then check the membership manual's commercial-content rule and propose recording the talk for Channel 6 (tag ref=tv-ch6). Reach is unmeasured and likely small; never ask him to produce a show for this alone.",
+    "checked_utc": "2026-11-22T21:40Z"
    }
   ],
   "channel_yield": [
@@ -1823,10 +1867,10 @@
      "name": "New kinds of channel",
      "question": "How do comparable independent local guides and senior-care advisers in other places reach families at no cost, in ways not on the map?",
      "evidence": "Where three to five such sites are mentioned or linked, and what they publish that others cite. Bring back only what has a first step here.",
-     "interval_days": 30,
-     "last_run_utc": null,
-     "next_due_utc": "2026-11-22T21:24Z",
-     "last_result": null
+     "interval_days": 15,
+     "last_run_utc": "2026-11-22T21:40Z",
+     "next_due_utc": "2026-12-07T21:40Z",
+     "last_result": "ACQ-034: 6 routes checked, 1 added (D14 public-access cable, WATCH), 0 reopened; Elderwerks directory, Seniors Blue Book, municipal print guides, Community Resource Finder, local podcast DROP"
     }
    ],
    "gate": "A candidate becomes a map item only if all five hold. 1 New: it is not on the map and is not a variation of a dropped class (the same audience by the same route). 2 Observed: a source URL or a row in the site's own data shows it exists; no source, no candidate; never add something because it sounds plausible. 3 A path to families: it names how Evanston or North Shore families at or near a senior-living decision would come to see the guide. 4 Legitimate and free: inside the platform's or organization's own rules, disclosed, $0, no unsolicited private messages, nothing in bulk. 5 A first step exists: for the loop (research and preparation), for the designated operator (inside its existing authority) or for Joseph (an owner item with the minutes it takes). A run that finds nothing passes nothing: record the run and its next due date and stop; that record is its result.",
@@ -1840,7 +1884,8 @@
    "log": [
     "2026-11-22T21:28Z SC1 peer listings (ACQ-031): 5 targets checked, 0 passed the gate, 0 reopened; next due 2026-12-22T21:28Z.",
     "2026-11-22T21:30Z SC2 what families find (ACQ-032): 18 queries, guide in 0 results, 6 candidate groups checked, 0 passed the gate, 0 reopened; next due 2026-12-06.",
-    "2026-11-22T21:34Z SC4 calendar (ACQ-033): window to 21 Jan 2027; 6 candidate groups, 1 passed the gate (D13 post-holiday family-visit window), 0 reopened; interval 14->7, next due 2026-11-29."
+    "2026-11-22T21:34Z SC4 calendar (ACQ-033): window to 21 Jan 2027; 6 candidate groups, 1 passed the gate (D13 post-holiday family-visit window), 0 reopened; interval 14->7, next due 2026-11-29.",
+    "2026-11-22T21:40Z SC6 new kinds of channel (ACQ-034): 6 routes from comparable guides elsewhere, 1 passed the gate (D14 public-access cable, WATCH on D8), 0 reopened; interval 30->15, next due 2026-12-07."
    ]
   }
  },
@@ -1901,6 +1946,7 @@
     "yield R9 2026-11-23T00:30Z->2026-11-22T17:49Z",
     "last_run 2026-11-23T00:30Z->2026-11-22T17:49Z"
    ]
-  }
+  },
+  "2026-11-22: ACQ-035 done_utc and the previous last_run were recorded as 22:05Z; the commit c282321 is 21:34:57Z (runner clock read 21:38Z at the next run). Treat 22:05Z as 21:35Z."
  ]
 }
