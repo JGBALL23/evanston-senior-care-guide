@@ -99,19 +99,6 @@
    "not_before_utc": "2026-12-06T15:00Z"
   },
   {
-   "id": "ACQ-033",
-   "priority": 1,
-   "status": "ready",
-   "workstream": "discovery",
-   "scout": "SC4",
-   "task": "Scout SC4 (Calendar): Which dated openings fall in the next 60 days? Evidence to use: Published programs and events for older adults and caregivers at the library, senior centers, the city, hospitals' community classes and local groups; awareness weeks; anything with a free listing, a question session, or a timely hook for a post or for Joseph's essay.",
-   "evidence": "Calendar: D8 (free talk) and D7 (essay) await Joseph; dated openings in the next 60 days (holiday family visits, caregiver programs at libraries found in ACQ-028) have not been collected. Scout due now.",
-   "expected_tour_acquisition_value": "Finds new legitimate, free routes by which Evanston and North Shore families at or near a senior-living decision would see the guide, feeding open map items to the loop.",
-   "executor": "this loop (research and preparation only)",
-   "done_when": "Every candidate has a source URL or data row and a gate result; candidates that pass are on the map as open items; the scout's last_run_utc, next_due_utc, last_result and interval_days are updated; one line is added to discovery.log.",
-   "found_utc": "2026-11-22T21:24Z"
-  },
-  {
    "id": "ACQ-034",
    "priority": 2,
    "status": "ready",
@@ -123,6 +110,19 @@
    "executor": "this loop (research and preparation only)",
    "done_when": "Every candidate has a source URL or data row and a gate result; candidates that pass are on the map as open items; the scout's last_run_utc, next_due_utc, last_result and interval_days are updated; one line is added to discovery.log.",
    "found_utc": "2026-11-22T21:30Z"
+  },
+  {
+   "id": "ACQ-035",
+   "priority": 1,
+   "status": "ready",
+   "workstream": "qualified_audience",
+   "map_item": "D13",
+   "task": "Prepare one post-holiday Facebook post text (P-1227-01) for the outreach operator: hook = 'after a holiday visit, wondering whether a parent needs more help', landing https://evanstonseniorcareguide.com/?ref=fb-hol-MMDD#assessment (landing check passed 22 Nov), template A conventions (disclosure that Joseph works at Westminster Place, #employed where the group asks, site link last on its own line, sources cited where a group requires them). Pick 2 target groups from D1's active venues with the 7-day spacing and 5-in-7 cap in mind; name the posting window 27 Dec - 4 Jan; define the measure (genuine visitors, assessment starts/completions, tour-form views at +24h/+48h vs template A baseline). Hand off in growth.json-compatible form; do not post.",
+   "evidence": "ACQ-033 (SC4): trade reports put the senior-living inquiry peak about 3-4 Jan after holiday visits; local operators publish holiday-visit pieces on Patch Evanston/Wilmette; the site's assessment answers 'which kind of care fits?' with no sign-up.",
+   "expected_tour_acquisition_value": "Medium: reaches adult children at the moment the question is fresh, through the only channel that has produced genuine visitors (D1); routes to the assessment, whose result pages carry the tour step.",
+   "executor": "this loop (text and plan); outreach operator (posting, within cap)",
+   "done_when": "Post text, venues, window and measure recorded as a handoff; status 'ready for operator', not 'posted'.",
+   "found_utc": "2026-11-22T21:34Z"
   }
  ],
  "completed": [
@@ -1144,17 +1144,67 @@
     }
    ],
    "lesson": "Search is not a route to families today: the guide is absent across all 18 decision-stage queries, and the pages families land on accept no outside resource. The Google picture must come from the 25 Nov Search Console read (ACQ-005/012/017), not from more search-result scouting; SC2 keeps its 14-day interval (first run, nothing added)."
+  },
+  {
+   "id": "ACQ-033",
+   "priority": 1,
+   "status": "done",
+   "workstream": "discovery",
+   "scout": "SC4",
+   "task": "Scout SC4 (Calendar): Which dated openings fall in the next 60 days? Evidence to use: Published programs and events for older adults and caregivers at the library, senior centers, the city, hospitals' community classes and local groups; awareness weeks; anything with a free listing, a question session, or a timely hook for a post or for Joseph's essay.",
+   "evidence": "Calendar: D8 (free talk) and D7 (essay) await Joseph; dated openings in the next 60 days (holiday family visits, caregiver programs at libraries found in ACQ-028) have not been collected. Scout due now.",
+   "expected_tour_acquisition_value": "Finds new legitimate, free routes by which Evanston and North Shore families at or near a senior-living decision would see the guide, feeding open map items to the loop.",
+   "executor": "this loop (research and preparation only)",
+   "done_when": "Every candidate has a source URL or data row and a gate result; candidates that pass are on the map as open items; the scout's last_run_utc, next_due_utc, last_result and interval_days are updated; one line is added to discovery.log.",
+   "found_utc": "2026-11-22T21:24Z",
+   "done_utc": "2026-11-22T21:34Z",
+   "method": "7 web searches (research index) and 2 page reads: Evanston Public Library events (bibliocommons/libnet), Levy Senior Center e-news (govdelivery), North Shore Senior Center, Wilmette Public Library senior services, awareness dates, holiday-visit coverage on local news, industry reports on post-holiday inquiry timing. Window 22 Nov 2026 - 21 Jan 2027. Dedup against the map (D1, D7, D8, D10, D11) and growth.json.",
+   "candidates": [
+    {
+     "name": "Post-holiday family-visit window (26 Dec - early Jan)",
+     "source": "seniorhousingnews.com/2014/12/28/senior-living-operators-ready-for-post-holiday-sales-rush/ ; seniorhousingnews.com/2013/12/11/senior-living-companies-ramp-up-for-holiday-rush/ (inquiries dip before Christmas, peak about 3-4 Jan); local precedent: patch.com/illinois/evanston/merion-shares-what-watch-aging-parents-holiday-season-0 and patch.com/illinois/wilmette/bp--addressing-signs-of-aging-in-parents-over-the-holidays",
+     "gate": "PASS -> map item D13",
+     "why": "New timing/hook for the active D1 channel (not a dropped class); adult children who just saw a parent at the holidays are at the 'is it time?' stage, and the site's 6-question assessment answers exactly that; first step is the loop's (post text + landing check) then the operator's, inside the existing posting cap. Industry figures are trade/vendor claims, not independent data: treat the spike as plausible, not measured."
+    },
+    {
+     "name": "Evanston Now essay timing (D7)",
+     "source": "same holiday-visit sources",
+     "gate": "not a new item (D7 owner); note added to owner_review_needed: a holiday-visit angle would be timely if submitted by about 10 Dec"
+    },
+    {
+     "name": "EPL Care Collective social hour (24 Nov, 26 Jan) / dementia caregiver support groups (EPL 3rd Tue, Wilmette 2nd Mon Zoom) / Renewal dementia workshops",
+     "source": "evanstonlibrary.bibliocommons.com/events/673cbc8f083abe2f00cb6c66 ; cje.net/?p=19877 ; wilmette.libnet.info",
+     "gate": "DROP: support spaces, not channels; promoting a guide there is not legitimate"
+    },
+    {
+     "name": "Levy Senior Center December programs (organizing series, lectures, Producemobile)",
+     "source": "content.govdelivery.com/accounts/ILEVANSTON (weekly e-news)",
+     "gate": "DROP: no caregiver or senior-living topic and no free listing route; D8 (talk) already covers Levy"
+    },
+    {
+     "name": "Wilmette PL / NSSC winter 2027 programs",
+     "source": "wilmettelibrary.info (winter 2026 guide only); NSSC schedule not published",
+     "gate": "no candidate: winter 2027 schedules not yet published; D8 owner item already holds these venues"
+    },
+    {
+     "name": "Awareness weeks in window",
+     "source": "National Family Caregivers Month ends 30 Nov; nothing relevant Dec-Jan",
+     "gate": "no candidate"
+    }
+   ],
+   "result": "1 added (D13 post-holiday window), 0 reopened, 4 groups dropped or not candidates. Landing check for D13 done now: https://evanstonseniorcareguide.com/?ref=fb-hol-test#assessment at 390px returns 200, scrolls to 'Which kind of care fits?' just below the header (scrollY 1015, top 74px) and fires t/landed.txt?s=fb-hol-test. That one test hit (2026-11-22 about 21:33Z, tag fb-hol-test) is this loop's, not a visitor: exclude it from metrics.",
+   "verified": "research completed; nothing sent or posted"
   }
  ],
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-22T21:30Z",
-  "event": "pull_request.synchronize 9c77ade",
-  "picked": "ACQ-032 (SC2 what families find)",
+  "utc": "2026-11-22T21:34Z",
+  "event": "pull_request.synchronize d7ca8fc",
+  "picked": "ACQ-033 (SC4 calendar)",
   "why": "Highest-priority ready item; no fresh demand data until the 25 Nov Search Console read."
  },
- "last_verified_action": "ACQ-032 done 2026-11-22T21:30Z: SC2 what families find, guide in 0 of 18 decision-stage results; directories/operator blogs/state pages own them; 0 candidates pass the gate. Next ready: ACQ-033 (SC4 calendar), then ACQ-034 (SC6 new kinds of channel).",
+ "last_verified_action": "ACQ-033 done 2026-11-22T21:34Z: SC4 calendar; 1 new map item D13 (post-holiday family-visit window, landing check passed); ACQ-035 (D13 post text for the operator) ready, then ACQ-034 (SC6).",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -1201,7 +1251,8 @@
   "Stray branch claude/estate-recovery-tour-path (same commit as PR #78) is safe to delete",
   "Call list (Joseph, optional): New Trier Township social services 847-446-8202; Village of Northbrook 847-272-5050 re its Senior Housing Resources directory",
   "PR #86: the checklist PDF gets one disclosed tour-request line and link. Review, merge and deploy if acceptable.",
-  "Skokie Human Services (ACQ-001) publishes no email, so it is phone-only: add it to your optional call list. Niles was emailed 21 Nov (0 replies so far)."
+  "Skokie Human Services (ACQ-001) publishes no email, so it is phone-only: add it to your optional call list. Niles was emailed 21 Nov (0 replies so far).",
+  "Evanston Now essay timing (22 Nov, ACQ-033): families look hardest right after holiday visits (trade reports put the inquiry peak about 3-4 Jan). If your essay can carry a 'what to notice on a holiday visit, and what to ask next' angle and be submitted by about 10 Dec, it lands in that window. Optional."
  ],
  "hourly_backlog_policy": {
   "enabled": true,
@@ -1243,7 +1294,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "SC1 next 2026-12-22, SC2 next 2026-12-06 (run 2026-11-22T21:30Z, 0 added); ready: ACQ-033 SC4 calendar, ACQ-034 SC6 new kinds of channel; SC3 due 2026-11-25T16:00Z, SC5 due 2026-11-29T16:00Z. From 25 Nov 15:00Z: Search Console read (ACQ-005/012/017) and the outreach operator's follow-ups to the 11 sends of 17-22 Nov. From 6 Dec: ACQ-030. Still unanswered by Joseph: D8 talk, Patch account, Nextdoor Business Page, PRs #85 #84 #79 #81 #78, Search Console indexing request.",
+ "next_discovery": "SC1 next 2026-12-22, SC2 next 2026-12-06, SC4 next 2026-11-29 (interval 7); ready: ACQ-035 D13 post-holiday post text, ACQ-034 SC6 new kinds of channel; SC3 due 2026-11-25T16:00Z, SC5 due 2026-11-29T16:00Z. From 25 Nov 15:00Z: Search Console read (ACQ-005/012/017) and the outreach operator's follow-ups to the 11 sends of 17-22 Nov. From 6 Dec: ACQ-030. Still unanswered by Joseph: D8 talk, Patch account, Nextdoor Business Page, PRs #85 #84 #79 #81 #78, Search Console indexing request; essay timing note (by ~10 Dec).",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -1529,6 +1580,14 @@
     "status": "waiting",
     "note": "until 30 genuine visitors have reached the step in question",
     "checked_utc": "2026-11-22T17:40Z"
+   },
+   {
+    "id": "D13",
+    "lane": "distribution",
+    "class": "post-holiday family-visit window (26 Dec - early Jan): timely hook for D1 posts, landing on the assessment",
+    "status": "queued",
+    "note": "ACQ-033 (22 Nov): trade sources report inquiry peak about 3-4 Jan after holiday visits (vendor/trade data, not independent); local precedent on Patch Evanston/Wilmette. Landing /?ref=...#assessment passes at 390px. ACQ-035 prepares the post text; operator posts inside the cap 27 Dec - 4 Jan. Drop after 15 Jan if not posted.",
+    "checked_utc": "2026-11-22T21:34Z"
    }
   ],
   "channel_yield": [
@@ -1697,10 +1756,10 @@
      "name": "Calendar",
      "question": "Which dated openings fall in the next 60 days?",
      "evidence": "Published programs and events for older adults and caregivers at the library, senior centers, the city, hospitals' community classes and local groups; awareness weeks; anything with a free listing, a question session, or a timely hook for a post or for Joseph's essay.",
-     "interval_days": 14,
-     "last_run_utc": null,
-     "next_due_utc": "2026-11-22T21:24Z",
-     "last_result": null
+     "interval_days": 7,
+     "last_run_utc": "2026-11-22T21:34Z",
+     "next_due_utc": "2026-11-29T21:34Z",
+     "last_result": "ACQ-033: 1 added (D13 post-holiday window), 0 reopened; library/senior-center support groups DROP; winter 2027 programs not yet published"
     },
     {
      "id": "SC5",
@@ -1733,7 +1792,8 @@
    },
    "log": [
     "2026-11-22T21:28Z SC1 peer listings (ACQ-031): 5 targets checked, 0 passed the gate, 0 reopened; next due 2026-12-22T21:28Z.",
-    "2026-11-22T21:30Z SC2 what families find (ACQ-032): 18 queries, guide in 0 results, 6 candidate groups checked, 0 passed the gate, 0 reopened; next due 2026-12-06."
+    "2026-11-22T21:30Z SC2 what families find (ACQ-032): 18 queries, guide in 0 results, 6 candidate groups checked, 0 passed the gate, 0 reopened; next due 2026-12-06.",
+    "2026-11-22T21:34Z SC4 calendar (ACQ-033): window to 21 Jan 2027; 6 candidate groups, 1 passed the gate (D13 post-holiday family-visit window), 0 reopened; interval 14->7, next due 2026-11-29."
    ]
   }
  },
