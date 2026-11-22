@@ -1,7 +1,7 @@
 {
  "schema_version": 1,
  "system": "ESCG Tour Acquisition — Event-Driven Production Loop",
- "test_copy": "TEST COPY, not production. Copied 2026-11-22 from automation/esc-tour-loop@ebb2483 (this file, docs/ESC-TOUR-LOOP.md) and ops/operator-state@9e1f91e (ops/cloud.json, ops/growth.json, ops/state.json) to test the Make-controlled worker. Nothing reads this branch except those tests. Tasks whose id starts with TEST- are system tests.",
+ "test_copy": "TEST COPY, not production. Loop file copied 2026-11-22 from automation/esc-tour-loop@ebb2483 to test the Make-controlled worker. The operator-state files are test copies on claude/make-ops-test. Nothing reads these branches except those tests. Tasks whose id starts with TEST- are system tests.",
  "status": "ACTIVE",
  "objective": "Generate qualified voluntary senior-living tour inquiries for Evanston/North Shore families, without pretending inquiries are confirmed tours.",
  "trigger": {
@@ -98,6 +98,18 @@
    "executor": "this loop (proposal); Joseph (decision to build)",
    "done_when": "If /assisted-living-evanston/ shows >=1 impression for a local query by its ~14-day mark, hand Joseph one yes/no proposal with the autocomplete evidence; if 0 impressions, record that indexing/authority is the bottleneck and keep S3 at watch.",
    "not_before_utc": "2026-12-06T15:00Z"
+  },
+  {
+   "id": "TEST-08",
+   "priority": 1,
+   "status": "ready",
+   "workstream": "system_test",
+   "task": "Two-branch rehearsal. Report the file names in /tmp/loop/ops and in OPSDIR/ops, the branch each directory was cloned from, the newest commit subject on each of the two branches, and whether ops/loopctl.py had to be copied in at the start of this session.",
+   "evidence": "System test of the Make-controlled worker on the test copies, 22 Nov 2026. Not acquisition work.",
+   "expected_tour_acquisition_value": "none; proves the layout production will use (loop state and operator state on two branches, helper copied in when missing)",
+   "executor": "worker (read only)",
+   "done_when": "Result lists both directories' files, both branches, both newest commit subjects, and says yes or no on the helper copy.",
+   "found_utc": "2026-11-22T23:41Z"
   }
  ],
  "completed": [
@@ -2094,7 +2106,7 @@
    "utc": ""
   },
   "monitor": {
-   "last_utc": "2026-11-22T23:32Z"
+   "last_utc": ""
   },
   "sessions": [
    {
