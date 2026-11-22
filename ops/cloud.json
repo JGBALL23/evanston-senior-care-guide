@@ -6,8 +6,8 @@
   "note": "tour-request alerts: sha256(message id) and time only"
  },
  "metrics": {
-  "last_utc": "2026-11-22T16:25Z",
-  "window_utc": "2026-11-22T15:25Z/2026-11-22T16:25Z",
+  "last_utc": "2026-11-22T17:25Z",
+  "window_utc": "2026-11-22T16:25Z/2026-11-22T17:25Z",
   "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs",
   "per_tag": {
    "fb-wil-1118": {
@@ -59,7 +59,7 @@
   "assessment_completions": 0,
   "tour_form_views": 0,
   "tour_requests": 0,
-  "genuine_detail": "15:25Z-16:25Z: 0 confirmed genuine, 0 tour requests, 0 assessment/tour-form views. 1 unverified Mac Chrome 143 visit to the SHIP guide 15:28:20Z (no referrer data; followed 20s later by a Linux Chrome 158 render of the same page with assets = preview/scanner). Winnetka post: 15 facebookexternalhit (og-card) only, 0 fbclid landings. iPhone OS 13 stale-UA http->https home 15:48Z (scanner, as before). curl = this run's probes. No 5xx."
+  "genuine_detail": "16:25Z-17:25Z: 0 genuine, 0 tour requests, 0 assessment/tour-form views. HTML hits: this run's curl probes; iPhone OS 13 stale-UA scanner on home and two guides (SLP, inspection records); bingbot x4; Facebook/Twitterbot previews (og-card, checklist PDF x2 = previews, not opens); iOS NetworkingExtension icon fetches (link preview); one Windows Chrome 145 home hit with no asset loads (not a browser render); wp-admin probe. No 5xx."
  },
  "summary": {
   "last_utc": "2026-11-19T01:24Z",
@@ -68,8 +68,8 @@
  "site": {
   "fail_count": 0,
   "down_since_utc": null,
-  "last_check_utc": "2026-11-22T16:25Z",
-  "last_check_method": "curl: home, ?tour=form, /assisted-living-evanston/, checklist PDF 200; home has #tour/#assessment/plan-visit; Netlify 15:25Z-16:25Z: no 5xx; Gmail 1d: no org replies or inquiries (Niles E-1120-01 still unanswered); no PR merged (#79/#80/#81/#84/#85 open, main 2ebc9fd); loop head 4187994"
+  "last_check_utc": "2026-11-22T17:25Z",
+  "last_check_method": "curl: home, ?tour=form, /assisted-living-evanston/ 200, checklist PDF linked; Netlify 16:25Z-17:25Z: no 5xx; Gmail 1d: no org replies or inquiries (only Nextdoor digests); loop head 4187994 before this run's map commit"
  },
  "recovery": {
   "last_attempt_utc": "2026-11-18T01:39Z",
@@ -244,7 +244,9 @@
   "2026-11-22T08:24Z run: 0 tour requests; site OK (deploy 6b0238b3); metrics 06:24Z-08:24Z 0 genuine (07:24Z run absent, window covers it); no org replies; no PR merges; no new loop task",
   "2026-11-22T09:24Z run: 0 tour requests; site OK (deploy 6b0238b3); metrics 08:24Z-09:24Z 0 genuine (crawler/probe only); no org replies; no PR merges; no new loop task",
   "2026-11-22T15:27Z run: 0 tour requests; site OK (deploy 6b0238b3); metrics 14:25Z-15:25Z 0 genuine (Winnetka post went live 15:02Z: previews + one scanner landing only); Wilmette post fb-wil-1118 gone per session operator; no org replies; no PR merges; no new loop task (fb-wnk-1120 +24h review due 2026-11-23T15:02Z, will reactivate the loop with data)",
-  "2026-11-22T16:25Z run: site OK; 0 genuine tagged visitors, 0 tour requests; Winnetka post +1h20m: link previews only; no org replies; no PR merged; no new evidence, no loop task"
+  "2026-11-22T16:25Z run: site OK; 0 genuine tagged visitors, 0 tour requests; Winnetka post +1h20m: link previews only; no org replies; no PR merged; no new evidence, no loop task",
+  "2026-11-22T17:25Z Opportunity-map section added to this hourly task on 22 Nov 2026 at Joseph's request (opportunity_map in ops/esc-tour-loop.json; scoreboard here).",
+  "2026-11-22T17:40Z run: site OK; 0 genuine, 0 tour requests; no org replies; loop idle since 00:37Z with no ready item -> created opportunity_map (statuses corrected from Gmail Sent/state: D7 and D9 partly touched, R1 count 6 of 11 sends) and queued map tasks ACQ-018 (D7 local news routes), ACQ-019 (S3 local-intent demand), ACQ-020 (D9 employer elder-care pages) in one loop commit"
  ],
  "facebook_interruptions_past": [
   {
@@ -271,7 +273,7 @@
  "outreach_watch": {
   "alerted": [],
   "replies_alerted": [],
-  "last_utc": "2026-11-22T16:25Z",
+  "last_utc": "2026-11-22T17:25Z",
   "note": "no org replies; inbox 1d: nothing from orgs; E-1120-01 (Niles, em-1120a) awaits reply"
  },
  "facebook_interruption": {
@@ -282,5 +284,30 @@
    "session wake 2026-11-19T18:00Z"
   ],
   "recorded_utc": "2026-11-19T20:24Z"
+ },
+ "scoreboard": {
+  "note": "one row per Chicago day; each hourly run adds its window; null = could not be read. 2026-11-22 row starts at the 16:25Z-17:25Z window (earlier windows that day logged 0 genuine).",
+  "daily": [
+   {
+    "date_chicago": "2026-11-22",
+    "genuine_visitors": 0,
+    "by_source": {
+     "facebook": 0,
+     "referral": 0,
+     "search": 0,
+     "other": 0
+    },
+    "checklist_opens": 0,
+    "assessment_starts": 0,
+    "tour_form_views": 0,
+    "tour_requests": 0
+   }
+  ],
+  "totals": {
+   "referral_emails_sent": 11,
+   "org_replies": 0,
+   "placements_live": 0,
+   "tours_confirmed": "unverified"
+  }
  }
 }
