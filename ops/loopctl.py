@@ -208,7 +208,8 @@ STEP = re.compile(r"^([^\[\]]+)?(?:\[([^\]=]+)(?:=([^\]]*))?\])?$")
 def walk(root, path):
     """Return (parent, key) for PATH such as opportunity_map/items[id=D13]/status."""
     parent, key, node = None, None, root
-    for step in [p for p in path.split("/") if p]:
+    steps = [p for p in path.split("/") if p]
+    for n, step in enumerate(steps):
         m = STEP.match(step)
         if not m:
             fail("bad path step: " + step)
@@ -216,6 +217,8 @@ def walk(root, path):
         if name is not None:
             if not isinstance(node, dict):
                 fail("not an object at: " + step)
+            if name not in node and sel is None and n < len(steps) - 1:
+                node[name] = {}
             parent, key = node, name
             node = node.get(name)
         if sel is not None:
