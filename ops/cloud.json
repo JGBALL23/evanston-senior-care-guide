@@ -6,8 +6,8 @@
     "note": "tour-request alerts: sha256(message id) and time only"
   },
   "metrics": {
-    "last_utc": "2026-11-22T10:24Z",
-    "window_utc": "2026-11-22T09:24Z/2026-11-22T10:24Z",
+    "last_utc": "2026-11-22T11:24Z",
+    "window_utc": "2026-11-22T10:24Z/2026-11-22T11:24Z",
     "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs",
     "per_tag": {
       "fb-wil-1118": {
@@ -49,7 +49,7 @@
     "assessment_completions": 0,
     "tour_form_views": 0,
     "tour_requests": 0,
-    "genuine_detail": "09:24Z-10:24Z: 0 genuine, 0 tour requests, 0 tagged human landings. facebookexternalhit x10 (og-card only); iOS 13.2.3 Safari UA x7 = scanner (HTML-only, no assets, http/www/https cycling every 10 min); meta-webindexer x5 (2 404 on guide/null); OAI-SearchBot, bingbot, Gort, Jetpack xmlrpc probe; no 5xx; 404 /assessment,/tour = own curl probes"
+    "genuine_detail": "10:24Z-11:24Z: 0 genuine, 0 tour requests, 0 tagged human landings. iOS 13.2.3 Safari UA x7 = same scanner (HTML-only, http/www/https cycling); meta-webindexer x9 (2 404 on guide/null); AhrefsBot x4; 1 headless-style Linux Chrome 138 hit (single HTML request, no assets); Gort; wp-admin install probe; no 5xx; 404 /assessment,/tour and plan-visit 400 = own curl probes"
   },
   "summary": {
     "last_utc": "2026-11-19T01:24Z",
@@ -58,8 +58,8 @@
   "site": {
     "fail_count": 0,
     "down_since_utc": null,
-    "last_check_utc": "2026-11-22T10:24Z",
-    "last_check_method": "curl: home, ?tour=form, /assisted-living-evanston/, /guides/, sitemap 200; home has #tour/#assessment; Netlify 09:24Z-10:24Z: no 5xx; current deploy 6b0238b3; Gmail 1d: no org replies or inquiries (Nextdoor notices only); PRs #77, #79-#82, #84, #85 open, none merged; loop head 4187994"
+    "last_check_utc": "2026-11-22T11:24Z",
+    "last_check_method": "curl: home, ?tour=form, /assisted-living-evanston/, /guides/, sitemap 200; home has #tour/#assessment; Netlify 10:24Z-11:24Z: no 5xx; current deploy 6b0238b3; Gmail 1d: no org replies or inquiries (Nextdoor notices only); PRs #77, #79-#82, #84, #85 open, none merged; loop head 4187994"
   },
   "recovery": {
     "last_attempt_utc": "2026-11-18T01:39Z",
