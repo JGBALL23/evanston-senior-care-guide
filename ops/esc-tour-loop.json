@@ -99,21 +99,8 @@
    "not_before_utc": "2026-12-06T15:00Z"
   },
   {
-   "id": "ACQ-031",
-   "priority": 1,
-   "status": "ready",
-   "workstream": "discovery",
-   "scout": "SC1",
-   "task": "Scout SC1 (Peer listings): Which local pages list resources like this guide (senior-care advisers, placement services, caregiver guides, checklists) but not this one? Evidence to use: Names of comparable resources already seen on local lists in completed tasks (e.g. those on Open Communities' Older Adult Housing Resources list, ACQ-027); search for other Evanston, North Shore and north-side Chicago pages listing two or more of them; read each page for who keeps it and how additions are made.",
-   "evidence": "Peer listings: Open Communities (ACQ-027) showed a local list that already links placement and home-care sites; other such lists may exist and accept additions. No peer-listing search has ever been run (opportunity_map.discovery created now; all 34 map items examined, none open).",
-   "expected_tour_acquisition_value": "Finds new legitimate, free routes by which Evanston and North Shore families at or near a senior-living decision would see the guide, feeding open map items to the loop.",
-   "executor": "this loop (research and preparation only)",
-   "done_when": "Every candidate has a source URL or data row and a gate result; candidates that pass are on the map as open items; the scout's last_run_utc, next_due_utc, last_result and interval_days are updated; one line is added to discovery.log.",
-   "found_utc": "2026-11-22T21:24Z"
-  },
-  {
    "id": "ACQ-032",
-   "priority": 2,
+   "priority": 1,
    "status": "ready",
    "workstream": "discovery",
    "scout": "SC2",
@@ -126,7 +113,7 @@
   },
   {
    "id": "ACQ-033",
-   "priority": 3,
+   "priority": 2,
    "status": "ready",
    "workstream": "discovery",
    "scout": "SC4",
@@ -1024,17 +1011,75 @@
     "visitors": "n/a",
     "inquiries": 0
    }
+  },
+  {
+   "id": "ACQ-031",
+   "priority": 1,
+   "status": "done",
+   "workstream": "discovery",
+   "scout": "SC1",
+   "task": "Scout SC1 (Peer listings): Which local pages list resources like this guide (senior-care advisers, placement services, caregiver guides, checklists) but not this one? Evidence to use: Names of comparable resources already seen on local lists in completed tasks (e.g. those on Open Communities' Older Adult Housing Resources list, ACQ-027); search for other Evanston, North Shore and north-side Chicago pages listing two or more of them; read each page for who keeps it and how additions are made.",
+   "evidence": "Peer listings: Open Communities (ACQ-027) showed a local list that already links placement and home-care sites; other such lists may exist and accept additions. No peer-listing search has ever been run (opportunity_map.discovery created now; all 34 map items examined, none open).",
+   "expected_tour_acquisition_value": "Finds new legitimate, free routes by which Evanston and North Shore families at or near a senior-living decision would see the guide, feeding open map items to the loop.",
+   "executor": "this loop (research and preparation only)",
+   "done_when": "Every candidate has a source URL or data row and a gate result; candidates that pass are on the map as open items; the scout's last_run_utc, next_due_utc, last_result and interval_days are updated; one line is added to discovery.log.",
+   "found_utc": "2026-11-22T21:24Z",
+   "done_utc": "2026-11-22T21:40Z",
+   "method": "Web search (6 queries: pages listing 2+ of Elderwerks / Creative Care Management / Levy / CJE / NSSC / Senior Helpers; Evanston congregations; Wilmette-Winnetka-Glenview-Northbrook resource pages; Rogers Park/Edgewater ward pages; local senior advisers) and page reads of juf.org Senior Services guide + its submit form, 49thward.org/community-assets, 46thward.com/senior-resources, better.net article and its submit page; dedup against loop/completed and ops/operator-state growth.json.",
+   "result": "0 candidates pass all five gates; no map item added. Results families see for peer-resource searches are directories (caring.com, care.com, BBB, Superpages) or lists already examined (City of Evanston Levy/Dementia Friendly pages = R7/R1 orgs already emailed; EPL community directory = 404, dropped 22 Nov; Evanston Care Network = dropped 19 Nov).",
+   "verdicts": [
+    {
+     "target": "JUF Guide to Jewish Living in Chicago, Senior Services category",
+     "source": "https://www.juf.org/guide-category/senior-services/ ; https://www.juf.org/submit-a-guide-entry/",
+     "verdict": "WATCH (fails gate 4)",
+     "why": "New and observed: a free submit form, and the category already lists commercial North Shore providers (Belmont Village Glenview, Brookdale Northbrook, Glenview Terrace, North Shore Place, Edelson Law Skokie), so it reaches Skokie/North Shore families. But its stated rule is listings that directly pertain to, support or enhance Jewish life in Chicago; the guide has no content on that (only one religious mention, in the advance-directive guide), so a submission would sit outside the publisher's own rule. It would also be a form, which is Joseph's step. Reopen only if Joseph independently wants the guide to address faith-based needs (e.g. kosher dining or Shabbat questions on the tour checklist); do not build content for this listing."
+    },
+    {
+     "target": "Chicago 46th Ward senior resources page",
+     "source": "https://www.46thward.com/senior-resources",
+     "verdict": "DROP (fails gate 3)",
+     "why": "Shows ward pages do link outside assisted-living guides (it links medicareplans.com), but the ward is Uptown, about 6 miles south; its families are not the Evanston/North Shore audience."
+    },
+    {
+     "target": "Chicago 49th Ward community assets (Rogers Park, borders Evanston)",
+     "source": "https://49thward.org/community-assets",
+     "verdict": "DROP (fails gate 5)",
+     "why": "No senior section; entries are map pins with no outside-guide links and no stated route for additions."
+    },
+    {
+     "target": "Better magazine (Make It Better, North Shore)",
+     "source": "https://better.net/?p=18138 ; https://better.net/send-us-your-content/",
+     "verdict": "DROP (fails gate 4/5)",
+     "why": "Only North Shore caregiving article found is from 2011; the open submission route (You Said It) is for nonprofit leaders with nationally relevant stories, not a local guide."
+    },
+    {
+     "target": "Congregation caregiver pages (First Presbyterian, Beth Emet, St. Mark's, Lake Street Church)",
+     "source": "search only",
+     "verdict": "no candidate (fails gate 2)",
+     "why": "No such page found by search; never add on plausibility."
+    }
+   ],
+   "lesson": "Peer listings that include outside resources in this area are almost all government/senior-center pages already emailed or dropped; the remaining open lists are national directories (paid/lead-gen). SC1 yield is low; its interval stays 30 days and doubles after one more empty run.",
+   "outcome_states": {
+    "research_completed": true,
+    "ready_for_external_execution": false,
+    "sent": false,
+    "published": false,
+    "visitor_observed": false,
+    "inquiry_received": false,
+    "tour_confirmed": false
+   }
   }
  ],
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-22T17:49Z",
-  "event": "pull_request.synchronize 3b1e991",
-  "picked": "ACQ-029 (R9 veterans' organizations)",
-  "why": "Only ready item; no fresh evidence (inbox 2 days: 0 organizational replies; Search Console read not before 25 Nov)."
+  "utc": "2026-11-22T21:40Z",
+  "event": "pull_request.synchronize 186b7ba",
+  "picked": "ACQ-031 (SC1 peer listings)",
+  "why": "Highest-priority ready item; no fresh demand data until the 25 Nov Search Console read."
  },
- "last_verified_action": "ACQ-029 done 2026-11-23T00:30Z: R9 veterans' organizations 0 ACT across 8 targets, R9 dropped. No map item open and no ready task: next runs stop without a commit until replies, merges, Joseph's answers or Search Console data (from 25 Nov 15:00Z) arrive.",
+ "last_verified_action": "ACQ-031 done 2026-11-22T21:40Z: SC1 peer listings, 0 of 5 targets pass the gate; JUF Guide WATCH (listing rule is Jewish-life content), 46th/49th Ward and Better magazine DROP. Next ready: ACQ-032 (SC2 what families find), then ACQ-033 (SC4 calendar).",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -1123,7 +1168,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Three scout tasks queued 2026-11-22T21:24Z (SC1 peer listings, SC2 what families find, SC4 calendar); SC6 due now, SC3 due 2026-11-25T16:00Z, SC5 due 2026-11-29T16:00Z. Also from 25 Nov 15:00Z: Search Console read (ACQ-005/012/017) and the outreach operator's follow-ups to the 11 sends of 17-22 Nov. From 6 Dec: ACQ-030. Joseph answered ACQ-007 (PR #86) and ACQ-018 (essay draft with him) on 22 Nov; still unanswered: D8 talk, Patch account, Nextdoor Business Page, PRs #85 #84 #79 #81 #78, Search Console indexing request.",
+ "next_discovery": "SC1 run 2026-11-22T21:40Z (0 added; next 22 Dec); ready: ACQ-032 SC2 what families find, ACQ-033 SC4 calendar; SC6 due now, SC3 due 2026-11-25T16:00Z, SC5 due 2026-11-29T16:00Z. Also from 25 Nov 15:00Z: Search Console read (ACQ-005/012/017) and the outreach operator's follow-ups to the 11 sends of 17-22 Nov. From 6 Dec: ACQ-030. Joseph answered ACQ-007 (PR #86) and ACQ-018 (essay draft with him) on 22 Nov; still unanswered: D8 talk, Patch account, Nextdoor Business Page, PRs #85 #84 #79 #81 #78, Search Console indexing request.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -1548,9 +1593,9 @@
      "question": "Which local pages list resources like this guide (senior-care advisers, placement services, caregiver guides, checklists) but not this one?",
      "evidence": "Names of comparable resources already seen on local lists in completed tasks (e.g. those on Open Communities' Older Adult Housing Resources list, ACQ-027); search for other Evanston, North Shore and north-side Chicago pages listing two or more of them; read each page for who keeps it and how additions are made.",
      "interval_days": 30,
-     "last_run_utc": null,
-     "next_due_utc": "2026-11-22T21:24Z",
-     "last_result": null
+     "last_run_utc": "2026-11-22T21:40Z",
+     "next_due_utc": "2026-12-22T21:40Z",
+     "last_result": "ACQ-031: 0 added, 0 reopened (JUF guide WATCH: outside its Jewish-life listing rule; 46th Ward, 49th Ward, Better magazine DROP)"
     },
     {
      "id": "SC2",
@@ -1610,7 +1655,9 @@
     "queries_checked": null,
     "guide_appears_for": null
    },
-   "log": []
+   "log": [
+    "2026-11-22T21:40Z SC1 peer listings (ACQ-031): 5 targets checked, 0 passed the gate, 0 reopened; next due 2026-12-22."
+   ]
   }
  },
  "timestamp_corrections": [
