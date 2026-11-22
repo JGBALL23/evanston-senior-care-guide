@@ -2018,8 +2018,16 @@
    "utc": "2026-11-22T23:30Z"
   },
   "monitor": {
-   "last_utc": ""
+   "last_utc": "2026-11-22T23:32Z"
   },
-  "sessions": []
+  "sessions": [],
+  "probe": {
+   "utc": "2026-11-22T23:31Z",
+   "push_to_test_branch": "ok",
+   "push_to_ops_branch": "ok",
+   "delete_ops_branch": "refused (fatal: the remote end hung up unexpectedly; branch ops/make-loop-probe still present)",
+   "gh_api": "ok",
+   "tools": "netlify-observability-services-reader, search_threads, create_draft, PushNotification, add_repo, create_or_update_file all listed"
+  }
  }
 }
