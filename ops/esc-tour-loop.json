@@ -92,6 +92,45 @@
    "executor": "this loop with the operator's Search Console export",
    "done_when": "Production link check recorded PASS/FAIL; impressions for the page recorded with ACQ-012.",
    "not_before": "PR #85 deployed (production guide HTML contains /assisted-living-evanston/)"
+  },
+  {
+   "id": "ACQ-018",
+   "priority": 1,
+   "status": "ready",
+   "workstream": "distribution",
+   "map_item": "D7",
+   "task": "Examine free community routes on Evanston and North Shore local news sites (reader posts, letters or guest essays, events calendars, resource listings), excluding the publication already contacted under E-1118-04 / B-RT: find the concrete targets, read each target's own pages for its rules and published contact route, check Gmail Sent and the state files for earlier contact, and give each target a verdict.",
+   "evidence": "growth.json G2 next_step left local news routes unexamined; Gmail Sent shows only one outlet ever contacted (E-1118-04, blocked on Joseph). Site has had 4-5 genuine visitors since 8 Nov, all from Facebook, so a second distribution channel is the main gap.",
+   "expected_tour_acquisition_value": "Local news readers include adult children in Evanston and North Shore towns; a free calendar listing, resource listing or published reader piece puts the tour checklist in front of families at or near a senior-living decision, leading to checklist opens and tour inquiries.",
+   "executor": "this loop (research and preparation only)",
+   "done_when": "Every target has a verdict (ACT, WATCH or DROP) with its source URL; the best ACT target has one prepared handoff; the map item and channel_yield are updated.",
+   "found_utc": "2026-11-22T17:40Z"
+  },
+  {
+   "id": "ACQ-019",
+   "priority": 1,
+   "status": "ready",
+   "workstream": "local_seo",
+   "map_item": "S3",
+   "task": "Examine demand evidence for local-intent senior-care searches the site has no page for (memory care, nursing or rehab, independent living, life plan or continuing care, senior living cost — each with Evanston or a North Shore town): which established sites keep a dedicated local page and what the results page shows: find the concrete targets, read each target's own pages for its rules and published contact route, check Gmail Sent and the state files for earlier contact, and give each target a verdict.",
+   "evidence": "The site has one local page (/assisted-living-evanston/, live 22 Nov) and no pages for the other care types; no demand check for them exists in the loop or state files. Joseph's rule: no new pages without demonstrated demand, so this is research toward a proposal only.",
+   "expected_tour_acquisition_value": "Families searching '<care type> Evanston' are at the decision stage; evidence of demand lets Joseph decide on a page that could capture search visitors who request tours.",
+   "executor": "this loop (research and preparation only)",
+   "done_when": "Every target has a verdict (ACT, WATCH or DROP) with its source URL; the best ACT target has one prepared handoff; the map item and channel_yield are updated.",
+   "found_utc": "2026-11-22T17:40Z"
+  },
+  {
+   "id": "ACQ-020",
+   "priority": 1,
+   "status": "ready",
+   "workstream": "distribution",
+   "map_item": "D9",
+   "task": "Examine elder-care / caregiver resource pages that large Evanston and North Shore employers (hospital systems, school districts, municipalities as employers, other large employers) publish for staff, excluding the university HR office already emailed (E-1118-03): find the concrete targets, read each target's own pages for its rules and published contact route, check Gmail Sent and the state files for earlier contact, and give each target a verdict.",
+   "evidence": "Gmail Sent shows only the university's HR well-being office contacted (18 Nov, no reply); hospital-system and other employer staff elder-care pages have never been examined (ACQ-006 looked only at the hospital's public senior-services route).",
+   "expected_tour_acquisition_value": "Employees with aging parents use employer caregiver-benefit pages when a move is near; a listing reaches working adult children choosing senior care.",
+   "executor": "this loop (research and preparation only)",
+   "done_when": "Every target has a verdict (ACT, WATCH or DROP) with its source URL; the best ACT target has one prepared handoff; the map item and channel_yield are updated.",
+   "found_utc": "2026-11-22T17:40Z"
   }
  ],
  "completed": [
@@ -388,5 +427,319 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "No ready item. Reactivate on: #85 deploy (ACQ-017); #79/#80/#81/#84 merge (post-merge tag check); P-1120-01/P-1122-01 going live (+24h tagged visitor review); any org reply (Niles E-1120-01 awaits reply) or Skokie send; Search Console 25 Nov (ACQ-005/012/017); Joseph's ACQ-007 answer; any tour-form view or inquiry. Candidate not yet taken: /guides/ index also lacks a link to the local page (bundle into #85 only if the owner wants it)."
+ "next_discovery": "No ready item. Reactivate on: #85 deploy (ACQ-017); #79/#80/#81/#84 merge (post-merge tag check); P-1120-01/P-1122-01 going live (+24h tagged visitor review); any org reply (Niles E-1120-01 awaits reply) or Skokie send; Search Console 25 Nov (ACQ-005/012/017); Joseph's ACQ-007 answer; any tour-form view or inquiry. Candidate not yet taken: /guides/ index also lacks a link to the local page (bundle into #85 only if the owner wants it).",
+ "opportunity_map": {
+  "version": 1,
+  "added_utc": "2026-11-22T17:40Z",
+  "how_to_use": "Every way of reaching Evanston and North Shore families that could be examined, with its status, so that idle is declared only when nothing here is open. A ready queue task that names a map_item is worked like any other task, one per run. Finish it by writing the verdict into the item (act, watch, drop, owner or waiting, with the reason and the date) and by updating channel_yield when a result was measured. In the same completion commit, if fewer than three map tasks are ready and an item is still open, add the highest-ranked open item to the queue as a ready task and mark the item queued, so the next run has work. Rank by expected qualified reach times the chance the next step needs neither Joseph nor his browser, divided by effort; ties go in lane_order. For a new referral class prepare at most three proposals before a response is seen. A class with eight or more shipped actions and no response is closed to more of the same until the approach changes. When no item is open and nothing else is ready, stop without a commit (docs/ESC-TOUR-LOOP.md, rule 6). Never reopen an item without new evidence. Never queue a task whose only output is a document, a rewording or a cosmetic site change. Authority is unchanged: research and preparation only; no sending, posting, form submission, merging or deploying.",
+  "lane_order": [
+   "distribution",
+   "local_seo",
+   "referral_partnerships",
+   "conversion"
+  ],
+  "items": [
+   {
+    "id": "D1",
+    "lane": "distribution",
+    "class": "Facebook town groups, posts",
+    "status": "active",
+    "note": "8 posts submitted since 8 Nov (5 live, 1 declined, 1 pending, 1 removed), 4 to 5 genuine visitors, 0 tour-form views; the checklist hook beat the costs hook (E1); posting cap in state.json; read fb-wnk-1120 and fb-rp-1122 at +24h and +48h",
+    "checked_utc": "2026-11-22T17:40Z"
+   },
+   {
+    "id": "D2",
+    "lane": "distribution",
+    "class": "Facebook town groups, scanning for families who ask",
+    "status": "watch",
+    "note": "0 answerable requests in about 1,000 posts across 6 groups (16-18 Nov); do not widen; reopens if a group shows family care questions",
+    "checked_utc": "2026-11-22T17:40Z"
+   },
+   {
+    "id": "D3",
+    "lane": "distribution",
+    "class": "Facebook caregiver groups, Chicago",
+    "status": "drop",
+    "note": "job and placement boards (growth.json channels, 18 Nov)",
+    "checked_utc": "2026-11-22T17:40Z"
+   },
+   {
+    "id": "D4",
+    "lane": "distribution",
+    "class": "national aging-parent Facebook groups",
+    "status": "drop",
+    "note": "private and not local (18 Nov)",
+    "checked_utc": "2026-11-22T17:40Z"
+   },
+   {
+    "id": "D5",
+    "lane": "distribution",
+    "class": "Reddit",
+    "status": "drop",
+    "note": "not researchable with the available tools (18 Nov)",
+    "checked_utc": "2026-11-22T17:40Z"
+   },
+   {
+    "id": "D6",
+    "lane": "distribution",
+    "class": "Nextdoor",
+    "status": "owner",
+    "note": "personal-account promotion barred since 19 Aug 2026; needs a free Business Page, which only Joseph may create",
+    "checked_utc": "2026-11-22T17:40Z"
+   },
+   {
+    "id": "D7",
+    "lane": "distribution",
+    "class": "free community routes on local news sites (Evanston RoundTable, Evanston Now, Patch editions for Evanston and neighbors, other North Shore local news): reader posts, letters or guest essays, events calendars, resource listings",
+    "status": "queued",
+    "note": "Only one outlet touched so far: a letters address at one local publication was emailed 18 Nov (E-1118-04, Gmail Sent) and is blocked on Joseph (state.json B-RT): never contact that outlet again. All other outlets and routes unexamined (growth.json G2 next_step). $0 routes only; read each outlet's own submission rules.",
+    "checked_utc": "2026-11-22T17:40Z"
+   },
+   {
+    "id": "D8",
+    "lane": "distribution",
+    "class": "library and senior-center programs and notice boards (Evanston Public Library, Levy Senior Center, North Shore Senior Center)",
+    "status": "owner",
+    "note": "a talk or printed checklists need Joseph's time; the library's contact route is a form (growth.json local_library_caregiver_events WATCH)",
+    "checked_utc": "2026-11-22T17:40Z"
+   },
+   {
+    "id": "D9",
+    "lane": "distribution",
+    "class": "employers' elder-care resource pages for their staff (largest Evanston and North Shore employers: university, hospital systems, others)",
+    "status": "queued",
+    "note": "Partly touched: the university's HR well-being office was emailed 18 Nov (E-1118-03, Gmail Sent, 0 replies) — exclude it. Hospital-system and other employer staff benefit pages unexamined (ACQ-006 checked only the hospital's public senior-services contact route, not staff elder-care pages).",
+    "checked_utc": "2026-11-22T17:40Z"
+   },
+   {
+    "id": "D10",
+    "lane": "distribution",
+    "class": "community newsletters and mailing lists that accept community items (ward and neighborhood newsletters, retiree associations, service clubs)",
+    "status": "open",
+    "note": "",
+    "checked_utc": null
+   },
+   {
+    "id": "D11",
+    "lane": "distribution",
+    "class": "free listings or free tables at local senior resource fairs and expos, 2026-27",
+    "status": "open",
+    "note": "anything with a fee is DROP",
+    "checked_utc": null
+   },
+   {
+    "id": "D12",
+    "lane": "distribution",
+    "class": "faith community bulletins and care ministries",
+    "status": "drop",
+    "note": "three checked 19-20 Nov: members-only care teams (ACQ-006)",
+    "checked_utc": "2026-11-22T17:40Z"
+   },
+   {
+    "id": "S1",
+    "lane": "local_seo",
+    "class": "indexing",
+    "status": "active",
+    "note": "18 Nov: home and 7 guides indexed; new URLs need a Search Console request (operator with his Chrome, or Joseph); /assisted-living-evanston/ request is on his list",
+    "checked_utc": "2026-11-22T17:40Z"
+   },
+   {
+    "id": "S2",
+    "lane": "local_seo",
+    "class": "weekly Search Console read",
+    "status": "waiting",
+    "note": "next 25 Nov (ACQ-005, ACQ-012, ACQ-017)",
+    "checked_utc": "2026-11-22T17:40Z"
+   },
+   {
+    "id": "S3",
+    "lane": "local_seo",
+    "class": "demand evidence for local-intent searches the site has no page for (memory care, nursing or rehab, independent living, life plan or continuing care, senior living cost, each with Evanston or a North Shore town)",
+    "status": "queued",
+    "note": "research only; building any new page is Joseph's decision (no new pages without demonstrated demand), so present the evidence as a proposal",
+    "checked_utc": "2026-11-22T17:40Z"
+   },
+   {
+    "id": "S4",
+    "lane": "local_seo",
+    "class": "community-name searches (cost, inspection record, type of care, for each licensed Evanston community): what the site already answers and what it lacks",
+    "status": "open",
+    "note": "research only; official sources only; never rank or recommend communities; no unverified Westminster Place prices; new content is Joseph's decision",
+    "checked_utc": null
+   },
+   {
+    "id": "S5",
+    "lane": "local_seo",
+    "class": "internal links to the local page",
+    "status": "waiting",
+    "note": "PR #85 merge",
+    "checked_utc": "2026-11-22T17:40Z"
+   },
+   {
+    "id": "S6",
+    "lane": "local_seo",
+    "class": "titles and snippets",
+    "status": "waiting",
+    "note": "35 of 36 titles exceed 65 characters (main 4dc2468, 22 Nov); act only on Search Console evidence (ACQ-005); PR #81 awaits merge",
+    "checked_utc": "2026-11-22T17:40Z"
+   },
+   {
+    "id": "S7",
+    "lane": "local_seo",
+    "class": "technical basics",
+    "status": "done",
+    "note": "main 4dc2468, 22 Nov: 36 of 36 pages in the sitemap, canonical on all, none noindex, structured data valid, robots.txt correct",
+    "checked_utc": "2026-11-22T17:40Z"
+   },
+   {
+    "id": "S8",
+    "lane": "local_seo",
+    "class": "Bing Webmaster Tools",
+    "status": "owner",
+    "note": "linking an account is his decision; IndexNow already in use; low priority",
+    "checked_utc": "2026-11-22T17:40Z"
+   },
+   {
+    "id": "S9",
+    "lane": "local_seo",
+    "class": "Google Business Profile",
+    "status": "drop",
+    "note": "an online-only guide is not eligible; never attempt",
+    "checked_utc": "2026-11-22T17:40Z"
+   },
+   {
+    "id": "R1",
+    "lane": "referral_partnerships",
+    "class": "municipal and township senior services",
+    "status": "waiting",
+    "note": "Gmail Sent 17-22 Nov: 11 organizational emails in all, 6 of them to municipal senior services or a municipal library (E-1118-01/07/08/09/10, E-1120-01); 0 replies, 2 auto-replies across all sends. Closed to new emails of this kind; at most one follow-up per organization after 7+ days if useful (P-OUT-FOLLOWUP, not before 25 Nov); phone-only offices are on Joseph's call list (incl. B-SKOKIE-HS)",
+    "checked_utc": "2026-11-22T17:40Z"
+   },
+   {
+    "id": "R2",
+    "lane": "referral_partnerships",
+    "class": "public libraries' older-adult resource pages beyond Evanston, Glenview and Skokie",
+    "status": "open",
+    "note": "Evanston: form only (owner); Glenview and Skokie: government/nonprofit-only lists, no email (ACQ-006)",
+    "checked_utc": null
+   },
+   {
+    "id": "R3",
+    "lane": "referral_partnerships",
+    "class": "hospital and rehab social work or case management",
+    "status": "open",
+    "note": "Records: no email ever sent to this class (Gmail Sent); ACQ-006 (19 Nov) found Evanston Hospital shows no public senior-services or social-work contact route. Other North Shore hospitals and rehab / skilled-nursing discharge planners unexamined.",
+    "checked_utc": null
+   },
+   {
+    "id": "R4",
+    "lane": "referral_partnerships",
+    "class": "care managers and elder-law practices",
+    "status": "drop",
+    "note": "G4, 18 Nov: results were franchises and directories",
+    "checked_utc": "2026-11-22T17:40Z"
+   },
+   {
+    "id": "R5",
+    "lane": "referral_partnerships",
+    "class": "home-care agencies",
+    "status": "drop",
+    "note": "franchises (G4)",
+    "checked_utc": "2026-11-22T17:40Z"
+   },
+   {
+    "id": "R6",
+    "lane": "referral_partnerships",
+    "class": "senior move managers, downsizing and senior real-estate specialists serving the North Shore",
+    "status": "open",
+    "note": "they meet families at the moving decision; published business addresses only",
+    "checked_utc": null
+   },
+   {
+    "id": "R7",
+    "lane": "referral_partnerships",
+    "class": "memory clinics' and caregiver programs' resource lists",
+    "status": "open",
+    "note": "only lists that include outside websites",
+    "checked_utc": null
+   },
+   {
+    "id": "R8",
+    "lane": "referral_partnerships",
+    "class": "aging-in-place membership groups and senior housing counseling nonprofits serving Evanston and the North Shore",
+    "status": "open",
+    "note": "one aging-in-place nonprofit already emailed 18 Nov (E-1118-05, 0 replies) — exclude it; one family service agency (E-1118-06) likewise",
+    "checked_utc": null
+   },
+   {
+    "id": "R9",
+    "lane": "referral_partnerships",
+    "class": "veterans' organizations and service officers",
+    "status": "open",
+    "note": "the site has two VA guides",
+    "checked_utc": null
+   },
+   {
+    "id": "R10",
+    "lane": "referral_partnerships",
+    "class": "provider-neutral agencies and providers (Area Agency on Aging, Alzheimer's Association chapter, CJE)",
+    "status": "drop",
+    "note": "low fit (growth.json orgs)",
+    "checked_utc": "2026-11-22T17:40Z"
+   },
+   {
+    "id": "C1",
+    "lane": "conversion",
+    "class": "tour route on the checklist PDF",
+    "status": "owner",
+    "note": "ACQ-007 awaits his answer",
+    "checked_utc": "2026-11-22T17:40Z"
+   },
+   {
+    "id": "C2",
+    "lane": "conversion",
+    "class": "arrival tag kept through the tour click",
+    "status": "waiting",
+    "note": "PRs #79 and #84 await merge",
+    "checked_utc": "2026-11-22T17:40Z"
+   },
+   {
+    "id": "C3",
+    "lane": "conversion",
+    "class": "any other funnel change",
+    "status": "waiting",
+    "note": "until 30 genuine visitors have reached the step in question",
+    "checked_utc": "2026-11-22T17:40Z"
+   }
+  ],
+  "channel_yield": [
+   {
+    "class": "D1",
+    "shipped": 8,
+    "responses": null,
+    "genuine_visitors": "4-5",
+    "inquiries": 0,
+    "as_of_utc": "2026-11-22T17:40Z",
+    "decision": "continue within posting cap; checklist hook; measure fb-wnk-1120 and fb-rp-1122"
+   },
+   {
+    "class": "R1",
+    "shipped": 6,
+    "responses": 0,
+    "genuine_visitors": 0,
+    "inquiries": 0,
+    "as_of_utc": "2026-11-22T17:40Z",
+    "decision": "closed to new emails of this kind; one follow-up each after 7+ days if useful"
+   },
+   {
+    "class": "referral_emails_other (publication, university HR, nonprofit senior center, aging-in-place, family service)",
+    "shipped": 5,
+    "responses": 0,
+    "genuine_visitors": 0,
+    "inquiries": 0,
+    "as_of_utc": "2026-11-22T17:40Z",
+    "decision": "no response yet; 2 auto-replies across all 11 sends"
+   }
+  ]
+ }
 }
