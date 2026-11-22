@@ -2008,7 +2008,7 @@
      "evidence": "Test only the condition written in each item's note (a date passed, a page now exists, a rule changed, a reply came, Joseph decided, a pull request merged). Do not redo the research; reopen the item and let its own task do that.",
      "interval_days": 7,
      "last_run_utc": null,
-     "next_due_utc": "2026-11-29T16:00Z",
+     "next_due_utc": "2026-11-22T23:45Z",
      "last_result": null
     },
     {
