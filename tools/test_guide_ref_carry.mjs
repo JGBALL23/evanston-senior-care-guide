@@ -159,6 +159,33 @@ const TOUR = 'a[href^="/?tour=form"]';
   await v.ctx.close();
 }
 
+/* 8. The /assisted-living-evanston/ search landing page (PR #83) is the
+      page aimed at "assisted living Evanston" searches, so a Google
+      arrival there must reach the tour form counted as google, not direct. */
+{
+  const AL = "/assisted-living-evanston/";
+  const ALTOUR = 'a[href^="/?tour=assisted"]';
+  let v = await open(AL, { referer: "https://www.google.com/search?q=private" });
+  let u = await follow(v, ALTOUR);
+  check("landing page: search referrer carried to tour link", u.searchParams.get("ref") === "google", u.search);
+  check("landing page: tour=assisted and #plan-visit kept",
+    u.searchParams.get("tour") === "assisted" && u.hash === "#plan-visit", u.search + u.hash);
+  check("landing page: homepage landing counted as google", v.landed[0] === "google", JSON.stringify(v.landed));
+  check("landing page: no referrer path or query leaks", u.search.indexOf("private") === -1, u.search);
+  check("landing page: no page errors", v.errors.length === 0, v.errors.join(" | "));
+  await v.ctx.close();
+
+  v = await open(AL + "?ref=em-skokie-1120");
+  u = await follow(v, 'main a[href="/guides/assisted-living-cost-illinois/"]');
+  check("landing page -> guide keeps ref", u.searchParams.get("ref") === "em-skokie-1120", u.pathname + u.search);
+  await v.ctx.close();
+
+  v = await open(AL);
+  u = await follow(v, ALTOUR);
+  check("landing page: direct visit adds no ref", !u.searchParams.has("ref"), u.search);
+  await v.ctx.close();
+}
+
 await browser.close();
 server.close();
 console.log(`\n${pass} passed, ${fail} failed`);

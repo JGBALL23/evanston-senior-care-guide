@@ -76,12 +76,20 @@
    token app.js would compute (utm_source, else ref, else the external
    referrer's host name; never a path, query or anything personal) onto
    same-site links to the homepage and to other guides.
-   Guide pages only: on the homepage "/#..." links are same-page jumps,
-   and app.js handles its own /? links. A link that already carries a
+   Guide pages and the /assisted-living-evanston/ search landing page
+   only: on the homepage "/#..." links are same-page jumps, and app.js
+   handles its own /? links. A link that already carries a
    tag is left alone, and a broken href never breaks the click. */
 (function () {
   "use strict";
-  if (window.location.pathname.indexOf("/guides/") !== 0) { return; }
+  var LANDINGS = ["/guides/", "/assisted-living-evanston/"];
+  function isLanding(p) {
+    for (var i = 0; i < LANDINGS.length; i++) {
+      if (p.indexOf(LANDINGS[i]) === 0) { return true; }
+    }
+    return false;
+  }
+  if (!isLanding(window.location.pathname)) { return; }
 
   function token() {
     try {
@@ -109,7 +117,7 @@
     if (href.charAt(0) !== "/" || href.charAt(1) === "/") { return; }
     try {
       var url = new URL(href, window.location.origin);
-      if (url.pathname !== "/" && url.pathname.indexOf("/guides/") !== 0) { return; }
+      if (url.pathname !== "/" && !isLanding(url.pathname)) { return; }
       if (url.searchParams.has("ref") || url.searchParams.has("utm_source")) { return; }
       url.searchParams.set("ref", SOURCE);
       t.setAttribute("href", url.pathname + url.search + url.hash);
