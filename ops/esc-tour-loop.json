@@ -110,19 +110,6 @@
    "executor": "this loop (research and preparation only)",
    "done_when": "Every candidate has a source URL or data row and a gate result; candidates that pass are on the map as open items; the scout's last_run_utc, next_due_utc, last_result and interval_days are updated; one line is added to discovery.log.",
    "found_utc": "2026-11-22T21:30Z"
-  },
-  {
-   "id": "ACQ-035",
-   "priority": 1,
-   "status": "ready",
-   "workstream": "qualified_audience",
-   "map_item": "D13",
-   "task": "Prepare one post-holiday Facebook post text (P-1227-01) for the outreach operator: hook = 'after a holiday visit, wondering whether a parent needs more help', landing https://evanstonseniorcareguide.com/?ref=fb-hol-MMDD#assessment (landing check passed 22 Nov), template A conventions (disclosure that Joseph works at Westminster Place, #employed where the group asks, site link last on its own line, sources cited where a group requires them). Pick 2 target groups from D1's active venues with the 7-day spacing and 5-in-7 cap in mind; name the posting window 27 Dec - 4 Jan; define the measure (genuine visitors, assessment starts/completions, tour-form views at +24h/+48h vs template A baseline). Hand off in growth.json-compatible form; do not post.",
-   "evidence": "ACQ-033 (SC4): trade reports put the senior-living inquiry peak about 3-4 Jan after holiday visits; local operators publish holiday-visit pieces on Patch Evanston/Wilmette; the site's assessment answers 'which kind of care fits?' with no sign-up.",
-   "expected_tour_acquisition_value": "Medium: reaches adult children at the moment the question is fresh, through the only channel that has produced genuine visitors (D1); routes to the assessment, whose result pages carry the tour step.",
-   "executor": "this loop (text and plan); outreach operator (posting, within cap)",
-   "done_when": "Post text, venues, window and measure recorded as a handoff; status 'ready for operator', not 'posted'.",
-   "found_utc": "2026-11-22T21:34Z"
   }
  ],
  "completed": [
@@ -1194,17 +1181,77 @@
    ],
    "result": "1 added (D13 post-holiday window), 0 reopened, 4 groups dropped or not candidates. Landing check for D13 done now: https://evanstonseniorcareguide.com/?ref=fb-hol-test#assessment at 390px returns 200, scrolls to 'Which kind of care fits?' just below the header (scrollY 1015, top 74px) and fires t/landed.txt?s=fb-hol-test. That one test hit (2026-11-22 about 21:33Z, tag fb-hol-test) is this loop's, not a visitor: exclude it from metrics.",
    "verified": "research completed; nothing sent or posted"
+  },
+  {
+   "id": "ACQ-035",
+   "priority": 1,
+   "status": "done",
+   "workstream": "qualified_audience",
+   "map_item": "D13",
+   "task": "Prepare one post-holiday Facebook post text (P-1227-01) for the outreach operator: hook = 'after a holiday visit, wondering whether a parent needs more help', landing https://evanstonseniorcareguide.com/?ref=fb-hol-MMDD#assessment (landing check passed 22 Nov), template A conventions (disclosure that Joseph works at Westminster Place, #employed where the group asks, site link last on its own line, sources cited where a group requires them). Pick 2 target groups from D1's active venues with the 7-day spacing and 5-in-7 cap in mind; name the posting window 27 Dec - 4 Jan; define the measure (genuine visitors, assessment starts/completions, tour-form views at +24h/+48h vs template A baseline). Hand off in growth.json-compatible form; do not post.",
+   "evidence": "ACQ-033 (SC4): trade reports put the senior-living inquiry peak about 3-4 Jan after holiday visits; local operators publish holiday-visit pieces on Patch Evanston/Wilmette; the site's assessment answers 'which kind of care fits?' with no sign-up.",
+   "expected_tour_acquisition_value": "Medium: reaches adult children at the moment the question is fresh, through the only channel that has produced genuine visitors (D1); routes to the assessment, whose result pages carry the tour step.",
+   "executor": "this loop (text and plan); outreach operator (posting, within cap)",
+   "done_when": "Post text, venues, window and measure recorded as a handoff; status 'ready for operator', not 'posted'.",
+   "found_utc": "2026-11-22T21:34Z",
+   "done_utc": "2026-11-22T22:05Z",
+   "method": "Reused D1 venue rules and posting cap from ops/state.json (operator-state); re-read the live homepage #assessment copy and app.js (main) for outcome labels and ref-tag limits; picked the two eligible groups with the best record and no ad-day restriction. Wilmette (fb-wil-1118 removed), Everything Evanston (pending since 13 Nov, Mon/Fri only), Winnetka (posted 22 Nov), Rogers Park (P-1122-01 due 23 Nov) not chosen; Lake Forest/Edgewater kept as overflow only.",
+   "handoff": {
+    "ready": [
+     {
+      "type": "post_text",
+      "action_id": "P-1228-01",
+      "for": "operator",
+      "status": "ready for operator (not posted)",
+      "venue": "group:280339146984145 Evanston/Skokie (Chicago) neighbors",
+      "not_before_utc": "2026-12-28T15:00Z",
+      "post_by_utc": "2026-12-31T23:59Z",
+      "hook": "D13 post-holiday visit -> assessment",
+      "text": "Back from a holiday visit and wondering whether a parent in Evanston or Skokie needs more help than they let on? Small things add up: an emptier fridge, a near-fall nobody mentioned, the stairs taking longer. It is hard to tell whether that points to assisted living, memory care or something else. I made a free six-question check (about two minutes) that suggests which kind of care fits and shows which answers led there, so you can judge the reasoning yourself. No sign-up: no name, email or phone, and your answers stay in your browser. It is a starting point for the family conversation, not a diagnosis.\n\nDisclosure: I work at Westminster Place in Evanston. The guide is my own independent project, it includes an optional way to request a tour there, and I receive no referral fees.\n\nhttps://evanstonseniorcareguide.com/?ref=fb-hol-evsk-1228#assessment",
+      "checks": "Evanston/Skokie in the first sentence; claims match the live #assessment section on 22 Nov (six questions, about two minutes, shows which answers produced the result, answers stay in the browser, no name/email/phone, educational not a diagnosis); outcomes named are ones the tool returns (independent, assisted, memory, skilled nursing); disclosure before link; link last on its own line (OP1); tag 16 chars, inside app.js channel() limit of 24 [a-z0-9-]; group has no posted rules (re-read on the day); counts toward 1/day and 5-in-7 cap; group gap 7 days"
+     },
+     {
+      "type": "post_text",
+      "action_id": "P-0102-01",
+      "for": "operator",
+      "status": "ready for operator (not posted)",
+      "venue": "group:311248470375848 Chicago North Shore What's Happening!",
+      "not_before_utc": "2027-01-02T15:00Z",
+      "post_by_utc": "2027-01-04T23:59Z",
+      "hook": "D13 post-holiday visit -> assessment (different wording from P-1228-01: never the same text twice in 7 days)",
+      "text": "After the holidays, a lot of North Shore families come home from a parent's house with a new question: is Mom or Dad still managing on their own? If you are trying to work out whether that means independent living, assisted living, memory care or nursing care, I made a free six-question check that takes about two minutes. It suggests which kind of care fits and shows the answers that produced the result, so you can check the reasoning. Nothing to sign up for, and your answers stay in your browser. Educational guidance, not a diagnosis.\n\nDisclosure: I work at Westminster Place in Evanston. The guide is my own independent project, it includes an optional way to request a tour there, and I receive no referral fees.\n\nhttps://evanstonseniorcareguide.com/?ref=fb-hol-ns-0102#assessment",
+      "checks": "North Shore in the first sentence; same claim checks as P-1228-01; group rule 3 allows promotion, no day limit; disclosure before link; link last (OP1); tag 14 chars"
+     }
+    ],
+    "measure": {
+     "baseline": "template A fb-evsk-1117 (same Evanston/Skokie group): 2 genuine visitors in 48h, 1 checklist open, 1 tour-questions view, 0 assessment starts, 0 tour-form views. Other template A/B posts: 0-1 genuine each.",
+     "read_at": "+24h and +48h after visible_utc, from the operator's metrics (filter first 5 minutes and data-center scanners as automated)",
+     "per_tag": [
+      "genuine landings (landed.txt?s=tag)",
+      "assessment starts and completions",
+      "result-page tour-step clicks",
+      "tour-form views",
+      "consented inquiries"
+     ],
+     "success": "any genuine assessment completion or tour-form view from either tag (D1 has produced none in 8 posts); scale: if both tags beat the template A baseline on genuine visitors, keep the post-holiday hook for the next town groups through 15 Jan inside the cap; drop: 0 genuine from both at +48h -> record and do not repeat the hook this season",
+     "caveat": "two posts, tiny samples: directional only; PR #79 (ref carry to the tour form) is unmerged, so a tour-form view after the assessment may count as direct until it merges"
+    },
+    "spacing": "28 Dec (Mon) and 2 Jan (Sat), 5 days apart; each group's previous post was in Nov, so 7-day group gaps hold; operator still confirms the 1/day and 5-in-7 counts on the day",
+    "overflow_if_one_is_ineligible": "group:1032686255213309 What's Happening in Lake Forest illinois (add #employed per network rule, Lake Forest first sentence) or group:259937747842535 Edgewater"
+   },
+   "result": "Two post texts, venues, window and measure ready for the outreach operator. Nothing posted.",
+   "verified": "ready for external execution; not sent, not posted"
   }
  ],
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-22T21:34Z",
-  "event": "pull_request.synchronize d7ca8fc",
-  "picked": "ACQ-033 (SC4 calendar)",
-  "why": "Highest-priority ready item; no fresh demand data until the 25 Nov Search Console read."
+  "utc": "2026-11-22T22:05Z",
+  "event": "pull_request.synchronize aae1150",
+  "picked": "ACQ-035 (D13 post-holiday post texts)",
+  "why": "Priority-1 ready item; no fresh demand data until the 25 Nov Search Console read."
  },
- "last_verified_action": "ACQ-033 done 2026-11-22T21:34Z: SC4 calendar; 1 new map item D13 (post-holiday family-visit window, landing check passed); ACQ-035 (D13 post text for the operator) ready, then ACQ-034 (SC6).",
+ "last_verified_action": "ACQ-035 done 2026-11-22T22:05Z: two disclosed post-holiday post texts ready for the outreach operator (P-1228-01 Evanston/Skokie from 28 Dec, P-0102-01 North Shore What's Happening from 2 Jan; landing #assessment; read +24h/+48h); not posted. Next: ACQ-034 (SC6).",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -1294,7 +1341,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "SC1 next 2026-12-22, SC2 next 2026-12-06, SC4 next 2026-11-29 (interval 7); ready: ACQ-035 D13 post-holiday post text, ACQ-034 SC6 new kinds of channel; SC3 due 2026-11-25T16:00Z, SC5 due 2026-11-29T16:00Z. From 25 Nov 15:00Z: Search Console read (ACQ-005/012/017) and the outreach operator's follow-ups to the 11 sends of 17-22 Nov. From 6 Dec: ACQ-030. Still unanswered by Joseph: D8 talk, Patch account, Nextdoor Business Page, PRs #85 #84 #79 #81 #78, Search Console indexing request; essay timing note (by ~10 Dec).",
+ "next_discovery": "SC1 next 2026-12-22, SC2 next 2026-12-06, SC4 next 2026-11-29 (interval 7); ready: ACQ-034 SC6 new kinds of channel; operator: P-1228-01 from 28 Dec, P-0102-01 from 2 Jan (ACQ-035); SC3 due 2026-11-25T16:00Z, SC5 due 2026-11-29T16:00Z. From 25 Nov 15:00Z: Search Console read (ACQ-005/012/017) and the outreach operator's follow-ups to the 11 sends of 17-22 Nov. From 6 Dec: ACQ-030. Still unanswered by Joseph: D8 talk, Patch account, Nextdoor Business Page, PRs #85 #84 #79 #81 #78, Search Console indexing request; essay timing note (by ~10 Dec).",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -1585,9 +1632,9 @@
     "id": "D13",
     "lane": "distribution",
     "class": "post-holiday family-visit window (26 Dec - early Jan): timely hook for D1 posts, landing on the assessment",
-    "status": "queued",
-    "note": "ACQ-033 (22 Nov): trade sources report inquiry peak about 3-4 Jan after holiday visits (vendor/trade data, not independent); local precedent on Patch Evanston/Wilmette. Landing /?ref=...#assessment passes at 390px. ACQ-035 prepares the post text; operator posts inside the cap 27 Dec - 4 Jan. Drop after 15 Jan if not posted.",
-    "checked_utc": "2026-11-22T21:34Z"
+    "status": "ready for operator",
+    "note": "ACQ-033 (22 Nov): trade sources report inquiry peak about 3-4 Jan after holiday visits (vendor/trade data, not independent); local precedent on Patch Evanston/Wilmette. Landing /?ref=...#assessment passes at 390px. ACQ-035 prepares the post text; operator posts inside the cap 27 Dec - 4 Jan. Drop after 15 Jan if not posted. ACQ-035 done 22 Nov: P-1228-01 (Evanston/Skokie, fb-hol-evsk-1228, from 28 Dec) and P-0102-01 (North Shore What's Happening, fb-hol-ns-0102, from 2 Jan) handed off; read +24h/+48h.",
+    "checked_utc": "2026-11-22T22:05Z"
    }
   ],
   "channel_yield": [
