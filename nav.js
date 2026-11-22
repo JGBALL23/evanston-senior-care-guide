@@ -66,3 +66,61 @@
 
   setOpen(false);
 })();
+
+/* ---------- THE CHANNEL SURVIVES A CLICK FROM A GUIDE ----------
+   Guide pages load this file only, so they fire no beacon. A family
+   who lands on a guide from a tagged link (a referral email, a post,
+   or search) and taps "Ask about a tour here" reloads the homepage with
+   no ref and a same-site referrer, and the landing, form and submission
+   are all counted as "direct". This carries the SAME short, sanitised
+   token app.js would compute (utm_source, else ref, else the external
+   referrer's host name; never a path, query or anything personal) onto
+   same-site links to the homepage and to other guides.
+   Guide pages and the /assisted-living-evanston/ search landing page
+   only: on the homepage "/#..." links are same-page jumps, and app.js
+   handles its own /? links. A link that already carries a
+   tag is left alone, and a broken href never breaks the click. */
+(function () {
+  "use strict";
+  var LANDINGS = ["/guides/", "/assisted-living-evanston/"];
+  function isLanding(p) {
+    for (var i = 0; i < LANDINGS.length; i++) {
+      if (p.indexOf(LANDINGS[i]) === 0) { return true; }
+    }
+    return false;
+  }
+  if (!isLanding(window.location.pathname)) { return; }
+
+  function token() {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var raw = params.get("utm_source") || params.get("ref") || "";
+      if (!raw && document.referrer) {
+        var host = new URL(document.referrer).hostname;
+        if (host && host !== window.location.hostname) {
+          raw = host.replace(/^www\./, "").split(".")[0];
+        }
+      }
+      return String(raw).toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 24);
+    } catch (err) {
+      return "";
+    }
+  }
+  var SOURCE = token();
+  if (!SOURCE || SOURCE === "direct") { return; }
+
+  document.addEventListener("click", function (e) {
+    var t = e.target;
+    while (t && t.tagName !== "A") { t = t.parentNode; }
+    if (!t) { return; }
+    var href = t.getAttribute("href") || "";
+    if (href.charAt(0) !== "/" || href.charAt(1) === "/") { return; }
+    try {
+      var url = new URL(href, window.location.origin);
+      if (url.pathname !== "/" && !isLanding(url.pathname)) { return; }
+      if (url.searchParams.has("ref") || url.searchParams.has("utm_source")) { return; }
+      url.searchParams.set("ref", SOURCE);
+      t.setAttribute("href", url.pathname + url.search + url.hash);
+    } catch (err) { /* a broken href must never break the click */ }
+  }, true);
+})();
