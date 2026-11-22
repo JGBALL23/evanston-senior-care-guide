@@ -33,18 +33,6 @@
  },
  "queue": [
   {
-   "id": "ACQ-015",
-   "priority": 1,
-   "status": "waiting_on_data",
-   "workstream": "search_acquisition",
-   "task": "Once /assisted-living-evanston/ is deployed: verify on production that the URL returns 200, appears in the live sitemap and homepage, and that /?tour=assisted#plan-visit opens the form with interest=assisted (beacons intercepted, no POST). If PR #84 (or #80) is also live, confirm a Google-referred visit to the page carries ref=google to the tour link. Then hand the URL to the session operator for Search Console URL inspection / IndexNow submission (this loop does not ping external services). Record the deploy date as the ACQ-012 baseline start for that page.",
-   "evidence": "ACQ-014: all pre-deploy checks pass on main 4dc2468; production 404 on 2026-11-22.",
-   "expected_tour_acquisition_value": "The page aimed at the highest-intent local search can only earn impressions and tour inquiries once it is live and indexed; a post-deploy check catches a broken tour route before search traffic arrives.",
-   "executor": "this loop (read-only production checks); indexing request delegated to session operator",
-   "done_when": "Production checks recorded PASS/FAIL with the deploy date; indexing request handed off; ACQ-012 baseline date set.",
-   "not_before": "production /assisted-living-evanston/ returns 200"
-  },
-  {
    "id": "ACQ-005",
    "priority": 1,
    "status": "waiting_on_data",
@@ -264,6 +252,20 @@
    "source": "ESCG cloud operator 2026-11-22T00:24Z",
    "outcome": "Checked on main 4dc2468 (2026-11-22). PASS: test.js 768/768; check-guides.js 2696/2696; claim-audit 2 flags, the same 2 homepage statements as before #83 (none new); source and _dist page identical, in _dist/sitemap.xml and linked from _dist/index.html; 11/11 internal links resolve; outbound links 200 (presbyterianliving.org 403 to curl, 200 in Chromium); 390x844 and 1366x900: no horizontal scroll, 0 JS errors; /?tour=assisted#plan-visit opens the tour form with interest=assisted preselected (no POST). check-citations.sh: same 15 dead as before (ilga.gov unreachable from sandbox, truleeevanston.com 403), none on the new page. FAIL found (attribution, not render): PR #80's ref-carry in nav.js runs only on /guides/, so a Google arrival on /assisted-living-evanston/ who taps the tour link reaches the form counted as direct. Fixed in review PR #84 (main + #80 + one commit): tools/test_guide_ref_carry.mjs 25/25, 3 new checks fail without the change. Production URL still 404 at this run.",
    "verified_utc": "2026-11-22"
+  },
+  {
+   "id": "ACQ-015",
+   "priority": 1,
+   "status": "done",
+   "workstream": "search_acquisition",
+   "task": "Once /assisted-living-evanston/ is deployed: verify on production that the URL returns 200, appears in the live sitemap and homepage, and that /?tour=assisted#plan-visit opens the form with interest=assisted (beacons intercepted, no POST). If PR #84 (or #80) is also live, confirm a Google-referred visit to the page carries ref=google to the tour link. Then hand the URL to the session operator for Search Console URL inspection / IndexNow submission (this loop does not ping external services). Record the deploy date as the ACQ-012 baseline start for that page.",
+   "evidence": "ACQ-014: all pre-deploy checks pass on main 4dc2468; production 404 on 2026-11-22.",
+   "expected_tour_acquisition_value": "The page aimed at the highest-intent local search can only earn impressions and tour inquiries once it is live and indexed; a post-deploy check catches a broken tour route before search traffic arrives.",
+   "executor": "ESCG cloud operator, on Joseph's live instruction (check, then deploy)",
+   "done_when": "Production checks recorded PASS/FAIL with the deploy date; indexing request handed off; ACQ-012 baseline date set.",
+   "not_before": "production /assisted-living-evanston/ returns 200",
+   "done_utc": "2026-11-22T00:40Z",
+   "outcome": "Deployed on Joseph's instruction: Netlify deploy 6b0238b35ad180acef1ba13f ready ~00:38Z from main 4dc2468 (an earlier attempt 6b023899 failed at 'preparing repo' and never published). Production 00:40Z PASS: /assisted-living-evanston/ 200, content = main except Netlify pretty-URL rewrite of the privacy link; in live sitemap and homepage; app.js identical to main; ?tour=assisted, ?tour=form, home, guides, checklist PDF, privacy 200; /api/plan-visit 400 on empty POST (unchanged). Same checks rerun independently on main before deploy matched ACQ-014. PR #84/#80 not live, so Google arrivals on the page are still counted direct at the tour click. ACQ-012 baseline start for this page: 2026-11-22. Indexing request (Search Console URL inspection) not done: owner/session-operator action, listed in owner_review_needed."
   }
  ],
  "blocked": [],
@@ -309,7 +311,7 @@
   "confirmation": "Claude Scheduled Tasks screenshot: ESCG Tour Acquisition Loop active, Pull request: Commits pushed on matching repository. Previous setup screenshot: head branch automation/esc-tour-loop."
  },
  "owner_review_needed": [
-  "DEPLOY: /assisted-living-evanston/ (PR #83, merged) passes every pre-deploy check (ACQ-014) and is still 404 in production. Deploy when ready. Merge PR #84 first if you want search visitors to that page counted at the tour click.",
+  "Optional: request indexing for https://evanstonseniorcareguide.com/assisted-living-evanston/ in Search Console (live since 2026-11-22T00:38Z, deploy 6b0238b3). Merge #84 (+#79) and redeploy if you want its search visitors counted at the tour click.",
   "PR #84 = PR #80 + the same tag-carry on the new assisted-living page (25/25 tests). Merge #84 and close #80, or merge #80 then #84. Merge with #79 either way; this loop does not merge.",
   "PR #81: homepage title names assisted living and memory care in Evanston (head/meta only). Review and merge if acceptable.",
   "PR #79: tour click keeps the arrival tag. Without it, a tour inquiry from the Winnetka post or any tagged post counts as direct. Review and merge if acceptable (this loop does not merge).",
