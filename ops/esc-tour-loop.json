@@ -1373,10 +1373,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-22T21:40Z",
-  "event": "pull_request.synchronize c282321",
-  "picked": "ACQ-034 (SC6 new kinds of channel)",
-  "why": "Only ready item; no fresh demand data until the 25 Nov Search Console read."
+  "utc": "2026-11-22T23:32Z",
+  "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
+  "picked": "TEST-01 done, TEST-02 done, TEST-03 done",
+  "why": "Worked: 3 test tasks done, monitor ran"
  },
  "last_verified_action": "TEST-03 done 2026-11-22T23:32Z: Method: gh api repos/JGBALL23/evanston-senior-care-guide/pulls/<n> --jq '.state,.merged' (worked). #78 open (not merged), #79 open, #81 open, #84 open, #85 ope…",
  "last_stop": {
@@ -1468,7 +1468,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "No ready task and no open map item after ACQ-034. Next: from 25 Nov 15:00Z Search Console read (ACQ-005/012/017) and SC3 (due 25 Nov 16:00Z); SC5 29 Nov; SC4 29 Nov; SC2 6 Dec; SC6 7 Dec; SC1 22 Dec; ACQ-030 from 6 Dec; operator: P-1228-01 from 28 Dec, P-0102-01 from 2 Jan. Runs before 25 Nov 15:00Z with no new evidence (reply, PR merge, Joseph answer, genuine tour-form view) stop without a commit. Still unanswered by Joseph: D8 talk (also unlocks D14), Patch account, Nextdoor Business Page, PRs #86 #85 #84 #81 #79 #78, Search Console indexing request; essay timing (by ~10 Dec).",
+ "next_discovery": "TEST copy: TEST-04 and TEST-05 remain ready for the next session. Real items next due 25 Nov 15:00Z (ACQ-005/012 Search Console read) and SC3 25 Nov 16:00Z; monitor next due 23 Nov 11:32Z. Waiting on Joseph: PRs #78 #79 #81 #84 #85 #86 (all open), D8 talk, Search Console indexing request; stray probe branch ops/make-loop-probe could not be deleted by the worker.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -2044,13 +2044,27 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062), control record V3",
   "since_utc": "2026-11-22T23:15Z",
   "lock": {
-   "holder": "cse_014eaiSdh5wg12q1pDbXw19e",
-   "utc": "2026-11-22T23:30Z"
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-22T23:32Z"
   },
-  "sessions": [],
+  "sessions": [
+   {
+    "run": "cse_014eaiSdh5wg12q1pDbXw19e",
+    "start_utc": "2026-11-22T23:30Z",
+    "end_utc": "2026-11-22T23:32Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: 3 test tasks done, monitor ran",
+    "done": 3,
+    "changed": 1,
+    "tasks": "TEST-01 done, TEST-02 done, TEST-03 done",
+    "next": "yes",
+    "wake_minutes": null,
+    "next_due_utc": "2026-11-23T11:32Z"
+   }
+  ],
   "probe": {
    "utc": "2026-11-22T23:31Z",
    "push_to_test_branch": "ok",
@@ -2058,6 +2072,36 @@
    "delete_ops_branch": "refused (fatal: the remote end hung up unexpectedly; branch ops/make-loop-probe still present)",
    "gh_api": "ok",
    "tools": "netlify-observability-services-reader, search_threads, create_draft, PushNotification, add_repo, create_or_update_file all listed"
+  },
+  "next": {
+   "written_utc": "2026-11-22T23:32Z",
+   "eligible_now": 2,
+   "next_due": [
+    {
+     "utc": "2026-11-23T11:32Z",
+     "what": "monitor"
+    },
+    {
+     "utc": "2026-11-25T15:00Z",
+     "what": "ACQ-005"
+    },
+    {
+     "utc": "2026-11-25T15:00Z",
+     "what": "ACQ-012"
+    },
+    {
+     "utc": "2026-11-25T16:00Z",
+     "what": "SC3"
+    },
+    {
+     "utc": "2026-11-29T16:00Z",
+     "what": "SC5"
+    },
+    {
+     "utc": "2026-11-29T21:34Z",
+     "what": "SC4"
+    }
+   ]
   }
  }
 }
