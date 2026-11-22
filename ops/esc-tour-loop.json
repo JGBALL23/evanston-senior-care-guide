@@ -82,20 +82,6 @@
    "not_before": "PR #85 deployed (production guide HTML contains /assisted-living-evanston/)"
   },
   {
-   "id": "ACQ-029",
-   "priority": 1,
-   "status": "ready",
-   "workstream": "referral_partnerships",
-   "map_item": "R9",
-   "task": "Examine veterans' organizations and service officers serving Evanston and the North Shore (Cook County Veterans Assistance Commission, Lake County VAC, township/village veterans pages, VFW/American Legion posts, Hines/Lovell VA caregiver support pages): for each, check whether a published resource list links outside, non-government guides on paying for long-term care or assisted living; find the published contact email (not a form); check Gmail Sent and state files for earlier contact; give a verdict. At most three disclosed proposals, offering the site's two VA guides.",
-   "evidence": "R9 is the only open map item; the site has two VA guides (Aid and Attendance / VA long-term care) that are the relevant asset. ACQ-028 lesson: check each list's actual entries first; most public lists are government-only.",
-   "guardrails": "Research and preparation only; no forms; disclose Joseph's Westminster Place employment; no VA-benefit claims beyond the published guides; no sending.",
-   "expected_tour_acquisition_value": "Low-medium: veteran families researching how to pay for assisted living are close to a move decision.",
-   "executor": "this loop (research); designated outreach operator (any send)",
-   "done_when": "Each target has a verdict with source URL; up to three ACT proposals handed off; R9 and channel_yield updated.",
-   "found_utc": "2026-11-22T17:50Z"
-  },
-  {
    "id": "ACQ-030",
    "priority": 2,
    "status": "waiting_on_data",
@@ -928,17 +914,84 @@
    ],
    "handoff": "No owner ask now (Joseph already has 4 open decisions). ACQ-030 queued waiting_on_data: if the ACQ-012/017 read shows /assisted-living-evanston/ earning impressions, put one proposal to Joseph: a /memory-care-evanston/ page on the same template, or a memory-care cost section in the existing cost guide.",
    "lesson": "Local demand is real for memory care (Evanston + 4 towns) and independent living; nursing/rehab demand is facility-name navigation. Every local result page is directory-owned, so the local page experiment (/assisted-living-evanston/) must show impressions before a second local page is worth Joseph's time."
+  },
+  {
+   "id": "ACQ-029",
+   "priority": 1,
+   "status": "done",
+   "workstream": "referral_partnerships",
+   "map_item": "R9",
+   "task": "Examine veterans' organizations and service officers serving Evanston and the North Shore (Cook County Veterans Assistance Commission, Lake County VAC, township/village veterans pages, VFW/American Legion posts, Hines/Lovell VA caregiver support pages): for each, check whether a published resource list links outside, non-government guides on paying for long-term care or assisted living; find the published contact email (not a form); check Gmail Sent and state files for earlier contact; give a verdict. At most three disclosed proposals, offering the site's two VA guides.",
+   "evidence": "R9 is the only open map item; the site has two VA guides (Aid and Attendance / VA long-term care) that are the relevant asset. ACQ-028 lesson: check each list's actual entries first; most public lists are government-only.",
+   "guardrails": "Research and preparation only; no forms; disclose Joseph's Westminster Place employment; no VA-benefit claims beyond the published guides; no sending.",
+   "expected_tour_acquisition_value": "Low-medium: veteran families researching how to pay for assisted living are close to a move decision.",
+   "executor": "this loop (research); designated outreach operator (any send)",
+   "done_when": "Each target has a verdict with source URL; up to three ACT proposals handed off; R9 and channel_yield updated.",
+   "found_utc": "2026-11-22T17:50Z",
+   "done_utc": "2026-11-23T00:30Z",
+   "method": "Web search (6 queries: Cook County VAC, Lake County VAC, township/village veterans pages, Legion/VFW posts in Evanston, Wilmette, Skokie, Winnetka and Glenview, Northbrook Veterans Center); page read of ageguide.org/additional-veteran-directed-care-resources (link targets listed); cookcountyil.gov and lakecountyil.gov pages returned 403 and the Morton Grove and City of Evanston veterans pages returned 404, so their search snippets were used; evanstonp42.com is not reachable from this session; Gmail Sent (90 days) has 0 veterans contacts; inbox (2 days) has 0 organizational replies.",
+   "result": "0 ACT across 8 targets. No public veterans list in the area links an independent online guide; every list found is government, VA or national VSO entries.",
+   "verdicts": [
+    {
+     "target": "Veterans Assistance Commission of Cook County",
+     "source": "https://www.cookcountyil.gov/agency/veterans-assistance-commission-cook-county",
+     "verdict": "DROP: county unit of government; accredited service officers do claims and emergency aid; links go only to county, state and federal pages; contact via county channels"
+    },
+    {
+     "target": "Cook County Department of Veterans Affairs (resource map)",
+     "source": "https://www.cookcountyil.gov/service/cook-county-veteran-resources-and-supportive-services-interactive-map",
+     "verdict": "DROP: map of government/nonprofit service providers, webform-only contact, no route to suggest an online guide"
+    },
+    {
+     "target": "Veterans Assistance Commission of Lake County",
+     "source": "https://www.lakecountyil.gov/725/Veterans-Assistance-Commission",
+     "verdict": "DROP: county commission (benefits, emergency aid, referrals); government brochure; no outside guide list"
+    },
+    {
+     "target": "AgeGuide veterans resources page (area agency on aging, Lake County incl. Highland Park/Lake Forest/Deerfield)",
+     "source": "https://ageguide.org/additional-veteran-directed-care-resources/",
+     "verdict": "DROP: links only VA, county commissions, national VSOs and national nonprofits (AARP, Red Cross, TAPS); no local or independent guides; a guide written by a senior-community employee does not fit the list"
+    },
+    {
+     "target": "City of Evanston veterans page",
+     "source": "https://cityofevanston.org/residents/veteran-services",
+     "verdict": "DROP: lists IDVA, Illinois Joining Forces, Vet Center, Post 42, City General Assistance; City of Evanston already contacted (R1)"
+    },
+    {
+     "target": "American Legion Post 42 Evanston / VFW Post 7186 Evanston / Niles VFW 3579",
+     "source": "https://cityofevanston.org/residents/veteran-services",
+     "verdict": "DROP: member posts and halls with no published resource list found; Post 42 site unreachable from this session; no email route"
+    },
+    {
+     "target": "Northbrook Veterans Center (501c3 at Legion Post 791, Northfield Township)",
+     "source": "https://business.northbrookchamber.org/list/member/northbrook-veterans-center-11267",
+     "verdict": "DROP: appointment-only personal help with benefits; no website or resource list found"
+    },
+    {
+     "target": "Evanston Vet Center; Hines/Lovell VA caregiver support",
+     "source": "https://www.va.gov/evanston-vet-center/",
+     "verdict": "DROP: VA facilities link only VA resources"
+    }
+   ],
+   "lesson": "Veterans' benefits help on the North Shore runs through accredited service officers and government pages that do not list outside guides. The site's four VA guides reach veteran families through search, not referral lists. R9 closed.",
+   "outcome_states": {
+    "research_completed": true,
+    "proposals_handed_off": 0,
+    "sent": 0,
+    "visitors": "n/a",
+    "inquiries": 0
+   }
   }
  ],
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-22T23:55Z",
-  "event": "pull_request.synchronize 2838f2b",
-  "picked": "ACQ-019 (S3 local-intent demand)",
-  "why": "Highest-lane ready item (local_seo before referral_partnerships); no fresh evidence (inbox 2 days: 0 org replies; Search Console read not before 25 Nov)."
+  "utc": "2026-11-23T00:30Z",
+  "event": "pull_request.synchronize 3b1e991",
+  "picked": "ACQ-029 (R9 veterans' organizations)",
+  "why": "Only ready item; no fresh evidence (inbox 2 days: 0 organizational replies; Search Console read not before 25 Nov)."
  },
- "last_verified_action": "ACQ-019 done 2026-11-22T23:55Z: memory care Evanston/North Shore demand confirmed by autocomplete, directory-owned results, no page built; ACQ-030 gated on /assisted-living-evanston/ impressions; ACQ-029 (R9 veterans) ready.",
+ "last_verified_action": "ACQ-029 done 2026-11-23T00:30Z: R9 veterans' organizations 0 ACT across 8 targets, R9 dropped. No map item open and no ready task: next runs stop without a commit until replies, merges, Joseph's answers or Search Console data (from 25 Nov 15:00Z) arrive.",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -1027,7 +1080,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Ready: ACQ-029 (R9 veterans' organizations). Handed off, not sent: Open Communities proposal (ACQ-027). From 25 Nov 15:00Z: Search Console read (ACQ-005/012/017, include independent-living-evanston) and the outreach operator's single follow-ups to the 11 sends of 17-22 Nov. From 6 Dec: ACQ-030 (memory-care page decision). After ACQ-029 no map item is open: stop without a commit until replies, merges, Joseph's answers (ACQ-007/ACQ-018/D8) or Search Console data arrive.",
+ "next_discovery": "No ready task and no open map item after ACQ-029 (23 Nov). Handed off, not sent: Open Communities proposal (ACQ-027). From 25 Nov 15:00Z: Search Console read (ACQ-005/012/017, include independent-living-evanston and /assisted-living-evanston/) and the outreach operator's single follow-ups to the 11 sends of 17-22 Nov. From 6 Dec: ACQ-030 (memory-care page decision). Until then stop without a commit unless replies, merges, Joseph's answers (ACQ-007/ACQ-018/D8) or Search Console data arrive. Evidence so far: referral lists are almost all government-only (R2, R3, R6, R7, R9 dropped); the live bottlenecks are indexing/authority for local search and the owner-only routes (D8 talk, ACQ-018 essay, ACQ-007 PDF line).",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -1278,9 +1331,9 @@
     "id": "R9",
     "lane": "referral_partnerships",
     "class": "veterans' organizations and service officers",
-    "status": "queued",
-    "note": "the site has two VA guides",
-    "checked_utc": "2026-11-22T17:50Z"
+    "status": "drop",
+    "note": "ACQ-029 (23 Nov): 0 ACT across 8 targets (Cook and Lake County VACs, Cook County VA map, AgeGuide, Evanston city page, Legion/VFW posts, Northbrook Veterans Center, VA facilities); all lists are government/VA/national VSO; no email route to a list that takes outside guides. Reopen only if a veterans' organization publishes a list that includes independent guides.",
+    "checked_utc": "2026-11-23T00:30Z"
    },
    {
     "id": "R10",
@@ -1432,6 +1485,15 @@
     "inquiries": 0,
     "as_of_utc": "2026-11-22T23:55Z",
     "decision": "watch: memory care is the one unmet local demand; build only after /assisted-living-evanston/ shows impressions (ACQ-030)"
+   },
+   {
+    "class": "R9 veterans' organizations",
+    "shipped": 0,
+    "responses": null,
+    "genuine_visitors": 0,
+    "inquiries": 0,
+    "as_of_utc": "2026-11-23T00:30Z",
+    "decision": "dropped: government/VSO-only lists, no executable referral route"
    }
   ]
  }
