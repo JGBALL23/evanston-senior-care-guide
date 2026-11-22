@@ -82,19 +82,6 @@
    "not_before": "PR #85 deployed (production guide HTML contains /assisted-living-evanston/)"
   },
   {
-   "id": "ACQ-019",
-   "priority": 1,
-   "status": "ready",
-   "workstream": "local_seo",
-   "map_item": "S3",
-   "task": "Examine demand evidence for local-intent senior-care searches the site has no page for (memory care, nursing or rehab, independent living, life plan or continuing care, senior living cost — each with Evanston or a North Shore town): which established sites keep a dedicated local page and what the results page shows: find the concrete targets, read each target's own pages for its rules and published contact route, check Gmail Sent and the state files for earlier contact, and give each target a verdict.",
-   "evidence": "The site has one local page (/assisted-living-evanston/, live 22 Nov) and no pages for the other care types; no demand check for them exists in the loop or state files. Joseph's rule: no new pages without demonstrated demand, so this is research toward a proposal only.",
-   "expected_tour_acquisition_value": "Families searching '<care type> Evanston' are at the decision stage; evidence of demand lets Joseph decide on a page that could capture search visitors who request tours.",
-   "executor": "this loop (research and preparation only)",
-   "done_when": "Every target has a verdict (ACT, WATCH or DROP) with its source URL; the best ACT target has one prepared handoff; the map item and channel_yield are updated.",
-   "found_utc": "2026-11-22T17:40Z"
-  },
-  {
    "id": "ACQ-029",
    "priority": 1,
    "status": "ready",
@@ -107,6 +94,19 @@
    "executor": "this loop (research); designated outreach operator (any send)",
    "done_when": "Each target has a verdict with source URL; up to three ACT proposals handed off; R9 and channel_yield updated.",
    "found_utc": "2026-11-22T17:50Z"
+  },
+  {
+   "id": "ACQ-030",
+   "priority": 2,
+   "status": "waiting_on_data",
+   "workstream": "search_acquisition",
+   "map_item": "S3",
+   "task": "Decide whether to propose a memory-care local page (or a memory-care cost section in guides/assisted-living-cost-illinois) to Joseph, using the per-page Search Console read of /assisted-living-evanston/.",
+   "evidence": "ACQ-019: autocomplete demand for 'memory care evanston il' and four North Shore towns; site has no memory-care page; directories own the results.",
+   "expected_tour_acquisition_value": "Medium if the local-page model indexes: memory-care searchers are at the move decision, and memory care is a tour-heavy decision.",
+   "executor": "this loop (proposal); Joseph (decision to build)",
+   "done_when": "If /assisted-living-evanston/ shows >=1 impression for a local query by its ~14-day mark, hand Joseph one yes/no proposal with the autocomplete evidence; if 0 impressions, record that indexing/authority is the bottleneck and keep S3 at watch.",
+   "not_before_utc": "2026-12-06T15:00Z"
   }
  ],
  "completed": [
@@ -884,17 +884,61 @@
    "research_completed": true,
    "ready_for_external_execution": false,
    "sent": false
+  },
+  {
+   "id": "ACQ-019",
+   "priority": 1,
+   "status": "done",
+   "workstream": "local_seo",
+   "map_item": "S3",
+   "task": "Examine demand evidence for local-intent senior-care searches the site has no page for (memory care, nursing or rehab, independent living, life plan or continuing care, senior living cost — each with Evanston or a North Shore town): which established sites keep a dedicated local page and what the results page shows: find the concrete targets, read each target's own pages for its rules and published contact route, check Gmail Sent and the state files for earlier contact, and give each target a verdict.",
+   "evidence": "The site has one local page (/assisted-living-evanston/, live 22 Nov) and no pages for the other care types; no demand check for them exists in the loop or state files. Joseph's rule: no new pages without demonstrated demand, so this is research toward a proposal only.",
+   "expected_tour_acquisition_value": "Families searching '<care type> Evanston' are at the decision stage; evidence of demand lets Joseph decide on a page that could capture search visitors who request tours.",
+   "executor": "this loop (research and preparation only)",
+   "done_when": "Every target has a verdict (ACT, WATCH or DROP) with its source URL; the best ACT target has one prepared handoff; the map item and channel_yield are updated.",
+   "found_utc": "2026-11-22T17:40Z",
+   "done_utc": "2026-11-22T23:55Z",
+   "method": "Google autocomplete (public suggest endpoint) for 18 local-intent seeds; 2 web searches (memory care / nursing home Evanston IL) for result-page owners; grep of main _dist guides and production /assisted-living-evanston/ for existing coverage. No contacts involved, so no Gmail Sent check needed; inbox 2 days: 0 organizational replies.",
+   "verdicts": [
+    {
+     "target": "memory care + Evanston / Wilmette / Skokie / Glenview / Northbrook",
+     "source": "suggestqueries.google.com seeds 'memory care <town>'; https://www.aplaceformom.com/memory-care/illinois/evanston ; https://www.seniorly.com/memory-care/illinois/evanston ; https://www.caring.com/senior-living/memory-care-facilities/illinois/evanston",
+     "verdict": "WATCH (strongest demand found): autocomplete completes 'memory care evanston il', 'memory care facilities evanston' and the same for 4 North Shore towns, so real local decision-stage demand exists. The site has no memory-care page (only a comparison section in levels-of-senior-care-explained). Results page is owned by lead-gen directories (APFM x2, Seniorly, Caring, alzheimers.net, seniorhousingnet) plus the City's Dementia Friendly Evanston list; same authority wall as S4. Building now would repeat an untested bet: /assisted-living-evanston/ (live 22 Nov) has no impression data yet. Gate on ACQ-012/017 (ACQ-030)."
+    },
+    {
+     "target": "nursing home / rehab + Evanston",
+     "source": "https://projects.propublica.org/nursing-homes/homes/h-145907 ; https://caring.com/senior-living/nursing-homes/illinois/evanston",
+     "verdict": "DROP: autocomplete is facility-name navigation (Alden, Dobson, Pearl, Aliya, McGaw, Westminster); ProPublica/Care Compare and directories own it; check-illinois-inspection-records already serves the inspection need; a page listing facilities would rank Joseph's employer's competitors (conflict)."
+    },
+    {
+     "target": "independent living + Evanston",
+     "source": "https://evanstonseniorcareguide.com/guides/independent-living-evanston/",
+     "verdict": "DROP (already covered): demand confirmed by autocomplete; the site already has a dedicated guide. Measure it in the 25 Nov Search Console read rather than build."
+    },
+    {
+     "target": "life plan / continuing care retirement community + Evanston",
+     "source": "suggestqueries seed 'continuing care retirement community evanston' returned 0 completions",
+     "verdict": "DROP: no autocomplete demand."
+    },
+    {
+     "target": "senior living cost + Evanston",
+     "source": "suggestqueries seed 'senior living cost evanston' and 'memory care evanston il cost' returned 0 completions; 'memory care cost illinois' / 'average cost of memory care in illinois' complete",
+     "verdict": "DROP locally; note: statewide 'average cost of memory care in illinois' demand exists and guides/assisted-living-cost-illinois never mentions memory care. Candidate for ACQ-030 as an improve-existing-page option, only with a verified public cost source."
+    }
+   ],
+   "handoff": "No owner ask now (Joseph already has 4 open decisions). ACQ-030 queued waiting_on_data: if the ACQ-012/017 read shows /assisted-living-evanston/ earning impressions, put one proposal to Joseph: a /memory-care-evanston/ page on the same template, or a memory-care cost section in the existing cost guide.",
+   "lesson": "Local demand is real for memory care (Evanston + 4 towns) and independent living; nursing/rehab demand is facility-name navigation. Every local result page is directory-owned, so the local page experiment (/assisted-living-evanston/) must show impressions before a second local page is worth Joseph's time."
   }
  ],
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-22T17:50Z",
-  "event": "pull_request.synchronize 1008e76",
-  "picked": "ACQ-028 (R2 libraries)",
-  "why": "Highest-priority ready referral item; no fresh evidence (Gmail inbox 2 days: 0 org replies; no PR merges; Search Console read not before 25 Nov)."
+  "utc": "2026-11-22T23:55Z",
+  "event": "pull_request.synchronize 2838f2b",
+  "picked": "ACQ-019 (S3 local-intent demand)",
+  "why": "Highest-lane ready item (local_seo before referral_partnerships); no fresh evidence (inbox 2 days: 0 org replies; Search Console read not before 25 Nov)."
  },
- "last_verified_action": "ACQ-028 done 2026-11-22T17:50Z: 10 libraries checked, 0 ACT, R2 dropped; talk venues added to D8; ACQ-029 (R9 veterans) queued.",
+ "last_verified_action": "ACQ-019 done 2026-11-22T23:55Z: memory care Evanston/North Shore demand confirmed by autocomplete, directory-owned results, no page built; ACQ-030 gated on /assisted-living-evanston/ impressions; ACQ-029 (R9 veterans) ready.",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -983,7 +1027,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Ready: ACQ-019 (S3 local-intent demand), ACQ-029 (R9 veterans' organizations). Handed off, not sent: Open Communities proposal (ACQ-027) for the 25 Nov+ batch. Highest-value from 25 Nov 15:00Z: Search Console read (ACQ-005/012/017) and the outreach operator's single follow-ups to the 11 sends of 17-22 Nov. After ACQ-019 and ACQ-029 no map item is open: then stop without a commit until replies, merges, Joseph's answers (ACQ-007/ACQ-018/D8) or Search Console data arrive.",
+ "next_discovery": "Ready: ACQ-029 (R9 veterans' organizations). Handed off, not sent: Open Communities proposal (ACQ-027). From 25 Nov 15:00Z: Search Console read (ACQ-005/012/017, include independent-living-evanston) and the outreach operator's single follow-ups to the 11 sends of 17-22 Nov. From 6 Dec: ACQ-030 (memory-care page decision). After ACQ-029 no map item is open: stop without a commit until replies, merges, Joseph's answers (ACQ-007/ACQ-018/D8) or Search Console data arrive.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -1111,9 +1155,10 @@
     "id": "S3",
     "lane": "local_seo",
     "class": "demand evidence for local-intent searches the site has no page for (memory care, nursing or rehab, independent living, life plan or continuing care, senior living cost, each with Evanston or a North Shore town)",
-    "status": "queued",
+    "status": "watch",
     "note": "research only; building any new page is Joseph's decision (no new pages without demonstrated demand), so present the evidence as a proposal",
-    "checked_utc": "2026-11-22T17:40Z"
+    "checked_utc": "2026-11-22T23:55Z",
+    "verdict": "watch 22 Nov (ACQ-019): memory care demand confirmed (Evanston + Wilmette/Skokie/Glenview/Northbrook); nursing/rehab = facility navigation DROP; IL already covered; CCRC/cost no local demand; directory-owned results; ACQ-030 gated on ACQ-012/017 read"
    },
    {
     "id": "S4",
@@ -1378,6 +1423,15 @@
     "inquiries": 0,
     "as_of_utc": "2026-11-22T17:50Z",
     "decision": "dropped for list placement: no library list includes outside guides; talk route folded into D8 (owner)"
+   },
+   {
+    "class": "S3 local-intent demand",
+    "shipped": 0,
+    "responses": null,
+    "genuine_visitors": 0,
+    "inquiries": 0,
+    "as_of_utc": "2026-11-22T23:55Z",
+    "decision": "watch: memory care is the one unmet local demand; build only after /assisted-living-evanston/ shows impressions (ACQ-030)"
    }
   ]
  }
