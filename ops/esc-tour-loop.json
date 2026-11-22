@@ -95,22 +95,8 @@
    "found_utc": "2026-11-22T17:40Z"
   },
   {
-   "id": "ACQ-026",
-   "priority": 1,
-   "status": "ready",
-   "workstream": "referral_partnerships",
-   "map_item": "R6",
-   "task": "Find senior move managers, downsizing and senior real-estate specialists serving Evanston/North Shore (NASMM member directory, local independent firms with their own websites): for each, check whether their site publishes a resources/links page that includes outside local guides, find the published business contact route, check Gmail Sent and state files for earlier contact, and give a verdict. Prepare at most three disclosed proposals for the outreach operator.",
-   "evidence": "R6 is the highest-ranked open referral item after R3/R7. Move managers are engaged after a family has decided to move, often while comparing communities, which is when a tour checklist and tour step are useful; small local firms often keep 'helpful resources' pages, unlike hospitals (ACQ-024) and employers (ACQ-020).",
-   "guardrails": "Research and preparation only; business contact routes only; disclose Joseph's Westminster Place employment; no referral fees or reciprocal commercial arrangements; no sending.",
-   "expected_tour_acquisition_value": "A resource-page link from a firm that meets families at the moving decision reaches people likely to tour within weeks.",
-   "executor": "this loop (research); designated outreach operator (any send)",
-   "done_when": "Each examined firm has a verdict with source URLs; up to three ACT proposals handed off; R6 verdict and channel_yield updated.",
-   "found_utc": "2026-11-22T22:40Z"
-  },
-  {
    "id": "ACQ-027",
-   "priority": 2,
+   "priority": 1,
    "status": "ready",
    "workstream": "referral_partnerships",
    "map_item": "R8",
@@ -735,17 +721,79 @@
    ],
    "result": "0 ACT across 7 targets. The one list that fits (Evanston Dementia Friendly resources) belongs to an office already emailed; the Glencoe dementia page routes to Family Service of Glencoe, also already emailed. Nothing new to hand off; nothing sent or submitted.",
    "lesson": "Six referral/distribution classes in a row (D9, D10, D11, R3, S4, R7) produced 0 new ACT. The few good-fit lists in this market are owned by the ~11 organizations already emailed 17-22 Nov (0 replies). The referral bottleneck is response/follow-through on those sends, not discovery: the highest-value referral action is the 25 Nov+ single follow-ups (P-OUT-FOLLOWUP), with the dementia-resources page named explicitly in the Evanston and Glencoe follow-ups."
+  },
+  {
+   "id": "ACQ-026",
+   "priority": 1,
+   "status": "done",
+   "workstream": "referral_partnerships",
+   "map_item": "R6",
+   "task": "Find senior move managers, downsizing and senior real-estate specialists serving Evanston/North Shore (NASMM member directory, local independent firms with their own websites): for each, check whether their site publishes a resources/links page that includes outside local guides, find the published business contact route, check Gmail Sent and state files for earlier contact, and give a verdict. Prepare at most three disclosed proposals for the outreach operator.",
+   "evidence": "R6 is the highest-ranked open referral item after R3/R7. Move managers are engaged after a family has decided to move, often while comparing communities, which is when a tour checklist and tour step are useful; small local firms often keep 'helpful resources' pages, unlike hospitals (ACQ-024) and employers (ACQ-020).",
+   "guardrails": "Research and preparation only; business contact routes only; disclose Joseph's Westminster Place employment; no referral fees or reciprocal commercial arrangements; no sending.",
+   "expected_tour_acquisition_value": "A resource-page link from a firm that meets families at the moving decision reaches people likely to tour within weeks.",
+   "executor": "this loop (research); designated outreach operator (any send)",
+   "done_when": "Each examined firm has a verdict with source URLs; up to three ACT proposals handed off; R6 verdict and channel_yield updated.",
+   "found_utc": "2026-11-22T22:40Z",
+   "done_utc": "2026-11-23T00:40Z",
+   "method": "Web search (5 queries) for Evanston/North Shore senior move managers, downsizing and senior-relocation firms; Sencarta directory pages returned HTTP 503 (unreadable); Gmail Sent checked for caringtransitions, move manager, downsizing, sencarta: no earlier contact. Gmail inbox last 3 days: 0 organizational replies.",
+   "rows": [
+    {
+     "target": "Caring Transitions of Chicago and North Suburbs (franchise launched in Evanston c. 2012; serves Evanston, Skokie, Niles, Glenview, Lincolnwood, Morton Grove)",
+     "url": "https://www.franchising.com/news/20141006_chicago_area_caring_transitions_franchise_owner_re.html",
+     "verdict": "DROP",
+     "reason": "National franchise on corporate template site (caringtransitions.com); no local outside-resources page found; current status of the local franchise unconfirmed (newest local item 2017). Move/estate firms also partner commercially with senior communities, which sits badly with Joseph's Westminster Place employment."
+    },
+    {
+     "target": "Caring Transitions Chicago Northwest Suburbs / Northern Illinois franchises",
+     "url": "https://estatesales.org/estate-sale-companies/7839",
+     "verdict": "DROP",
+     "reason": "Same franchise template; service area centred west/northwest of the site's audience."
+    },
+    {
+     "target": "Sencarta directory (Evanston 1, Skokie 2, Wilmette 1 NASMM-certified managers)",
+     "url": "https://sencarta.com/senior-move-manager/evanston-il",
+     "verdict": "DROP",
+     "reason": "Lead-gen directory; firm names not readable (503); directories do not list outside guides."
+    },
+    {
+     "target": "Blue Moon Estate Sales (Chicago North Shore)",
+     "url": "https://bluemoonestatesales.com/chicago-north-shore",
+     "verdict": "DROP",
+     "reason": "Estate-sale franchise; no resources list."
+    },
+    {
+     "target": "Lugg / BBB / MoveBuddha / Angi senior-moving listings",
+     "url": "https://lugg.com/evanston-il-senior-moving-services",
+     "verdict": "DROP",
+     "reason": "Moving marketplaces and directories, no resource pages."
+    },
+    {
+     "target": "Assisted Living Locators of Chicagoland North Shore (opened Jan 2026)",
+     "url": "(search result, checkbook.org resource guide)",
+     "verdict": "DROP",
+     "reason": "Placement/referral agency paid by communities: a competing commercial referral channel; any arrangement would be a referral relationship this loop may not make."
+    },
+    {
+     "target": "Independent Evanston-based move manager with own website",
+     "url": "(none found)",
+     "verdict": "DROP",
+     "reason": "Three targeted searches surfaced no independent local firm; results were franchises, directories and job ads."
+    }
+   ],
+   "result": "0 ACT across 7 targets. The senior move-manager market serving Evanston is franchises (Caring Transitions), estate-sale chains and lead-gen directories; none publishes an outside local-resources list. Nothing prepared, sent or submitted.",
+   "lesson": "Seventh discovery class in a row (D9, D10, D11, R3, S4, R7, R6) with 0 new ACT. Same pattern as R4/R5 (G4, 18 Nov): commercial senior-service categories in this market are franchised and do not link outside guides. Do not reopen commercial referral classes without a named independent firm. Remaining open referral classes (R8, R2, R9) are nonprofit/public and should be worked, but the bottleneck remains response on the 11 existing sends and Search Console evidence from 25 Nov."
   }
  ],
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-22T23:40Z",
-  "event": "pull_request.synchronize 1c033bb",
-  "picked": "ACQ-025 (R7 memory/caregiver resource lists)",
-  "why": "Queued first of the two ready referral items; no fresh traffic/reply evidence (Gmail inbox 10 days: 0 org replies)."
+  "utc": "2026-11-23T00:40Z",
+  "event": "pull_request.synchronize 14a64fb",
+  "picked": "ACQ-026 (R6 move managers)",
+  "why": "Highest-priority ready item; no fresh evidence (Gmail inbox 3 days: 0 org replies; no PR merged since 21 Nov; Search Console read not before 25 Nov)."
  },
- "last_verified_action": "ACQ-025: 7 memory/caregiver targets checked, 0 ACT; fitting lists belong to orgs already emailed (Evanston city, Family Service of Glencoe, NSSC) -> named in their 25 Nov+ follow-ups; R7 dropped; ACQ-027 (R8) queued. Nothing sent or submitted.",
+ "last_verified_action": "ACQ-026: 7 move-manager/downsizing targets checked, 0 ACT (franchise/directory market); R6 dropped; ACQ-027 (R8) is next. Nothing sent or submitted.",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -833,7 +881,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Ready: ACQ-026 (R6 move managers), ACQ-027 (R8 aging-in-place/housing counseling), ACQ-019 (S3; after 25 Nov Search Console). Highest-value item from 25 Nov: Search Console read (ACQ-005/012/017) and the outreach operator's single follow-ups to the 11 sends of 17-22 Nov, naming the dementia-resources pages for Evanston and Glencoe. Waiting: org replies, PR merges, Joseph's ACQ-007/ACQ-018/D8 answers. Open map items after these: R2, R9.",
+ "next_discovery": "Ready: ACQ-027 (R8 aging-in-place/housing counseling), ACQ-019 (S3 local-intent demand). Highest-value items from 25 Nov 15:00Z: Search Console read (ACQ-005/012/017) and the outreach operator's single follow-ups to the 11 sends of 17-22 Nov (naming the Evanston and Glencoe dementia-resources pages). Open map items after these: R2, R9. Waiting: org replies, PR merges (#78-#85), Joseph's ACQ-007/ACQ-018/D8 answers.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -1058,8 +1106,8 @@
     "id": "R6",
     "lane": "referral_partnerships",
     "class": "senior move managers, downsizing and senior real-estate specialists serving the North Shore",
-    "status": "queued",
-    "note": "they meet families at the moving decision; published business addresses only; queued as ACQ-026 (22 Nov)",
+    "status": "drop",
+    "note": "ACQ-026 (23 Nov): 0 ACT across 7 targets: franchises (Caring Transitions), estate-sale chains, directories (Sencarta, BBB, Lugg) and one paid placement agency; no independent firm with an outside-resources page. Reopen only for a named independent firm.",
     "checked_utc": "2026-11-22T22:40Z"
    },
    {
@@ -1201,6 +1249,15 @@
     "inquiries": 0,
     "as_of_utc": "2026-11-22T23:40Z",
     "decision": "dropped: fitting lists owned by already-emailed orgs; use their follow-ups"
+   },
+   {
+    "class": "R6 move managers",
+    "shipped": 0,
+    "responses": null,
+    "genuine_visitors": 0,
+    "inquiries": 0,
+    "as_of_utc": "2026-11-23T00:40Z",
+    "decision": "dropped: franchised/directory market, no outside-resource lists"
    }
   ]
  }
