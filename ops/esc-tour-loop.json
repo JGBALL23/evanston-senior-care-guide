@@ -33,16 +33,16 @@
  },
  "queue": [
   {
-   "id": "ACQ-014",
+   "id": "ACQ-015",
    "priority": 1,
-   "status": "ready",
+   "status": "waiting_on_data",
    "workstream": "search_acquisition",
-   "task": "Pre-deploy readiness check for PR #83's new /assisted-living-evanston/ landing page, which Joseph merged to main (4dc2468) at 2026-11-21T23:59Z but which is not live (production URL 404 at 2026-11-22T00:24Z; not in live sitemap or homepage). Run on main the checks PR #83 itself says were not run before merge: full repository tests (test.js, check-guides.js, check-citations.sh, claim-audit.mjs), phone-width (390x844) and desktop render of _dist/assisted-living-evanston/, every outbound source link, and the /?tour=assisted#plan-visit route opening the tour form with the assisted interest preselected (beacons intercepted, no form POST). Record PASS/FAIL per check and, on any failure, open one small tested review PR fixing only that. Also record in ACQ-012 that #83 adds a second change affecting Evanston assisted-living queries, so post-deploy Search Console must be read per page (homepage vs /assisted-living-evanston/), not as one before/after.",
-   "evidence": "GitHub PR #83 merged_at 2026-11-21T23:59:03Z by JGBALL23; PR body 'Before publication: Full repository tests, mobile browser inspection, and a Netlify deploy check still need to run'. curl 00:24Z: https://evanstonseniorcareguide.com/assisted-living-evanston/ 404 'Page not found'; live sitemap 0 matches. Netlify deploys are manual (main docs: npx netlify deploy --prod). No mention of #83 in ops/operator-state or this file before this task.",
-   "expected_tour_acquisition_value": "First page aimed directly at families searching 'assisted living Evanston' (the highest-intent local query); it cannot earn impressions until deployed, and an unchecked deploy risks a broken tour route on the page meant to produce tour inquiries. A PASS report lets Joseph or the session operator deploy immediately.",
-   "executor": "event-driven loop (GitHub-only: tests, local render, review PR). Deploy is NOT authorized for this loop; it hands the readiness verdict to Joseph / the session operator via owner_review_needed.",
-   "done_when": "Every listed check recorded PASS or FAIL with numbers on the merged main commit; failures each have a tested review PR; owner_review_needed carries a one-line deploy-readiness verdict; ACQ-012 note updated. Then, once live, the next cloud run verifies the production URL returns 200.",
-   "source": "ESCG cloud operator 2026-11-22T00:24Z"
+   "task": "Once /assisted-living-evanston/ is deployed: verify on production that the URL returns 200, appears in the live sitemap and homepage, and that /?tour=assisted#plan-visit opens the form with interest=assisted (beacons intercepted, no POST). If PR #84 (or #80) is also live, confirm a Google-referred visit to the page carries ref=google to the tour link. Then hand the URL to the session operator for Search Console URL inspection / IndexNow submission (this loop does not ping external services). Record the deploy date as the ACQ-012 baseline start for that page.",
+   "evidence": "ACQ-014: all pre-deploy checks pass on main 4dc2468; production 404 on 2026-11-22.",
+   "expected_tour_acquisition_value": "The page aimed at the highest-intent local search can only earn impressions and tour inquiries once it is live and indexed; a post-deploy check catches a broken tour route before search traffic arrives.",
+   "executor": "this loop (read-only production checks); indexing request delegated to session operator",
+   "done_when": "Production checks recorded PASS/FAIL with the deploy date; indexing request handed off; ACQ-012 baseline date set.",
+   "not_before": "production /assisted-living-evanston/ returns 200"
   },
   {
    "id": "ACQ-005",
@@ -90,7 +90,8 @@
    "expected_tour_acquisition_value": "Tells whether local tour-intent search is a reachable channel before investing in any local page (owner rule: no new guides without demand).",
    "executor": "this loop with the operator's Search Console export (bundle with ACQ-005)",
    "done_when": "With >=14 days of post-merge data: record numbers; if local queries appear at position <=20, propose the next on-page step; if none, record no-change and do not build local pages.",
-   "not_before_utc": "2026-11-25T15:00Z"
+   "not_before_utc": "2026-11-25T15:00Z",
+   "note_2026_11_22": "PR #83 adds /assisted-living-evanston/ (merged 21 Nov, not deployed at 22 Nov). Read Search Console per page (homepage vs /assisted-living-evanston/), not as one before/after; baseline for the new page starts at its deploy date."
   }
  ],
  "completed": [
@@ -249,17 +250,31 @@
    "expected_tour_acquisition_value": "Medium: largest single new audience queued; a rule-compliant post avoids admin removal and keeps the result measurable.",
    "executor": "esc-tour-loop (check, done); tour engine/session operator (text and post)",
    "done_utc": "2026-11-20T18:55Z"
+  },
+  {
+   "id": "ACQ-014",
+   "priority": 1,
+   "status": "done",
+   "workstream": "search_acquisition",
+   "task": "Pre-deploy readiness check for PR #83's new /assisted-living-evanston/ landing page, which Joseph merged to main (4dc2468) at 2026-11-21T23:59Z but which is not live (production URL 404 at 2026-11-22T00:24Z; not in live sitemap or homepage). Run on main the checks PR #83 itself says were not run before merge: full repository tests (test.js, check-guides.js, check-citations.sh, claim-audit.mjs), phone-width (390x844) and desktop render of _dist/assisted-living-evanston/, every outbound source link, and the /?tour=assisted#plan-visit route opening the tour form with the assisted interest preselected (beacons intercepted, no form POST). Record PASS/FAIL per check and, on any failure, open one small tested review PR fixing only that. Also record in ACQ-012 that #83 adds a second change affecting Evanston assisted-living queries, so post-deploy Search Console must be read per page (homepage vs /assisted-living-evanston/), not as one before/after.",
+   "evidence": "GitHub PR #83 merged_at 2026-11-21T23:59:03Z by JGBALL23; PR body 'Before publication: Full repository tests, mobile browser inspection, and a Netlify deploy check still need to run'. curl 00:24Z: https://evanstonseniorcareguide.com/assisted-living-evanston/ 404 'Page not found'; live sitemap 0 matches. Netlify deploys are manual (main docs: npx netlify deploy --prod). No mention of #83 in ops/operator-state or this file before this task.",
+   "expected_tour_acquisition_value": "First page aimed directly at families searching 'assisted living Evanston' (the highest-intent local query); it cannot earn impressions until deployed, and an unchecked deploy risks a broken tour route on the page meant to produce tour inquiries. A PASS report lets Joseph or the session operator deploy immediately.",
+   "executor": "event-driven loop (GitHub-only: tests, local render, review PR). Deploy is NOT authorized for this loop; it hands the readiness verdict to Joseph / the session operator via owner_review_needed.",
+   "done_when": "Every listed check recorded PASS or FAIL with numbers on the merged main commit; failures each have a tested review PR; owner_review_needed carries a one-line deploy-readiness verdict; ACQ-012 note updated. Then, once live, the next cloud run verifies the production URL returns 200.",
+   "source": "ESCG cloud operator 2026-11-22T00:24Z",
+   "outcome": "Checked on main 4dc2468 (2026-11-22). PASS: test.js 768/768; check-guides.js 2696/2696; claim-audit 2 flags, the same 2 homepage statements as before #83 (none new); source and _dist page identical, in _dist/sitemap.xml and linked from _dist/index.html; 11/11 internal links resolve; outbound links 200 (presbyterianliving.org 403 to curl, 200 in Chromium); 390x844 and 1366x900: no horizontal scroll, 0 JS errors; /?tour=assisted#plan-visit opens the tour form with interest=assisted preselected (no POST). check-citations.sh: same 15 dead as before (ilga.gov unreachable from sandbox, truleeevanston.com 403), none on the new page. FAIL found (attribution, not render): PR #80's ref-carry in nav.js runs only on /guides/, so a Google arrival on /assisted-living-evanston/ who taps the tour link reaches the form counted as direct. Fixed in review PR #84 (main + #80 + one commit): tools/test_guide_ref_carry.mjs 25/25, 3 new checks fail without the change. Production URL still 404 at this run.",
+   "verified_utc": "2026-11-22"
   }
  ],
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-20T18:55Z",
-  "event": "pull_request.synchronize af34594",
-  "picked": "ACQ-013 (discovered; no ready item, no PR merged, no new operator evidence since 18:35Z)",
-  "why": "P-1122-01 is the next scheduled distribution step to the biggest new audience and its venue requires source links; checking it before text is written is cheap and time-bound."
+  "utc": "2026-11-22",
+  "event": "pull_request.synchronize 96bd9b5",
+  "picked": "ACQ-014 (only ready item)",
+  "why": "Highest-intent local page is merged but undeployed; an unchecked deploy could ship a broken or unattributed tour route."
  },
- "last_verified_action": "ACQ-013: Rogers Park landing path passes at 390px with ref kept on landing; verified source links handed to the tour engine for P-1122-01.",
+ "last_verified_action": "ACQ-014: #83 landing page passes pre-deploy checks; tour-click attribution gap on that page fixed in tested review PR #84.",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -294,8 +309,9 @@
   "confirmation": "Claude Scheduled Tasks screenshot: ESCG Tour Acquisition Loop active, Pull request: Commits pushed on matching repository. Previous setup screenshot: head branch automation/esc-tour-loop."
  },
  "owner_review_needed": [
+  "DEPLOY: /assisted-living-evanston/ (PR #83, merged) passes every pre-deploy check (ACQ-014) and is still 404 in production. Deploy when ready. Merge PR #84 first if you want search visitors to that page counted at the tour click.",
+  "PR #84 = PR #80 + the same tag-carry on the new assisted-living page (25/25 tests). Merge #84 and close #80, or merge #80 then #84. Merge with #79 either way; this loop does not merge.",
   "PR #81: homepage title names assisted living and memory care in Evanston (head/meta only). Review and merge if acceptable.",
-  "PR #80: a guide visitor from a tagged link keeps the tag through the tour click (independent of #79). Merge #79 and #80 together if acceptable; this loop does not merge.",
   "PR #79: tour click keeps the arrival tag. Without it, a tour inquiry from the Winnetka post or any tagged post counts as direct. Review and merge if acceptable (this loop does not merge).",
   "PR #78: review and merge if acceptable (this loop does not merge)",
   "Stray branch claude/estate-recovery-tour-path (same commit as PR #78) is safe to delete",
@@ -343,5 +359,5 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "ACQ-014 ready (PR #83 merged, not deployed). Queue has no ready item. Reactivate on: PR #78-#81 merge (post-merge tag check), P-1120-01/P-1122-01 going live (+24h tagged visitor review), any org reply or Skokie/Niles send, Search Console 25 Nov (ACQ-005/012), Joseph's ACQ-007 answer, any tour-form view or inquiry."
+ "next_discovery": "No ready item. ACQ-015 waits on the #83 deploy (prod 200). Reactivate on: deploy of #83; PR #79/#80/#81/#84 merge (post-merge tag check); P-1120-01/P-1122-01 going live (+24h tagged visitor review); any org reply or Skokie/Niles send; Search Console 25 Nov (ACQ-005/012); Joseph's ACQ-007 answer; any tour-form view or inquiry."
 }
