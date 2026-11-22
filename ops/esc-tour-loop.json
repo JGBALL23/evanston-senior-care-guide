@@ -98,18 +98,6 @@
    "executor": "this loop (proposal); Joseph (decision to build)",
    "done_when": "If /assisted-living-evanston/ shows >=1 impression for a local query by its ~14-day mark, hand Joseph one yes/no proposal with the autocomplete evidence; if 0 impressions, record that indexing/authority is the bottleneck and keep S3 at watch.",
    "not_before_utc": "2026-12-06T15:00Z"
-  },
-  {
-   "id": "TEST-05",
-   "priority": 5,
-   "status": "ready",
-   "workstream": "system_test",
-   "task": "From ops/cloud.json print only scoreboard.daily and scoreboard.totals. State the number of daily rows, the newest date_chicago and the four totals. Change nothing in that file.",
-   "evidence": "System test of the Make-controlled worker on the test copy, 22 Nov 2026. Not acquisition work.",
-   "expected_tour_acquisition_value": "none; proves the worker can read the store, the repository, the live site and the scoreboard before production is switched",
-   "executor": "worker (read only)",
-   "done_when": "Result gives the row count, the newest date_chicago and the four totals exactly as stored.",
-   "found_utc": "2026-11-22T23:13Z"
   }
  ],
  "completed": [
@@ -1371,6 +1359,21 @@
    "result": "Read only, curl -sS -L once each at 2026-11-22T23:33Z. Home page https://evanstonseniorcareguide.com/: HTTP 200, links to tour request: yes (2 matches of ?tour=form or #plan-visit). /assisted-living-evanston/: HTTP 200, links to tour request: yes (3 matches). Method: curl plus grep for ?tour=form|#plan-visit.",
    "verified_utc": "2026-11-22T23:33Z",
    "done_utc": "2026-11-22T23:33Z"
+  },
+  {
+   "id": "TEST-05",
+   "priority": 5,
+   "status": "done",
+   "workstream": "system_test",
+   "task": "From ops/cloud.json print only scoreboard.daily and scoreboard.totals. State the number of daily rows, the newest date_chicago and the four totals. Change nothing in that file.",
+   "evidence": "System test of the Make-controlled worker on the test copy, 22 Nov 2026. Not acquisition work.",
+   "expected_tour_acquisition_value": "none; proves the worker can read the store, the repository, the live site and the scoreboard before production is switched",
+   "executor": "worker (read only)",
+   "done_when": "Result gives the row count, the newest date_chicago and the four totals exactly as stored.",
+   "found_utc": "2026-11-22T23:13Z",
+   "result": "Read ops/cloud.json scoreboard only, nothing changed. daily rows: 1; newest date_chicago: 2026-11-22. totals: referral_emails_sent 11, org_replies 0, placements_live 0, tours_confirmed \"unverified\".",
+   "verified_utc": "2026-11-22T23:33Z",
+   "done_utc": "2026-11-22T23:33Z"
   }
  ],
  "blocked": [],
@@ -1381,7 +1384,7 @@
   "picked": "TEST-01 done, TEST-02 done, TEST-03 done",
   "why": "Worked: 3 test tasks done, monitor ran"
  },
- "last_verified_action": "TEST-04 done 2026-11-22T23:33Z: Read only, curl -sS -L once each at 2026-11-22T23:33Z. Home page https://evanstonseniorcareguide.com/: HTTP 200, links to tour request: yes (2 matches of ?tour…",
+ "last_verified_action": "TEST-05 done 2026-11-22T23:33Z: Read ops/cloud.json scoreboard only, nothing changed. daily rows: 1; newest date_chicago: 2026-11-22. totals: referral_emails_sent 11, org_replies 0, placement…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
