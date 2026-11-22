@@ -33,6 +33,18 @@
  },
  "queue": [
   {
+   "id": "ACQ-014",
+   "priority": 1,
+   "status": "ready",
+   "workstream": "search_acquisition",
+   "task": "Pre-deploy readiness check for PR #83's new /assisted-living-evanston/ landing page, which Joseph merged to main (4dc2468) at 2026-11-21T23:59Z but which is not live (production URL 404 at 2026-11-22T00:24Z; not in live sitemap or homepage). Run on main the checks PR #83 itself says were not run before merge: full repository tests (test.js, check-guides.js, check-citations.sh, claim-audit.mjs), phone-width (390x844) and desktop render of _dist/assisted-living-evanston/, every outbound source link, and the /?tour=assisted#plan-visit route opening the tour form with the assisted interest preselected (beacons intercepted, no form POST). Record PASS/FAIL per check and, on any failure, open one small tested review PR fixing only that. Also record in ACQ-012 that #83 adds a second change affecting Evanston assisted-living queries, so post-deploy Search Console must be read per page (homepage vs /assisted-living-evanston/), not as one before/after.",
+   "evidence": "GitHub PR #83 merged_at 2026-11-21T23:59:03Z by JGBALL23; PR body 'Before publication: Full repository tests, mobile browser inspection, and a Netlify deploy check still need to run'. curl 00:24Z: https://evanstonseniorcareguide.com/assisted-living-evanston/ 404 'Page not found'; live sitemap 0 matches. Netlify deploys are manual (main docs: npx netlify deploy --prod). No mention of #83 in ops/operator-state or this file before this task.",
+   "expected_tour_acquisition_value": "First page aimed directly at families searching 'assisted living Evanston' (the highest-intent local query); it cannot earn impressions until deployed, and an unchecked deploy risks a broken tour route on the page meant to produce tour inquiries. A PASS report lets Joseph or the session operator deploy immediately.",
+   "executor": "event-driven loop (GitHub-only: tests, local render, review PR). Deploy is NOT authorized for this loop; it hands the readiness verdict to Joseph / the session operator via owner_review_needed.",
+   "done_when": "Every listed check recorded PASS or FAIL with numbers on the merged main commit; failures each have a tested review PR; owner_review_needed carries a one-line deploy-readiness verdict; ACQ-012 note updated. Then, once live, the next cloud run verifies the production URL returns 200.",
+   "source": "ESCG cloud operator 2026-11-22T00:24Z"
+  },
+  {
    "id": "ACQ-005",
    "priority": 1,
    "status": "waiting_on_data",
@@ -331,5 +343,5 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Queue has no ready item. Reactivate on: PR #78-#81 merge (post-merge tag check), P-1120-01/P-1122-01 going live (+24h tagged visitor review), any org reply or Skokie/Niles send, Search Console 25 Nov (ACQ-005/012), Joseph's ACQ-007 answer, any tour-form view or inquiry."
+ "next_discovery": "ACQ-014 ready (PR #83 merged, not deployed). Queue has no ready item. Reactivate on: PR #78-#81 merge (post-merge tag check), P-1120-01/P-1122-01 going live (+24h tagged visitor review), any org reply or Skokie/Niles send, Search Console 25 Nov (ACQ-005/012), Joseph's ACQ-007 answer, any tour-form view or inquiry."
 }
