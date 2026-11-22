@@ -99,21 +99,8 @@
    "not_before_utc": "2026-12-06T15:00Z"
   },
   {
-   "id": "ACQ-032",
-   "priority": 1,
-   "status": "ready",
-   "workstream": "discovery",
-   "scout": "SC2",
-   "task": "Scout SC2 (What families find): When a family at the decision stage searches, what kinds of pages do they land on, and which of those accept an outside resource or reveal a channel? Evidence to use: Results pages and autocomplete for a fixed set of about twenty searches (assisted living, memory care, independent living, senior living cost, how to choose, tour checklist; each with Evanston and the nearest North Shore towns). Record in search_presence how many show the guide.",
-   "evidence": "What families find: S4 and S3 (ACQ-023, ACQ-019) found directories own local results and the site is absent; the pages families actually land on have never been checked for outside-resource routes. Scout due now.",
-   "expected_tour_acquisition_value": "Finds new legitimate, free routes by which Evanston and North Shore families at or near a senior-living decision would see the guide, feeding open map items to the loop.",
-   "executor": "this loop (research and preparation only)",
-   "done_when": "Every candidate has a source URL or data row and a gate result; candidates that pass are on the map as open items; the scout's last_run_utc, next_due_utc, last_result and interval_days are updated; one line is added to discovery.log.",
-   "found_utc": "2026-11-22T21:24Z"
-  },
-  {
    "id": "ACQ-033",
-   "priority": 2,
+   "priority": 1,
    "status": "ready",
    "workstream": "discovery",
    "scout": "SC4",
@@ -123,6 +110,19 @@
    "executor": "this loop (research and preparation only)",
    "done_when": "Every candidate has a source URL or data row and a gate result; candidates that pass are on the map as open items; the scout's last_run_utc, next_due_utc, last_result and interval_days are updated; one line is added to discovery.log.",
    "found_utc": "2026-11-22T21:24Z"
+  },
+  {
+   "id": "ACQ-034",
+   "priority": 2,
+   "status": "ready",
+   "workstream": "discovery",
+   "scout": "SC6",
+   "task": "Scout SC6 (New kinds of channel): How do comparable independent local guides and senior-care advisers in other places reach families at no cost, in ways not on the map? Evidence to use: Where three to five such sites are mentioned or linked, and what they publish that others cite. Bring back only what has a first step here.",
+   "evidence": "SC2 (ACQ-032) found the guide absent from all 18 decision-stage searches and no landing page accepting outside resources; channel ideas so far came from local inspection only. SC6 is due (next_due 2026-11-22T21:24Z) and has never run.",
+   "expected_tour_acquisition_value": "Finds new legitimate, free routes by which Evanston and North Shore families at or near a senior-living decision would see the guide, feeding open map items to the loop.",
+   "executor": "this loop (research and preparation only)",
+   "done_when": "Every candidate has a source URL or data row and a gate result; candidates that pass are on the map as open items; the scout's last_run_utc, next_due_utc, last_result and interval_days are updated; one line is added to discovery.log.",
+   "found_utc": "2026-11-22T21:30Z"
   }
  ],
  "completed": [
@@ -1024,7 +1024,7 @@
    "executor": "this loop (research and preparation only)",
    "done_when": "Every candidate has a source URL or data row and a gate result; candidates that pass are on the map as open items; the scout's last_run_utc, next_due_utc, last_result and interval_days are updated; one line is added to discovery.log.",
    "found_utc": "2026-11-22T21:24Z",
-   "done_utc": "2026-11-22T21:40Z",
+   "done_utc": "2026-11-22T21:28Z",
    "method": "Web search (6 queries: pages listing 2+ of Elderwerks / Creative Care Management / Levy / CJE / NSSC / Senior Helpers; Evanston congregations; Wilmette-Winnetka-Glenview-Northbrook resource pages; Rogers Park/Edgewater ward pages; local senior advisers) and page reads of juf.org Senior Services guide + its submit form, 49thward.org/community-assets, 46thward.com/senior-resources, better.net article and its submit page; dedup against loop/completed and ops/operator-state growth.json.",
    "result": "0 candidates pass all five gates; no map item added. Results families see for peer-resource searches are directories (caring.com, care.com, BBB, Superpages) or lists already examined (City of Evanston Levy/Dementia Friendly pages = R7/R1 orgs already emailed; EPL community directory = 404, dropped 22 Nov; Evanston Care Network = dropped 19 Nov).",
    "verdicts": [
@@ -1069,17 +1069,92 @@
     "inquiry_received": false,
     "tour_confirmed": false
    }
+  },
+  {
+   "id": "ACQ-032",
+   "priority": 1,
+   "status": "done",
+   "workstream": "discovery",
+   "scout": "SC2",
+   "task": "Scout SC2 (What families find): When a family at the decision stage searches, what kinds of pages do they land on, and which of those accept an outside resource or reveal a channel? Evidence to use: Results pages and autocomplete for a fixed set of about twenty searches (assisted living, memory care, independent living, senior living cost, how to choose, tour checklist; each with Evanston and the nearest North Shore towns). Record in search_presence how many show the guide.",
+   "evidence": "What families find: S4 and S3 (ACQ-023, ACQ-019) found directories own local results and the site is absent; the pages families actually land on have never been checked for outside-resource routes. Scout due now.",
+   "expected_tour_acquisition_value": "Finds new legitimate, free routes by which Evanston and North Shore families at or near a senior-living decision would see the guide, feeding open map items to the loop.",
+   "executor": "this loop (research and preparation only)",
+   "done_when": "Every candidate has a source URL or data row and a gate result; candidates that pass are on the map as open items; the scout's last_run_utc, next_due_utc, last_result and interval_days are updated; one line is added to discovery.log.",
+   "found_utc": "2026-11-22T21:24Z",
+   "done_utc": "2026-11-22T21:30Z",
+   "method": "18 web searches (research index, not Google; autocomplete not available to this tool) covering assisted living, memory care, independent living, cost, how to choose, tour questions/checklist, inspections, Supportive Living, caregiver resources; Evanston, Skokie, Wilmette/Winnetka, Glenview/Northbrook, Highland Park/Lake Forest, Rogers Park/Edgewater, Illinois. Page reads: checkbook.org Chicago-area assisted-living article. Dedup against map, completed tasks and ops/operator-state growth.json.",
+   "queries": [
+    "assisted living Evanston IL",
+    "memory care Evanston IL",
+    "independent living Evanston IL",
+    "senior living cost Evanston",
+    "how to choose assisted living Evanston",
+    "questions to ask touring assisted living Evanston",
+    "senior living tour checklist Illinois",
+    "assisted living Skokie IL",
+    "memory care Wilmette Winnetka",
+    "assisted living Glenview Northbrook",
+    "assisted living Highland Park Lake Forest IL",
+    "senior living Rogers Park Edgewater Chicago",
+    "how to choose a memory care facility for mom Chicago North Shore",
+    "assisted living cost Illinois per month 2026",
+    "Illinois supportive living program Medicaid assisted living Evanston",
+    "Illinois assisted living inspection reports how to check",
+    "Evanston senior resources caregivers guide",
+    "evanstonseniorcareguide.com"
+   ],
+   "result": "Guide appears for 0 of 18 queries, including its own domain name (same as 18 Nov, 5 queries). Landing pages by kind: lead-gen directories own every local query (Caring.com, A Place for Mom, Seniorly, SeniorLiving.org, Care.com, seniors.fyi, SeniorHousingNet, Assisted Living Magazine); operator blogs own the North Shore how-to queries (Arbor Company Glenview/Highland Park, Sunrise, Senior Lifestyle, Cedarhurst); state/legal pages own Supportive Living and inspection queries; the only non-commercial local pages are City of Evanston Levy/Dementia Friendly (R1/R7, already emailed) and EPL directory (404, dropped). 0 candidates pass the gate; no map item added.",
+   "verdicts": [
+    {
+     "target": "Lead-gen directories (Caring.com, A Place for Mom, Seniorly, SeniorLiving.org, Care.com, seniors.fyi, SeniorHousingNet)",
+     "verdict": "DROP",
+     "source": "https://www.caring.com/senior-living/assisted-living/illinois/evanston",
+     "why": "Listings are for providers and paid referral; same class as S4 (dropped)."
+    },
+    {
+     "target": "Operator blogs ranking for North Shore how-to queries (Arbor Company Glenview/Highland Park, Sunrise, Senior Lifestyle)",
+     "verdict": "DROP",
+     "source": "https://www.arborcompany.com/locations/illinois/highland-park/blog/how-to-evaluate-senior-care-options-for-a-parent-on-the-north-shore",
+     "why": "Competing operators' marketing; no outside-resource route and a Westminster Place employee's guide must not seek placement there."
+    },
+    {
+     "target": "Consumers' Checkbook Chicago-area assisted-living guide and ratings",
+     "verdict": "DROP",
+     "source": "https://www.checkbook.org/chicago-area/assisted-living-facilities/articles/How-to-Choose-an-Assisted-Living-Community-7269",
+     "why": "Nonprofit, ranks for Evanston/Skokie 'how to choose'; links only Consumer Reports, Health in Aging and IDPH FOIA; no suggestion or editor route published."
+    },
+    {
+     "target": "Low-quality lead-gen pages (eldercareatlas pages.dev, seniorfacilitytours pages.dev, WTOP sponsored checklist)",
+     "verdict": "DROP",
+     "source": "https://seniorfacilitytours.pages.dev/chicago",
+     "why": "Lead-gen or sponsored; no legitimate free route."
+    },
+    {
+     "target": "Evanston Care Network (findhelp.org)",
+     "verdict": "DROP (already)",
+     "source": "https://epl.org/?p=675",
+     "why": "Dropped 19 Nov; findhelp lists service programs, and suggesting one is a form submission outside this loop."
+    },
+    {
+     "target": "Memory Care Coalition of Chicago",
+     "verdict": "DROP",
+     "source": "https://steve-satek-n6pf.squarespace.com",
+     "why": "Organizational membership with bi-weekly meetings (a Joseph commitment), Chicago-wide; a variation of R7 (memory/caregiver lists, dropped)."
+    }
+   ],
+   "lesson": "Search is not a route to families today: the guide is absent across all 18 decision-stage queries, and the pages families land on accept no outside resource. The Google picture must come from the 25 Nov Search Console read (ACQ-005/012/017), not from more search-result scouting; SC2 keeps its 14-day interval (first run, nothing added)."
   }
  ],
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-22T21:40Z",
-  "event": "pull_request.synchronize 186b7ba",
-  "picked": "ACQ-031 (SC1 peer listings)",
+  "utc": "2026-11-22T21:30Z",
+  "event": "pull_request.synchronize 9c77ade",
+  "picked": "ACQ-032 (SC2 what families find)",
   "why": "Highest-priority ready item; no fresh demand data until the 25 Nov Search Console read."
  },
- "last_verified_action": "ACQ-031 done 2026-11-22T21:40Z: SC1 peer listings, 0 of 5 targets pass the gate; JUF Guide WATCH (listing rule is Jewish-life content), 46th/49th Ward and Better magazine DROP. Next ready: ACQ-032 (SC2 what families find), then ACQ-033 (SC4 calendar).",
+ "last_verified_action": "ACQ-032 done 2026-11-22T21:30Z: SC2 what families find, guide in 0 of 18 decision-stage results; directories/operator blogs/state pages own them; 0 candidates pass the gate. Next ready: ACQ-033 (SC4 calendar), then ACQ-034 (SC6 new kinds of channel).",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -1168,7 +1243,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "SC1 run 2026-11-22T21:40Z (0 added; next 22 Dec); ready: ACQ-032 SC2 what families find, ACQ-033 SC4 calendar; SC6 due now, SC3 due 2026-11-25T16:00Z, SC5 due 2026-11-29T16:00Z. Also from 25 Nov 15:00Z: Search Console read (ACQ-005/012/017) and the outreach operator's follow-ups to the 11 sends of 17-22 Nov. From 6 Dec: ACQ-030. Joseph answered ACQ-007 (PR #86) and ACQ-018 (essay draft with him) on 22 Nov; still unanswered: D8 talk, Patch account, Nextdoor Business Page, PRs #85 #84 #79 #81 #78, Search Console indexing request.",
+ "next_discovery": "SC1 next 2026-12-22, SC2 next 2026-12-06 (run 2026-11-22T21:30Z, 0 added); ready: ACQ-033 SC4 calendar, ACQ-034 SC6 new kinds of channel; SC3 due 2026-11-25T16:00Z, SC5 due 2026-11-29T16:00Z. From 25 Nov 15:00Z: Search Console read (ACQ-005/012/017) and the outreach operator's follow-ups to the 11 sends of 17-22 Nov. From 6 Dec: ACQ-030. Still unanswered by Joseph: D8 talk, Patch account, Nextdoor Business Page, PRs #85 #84 #79 #81 #78, Search Console indexing request.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -1593,8 +1668,8 @@
      "question": "Which local pages list resources like this guide (senior-care advisers, placement services, caregiver guides, checklists) but not this one?",
      "evidence": "Names of comparable resources already seen on local lists in completed tasks (e.g. those on Open Communities' Older Adult Housing Resources list, ACQ-027); search for other Evanston, North Shore and north-side Chicago pages listing two or more of them; read each page for who keeps it and how additions are made.",
      "interval_days": 30,
-     "last_run_utc": "2026-11-22T21:40Z",
-     "next_due_utc": "2026-12-22T21:40Z",
+     "last_run_utc": "2026-11-22T21:28Z",
+     "next_due_utc": "2026-12-22T21:28Z",
      "last_result": "ACQ-031: 0 added, 0 reopened (JUF guide WATCH: outside its Jewish-life listing rule; 46th Ward, 49th Ward, Better magazine DROP)"
     },
     {
@@ -1603,9 +1678,9 @@
      "question": "When a family at the decision stage searches, what kinds of pages do they land on, and which of those accept an outside resource or reveal a channel?",
      "evidence": "Results pages and autocomplete for a fixed set of about twenty searches (assisted living, memory care, independent living, senior living cost, how to choose, tour checklist; each with Evanston and the nearest North Shore towns). Record in search_presence how many show the guide.",
      "interval_days": 14,
-     "last_run_utc": null,
-     "next_due_utc": "2026-11-22T21:24Z",
-     "last_result": null
+     "last_run_utc": "2026-11-22T21:30Z",
+     "next_due_utc": "2026-12-06T21:30Z",
+     "last_result": "ACQ-032: 0 added, 0 reopened; guide in 0 of 18 decision-stage results; directories, operator blogs and state pages own them"
     },
     {
      "id": "SC3",
@@ -1651,12 +1726,14 @@
    "gate": "A candidate becomes a map item only if all five hold. 1 New: it is not on the map and is not a variation of a dropped class (the same audience by the same route). 2 Observed: a source URL or a row in the site's own data shows it exists; no source, no candidate; never add something because it sounds plausible. 3 A path to families: it names how Evanston or North Shore families at or near a senior-living decision would come to see the guide. 4 Legitimate and free: inside the platform's or organization's own rules, disclosed, $0, no unsolicited private messages, nothing in bulk. 5 A first step exists: for the loop (research and preparation), for the designated operator (inside its existing authority) or for Joseph (an owner item with the minutes it takes). A run that finds nothing passes nothing: record the run and its next due date and stop; that record is its result.",
    "cadence": "Effort follows yield. When a scout run adds or reopens at least one item, halve that scout's interval_days, not below 3. After two runs in a row that add and reopen nothing, double it, not above 60. Set next_due_utc to the run time plus interval_days.",
    "search_presence": {
-    "as_of_utc": null,
-    "queries_checked": null,
-    "guide_appears_for": null
+    "as_of_utc": "2026-11-22T21:30Z",
+    "queries_checked": 18,
+    "guide_appears_for": 0,
+    "index": "research web-search index (not Google); Google data comes from Search Console (S2)"
    },
    "log": [
-    "2026-11-22T21:40Z SC1 peer listings (ACQ-031): 5 targets checked, 0 passed the gate, 0 reopened; next due 2026-12-22."
+    "2026-11-22T21:28Z SC1 peer listings (ACQ-031): 5 targets checked, 0 passed the gate, 0 reopened; next due 2026-12-22T21:28Z.",
+    "2026-11-22T21:30Z SC2 what families find (ACQ-032): 18 queries, guide in 0 results, 6 candidate groups checked, 0 passed the gate, 0 reopened; next due 2026-12-06."
    ]
   }
  },
