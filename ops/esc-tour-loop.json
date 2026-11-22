@@ -100,18 +100,6 @@
    "not_before_utc": "2026-12-06T15:00Z"
   },
   {
-   "id": "TEST-02",
-   "priority": 2,
-   "status": "ready",
-   "workstream": "system_test",
-   "task": "Using only the output of python3 ops/loopctl.py status, state which real items (not TEST- tasks) come due next and when, and compare that with the file's own next_discovery sentence (print only that field).",
-   "evidence": "System test of the Make-controlled worker on the test copy, 22 Nov 2026. Not acquisition work.",
-   "expected_tour_acquisition_value": "none; proves the worker can read the store, the repository, the live site and the scoreboard before production is switched",
-   "executor": "worker (read only)",
-   "done_when": "Result gives next_due_utc, the next three due items with their times, and says whether they agree with next_discovery.",
-   "found_utc": "2026-11-22T23:13Z"
-  },
-  {
    "id": "TEST-03",
    "priority": 3,
    "status": "ready",
@@ -1346,6 +1334,27 @@
     "git clone --depth 1 automation/esc-tour-loop (ebb2483, 2026-11-22T21:38Z)"
    ],
    "done_utc": "2026-11-22T23:32Z"
+  },
+  {
+   "id": "TEST-02",
+   "priority": 2,
+   "status": "done",
+   "workstream": "system_test",
+   "task": "Using only the output of python3 ops/loopctl.py status, state which real items (not TEST- tasks) come due next and when, and compare that with the file's own next_discovery sentence (print only that field).",
+   "evidence": "System test of the Make-controlled worker on the test copy, 22 Nov 2026. Not acquisition work.",
+   "expected_tour_acquisition_value": "none; proves the worker can read the store, the repository, the live site and the scoreboard before production is switched",
+   "executor": "worker (read only)",
+   "done_when": "Result gives next_due_utc, the next three due items with their times, and says whether they agree with next_discovery.",
+   "found_utc": "2026-11-22T23:13Z",
+   "result": "status: next_due_utc 2026-11-23T11:32Z, wake 720 min, but that entry is the 12-hour monitor, not a real item. Next three real items: ACQ-005 2026-11-25T15:00Z, ACQ-012 2026-11-25T15:00Z, SC3 2026-11-25T16:00Z (then SC5 29 Nov 16:00Z, SC4 29 Nov 21:34Z, ACQ-030 6 Dec 15:00Z). next_discovery says: from 25 Nov 15:00Z the Search Console read (ACQ-005/012/017) and SC3 due 25 Nov 16:00Z; SC5 29 Nov; SC4 29 Nov; ACQ-030 from 6 Dec. AGREE on the real items and times. Only nuance: next_discovery lists ACQ-017 with the 25 Nov batch, while status shows it as an event wait (PR #85 deployed), not a timed item; and next_discovery does not mention the monitor, which now sets the earliest wake.",
+   "verdicts": {
+    "agrees_with_next_discovery": "yes (ACQ-017 nuance)"
+   },
+   "sources": [
+    "python3 ops/loopctl.py status --monitor-hours 12 at 2026-11-22T23:3xZ",
+    "esc-tour-loop.json next_discovery"
+   ],
+   "done_utc": "2026-11-22T23:32Z"
   }
  ],
  "blocked": [],
@@ -1356,7 +1365,7 @@
   "picked": "ACQ-034 (SC6 new kinds of channel)",
   "why": "Only ready item; no fresh demand data until the 25 Nov Search Console read."
  },
- "last_verified_action": "TEST-01 done 2026-11-22T23:32Z: MATCH on every compared value (copy vs source automation/esc-tour-loop @ebb2483, TEST- tasks, controller and test_copy ignored). Completed: 30 vs 30. Queue ids…",
+ "last_verified_action": "TEST-02 done 2026-11-22T23:32Z: status: next_due_utc 2026-11-23T11:32Z, wake 720 min, but that entry is the 12-hour monitor, not a real item. Next three real items: ACQ-005 2026-11-25T15:00Z,…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
