@@ -6,8 +6,8 @@
     "note": "tour-request alerts: sha256(message id) and time only"
   },
   "metrics": {
-    "last_utc": "2026-11-21T23:24Z",
-    "window_utc": "2026-11-21T22:24Z/2026-11-21T23:24Z",
+    "last_utc": "2026-11-22T00:24Z",
+    "window_utc": "2026-11-21T23:24Z/2026-11-22T00:24Z",
     "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs",
     "per_tag": {
       "fb-wil-1118": {
@@ -49,7 +49,7 @@
     "assessment_completions": 0,
     "tour_form_views": 0,
     "tour_requests": 0,
-    "genuine_detail": "22:24Z-23:24Z: 0 confirmed genuine, 0 tour requests; 1 plan-visit POST = own empty-body probe (400); Linux Chrome 126 at 22:30:42Z fetched home, all assets, robots/security.txt and every /t/ beacon incl. inquiry-submitted.txt within 1 ms (static-file crawler, no plan-visit POST: not an inquiry); fb-wil-1118 guide hit 23:19Z with og-card = facebookexternalhit preview (26 FB preview requests 23:04-23:19Z, someone composing/sharing a link; no human click followed); rest = own curl x6, iOS 13 Safari UA x3 (automated), WP install probes, bingbot, Amazonbot, meta-webindexer"
+    "genuine_detail": "23:24Z-00:24Z: 0 genuine, 0 tour requests; 2 plan-visit POSTs = own empty-body probes (400); checklist PDF GET 23:47Z from non-human UA set (curl/ChatGPT-User only in window), not counted; ChatGPT-User x2 (home), Netlify scheduler retention-daily; rest = own curl x12; no tagged landings"
   },
   "summary": {
     "last_utc": "2026-11-19T01:24Z",
@@ -58,8 +58,8 @@
   "site": {
     "fail_count": 0,
     "down_since_utc": null,
-    "last_check_utc": "2026-11-21T23:24Z",
-    "last_check_method": "curl: home, ?tour=form, /guides/, sitemap 200; home has #tour and #assessment; /api/plan-visit 400 on empty POST; Netlify 22:24Z-23:24Z: no 5xx (404s: security.txt, WP scanner); Gmail 1d: no org replies or inquiries (Nextdoor/Make/Airtable/Google notices only); PRs #78-#82 still open, none merged; loop head 01e619b unchanged"
+    "last_check_utc": "2026-11-22T00:24Z",
+    "last_check_method": "curl: home, ?tour=form, ?tour=assisted, /guides/, sitemap 200; home has #tour and #assessment; /api/plan-visit 400 on empty POST; Netlify 23:24Z-00:24Z: no 5xx, no 404s; PR #83 (/assisted-living-evanston/) merged to main 23:59Z by Joseph but NOT deployed: production 404, absent from live sitemap/homepage; Gmail 1d: no org replies or inquiries; PRs #78-#82 open; loop head 96bd9b5 (ACQ-014 added)"
   },
   "recovery": {
     "last_attempt_utc": "2026-11-18T01:39Z",
@@ -215,7 +215,8 @@
     "2026-11-21T20:25Z run: site OK; 0 genuine, 0 tour requests (POSTs were own probes); no org replies; PRs #78-#82 unmerged; no fb-wnk-1120 landings yet (Joseph's manual post unconfirmed); first ChatGPT-User fetch (home + background-check guide) noted, single event, not a task; loop head 01e619b, no ready item; no reactivation trigger fired; no new loop task",
     "2026-11-21T21:24Z run: site OK; 0 confirmed genuine, 0 tour requests; one ambiguous Chrome 102 direct visit (home + levels guide) treated as probable automated; no org replies; PRs #78-#82 unmerged; no fb-wnk-1120 landings; loop head 01e619b, no ready item; no reactivation trigger; no new loop task",
     "2026-11-21T22:24Z run: site OK; 0 confirmed genuine, 0 tour requests; Chrome 102 direct visitor returned (2 guides), still probable automated; no org replies; PRs #78-#82 unmerged; no fb-wnk-1120 landings; loop head 01e619b, no ready item; no reactivation trigger; no new loop task",
-    "2026-11-21T23:24Z run: site OK; 0 genuine, 0 tour requests; inquiry-submitted beacon hit was a static-file crawler (no form POST); FB link-preview burst 23:04-23:19Z incl. fb-wil-1118 URL, no human landing; no org replies; PRs #78-#82 unmerged; loop head 01e619b, no ready item; no reactivation trigger; no new loop task"
+    "2026-11-21T23:24Z run: site OK; 0 genuine, 0 tour requests; inquiry-submitted beacon hit was a static-file crawler (no form POST); FB link-preview burst 23:04-23:19Z incl. fb-wil-1118 URL, no human landing; no org replies; PRs #78-#82 unmerged; loop head 01e619b, no ready item; no reactivation trigger; no new loop task",
+    "2026-11-22T00:24Z run: site OK; 0 genuine, 0 tour requests; no org replies; NEW: PR #83 assisted-living Evanston landing page merged to main 23:59Z but not deployed (404 live) -> loop task ACQ-014 (pre-deploy readiness check) committed 96bd9b5; Joseph notified that deploy is his/session-operator decision"
   ],
   "facebook_interruptions_past": [
     {
@@ -242,8 +243,8 @@
   "outreach_watch": {
     "alerted": [],
     "replies_alerted": [],
-    "last_utc": "2026-11-21T23:24Z",
-    "note": "no org replies; inbox since 22:24Z: nothing from orgs; E-1120-01 (Niles, em-1120a) awaits reply"
+    "last_utc": "2026-11-22T00:24Z",
+    "note": "no org replies; inbox since 23:24Z: nothing from orgs (Airtable/Make/Google/Nextdoor notices only); E-1120-01 (Niles, em-1120a) awaits reply"
   },
   "facebook_interruption": {
     "since_utc": "2026-11-19T16:22Z",
