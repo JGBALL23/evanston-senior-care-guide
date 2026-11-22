@@ -120,17 +120,17 @@
    "found_utc": "2026-11-22T17:40Z"
   },
   {
-   "id": "ACQ-021",
+   "id": "ACQ-022",
    "priority": 1,
    "status": "ready",
    "workstream": "distribution",
-   "map_item": "D10",
-   "task": "Examine community newsletters and mailing lists in Evanston and nearby North Shore towns that publish community items for free (ward/alderperson newsletters, neighborhood associations, retiree and alumni associations, service clubs): find the concrete targets, read each target's own pages for whether it accepts outside items and its published route, check Gmail Sent and state files for earlier contact, and give each a verdict.",
-   "evidence": "D10 open since the map was built; no newsletter has ever been examined or contacted (Gmail Sent Nov: 11 org emails, none to a newsletter). ACQ-018 showed news outlets' free routes mostly need Joseph personally, so routes the outreach operator can use under existing authority are the gap.",
-   "expected_tour_acquisition_value": "Ward and neighbourhood newsletters reach Evanston households including adult children and older residents; a listed free resource (tour checklist) can bring decision-stage families to the site and tour request.",
-   "executor": "this loop (research and preparation only)",
-   "done_when": "Every target has a verdict (ACT, WATCH or DROP) with its source URL; the best ACT target has one prepared, duplicate-checked handoff; D10 and channel_yield updated.",
-   "found_utc": "2026-11-22T17:55Z"
+   "map_item": "D11",
+   "task": "Examine free senior resource fairs, expos and caregiver events in Evanston and the North Shore for Dec 2026 to mid-2027 (municipal senior centers, townships, park districts, libraries, hospital community health, Area Agency on Aging). For each, find the date, organizer, whether outside free resource tables or printed-material displays are allowed, any fee (a fee means DROP), and the published route. Check Gmail Sent and the state files for earlier contact, and give each a verdict.",
+   "evidence": "D11 has never been examined. ACQ-021 showed that free listing routes need a real event, and a fair table is the cheapest way to put the printed tour checklist in families' hands. Two senior-center caregiver series exist (NSSC, Glenview 2026), so organizers in this class are active.",
+   "expected_tour_acquisition_value": "Families at fairs are often at the decision stage. A free table or a checklist stack with a tagged QR/URL puts the tour step directly in front of them, and a fair date also unlocks the calendar WATCH routes.",
+   "executor": "this loop (research and preparation only); any booking and any staffing are Joseph's",
+   "done_when": "Every target has a verdict (ACT, WATCH, DROP or OWNER) with its source URL; the best ACT target has one prepared handoff; D11 and channel_yield are updated.",
+   "found_utc": "2026-11-22T18:40Z"
   }
  ],
  "completed": [
@@ -401,17 +401,98 @@
     "sent": false
    },
    "lesson": "Local-news free routes are few and mostly need Joseph personally (byline, accounts). The Record does not take reader submissions at all. The channel's value depends on one owner action; it is not a channel the loop or the outreach operator can scale."
+  },
+  {
+   "id": "ACQ-021",
+   "priority": 1,
+   "status": "done",
+   "workstream": "distribution",
+   "map_item": "D10",
+   "task": "Examine community newsletters and mailing lists in Evanston and nearby North Shore towns that publish community items for free (ward/alderperson newsletters, neighborhood associations, retiree and alumni associations, service clubs): find the concrete targets, read each target's own pages for whether it accepts outside items and its published route, check Gmail Sent and state files for earlier contact, and give each a verdict.",
+   "evidence": "D10 open since the map was built; no newsletter has ever been examined or contacted (Gmail Sent Nov: 11 org emails, none to a newsletter). ACQ-018 showed news outlets' free routes mostly need Joseph personally, so routes the outreach operator can use under existing authority are the gap.",
+   "expected_tour_acquisition_value": "Ward and neighbourhood newsletters reach Evanston households including adult children and older residents; a listed free resource (tour checklist) can bring decision-stage families to the site and tour request.",
+   "executor": "this loop (research and preparation only)",
+   "done_when": "Every target has a verdict (ACT, WATCH or DROP) with its source URL; the best ACT target has one prepared, duplicate-checked handoff; D10 and channel_yield updated.",
+   "found_utc": "2026-11-22T17:55Z",
+   "done_utc": "2026-11-22T18:40Z",
+   "result": "9 newsletter/list routes examined: 0 ACT, 3 WATCH, 1 OWNER, 5 DROP. No newsletter offers a free route the outreach operator can use under existing authority for a resource guide. Gmail Sent (Nov, 11 org emails) shows no prior contact with any of them. Nothing sent, posted or submitted, so no handoff was prepared.",
+   "verdicts": [
+    {
+     "target": "Evanston 5th Ward e-newsletter (City GovDelivery)",
+     "verdict": "WATCH",
+     "source": "https://content.govdelivery.com/accounts/ILEVANSTON/bulletins/3a655db",
+     "rules": "Jul 2024 issue invites resident contributions (achievements, art, upcoming events, new programs and services, grants), due the second Tuesday of each month; no submission address is stated. The Oct 2025 issue carries only city items.",
+     "why": "The only ward newsletter that asks for outside items, but nothing it has printed came from a senior-care resource. A guide written by a senior-living employee in an elected official's newsletter reads as an endorsement. Reopen only if the City aging office (emailed 18 Nov) answers or lists the guide."
+    },
+    {
+     "target": "Evanston 7th Ward e-newsletter",
+     "verdict": "DROP",
+     "source": "https://content.govdelivery.com/accounts/ILEVANSTON/bulletins/40f0e58",
+     "rules": "The Mar 2026 issue has policy updates only, with no community-items or events section and no senior resources.",
+     "why": "No route for outside items."
+    },
+    {
+     "target": "Other Evanston ward newsletters",
+     "verdict": "DROP",
+     "source": "https://content.govdelivery.com/accounts/ILEVANSTON/bulletins/3f95ec0",
+     "rules": "The 2025-26 issues sampled are meeting notices and city business. The 2nd Ward asks only for resident photo and bio features.",
+     "why": "No route for a resource item."
+    },
+    {
+     "target": "Central Street Neighbors Association",
+     "verdict": "WATCH",
+     "source": "https://centralstreetneighbors.com",
+     "rules": "Advocacy association ('Together we have a stronger voice') covering schools, zoning and housing; its newsletter is an RSS feed. The site returned 503 'under maintenance' on 2026-11-22.",
+     "why": "Its area is next to the author's employer; no published route for outside items. Recheck when the site is back up."
+    },
+    {
+     "target": "Northwestern Emeriti Organization, The Emeriti News",
+     "verdict": "DROP",
+     "source": "https://emeriti.northwestern.edu/emeriti-news",
+     "rules": "'Highlights NEO faculty and group news, events, and accomplishments'; no submissions contact is listed.",
+     "why": "A members-only scope. The university is also already contacted (E-1118-03)."
+    },
+    {
+     "target": "Northwestern 'Our Neighborhood News' (Neighborhood and Community Relations)",
+     "verdict": "DROP",
+     "source": "https://www.northwestern.edu/communityrelations/news-events/newsletter/",
+     "rules": "Showcases university partnerships; no submission or listing process.",
+     "why": "No route. Same institution as E-1118-03."
+    },
+    {
+     "target": "Evanston Public Library community organizations directory",
+     "verdict": "DROP",
+     "source": "https://epl.org/community-organizations-directory/wpbdp_category/senior",
+     "rules": "The directory and its Senior Services category return 404 (2026-11-22); search snippets show it once existed.",
+     "why": "Removed. The library's own route remains D8 (owner, form)."
+    },
+    {
+     "target": "Rotary Club of Evanston / Evanston Lighthouse Rotary",
+     "verdict": "OWNER",
+     "source": "https://www.eventbrite.com/o/rotary-club-of-evanston-and-evanston-lighthouse-rotary-club-11237730291",
+     "rules": "Club newsletters are for members. Outsiders reach members through luncheon speaker programs, with contact via the clubs.",
+     "why": "A talk needs Joseph's time and voice, the same decision as D8."
+    },
+    {
+     "target": "Daily Herald community 'share' listings (Wilmette and other North Shore pages)",
+     "verdict": "WATCH",
+     "source": "https://www.dailyherald.com/community/wilmette/submitted",
+     "rules": "'Submit your event listing at www.dailyherald.com/share; deadline is two weeks prior to event date' (2023 page).",
+     "why": "Event listings only. The site has no event."
+    }
+   ],
+   "lesson": "Across D7 and D10, every free listing route that fits (Evanston Now calendar, Daily Herald share, Patch calendars) needs a real dated event, and every editorial route needs Joseph's byline or voice. Newsletters and calendars give the outreach operator nothing to send on its own. The single decision that would unlock 3 or more WATCH routes at once is an owner-run free public talk (D8), for example 'What to ask on a senior-living tour' at a library or senior center."
   }
  ],
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-22T17:55Z",
-  "event": "pull_request.synchronize 1e1da0b",
-  "picked": "ACQ-018 (D7 local news routes)",
-  "why": "Distribution is the bottleneck (4-5 genuine visitors since 8 Nov, all Facebook); D7 ranked first in the distribution lane."
+  "utc": "2026-11-22T18:40Z",
+  "event": "pull_request.synchronize ee74fa9",
+  "picked": "ACQ-021 (D10 community newsletters)",
+  "why": "Distribution is still the bottleneck (4-5 genuine visitors since 8 Nov, all Facebook). D10 was the distribution item most likely to give a route the outreach operator could use without Joseph."
  },
- "last_verified_action": "ACQ-018: local news routes examined with sources; Evanston Now guest essay handed to Joseph as the one ACT; nothing sent or submitted. ACQ-021 (D10 newsletters) queued.",
+ "last_verified_action": "ACQ-021: 9 newsletter routes examined with sources, 0 ACT; D10 dropped; ACQ-022 (D11 free resource fairs) queued. Nothing sent or submitted.",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -446,6 +527,7 @@
   "confirmation": "Claude Scheduled Tasks screenshot: ESCG Tour Acquisition Loop active, Pull request: Commits pushed on matching repository. Previous setup screenshot: head branch automation/esc-tour-loop."
  },
  "owner_review_needed": [
+  "D8/D10 (22 Nov): newsletters and calendars give the outreach operator no route of its own. One free public talk by you (e.g. 'What to ask on a senior-living tour' at the library, Levy or North Shore Senior Center) would open the Evanston Now calendar, Daily Herald share, Patch calendars and Rotary at once. Would you do one? Yes or no is enough.",
   "ACQ-018: would you write one disclosed first-person guest essay for Evanston Now (submit via their contact form under your name)? Brief in ops/esc-tour-loop.json completed ACQ-018 handoff. Separately: do you want a free Patch Evanston account/business listing for the guide (decide after the essay)? The Record North Shore takes no reader submissions.",
   "Optional: request indexing for https://evanstonseniorcareguide.com/assisted-living-evanston/ in Search Console (live since 2026-11-22T00:38Z, deploy 6b0238b3). Merge #84 (+#79) and redeploy if you want its search visitors counted at the tour click.",
   "PR #85: four choosing-stage guides link to the new /assisted-living-evanston/ page (today only the homepage does). Small, tested, no new claims; merge + redeploy if acceptable, ideally with the Search Console indexing request.",
@@ -498,7 +580,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Ready: ACQ-019 (S3 local-intent demand), ACQ-020 (D9 employer elder-care pages), ACQ-021 (D10 community newsletters). Waiting: Search Console 25 Nov (ACQ-005/012/017), PR merges, Joseph's ACQ-007 and ACQ-018 answers.",
+ "next_discovery": "Ready: ACQ-019 (S3 local-intent demand), ACQ-020 (D9 employer elder-care pages), ACQ-022 (D11 free resource fairs). Waiting: Search Console 25 Nov (ACQ-005/012/017), PR merges, Joseph's ACQ-007 and ACQ-018 answers, and the D8 talk decision.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -586,17 +668,17 @@
     "id": "D10",
     "lane": "distribution",
     "class": "community newsletters and mailing lists that accept community items (ward and neighborhood newsletters, retiree associations, service clubs)",
-    "status": "queued",
-    "note": "",
-    "checked_utc": "2026-11-22T17:55Z"
+    "status": "drop",
+    "note": "ACQ-021 (22 Nov): 0 ACT. The 5th Ward newsletter, CSNA and Daily Herald share are WATCH; Rotary is OWNER (talk); the 7th and other ward newsletters, NEO Emeriti News, NU Neighborhood News and the EPL directory (404) are DROP. Reopen only on new evidence: a WATCH route becomes reachable, or an owner-run event exists.",
+    "checked_utc": "2026-11-22T18:40Z"
    },
    {
     "id": "D11",
     "lane": "distribution",
     "class": "free listings or free tables at local senior resource fairs and expos, 2026-27",
-    "status": "open",
+    "status": "queued",
     "note": "anything with a fee is DROP",
-    "checked_utc": null
+    "checked_utc": "2026-11-22T18:40Z"
    },
    {
     "id": "D12",
@@ -810,6 +892,15 @@
     "inquiries": 0,
     "as_of_utc": "2026-11-22T17:40Z",
     "decision": "no response yet; 2 auto-replies across all 11 sends"
+   },
+   {
+    "class": "D10 newsletters",
+    "shipped": 0,
+    "responses": null,
+    "genuine_visitors": 0,
+    "inquiries": 0,
+    "as_of_utc": "2026-11-22T18:40Z",
+    "decision": "dropped: no operator-executable route; 3 WATCH routes depend on an owner event or a city reply"
    }
   ]
  }
