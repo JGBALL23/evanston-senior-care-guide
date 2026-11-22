@@ -1,0 +1,1095 @@
+{
+ "schema": 1,
+ "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
+ "updated_utc": "2026-11-18T23:05Z",
+ "last_run_utc": "2026-11-22T19:35Z",
+ "facebook": {
+  "access": "yes 2026-11-22T19:35Z",
+  "last_access_ok_utc": "2026-11-18T21:16Z",
+  "last_checks_utc": "2026-11-18T15:08Z",
+  "unreachable_reported_utc": null,
+  "blocker": null
+ },
+ "posts": [
+  {
+   "tag": "north-shore-happening",
+   "venue": "group:311248470375848",
+   "venue_name": "Chicago North Shore What's Happening!",
+   "content": "five tour questions",
+   "status": "live",
+   "submitted_utc": "2026-11-08T22:15Z",
+   "visible_utc": "2026-11-08T22:15Z",
+   "reactions": 0,
+   "comments": 0,
+   "checked_utc": "2026-11-18T04:30Z",
+   "shares": 0
+  },
+  {
+   "tag": "wilmette-connection",
+   "venue": "group:wilmette-connection",
+   "venue_name": "Wilmette Connection",
+   "content": "five tour questions",
+   "status": "declined",
+   "submitted_utc": "2026-11-08T22:17Z",
+   "checked_utc": "2026-11-09T01:25Z"
+  },
+  {
+   "tag": "ee-costs",
+   "venue": "group:535636991652468",
+   "venue_name": "Everything Evanston",
+   "content": "assisted living costs",
+   "status": "pending",
+   "submitted_utc": "2026-11-13T21:53Z",
+   "checked_utc": "2026-11-18T04:30Z"
+  },
+  {
+   "tag": "north-shore-checklist",
+   "venue": "group:311248470375848",
+   "venue_name": "Chicago North Shore What's Happening!",
+   "content": "tour checklist",
+   "status": "live",
+   "submitted_utc": "2026-11-15T17:29Z",
+   "visible_utc": "2026-11-16T04:42Z",
+   "reactions": 0,
+   "comments": 0,
+   "checked_utc": "2026-11-18T21:16Z",
+   "shares": 0
+  },
+  {
+   "tag": "fb-profile-1116",
+   "venue": "profile",
+   "venue_name": "owner's own profile (Public, his existing setting)",
+   "content": "tour checklist (template P)",
+   "status": "live",
+   "submitted_utc": "2026-11-17T00:41Z",
+   "visible_utc": "2026-11-17T00:41Z",
+   "reactions": 0,
+   "comments": 0,
+   "checked_utc": "2026-11-18T04:30Z",
+   "note": "first 50 minutes: all site requests automated (Facebook link previews while composing, then a Chrome 139 link scanner from a data center at 00:42Z that also fired the one landed beacon); 0 genuine",
+   "shares": 0
+  },
+  {
+   "tag": "fb-evsk-1117",
+   "venue": "group:280339146984145",
+   "venue_name": "Evanston/Skokie (Chicago) neighbors",
+   "content": "tour checklist (template A, Evanston and Skokie)",
+   "status": "live",
+   "submitted_utc": "2026-11-17T15:00Z",
+   "visible_utc": "2026-11-17T15:00Z",
+   "reactions": 0,
+   "comments": 0,
+   "shares": 0,
+   "checked_utc": "2026-11-18T21:16Z",
+   "note": "published without approval; requests in the first 5 minutes are automated",
+   "site_visits": "2 genuine (Facebook app, iPhone): 15:32Z opened the checklist PDF; 15:42Z landed on the tour section and viewed tour questions and costs; no assessment or tour form; requests in the first 5 minutes excluded as automated"
+  },
+  {
+   "tag": "fb-wil-1118",
+   "venue": "group:1086282042874547",
+   "venue_name": "What's Happening in Wilmette illinois",
+   "content": "assisted living costs (template B, Wilmette first sentence, #employed)",
+   "status": "gone (not in posted, pending, declined or removed lists on 22 Nov; likely removed by admins; do not resubmit)",
+   "submitted_utc": "2026-11-18T15:06Z",
+   "visible_utc": "2026-11-18T17:44Z",
+   "reactions": 0,
+   "comments": 0,
+   "shares": 0,
+   "checked_utc": "2026-11-18T21:16Z",
+   "note": "experiment E1; group rules re-read before posting (disclosure hashtag, ads at most 2-3 a week); requests in the first 5 minutes are automated; held for admin approval 15:06-17:44Z (Facebook notification \"An admin approved your post\"; time from its notif_id), so members first saw it at 17:44Z; 0 reactions, 0 comments at 19:40Z"
+  },
+  {
+   "tag": "fb-wnk-1120",
+   "venue_name": "What's Happening in Winnetka illinois",
+   "status": "live",
+   "submitted_utc": "2026-11-22T15:08Z",
+   "visible_utc": "2026-11-22T15:08Z",
+   "template": "A (checklist, Winnetka hook)"
+  }
+ ],
+ "venues": [
+  {
+   "id": "group:311248470375848",
+   "name": "Chicago North Shore What's Happening!",
+   "member": true,
+   "eligible": true,
+   "rules": "public; promotion allowed (rule 3: promote your business or someone else's); no day limit",
+   "min_gap_days": 7,
+   "next_ok_utc": "2026-11-23T04:42Z",
+   "checked_utc": "2026-11-15T17:00Z"
+  },
+  {
+   "id": "group:535636991652468",
+   "name": "Everything Evanston",
+   "member": true,
+   "eligible": "only after its pending post is resolved",
+   "rules": "advertising Mondays and Fridays only; posts must relate to Evanston or an adjacent town",
+   "min_gap_days": 7,
+   "checked_utc": "2026-11-13T21:51Z"
+  },
+  {
+   "id": "group:wilmette-connection",
+   "name": "Wilmette Connection",
+   "member": "joined; participation needs his answers",
+   "eligible": false,
+   "rules": "commercial posts need a phone number and business address; 8 Nov post declined",
+   "checked_utc": "2026-11-09T01:25Z"
+  },
+  {
+   "id": "profile",
+   "name": "owner's own profile (his existing audience setting)",
+   "eligible": true,
+   "min_gap_days": 30,
+   "last_post_utc": "2026-11-17T00:41Z",
+   "authorized": "owner's chat message 2026-11-17T00:39Z: routine Facebook marketing through his account without approving each post",
+   "next_ok_utc": "2026-12-17T00:41Z"
+  },
+  {
+   "id": "group:280339146984145",
+   "name": "Evanston/Skokie (Chicago) neighbors",
+   "member": true,
+   "joined_utc": "2026-11-17T01:28Z",
+   "eligible": true,
+   "rules": "public, no membership questions; no rules posted even for members; business promotions appear in the feed",
+   "notes": "1.8K members, about 17 posts a day; no rules (re-read 17 Nov); home-care businesses post there",
+   "min_gap_days": 7,
+   "next_ok_utc": "2026-11-24T15:00Z",
+   "checked_utc": "2026-11-17T14:59Z",
+   "last_post_utc": "2026-11-17T15:00Z"
+  },
+  {
+   "id": "group:1398934874303150",
+   "name": "Glenview, Northbrook, Northfield, Wilmette, Evanston, Winnetka, Glencoe",
+   "member": false,
+   "eligible": false,
+   "rules": "business ads need the admin's pre-approval by email; contacting the admin is the owner's call",
+   "notes": "public, 10.3K members",
+   "checked_utc": "2026-11-17T00:32Z"
+  },
+  {
+   "id": "group:457491344711359",
+   "name": "Evanston Happenings",
+   "member": false,
+   "eligible": false,
+   "rules": "Evanston, Wyoming, not Illinois; no advertising",
+   "checked_utc": "2026-11-17T00:31Z"
+  },
+  {
+   "id": "group:1086282042874547",
+   "name": "What's Happening in Wilmette illinois",
+   "member": true,
+   "joined_utc": "2026-11-17T15:08Z",
+   "eligible": true,
+   "rules": "public; business posts allowed if licensed; disclose employment (they suggest #employed); advertising at most 2-3 times a week; no politics, crowdfunding or animal sales",
+   "notes": "3.5K members, about 19 posts a day; no join questions",
+   "min_gap_days": 7,
+   "next_ok_utc": "2026-11-25T15:06Z",
+   "checked_utc": "2026-11-18T15:08Z",
+   "last_post_utc": "2026-11-18T15:06Z"
+  },
+  {
+   "id": "group:1316163449754368",
+   "name": "What's Happening in Winnetka illinois",
+   "member": true,
+   "joined_utc": "2026-11-17T15:09Z",
+   "eligible": true,
+   "rules": "same rules as the Wilmette group (same network): disclose (#employed), advertising at most 2-3 times a week",
+   "notes": "4.5K members, about 25 posts a day; no join questions",
+   "min_gap_days": 7,
+   "next_ok_utc": null,
+   "checked_utc": "2026-11-17T15:09Z"
+  },
+  {
+   "id": "group:1398417347116381",
+   "name": "What's Happening in Skokie & the North Shore?",
+   "member": false,
+   "eligible": false,
+   "rules": "admin rule 1: only entertainment events; anything else deleted",
+   "checked_utc": "2026-11-17T15:10Z"
+  },
+  {
+   "id": "group:154522715210306",
+   "name": "What's Happening in Evanston, Illinois ?",
+   "member": "requested",
+   "requested_utc": "2026-11-17T15:45Z",
+   "eligible": true,
+   "rules": "private, 3.7K members, about 5-10 posts a day; local businesses may promote; businesses must have an address, phone number and website; no spam or irrelevant links; no selling personal property",
+   "notes": "join asked no questions; waiting for admin approval",
+   "min_gap_days": 7,
+   "next_ok_utc": null,
+   "checked_utc": "2026-11-17T22:27Z",
+   "join_checked_utc": "2026-11-18T04:30Z"
+  },
+  {
+   "id": "group:346720145710365",
+   "name": "Highland Park neighborhood community page",
+   "member": true,
+   "joined_utc": "2026-11-17T15:52Z",
+   "eligible": false,
+   "rules": "public, no description and no rules; Illinois (posts mention Metra, the North Shore, Deerfield); feed is mostly business ads",
+   "notes": "23.7K members, about 49 posts a day; no join questions; not eligible for posts (nothing allows promotion); lead scans by in-group search only; first scan 53 posts, 0 leads",
+   "checked_utc": "2026-11-17T15:56Z"
+  },
+  {
+   "id": "group:1032686255213309",
+   "name": "What's Happening in Lake Forest illinois",
+   "member": true,
+   "joined_utc": "2026-11-18T16:40Z",
+   "eligible": true,
+   "rules": "same network rules as Wilmette and Winnetka: licensed businesses only, disclose employment (#employed), advertising at most 2-3 times a week",
+   "notes": "public, 1.4K members, about 7 posts a day; joined with no questions",
+   "min_gap_days": 7,
+   "next_ok_utc": null,
+   "checked_utc": "2026-11-18T16:40Z"
+  },
+  {
+   "id": "group:glenviewil",
+   "name": "What's Happening in Glenview, IL?",
+   "member": true,
+   "joined_utc": "2026-11-18T16:40Z",
+   "eligible": true,
+   "rules": "events, questions and local business referrals welcome; no sales, politics or GoFundMe; admins remove posts at their discretion",
+   "notes": "public, 6.6K members; participant questions (why join, live or work here, county) left unanswered",
+   "checked_utc": "2026-11-18T16:40Z",
+   "verdict_note": "18 Nov 19:45Z: membership approved (\"Now you can post\"), no participant-question prompt; About allows community information and local referral requests, bans sales/merchandise; low activity (31 posts/month, 6.6K members); posts likely need admin approval as in the other What's Happening groups"
+  },
+  {
+   "id": "group:148056482809454",
+   "name": "Glenview - Northbrook Neighbors",
+   "member": true,
+   "joined_utc": "2026-11-18T16:40Z",
+   "eligible": "no: participation now open (comment box, no question prompt, 18 Nov 19:40Z), but promotion is allowed only as Tuesday ads (5:00-17:00) with full local contact details; no spam or hijacking",
+   "rules": "see eligible",
+   "notes": "public, 65K members, about 90 posts a day; group search shows occasional senior-living requests that draw many replies (older posts)",
+   "checked_utc": "2026-11-18T16:40Z"
+  },
+  {
+   "id": "group:381294556033120",
+   "name": "Chicago North Shore Community Group",
+   "member": false,
+   "eligible": false,
+   "rules": "do not promote your business, products or programs; hometown must be listed to join",
+   "checked_utc": "2026-11-18T16:40Z"
+  },
+  {
+   "id": "group:allthingsglenview",
+   "name": "Everything Glenview",
+   "member": false,
+   "eligible": false,
+   "rules": "for Glenview residents (he does not live there)",
+   "checked_utc": "2026-11-18T16:40Z"
+  },
+  {
+   "id": "group:1365423744360839",
+   "name": "Families who need a CAREGIVER in Chicago and Suburbs",
+   "member": false,
+   "eligible": false,
+   "rules": "no rules posted; content is agency hiring ads and tips, no family requests in 31 posts",
+   "checked_utc": "2026-11-18T16:40Z"
+  },
+  {
+   "id": "group:520770516031533",
+   "name": "HomeCare in Illinois, Caregivers ,Care for parents",
+   "member": false,
+   "eligible": false,
+   "rules": "job and placement board; no family requests in 23 posts",
+   "checked_utc": "2026-11-18T16:40Z"
+  },
+  {
+   "id": "group:RogersParkNeighborhoodNews",
+   "name": "Rogers Park News",
+   "member": true,
+   "joined_utc": "2026-11-18T20:03Z",
+   "eligible": true,
+   "rules": "posts visible to all; verifiable information with sources; on topic; Rogers Park and nearby-neighborhood business and sales posts accepted; no scams or spam; posts may be quoted in neighborhood news",
+   "notes": "public, 49.5K members, about 1,130 posts a month; north-side Chicago audience next to Evanston (new audience per venue_focus 18 Nov)",
+   "checked_utc": "2026-11-18T21:16Z",
+   "verdict_note": "participation approved about 20:15Z 18 Nov (\"You can now post and comment\"); posts must be verifiable with source links; nearby-neighborhood business posts accepted; no spam"
+  },
+  {
+   "id": "group:259937747842535",
+   "name": "Edgewater Chicago Neighborhood News",
+   "member": true,
+   "joined_utc": "2026-11-18T20:07Z",
+   "eligible": true,
+   "rules": "no rules list; About invites news of new businesses, events and anything that keeps Edgewater residents aware and safe",
+   "notes": "public, 6.9K members, about 136 posts a month; joined at once, no questions",
+   "checked_utc": "2026-11-18T20:08Z"
+  },
+  {
+   "id": "group:2730752207171394",
+   "name": "The Caregivers of Chicago Illinois",
+   "member": false,
+   "verdict": "no: caregiver job-seeker group, not families; rules forbid promotions",
+   "checked_utc": "2026-11-19T00:00Z"
+  },
+  {
+   "id": "search",
+   "name": "caregiver group search (Chicago)",
+   "member": false,
+   "verdict": "national or job-board groups (caregivers seeking work); no local family groups found",
+   "checked_utc": "2026-11-19T00:00Z"
+  },
+  {
+   "id": "search",
+   "name": "North Shore moms groups",
+   "member": false,
+   "verdict": "skipped: membership is for moms; he doesn't qualify",
+   "checked_utc": "2026-11-19T00:00Z"
+  }
+ ],
+ "venue_discovery": {
+  "last_utc": "2026-11-18T20:08Z",
+  "owner_groups_total": 43,
+  "owner_local_groups": [
+   "group:311248470375848",
+   "group:535636991652468",
+   "group:776941812452112 (Wilmette Connection)",
+   "group:280339146984145 (joined 2026-11-17)"
+  ],
+  "groups_evaluated": [
+   "group:280339146984145",
+   "group:1398934874303150",
+   "group:457491344711359",
+   "group:737824126066420",
+   "group:1088020282873543",
+   "group:520770516031533",
+   "group:1086282042874547",
+   "group:1316163449754368",
+   "group:1398417347116381",
+   "group:399944149096268",
+   "group:2124965535010095",
+   "group:1651391214956053"
+  ],
+  "not_yet_checked": [
+   "group:1526647778001131 What's Happening in Glencoe il (243 members; small, deferred)"
+  ],
+  "skipped_this_round": "search results named Evanston or North Shore but were Vancouver BC, Calgary AB or Evanston WY groups, or banned promotion",
+  "verdicts_1117": [
+   "group:737824126066420 Evanston & Area Community info.: Evanston in Calgary AB (Alberta businesses in feed), not Illinois; skip",
+   "group:1088020282873543 Northbrook/Glenview/Niles/Des Plaines neighbors: Illinois, 5.8K, about 49 posts a day, no rules; neighbors group for towns he neither lives nor works in; skip",
+   "group:520770516031533 HomeCare in Illinois, Caregivers, Care for parents: run by a home-care agency, statewide, outside the Evanston/North Shore scope; skip",
+   "caregiver group search (Chicago/North Shore): results were caregiver job boards or out of area; no Evanston/North Shore family group found",
+   "group:2124965535010095 What's Happening in Glencoe - Uncensored: Glencoe, Alabama; skip",
+   "group:154522715210306 What's Happening in Evanston, Illinois ?: private, rules allow local business promotion; join requested (no questions)",
+   "group:346720145710365 Highland Park neighborhood community page: Illinois, no rules, ad-heavy; joined for lead scans only",
+   "caregiver/aging-parent search repeated 17 Nov: national private support groups (out of scope) and caregiver job boards; nothing new local"
+  ],
+  "skipped_no_qualify": [
+   "group:148056482809454 Glenview - Northbrook Neighbors (65K): residents' group for towns he doesn't live in",
+   "group:399944149096268 Wilmette Connections: for Wilmette residents, describes itself as against businesses",
+   "group:1651391214956053 What's happening in Highland Park/Highwood, IL? (10K): for residents and local businesses; promotions 1 a week local only"
+  ],
+  "joins_today": {
+   "date": "2026-11-17",
+   "count": 4
+  },
+  "verdicts_1118": [
+   "Rogers Park search: Rogers Park News (49.5K, public) joined, participation pending; FLIRP is private; West Rogers Park Community (4.2K) and West Rogers Park Neighborhood (6.3K) public, not yet read; Rogers Park In the '50s and '60s (17K, nostalgia) not checked",
+   "Edgewater search: Edgewater Chicago Neighborhood News (6.9K, public) joined and eligible; Edgewater (Chicago) Neighbors (11K) and Edgewater (Chicago) Neighborhood News (5.6K) are private; buy-sell and Buy Nothing groups skipped"
+  ]
+ },
+ "metrics": {
+  "since_utc": "2026-11-08T22:15Z",
+  "as_of_utc": "2026-11-18T00:09Z",
+  "facebook_posts_visible": 4,
+  "facebook_genuine_visitors": 4,
+  "assessment_starts": 0,
+  "assessment_completions": 0,
+  "tour_form_views": 0,
+  "tour_requests_genuine": 0,
+  "tours_confirmed": "UNVERIFIED (none reported by Joseph)",
+  "netlify_checked_to_utc": "2026-11-18T00:07Z",
+  "gmail_checked_to_utc": "2026-11-18T01:02Z",
+  "note": "genuine = real browsers only; harness tests, crawlers, link previews and Joseph's unverified phone excluded",
+  "visitor_notes": "2 genuine visitors from the checklist post: 13:49Z 16 Nov (iPhone Safari) and 19:07Z 16 Nov (iPhone, Facebook app; same iOS version as the owner's phone, owner asked whether it was his); both opened the checklist PDF, neither started the assessment or the tour form | 17 Nov fb-evsk-1117: 2 genuine visitors (15:32Z, 15:42Z; two different iPhones in the Facebook app, not the owner's phone); 1 checklist PDF open, 1 tour-questions view; no assessment or tour form | 16:13-19:09Z: no new Facebook-origin visits; 1 direct visit read the tour questions and costs; no tour-form view | 19:00-22:47Z: no production beacons at all; the one ?ref=fb-evsk-1117 request (19:07Z) was Facebook's link-preview crawler; 0 genuine visitors, 0 checklist opens | 22:47Z-00:07Z: no production beacons; the only fb-evsk-1117 hit (23:14Z) coincided with the lead scan loading that group's feed (Facebook link preview)"
+ },
+ "owner": {
+  "questions": [
+   {
+    "q": "Everything Evanston cost post still pending since 13 Nov: keep watching or drop it?",
+    "asked_utc": "2026-11-17T00:35Z",
+    "answer": "keep it pending; don't delete or resubmit (16 Nov 18:47 Chicago)"
+   },
+   {
+    "q": "Release draft PR #22 (tour form scrolls to what's missing on an incomplete tap)?",
+    "asked_utc": "2026-11-17T00:35Z",
+    "answer": "approved with conditions: update against latest main, tests pass, consent wording, data collection, server behavior and inquiry payload unchanged; otherwise hold (16 Nov 18:47 Chicago)"
+   },
+   {
+    "q": "Post once on the owner's own profile? (yes/no)",
+    "asked_utc": "2026-11-17T00:35Z",
+    "answer": "yes: covered by his 2026-11-17T00:39Z message (no per-post approval)"
+   },
+   {
+    "q": "Join any of the suggested local groups? (the owner joins; Claude never does)",
+    "asked_utc": "2026-11-17T00:35Z",
+    "answer": "yes: Claude may join relevant public Evanston/North Shore groups with no membership questions that he genuinely qualifies for (16 Nov 18:47 Chicago)"
+   },
+   {
+    "q": "Was the 19:07Z 16 Nov checklist-post visit the owner's own phone?",
+    "asked_utc": "2026-11-17T00:35Z",
+    "answer": "closed without asking again (17 Nov 20:39 Chicago message); that phone stays excluded from metrics"
+   },
+   {
+    "q": "Public Facebook replies and publishing the guide drafts?",
+    "asked_utc": "2026-11-17T15:12Z",
+    "answer": "both approved, plus a standing approval for any legitimate zero-cost action toward tours (17 Nov 09:26 Chicago)"
+   },
+   {
+    "q": "Set up Google Search Console for the site under his Google account (free; adds a verification tag to the homepage) so real search queries guide the next pages?",
+    "asked_utc": "2026-11-17T17:47Z",
+    "answer": "approved 17 Nov 11:56 Chicago; done (verified, sitemap submitted)"
+   },
+   {
+    "q": "The daily guide drafts often put paraphrases inside quotation marks (one reversed the MSP $25 disregard). Tighten that routine so drafts quote sources verbatim? (the routine is his; Claude does not change it without approval)",
+    "asked_utc": "2026-11-17T17:47Z",
+    "answer": "approved 17 Nov 11:56 Chicago; ROUTINE.md updated (PR #52)"
+   },
+   {
+    "q": "Use his own Nextdoor or LinkedIn account under the Facebook rules (disclosed, public, no DMs, no spending)?",
+    "asked_utc": "2026-11-17T23:57Z",
+    "answer": "closed by Claude under his standing authorization after his 17 Nov 20:39 Chicago message (no approval requests for routine work): Nextdoor only if already signed in and its rules allow (operator step 6b); LinkedIn skipped"
+   }
+  ],
+  "last_rollup_utc": "2026-11-17T01:34Z",
+  "last_quiet_note_utc": null,
+  "joining_allowed": true,
+  "standing": [
+   "17 Nov 11:56: browse and research any public website without asking; routine navigation in his own accounts within their permissions; escalate only for spending, sensitive account permissions, protected personal information or binding commitments"
+  ]
+ },
+ "log": [
+  "2026-11-18T16:17Z owner 10:13 Chicago: overnight must be growth work, not monitoring. Seeded ops/growth.json (G2 channels, G1 referral organizations with Gmail drafts never sent, G3 search baseline) for a new night growth task; lead scans cut to once a day (no requests in ~1,000 posts)",
+  "2026-11-18T16:19Z created the night growth task (cloud, 4 runs a night) per owner 10:13 Chicago; on-demand test run refused by the safety system (platform limit), so its first run is tonight 23:07 Chicago; venue discovery moved up to 17:00Z with a new-audience focus",
+  "2026-11-18T16:33Z Search Console: indexing checked (home and 7 key guides indexed), indexing requested for the caregiver background check guide; first performance data: 38 impressions on 16 Nov, Medicare cost queries",
+  "2026-11-18T16:40Z venues: read rules of 7 groups; joined What's Happening in Lake Forest (eligible), What's Happening in Glenview and Glenview - Northbrook Neighbors (read-only until he answers participant questions); Chicago caregiver groups are job boards (dropped); 80 more posts scanned, 0 requests",
+  "2026-11-18T16:41Z work loop paused: nothing else actionable now; next session 21:05Z (Facebook checks); night growth task runs from 23:07 Chicago on G4",
+  "2026-11-18T19:45Z session operator: Wilmette post was held for admin approval until 17:44Z (visible_utc and E1 times corrected); lead scan 9 groups/367 posts/1 in-home request (no reply, group rules); Glenview IL group now eligible; OP1 handled (link last)",
+  "2026-11-18T19:52Z outreach under the owner's 13:14 authorization: 4 personalized emails to North Shore senior-services organizations (verified public addresses, disclosure included); 8 sent today in all, 0 replies, 1 auto-reply",
+  "2026-11-18T20:08Z venues (new audiences, north-side Chicago): joined Rogers Park News (49.5K; participation pending admin approval, rules agreement only) and Edgewater Chicago Neighborhood News (6.9K; eligible); 5 joins today",
+  "2026-11-18T20:14Z outreach: library community-engagement contact emailed (published staff-directory address); 9 sent today, 0 replies, 1 auto-reply; next batch waits for replies",
+  "2026-11-18T20:55Z coordination fix (Joseph 14:30 Chicago): one operator (this session); preflight before every external action; shared action record in state.actions (9 emails, 1 post, 5 joins, 4 pending, 6 blocked)",
+  "2026-11-18T20:50Z coordination audit: 1 operator, 4 assistant tasks aligned (cloud and night prompts updated), 1 task off; Sent = 9, all recorded; Drafts = 0; preflight proven (nssc.org BLOCK, cityofevanston.org BLOCK, skokie.org CLEAR)",
+  "2026-11-18T21:16Z operator session: Facebook reachable (identity confirmed); Wilmette, Evanston/Skokie and North Shore posts 0 reactions/0 comments; Everything Evanston still pending; Rogers Park News participation approved (eligible); first lead scan of the 2 new groups: 78 posts, 0 requests; no outreach replies",
+  "2026-11-18T21:40Z operator session: first cloud run with the outreach watch (21:24Z) succeeded and wrote nothing, so it found no unrecorded guide email and no reply; learned: em- tag landings within a minute of a send (19:41Z) are mail-security link scanners, not people",
+  "2026-11-18T22:12Z verified for Joseph: outreach mailbox renamed (sender \"Evanston Senior Care Guide\", new default address, old address kept as alternate and still receiving); Gmail connector follows the renamed account",
+  "2026-11-18T22:45Z operator: G4 outreach research done now instead of tonight (DROP, nothing to send); owner told plainly where the operator fell short (self-set limits presented as hard limits, deferred work, noisy check-ins, account browsing, public-file details) and what changes",
+  "2026-11-18T22:45Z night growth task rebuilt as the 24/7 tour engine (every 3 hours) at Joseph's request; operator ships its ready items each session",
+  "2026-11-18T23:05Z loop: complaint guide now links the tour checklist and tour request (PR 74 merged 83c2264, all suites passed, deployed, live check 200); next: ship tour-engine items after its 18:07 run",
+  "2026-11-18T22:53Z Joseph asked for a nonstop plan-execute-review loop: next wake is always 2 minutes after a session ends, day and night",
+  "2026-11-18T23:16Z Medicare guide tour path live (PR #75); live page 200 with checklist + tour links. Next tour-path candidate: estate-recovery guide.",
+  "2026-11-18T23:15Z loop: no outreach replies (inbox 2d: only notifications); no ready items; posting cap met today; estate-recovery tour path skipped (readers are past the move; page already links the assessment); tour-path work done for every page with search evidence; next real task: lead scan at 23:40Z",
+  "2026-11-18T23:20Z loop: Chrome connected; nothing actionable until the lead scan opens at 23:40Z, so the next wake is set to that time (waking every 2 min until then would only re-poll unchanged data)",
+  "2026-11-18T23:50Z loop: lead scan of all 11 member groups, 358 posts, 0 new leads; next: ship tour-engine items after its 00:07Z run, last lead scan of the evening 03:40Z",
+  "2026-11-19T00:00Z venue search (owner asked to use the wait): 3 groups read, 0 eligible; caregiver groups are mostly national job boards; joins already at 5 today",
+  "2026-11-19T00:24Z outreach: E-1118-10 sent (municipal senior services, published role address; preflight clean)",
+  "2026-11-19T00:32Z review: tour engine ready list empty; funnel since 16 Nov = single-digit genuine visitors, some checklist opens, 1 tour-questions view, 0 assessment starts, 0 tour-form views; homepage tour section already links the tour request, so the bottleneck is volume of families reached, not the page. Shift effort to referral outreach (business hours) and owner phone/flyer drops; scanning gets leftover time",
+  "2026-11-19T03:50Z loop: Chrome not connected, so the 21:45 lead scan was skipped; no org replies except one automatic reply (E-1118-03: HR desk answers in 2-3 business days and names a separate general-HR inbox for caregiving questions; not re-sending to the same organization, wait for their reply); tour engine ready list empty. Next wake 7:30 Chicago for business-hours outreach",
+  "2026-11-19T13:45Z loop 7:30 Chicago: no org replies; Chrome offline; engine queue empty; no post today (5 posts in 7 days, cap); outreach research: Meals on Wheels NE Illinois, Wilmette Park District, Levy foundation have no published email reachable; phone-only list given to Joseph; Search Console note 'alternate page with proper canonical' = ?ref= URLs folding into canonical, expected",
+  "2026-11-19T15:02Z loop 9:00 Chicago: Chrome offline, no org replies, nothing else actionable; next check 16:20Z",
+  "2026-11-19T16:22Z loop 10:20 Chicago: Chrome offline, no replies; next wake 18:00Z after the E1 +24h measurement (17:44Z)",
+  "2026-11-21T02:35Z operator resumed after a gap (no sessions 19 Nov 16:22Z to 21 Nov 02:25Z): Niles Senior Center email was sent 21 Nov 01:11Z outside the operator (recorded E-1120-01, not repeated); Skokie Human Services has no published email (phone only, blocked to Joseph's call list); 0 org replies; Winnetka post P-1120-01 missed its Friday window; Chrome offline",
+  "2026-11-21T15:02Z Sat 9:00 Chicago: Chrome offline, so the Winnetka post (P-1120-01) and lead scan wait; no org replies; no new sends; hourly re-check until 19:00 Chicago while the post is planned",
+  "2026-11-21T16:16Z Sat 10:15 Chicago: Claude in Chrome extension still not connected (owner says Chrome is open; extension link is what's missing); Winnetka post waits; no replies",
+  "2026-11-21T17:16Z Sat 11:15 Chicago: extension still not connected; no replies; Winnetka post waits",
+  "2026-11-21T18:16Z Sat 12:15 Chicago: extension not linked; Winnetka text handed to Joseph to post manually; no replies; checks every 3h while unlinked, no routine messages to Joseph",
+  "2026-11-21T21:11Z Sat 15:10 Chicago: extension not linked; no replies; no change",
+  "2026-11-22T00:06Z Sat 18:05 Chicago: extension not linked all day; Winnetka post not confirmed by Joseph; no replies; sleep until Sun 9:00 Chicago (Rogers Park post due after 17:29Z if linked)",
+  "2026-11-22T15:08Z Winnetka post P-1120-01 live (template A, fb-wnk-1120); extension reconnected Sun morning",
+  "2026-11-22T15:20Z lead scan 11 groups, 361 posts, 1 new lead (in-home caregiver request, Glenview-Northbrook; no reply allowed there; Joseph alerted)",
+  "2026-11-22T15:30Z checks: Wilmette post no longer visible to its author anywhere (likely admin removal, no notice); Evanston/Skokie and North Shore posts still live; Rogers Park post moved to Monday",
+  "2026-11-22T19:35Z lead scan 174 posts, 0 new leads; Winnetka post still live, no comments yet"
+ ],
+ "next_actions": [
+  "STANDING (Joseph 18 Nov 16:44/17:08): continuous loop, day and night. Each session: plan, do a real tour-focused task, review, re-plan and immediately do the next actionable task in the same session; only when nothing is actionable, set the next wake 2 minutes after the CURRENT time (check the clock, never estimate). Never schedule a long sleep.",
+  "STANDING (Joseph 18 Nov 16:40: a 24/7 system focused on getting tours): every session, first ship growth.json ready items (status ready, for operator) after PREFLIGHT, mark them shipped; judge everything by tour-form visits and tour requests",
+  "PRIORITY (Joseph 18 Nov 18:06: scanning isn't moving us closer): weekday business hours, find and email new referral organizations with published addresses (care managers, hospital/rehab social work, township and village senior services, faith care ministries); phone-only ones go to Joseph's call list",
+  "Outreach: check Gmail for replies each session; answer questions promptly and accurately; no repeat contact; next small batch after replies are reviewed (night task G4 drafts)",
+  "E1 posted 15:06Z in Wilmette (fb-wil-1118), approved by admin 17:44Z; cloud operator measures +24h (19 Nov 17:44Z) and +48h (20 Nov 17:44Z) vs fb-evsk-1117",
+  "Last session each night: set due.lead_scan (and any other morning due item) to the 9:00 Chicago wake, so the cloud operator doesn't log the overnight sleep as a Facebook interruption (it did 18 Nov, 04:30Z-15:11Z, because due said 13:00Z)"
+ ],
+ "one_offs": {
+  "pr22": "done: released 2026-11-17T00:54Z. Merged with main (all suites passed: check-guides 1501, test.js 768, inquiry validation 36, checklist-click 30, start-source 21, tour-source 23, paying-nav 314, checklist PDF, publish 32; build reproduces _dist); consent wording, form fields, server code and inquiry payload unchanged; merge commit 1dc0004; Netlify deploy 6afba5a9ea3f94d69014251e (4 functions); live check 33/33 files, 0 problems; also shipped the reviewed #27 and #28",
+  "friday_reminder": "deleted 2026-11-17T00:48Z at owner's request",
+  "first_scheduled_run": "done: fired by the schedule at 2026-11-17T01:24:03Z (due 01:23Z); re-armed for 02:23Z; Facebook reachable"
+ },
+ "posting_cap": {
+  "rule": "at most 1 post per Chicago day and at most 5 in the last 7 days (every submitted post counts, pending too); each group at least 7 days apart (profile 30); never the same text twice within 7 days",
+  "changed": "2026-11-17 from 'fewer than 3 in 7 days', after Joseph's 08:52 Chicago message",
+  "counted": [
+   "ee-costs 2026-11-13T21:53Z (pending)",
+   "north-shore-checklist 2026-11-15T17:29Z",
+   "fb-profile-1116 2026-11-17T00:41Z",
+   "fb-evsk-1117 2026-11-17T15:00Z"
+  ],
+  "checked_utc": "2026-11-17T15:12Z"
+ },
+ "leads": {
+  "alerted": [
+   "34e28a42490e3dce45fab65054a84abf8129172da3a985c3bd7b38d08ce317e9",
+   "0e8e45b806dd191ea344a975dbc880515f5a47e8690a2f3b385a6dcf4adfb785"
+  ],
+  "scans": [
+   {
+    "utc": "2026-11-17T15:06Z",
+    "groups": 3,
+    "posts_scanned": 142,
+    "leads": 0
+   },
+   {
+    "utc": "2026-11-17T15:56Z",
+    "groups": 1,
+    "posts_scanned": 53,
+    "leads": 0,
+    "note": "first scan of the Highland Park group"
+   },
+   {
+    "utc": "2026-11-17T19:12Z",
+    "groups": 5,
+    "posts_scanned": 99,
+    "leads": 0,
+    "note": "one match was a yoga studio ad aimed at caregivers, not a request"
+   },
+   {
+    "utc": "2026-11-17T23:16Z",
+    "groups": 6,
+    "posts_scanned": 116,
+    "leads": 0,
+    "note": "only match was the same yoga studio ad aimed at caregivers"
+   },
+   {
+    "utc": "2026-11-18T03:20Z",
+    "groups": 6,
+    "posts_scanned": 139,
+    "leads": 0,
+    "note": "evening scan of posts since 23:16Z; only match was the same yoga studio ad aimed at caregivers"
+   },
+   {
+    "utc": "2026-11-18T15:04Z",
+    "groups": 6,
+    "posts_scanned": 234,
+    "leads": 0,
+    "note": "first scan of the day; only match was the same yoga studio ad aimed at caregivers"
+   },
+   {
+    "utc": "2026-11-18T16:40Z",
+    "groups": 2,
+    "posts_scanned": 80,
+    "leads": 0,
+    "note": "first scans of Lake Forest (33) and Glenview-Northbrook Neighbors (47)"
+   },
+   {
+    "utc": "2026-11-18T19:40Z",
+    "groups": 9,
+    "posts_scanned": 367,
+    "leads": 1,
+    "note": "1 in-home request (Glenview - Northbrook Neighbors: hiring a private CNA caregiver, many answers already); no reply: the group limits promotion to Tuesday ads with full contact details and bans spam/hijacking, and the ask is a private hire, not a community; the Wilmette match was the same yoga studio ad"
+   },
+   {
+    "utc": "2026-11-18T21:14Z",
+    "groups": 2,
+    "posts_scanned": 78,
+    "leads": 0,
+    "note": "first scans of Rogers Park News and Edgewater Chicago Neighborhood News"
+   },
+   {
+    "utc": "2026-11-18T23:50Z",
+    "groups": 11,
+    "posts_scanned": 358,
+    "leads": 0,
+    "note": "evening scan; only match was the already-alerted Glenview-Northbrook private CNA request (no reply allowed there)"
+   },
+   {
+    "utc": "2026-11-22T15:20Z",
+    "groups": 11,
+    "posts_scanned": 361,
+    "leads": 1,
+    "note": "Glenview-Northbrook: request for a part-time in-home caregiver; group rules allow promotion only as Tuesday ads, so no reply; alerted Joseph"
+   },
+   {
+    "utc": "2026-11-22T19:35Z",
+    "groups": 11,
+    "posts_scanned": 174,
+    "leads": 0,
+    "note": "afternoon scan; only match is the already-alerted Glenview-Northbrook request"
+   }
+  ],
+  "method": "chronological feed of each member group, in-page keyword filter (senior-care terms + a request + not a business ad); about 2-4 days of posts per group on the first scan",
+  "replied": []
+ },
+ "due": {
+  "post_next": "2026-11-23T15:00Z",
+  "fb_checks": "2026-11-19T15:00Z",
+  "lead_scan": "2026-11-22T23:20Z",
+  "metrics": "2026-11-19T00:05Z",
+  "venues": "2026-11-25T15:00Z",
+  "evanston_join_status": "2026-11-19T15:00Z",
+  "rollup": "2026-11-19T01:00Z",
+  "guides": "no drafts left worth publishing today (two deferred with reasons); next drafts run 18 Nov ~12:02Z",
+  "search_console": "2026-11-25T15:00Z"
+ },
+ "site": {
+  "guides_published_1117": 17,
+  "fixes_1117": [
+   "Medicare guide unsupported wording removed (PR #26)",
+   "homepage tour section: disclosed \"Ask about a tour here\" link to the existing tour form (PR #35)",
+   "cost and inspection guides: same line under the checklist (PR #40)",
+   "facility-complaint guide: 1-866-800-1409 identified as the APS hotline, links the elder-abuse guide (PR #57, deploy 6afca7ce)"
+  ],
+  "deploys_1117": [
+   "6afc7a028dfb49aa4cec6106 (main 2b7e5d1)",
+   "6afc7cd73128fb434b720002 (main b6a79ed)",
+   "6afc81b650d37a209267d1d8",
+   "6afc83b140ab5facb486ebe4",
+   "6afc858750598629483e4f63",
+   "6afc87298dad5a675f6e5858",
+   "6afcd723514625ae47d9cd16",
+   "6afcd8daf80959320781b1ff",
+   "6afcda81e4effca7ee74964f",
+   "6afcdc0c02dd1202eb8ae41a",
+   "6afcf1210489d745da0b2c01"
+  ],
+  "indexnow_1117": "49 URLs accepted in 18 submissions (HTTP 200)",
+  "guides_live": 33,
+  "drafts_unpublished": [
+   "illinois-money-management-program (deferred: IDoA's own site list shows no Program Site serving Evanston Township, low value here)",
+   "va-home-based-primary-care-and-aide (deferred: largely covered by the VA nursing home and respite guide)"
+  ],
+  "why_tour_link": "FB visitors land on #tour; 17 Nov two read the tour questions or opened the checklist, but the section had no way to ask about a visit",
+  "verification_note": "each draft re-checked against its official source before publishing; drafts often paraphrased inside quotation marks and once reversed a rule (MSP $25 disregard), so every quotation is compared verbatim",
+  "search_console": {
+   "property": "https://evanstonseniorcareguide.com/ (URL prefix)",
+   "verified_utc": "2026-11-17T18:00Z",
+   "method": "HTML meta tag on the homepage (PR #51); keep it",
+   "sitemap": "resubmitted 22:59Z 17 Nov with 35 URLs (Google had last read 27): 'Sitemap submitted successfully'",
+   "performance": "processing; first read due 2026-11-19",
+   "rules": "read-only weekly; no users, settings or tracking"
+  },
+  "routine": "ROUTINE.md on drafts: quotation and paraphrase integrity rules added (PR #52, owner-approved 11:56 Chicago); the routine trigger itself can only be edited by the owner (created outside agents), and it reads ROUTINE.md as its procedure; PR #64 (17 Nov): Step 2 prefers decision-stage topics, Step 3 adds two integrity rules",
+  "last_guide_utc": "2026-11-17T22:54Z"
+ },
+ "automation": {
+  "session_operator": "trig_012iD5B32YGMx8Q9efdMRzhk: self-re-arming one-shot in the owner's main chat; owns Facebook and Search Console (needs his Chrome); daytime wakes at most 3 hours apart, sleeps overnight until 9:00 Chicago",
+  "cloud_operator": "trig_01HX7n6gwbDtXj9zXHabtQu4: hourly 24/7 (minute 23, Chicago time), fresh cloud sessions; owns tour-request alerts, site check, metrics, campaign results, search signals, daily summary; state ops/cloud.json; verified runs 01:30Z and 01:39Z 18 Nov (Gmail ok, Netlify ok, Facebook tools absent); push test 01:49Z 18 Nov: PushNotification available, returned 'Mobile push requested' (test block removed from the prompt at 01:50Z); its instructions were rewritten at 02:22Z 18 Nov by another session of the owner (citing his 19:43 Chicago request): Facebook-interruption records and growth opportunities added, writes via the GitHub MCP tool; kept as is, session operator aligned at 02:49Z",
+  "watchdog": "trig_019ZHCm3aun4X2K9tjNEBPCf: 10:37/13:37/16:37/19:37/22:37 Chicago; alerts the owner if last_run_utc is over 200 minutes old; runs: 01:05Z test and 01:38Z scheduled (19:37 slot), both SUCCEEDED; its 01:05Z 'test push' text was ignored by design (fire text is untrusted), so no test push was ever sent",
+  "recovery": "NOT automatic: scheduled runs cannot change scheduled tasks (cloud test 01:39Z 18 Nov: refused); only the session's own step-0 safety net re-arms it; the watchdog alerts the owner",
+  "facebook_access": "only via the owner's Windows Chrome with the Claude extension; fresh cloud sessions have none (tested 17 Nov 00:19Z and 18 Nov 01:39Z)",
+  "drafts_routine": "EVANSTON-DAILY-GUIDE-DRAFTS daily ~12:03Z; gated on DEMAND.md since PR #73",
+  "blocked_for_claude": "pausing or deleting scheduled tasks is refused by the safety classifier; only the owner can pause them in claude.ai/code/routines",
+  "night_growth": "trig_011ow9KBnKFdsVvC7qU97Gen 'ESCG night growth (cloud)', CRON_TZ=America/Chicago 7 23,1,3,5, auto approval, no pushes; state ops/growth.json; research + Gmail drafts (never sent) + proposals; first run 23:07 Chicago 18 Nov (an on-demand test run was refused by the safety system)"
+ },
+ "experiments": [
+  {
+   "id": "E1",
+   "start": "2026-11-18 9:00-19:00 Chicago",
+   "venue": "group:1086282042874547 What's Happening in Wilmette illinois",
+   "content": "template B (costs -> cost guide with checklist and tour link), #employed",
+   "tag": "fb-wil-1118",
+   "baseline": "fb-evsk-1117 (template A): 2 genuine visitors, 1 checklist open, 1 tour-questions view, 0 assessment starts, 0 tour-form views, 0 inquiries",
+   "measure": "+24h and +48h: genuine visitors, checklist opens, assessment starts/completions, tour-form views, tour requests",
+   "decision": "hook with more genuine visitors or any tour-form view is used for Winnetka on Fri 20 Nov",
+   "caveat": "tiny samples: directional only",
+   "posted_utc": "2026-11-18T15:06Z",
+   "status": "posted 15:06Z, approved by admin 17:44Z; measure at 2026-11-19T17:44Z (+24h) and 2026-11-20T17:44Z (+48h)",
+   "visible_utc": "2026-11-18T17:44Z"
+  }
+ ],
+ "opportunities_done": [
+  "OP1-wil-link-tag"
+ ],
+ "nextdoor": {
+  "checked_utc": "2026-11-18T15:11Z",
+  "signed_in": true,
+  "identity": "owner (confirmed)",
+  "area": "north Chicago and nearby suburbs (his neighborhood feed)",
+  "policy": "Nextdoor self-promotion update (blog, 19 Aug 2026): promoting a business, service or paid opportunity from a personal account is not allowed in main-feed posts or comments or by unsolicited DM; it must come from a free Business Page; Groups follow their admins' rules",
+  "verdict": "no guide links or promotional replies from his personal account; a Business Page would need his specific authorization (creating Pages is reserved to him); recent feed read once: 17 posts, 0 families asking",
+  "next_check_utc": "2026-12-18T15:00Z"
+ },
+ "venue_focus": "18 Nov: new audiences, because the 6 town groups produced 0 requests in ~1,000 posts. Look for groups of adult children and caregivers (caregiver support, aging parents, Alzheimer's and dementia caregivers, faith-community caregiver groups) and town groups not yet checked (Skokie, Glenview, Northbrook, Rogers Park, Edgewater). Join only public groups with no questions whose stated membership he genuinely qualifies for (skip moms-only groups); read rules before posting.",
+ "search_console": {
+  "checked_utc": "2026-11-18T16:33Z",
+  "indexed": "home and 7 key guides indexed; FIDE SNP pending; caregiver background check requested 18 Nov",
+  "performance": "16 Nov: 38 impressions, 0 clicks, avg position 47.4; Medicare and assisted-living cost queries",
+  "next": "weekly: Performance (queries, pages) and Pages report"
+ },
+ "joins_today": {
+  "date_chicago": "2026-11-18",
+  "count": 5
+ },
+ "owner_blocker_participation": "Glenview - Northbrook Neighbors (65K) and What's Happening in Glenview (6.6K) need participant answers before he can post or comment there; answering is his call (honest answers: works in Evanston, lives in Chicago)",
+ "posting_rules": [
+  "OP1 (cloud 18 Nov): text right after the link merged into it (ref=fb-wil-1118Disclosure). Put the link last in the post, after the disclosure, with nothing after it."
+ ],
+ "outreach": {
+  "note": "counts only; per-action records in actions; correspondence stays in Gmail",
+  "sent_total": 9,
+  "sent_by_session_operator": 5,
+  "replies": 0,
+  "auto_replies": 2,
+  "orgs_contacted_sha256": [
+   "412e2fc2c04346ee",
+   "a09687215d1ff39f",
+   "4357990659af1ff8",
+   "3d97ef57df72afca",
+   "f72c4307dabaccfe",
+   "22ea23bc33a341ff",
+   "964f4bd4085df343",
+   "ab99b70494413dcd",
+   "706e1de7aedfe910"
+  ],
+  "last_utc": "2026-11-18T20:12Z",
+  "tags": "emails sent by the session operator link the home page with ?ref=em-<org>-<MMDD>; the four sent 17:12Z link the bare home page",
+  "rule": "before any outreach send, search Gmail sent for the domain; no repeat contact after a decline; follow up at most once, after 7+ days, only if useful",
+  "next": "check replies daily; next small batch only after replies are reviewed (19-20 Nov)",
+  "phone_only": [
+   "village senior services (Glenview)",
+   "village social worker (Lincolnwood)",
+   "home-delivered meals nonprofit (Evanston)",
+   "senior care-management nonprofit"
+  ]
+ },
+ "operator": {
+  "designated": "session operator: this Claude Code chat (session_014eaiSbba148WjVrUnjGiX1), woken by trig_012iD5B32YGMx8Q9efdMRzhk",
+  "since_utc": "2026-11-18T20:50Z",
+  "rule": "Joseph, 18 Nov 2026 14:30 Chicago: only one designated operator may send outreach emails, publish social posts or make external commitments; other workers research, draft or monitor and never send or publish",
+  "preflight": {
+   "email": "Gmail search in:sent to:<recipient domain> (no date limit) returns nothing AND sha256(domain)[:16] is not in actions AND no decline from that domain; the address is published on the organization's official site and checked that session. Otherwise do not send (reply only inside a thread they started).",
+   "facebook_post": "step 5 rules plus the group's my_posted_content and my_pending_content and state.posts",
+   "comment": "step 5c plus leads.replied",
+   "record": "append every external action to actions right after it happens, then commit; pending and blocked actions live here too"
+  },
+  "proof_1118": "preflight run 20:45Z: in:sent to the 8 contacted domains = 9 threads, one message each (cityofevanston.org = 2, two departments); in:sent to:nssc.org = 1 -> BLOCK; in:sent to:skokie.org = 0 -> CLEAR; Gmail Drafts = 0",
+  "workers": [
+   {
+    "task": "trig_012iD5B32YGMx8Q9efdMRzhk",
+    "name": "ESCG hourly operator (this chat)",
+    "role": "the operator: outreach email, Facebook posts, comments, joins; runs PREFLIGHT and writes state.actions",
+    "may_send_or_post": true
+   },
+   {
+    "task": "trig_01HX7n6gwbDtXj9zXHabtQu4",
+    "name": "ESCG cloud operator (hourly)",
+    "role": "alerts, metrics, site check, OUTREACH WATCH (flags guide emails missing from state.actions, and replies)",
+    "may_send_or_post": false
+   },
+   {
+    "task": "trig_011ow9KBnKFdsVvC7qU97Gen",
+    "name": "ESCG tour engine (cloud, every 3 hours)",
+    "role": "prepares, never ships: reply drafts, tour-path page fixes, post texts, referral drafts (duplicate-checked) in growth.json ready",
+    "may_send_or_post": false
+   },
+   {
+    "task": "trig_019ZHCm3aun4X2K9tjNEBPCf",
+    "name": "ESCG watchdog (cloud)",
+    "role": "alerts Joseph if the operator stalls",
+    "may_send_or_post": false
+   },
+   {
+    "task": "trig_019KpCzkSzZrTJodKrqV5Tic",
+    "name": "EVANSTON-DAILY-GUIDE-DRAFTS",
+    "role": "guide drafts on the drafts branch only when DEMAND.md has an open topic; never publishes; silent on zero-demand days",
+    "may_send_or_post": false
+   },
+   {
+    "task": "trig_01PekgM5nVqmegzJBKZycwJR",
+    "name": "ESC-COORD responder",
+    "role": "disabled since 17 Nov; stays off",
+    "may_send_or_post": false
+   }
+  ],
+  "audit_1118": "20:40-20:50Z: 5 enabled scheduled tasks, 1 disabled; prompts of the cloud operator, night growth task and this operator updated and read back (stored text identical); no other Claude session reachable from here (ListAgents: none; claude.ai chats since 17 Nov: one, no sends); Gmail Sent last 3 days = 9 messages, all in actions; Gmail Drafts = 0; watch simulation: 0 unrecorded"
+ },
+ "actions": [
+  {
+   "id": "E-1118-01",
+   "type": "email",
+   "status": "completed",
+   "utc": "2026-11-18T17:12:51Z",
+   "domain_sha256": "412e2fc2c04346ee",
+   "msg_sha256": "e0d5dae8e31bebc5",
+   "kind": "municipal senior services division",
+   "by": "sent from Drafts outside this chat; actor unconfirmed",
+   "disclosure": true
+  },
+  {
+   "id": "E-1118-02",
+   "type": "email",
+   "status": "completed",
+   "utc": "2026-11-18T17:12:53Z",
+   "domain_sha256": "a09687215d1ff39f",
+   "msg_sha256": "a0ba0686ed838723",
+   "kind": "nonprofit senior center",
+   "by": "sent from Drafts outside this chat; actor unconfirmed",
+   "disclosure": true
+  },
+  {
+   "id": "E-1118-03",
+   "type": "email",
+   "status": "completed",
+   "utc": "2026-11-18T17:12:54Z",
+   "domain_sha256": "4357990659af1ff8",
+   "msg_sha256": "1abb2351607b2d89",
+   "kind": "university HR well-being office",
+   "by": "sent from Drafts outside this chat; actor unconfirmed",
+   "disclosure": true
+  },
+  {
+   "id": "E-1118-04",
+   "type": "email",
+   "status": "completed",
+   "utc": "2026-11-18T17:12:58Z",
+   "domain_sha256": "3d97ef57df72afca",
+   "msg_sha256": "84853d02d0c9ee30",
+   "kind": "local publication",
+   "by": "sent from Drafts outside this chat; actor unconfirmed",
+   "disclosure": true
+  },
+  {
+   "id": "E-1118-05",
+   "type": "email",
+   "status": "completed",
+   "utc": "2026-11-18T19:29:06Z",
+   "domain_sha256": "f72c4307dabaccfe",
+   "msg_sha256": "906a402f22c48ed6",
+   "kind": "aging-in-place nonprofit",
+   "by": "operator",
+   "disclosure": true
+  },
+  {
+   "id": "E-1118-06",
+   "type": "email",
+   "status": "completed",
+   "utc": "2026-11-18T19:40:37Z",
+   "domain_sha256": "22ea23bc33a341ff",
+   "msg_sha256": "fdd3080bc5a2b56e",
+   "kind": "family service agency (senior services)",
+   "by": "operator",
+   "disclosure": true
+  },
+  {
+   "id": "E-1118-07",
+   "type": "email",
+   "status": "completed",
+   "utc": "2026-11-18T19:41:39Z",
+   "domain_sha256": "964f4bd4085df343",
+   "msg_sha256": "3a7f1d0d22aaa6ab",
+   "kind": "municipal senior services (published staff contact)",
+   "by": "operator",
+   "disclosure": true
+  },
+  {
+   "id": "E-1118-08",
+   "type": "email",
+   "status": "completed",
+   "utc": "2026-11-18T19:41:39Z",
+   "domain_sha256": "ab99b70494413dcd",
+   "msg_sha256": "f7b8630e616216fc",
+   "kind": "municipal senior advocate (published staff contact)",
+   "by": "operator",
+   "disclosure": true
+  },
+  {
+   "id": "E-1118-09",
+   "type": "email",
+   "status": "completed",
+   "utc": "2026-11-18T19:50:00Z",
+   "domain_sha256": "412e2fc2c04346ee",
+   "msg_sha256": "0806c603cedbf427",
+   "kind": "public library engagement services (same parent domain as E-1118-01)",
+   "by": "operator",
+   "disclosure": true
+  },
+  {
+   "id": "F-1118-01",
+   "type": "facebook_post",
+   "status": "completed",
+   "utc": "2026-11-18T15:06Z",
+   "venue": "group:1086282042874547",
+   "tag": "fb-wil-1118",
+   "note": "held for admin approval; visible 17:44Z",
+   "by": "operator"
+  },
+  {
+   "id": "J-1118-01",
+   "type": "facebook_join",
+   "status": "completed",
+   "utc": "2026-11-18T16:40Z",
+   "venue": "group:1032686255213309",
+   "by": "operator"
+  },
+  {
+   "id": "J-1118-02",
+   "type": "facebook_join",
+   "status": "completed",
+   "utc": "2026-11-18T16:40Z",
+   "venue": "group:glenviewil",
+   "by": "operator"
+  },
+  {
+   "id": "J-1118-03",
+   "type": "facebook_join",
+   "status": "completed",
+   "utc": "2026-11-18T16:40Z",
+   "venue": "group:148056482809454",
+   "by": "operator"
+  },
+  {
+   "id": "J-1118-04",
+   "type": "facebook_join",
+   "status": "completed",
+   "utc": "2026-11-18T20:03Z",
+   "venue": "group:RogersParkNeighborhoodNews",
+   "note": "request to participate sent (rules agreement only)",
+   "by": "operator"
+  },
+  {
+   "id": "J-1118-05",
+   "type": "facebook_join",
+   "status": "completed",
+   "utc": "2026-11-18T20:07Z",
+   "venue": "group:259937747842535",
+   "by": "operator"
+  },
+  {
+   "id": "P-1120-01",
+   "type": "facebook_post",
+   "status": "completed",
+   "not_before_utc": "2026-11-21T15:00Z",
+   "venue": "group:1316163449754368",
+   "tag": "fb-wnk-1120",
+   "note": "hook chosen by experiment E1 (+48h verdict 20 Nov 17:44Z); missed: operator sessions stopped 19 Nov 16:22Z to 21 Nov 02:25Z and Chrome was offline; reschedule within the posting window after the 5-in-7 cap check; rescheduled Sat 21 Nov 9:00-13:00 Chicago (4 posts in the trailing 7 days then, cap ok; Rogers Park Sun after 17:29Z makes 5); 21 Nov 17:40Z: text handed to Joseph to post himself from his phone (extension not linked); record when he confirms; posted Sun 22 Nov 9:08 Chicago, published immediately (no approval queue)",
+   "utc": "2026-11-22T15:08Z",
+   "by": "operator"
+  },
+  {
+   "id": "P-OUT-REPLIES",
+   "type": "email_reply",
+   "status": "pending",
+   "note": "each operator session: check the inbox for replies from contacted domains; answer questions accurately within 1 business day; never contact again after a decline"
+  },
+  {
+   "id": "P-OUT-FOLLOWUP",
+   "type": "email",
+   "status": "pending",
+   "not_before_utc": "2026-11-25T15:00Z",
+   "note": "at most one follow-up per organization, only if useful, never after a decline"
+  },
+  {
+   "id": "P-G4",
+   "type": "email",
+   "status": "completed",
+   "note": "research done by the operator at 16:35 Chicago: no clear fits, no drafts, nothing sent",
+   "closed_utc": "2026-11-18T22:45Z"
+  },
+  {
+   "id": "B-RT",
+   "type": "email",
+   "status": "blocked",
+   "owner": "Joseph",
+   "note": "E-1118-04 needs a verification detail only Joseph can give, privately; the operator sends nothing further there"
+  },
+  {
+   "id": "B-EE",
+   "type": "facebook_post",
+   "status": "blocked",
+   "owner": "group admins",
+   "venue": "group:535636991652468",
+   "tag": "ee-costs",
+   "note": "pending admin approval since 2026-11-13; keep pending (Joseph 16 Nov)"
+  },
+  {
+   "id": "B-RP",
+   "type": "facebook_participation",
+   "status": "completed",
+   "owner": "group admins",
+   "venue": "group:RogersParkNeighborhoodNews",
+   "note": "participation approved about 20:15Z 18 Nov",
+   "closed_utc": "2026-11-18T21:16Z"
+  },
+  {
+   "id": "B-GNN",
+   "type": "facebook_post",
+   "status": "blocked",
+   "owner": "Joseph",
+   "venue": "group:148056482809454",
+   "note": "promotion only as Tuesday ads with local contact details; his decision"
+  },
+  {
+   "id": "B-1112",
+   "type": "coordination",
+   "status": "blocked",
+   "owner": "Joseph",
+   "note": "E-1118-01..04 were sent from Drafts at 17:12Z outside this chat (not the operator, not a scheduled task); Joseph to confirm who sent them; no other chat or assistant may send or post"
+  },
+  {
+   "id": "B-NAME",
+   "type": "email_identity",
+   "status": "completed",
+   "owner": "Joseph",
+   "note": "Joseph changed the outreach account at 21:07Z: new primary address with sender name \"Evanston Senior Care Guide\"; the old address is kept as an alternate and still receives mail; replies go from the new default address",
+   "closed_utc": "2026-11-18T22:12Z"
+  },
+  {
+   "id": "P-1122-01",
+   "type": "facebook_post",
+   "status": "pending",
+   "not_before_utc": "2026-11-23T15:00Z",
+   "venue": "group:RogersParkNeighborhoodNews",
+   "tag": "fb-rp-1122",
+   "note": "first post to a new north-side Chicago audience (49.5K); cap frees when the 15 Nov post leaves the 7-day window; sources linked per group rule; link last; moved to Mon 23 Nov (one post per day: Winnetka posted Sun)"
+  },
+  {
+   "id": "S-1118-01",
+   "type": "site_change",
+   "status": "completed",
+   "utc": "2026-11-18T23:05Z",
+   "tag": "PR 74, deploy 6afe2b9f1b17979002e1bbfb",
+   "kind": "complaint guide: tour checklist and disclosed tour link after the last section (page Google shows near position 7)",
+   "by": "operator"
+  },
+  {
+   "id": "S-1118-02",
+   "type": "site_change",
+   "status": "completed",
+   "utc": "2026-11-18T23:16Z",
+   "kind": "tour path: checklist + tour link on Medicare guide (PR #75, deploy 6afe2d85)",
+   "by": "operator"
+  },
+  {
+   "id": "E-1118-10",
+   "type": "email",
+   "status": "completed",
+   "utc": "2026-11-19T00:24Z",
+   "tag": "em-1118j",
+   "kind": "municipal family and senior services (published role address)",
+   "domain_sha256": "f01f2ad34d0855a4",
+   "msg_sha256": "746dcbb73246b235",
+   "by": "operator"
+  },
+  {
+   "id": "E-1120-01",
+   "type": "email",
+   "status": "completed",
+   "utc": "2026-11-21T01:11Z",
+   "tag": "em-1120a",
+   "kind": "municipal senior center (information and referral)",
+   "domain_sha256": "8b3af4515eca6297",
+   "msg_sha256": "6f4deee2cef3ecad",
+   "by": "outside the operator (found in Gmail Sent 21 Nov 02:30Z; content follows the outreach rules)"
+  },
+  {
+   "id": "B-SKOKIE-HS",
+   "type": "email",
+   "status": "blocked",
+   "owner": "Joseph (phone)",
+   "kind": "municipal human services (senior and disability services)",
+   "domain_sha256": "5c614ad549b895ad",
+   "note": "the Village's own Human Services page publishes phone numbers only, no email (checked 21 Nov 02:33Z); call list"
+  }
+ ],
+ "measurement_notes": [
+  "Email outreach: landings with an em- tag within 15 minutes of the send are mail-security link scanners (seen 18 Nov 19:41Z); count only later visits as genuine."
+ ]
+}
