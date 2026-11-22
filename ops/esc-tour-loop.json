@@ -57,18 +57,6 @@
    "found_utc": "2026-11-20T02:45Z"
   },
   {
-   "id": "ACQ-010",
-   "priority": 1,
-   "status": "delegated",
-   "workstream": "referral_distribution",
-   "task": "Before the operator sends the Skokie (ACQ-001) and Niles (ACQ-004) referral notes, make the link in each note point to the homepage tour section, https://evanstonseniorcareguide.com/?ref=em-<org>-<MMDD>#tour, not to a guide, until PR #80 is merged. Once #80 is live, guide links are fine.",
-   "evidence": "ACQ-009 (2026-11-20): on main a tagged guide landing fires no beacon, and its tour click loses the ref, so a referral that links to a guide shows 0 tagged visitors and any resulting inquiry counts as direct. The homepage landing beacon records the ref (ACQ-008 (a)), and its #tour section passed the 390px check.",
-   "expected_tour_acquisition_value": "High for measurement: these are the next two sends of the only referral channel not yet measured. Without this, a reply or an inquiry cannot be credited to the channel, and the decision to scale referral outreach would rest on zero data.",
-   "executor": "session outreach operator (link choice at send time); this loop sends nothing",
-   "done_when": "The operator records the link used for each send in ops/operator-state; the loop then attributes ?ref=em-skokie/em-niles landings in the next metrics review.",
-   "found_utc": "2026-11-20T19:40Z"
-  },
-  {
    "id": "ACQ-012",
    "priority": 2,
    "status": "waiting_on_data",
@@ -107,19 +95,6 @@
    "found_utc": "2026-11-22T17:40Z"
   },
   {
-   "id": "ACQ-020",
-   "priority": 1,
-   "status": "ready",
-   "workstream": "distribution",
-   "map_item": "D9",
-   "task": "Examine elder-care / caregiver resource pages that large Evanston and North Shore employers (hospital systems, school districts, municipalities as employers, other large employers) publish for staff, excluding the university HR office already emailed (E-1118-03): find the concrete targets, read each target's own pages for its rules and published contact route, check Gmail Sent and the state files for earlier contact, and give each target a verdict.",
-   "evidence": "Gmail Sent shows only the university's HR well-being office contacted (18 Nov, no reply); hospital-system and other employer staff elder-care pages have never been examined (ACQ-006 looked only at the hospital's public senior-services route).",
-   "expected_tour_acquisition_value": "Employees with aging parents use employer caregiver-benefit pages when a move is near; a listing reaches working adult children choosing senior care.",
-   "executor": "this loop (research and preparation only)",
-   "done_when": "Every target has a verdict (ACT, WATCH or DROP) with its source URL; the best ACT target has one prepared handoff; the map item and channel_yield are updated.",
-   "found_utc": "2026-11-22T17:40Z"
-  },
-  {
    "id": "ACQ-022",
    "priority": 1,
    "status": "ready",
@@ -131,6 +106,20 @@
    "executor": "this loop (research and preparation only); any booking and any staffing are Joseph's",
    "done_when": "Every target has a verdict (ACT, WATCH, DROP or OWNER) with its source URL; the best ACT target has one prepared handoff; D11 and channel_yield are updated.",
    "found_utc": "2026-11-22T18:40Z"
+  },
+  {
+   "id": "ACQ-023",
+   "priority": 1,
+   "status": "ready",
+   "workstream": "local_seo",
+   "map_item": "S4",
+   "task": "For each IDPH-licensed assisted living, memory care and skilled nursing community in Evanston, check what Google shows for '<community name> cost', '<community name> reviews / inspection' and '<community name> memory care': which sites rank, whether the results answer licensing, inspection record, care levels and pricing transparency, and whether evanstonseniorcareguide.com appears. Official sources only (IDPH, Medicare Care Compare, the community's own site).",
+   "evidence": "S4 has never been examined. Searches for a named community are the most decision-stage queries in the market; the site already has the neutral facts (inspection records, care-level definitions, Medicare/Medicaid rules) that could answer them but has no page that matches a community-name query. The local page /assisted-living-evanston/ went live 22 Nov, so we can check whether linking those facts to it fits.",
+   "guardrails": "Research and proposal only. Never rank, review or recommend communities; no unverified Westminster Place prices or claims; any new page or section is Joseph's decision.",
+   "expected_tour_acquisition_value": "High-intent searchers are near a tour decision; if the results pages leave inspection and pricing questions unanswered, one neutral 'how to check any Evanston community' section on the local page could capture them and lead to the tour step.",
+   "executor": "this loop (research and preparation only)",
+   "done_when": "Every community has a row (results-page owners, gaps, whether the site appears) with source URLs; a verdict on S4 (ACT with one small proposal for Joseph, WATCH or DROP); channel_yield updated.",
+   "found_utc": "2026-11-22T19:40Z"
   }
  ],
  "completed": [
@@ -482,17 +471,79 @@
     }
    ],
    "lesson": "Across D7 and D10, every free listing route that fits (Evanston Now calendar, Daily Herald share, Patch calendars) needs a real dated event, and every editorial route needs Joseph's byline or voice. Newsletters and calendars give the outreach operator nothing to send on its own. The single decision that would unlock 3 or more WATCH routes at once is an owner-run free public talk (D8), for example 'What to ask on a senior-living tour' at a library or senior center."
+  },
+  {
+   "id": "ACQ-020",
+   "priority": 1,
+   "status": "done",
+   "workstream": "distribution",
+   "map_item": "D9",
+   "task": "Examine elder-care / caregiver resource pages that large Evanston and North Shore employers (hospital systems, school districts, municipalities as employers, other large employers) publish for staff, excluding the university HR office already emailed (E-1118-03): find the concrete targets, read each target's own pages for its rules and published contact route, check Gmail Sent and the state files for earlier contact, and give each target a verdict.",
+   "evidence": "Gmail Sent shows only the university's HR well-being office contacted (18 Nov, no reply); hospital-system and other employer staff elder-care pages have never been examined (ACQ-006 looked only at the hospital's public senior-services route).",
+   "expected_tour_acquisition_value": "Employees with aging parents use employer caregiver-benefit pages when a move is near; a listing reaches working adult children choosing senior care.",
+   "executor": "this loop (research and preparation only)",
+   "done_when": "Every target has a verdict (ACT, WATCH or DROP) with its source URL; the best ACT target has one prepared handoff; the map item and channel_yield are updated.",
+   "found_utc": "2026-11-22T17:40Z",
+   "done_utc": "2026-11-22T19:40Z",
+   "result": "5 employers examined; 0 ACT, 1 WATCH, 3 DROP, 1 excluded. Employer staff caregiver pages link to national organisations, benefit vendors (EAP, Care.com, backup care) and intranets, not independent local guides. Nothing sent. Gmail Sent (Nov) shows no contact with any of these employers except the excluded university office.",
+   "verdicts": [
+    {
+     "target": "Northwestern University HR Senior & Adult Care page",
+     "verdict": "EXCLUDED",
+     "source": "https://hr.northwestern.edu/benefits/caregiving/senior-adult-care/index.html",
+     "why": "Already emailed (E-1118-03, 0 replies). Useful fact: its only local resource is North Shore Senior Center (nssc.org), already emailed 18 Nov, so an NSSC placement would also reach university staff. No new action."
+    },
+    {
+     "target": "Endeavor Health (Evanston Hospital) employee wellbeing page",
+     "verdict": "WATCH",
+     "source": "https://www.endeavorhealth.org/employees/wellbeing",
+     "why": "Public page lists no caregiver or elder-care resources and no outside community links; extra resources are intranet-only. A wellbeing role inbox is published, but there is no list to join and a hospital system is unlikely to list a guide written by a senior-living employee. Reopen only if a referral email of the university-HR kind gets a positive reply."
+    },
+    {
+     "target": "Ascension Saint Francis (Evanston) associate benefits",
+     "verdict": "DROP",
+     "source": "https://jobs.ascension.org/benefits",
+     "why": "National benefits guide behind myHR; no public local caregiver resource page or route."
+    },
+    {
+     "target": "City of Evanston as employer (staff EAP)",
+     "verdict": "DROP",
+     "source": "https://cityofevanston.org/departments/prcs/facilities/levy_senior_center/senior_services/dementia_friendly_evanston_resources.php",
+     "why": "No public staff elder-care page found; the City's resident pages are the R1 route, already emailed (aging@, 0 replies)."
+    },
+    {
+     "target": "Evanston/Skokie District 65 and ETHS District 202 staff benefits",
+     "verdict": "DROP",
+     "source": "https://sites.google.com/a/district65.net/humanresources/benefits",
+     "why": "EAP vendor only; no caregiver resource list; nothing found for D202."
+    }
+   ],
+   "lesson": "Employer caregiver benefits are vendor-mediated (EAP, Care.com, backup care). Local guides reach employees only through the local agencies those pages name (here NSSC). Don't reopen D9 without a positive reply from the university HR email."
+  },
+  {
+   "id": "ACQ-010",
+   "priority": 1,
+   "status": "done",
+   "workstream": "referral_distribution",
+   "task": "Before the operator sends the Skokie (ACQ-001) and Niles (ACQ-004) referral notes, make the link in each note point to the homepage tour section, https://evanstonseniorcareguide.com/?ref=em-<org>-<MMDD>#tour, not to a guide, until PR #80 is merged. Once #80 is live, guide links are fine.",
+   "evidence": "ACQ-009 (2026-11-20): on main a tagged guide landing fires no beacon, and its tour click loses the ref, so a referral that links to a guide shows 0 tagged visitors and any resulting inquiry counts as direct. The homepage landing beacon records the ref (ACQ-008 (a)), and its #tour section passed the 390px check.",
+   "expected_tour_acquisition_value": "High for measurement: these are the next two sends of the only referral channel not yet measured. Without this, a reply or an inquiry cannot be credited to the channel, and the decision to scale referral outreach would rest on zero data.",
+   "executor": "session outreach operator (link choice at send time); this loop sends nothing",
+   "done_when": "The operator records the link used for each send in ops/operator-state; the loop then attributes ?ref=em-skokie/em-niles landings in the next metrics review.",
+   "found_utc": "2026-11-20T19:40Z",
+   "done_utc": "2026-11-22T19:40Z",
+   "result": "Gmail Sent: Niles Senior Center email went out 2026-11-21T01:11Z from the guide account and linked the homepage tour section, tagged ?ref=em-1120a#tour, as this task asked (state.json records it as E-1120-01). 0 replies as of 2026-11-22T19:40Z. Skokie Human Services publishes no email, so it is phone-only and on Joseph's call list. Attribute ref=em-1120a landings to Niles in the next metrics review."
   }
  ],
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-22T18:40Z",
-  "event": "pull_request.synchronize ee74fa9",
-  "picked": "ACQ-021 (D10 community newsletters)",
-  "why": "Distribution is still the bottleneck (4-5 genuine visitors since 8 Nov, all Facebook). D10 was the distribution item most likely to give a route the outreach operator could use without Joseph."
+  "utc": "2026-11-22T19:40Z",
+  "event": "pull_request.synchronize 3f82346",
+  "picked": "ACQ-020 (D9 employer caregiver pages)",
+  "why": "Distribution is still the bottleneck. D9 was the remaining ready distribution item with a chance of an operator-executable route. Gmail Sent was checked first: it confirmed the Niles send, which closes ACQ-010."
  },
- "last_verified_action": "ACQ-021: 9 newsletter routes examined with sources, 0 ACT; D10 dropped; ACQ-022 (D11 free resource fairs) queued. Nothing sent or submitted.",
+ "last_verified_action": "ACQ-020: 5 employers examined with sources, 0 ACT; D9 dropped. ACQ-010 closed: Niles sent 21 Nov with a tagged homepage tour link (ref=em-1120a), 0 replies. ACQ-023 (S4 community-name searches) queued. Nothing sent or submitted.",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -536,9 +587,9 @@
   "PR #79: tour click keeps the arrival tag. Without it, a tour inquiry from the Winnetka post or any tagged post counts as direct. Review and merge if acceptable (this loop does not merge).",
   "PR #78: review and merge if acceptable (this loop does not merge)",
   "Stray branch claude/estate-recovery-tour-path (same commit as PR #78) is safe to delete",
-  "Next referral batch (operator sends, after the 19-20 Nov reply review): Village of Skokie Human Services (ACQ-001) and Village of Niles Senior Center (ACQ-004)",
   "Call list (Joseph, optional): New Trier Township social services 847-446-8202; Village of Northbrook 847-272-5050 re its Senior Housing Resources directory",
-  "ACQ-007 decision: may the owner-approved checklist PDF get one disclosed, linked 'Ask about a tour' line? 3 of 4 genuine visitors opened it and it currently has no tour route."
+  "ACQ-007 decision: may the owner-approved checklist PDF get one disclosed, linked 'Ask about a tour' line? 3 of 4 genuine visitors opened it and it currently has no tour route.",
+  "Skokie Human Services (ACQ-001) publishes no email, so it is phone-only: add it to your optional call list. Niles was emailed 21 Nov (0 replies so far)."
  ],
  "hourly_backlog_policy": {
   "enabled": true,
@@ -580,7 +631,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Ready: ACQ-019 (S3 local-intent demand), ACQ-020 (D9 employer elder-care pages), ACQ-022 (D11 free resource fairs). Waiting: Search Console 25 Nov (ACQ-005/012/017), PR merges, Joseph's ACQ-007 and ACQ-018 answers, and the D8 talk decision.",
+ "next_discovery": "Ready: ACQ-022 (D11 free resource fairs), ACQ-019 (S3 local-intent demand), ACQ-023 (S4 community-name searches). Waiting: Search Console 25 Nov (ACQ-005/012/017), Niles/other org replies (attribute ref=em-1120a), PR merges, Joseph's ACQ-007 and ACQ-018 answers, and the D8 talk decision. Open map items after these: R3, R7, R6, R8, R2, R9.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -660,9 +711,9 @@
     "id": "D9",
     "lane": "distribution",
     "class": "employers' elder-care resource pages for their staff (largest Evanston and North Shore employers: university, hospital systems, others)",
-    "status": "queued",
-    "note": "Partly touched: the university's HR well-being office was emailed 18 Nov (E-1118-03, Gmail Sent, 0 replies) — exclude it. Hospital-system and other employer staff benefit pages unexamined (ACQ-006 checked only the hospital's public senior-services contact route, not staff elder-care pages).",
-    "checked_utc": "2026-11-22T17:40Z"
+    "status": "drop",
+    "note": "ACQ-020 (22 Nov): 5 employers examined, 0 ACT. Staff caregiver pages are vendor/EAP/intranet based with no local guide lists. Endeavor Health WATCH (reopen only if the university HR email gets a positive reply); Ascension, City staff and D65/D202 DROP; university excluded (E-1118-03). Its only local link is NSSC, already emailed.",
+    "checked_utc": "2026-11-22T19:40Z"
    },
    {
     "id": "D10",
@@ -716,9 +767,9 @@
     "id": "S4",
     "lane": "local_seo",
     "class": "community-name searches (cost, inspection record, type of care, for each licensed Evanston community): what the site already answers and what it lacks",
-    "status": "open",
-    "note": "research only; official sources only; never rank or recommend communities; no unverified Westminster Place prices; new content is Joseph's decision",
-    "checked_utc": null
+    "status": "queued",
+    "note": "research only; official sources only; never rank or recommend communities; no unverified Westminster Place prices; new content is Joseph's decision; queued as ACQ-023 (22 Nov)",
+    "checked_utc": "2026-11-22T19:40Z"
    },
    {
     "id": "S5",
@@ -901,6 +952,15 @@
     "inquiries": 0,
     "as_of_utc": "2026-11-22T18:40Z",
     "decision": "dropped: no operator-executable route; 3 WATCH routes depend on an owner event or a city reply"
+   },
+   {
+    "class": "D9 employer caregiver pages",
+    "shipped": 0,
+    "responses": null,
+    "genuine_visitors": 0,
+    "inquiries": 0,
+    "as_of_utc": "2026-11-22T19:40Z",
+    "decision": "dropped: no public, operator-executable route; vendor-mediated benefits"
    }
   ]
  }
