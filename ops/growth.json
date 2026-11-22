@@ -163,11 +163,11 @@
  ],
  "limits": [],
  "brief": {
-  "date_chicago": "2026-11-21",
-  "ready": "Winnetka post text P-1120-01 (rescheduled Sat 21 Nov 9:00-13:00 Chicago) and Rogers Park post text P-1122-01 (postable from 11:29 Chicago Sun 22 Nov) ready for the operator; no reply or referral drafts waiting",
+  "date_chicago": "2026-11-22",
+  "ready": "Rogers Park post text P-1122-01 (postable from 11:29 Chicago today) and Winnetka post text P-1120-01 (still pending, missed its 21 Nov slot) ready for the operator; no reply or referral drafts waiting",
   "learned": [
-   "still 0 organization replies to the 11 outreach emails (inbox: 1 auto-reply, Nextdoor digests, account notices); the Search Console indexing notice is the expected ?ref= canonical folding",
-   "overnight hourly metrics: 1 genuine single-page visit (elder-abuse guide, untagged, bounced), 0 tour-form views; new referral searches (Wilmette, Winnetka, Northbrook) return home-care franchises and directories, no clear fit with a general address"
+   "still 0 organization replies to outreach (inbox 19-22 Nov: app sign-up notices and promotions only)",
+   "latest metrics window (10:24-11:24Z): 0 genuine visitors, 0 tour-form views; traffic is scanners and crawlers"
   ]
  },
  "log": [
@@ -185,7 +185,8 @@
   "2026-11-20T18:55Z esc-tour-loop ACQ-013 (for the tour engine, P-1122-01 Rogers Park News, not before 22 Nov 17:29Z): landing /?ref=fb-rp-1122#tour passes at 390px and keeps the tag on landing. The group requires source links: use template A and cite the checklist's own sources, IDPH assisted living https://dph.illinois.gov/topics-services/health-care-regulation/assisted-living.html and Medicare Care Compare https://www.medicare.gov/care-compare/ (optionally City of Chicago senior services https://www.chicago.gov/city/en/depts/fss/provdrs/senior.html), all 200 on 20 Nov. Site link last on its own line, homepage #tour not a guide; in the composer confirm the preview card is the site's (a source link placed first may become the card).",
   "2026-11-20T21:15Z tour engine: no org replies (inbox: Nextdoor digests and promos only); no genuine visitors in latest metrics; P-1122-01 Rogers Park post text ready (template A, IDPH and Care Compare sources, link last)",
   "2026-11-21T12:10Z tour engine: no org replies; no page with real visitors lacks a tour step (one bounced elder-abuse visit is not evidence); both post texts already ready; referral search (Wilmette, Winnetka, Northbrook) found only franchises and directories; brief set; no action",
-  "2026-11-22T00:07Z tour engine: no org replies (inbox: account notices, Nextdoor digests); 0 genuine visitors in latest metrics window; both post texts already ready (P-1120-01 still pending); township senior-services search (New Trier, Northfield) found no page with a general address; no action"
+  "2026-11-22T00:07Z tour engine: no org replies (inbox: account notices, Nextdoor digests); 0 genuine visitors in latest metrics window; both post texts already ready (P-1120-01 still pending); township senior-services search (New Trier, Northfield) found no page with a general address; no action",
+  "2026-11-22T12:08Z tour engine: no org replies (inbox: app notices, promos); 0 genuine visitors in latest metrics; both post texts already ready; referral sources already searched produced no fit; brief set; no action"
  ],
  "ready": [
   {
