@@ -95,20 +95,6 @@
    "found_utc": "2026-11-22T17:40Z"
   },
   {
-   "id": "ACQ-025",
-   "priority": 1,
-   "status": "ready",
-   "workstream": "referral_partnerships",
-   "map_item": "R7",
-   "task": "Examine resource lists published by memory clinics and dementia caregiver programs serving Evanston and the North Shore (Northwestern Mesulam Center caregiver resources, Endeavor Health memory/neurology patient support, Alzheimer's Association Illinois chapter local resources, CJE SeniorLife, Lambs/other adult day programs, township caregiver support groups): for each, find whether the list includes outside websites (local guides), whether there is a published suggestion route or address, check Gmail Sent and state files for earlier contact (university is excluded per E-1118-03), and give a verdict.",
-   "evidence": "R7 is the next open map item after R3 dropped. Memory care is a decision with frequent tours; caregiver programs meet families at diagnosis. ACQ-024 lesson: hospital systems route through internal lists, so prefer nonprofit caregiver programs that publish link lists.",
-   "guardrails": "Research and preparation only; at most three proposals before any response; disclose Joseph's Westminster Place employment; no medical claims.",
-   "expected_tour_acquisition_value": "Medium-high if any list accepts outside guides: memory-care families tour within weeks of diagnosis milestones.",
-   "executor": "this loop (research and preparation only); sending is the outreach operator's",
-   "done_when": "Every target has a verdict (ACT, WATCH, DROP or OWNER) with its source URL; best ACT target has one duplicate-checked handoff; R7 and channel_yield updated.",
-   "found_utc": "2026-11-22T21:40Z"
-  },
-  {
    "id": "ACQ-026",
    "priority": 1,
    "status": "ready",
@@ -121,6 +107,20 @@
    "executor": "this loop (research); designated outreach operator (any send)",
    "done_when": "Each examined firm has a verdict with source URLs; up to three ACT proposals handed off; R6 verdict and channel_yield updated.",
    "found_utc": "2026-11-22T22:40Z"
+  },
+  {
+   "id": "ACQ-027",
+   "priority": 2,
+   "status": "ready",
+   "workstream": "referral_partnerships",
+   "map_item": "R8",
+   "task": "Find aging-in-place membership ('village') groups and senior housing counseling nonprofits serving Evanston and the North Shore, excluding the one aging-in-place nonprofit (E-1118-05) and family service agency (E-1118-06) already emailed: for each, check whether its site publishes a resource list that includes outside websites, find its published contact route, check Gmail Sent and state files for earlier contact, and give a verdict.",
+   "evidence": "R8 is the highest-ranked open map item after R6. ACQ-025 lesson: most fitting lists belong to orgs already emailed, so first confirm that the R8 candidates are not already covered.",
+   "guardrails": "Research and preparation only; at most three proposals before any response; disclose Joseph's Westminster Place employment; no sending.",
+   "expected_tour_acquisition_value": "Low-medium: members are older adults planning ahead, some near a move decision.",
+   "executor": "this loop (research); designated outreach operator (any send)",
+   "done_when": "Each candidate has a verdict with source URL; up to three ACT proposals handed off; R8 and channel_yield updated.",
+   "found_utc": "2026-11-22T23:40Z"
   }
  ],
  "completed": [
@@ -673,17 +673,79 @@
    "lesson": "For a new domain the search bottleneck is indexing/authority, not missing answers. Read the 25 Nov Search Console export (ACQ-005/012/017) before any further local-SEO research; if /assisted-living-evanston/ still has ~0 impressions, the next search step is indexing plus earned local links (the R/D lanes), not more content.",
    "verdict": "drop",
    "reopen_if": "Search Console shows the site earning impressions on community-name queries, or the local page ranks on page 1-2 for 'assisted living Evanston'."
+  },
+  {
+   "id": "ACQ-025",
+   "priority": 1,
+   "status": "done",
+   "workstream": "referral_partnerships",
+   "map_item": "R7",
+   "task": "Examine resource lists published by memory clinics and dementia caregiver programs serving Evanston and the North Shore (Northwestern Mesulam Center caregiver resources, Endeavor Health memory/neurology patient support, Alzheimer's Association Illinois chapter local resources, CJE SeniorLife, Lambs/other adult day programs, township caregiver support groups): for each, find whether the list includes outside websites (local guides), whether there is a published suggestion route or address, check Gmail Sent and state files for earlier contact (university is excluded per E-1118-03), and give a verdict.",
+   "evidence": "R7 is the next open map item after R3 dropped. Memory care is a decision with frequent tours; caregiver programs meet families at diagnosis. ACQ-024 lesson: hospital systems route through internal lists, so prefer nonprofit caregiver programs that publish link lists.",
+   "guardrails": "Research and preparation only; at most three proposals before any response; disclose Joseph's Westminster Place employment; no medical claims.",
+   "expected_tour_acquisition_value": "Medium-high if any list accepts outside guides: memory-care families tour within weeks of diagnosis milestones.",
+   "executor": "this loop (research and preparation only); sending is the outreach operator's",
+   "done_when": "Every target has a verdict (ACT, WATCH, DROP or OWNER) with its source URL; best ACT target has one duplicate-checked handoff; R7 and channel_yield updated.",
+   "found_utc": "2026-11-22T21:40Z",
+   "done_utc": "2026-11-22T23:40Z",
+   "method": "Web search + page reads on 22 Nov; Gmail Sent checked for alz.org, cje.net, Mesulam, adult day, dementia, memory (only earlier municipal/nonprofit sends found; none to R7 targets); Gmail inbox last 10 days: 0 replies from any earlier recipient.",
+   "rows": [
+    {
+     "target": "City of Evanston Dementia Friendly Evanston Resources",
+     "url": "https://cityofevanston.org/departments/prcs/facilities/levy_senior_center/senior_services/dementia_friendly_evanston_resources.php",
+     "verdict": "WAITING",
+     "reason": "Best-fit list (includes outside websites), but its owner (city senior services) was already emailed 17-18 Nov with this page as the target; R1 rule: one follow-up after 7+ days, not before 25 Nov. No new send."
+    },
+    {
+     "target": "CJE SeniorLife Caregiver Resources",
+     "url": "https://cje.net/?p=6011",
+     "verdict": "DROP",
+     "reason": "Lists a few outside items (Dementia Reality, Mayo/AARP PDFs) but also CJE's own residential community (Weinberg); no route for suggesting resources; already dropped as R10 low fit."
+    },
+    {
+     "target": "Northwestern Mesulam Center caregiver/support pages",
+     "url": "https://www.brain.northwestern.edu/care-and-support/support-groups.html",
+     "verdict": "DROP",
+     "reason": "University-affiliated: excluded per E-1118-03."
+    },
+    {
+     "target": "Alzheimer's Association Illinois Chapter",
+     "url": "https://www.alz.org/illinois",
+     "verdict": "DROP",
+     "reason": "Local listings run through its Community Resource Finder (services and support groups, not guides); already R10 low fit."
+    },
+    {
+     "target": "Dementia Friendly Glencoe (Village of Glencoe)",
+     "url": "https://villageofglencoe.org/residents/dementia_friendly_glencoe.php",
+     "verdict": "WAITING",
+     "reason": "Page refers questions to Family Service of Glencoe, already emailed 18 Nov (E-1118-06, 0 replies). Fold into that organization's single follow-up after 25 Nov; no new contact."
+    },
+    {
+     "target": "North Shore Senior Center memory cafe / caregiver support",
+     "url": "https://dfamerica.org/memory-cafe-search/listing/3985/",
+     "verdict": "WAITING",
+     "reason": "NSSC already emailed (R1/D9 notes); no separate resource list found; follow-up rule applies."
+    },
+    {
+     "target": "Endeavor Health memory/neurology patient support",
+     "url": "(see ACQ-024)",
+     "verdict": "DROP",
+     "reason": "Covered by ACQ-024: hospital systems route through internal lists."
+    }
+   ],
+   "result": "0 ACT across 7 targets. The one list that fits (Evanston Dementia Friendly resources) belongs to an office already emailed; the Glencoe dementia page routes to Family Service of Glencoe, also already emailed. Nothing new to hand off; nothing sent or submitted.",
+   "lesson": "Six referral/distribution classes in a row (D9, D10, D11, R3, S4, R7) produced 0 new ACT. The few good-fit lists in this market are owned by the ~11 organizations already emailed 17-22 Nov (0 replies). The referral bottleneck is response/follow-through on those sends, not discovery: the highest-value referral action is the 25 Nov+ single follow-ups (P-OUT-FOLLOWUP), with the dementia-resources page named explicitly in the Evanston and Glencoe follow-ups."
   }
  ],
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-22T22:40Z",
-  "event": "pull_request.synchronize 28c0786",
-  "picked": "ACQ-023 (S4 community-name searches)",
-  "why": "Only decision-stage search item ready; no fresh traffic/reply evidence (operator 17:40Z: 0 genuine); referral lanes yielded 0 ACT four runs running, so tested whether search could capture name-searchers instead."
+  "utc": "2026-11-22T23:40Z",
+  "event": "pull_request.synchronize 1c033bb",
+  "picked": "ACQ-025 (R7 memory/caregiver resource lists)",
+  "why": "Queued first of the two ready referral items; no fresh traffic/reply evidence (Gmail inbox 10 days: 0 org replies)."
  },
- "last_verified_action": "ACQ-023: 4 communities + domain searched; directories/CMS scrapers own all results, site absent; S4 dropped; lesson: indexing/authority is the search bottleneck, read 25 Nov Search Console first. ACQ-026 (R6 move managers) queued. Nothing sent or submitted.",
+ "last_verified_action": "ACQ-025: 7 memory/caregiver targets checked, 0 ACT; fitting lists belong to orgs already emailed (Evanston city, Family Service of Glencoe, NSSC) -> named in their 25 Nov+ follow-ups; R7 dropped; ACQ-027 (R8) queued. Nothing sent or submitted.",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -771,7 +833,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Ready: ACQ-025 (R7 memory/caregiver resource lists), ACQ-026 (R6 move managers), ACQ-019 (S3 local-intent demand; deprioritise until 25 Nov Search Console per ACQ-023 lesson). Waiting: Search Console 25 Nov (ACQ-005/012/017), org replies, PR merges, Joseph's ACQ-007/ACQ-018/D8 answers. Open map items after these: R8, R2, R9.",
+ "next_discovery": "Ready: ACQ-026 (R6 move managers), ACQ-027 (R8 aging-in-place/housing counseling), ACQ-019 (S3; after 25 Nov Search Console). Highest-value item from 25 Nov: Search Console read (ACQ-005/012/017) and the outreach operator's single follow-ups to the 11 sends of 17-22 Nov, naming the dementia-resources pages for Evanston and Glencoe. Waiting: org replies, PR merges, Joseph's ACQ-007/ACQ-018/D8 answers. Open map items after these: R2, R9.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -957,7 +1019,7 @@
     "lane": "referral_partnerships",
     "class": "municipal and township senior services",
     "status": "waiting",
-    "note": "Gmail Sent 17-22 Nov: 11 organizational emails in all, 6 of them to municipal senior services or a municipal library (E-1118-01/07/08/09/10, E-1120-01); 0 replies, 2 auto-replies across all sends. Closed to new emails of this kind; at most one follow-up per organization after 7+ days if useful (P-OUT-FOLLOWUP, not before 25 Nov); phone-only offices are on Joseph's call list (incl. B-SKOKIE-HS)",
+    "note": "Gmail Sent 17-22 Nov: 11 organizational emails in all, 6 of them to municipal senior services or a municipal library (E-1118-01/07/08/09/10, E-1120-01); 0 replies, 2 auto-replies across all sends. Closed to new emails of this kind; at most one follow-up per organization after 7+ days if useful (P-OUT-FOLLOWUP, not before 25 Nov); phone-only offices are on Joseph's call list (incl. B-SKOKIE-HS) | ACQ-025 (22 Nov): in the Evanston senior-services and Family Service of Glencoe follow-ups, name the specific dementia-resources page as the placement asked for (cityofevanston.org ...dementia_friendly_evanston_resources.php; villageofglencoe.org Dementia Friendly Glencoe).",
     "checked_utc": "2026-11-22T17:40Z"
    },
    {
@@ -1004,17 +1066,18 @@
     "id": "R7",
     "lane": "referral_partnerships",
     "class": "memory clinics' and caregiver programs' resource lists",
-    "status": "queued",
+    "status": "drop",
     "note": "only lists that include outside websites",
-    "checked_utc": "2026-11-22T21:40Z"
+    "checked_utc": "2026-11-22T23:40Z",
+    "verdict": "drop 22 Nov (ACQ-025): 0 ACT across 7 targets; fitting lists (Evanston Dementia Friendly, Glencoe) belong to organizations already emailed -> handled by their 25 Nov+ follow-ups; CJE/Alz Assoc low fit (R10); Mesulam excluded. Reopen only on a reply or a new list that includes outside websites."
    },
    {
     "id": "R8",
     "lane": "referral_partnerships",
     "class": "aging-in-place membership groups and senior housing counseling nonprofits serving Evanston and the North Shore",
-    "status": "open",
-    "note": "one aging-in-place nonprofit already emailed 18 Nov (E-1118-05, 0 replies) — exclude it; one family service agency (E-1118-06) likewise",
-    "checked_utc": null
+    "status": "queued",
+    "note": "one aging-in-place nonprofit already emailed 18 Nov (E-1118-05, 0 replies) — exclude it; one family service agency (E-1118-06) likewise; queued as ACQ-027 (22 Nov)",
+    "checked_utc": "2026-11-22T23:40Z"
    },
    {
     "id": "R9",
@@ -1129,6 +1192,15 @@
     "inquiries": 0,
     "as_of_utc": "2026-11-22T22:40Z",
     "decision": "dropped: results owned by lead-gen directories and CMS scrapers; site absent; reopen only on Search Console evidence"
+   },
+   {
+    "class": "R7 memory/caregiver resource lists",
+    "shipped": 0,
+    "responses": null,
+    "genuine_visitors": 0,
+    "inquiries": 0,
+    "as_of_utc": "2026-11-22T23:40Z",
+    "decision": "dropped: fitting lists owned by already-emailed orgs; use their follow-ups"
    }
   ]
  }
