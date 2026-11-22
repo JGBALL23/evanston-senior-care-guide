@@ -100,18 +100,6 @@
    "not_before_utc": "2026-12-06T15:00Z"
   },
   {
-   "id": "TEST-01",
-   "priority": 1,
-   "status": "ready",
-   "workstream": "system_test",
-   "task": "Verify this test copy against its source. Clone the source read-only (git clone --depth 1 --single-branch --branch automation/esc-tour-loop https://github.com/JGBALL23/evanston-senior-care-guide /tmp/src) and compare ops/esc-tour-loop.json there with the copy here: the number of completed tasks, the ids in the queue, the number of map items and how many have each status, each scout's next_due_utc, and the number of owner_review_needed lines. Ignore the controller block, test_copy and tasks whose id starts with TEST-.",
-   "evidence": "System test of the Make-controlled worker on the test copy, 22 Nov 2026. Not acquisition work.",
-   "expected_tour_acquisition_value": "none; proves the worker can read the store, the repository, the live site and the scoreboard before production is switched",
-   "executor": "worker (read only)",
-   "done_when": "Result gives every compared value for the copy and for the source and says MATCH, or names each difference.",
-   "found_utc": "2026-11-22T23:13Z"
-  },
-  {
    "id": "TEST-02",
    "priority": 2,
    "status": "ready",
@@ -1338,6 +1326,26 @@
     }
    ],
    "result": "6 routes checked, 1 passed the gate (D14 public-access cable, WATCH tied to D8), 0 reopened. Lesson: comparable guides elsewhere reach families mainly through print racks, sponsors and paid directories; the free, local ones depend on an author appearing in person (talks, shows), which keeps the binding constraint at D8/D7 (Joseph's time), not at undiscovered channels."
+  },
+  {
+   "id": "TEST-01",
+   "priority": 1,
+   "status": "done",
+   "workstream": "system_test",
+   "task": "Verify this test copy against its source. Clone the source read-only (git clone --depth 1 --single-branch --branch automation/esc-tour-loop https://github.com/JGBALL23/evanston-senior-care-guide /tmp/src) and compare ops/esc-tour-loop.json there with the copy here: the number of completed tasks, the ids in the queue, the number of map items and how many have each status, each scout's next_due_utc, and the number of owner_review_needed lines. Ignore the controller block, test_copy and tasks whose id starts with TEST-.",
+   "evidence": "System test of the Make-controlled worker on the test copy, 22 Nov 2026. Not acquisition work.",
+   "expected_tour_acquisition_value": "none; proves the worker can read the store, the repository, the live site and the scoreboard before production is switched",
+   "executor": "worker (read only)",
+   "done_when": "Result gives every compared value for the copy and for the source and says MATCH, or names each difference.",
+   "found_utc": "2026-11-22T23:13Z",
+   "result": "MATCH on every compared value (copy vs source automation/esc-tour-loop @ebb2483, TEST- tasks, controller and test_copy ignored). Completed: 30 vs 30. Queue ids: ACQ-005, ACQ-007, ACQ-012, ACQ-017, ACQ-030 in both. Map items: 36 vs 36; statuses in both: active 2, done 1, drop 16, owner 4, ready for operator 1, waiting 8, watch 4. Scout next_due_utc identical: SC1 2026-12-22T21:28Z, SC2 2026-12-06T21:30Z, SC3 2026-11-25T16:00Z, SC4 2026-11-29T21:34Z, SC5 2026-11-29T16:00Z, SC6 2026-12-07T21:40Z. owner_review_needed lines: 14 vs 14.",
+   "verdicts": {
+    "copy_vs_source": "MATCH"
+   },
+   "sources": [
+    "git clone --depth 1 automation/esc-tour-loop (ebb2483, 2026-11-22T21:38Z)"
+   ],
+   "done_utc": "2026-11-22T23:32Z"
   }
  ],
  "blocked": [],
@@ -1348,7 +1356,7 @@
   "picked": "ACQ-034 (SC6 new kinds of channel)",
   "why": "Only ready item; no fresh demand data until the 25 Nov Search Console read."
  },
- "last_verified_action": "ACQ-034 done 2026-11-22T21:40Z: SC6 found 1 new class (D14 public-access cable, WATCH tied to D8 talk); 5 routes dropped with sources. Research only; nothing sent. No ready task remains; next work is SC3 (25 Nov 16:00Z) and the Search Console read (ACQ-005/012/017, from 25 Nov 15:00Z).",
+ "last_verified_action": "TEST-01 done 2026-11-22T23:32Z: MATCH on every compared value (copy vs source automation/esc-tour-loop @ebb2483, TEST- tasks, controller and test_copy ignored). Completed: 30 vs 30. Queue ids…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
