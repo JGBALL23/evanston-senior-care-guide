@@ -95,18 +95,18 @@
    "found_utc": "2026-11-22T17:40Z"
   },
   {
-   "id": "ACQ-028",
+   "id": "ACQ-029",
    "priority": 1,
    "status": "ready",
    "workstream": "referral_partnerships",
-   "map_item": "R2",
-   "task": "Examine older-adult / caregiver resource pages of public libraries beyond Evanston, Glenview and Skokie (Wilmette, Winnetka-Northfield, Kenilworth, Northbrook, Highland Park, Lake Forest, Morton Grove, Niles-Maine, Glencoe, Deerfield): for each, find whether a published list links outside, non-government guides; the published staff or reference email (not a form); check Gmail Sent and state files for earlier contact (Niles library may overlap E-1120-01 senior center only); give a verdict. At most three disclosed proposals.",
-   "evidence": "R2 is the highest-ranked open map item after R8. ACQ-027 lesson: lists that already include non-government entries (Open Communities) are the realistic placements; ACQ-006 found Glenview/Skokie libraries government/nonprofit-only, so check each list's actual entries first.",
-   "guardrails": "Research and preparation only; no forms; disclose Joseph's Westminster Place employment; no sending.",
-   "expected_tour_acquisition_value": "Low-medium: library caregiver pages reach adult children researching care, but most lists are government-only.",
+   "map_item": "R9",
+   "task": "Examine veterans' organizations and service officers serving Evanston and the North Shore (Cook County Veterans Assistance Commission, Lake County VAC, township/village veterans pages, VFW/American Legion posts, Hines/Lovell VA caregiver support pages): for each, check whether a published resource list links outside, non-government guides on paying for long-term care or assisted living; find the published contact email (not a form); check Gmail Sent and state files for earlier contact; give a verdict. At most three disclosed proposals, offering the site's two VA guides.",
+   "evidence": "R9 is the only open map item; the site has two VA guides (Aid and Attendance / VA long-term care) that are the relevant asset. ACQ-028 lesson: check each list's actual entries first; most public lists are government-only.",
+   "guardrails": "Research and preparation only; no forms; disclose Joseph's Westminster Place employment; no VA-benefit claims beyond the published guides; no sending.",
+   "expected_tour_acquisition_value": "Low-medium: veteran families researching how to pay for assisted living are close to a move decision.",
    "executor": "this loop (research); designated outreach operator (any send)",
-   "done_when": "Each library has a verdict with source URL; up to three ACT proposals handed off; R2 and channel_yield updated.",
-   "found_utc": "2026-11-22T17:55Z"
+   "done_when": "Each target has a verdict with source URL; up to three ACT proposals handed off; R9 and channel_yield updated.",
+   "found_utc": "2026-11-22T17:50Z"
   }
  ],
  "completed": [
@@ -811,17 +811,90 @@
     "sent": false
    },
    "lesson": "Referral-list fit is best where an org explicitly does NOT do housing search but keeps an older-adult links section (Open Communities); aging-in-place villages on the North Shore = one org, already emailed. R8 is exhausted after this handoff."
+  },
+  {
+   "id": "ACQ-028",
+   "priority": 1,
+   "status": "done",
+   "workstream": "referral_partnerships",
+   "map_item": "R2",
+   "task": "Examine older-adult / caregiver resource pages of public libraries beyond Evanston, Glenview and Skokie (Wilmette, Winnetka-Northfield, Kenilworth, Northbrook, Highland Park, Lake Forest, Morton Grove, Niles-Maine, Glencoe, Deerfield): for each, find whether a published list links outside, non-government guides; the published staff or reference email (not a form); check Gmail Sent and state files for earlier contact (Niles library may overlap E-1120-01 senior center only); give a verdict. At most three disclosed proposals.",
+   "evidence": "R2 is the highest-ranked open map item after R8. ACQ-027 lesson: lists that already include non-government entries (Open Communities) are the realistic placements; ACQ-006 found Glenview/Skokie libraries government/nonprofit-only, so check each list's actual entries first.",
+   "guardrails": "Research and preparation only; no forms; disclose Joseph's Westminster Place employment; no sending.",
+   "expected_tour_acquisition_value": "Low-medium: library caregiver pages reach adult children researching care, but most lists are government-only.",
+   "executor": "this loop (research); designated outreach operator (any send)",
+   "done_when": "Each library has a verdict with source URL; up to three ACT proposals handed off; R2 and channel_yield updated.",
+   "found_utc": "2026-11-22T17:55Z",
+   "done_utc": "2026-11-22T17:50Z",
+   "method": "Web search (6 queries) for older-adult/caregiver resource pages of each library; page reads of wnpld.org/community-resources, lakeforestlibrary.org/access, wilmettelibrary.info/accessibility; Gmail Sent checked for 'library' in 30 days (0 library contacts; only an earlier City of Evanston email).",
+   "verdicts": [
+    {
+     "target": "Wilmette Public Library (also serves Kenilworth)",
+     "source": "https://www.wilmettelibrary.info/accessibility ; https://www.wilmettelibrary.info/delivery-services ; https://wilmette.libnet.info/event/16515111",
+     "verdict": "DROP for a list (no outside aging/caregiver list); WATCH for a talk: has a named Senior Services librarian and runs caregiver talks (NSSC dementia-caregiving talks Apr and Jun 2026, monthly Alzheimer's Association group)"
+    },
+    {
+     "target": "Winnetka-Northfield Public Library District",
+     "source": "https://wnpld.org/community-resources",
+     "verdict": "DROP: community list is villages, schools, parks, chamber and NSSC only; no outside guides"
+    },
+    {
+     "target": "Lake Forest Library",
+     "source": "https://lakeforestlibrary.org/access",
+     "verdict": "DROP: accessibility page links only federal/state talking-book services; the 'progressive care' page found in search returns 404"
+    },
+    {
+     "target": "Northbrook Public Library",
+     "source": "https://www.northbrook.info/accessibility",
+     "verdict": "DROP: home delivery and databases only; no resource list (Village of Northbrook directory already on Joseph's call list)"
+    },
+    {
+     "target": "Highland Park Public Library",
+     "source": "https://hplibrary.org/event/15549901",
+     "verdict": "DROP for a list (none found); programs feature the City social services specialist"
+    },
+    {
+     "target": "Glencoe Public Library",
+     "source": "https://www.glencoelibrary.org/dementia-awareness-month-recommended-guides/",
+     "verdict": "DROP: dementia list is books only, co-compiled with Family Service of Glencoe (R7: name in follow-ups)"
+    },
+    {
+     "target": "Niles-Maine District Library",
+     "source": "https://nmdl.libnet.info/event/14057189",
+     "verdict": "DROP for a list; WATCH for a talk: hosts caregiving/dementia programs with NSSC and AgeOptions"
+    },
+    {
+     "target": "Morton Grove Public Library",
+     "source": "https://patch.com/illinois/niles/being-wise-consumer",
+     "verdict": "DROP for a list (none found); WATCH for a talk: has hosted a senior-living-options program (assisted vs supportive living)"
+    },
+    {
+     "target": "Deerfield Public Library",
+     "source": "https://deerfield.libnet.info/event/7496136",
+     "verdict": "DROP: no senior or caregiver resource page found"
+    },
+    {
+     "target": "Kenilworth",
+     "source": "n/a",
+     "verdict": "DROP: no separate library (served by Wilmette/WNPLD)"
+    }
+   ],
+   "result": "0 ACT across 10 libraries. No library keeps a list that includes outside, non-government guides, so no list proposal was prepared or handed off. R2 dropped for list placement.",
+   "lesson": "North Shore libraries reach caregivers through programs (talks with NSSC, AgeOptions, Alzheimer's Association), not link lists. The real library route is a free, disclosed talk such as 'What to ask on a senior-living tour', which needs Joseph (D8). Wilmette, Niles-Maine and Morton Grove now give D8 concrete venues beyond Evanston; Morton Grove has already run a senior-living-options program.",
+   "research_completed": true,
+   "ready_for_external_execution": false,
+   "sent": false
   }
  ],
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-22T17:55Z",
-  "event": "pull_request.synchronize fa58dd8",
-  "picked": "ACQ-027 (R8 aging-in-place/housing counseling)",
-  "why": "Highest-priority ready referral item; no fresh evidence (Gmail inbox 3 days: 0 org replies; Search Console read not before 25 Nov)."
+  "utc": "2026-11-22T17:50Z",
+  "event": "pull_request.synchronize 1008e76",
+  "picked": "ACQ-028 (R2 libraries)",
+  "why": "Highest-priority ready referral item; no fresh evidence (Gmail inbox 2 days: 0 org replies; no PR merges; Search Console read not before 25 Nov)."
  },
- "last_verified_action": "ACQ-026: 7 move-manager/downsizing targets checked, 0 ACT (franchise/directory market); R6 dropped; ACQ-027 (R8) is next. Nothing sent or submitted.",
+ "last_verified_action": "ACQ-028 done 2026-11-22T17:50Z: 10 libraries checked, 0 ACT, R2 dropped; talk venues added to D8; ACQ-029 (R9 veterans) queued.",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -857,7 +930,7 @@
  },
  "owner_review_needed": [
   "ACQ-027 (22 Nov): one new referral proposal ready for the outreach operator: Open Communities (Evanston fair-housing/HUD counseling nonprofit) keeps an Older Adult Housing Resources list that already links senior-placement and home-care sites. Text outline in ops/esc-tour-loop.json completed ACQ-027 handoff; send with the 25 Nov+ batch if acceptable.",
-  "D8/D10 (22 Nov): newsletters and calendars give the outreach operator no route of its own. One free public talk by you (e.g. 'What to ask on a senior-living tour' at the library, Levy or North Shore Senior Center) would open the Evanston Now calendar, Daily Herald share, Patch calendars and Rotary at once. Would you do one? Yes or no is enough.",
+  "D8/D10 (22 Nov): newsletters and calendars give the outreach operator no route of its own. One free public talk by you (e.g. 'What to ask on a senior-living tour' at the library, Levy or North Shore Senior Center) would open the Evanston Now calendar, Daily Herald share, Patch calendars and Rotary at once. Would you do one? Yes or no is enough. Venues found 22 Nov (ACQ-028): Wilmette, Niles-Maine and Morton Grove libraries all run caregiver or senior-living programs; Morton Grove has already hosted one on senior living options.",
   "ACQ-018: would you write one disclosed first-person guest essay for Evanston Now (submit via their contact form under your name)? Brief in ops/esc-tour-loop.json completed ACQ-018 handoff. Separately: do you want a free Patch Evanston account/business listing for the guide (decide after the essay)? The Record North Shore takes no reader submissions.",
   "Optional: request indexing for https://evanstonseniorcareguide.com/assisted-living-evanston/ in Search Console (live since 2026-11-22T00:38Z, deploy 6b0238b3). Merge #84 (+#79) and redeploy if you want its search visitors counted at the tour click.",
   "PR #85: four choosing-stage guides link to the new /assisted-living-evanston/ page (today only the homepage does). Small, tested, no new claims; merge + redeploy if acceptable, ideally with the Search Console indexing request.",
@@ -910,7 +983,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Ready: ACQ-028 (R2 libraries beyond Evanston/Glenview/Skokie), ACQ-019 (S3 local-intent demand). Handed off, not sent: Open Communities proposal (ACQ-027) for the 25 Nov+ batch. Highest-value from 25 Nov 15:00Z: Search Console read (ACQ-005/012/017) and the outreach operator's single follow-ups to the 11 sends of 17-22 Nov. Open after these: R9. Waiting: org replies, PR merges (#78-#85), Joseph's ACQ-007/ACQ-018/D8 answers.",
+ "next_discovery": "Ready: ACQ-019 (S3 local-intent demand), ACQ-029 (R9 veterans' organizations). Handed off, not sent: Open Communities proposal (ACQ-027) for the 25 Nov+ batch. Highest-value from 25 Nov 15:00Z: Search Console read (ACQ-005/012/017) and the outreach operator's single follow-ups to the 11 sends of 17-22 Nov. After ACQ-019 and ACQ-029 no map item is open: then stop without a commit until replies, merges, Joseph's answers (ACQ-007/ACQ-018/D8) or Search Console data arrive.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -983,7 +1056,7 @@
     "lane": "distribution",
     "class": "library and senior-center programs and notice boards (Evanston Public Library, Levy Senior Center, North Shore Senior Center)",
     "status": "owner",
-    "note": "a talk or printed checklists need Joseph's time; the library's contact route is a form (growth.json local_library_caregiver_events WATCH)",
+    "note": "a talk or printed checklists need Joseph's time; the library's contact route is a form (growth.json local_library_caregiver_events WATCH); ACQ-028 (22 Nov): Wilmette (Senior Services librarian, caregiver talk series), Niles-Maine (NSSC/AgeOptions programs) and Morton Grove (has run a senior-living-options program) are further talk venues",
     "checked_utc": "2026-11-22T17:40Z"
    },
    {
@@ -1103,9 +1176,9 @@
     "id": "R2",
     "lane": "referral_partnerships",
     "class": "public libraries' older-adult resource pages beyond Evanston, Glenview and Skokie",
-    "status": "queued",
-    "note": "Evanston: form only (owner); Glenview and Skokie: government/nonprofit-only lists, no email (ACQ-006)",
-    "checked_utc": "2026-11-22T17:55Z"
+    "status": "drop",
+    "note": "ACQ-028 (22 Nov): 0 ACT across 10 libraries; no list includes outside guides. Libraries reach caregivers via talks: Wilmette, Niles-Maine, Morton Grove added to D8 as venues.",
+    "checked_utc": "2026-11-22T17:50Z"
    },
    {
     "id": "R3",
@@ -1160,9 +1233,9 @@
     "id": "R9",
     "lane": "referral_partnerships",
     "class": "veterans' organizations and service officers",
-    "status": "open",
+    "status": "queued",
     "note": "the site has two VA guides",
-    "checked_utc": null
+    "checked_utc": "2026-11-22T17:50Z"
    },
    {
     "id": "R10",
@@ -1296,6 +1369,15 @@
     "inquiries": 0,
     "as_of_utc": "2026-11-22T17:55Z",
     "decision": "1 ACT (Open Communities) handed off, not sent; village already emailed (E-1118-05)"
+   },
+   {
+    "class": "R2 library resource pages",
+    "shipped": 0,
+    "responses": null,
+    "genuine_visitors": 0,
+    "inquiries": 0,
+    "as_of_utc": "2026-11-22T17:50Z",
+    "decision": "dropped for list placement: no library list includes outside guides; talk route folded into D8 (owner)"
    }
   ]
  }
