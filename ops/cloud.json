@@ -6,8 +6,8 @@
   "note": "tour-request alerts: sha256(message id) and time only"
  },
  "metrics": {
-  "last_utc": "2026-11-22T18:24Z",
-  "window_utc": "2026-11-22T17:25Z/2026-11-22T18:24Z",
+  "last_utc": "2026-11-22T19:24Z",
+  "window_utc": "2026-11-22T18:24Z/2026-11-22T19:24Z",
   "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs",
   "per_tag": {
    "fb-wil-1118": {
@@ -50,8 +50,7 @@
     "assessment_completions": 0,
     "tour_questions_views": 0,
     "tour_form_views": 0,
-    "tour_requests": 0,
-    "automated_excluded": "Chrome 131 scanner 15:02Z (landed, costs, tour-questions beacons)"
+    "tour_requests": 0
    }
   },
   "checklist_opens": 0,
@@ -68,8 +67,8 @@
  "site": {
   "fail_count": 0,
   "down_since_utc": null,
-  "last_check_utc": "2026-11-22T18:24Z",
-  "last_check_method": "curl: home, ?tour=form, /assisted-living-evanston/ 200, checklist PDF linked; Netlify 17:25Z-18:24Z: 26x200, 3x301, 2x404, no 5xx; Gmail 1d: no org replies or inquiries; loop head b69b137 (17:49Z, <45 min old, no loop write)"
+  "last_check_utc": "2026-11-22T19:24Z",
+  "last_check_method": "curl: home, ?tour=form, /assisted-living-evanston/ 200, checklist PDF linked; Netlify 18:24Z-19:24Z: 30 req, 27x200, 1x301, 2x404 (wp-admin scan, /assessment/ probe), no 5xx; all automated (facebookexternalhit og-card x9, iOS 13.2.3 single-page crawler x6, Semrush, bing, Amazon, operator checks); Gmail 1d: no org replies or inquiries; no PR merged since #83; loop head b69b137 (17:49Z, 94 min), no ready task, no open map item, no next_discovery event: no loop write"
  },
  "recovery": {
   "last_attempt_utc": "2026-11-18T01:39Z",
@@ -246,7 +245,8 @@
   "2026-11-22T15:27Z run: 0 tour requests; site OK (deploy 6b0238b3); metrics 14:25Z-15:25Z 0 genuine (Winnetka post went live 15:02Z: previews + one scanner landing only); Wilmette post fb-wil-1118 gone per session operator; no org replies; no PR merges; no new loop task (fb-wnk-1120 +24h review due 2026-11-23T15:02Z, will reactivate the loop with data)",
   "2026-11-22T16:25Z run: site OK; 0 genuine tagged visitors, 0 tour requests; Winnetka post +1h20m: link previews only; no org replies; no PR merged; no new evidence, no loop task",
   "2026-11-22T17:25Z Opportunity-map section added to this hourly task on 22 Nov 2026 at Joseph's request (opportunity_map in ops/esc-tour-loop.json; scoreboard here).",
-  "2026-11-22T17:40Z run: site OK; 0 genuine, 0 tour requests; no org replies; loop idle since 00:37Z with no ready item -> created opportunity_map (statuses corrected from Gmail Sent/state: D7 and D9 partly touched, R1 count 6 of 11 sends) and queued map tasks ACQ-018 (D7 local news routes), ACQ-019 (S3 local-intent demand), ACQ-020 (D9 employer elder-care pages) in one loop commit"
+  "2026-11-22T17:40Z run: site OK; 0 genuine, 0 tour requests; no org replies; loop idle since 00:37Z with no ready item -> created opportunity_map (statuses corrected from Gmail Sent/state: D7 and D9 partly touched, R1 count 6 of 11 sends) and queued map tasks ACQ-018 (D7 local news routes), ACQ-019 (S3 local-intent demand), ACQ-020 (D9 employer elder-care pages) in one loop commit",
+  "2026-11-22T19:24Z run: site OK; 0 genuine (30 automated req); no org replies/inquiries; no merges; loop idle by design (no ready, no open map item, next events 25 Nov), no loop write"
  ],
  "facebook_interruptions_past": [
   {
@@ -273,7 +273,7 @@
  "outreach_watch": {
   "alerted": [],
   "replies_alerted": [],
-  "last_utc": "2026-11-22T17:25Z",
+  "last_utc": "2026-11-22T19:24Z",
   "note": "no org replies; inbox 1d: nothing from orgs; E-1120-01 (Niles, em-1120a) awaits reply"
  },
  "facebook_interruption": {
