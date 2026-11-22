@@ -100,18 +100,6 @@
    "not_before_utc": "2026-12-06T15:00Z"
   },
   {
-   "id": "TEST-03",
-   "priority": 3,
-   "status": "ready",
-   "workstream": "system_test",
-   "task": "Record the state (open, merged or closed) of pull requests 78, 79, 81, 84, 85 and 86 of JGBALL23/evanston-senior-care-guide. Read only: use gh api repos/JGBALL23/evanston-senior-care-guide/pulls/<number> if it works, otherwise git ls-remote https://github.com/JGBALL23/evanston-senior-care-guide 'refs/pull/*/head' 'refs/pull/*/merge' (a pull request with a merge ref is open).",
-   "evidence": "System test of the Make-controlled worker on the test copy, 22 Nov 2026. Not acquisition work.",
-   "expected_tour_acquisition_value": "none; proves the worker can read the store, the repository, the live site and the scoreboard before production is switched",
-   "executor": "worker (read only)",
-   "done_when": "Result lists the six states and names the method used.",
-   "found_utc": "2026-11-22T23:13Z"
-  },
-  {
    "id": "TEST-04",
    "priority": 4,
    "status": "ready",
@@ -1355,6 +1343,31 @@
     "esc-tour-loop.json next_discovery"
    ],
    "done_utc": "2026-11-22T23:32Z"
+  },
+  {
+   "id": "TEST-03",
+   "priority": 3,
+   "status": "done",
+   "workstream": "system_test",
+   "task": "Record the state (open, merged or closed) of pull requests 78, 79, 81, 84, 85 and 86 of JGBALL23/evanston-senior-care-guide. Read only: use gh api repos/JGBALL23/evanston-senior-care-guide/pulls/<number> if it works, otherwise git ls-remote https://github.com/JGBALL23/evanston-senior-care-guide 'refs/pull/*/head' 'refs/pull/*/merge' (a pull request with a merge ref is open).",
+   "evidence": "System test of the Make-controlled worker on the test copy, 22 Nov 2026. Not acquisition work.",
+   "expected_tour_acquisition_value": "none; proves the worker can read the store, the repository, the live site and the scoreboard before production is switched",
+   "executor": "worker (read only)",
+   "done_when": "Result lists the six states and names the method used.",
+   "found_utc": "2026-11-22T23:13Z",
+   "result": "Method: gh api repos/JGBALL23/evanston-senior-care-guide/pulls/<n> --jq '.state,.merged' (worked). #78 open (not merged), #79 open, #81 open, #84 open, #85 open, #86 open. None merged or closed.",
+   "verdicts": {
+    "78": "open",
+    "79": "open",
+    "81": "open",
+    "84": "open",
+    "85": "open",
+    "86": "open"
+   },
+   "sources": [
+    "gh api pulls/78,79,81,84,85,86 at 2026-11-22T23:31Z"
+   ],
+   "done_utc": "2026-11-22T23:32Z"
   }
  ],
  "blocked": [],
@@ -1365,7 +1378,7 @@
   "picked": "ACQ-034 (SC6 new kinds of channel)",
   "why": "Only ready item; no fresh demand data until the 25 Nov Search Console read."
  },
- "last_verified_action": "TEST-02 done 2026-11-22T23:32Z: status: next_due_utc 2026-11-23T11:32Z, wake 720 min, but that entry is the 12-hour monitor, not a real item. Next three real items: ACQ-005 2026-11-25T15:00Z,…",
+ "last_verified_action": "TEST-03 done 2026-11-22T23:32Z: Method: gh api repos/JGBALL23/evanston-senior-care-guide/pulls/<n> --jq '.state,.merged' (worked). #78 open (not merged), #79 open, #81 open, #84 open, #85 ope…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
