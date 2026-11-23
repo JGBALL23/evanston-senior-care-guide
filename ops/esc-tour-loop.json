@@ -1377,7 +1377,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Next: monitor 23 Nov 12:25Z; ACQ-005/ACQ-012 rechecks and SC3 scout 25 Nov 15:00-16:00Z; operator posts Rogers Park P-1122-01 from 23 Nov 15:00Z. Waiting on Joseph: PR merges #78-81, #84-86, Open Communities draft (em-1122a) for the 25 Nov+ batch, D7 essay, Business Page.",
+ "next_discovery": "No ready task, no open map item. Next: monitor 23 Nov 12:25Z; Search Console read (ACQ-005/012/017) from 25 Nov 15:00Z and SC3 25 Nov 16:00Z; SC5 and SC4 29 Nov; SC2 6 Dec; SC6 7 Dec; SC1 22 Dec; ACQ-030 from 6 Dec; operator: P-1122-01 from 23 Nov 15:00Z, P-1228-01 from 28 Dec, P-0102-01 from 2 Jan. Waiting on Joseph: Open Communities draft (em-1122a, 25 Nov+ batch), PRs #86 #85 #84 #81 #79 #78, D8 talk (also unlocks D14), Patch account, Nextdoor Business Page, Search Console indexing request, essay timing (by ~10 Dec).",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
