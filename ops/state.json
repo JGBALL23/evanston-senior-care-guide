@@ -2,11 +2,11 @@
   "schema": 1,
   "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
   "updated_utc": "2026-11-18T23:05Z",
-  "last_run_utc": "2026-11-23T15:40Z",
+  "last_run_utc": "2026-11-23T17:22Z",
   "facebook": {
     "access": {
       "value": "yes",
-      "utc": "2026-11-23T15:14Z"
+      "utc": "2026-11-23T17:22Z"
     },
     "last_access_ok_utc": "2026-11-18T21:16Z",
     "last_checks_utc": "2026-11-18T15:08Z",
@@ -471,7 +471,6 @@
     ]
   },
   "log": [
-    "2026-11-18T19:45Z session operator: Wilmette post was held for admin approval until 17:44Z (visible_utc and E1 times corrected); lead scan 9 groups/367 posts/1 in-home request (no reply, group rules); Glenview IL group now eligible; OP1 handled (link last)",
     "2026-11-18T19:52Z outreach under the owner's 13:14 authorization: 4 personalized emails to North Shore senior-services organizations (verified public addresses, disclosure included); 8 sent today in all, 0 replies, 1 auto-reply",
     "2026-11-18T20:08Z venues (new audiences, north-side Chicago): joined Rogers Park News (49.5K; participation pending admin approval, rules agreement only) and Edgewater Chicago Neighborhood News (6.9K; eligible); 5 joins today",
     "2026-11-18T20:14Z outreach: library community-engagement contact emailed (published staff-directory address); 9 sent today, 0 replies, 1 auto-reply; next batch waits for replies",
@@ -510,7 +509,8 @@
     "2026-11-23T15:14Z Rogers Park post P-1122-01 submitted (fb-rp-1122, template A with sources, site preview card chosen); pending admin approval; 5 posts in 7 days (cap reached until 24 Nov 00:41Z)",
     "2026-11-23T15:16Z one-off sent: North Shore checklist post 7-day result (2 visitors incl. possibly owner phone, 2 checklist opens, all day 1; 0 assessments, 0 tour-form views, 0 tour requests) - done",
     "2026-11-23T15:30Z morning lead scan 11 groups, 399 posts, 0 new leads (Glenview-Northbrook caregiver request already alerted; 1 false positive)",
-    "2026-11-23T15:40Z inbox: no org replies, no tour requests; outreach: Wilmette checked (senior services run by police social services, Wellmette is a mental-health campaign: no fit); no new verified email target today; Open Communities draft stays for 25 Nov batch"
+    "2026-11-23T15:40Z inbox: no org replies, no tour requests; outreach: Wilmette checked (senior services run by police social services, Wellmette is a mental-health campaign: no fit); no new verified email target today; Open Communities draft stays for 25 Nov batch",
+    "2026-11-23T17:22Z checks: Rogers Park post still pending admin approval (not declined); Winnetka post live, no comments shown; no org replies or tour requests"
   ],
   "next_actions": [
     "17:15Z check Rogers Park post approval and Winnetka engagement",
@@ -638,7 +638,7 @@
   },
   "due": {
     "post_next": "2026-11-24T15:00Z",
-    "fb_checks": "2026-11-23T17:15Z",
+    "fb_checks": "2026-11-23T19:30Z",
     "lead_scan": "2026-11-23T19:30Z",
     "metrics": "2026-11-19T00:05Z",
     "venues": "2026-11-25T15:00Z",
