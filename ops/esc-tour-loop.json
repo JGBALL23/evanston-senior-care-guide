@@ -118,25 +118,6 @@
    "found_utc": "2026-11-23T17:43Z",
    "not_before_utc": "2026-12-08T15:00Z",
    "not_before": "Timing, not data: 2027 figures are already on medicare.gov (read 2026-11-23). Prepare the PR in December so it is fresh when Joseph merges it for 1 Jan 2027."
-  },
-  {
-   "id": "ACQ-044",
-   "task": "Apply the 9 corrections in ops/reviews/illinois-assisted-living-involuntary-move-out.md to the drafts guide (not on main), each with its source sentence, under Build's checks; then note 'Corrections applied' in the packet.",
-   "workstream": "build",
-   "lane": "build",
-   "source": "plan",
-   "key": "improve:illinois-assisted-living-involuntary-move-out",
-   "evidence": "Review packet 2026-11-23: verdict publish-ready after corrections; main defect a wrong could-not-find claim contradicted by the IDoA brochure.",
-   "expected_tour_acquisition_value": "Makes a decision-stage guide (families facing an assisted-living move-out) publish-ready so Joseph can publish it in minutes; once live it earns search visits that lead to the assessment.",
-   "impact": 3,
-   "confidence": 5,
-   "effort": 2,
-   "executor": "worker (research and preparation only)",
-   "done_when": "One drafts commit 'Correct <slug>: ...' with all five checks passing and the packet updated; or a verdict naming the check that failed.",
-   "score": 7.5,
-   "status": "ready",
-   "priority": 2,
-   "found_utc": "2026-11-23T17:45Z"
   }
  ],
  "completed": [
@@ -1528,6 +1509,31 @@
    },
    "done_utc": "2026-11-23T17:46Z",
    "minutes": 0
+  },
+  {
+   "id": "ACQ-044",
+   "task": "Apply the 9 corrections in ops/reviews/illinois-assisted-living-involuntary-move-out.md to the drafts guide (not on main), each with its source sentence, under Build's checks; then note 'Corrections applied' in the packet.",
+   "workstream": "build",
+   "lane": "build",
+   "source": "plan",
+   "key": "improve:illinois-assisted-living-involuntary-move-out",
+   "evidence": "Review packet 2026-11-23: verdict publish-ready after corrections; main defect a wrong could-not-find claim contradicted by the IDoA brochure.",
+   "expected_tour_acquisition_value": "Makes a decision-stage guide (families facing an assisted-living move-out) publish-ready so Joseph can publish it in minutes; once live it earns search visits that lead to the assessment.",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "One drafts commit 'Correct <slug>: ...' with all five checks passing and the packet updated; or a verdict naming the check that failed.",
+   "score": 7.5,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-23T17:45Z",
+   "result": "Applied all 9 packet corrections to illinois-assisted-living-involuntary-move-out on drafts (3c7bc75): four termination reasons from the IDoA brochure ('appropriate for nursing homes and assisted living') replace the wrong could-not-find claim; timely-appeal condition, staff-person interpretation, elder-law and ombudsman-advocacy sentences removed; sources now include the brochure, IDPH AL page and ombudsman page. Checks: build ok, test.js 669/669, check-guides 2454/0, citations 96 resolve, mobile-nav skipped. Guide is now publish-ready per its packet.",
+   "deliverable": {
+    "type": "correction",
+    "ref": "drafts 3c7bc75"
+   },
+   "done_utc": "2026-11-23T17:47Z"
   }
  ],
  "blocked": [],
@@ -1538,7 +1544,7 @@
   "picked": "-",
   "why": "Worked: monitor only; nothing else due (waiting on Joseph: conversion, search PRs)"
  },
- "last_verified_action": "ACQ-042 done 2026-11-23T17:46Z: Packet written: 3 cited va.gov pages 200 plus 4 supporting va.gov pages; 9/13 quotations match, 4 do not (the aide page was updated 16 Nov 2026, after the draf…",
+ "last_verified_action": "ACQ-044 done 2026-11-23T17:47Z: Applied all 9 packet corrections to illinois-assisted-living-involuntary-move-out on drafts (3c7bc75): four termination reasons from the IDoA brochure ('approp…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -1587,7 +1593,7 @@
   "PR #86: the checklist PDF gets one disclosed tour-request line and link. Review, merge and deploy if acceptable.",
   "Skokie Human Services (ACQ-001) publishes no email, so it is phone-only: add it to your optional call list. Niles was emailed 21 Nov (0 replies so far).",
   "Evanston Now essay timing (22 Nov, ACQ-033): families look hardest right after holiday visits (trade reports put the inquiry peak about 3-4 Jan). If your essay can carry a 'what to notice on a holiday visit, and what to ask next' angle and be submitted by about 10 Dec, it lands in that window. Optional.",
-  "Review packet ops/reviews/illinois-assisted-living-involuntary-move-out.md: Verdict: publish-ready after corrections. 9 corrections (main one: the guide's 'could not find grounds for termination' claim is wrong; IDoA's residents' rights brochure, 'appropriate for nursing homes and assisted living', lists four reasons). The worker can apply them on drafts (Improve); then about 10 minutes to publish.",
+  "Review packet ops/reviews/illinois-assisted-living-involuntary-move-out.md: corrections applied on drafts 3c7bc75; now publish-ready. A publish pull request can be prepared next; then about 10 minutes for Joseph to review and merge.",
   "Review packet ops/reviews/illinois-money-management-program.md: Verdict: publish-ready after corrections. 12 corrections (unsupported legal framing vs power of attorney, wrong eligibility owner, an added 'lives independently' condition, a missing brochure source); the worker can apply them on drafts; Evanston is not served by a Program Site, so the guide's local value is limited.",
   "Review packet ops/reviews/illinois-nursing-home-responsible-party.md: Verdict: publish-ready after corrections. 6 small corrections (a quoted word on no source page, the brochure presented as state law, 'conditions of participation' for nursing homes, an unsourced assisted-living licensing claim); the worker can apply them on drafts; then about 10 minutes to publish.",
   "Review packet ops/reviews/va-home-based-primary-care-and-aide.md: Verdict: publish-ready after corrections. 13 corrections (4 quotations no longer match the VA aide page, updated 16 Nov; an eligibility condition missing; 'could not find' claims contradicted by VHA Notice 2024-01); the worker can apply them on drafts."
@@ -2210,7 +2216,7 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSbQh9aYSa5vTbwv5wK",
-   "utc": "2026-11-23T17:46Z",
+   "utc": "2026-11-23T17:47Z",
    "since_utc": "2026-11-23T17:36Z",
    "productive_min": 12,
    "deliverables": [
@@ -2218,7 +2224,8 @@
     "review_packet:ops/reviews/illinois-assisted-living-involuntary-move-out.md",
     "review_packet:ops/reviews/illinois-money-management-program.md",
     "review_packet:ops/reviews/illinois-nursing-home-responsible-party.md",
-    "review_packet:ops/reviews/va-home-based-primary-care-and-aide.md"
+    "review_packet:ops/reviews/va-home-based-primary-care-and-aide.md",
+    "correction:drafts 3c7bc75"
    ]
   },
   "monitor": {

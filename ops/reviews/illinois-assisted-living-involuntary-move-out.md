@@ -127,3 +127,5 @@ The page links internally to /guides/illinois-nursing-home-resident-rights/, /gu
 10. **Desc and card blurb (consistency check).** These are accurate as written and need no change. Once the answer is changed, confirm that nothing in `desc` or the hub blurb still says the grounds could not be found.
 
 Verdict: publish-ready after corrections
+
+Corrections applied: drafts 3c7bc75, 2026-11-23 (all nine; ESCG worker ACQ-044).
