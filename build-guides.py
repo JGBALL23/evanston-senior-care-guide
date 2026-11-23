@@ -5178,12 +5178,12 @@ GUIDES = [
                    "must go to the resident, the resident&rsquo;s representative, "
                    "or both, and to the long-term care ombudsman, and that a "
                    "resident &ldquo;has the right to continue to reside in the "
-                   "establishment until a decision is rendered&rdquo; on a timely "
-                   "appeal. This guide could not confirm, from a government page "
-                   "it could read and cite, the specific list of situations that "
-                   "legally justify a termination &mdash; see below for why, and "
-                   "who to ask."),
-        "sources": srcs("idph_al_itr_form", "idoa_ltc_rights_page", "idoa_ombudsman_contact"),
+                   "establishment until a decision is rendered.&rdquo; The Illinois "
+                   "Department on Aging&rsquo;s residents&rsquo; rights brochure, "
+                   "which it says is &ldquo;appropriate for nursing homes and "
+                   "assisted living&rdquo;, lists four reasons a facility can make "
+                   "a resident leave &mdash; see below."),
+        "sources": srcs("idph_al_itr_form", "idoa_ltc_rights_page", "idoa_resident_rights_brochure", "idph_al_div", "idoa_ombudsman", "idoa_ombudsman_contact"),
         "body": [
             ("What IDPH's own form requires before a move-out", [
                 "<p>When a family searches for whether an Illinois assisted "
@@ -5202,9 +5202,9 @@ GUIDES = [
                 "and the establishment; the state is notified too.</p>",
                 "<p>The form itself has a line the establishment must fill in, "
                 "labelled &ldquo;Reason for Residency Termination&rdquo;. "
-                "IDPH's form does not leave that blank or optional &mdash; a "
-                "reason has to be stated in writing, on the notice your parent "
-                "or their representative receives.</p>",
+                "The Department on Aging&rsquo;s residents&rsquo; rights brochure "
+                "adds that the written notice must include why the resident is "
+                "being asked to move.</p>",
             ]),
             ("The right to appeal, and what happens while you wait", [
                 "<p>The same IDPH form sets out exactly how a resident "
@@ -5219,37 +5219,34 @@ GUIDES = [
                 "<p>Filing on time matters, because of what the form says "
                 "happens next: &ldquo;The resident has the right to continue to "
                 "reside in the establishment until a decision is rendered.&rdquo; "
-                "An appeal filed within the 10-day window does not just register "
-                "a complaint &mdash; it keeps your parent in place while IDPH "
-                "decides. The Hearing Request form can be mailed or faxed to "
+                "The Hearing Request form can be mailed or faxed to "
                 "217-557-2432, to the Illinois Department of Public Health, "
                 "Division of Assisted Living, 525 West Jefferson Street, 5th "
                 "Floor, Springfield, Illinois 62761. The termination form also "
-                "requires the establishment to name a specific staff person who "
-                "will assist with relocation, so a family is not left to figure "
-                "out logistics with no one assigned to help.</p>",
+                "has a line naming the person at the establishment who will "
+                "assist with relocation.</p>",
             ]),
-            ("What this guide could not verify", [
+            ("What reasons can be given", [
                 "<p>The question families actually ask is broader than notice "
-                "periods: can an establishment legally end a stay simply because "
-                "a parent's care needs have grown? This guide searched "
-                "repeatedly for an IDPH or Illinois Department on Aging page, "
-                "on an allowed government host, that sets out the specific "
-                "grounds for an involuntary termination &mdash; comparable to "
-                "the four stated reasons the Department on Aging publishes for "
-                "nursing homes (see the link below). It did not find one. The "
-                "detailed criteria appear to live in the Illinois "
-                "Administrative Code, but that text is published on the "
-                "Illinois General Assembly's website, which is a separate "
-                "domain from the Illinois government sites this library cites, "
-                "so this guide will not quote criteria it read there.</p>",
+                "periods: can an establishment end a stay because a parent's "
+                "care needs have grown? The Illinois Department on Aging's "
+                "brochure <em>Residents&rsquo; Rights for People in Long-Term "
+                "Care Facilities</em>, which the Department's residents' rights "
+                "page describes as &ldquo;appropriate for nursing homes and "
+                "assisted living&rdquo;, says a facility can make a resident "
+                "leave because the bill has not been paid, the resident is "
+                "dangerous to themselves or others, their medical needs cannot "
+                "be met, or the facility closes.</p>",
+                "<p>The full assisted living rules are in Part 295 of the "
+                "Illinois Administrative Code, which IDPH's Assisted Living "
+                "page links to as &ldquo;Assisted Living and Shared Housing - "
+                "295 Administrative Code&rdquo;.</p>",
                 "<p>Practically, that means: ask the establishment to point to "
                 "the specific reason it wrote on your parent's notice, and call "
                 "IDPH's Division of Assisted Living (217-782-2448) or the "
                 "Long-Term Care Ombudsman Program to ask whether that reason "
                 "matches a recognised ground for termination before deciding "
-                "whether to appeal. An elder law attorney can also review the "
-                "notice against the current regulations directly.</p>",
+                "whether to appeal.</p>",
             ]),
             ("Your parent's broader rights as a resident", [
                 "<p>The Illinois Department on Aging's page on residents' "
@@ -5258,18 +5255,18 @@ GUIDES = [
                 "under both Illinois and federal law. The Long-Term Care "
                 "Ombudsman Program &mdash; which "
                 "the involuntary termination notice must also be sent to "
-                "&mdash; is reachable through the <strong>Senior HelpLine at "
-                "1-800-252-8966 (711 TRS)</strong>, and can advocate for your "
-                "parent during an appeal, not only after one has already gone "
-                "wrong.</p>",
+                "&mdash; is reached by calling the Department on Aging&rsquo;s "
+                "<strong>Senior HelpLine at 1-800-252-8966 (711 TRS)</strong>, "
+                "and the Department lists involuntary transfers or discharges "
+                "among the reasons to contact an ombudsman.</p>",
             ]),
             ("Where this fits with the rest of this site", [
                 "<p>This page covers assisted living and shared housing "
-                "establishments specifically, which IDPH regulates under a "
-                "separate licence from nursing homes, with its own 30-day "
-                "notice rule. For the parallel protections Illinois sets out "
-                "for nursing homes &mdash; including the four stated reasons a "
-                "nursing home may discharge a resident &mdash; see "
+                "establishments specifically, which IDPH&rsquo;s Division of "
+                "Assisted Living licenses, and whose notice and appeal forms are "
+                "the ones described above. For the wider set of residents&rsquo; "
+                "rights Illinois publishes for nursing homes and other care "
+                "facilities, see "
                 '<a href="/guides/illinois-nursing-home-resident-rights/">What '
                 "rights does your parent have in an Illinois nursing home or "
                 "care facility?</a> To report a live concern rather than "
