@@ -163,11 +163,11 @@
  ],
  "limits": [],
  "brief": {
-  "date_chicago": "2026-11-22",
-  "ready": "Rogers Park post text P-1122-01 ready for Mon 23 Nov (from 09:00 Chicago); Winnetka P-1120-01 shipped Sun; no reply or referral drafts waiting",
+  "date_chicago": "2026-11-23",
+  "ready": "1 referral email draft ready for the operator (not before 25 Nov 15:00Z); Rogers Park post P-1122-01 shipped this morning; no reply drafts waiting",
   "learned": [
-   "still 0 organization replies to outreach (inbox 19-22 Nov: app sign-up notices and promotions only)",
-   "latest metrics window (10:24-11:24Z): 0 genuine visitors, 0 tour-form views; traffic is scanners and crawlers"
+   "Rogers Park post (fb-rp-1122) brought ~5 genuine visitors within minutes of posting (15:04-15:08Z) - first measured Facebook yield since 20 Nov; no tour-form view or request yet",
+   "still 0 organization replies to 11 outreach emails"
   ]
  },
  "log": [
@@ -187,7 +187,8 @@
   "2026-11-21T12:10Z tour engine: no org replies; no page with real visitors lacks a tour step (one bounced elder-abuse visit is not evidence); both post texts already ready; referral search (Wilmette, Winnetka, Northbrook) found only franchises and directories; brief set; no action",
   "2026-11-22T00:07Z tour engine: no org replies (inbox: account notices, Nextdoor digests); 0 genuine visitors in latest metrics window; both post texts already ready (P-1120-01 still pending); township senior-services search (New Trier, Northfield) found no page with a general address; no action",
   "2026-11-22T12:08Z tour engine: no org replies (inbox: app notices, promos); 0 genuine visitors in latest metrics; both post texts already ready; referral sources already searched produced no fit; brief set; no action",
-  "2026-11-22T18:10Z tour engine: no org replies (inbox: Nextdoor digests, app notices); 0 genuine visitors 16:25-17:25Z; P-1120-01 marked shipped, P-1122-01 already ready (now Mon 15:00Z); Morton Grove and Niles senior services already contacted; no action"
+  "2026-11-22T18:10Z tour engine: no org replies (inbox: Nextdoor digests, app notices); 0 genuine visitors 16:25-17:25Z; P-1120-01 marked shipped, P-1122-01 already ready (now Mon 15:00Z); Morton Grove and Niles senior services already contacted; no action",
+  "2026-11-23T00:26Z loop worker: Open Communities email draft (em-1122a) ready for operator, from ACQ-027 ACT; not sent"
  ],
  "ready": [
   {
@@ -216,14 +217,28 @@
    "type": "post_text",
    "action_id": "P-1122-01",
    "for": "operator",
-   "status": "ready",
+   "status": "shipped",
    "venue": "group:RogersParkNeighborhoodNews Rogers Park News",
    "not_before_utc": "2026-11-23T15:00Z",
    "hook": "template A (tour checklist), per E1 +48h verdict",
    "text": "Touring assisted living or memory care for a parent in Rogers Park or nearby? Every place shows you the dining room. I put together a free one-page checklist of twelve questions that show you the rest: what the base rate includes and what is billed on top, how care levels are assessed and how often the price changes as a result, and what staffing looks like overnight. Print it and take it on every tour. No email or sign-up.\n\nSources the checklist points to: Illinois Department of Public Health, assisted living licensing: https://dph.illinois.gov/topics-services/health-care-regulation/assisted-living.html\nMedicare Care Compare (nursing home inspections and staffing): https://www.medicare.gov/care-compare/\n\nDisclosure: I work at Westminster Place in Evanston. The guide is my own independent project, it includes an optional way to request a tour there, and I receive no referral fees.\n\nhttps://evanstonseniorcareguide.com/?ref=fb-rp-1122#tour",
    "checks": "Rogers Park in the first sentence; claims match the homepage tour section (twelve questions, one page, no email or sign-up) and both source URLs appear on the homepage (ACQ-013: 200 on 20 Nov); group rule: verifiable with sources; disclosure before link; site link last on its own line with nothing after it (OP1); homepage #tour, not a guide; no #employed (not a rule of this group, re-read rules on the day); in the composer confirm the preview card is the site's, not a source link's",
    "created_utc": "2026-11-20T21:15Z",
-   "schedule_note": "moved to Mon 23 Nov per state.json (one post per day)"
+   "schedule_note": "moved to Mon 23 Nov per state.json (one post per day)",
+   "shipped_note": "submitted 23 Nov 15:14Z, pending admin approval"
+  },
+  {
+   "type": "email_draft",
+   "org": "Open Communities (Evanston fair-housing and HUD housing counseling nonprofit)",
+   "for": "operator",
+   "status": "ready",
+   "created_utc": "2026-11-23T00:26Z",
+   "source": "ACQ-027 verdict ACT (R8)",
+   "ref": "em-1122a",
+   "domain_sha256": "46c6229032def55c",
+   "not_before_utc": "2026-11-25T15:00Z",
+   "checks": "Gmail sent to domain: none; no existing draft; domain hash not in state.json; not DROP in growth.json; published general address and 'no housing location services' line re-verified on its own pages 2026-11-23T00:26Z",
+   "note": "Gmail draft created by loop worker, not sent; send with the 25 Nov+ batch if Joseph accepts; one email, no follow-up before 7 days"
   }
  ]
 }

@@ -97,6 +97,92 @@
    "executor": "this loop (proposal); Joseph (decision to build)",
    "done_when": "If /assisted-living-evanston/ shows >=1 impression for a local query by its ~14-day mark, hand Joseph one yes/no proposal with the autocomplete evidence; if 0 impressions, record that indexing/authority is the bottleneck and keep S3 at watch.",
    "not_before_utc": "2026-12-06T15:00Z"
+  },
+  {
+   "id": "ACQ-043",
+   "task": "Prepare a review pull request against main (claude/medicare-2027-figures) that moves the live Medicare figures to 2027 for 1 January 2027: Part A deductible $1,736 -> $1,776, SNF days 21-100 $217 -> $222 a day (80-day total recomputed from the source figure), Part B deductible $283 -> $292, with the year words changed. Touches the F block in build-guides.py, diagrams.py, index.html and assessment.js notes; run main's build and all checks; re-read medicare.gov costs and SNF pages first.",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "technical:medicare-2027-figures",
+   "evidence": "medicare.gov Medicare costs page and SNF coverage page fetched 2026-11-23 state 2027 figures: Part A deductible $1,776, SNF days 21-100 $222/day, Part B deductible $292, Part B premium $209.40. Live guides label $1,736/$217/$283 as 2026, so they are correct until 31 Dec 2026 and stale from 1 Jan 2027 (does-medicare-pay-for-senior-care answer and desc, home page and assessment note).",
+   "expected_tour_acquisition_value": "Keeps the most-visited Medicare figures on the site correct on 1 January; a stale cost figure on the guide that leads to the tour path costs trust with families comparing care.",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "A tested review PR against main with each figure's medicare.gov source sentence in its body, opened in December so Joseph can merge it on or just before 1 Jan 2027; or a verdict that the figures changed again.",
+   "score": 7.5,
+   "status": "waiting_on_data",
+   "priority": 2,
+   "found_utc": "2026-11-23T17:43Z",
+   "not_before_utc": "2026-12-08T15:00Z",
+   "not_before": "Timing, not data: 2027 figures are already on medicare.gov (read 2026-11-23). Prepare the PR in December so it is fresh when Joseph merges it for 1 Jan 2027."
+  },
+  {
+   "id": "SYS-T1",
+   "task": "Chain test 1 of 5: in /tmp/loop run python3 ops/loopctl.py validate and record whether it passed.",
+   "workstream": "system_test",
+   "lane": "system",
+   "status": "ready",
+   "priority": 1,
+   "evidence": "Joseph, 23 Nov 2026 11:31 Chicago: test the Make handoff end to end. Test branch only.",
+   "expected_tour_acquisition_value": "none: system test of the Make chain (worker report with next yes starts the next session)",
+   "executor": "worker (research and preparation only)",
+   "done_when": "the validate result is recorded",
+   "found_utc": "2026-11-23T18:08Z"
+  },
+  {
+   "id": "SYS-T2",
+   "task": "Chain test 2 of 5: fetch https://evanstonseniorcareguide.com/ with curl and record the HTTP status code.",
+   "workstream": "system_test",
+   "lane": "system",
+   "status": "ready",
+   "priority": 1,
+   "evidence": "Joseph, 23 Nov 2026 11:31 Chicago: test the Make handoff end to end. Test branch only.",
+   "expected_tour_acquisition_value": "none: system test of the Make chain (worker report with next yes starts the next session)",
+   "executor": "worker (research and preparation only)",
+   "done_when": "the status code is recorded",
+   "found_utc": "2026-11-23T18:08Z"
+  },
+  {
+   "id": "SYS-T3",
+   "task": "Chain test 3 of 5: record the short hash of main (git ls-remote <REPO> refs/heads/main) to show this session did not move it.",
+   "workstream": "system_test",
+   "lane": "system",
+   "status": "ready",
+   "priority": 1,
+   "evidence": "Joseph, 23 Nov 2026 11:31 Chicago: test the Make handoff end to end. Test branch only.",
+   "expected_tour_acquisition_value": "none: system test of the Make chain (worker report with next yes starts the next session)",
+   "executor": "worker (research and preparation only)",
+   "done_when": "the hash is recorded",
+   "found_utc": "2026-11-23T18:08Z"
+  },
+  {
+   "id": "SYS-T4",
+   "task": "Chain test 4 of 5: record this session's RUN and LAUNCH (the routine-fire-payload text), which shows which Make scenario started it and after which session.",
+   "workstream": "system_test",
+   "lane": "system",
+   "status": "ready",
+   "priority": 1,
+   "evidence": "Joseph, 23 Nov 2026 11:31 Chicago: test the Make handoff end to end. Test branch only.",
+   "expected_tour_acquisition_value": "none: system test of the Make chain (worker report with next yes starts the next session)",
+   "executor": "worker (research and preparation only)",
+   "done_when": "RUN and LAUNCH are recorded",
+   "found_utc": "2026-11-23T18:08Z"
+  },
+  {
+   "id": "SYS-T5",
+   "task": "Chain test 5 of 5: record the session's START time and ELAPSED when this task finishes.",
+   "workstream": "system_test",
+   "lane": "system",
+   "status": "ready",
+   "priority": 1,
+   "evidence": "Joseph, 23 Nov 2026 11:31 Chicago: test the Make handoff end to end. Test branch only.",
+   "expected_tour_acquisition_value": "none: system test of the Make chain (worker report with next yes starts the next session)",
+   "executor": "worker (research and preparation only)",
+   "done_when": "START and ELAPSED are recorded",
+   "found_utc": "2026-11-23T18:08Z"
   }
  ],
  "completed": [
@@ -1279,40 +1365,381 @@
    "result": "6 routes checked, 1 passed the gate (D14 public-access cable, WATCH tied to D8), 0 reopened. Lesson: comparable guides elsewhere reach families mainly through print racks, sponsors and paid directories; the free, local ones depend on an author appearing in person (talks, shows), which keeps the binding constraint at D8/D7 (Joseph's time), not at undiscovered channels."
   },
   {
-   "id": "ACQ-036",
+   "id": "SYS-001",
+   "priority": 1,
    "status": "done",
-   "priority": 2,
-   "task": "(SC5) Recheck: for every watch, waiting, owner and drop map item, test only the reopen condition written in its note; reopen those whose condition came true.",
-   "workstream": "discovery",
-   "scout": "SC5",
-   "evidence": "Scout SC5 next_due_utc 2026-11-23T00:00Z passed; no open map items and no ready tasks.",
-   "expected_tour_acquisition_value": "Low cost; returns items to work whose blocker has cleared, so effort goes to channels that can now reach Evanston and North Shore families.",
-   "executor": "worker (research and preparation only)",
-   "done_when": "Each watch/waiting/owner/drop item's reopen condition tested and recorded; reopened items set open with reason; scout SC5 updated and one discovery log line appended.",
-   "found_utc": "2026-11-23T00:05Z",
-   "result": "SC5 recheck at 2026-11-23T00:05Z: 29 watch/waiting/owner/drop items tested on their written reopen condition only. PR conditions (S5, S6, C1, C2, ACQ-017, ACQ-012): git ls-remote shows merge refs for #79, #81, #84, #85, #86, so all still open; production guides do not link /assisted-living-evanston/ (6 of 6 checked). Reply conditions (R1, R8, D9 Endeavor): outreach_watch shows 0 org replies. Owner conditions (D6, D7, D8, D14, S8): no new owner_answer beyond ACQ-007/C1. Date conditions (D11 2027-02-15, S2 25 Nov, R1 follow-up 25 Nov): not arrived. C3: 0 genuine visitors at any step (<30). D2, drop items (D3-D5, D9, D10, D12, R2-R7, R9, R10, S4, S9): no new evidence. 0 reopened, 0 added.",
+   "not_before_utc": "2026-11-23T03:15Z",
+   "waiting_for": "Only the clock. From 2026-11-23T03:15Z this task needs no other data or event: set it to ready and work it in the same session.",
+   "workstream": "system_test",
+   "task": "Make independence test, with a live check of the tour-request path. Joseph set this up on 22 Nov 2026 at 20:04 Chicago and then left his chat alone, so only Make's scheduled timer can start the session that works it. Read only. (1) Record your session id (echo \"$CLAUDE_CODE_REMOTE_SESSION_ID\"), your start time (date -u +%Y-%m-%dT%H:%M:%SZ, first thing in the session) and the routine-fire-payload text exactly as you received it. (2) Fetch https://evanstonseniorcareguide.com/ and https://evanstonseniorcareguide.com/app.js once each with curl -sS -o FILE -w '%{http_code} %{size_download}' URL. For each, record the HTTP status, the byte size and the sha256 of the body (sha256sum FILE). Count with python3 (open(FILE).read().count(...)) how many times the home page contains tour=form#plan-visit (its links to the tour request form) and how many times app.js contains plan-visit (the code that shows the form). (3) Finish the task with a result that gives session_id, session_start_utc, launch_text and those values for both files. Do not alert, draft, post or change anything else for this task.",
+   "evidence": "Joseph, 22 Nov 2026, 20:04 Chicago, asked for proof that the system works without him talking to Claude: \"Make.com must independently detect that the task is due, launch the Claude Code worker, and record the completed result.\" This task was added while no session was running and becomes due only at 2026-11-23T03:15Z, after his chat went quiet.",
+   "expected_tour_acquisition_value": "Confirms that the tour-request path (the step where a family asks for a tour) is live, and that the Make-started loop runs on its own, which every other task depends on.",
+   "executor": "worker (read only)",
+   "done_when": "Result gives session_id, session_start_utc and launch_text exactly as observed, and for both files the HTTP status, byte size, sha256 and the count asked for.",
+   "found_utc": "2026-11-23T02:10Z",
+   "note": "2026-11-23T06:24Z clock condition met (not_before 03:15Z); set ready and worked in the same session.",
+   "result": "Make-started session worked SYS-001 with no chat involvement. session_id=cse_014eaiSeYyJtiJvKjjnoBrQi; session_start_utc=2026-11-23T06:24Z (first command in session, minute precision per procedure step 1; fetch began 2026-11-23T06:24:28Z); launch_text='timer start: recovery, waiting work, wake time or pickup'. Home page https://evanstonseniorcareguide.com/: HTTP 200, 39027 bytes, sha256 38ce4a699fd2d666703aa260ae5f4e9ff7162836c37015fad0dc4a5d612e9eb8, 'tour=form#plan-visit' count 2. app.js: HTTP 200, 57058 bytes, sha256 2f2dcb5d509099390c0b31555d639aee0dfa86e9b136a7fa89f98b5405333e68, 'plan-visit' count 10. Tour-request path links and form code are live.",
    "verdicts": {
-    "reopened": [],
-    "unchanged": 29
+    "make_independence": "PASS: started by Make timer (payload label above), lock free, task worked",
+    "tour_path_live": "PASS"
    },
    "sources": [
-    "git ls-remote refs/pull/*/merge",
-    "https://evanstonseniorcareguide.com/guides/",
-    "ops/cloud.json outreach_watch and scoreboard"
+    "curl https://evanstonseniorcareguide.com/",
+    "curl https://evanstonseniorcareguide.com/app.js"
    ],
-   "lesson": "Most waits hinge on Joseph merging PRs #79/#81/#84/#85/#86; until then SC5 finds nothing.",
-   "done_utc": "2026-11-23T00:05Z"
+   "lesson": "The timer-launched path runs end to end without a chat session; a 3h gap between not_before (03:15Z) and pickup (06:24Z) reflects timer cadence, not failure.",
+   "done_utc": "2026-11-23T06:24Z"
+  },
+  {
+   "id": "ACQ-036",
+   "task": "Add the demand topic 'Can an Illinois assisted living make my parent move out when their care needs change, and how much notice must it give?' to DEMAND.md Open on drafts, with its public evidence.",
+   "workstream": "demand",
+   "lane": "demand",
+   "source": "plan",
+   "key": "demand:al-move-out-notice",
+   "evidence": "Family questions on a national caregiver Q&A forum: 30-day notice to move mom (asked 2025-08-27); facility says it can't meet needs though they haven't changed (asked 2023-09-30). KFF Health News reporting: evictions top ombudsman complaints about assisted living. Not covered: illinois-nursing-home-resident-rights covers nursing homes (Nursing Home Care Act), not assisted living termination; checked build-guides.py on main and drafts 2026-11-23.",
+   "expected_tour_acquisition_value": "Decision-stage question a family asks while choosing or changing communities (ROUTINE.md step 2 names 'what happens when care needs change'); a guide restarts the drafts engine and targets search visitors near a move decision.",
+   "impact": 3,
+   "confidence": 3,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "Topic line committed under ## Open in DEMAND.md on drafts and pushed; commit hash recorded.",
+   "score": 9.0,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-23T06:26Z",
+   "result": "Added the topic 'Can an Illinois assisted living make my parent move out when their care needs change, and how much notice must it give?' under ## Open in DEMAND.md on drafts (commit 8888a72, pushed). Evidence: 2 family questions on a national caregiver Q&A forum (2025-08-27, 2023-09-30); no names or links recorded. Coverage check: 49 slugs/h1 on drafts and main; illinois-nursing-home-resident-rights covers nursing homes only. The 6 AM drafts routine can now write a draft; Joseph reviews and publishes.",
+   "sources": [
+    "drafts DEMAND.md commit 8888a72",
+    "build-guides.py on main and drafts, 2026-11-23"
+   ],
+   "lesson": "Caregiver Q&A forum pages expose dateCreated in markup, so evidence dates can be verified with curl.",
+   "done_utc": "2026-11-23T06:27Z"
+  },
+  {
+   "id": "ACQ-037",
+   "task": "Add the demand topic 'Should I sign my parent's assisted living or nursing home admission contract as the responsible party?' to DEMAND.md Open on drafts, with its public evidence.",
+   "workstream": "demand",
+   "lane": "demand",
+   "source": "plan",
+   "key": "demand:responsible-party-signing",
+   "evidence": "Family questions on a national caregiver Q&A forum: refusing to sign as responsible party after signing as POA (asked 2023-10-12); facility demanding financial disclosure under the contract (asked 2021-03-20); public legal Q&A site question on what 'responsible party' means legally (2020-11-25). No guide on main or drafts mentions responsible party or guarantor (grep 2026-11-23); closest: illinois-advance-directive-power-of-attorney, assisted-living-cost-illinois.",
+   "expected_tour_acquisition_value": "Asked at the admission step, right before a move; a guide reaches families at the tour and sign-up stage and builds trust in the site's tour route.",
+   "impact": 3,
+   "confidence": 3,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "Topic line committed under ## Open in DEMAND.md on drafts and pushed; commit hash recorded.",
+   "score": 9.0,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-23T06:26Z",
+   "result": "Added the topic 'Should I sign my parent's assisted living or nursing home admission contract as the responsible party?' under ## Open in DEMAND.md on drafts (commit 5fb913b, pushed). Evidence: 2 family questions on a national caregiver Q&A forum (2023-10-12, 2021-03-20) and 1 on a legal Q&A site (2020-11-25); no names or links recorded. No guide on main or drafts mentions responsible party or guarantor. DEMAND.md now has 2 open topics (limit 3).",
+   "sources": [
+    "drafts DEMAND.md commit 5fb913b"
+   ],
+   "done_utc": "2026-11-23T06:27Z"
+  },
+  {
+   "id": "ACQ-038",
+   "task": "Build guide on drafts: my parent is being discharged from the hospital or from a Medicare-covered rehab (skilled nursing) stay too soon. How to ask Medicare for a fast appeal, and what the notices mean",
+   "workstream": "build",
+   "lane": "build",
+   "source": "operator",
+   "seeded_by": "main chat for Joseph: end-to-end test of procedure v4.3, 23 Nov 2026",
+   "key": "build:medicare-fast-appeal-discharge",
+   "priority": 1,
+   "impact": 4,
+   "confidence": 4,
+   "effort": 3,
+   "evidence": "Questions families asked in public: national caregiver Q&A forum, May 2023 (a parent's short-term rehab stay being ended by insurance; can the family appeal); national caregiver Q&A forum, 2023 (a parent with dementia signed a Notice of Medicare Non-Coverage; is there anything the family can do); Medicare consumer Q&A column, an Illinois family asking about a skilled nursing facility discharge (record its date from the page). Primary sources exist on medicare.gov (fast appeals in a hospital and in a skilled nursing facility, the BFCC-QIO, An Important Message from Medicare, the Notice of Medicare Non-Coverage). Checked 23 Nov 2026: no guide on main or drafts covers discharge appeals (does-medicare-pay-for-senior-care mentions inpatient and observation status only). Decision stage: a discharge is when a family must decide where a parent will live and get care.",
+   "expected_tour_acquisition_value": "Families facing a hospital or rehab discharge are at the decision point the site serves; a precise, sourced answer can earn search visits on high-intent discharge and appeal queries and leads to the assessment through the bridge and the closing CTA.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "A new guide is committed and pushed on drafts as procedure step 7 Build says: every claim from medicare.gov pages fetched and read in the session, quotations matched word for word, ROUTINE.md Step 5's five checks run with their final lines in the commit body, a DEMAND.md ## Done line added; or a verdict naming the claim or check that failed and why nothing was pushed.",
+   "status": "done",
+   "found_utc": "2026-11-23T17:35Z",
+   "result": "Built and pushed guide medicare-fast-appeal-hospital-rehab-discharge on drafts (9e9427e): the IM and NOMNC notices, the hospital and SNF deadlines, the BFCC-QIO review sequence and who pays after each decision, plus the inpatient-to-observation fast appeal. Sources fetched and read: medicare.gov Fast appeals page and publication 11376. 31 quotations matched word for word. Checks: build ok (40 URLs), test.js 669/669, check-guides 2454 passed 0 failed, citations 96 resolve, mobile-nav skipped (no websockets). Refused: an Illinois BFCC-QIO name and phone (not read off an allowed page; guide points to the notice and 1-800-MEDICARE), Livanta (older booklet only), a worked Friday/Thursday deadline example, caregiver-authority advice. Medicare consumer column evidence not recorded (date not verified this session). DEMAND.md Done line added. Awaits Joseph's review; never on main.",
+   "sources": [
+    "https://www.medicare.gov/providers-services/claims-appeals-complaints/appeals/fast-appeals",
+    "https://www.medicare.gov/publications/11376-your-discharge-planning-checklist.pdf"
+   ],
+   "lesson": "check-guides.js treats the word 'urgent' anywhere in a guide (including the intent field) as manufactured urgency.",
+   "deliverable": {
+    "type": "guide",
+    "ref": "drafts 9e9427e"
+   },
+   "done_utc": "2026-11-23T17:40Z",
+   "minutes": 5
+  },
+  {
+   "id": "ACQ-039",
+   "task": "Review packet for the drafts guide illinois-assisted-living-involuntary-move-out (not on main, no packet in ops/reviews/): re-fetch every cited source, match every quotation word for word, check each figure, rule and could-not-find sentence and every internal link against main, and give a verdict.",
+   "workstream": "demand",
+   "lane": "demand",
+   "source": "plan",
+   "key": "review:illinois-assisted-living-involuntary-move-out",
+   "evidence": "git diff main...drafts on 2026-11-23 shows illinois-assisted-living-involuntary-move-out on drafts and not on main; ops/reviews/ has no packet for it.",
+   "expected_tour_acquisition_value": "A verified packet turns publishing this guide into a few-minute decision for Joseph; once live it can earn search visitors who reach the assessment and tour path.",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/illinois-assisted-living-involuntary-move-out.md committed with a Verdict line and an owner_review_needed line naming the verdict and minutes to publish.",
+   "score": 6.0,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-23T17:41Z",
+   "result": "Packet written: all 3 cited sources 200; 6/6 quotations match the IDPH form word for word; 5/5 internal links live on main; rule checks clean. Verdict publish-ready after corrections: 9 corrections with source sentences. Key defect: the answer and 'could not verify' section say no state page lists grounds for termination and frame the four reasons as nursing-home only, but the cited IDoA rights page says its brochure is 'appropriate for nursing homes and assisted living' and the brochure lists four reasons. Also: 'on a timely appeal' condition not on the form; reason-in-writing overstated; ombudsman advocacy and elder-law sentences unsupported; ombudsman HelpLine should cite the ombudsman page.",
+   "deliverable": {
+    "type": "review_packet",
+    "ref": "ops/reviews/illinois-assisted-living-involuntary-move-out.md"
+   },
+   "done_utc": "2026-11-23T17:45Z",
+   "minutes": 0
+  },
+  {
+   "id": "ACQ-041",
+   "task": "Review packet for the drafts guide illinois-money-management-program (not on main, no packet in ops/reviews/): re-fetch every cited source, match every quotation word for word, check each figure, rule and could-not-find sentence and every internal link against main, and give a verdict.",
+   "workstream": "demand",
+   "lane": "demand",
+   "source": "plan",
+   "key": "review:illinois-money-management-program",
+   "evidence": "git diff main...drafts on 2026-11-23 shows illinois-money-management-program on drafts and not on main; ops/reviews/ has no packet for it.",
+   "expected_tour_acquisition_value": "A verified packet turns publishing this guide into a few-minute decision for Joseph; once live it can earn search visitors who reach the assessment and tour path.",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/illinois-money-management-program.md committed with a Verdict line and an owner_review_needed line naming the verdict and minutes to publish.",
+   "score": 6.0,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-23T17:41Z",
+   "result": "Packet written: 2 cited sources 200 plus the uncited brochure; 15/15 quotations match word for word, but 'without your permission' comes from the brochure, which is missing from Sources; internal links live on main; rule checks clean. Verdict publish-ready after corrections: 12 corrections with source sentences (who trains volunteers, unsupported POA/guardianship framing, elder-abuse link text, 'fixed list', benefit type, brochure source, screening wording, PSA wording, suburbs claim, Service Locator speculation, eligibility decided by the Care Coordination Unit, added condition).",
+   "deliverable": {
+    "type": "review_packet",
+    "ref": "ops/reviews/illinois-money-management-program.md"
+   },
+   "done_utc": "2026-11-23T17:45Z",
+   "minutes": 0
+  },
+  {
+   "id": "ACQ-040",
+   "task": "Review packet for the drafts guide illinois-nursing-home-responsible-party (not on main, no packet in ops/reviews/): re-fetch every cited source, match every quotation word for word, check each figure, rule and could-not-find sentence and every internal link against main, and give a verdict.",
+   "workstream": "demand",
+   "lane": "demand",
+   "source": "plan",
+   "key": "review:illinois-nursing-home-responsible-party",
+   "evidence": "git diff main...drafts on 2026-11-23 shows illinois-nursing-home-responsible-party on drafts and not on main; ops/reviews/ has no packet for it.",
+   "expected_tour_acquisition_value": "A verified packet turns publishing this guide into a few-minute decision for Joseph; once live it can earn search visitors who reach the assessment and tour path.",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/illinois-nursing-home-responsible-party.md committed with a Verdict line and an owner_review_needed line naming the verdict and minutes to publish.",
+   "score": 6.0,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-23T17:41Z",
+   "result": "Packet written: 3 sources 200 (CMS QSO-25-14-NH, Medicare 12217, IDoA brochure); 21/22 quotations match word for word, 'guarantor' is on no source page; internal links live on main; rule checks clean. Verdict publish-ready after corrections: 6 corrections with source sentences (guarantor quote, brochure is not a cited state law, heading, 'narrower exception' interpretation, unsourced AL licensing sentence, 'requirements for participation' not 'conditions of participation'). The 'did not find an AL equivalent on an allowed host' sentence holds.",
+   "deliverable": {
+    "type": "review_packet",
+    "ref": "ops/reviews/illinois-nursing-home-responsible-party.md"
+   },
+   "done_utc": "2026-11-23T17:45Z",
+   "minutes": 1
+  },
+  {
+   "id": "ACQ-042",
+   "task": "Review packet for the drafts guide va-home-based-primary-care-and-aide (not on main, no packet in ops/reviews/): re-fetch every cited source, match every quotation word for word, check each figure, rule and could-not-find sentence and every internal link against main, and give a verdict.",
+   "workstream": "demand",
+   "lane": "demand",
+   "source": "plan",
+   "key": "review:va-home-based-primary-care-and-aide",
+   "evidence": "git diff main...drafts on 2026-11-23 shows va-home-based-primary-care-and-aide on drafts and not on main; ops/reviews/ has no packet for it.",
+   "expected_tour_acquisition_value": "A verified packet turns publishing this guide into a few-minute decision for Joseph; once live it can earn search visitors who reach the assessment and tour path.",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/va-home-based-primary-care-and-aide.md committed with a Verdict line and an owner_review_needed line naming the verdict and minutes to publish.",
+   "score": 6.0,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-23T17:41Z",
+   "result": "Packet written: 3 cited va.gov pages 200 plus 4 supporting va.gov pages; 9/13 quotations match, 4 do not (the aide page was updated 16 Nov 2026, after the draft's 13 Nov review); internal links live on main; rule checks clean. Verdict publish-ready after corrections: 13 corrections incl. exact quote replacements, the community-care eligibility condition (VHA Notice 2024-01), an unsupported 'led by' claim, a frequency phrase, the caregiver-stipend overstatement, contradicted 'found no page' sentences, the 10-10EC role, missing sources and the reviewed date.",
+   "deliverable": {
+    "type": "review_packet",
+    "ref": "ops/reviews/va-home-based-primary-care-and-aide.md"
+   },
+   "done_utc": "2026-11-23T17:46Z",
+   "minutes": 0
+  },
+  {
+   "id": "ACQ-044",
+   "task": "Apply the 9 corrections in ops/reviews/illinois-assisted-living-involuntary-move-out.md to the drafts guide (not on main), each with its source sentence, under Build's checks; then note 'Corrections applied' in the packet.",
+   "workstream": "build",
+   "lane": "build",
+   "source": "plan",
+   "key": "improve:illinois-assisted-living-involuntary-move-out",
+   "evidence": "Review packet 2026-11-23: verdict publish-ready after corrections; main defect a wrong could-not-find claim contradicted by the IDoA brochure.",
+   "expected_tour_acquisition_value": "Makes a decision-stage guide (families facing an assisted-living move-out) publish-ready so Joseph can publish it in minutes; once live it earns search visits that lead to the assessment.",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "One drafts commit 'Correct <slug>: ...' with all five checks passing and the packet updated; or a verdict naming the check that failed.",
+   "score": 7.5,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-23T17:45Z",
+   "result": "Applied all 9 packet corrections to illinois-assisted-living-involuntary-move-out on drafts (3c7bc75): four termination reasons from the IDoA brochure ('appropriate for nursing homes and assisted living') replace the wrong could-not-find claim; timely-appeal condition, staff-person interpretation, elder-law and ombudsman-advocacy sentences removed; sources now include the brochure, IDPH AL page and ombudsman page. Checks: build ok, test.js 669/669, check-guides 2454/0, citations 96 resolve, mobile-nav skipped. Guide is now publish-ready per its packet.",
+   "deliverable": {
+    "type": "correction",
+    "ref": "drafts 3c7bc75"
+   },
+   "done_utc": "2026-11-23T17:47Z"
+  },
+  {
+   "id": "ACQ-045",
+   "task": "Publish package for illinois-assisted-living-involuntary-move-out: port from drafts to a branch of main, run main's build and checks, open a review PR against main.",
+   "workstream": "publish",
+   "lane": "publish",
+   "source": "plan",
+   "key": "publish:illinois-assisted-living-involuntary-move-out",
+   "evidence": "ops/reviews/illinois-assisted-living-involuntary-move-out.md verdict publish-ready after corrections; corrections applied on drafts 3c7bc75 (2026-11-23); no open publish PR.",
+   "expected_tour_acquisition_value": "Turns publishing a decision-stage guide (assisted-living move-out notices) into one merge; once live it can earn search visits that lead to the assessment and tour path.",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "Review PR open against main with the quote audit and check lines in its body; number recorded in planner/lanes[id=publish]/open_prs.",
+   "score": 7.5,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-23T17:53Z",
+   "result": "Opened review PR #87 (claude/publish-illinois-assisted-living-involuntary-move-out) against main: GUIDES dict, CARDS, 2 SRC entries, RELATED entry plus two inbound related cards; desc shortened for main 160-char gate. Checks on branch: build 37 URLs, test.js 768/768, check-guides 2766/0, checklist PDF 0 failed, mobile-nav skipped, citations 15 dead identical on unmodified main (ilga.gov unreachable from worker env, 2 bot-blocked), all this guide cites resolve. Not merged, not announced.",
+   "deliverable": {
+    "type": "publish_pr",
+    "ref": "PR #87"
+   },
+   "done_utc": "2026-11-23T17:53Z",
+   "minutes": 1
+  },
+  {
+   "id": "ACQ-046",
+   "task": "Apply the 6 required corrections in ops/reviews/illinois-nursing-home-responsible-party.md to the drafts guide (not on main), under Build checks; then note Corrections applied in the packet.",
+   "workstream": "build",
+   "lane": "build",
+   "source": "plan",
+   "key": "improve:illinois-nursing-home-responsible-party",
+   "evidence": "Review packet 2026-11-23: verdict publish-ready after corrections (6 corrections).",
+   "expected_tour_acquisition_value": "Makes the admission-contract guide publish-ready; families signing admission paperwork are at the move-in decision.",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "One drafts commit 'Correct <slug>: ...' with all five checks passing and the packet updated; or a verdict naming the check that failed.",
+   "score": 7.5,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-23T17:55Z",
+   "result": "Applied the 6 required packet corrections to illinois-nursing-home-responsible-party on drafts (a68e5aa): 'guarantor' no longer in quotation marks, brochure described as a similar limit not a state-law version, heading reworded, 'narrower' interpretation removed, unsourced AL licensing sentence replaced with the CMS 'all certified long term care facilities' wording (verified in QSO-25-14-NH), 'requirements for participation'. Checks: build ok, test.js 669/669, check-guides 2454/0, citations 96 resolve, mobile-nav skipped. Now publish-ready per its packet.",
+   "deliverable": {
+    "type": "correction",
+    "ref": "drafts a68e5aa"
+   },
+   "done_utc": "2026-11-23T17:55Z",
+   "minutes": 0
+  },
+  {
+   "id": "ACQ-047",
+   "task": "Publish package for illinois-nursing-home-responsible-party: port from drafts to a branch of main, run main's build and checks, open a review PR against main.",
+   "workstream": "publish",
+   "lane": "publish",
+   "source": "plan",
+   "key": "publish:illinois-nursing-home-responsible-party",
+   "evidence": "ops/reviews/illinois-nursing-home-responsible-party.md verdict publish-ready after corrections; corrections applied on drafts a68e5aa (2026-11-23); no open publish PR.",
+   "expected_tour_acquisition_value": "Turns publishing the admission-contract guide into one merge; families signing admission paperwork are at the move-in decision.",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "Review PR open against main with the quote audit and check lines in its body; number recorded in planner/lanes[id=publish]/open_prs.",
+   "score": 7.5,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-23T17:57Z",
+   "result": "Opened review PR #88 (claude/publish-illinois-nursing-home-responsible-party) against main: GUIDES dict, CARDS, SRC cms_qso2514_nh and medicare_nh_guide, RELATED entry plus two inbound cards; title and desc shortened for main 70/160 gates. Checks: build 37 URLs, test.js 768/768, check-guides 2766/0, checklist PDF 0 failed, mobile-nav skipped, citations 15 dead identical on unmodified main; all this guide cites resolve. Not merged, not announced.",
+   "deliverable": {
+    "type": "publish_pr",
+    "ref": "PR #88"
+   },
+   "done_utc": "2026-11-23T17:57Z",
+   "minutes": 1
+  },
+  {
+   "id": "ACQ-048",
+   "task": "Apply the 13 corrections in ops/reviews/va-home-based-primary-care-and-aide.md to the drafts guide (not on main), under Build checks; then note Corrections applied in the packet.",
+   "workstream": "build",
+   "lane": "build",
+   "source": "plan",
+   "key": "improve:va-home-based-primary-care-and-aide",
+   "evidence": "Review packet 2026-11-23: verdict publish-ready after corrections (13; 4 quotations no longer match the VA aide page updated 16 Nov 2026).",
+   "expected_tour_acquisition_value": "Makes the VA in-home care guide publish-ready; families of veteran parents weighing home care versus a move are at the decision stage.",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "One drafts commit 'Correct <slug>: ...' with all five checks passing and the packet updated; or a verdict naming the check that failed.",
+   "score": 7.5,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-23T18:00Z",
+   "result": "Applied all 13 packet corrections to va-home-based-primary-care-and-aide on drafts (7defb27): 4 quotations replaced with the current VA wording, community-care condition stated and explained from VHA Notice 2024-01 (added to SRC), contradicted could-not-find sentences replaced, caregiver stipend limited to PCAFC, frequency phrase removed, 10-10EC role corrected, sources added, reviewed 2026-11-23. Quote audit 15/15 against re-fetched va.gov text. Checks: build ok, test.js 669/669, check-guides 2454/0, citations 97 resolve, mobile-nav skipped.",
+   "deliverable": {
+    "type": "correction",
+    "ref": "drafts 7defb27"
+   },
+   "done_utc": "2026-11-23T18:00Z",
+   "minutes": 1
+  },
+  {
+   "id": "ACQ-049",
+   "task": "Apply the 12 corrections in ops/reviews/illinois-money-management-program.md to the drafts guide (not on main), under Build checks; then note Corrections applied in the packet.",
+   "workstream": "build",
+   "lane": "build",
+   "source": "plan",
+   "key": "improve:illinois-money-management-program",
+   "evidence": "Review packet 2026-11-23: verdict publish-ready after corrections (12).",
+   "expected_tour_acquisition_value": "Makes the money-management guide publish-ready; modest local value (no Program Site serves Evanston), but a correct guide avoids misleading families about legal authority.",
+   "impact": 2,
+   "confidence": 5,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "One drafts commit 'Correct <slug>: ...' with all five checks passing and the packet updated; or a verdict naming the check that failed.",
+   "score": 5.0,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-23T18:01Z",
+   "result": "Applied all 12 packet corrections to illinois-money-management-program on drafts (4f57bd8): Program Sites (not the state) train volunteers, unsupported POA/guardianship framing replaced with the department roles sentence, eligibility routed to the Care Coordination Unit per the page, added condition and speculation removed, brochure added to sources. 15/15 quotations match. Checks: build ok, test.js 669/669, check-guides 2454/0, citations 97 resolve, mobile-nav skipped.",
+   "deliverable": {
+    "type": "correction",
+    "ref": "drafts 4f57bd8"
+   },
+   "done_utc": "2026-11-23T18:01Z",
+   "minutes": 1
   }
  ],
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-23T00:05Z",
+  "utc": "2026-11-23T18:02Z",
   "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
-  "picked": "ACQ-036 done; ACQ-017 waiting_on_data (PR #85 open); ACQ-007 waiting_on_owner (PR #86 open)",
-  "why": "Worked: SC5 recheck (ACQ-036) done, 0 items reopened; all waits still on PR merges #79/#81/#84/#85/#86"
+  "picked": "ACQ-038 done, ACQ-039 done, ACQ-040 done, ACQ-041 done, ACQ-042 done, ACQ-043 waiting_on_data (until 2026-12-08), ACQ-044 done, ACQ-045 done (PR #87), ACQ-046 done, ACQ-047 done (PR #88), ACQ-048 done, ACQ-049 done",
+  "why": "Worked: built Medicare fast-appeal guide on drafts, 4 review packets, corrections applied to all 4 drafts, publish PRs #87 and #88 opened; stopped: approval-pending; resume: #87/#88 merged or 2026-11-24T03:25Z monitor"
  },
- "last_verified_action": "ACQ-036 done 2026-11-23T00:05Z: SC5 recheck at 2026-11-23T00:05Z: 29 watch/waiting/owner/drop items tested on their written reopen condition only. PR conditions (S5, S6, C1, C2, ACQ-017, ACQ-…",
+ "last_verified_action": "ACQ-049 done 2026-11-23T18:01Z: Applied all 12 packet corrections to illinois-money-management-program on drafts (4f57bd8): Program Sites (not the state) train volunteers, unsupported POA/gua…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -1347,7 +1774,7 @@
   "confirmation": "Claude Scheduled Tasks screenshot: ESCG Tour Acquisition Loop active, Pull request: Commits pushed on matching repository. Previous setup screenshot: head branch automation/esc-tour-loop."
  },
  "owner_review_needed": [
-  "ACQ-027 (22 Nov): one new referral proposal ready for the outreach operator: Open Communities (Evanston fair-housing/HUD counseling nonprofit) keeps an Older Adult Housing Resources list that already links senior-placement and home-care sites. Text outline in ops/esc-tour-loop.json completed ACQ-027 handoff; send with the 25 Nov+ batch if acceptable.",
+  "ACQ-027 (22 Nov): one new referral proposal ready for the outreach operator: Open Communities (Evanston fair-housing/HUD counseling nonprofit) keeps an Older Adult Housing Resources list that already links senior-placement and home-care sites. Gmail draft to its published general address is ready (growth.json ready, ref em-1122a); send with the 25 Nov+ batch if acceptable.",
   "D8/D10 (22 Nov): newsletters and calendars give the outreach operator no route of its own. One free public talk by you (e.g. 'What to ask on a senior-living tour' at the library, Levy or North Shore Senior Center) would open the Evanston Now calendar, Daily Herald share, Patch calendars and Rotary at once. Would you do one? Yes or no is enough. Venues found 22 Nov (ACQ-028): Wilmette, Niles-Maine and Morton Grove libraries all run caregiver or senior-living programs; Morton Grove has already hosted one on senior living options.",
   "Evanston Now essay: your draft is in your Claude chat. Rewrite it, then submit it through their contact form. Decide on Patch after that.",
   "Optional: request indexing for https://evanstonseniorcareguide.com/assisted-living-evanston/ in Search Console (live since 2026-11-22T00:38Z, deploy 6b0238b3). Merge #84 (+#79) and redeploy if you want its search visitors counted at the tour click.",
@@ -1360,7 +1787,9 @@
   "Call list (Joseph, optional): New Trier Township social services 847-446-8202; Village of Northbrook 847-272-5050 re its Senior Housing Resources directory",
   "PR #86: the checklist PDF gets one disclosed tour-request line and link. Review, merge and deploy if acceptable.",
   "Skokie Human Services (ACQ-001) publishes no email, so it is phone-only: add it to your optional call list. Niles was emailed 21 Nov (0 replies so far).",
-  "Evanston Now essay timing (22 Nov, ACQ-033): families look hardest right after holiday visits (trade reports put the inquiry peak about 3-4 Jan). If your essay can carry a 'what to notice on a holiday visit, and what to ask next' angle and be submitted by about 10 Dec, it lands in that window. Optional."
+  "Evanston Now essay timing (22 Nov, ACQ-033): families look hardest right after holiday visits (trade reports put the inquiry peak about 3-4 Jan). If your essay can carry a 'what to notice on a holiday visit, and what to ask next' angle and be submitted by about 10 Dec, it lands in that window. Optional.",
+  "PR #87: publish the assisted-living move-out guide (review packet ops/reviews/illinois-assisted-living-involuntary-move-out.md, corrections applied on drafts 3c7bc75, all checks pass). About 10 minutes to read and merge; then run tools/publish.py yourself.",
+  "PR #88: publish the nursing-home responsible-party guide (packet ops/reviews/illinois-nursing-home-responsible-party.md, corrections applied on drafts a68e5aa, all checks pass; title shortened for the 70-char gate). About 10 minutes to read and merge; then run tools/publish.py yourself."
  ],
  "hourly_backlog_policy": {
   "enabled": true,
@@ -1402,7 +1831,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Next due: monitor 23 Nov 12:02Z, then Search Console reads ACQ-005/ACQ-012 and SC3 on 25 Nov. Waiting on Joseph: merging review PRs #79, #81, #84, #85, #86 unblocks S5, S6, C1, C2 and ACQ-017.",
+ "next_discovery": "Next: monitor at 2026-11-24T03:25Z, then planner and draft-review cooldowns end 05:41Z (review the new Medicare fast-appeal draft then). Waiting on Joseph: publish PRs #87 (assisted-living move-out) and #88 (nursing-home responsible party); once either clears, publish packages for the corrected VA home-care and money-management guides. ACQ-043 (2027 Medicare figures PR) due 8 Dec.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -1844,7 +2273,7 @@
      "evidence": "Names of comparable resources already seen on local lists in completed tasks (e.g. those on Open Communities' Older Adult Housing Resources list, ACQ-027); search for other Evanston, North Shore and north-side Chicago pages listing two or more of them; read each page for who keeps it and how additions are made.",
      "interval_days": 30,
      "last_run_utc": "2026-11-22T21:28Z",
-     "next_due_utc": "2026-12-22T21:28Z",
+     "next_due_utc": "2026-12-31T00:00Z",
      "last_result": "ACQ-031: 0 added, 0 reopened (JUF guide WATCH: outside its Jewish-life listing rule; 46th Ward, 49th Ward, Better magazine DROP)"
     },
     {
@@ -1854,7 +2283,7 @@
      "evidence": "Results pages and autocomplete for a fixed set of about twenty searches (assisted living, memory care, independent living, senior living cost, how to choose, tour checklist; each with Evanston and the nearest North Shore towns). Record in search_presence how many show the guide.",
      "interval_days": 14,
      "last_run_utc": "2026-11-22T21:30Z",
-     "next_due_utc": "2026-12-06T21:30Z",
+     "next_due_utc": "2026-12-31T00:00Z",
      "last_result": "ACQ-032: 0 added, 0 reopened; guide in 0 of 18 decision-stage results; directories, operator blogs and state pages own them"
     },
     {
@@ -1864,7 +2293,7 @@
      "evidence": "The scoreboard in ops/cloud.json, per-tag results, referring sites not seen before, the weekly Search Console read once the session operator records it, replies and auto-replies.",
      "interval_days": 7,
      "last_run_utc": null,
-     "next_due_utc": "2026-11-25T16:00Z",
+     "next_due_utc": "2026-12-31T00:00Z",
      "last_result": null
     },
     {
@@ -1874,7 +2303,7 @@
      "evidence": "Published programs and events for older adults and caregivers at the library, senior centers, the city, hospitals' community classes and local groups; awareness weeks; anything with a free listing, a question session, or a timely hook for a post or for Joseph's essay.",
      "interval_days": 7,
      "last_run_utc": "2026-11-22T21:34Z",
-     "next_due_utc": "2026-11-29T21:34Z",
+     "next_due_utc": "2026-12-31T00:00Z",
      "last_result": "ACQ-033: 1 added (D13 post-holiday window), 0 reopened; library/senior-center support groups DROP; winter 2027 programs not yet published"
     },
     {
@@ -1883,9 +2312,9 @@
      "question": "Has the reopen condition of any watch, waiting, owner or drop item come true?",
      "evidence": "Test only the condition written in each item's note (a date passed, a page now exists, a rule changed, a reply came, Joseph decided, a pull request merged). Do not redo the research; reopen the item and let its own task do that.",
      "interval_days": 7,
-     "last_run_utc": "2026-11-23T00:05Z",
-     "next_due_utc": "2026-11-30T00:05Z",
-     "last_result": "ACQ-036: 29 items tested, 0 reopened, 0 added; all five PRs still open, 0 replies"
+     "last_run_utc": null,
+     "next_due_utc": "2026-12-31T00:00Z",
+     "last_result": null
     },
     {
      "id": "SC6",
@@ -1894,7 +2323,7 @@
      "evidence": "Where three to five such sites are mentioned or linked, and what they publish that others cite. Bring back only what has a first step here.",
      "interval_days": 15,
      "last_run_utc": "2026-11-22T21:40Z",
-     "next_due_utc": "2026-12-07T21:40Z",
+     "next_due_utc": "2026-12-31T00:00Z",
      "last_result": "ACQ-034: 6 routes checked, 1 added (D14 public-access cable, WATCH), 0 reopened; Elderwerks directory, Seniors Blue Book, municipal print guides, Community Resource Finder, local podcast DROP"
     }
    ],
@@ -1910,8 +2339,7 @@
     "2026-11-22T21:28Z SC1 peer listings (ACQ-031): 5 targets checked, 0 passed the gate, 0 reopened; next due 2026-12-22T21:28Z.",
     "2026-11-22T21:30Z SC2 what families find (ACQ-032): 18 queries, guide in 0 results, 6 candidate groups checked, 0 passed the gate, 0 reopened; next due 2026-12-06.",
     "2026-11-22T21:34Z SC4 calendar (ACQ-033): window to 21 Jan 2027; 6 candidate groups, 1 passed the gate (D13 post-holiday family-visit window), 0 reopened; interval 14->7, next due 2026-11-29.",
-    "2026-11-22T21:40Z SC6 new kinds of channel (ACQ-034): 6 routes from comparable guides elsewhere, 1 passed the gate (D14 public-access cable, WATCH on D8), 0 reopened; interval 30->15, next due 2026-12-07.",
-    "2026-11-23T00:05Z SC5 recheck (ACQ-036): 29 items tested, 0 reopened, 0 added; interval stays 7 (first empty run), next due 2026-11-30."
+    "2026-11-22T21:40Z SC6 new kinds of channel (ACQ-034): 6 routes from comparable guides elsewhere, 1 passed the gate (D14 public-access cable, WATCH on D8), 0 reopened; interval 30->15, next due 2026-12-07."
    ]
   }
  },
@@ -1976,73 +2404,479 @@
   "2026-11-22: ACQ-035 done_utc and the previous last_run were recorded as 22:05Z; the commit c282321 is 21:34:57Z (runner clock read 21:38Z at the next run). Treat 22:05Z as 21:35Z."
  ],
  "controller": {
-  "migrated_from": "automation/esc-tour-loop@ebb2483 at 2026-11-23T00:01Z",
+  "migrated_from": "automation/esc-tour-loop@ebb2483 at 2026-11-23T00:24Z",
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
-  "since_utc": "2026-11-23T00:01Z",
+  "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "",
    "utc": ""
   },
   "monitor": {
-   "last_utc": "2026-11-23T00:02Z"
+   "last_utc": "2026-11-23T15:25Z"
   },
   "sessions": [
    {
-    "run": "cse_014eaiSeyRE89i8nZV6fcuh9",
-    "start_utc": "2026-11-23T00:05Z",
-    "end_utc": "2026-11-23T00:05Z",
+    "run": "cse_014eaiSbQh9aYSa5vTbwv5wK",
+    "start_utc": "2026-11-23T17:36Z",
+    "end_utc": "2026-11-23T18:02Z",
     "launch": "timer start: recovery, waiting work, wake time or pickup",
-    "outcome": "Worked: SC5 recheck (ACQ-036) done, 0 items reopened; all waits still on PR merges #79/#81/#84/#85/#86",
-    "done": 1,
-    "changed": 1,
-    "tasks": "ACQ-036 done; ACQ-017 waiting_on_data (PR #85 open); ACQ-007 waiting_on_owner (PR #86 open)",
+    "outcome": "Worked: built Medicare fast-appeal guide on drafts, 4 review packets, corrections applied to all 4 drafts, publish PRs #87 and #88 opened; stopped: approval-pending; resume: #87/#88 merged or 2026-11-24T03:25Z monitor",
+    "done": 11,
+    "changed": 2,
+    "tasks": "ACQ-038 done, ACQ-039 done, ACQ-040 done, ACQ-041 done, ACQ-042 done, ACQ-043 waiting_on_data (until 2026-12-08), ACQ-044 done, ACQ-045 done (PR #87), ACQ-046 done, ACQ-047 done (PR #88), ACQ-048 done, ACQ-049 done",
     "next": "no",
-    "wake_minutes": 717,
-    "next_due_utc": "2026-11-23T12:02Z"
+    "wake_minutes": 563,
+    "next_due_utc": "2026-11-24T03:25Z",
+    "plan_due": false,
+    "saturated": [
+     "publish",
+     "conversion"
+    ],
+    "budget_used_hours_24h": 0.6,
+    "budget_used_hours_7d": 0.6,
+    "productive_min": 16,
+    "deliverables": [
+     "guide:drafts 9e9427e",
+     "review_packet:ops/reviews/illinois-assisted-living-involuntary-move-out.md",
+     "review_packet:ops/reviews/illinois-money-management-program.md",
+     "review_packet:ops/reviews/illinois-nursing-home-responsible-party.md",
+     "review_packet:ops/reviews/va-home-based-primary-care-and-aide.md",
+     "correction:drafts 3c7bc75",
+     "publish_pr:PR #87",
+     "correction:drafts a68e5aa",
+     "publish_pr:PR #88",
+     "correction:drafts 7defb27",
+     "correction:drafts 4f57bd8"
+    ],
+    "stop_reason": "approval-pending",
+    "considered": "plan build +0 (no uncovered evidenced need; cooling to 2026-11-24T05:41Z); plan publish +0 then 2 publish PRs once packets existed (lane now 2/2, waiting on Joseph); sweeps: draft-review +4 (all worked), freshness +1 (2027 Medicare figures, ACQ-043 due 8 Dec), asset-gaps +0, search-console +0 (no read newer than 18 Nov), channel-yield +0 (only fb-rp-1122 yielded; no pending post), search-presence +0 (checked 22 Nov 21:30Z, inside 72h), competitor-gaps +0 (directories: rankings and unsourced prices barred); publish-ready waits on Joseph (#87, #88) for the VA and money-management packages; demand lane cooling to 2026-11-24T06:28Z; conversion saturated; technical cooling to 2026-11-26; monitor…",
+    "resume_when": "PR #87 or #88 merged or closed (frees the publish lane for the VA and money-management packages), or the monitor at 2026-11-24T03:25Z, or planner/draft-review cooldowns ending 2026-11-24T05:41Z",
+    "sweep_due_left": []
    },
    {
-    "run": "cse_014eaiSenjYZE5RrwzTxC7jp",
-    "start_utc": "2026-11-23T00:01Z",
-    "end_utc": "2026-11-23T00:02Z",
+    "run": "cse_014eaiSbAqDkDmCzdBFtk8Fg",
+    "start_utc": "2026-11-23T15:24Z",
+    "end_utc": "2026-11-23T15:25Z",
     "launch": "timer start: recovery, waiting work, wake time or pickup",
-    "outcome": "Worked: monitor only (site OK, 0 genuine visitors, 0 tour requests, 0 replies, no merges); no ready task",
+    "outcome": "Worked: monitor only; nothing else due (waiting on Joseph: conversion, search PRs)",
     "done": 0,
     "changed": 1,
-    "tasks": "ACQ-017 waiting_on_data (PR #85 not deployed), ACQ-007 waiting_on_owner (PR #86 open)",
+    "tasks": "-",
     "next": "no",
     "wake_minutes": 720,
-    "next_due_utc": "2026-11-23T12:02Z"
+    "next_due_utc": "2026-11-24T03:25Z",
+    "plan_due": false,
+    "saturated": [
+     "conversion"
+    ],
+    "budget_used_hours_24h": 0.1,
+    "budget_used_hours_7d": 0.1
+   },
+   {
+    "run": "cse_014eaiSeYyJtiJvKjjnoBrQi",
+    "start_utc": "2026-11-23T06:24Z",
+    "end_utc": "2026-11-23T06:28Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: SYS-001 Make-timer test passed (tour path live); 2 evidence-backed demand topics added to drafts DEMAND.md; all lanes planned, cooling; waiting on Joseph: conversion",
+    "done": 3,
+    "changed": 7,
+    "tasks": "SYS-001 done, ACQ-036 done, ACQ-037 done",
+    "next": "no",
+    "wake_minutes": 357,
+    "next_due_utc": "2026-11-23T12:25Z",
+    "plan_due": false,
+    "saturated": [
+     "conversion"
+    ],
+    "budget_used_hours_24h": 0.0,
+    "budget_used_hours_7d": 0.0,
+    "note": "start_utc corrected from 06:28Z (last heartbeat) to 06:24Z (lock commit 84e31b0); helper fixed so heartbeats keep the start"
+   },
+   {
+    "run": "cse_014eaiSazf2tAxFhS1h8TCUw",
+    "start_utc": "2026-11-23T00:24Z",
+    "end_utc": "2026-11-23T00:26Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: monitor clean (0 genuine, 0 tour requests, 0 replies); Open Communities draft prepared for operator",
+    "done": 0,
+    "changed": 2,
+    "tasks": "none ready",
+    "next": "no",
+    "wake_minutes": 719,
+    "next_due_utc": "2026-11-23T12:25Z"
    }
   ],
   "next": {
-   "written_utc": "2026-11-23T00:05Z",
+   "written_utc": "2026-11-23T18:02Z",
    "eligible_now": 0,
    "next_due": [
     {
-     "utc": "2026-11-23T12:02Z",
+     "utc": "2026-11-24T03:25Z",
      "what": "monitor"
     },
     {
-     "utc": "2026-11-25T15:00Z",
-     "what": "ACQ-005"
+     "utc": "2026-11-24T05:41Z",
+     "what": "planner cooldown ends"
     },
     {
-     "utc": "2026-11-25T15:00Z",
-     "what": "ACQ-012"
+     "utc": "2026-11-24T05:41Z",
+     "what": "sweep angle draft-review"
     },
     {
-     "utc": "2026-11-25T16:00Z",
-     "what": "SC3"
+     "utc": "2026-11-24T05:43Z",
+     "what": "sweep angle asset-gaps"
     },
     {
-     "utc": "2026-11-29T21:34Z",
-     "what": "SC4"
+     "utc": "2026-11-24T06:28Z",
+     "what": "sweep angle demand-questions"
     },
     {
-     "utc": "2026-11-30T00:05Z",
-     "what": "SC5"
+     "utc": "2026-11-24T17:43Z",
+     "what": "sweep angle search-console"
     }
    ]
-  }
+  },
+  "procedure": "v4.3 (continue by default, build on drafts)",
+  "note_test": "Test copy for the Make chain test, 2026-11-23T18:08Z: planner and angles disabled, open items set to watch, scouts deferred, 5 ready SYS-T tasks. TEST mode works at most 3 tasks per session, so the first session should report next yes and Make should start a second one."
+ },
+ "planner": {
+  "version": 1,
+  "added_utc": "2026-11-23T03:31Z",
+  "why": "Joseph, 22 Nov 2026 20:54 Chicago: redesign around continuous, meaningful execution; when the backlog gets low, generate and prioritize new evidence-based opportunities instead of stopping; no filler; measure qualified traffic, inquiries, referrals and tours, not task counts.",
+  "enabled": false,
+  "low_water": 3,
+  "min_score": 2.0,
+  "budget_note": "Usage reserve, not a task cap: the worker, Joseph's own chats, the drafts routine, the Daily Report and the outreach operator all share one Claude Max allowance (a 5-hour window and a weekly limit that resets Monday 4:00 am Chicago). The worker stops starting sessions once its sessions add up to budget_hours_per_day in the last 24 hours (and budget_hours_per_week in 7 days, when set), then resumes on its own. Starting value 6 hours per 24 hours, to be calibrated against the usage readings. Joseph changes it with one word.",
+  "how_to_use": "When status shows plan.due (fewer than low_water items in the pipeline and at least one lane neither waiting on Joseph nor cooling down), plan for at most two plannable lanes, best measured outcome first (python3 ops/loopctl.py outcomes --days 28: lane_visitors, plus 10 per inquiry and 5 per organization reply attributed to the lane), then by order. Gather the lane's evidence, put every candidate through the gate, add the survivors with source plan, then record the pass with plan-done. Finding nothing is a complete result and puts the lane on cooldown. A lane whose owner_wip reaches its limit takes no new tasks until Joseph or the operator clears items.",
+  "gate": "A candidate becomes a task only if all hold: (1) concrete evidence with its source and date, never a guess; (2) a stated, plausible effect on qualified visitors, inquiries, referrals or tours; (3) not already queued, done, dropped or waiting (dupes and key); (4) its output is a change, a business asset (guide, FAQ, checklist, comparison or research resource that families or Joseph will use), a prepared handoff or a verdict someone can act on, never only an internal note, a rewording or a cosmetic change; (5) the worker can finish it within ROLE AND LIMITS; (6) impact x confidence / effort (each 1-5) of at least min_score.",
+  "lanes": [
+   {
+    "id": "build",
+    "order": 0,
+    "name": "Build business assets on drafts",
+    "why": "Joseph, 23 Nov 2026 10:48 Chicago: standing permission to create and improve guides, FAQs, checklists, comparison and research resources and other assets on drafts without asking each time.",
+    "evidence": "Every evidence source the sweep angles use (public family questions, Search Console, search presence, competitor gaps, measured channel results) plus the guide index on main and drafts.",
+    "output": "One verified asset per task on drafts, built to ROUTINE.md's quality rules and registered in DEMAND.md's Done list (procedure step 7 BUILD).",
+    "outcome": "assets that, once Joseph publishes them, earn search visitors and tour-path clicks",
+    "owner_wip_limit": 10,
+    "plan_cooldown_hours": 12,
+    "open_prs": [],
+    "owner_open": 1,
+    "cooldown_until_utc": "2026-11-24T05:41Z",
+    "last_planned_utc": "2026-11-23T17:41Z",
+    "last_plan_result": "Looked for decision-stage needs with recorded evidence (public family questions, Search Console, search presence 0/18, competitor gaps) not covered on main or drafts; fresh searches on memory-care rules and respite/trial stays found only provider marketing, no family questions or SC queries; ACQ-03…",
+    "wip_note": "owner_open counts worker-built assets on drafts that are not on main yet; at 10 the lane waits for Joseph to publish"
+   },
+   {
+    "id": "publish",
+    "order": 1,
+    "name": "Publish packages for finished drafts",
+    "why": "Finished guides sit on drafts until Joseph ports them to main; a ready pull request turns publishing into one merge.",
+    "evidence": "ops/reviews/ packets with verdict publish-ready; main's own 'Publish guide' commits as the porting pattern.",
+    "output": "One review pull request per asset from a branch of main (claude/publish-<slug>) with the build entry, page, guides index, sitemap and checks.",
+    "outcome": "guides live on the site sooner",
+    "owner_wip_limit": 2,
+    "plan_cooldown_hours": 12,
+    "open_prs": [
+     87,
+     88
+    ],
+    "owner_open": 2,
+    "cooldown_until_utc": "2026-11-24T05:41Z",
+    "last_planned_utc": "2026-11-23T17:41Z",
+    "last_plan_result": "ops/reviews/ is empty: no draft has a publish-ready packet, so no publish package can be prepared yet. Draft-review sweep runs next for the 4 reviewable drafts."
+   },
+   {
+    "id": "demand",
+    "order": 2,
+    "name": "Topics with demonstrated demand for the guide-drafts routine",
+    "why": "DEMAND.md on drafts has listed no open topic since 17 Nov 2026, so the drafts routine has written no guide since then (last: 17 Nov). Evidence-backed topics restart the site's only content engine.",
+    "evidence": "Questions families asked in public about choosing, paying for or moving into senior living or care in Illinois, Evanston or the North Shore (Q&A sites, forums, community boards, library and senior-center FAQs, news comment sections): record only the evidence type, the kind of venue and the date, never names or links to anyone's post. Search Console queries with impressions for this site when the operator's record or a connector provides them. Check each topic against existing guides (slugs and h1 in build-guides.py on drafts and main) and DEMAND.md.",
+    "output": "Up to three evidence-backed topics committed directly to DEMAND.md's Open list on drafts (nonproduction), never more than three open at once; the 6 AM drafts routine writes them as drafts and Joseph reviews and publishes every guide. Joseph's decision, 22 Nov 2026 22:26 Chicago: \"Allow automatic evidence-backed demand-topic discovery and queueing in a nonproduction branch or planning file.\"",
+    "outcome": "drafts written, guides Joseph publishes, then search impressions, clicks and search visitors",
+    "owner_wip_limit": 1,
+    "plan_cooldown_hours": 24,
+    "open_prs": [],
+    "owner_open": 0,
+    "cooldown_until_utc": "2026-11-24T06:28Z",
+    "last_planned_utc": "2026-11-23T06:28Z",
+    "last_plan_result": "2026-11-23 second pass: the two qualifying topics from this session's first pass are now in DEMAND.md Open (8888a72, 5fb913b); remaining candidates from the same evidence search were covered by existing guides (levels-of-senior-care-explained, assisted-living-cost-illinois). No new Search Console q…"
+   },
+   {
+    "id": "search",
+    "order": 3,
+    "name": "Search visibility of pages that already exist",
+    "evidence": "A crawl of the live sitemap: each page's status, title, meta description, canonical, h1, structured data, internal links to /assisted-living-evanston/ and the tour path, presence in sitemap.xml; the SC2 results-page checks; Search Console rows.",
+    "output": "A small tested review pull request to main fixing a verified gap on a page with search demand (one pull request may bundle several fixes of one kind), or an owner line for a Search Console action.",
+    "outcome": "impressions, clicks, search visitors",
+    "owner_wip_limit": 3,
+    "plan_cooldown_hours": 48,
+    "open_prs": [
+     81,
+     85
+    ],
+    "owner_open": 2,
+    "cooldown_until_utc": "2026-11-25T06:26Z",
+    "last_planned_utc": "2026-11-23T06:26Z",
+    "last_plan_result": "Crawled live sitemap 2026-11-23 (36 URLs): all 200, canonical correct, one h1, JSON-LD on all but privacy. Gaps found are already tracked: guide titles 72-99 chars (ACQ-005), guide links to /assisted-living-evanston/ (PR #85, ACQ-017), homepage local intent (PR #81, ACQ-012). Guides hub not linking…"
+   },
+   {
+    "id": "technical",
+    "order": 4,
+    "name": "Site health",
+    "evidence": "A crawl of every live page and asset: status codes, broken internal and outbound links, redirect chains, robots.txt and sitemap consistency, page weight; the repository's own checks (check-guides.js, check-mobile-nav.py, browser tests) run on a clone of main.",
+    "output": "A review pull request only for a real defect on a page genuine visitors reach. A clean crawl is a complete result.",
+    "outcome": "pages that load, get crawled and keep visitors",
+    "owner_wip_limit": 2,
+    "plan_cooldown_hours": 72,
+    "open_prs": [],
+    "owner_open": 0,
+    "cooldown_until_utc": "2026-11-26T06:28Z",
+    "last_planned_utc": "2026-11-23T06:28Z",
+    "last_plan_result": "2026-11-23: main clone checks pass (check-guides.js 2696/2696, test.js 768/768, checklist PDF test 0 failed; check-mobile-nav skipped, no websockets). Live crawl 36 sitemap URLs all 200, robots/sitemap consistent, 170 unique links: all 200 except Google Fonts preconnect roots (expected) and 15 ilga…"
+   },
+   {
+    "id": "conversion",
+    "order": 5,
+    "name": "Conversion and tracking",
+    "evidence": "Genuine visitors measured at each step (cloud.json metrics and scoreboard). A conversion change waits for 30 genuine visitors at that step; tracking fixes are the exception.",
+    "output": "A review pull request for tracking or for a measured step; never the tour form's fields, its consent text, the privacy notice or how Westminster Place is presented.",
+    "outcome": "tour-form views and tour requests",
+    "owner_wip_limit": 3,
+    "plan_cooldown_hours": 72,
+    "open_prs": [
+     86,
+     84,
+     80,
+     79,
+     78
+    ],
+    "owner_open": 5,
+    "cooldown_until_utc": "",
+    "last_planned_utc": "",
+    "last_plan_result": ""
+   },
+   {
+    "id": "distribution",
+    "order": 6,
+    "name": "Channels that reach families",
+    "evidence": "opportunity_map items in the distribution lane, scouts SC1 to SC6 and channel_yield (D1 local posts: 8 shipped, 4 to 5 genuine visitors as of 22 Nov, the only channel with measured visitors).",
+    "output": "Post texts prepared for the outreach operator within its posting cap; owner lines for steps only Joseph can take.",
+    "outcome": "genuine visitors by ref tag",
+    "owner_wip_limit": 3,
+    "plan_cooldown_hours": 48,
+    "open_prs": [],
+    "owner_open": 0,
+    "cooldown_until_utc": "2026-11-25T06:28Z",
+    "last_planned_utc": "2026-11-23T06:28Z",
+    "last_plan_result": "2026-11-23: all distribution map items already have verdicts (D1 active within posting cap; P-1122-01 post text already ready for operator; D2/D11/D14 watch; D6-D8 owner; D13 ready for operator; rest dropped). No new venue with evidence; no new task."
+   },
+   {
+    "id": "partnerships",
+    "order": 7,
+    "name": "Local referral partners",
+    "evidence": "opportunity_map items in referral_partnerships with verdict ACT; channel_yield (11 referral emails and 0 replies as of 22 Nov; class R1 closed).",
+    "output": "One Gmail draft per ACT target for the outreach operator (step 8c limits apply).",
+    "outcome": "organization replies, placements live, referral visitors",
+    "owner_wip_limit": 3,
+    "plan_cooldown_hours": 72,
+    "open_prs": [],
+    "owner_open": 1,
+    "cooldown_until_utc": "2026-11-26T06:28Z",
+    "last_planned_utc": "2026-11-23T06:28Z",
+    "last_plan_result": "2026-11-23: no referral_partnerships map item has verdict ACT (R1 waiting, R8 waiting, the rest dropped); R1 class closed to new emails; one email draft already ready for the operator. Nothing to prepare."
+   }
+  ],
+  "outcomes": [
+   {
+    "to": "2026-11-23",
+    "days": 7,
+    "days_with_rows": 2,
+    "qualified_visitors": 5,
+    "by_source": {
+     "facebook": 5,
+     "referral": 0,
+     "search": 0,
+     "other": 0
+    },
+    "inquiries": 0,
+    "tour_form_views": 0,
+    "org_replies_total": 0,
+    "placements_live_total": 0,
+    "tours_confirmed": "unverified",
+    "recorded_utc": "2026-11-23T15:25Z"
+   }
+  ],
+  "log": [
+   "2026-11-23T17:41Z publish +0: ops/reviews/ is empty: no draft has a publish-ready packet, so no publish package can be prepared yet. Draft-review sweep runs next for the 4 reviewable drafts.",
+   "2026-11-23T17:41Z build +0: Looked for decision-stage needs with recorded evidence (public family questions, Search Console, search presence 0/18, competitor gaps) not covered on main or …",
+   "2026-11-23T06:28Z demand +0: 2026-11-23 second pass: the two qualifying topics from this session's first pass are now in DEMAND.md Open (8888a72, 5fb913b); remaining candidates from the sa…",
+   "2026-11-23T06:28Z partnerships +0: 2026-11-23: no referral_partnerships map item has verdict ACT (R1 waiting, R8 waiting, the rest dropped); R1 class closed to new emails; one email draft alread…",
+   "2026-11-23T06:28Z distribution +0: 2026-11-23: all distribution map items already have verdicts (D1 active within posting cap; P-1122-01 post text already ready for operator; D2/D11/D14 watch; D…",
+   "2026-11-23T06:28Z technical +0: 2026-11-23: main clone checks pass (check-guides.js 2696/2696, test.js 768/768, checklist PDF test 0 failed; check-mobile-nav skipped, no websockets). Live cra…",
+   "2026-11-23T06:26Z search +0: Crawled live sitemap 2026-11-23 (36 URLs): all 200, canonical correct, one h1, JSON-LD on all but privacy. Gaps found are already tracked: guide titles 72-99 c…",
+   "2026-11-23T06:26Z demand +2: Searched public caregiver Q&A forums and legal Q&A (2026-11-23) for decision-stage Illinois questions; checked 49 slugs/h1 on main+drafts. Passed: assisted-liv…"
+  ],
+  "budget_hours_per_day": 6,
+  "budget_hours_per_week": null,
+  "angles": [
+   {
+    "id": "asset-gaps",
+    "lane": "build",
+    "priority": 1,
+    "recheck_hours": 12,
+    "enabled": false,
+    "question": "Which decision-stage need of Evanston and North Shore families has the strongest evidence and no guide, FAQ, checklist or comparison resource on main or drafts?",
+    "evidence": "Public family questions, Search Console queries, search presence and competitor gaps already recorded in the sweep log, plus fresh searches; the guide index on main and drafts; DEMAND.md open and done.",
+    "output": "Up to three BUILD tasks (lane build), each one asset with its evidence, never a topic in DEMAND.md's Open list. Deliverable of each task: guide, faq, checklist, resource or research_report on drafts.",
+    "why": "Joseph wants assets built, not only opportunities reported.",
+    "last_checked_utc": "2026-11-23T17:43Z",
+    "next_check_utc": "2026-11-24T05:43Z",
+    "last_result": "Same pass as plan:build at 17:41Z: no decision-stage need with recorded family-question, Search Console or competitor evidence remains uncovered; ACQ-038 built the evidenced discharge-appeal topic; fresh searches (memory-care rules, respite/trial stays) returned only provider marketing.",
+    "last_added": 0
+   },
+   {
+    "id": "publish-ready",
+    "lane": "publish",
+    "priority": 1,
+    "recheck_hours": 12,
+    "enabled": false,
+    "question": "Which assets on drafts have a review packet with the verdict publish-ready and no open publish pull request?",
+    "evidence": "ops/reviews/ packets; open pull requests; the asset on drafts and its absence from main.",
+    "output": "One publish-package task per asset (at most two open publish pull requests).",
+    "why": "Publishing is the step that turns drafts into visitors.",
+    "last_checked_utc": "",
+    "next_check_utc": "",
+    "last_result": ""
+   },
+   {
+    "id": "draft-review",
+    "lane": "demand",
+    "priority": 1,
+    "recheck_hours": 12,
+    "enabled": false,
+    "question": "Which guide drafts on the drafts branch are not yet on main and have no review packet in ops/reviews/?",
+    "evidence": "git diff of main...drafts for new guide slugs; each draft's own cited sources, fetched and read now.",
+    "output": "One review packet per draft at ops/reviews/<slug>.md on ops/operator-state: every factual claim checked against the source it cites (holds / does not hold / source unreachable, quoting the source's own short wording), the rule checks (independent-guide disclosure, no community ranking, no Westminster Place prices, no unverified medical, legal, financial or benefits claim) and a verdict: publish-ready, or the exact fixes. One owner_review_needed line per draft with the verdict and the minutes it takes to publish. Deliverable type review_packet.",
+    "why": "A draft only helps families once Joseph publishes it; a verified packet turns that into a few-minute decision.",
+    "last_checked_utc": "2026-11-23T17:41Z",
+    "next_check_utc": "2026-11-24T05:41Z",
+    "last_result": "4 drafts on drafts not on main and with no packet: illinois-assisted-living-involuntary-move-out, illinois-nursing-home-responsible-party, illinois-money-management-program, va-home-based-primary-care-and-aide; all 4 queued (ACQ-039..042). medicare-fast-appeal-hospital-rehab-discharge excluded: bui…",
+    "last_added": 4
+   },
+   {
+    "id": "demand-questions",
+    "lane": "demand",
+    "priority": 1,
+    "recheck_hours": 24,
+    "enabled": false,
+    "question": "Which decision-stage questions are Illinois and North Shore families asking in public that no guide and no DEMAND.md entry answers?",
+    "evidence": "The demand lane's evidence: public Q&A sites, forums, community boards and news comment sections (type, venue kind and date only); Search Console queries when available.",
+    "output": "Topics committed to DEMAND.md's Open list on drafts, at most three open at once (step 7). Deliverable type demand_topic.",
+    "why": "Each topic becomes a guide draft at 6 AM the next morning.",
+    "last_checked_utc": "2026-11-23T06:28Z",
+    "next_check_utc": "2026-11-24T06:28Z",
+    "last_result": "Covered by the demand planning passes of 06:26Z and 06:28Z: 2 topics added (drafted as guides at 6:18 AM), remaining candidates from the same sources did not pass."
+   },
+   {
+    "id": "channel-yield",
+    "lane": "distribution",
+    "priority": 2,
+    "recheck_hours": 48,
+    "enabled": false,
+    "question": "Which channel or venue produced genuine visitors, tour-form views or inquiries in the last 7 days, and what is the next authorized step there?",
+    "evidence": "cloud.json metrics (per_tag) and scoreboard; state.json actions (the operator's posting plan and cap); opportunity_map channel_yield.",
+    "output": "The final post text for the operator's next slot in that channel (step 8b), a similar venue added to the map with its own evidence, or the verdict that the channel is at its cap. Deliverable type post_text or map_item.",
+    "why": "Local posts are the only channel with measured visitors so far.",
+    "last_checked_utc": "2026-11-23T17:43Z",
+    "next_check_utc": "2026-11-25T17:43Z",
+    "last_result": "Last 7 days: only fb-rp-1122 (Rogers Park group post, 23 Nov) produced genuine visitors (5 facebook, partial day; tour-form views unreadable that day); fb-wil-1118, fb-evsk-1117, em-1118j produced 0. No pending facebook_post in state.json actions and growth.json already shipped P-1122-01's text; th…",
+    "last_added": 0
+   },
+   {
+    "id": "search-console",
+    "lane": "search",
+    "priority": 2,
+    "recheck_hours": 24,
+    "enabled": false,
+    "question": "Is there a Search Console read newer than the last one used? If so, which queries have impressions but no matching page, or a matching page with low click-through?",
+    "evidence": "The operator's Search Console record in state.json and scoreboard.search_console.",
+    "output": "Demand topics for queries with no page; a title or description fix task for a low click-through page (search lane capacity permitting). No new read is a one-line result.",
+    "why": "Real queries are the strongest demand evidence the site can get.",
+    "last_checked_utc": "2026-11-23T17:43Z",
+    "next_check_utc": "2026-11-24T17:43Z",
+    "last_result": "Newest Search Console read in state.json is 2026-11-18T16:33Z (16 Nov: 38 impressions, 0 clicks, avg pos 47.4), already the newest scoreboard row; no newer read, no query list to act on. Next read is the operator's weekly export.",
+    "last_added": 0
+   },
+   {
+    "id": "search-presence",
+    "lane": "search",
+    "priority": 2,
+    "recheck_hours": 72,
+    "enabled": false,
+    "question": "For the tracked decision-stage searches in opportunity_map/discovery/search_presence, where does the guide appear now, and which page should rank for each?",
+    "evidence": "Live web search results for each tracked search, recorded with the date.",
+    "output": "Updated search_presence; for a search where a fitting page exists but does not appear, one concrete on-page or internal-link task; for a search with no fitting page, a demand topic.",
+    "why": "Search is how families at the decision stage find local help.",
+    "last_checked_utc": "2026-11-23T17:43Z",
+    "next_check_utc": "2026-11-25T21:43Z",
+    "last_result": "Not repeated: discovery/search_presence was checked 2026-11-22T21:30Z (18 tracked searches, guide appears for 0 in the research index), inside this angle's 72h recheck window; Google positions come from Search Console, whose newest read is 18 Nov.",
+    "last_added": 0
+   },
+   {
+    "id": "competitor-gaps",
+    "lane": "search",
+    "priority": 3,
+    "recheck_hours": 168,
+    "enabled": false,
+    "question": "For /assisted-living-evanston/ and the guides with the most genuine visitors, what do the top three ranking pages answer that ours does not?",
+    "evidence": "The ranking pages themselves, read in full; our pages on main.",
+    "output": "Specific missing answers as one PR task per page, or demand topics; never copying anyone's text.",
+    "why": "Closing real answer gaps is what lets a page outrank directories.",
+    "last_checked_utc": "2026-11-23T17:44Z",
+    "next_check_utc": "2026-11-30T17:44Z",
+    "last_result": "Search 'assisted living Evanston IL' 2026-11-23: top results are directories (seniorliving.org, caring.com, aplaceformom, seniorly). Read their structure vs our /assisted-living-evanston/ (what AL helps with, finding/checking communities, cost, tour questions, other care types, sources). What they …",
+    "last_added": 0
+   },
+   {
+    "id": "freshness",
+    "lane": "technical",
+    "priority": 3,
+    "recheck_hours": 168,
+    "enabled": false,
+    "question": "Which published guides state rates, income or asset limits, deadlines or program rules that their official source has since changed (for example 2027 figures)?",
+    "evidence": "The official source each guide cites (HFS, SSA, CMS, IDoA, IDPH and the like), fetched now.",
+    "output": "A correction PR citing the official source for each changed figure, or the verdict 'current' per guide checked. Deliverable type pr or verdict.",
+    "why": "A wrong figure on a published guide misleads families and costs trust.",
+    "last_checked_utc": "2026-11-23T17:43Z",
+    "next_check_utc": "2026-11-30T17:43Z",
+    "last_result": "Fetched medicare.gov costs and SNF pages: 2027 figures published (Part A deductible 1,776; SNF 222/day; Part B deductible 292; premium 209.40). Live guides state 2026 figures labelled as 2026: current until 31 Dec. Queued ACQ-043 (refresh PR, due 8 Dec). HFS/VA/SSA figures not rechecked this pass (…",
+    "last_added": 1
+   },
+   {
+    "id": "site-health",
+    "lane": "technical",
+    "priority": 4,
+    "recheck_hours": 72,
+    "enabled": false,
+    "question": "Does every live page and asset load, link correctly and pass the repository's own checks?",
+    "evidence": "A crawl of the live sitemap; check-guides.js, test.js and the checklist PDF test on a clone of main.",
+    "output": "A review PR for a real defect on a page visitors reach, or a clean verdict.",
+    "why": "Broken pages lose visitors and rankings.",
+    "last_checked_utc": "2026-11-23T06:28Z",
+    "next_check_utc": "2026-11-26T06:28Z",
+    "last_result": "Covered by the technical and search planning passes of 06:26Z and 06:28Z: 36 live URLs load, checks pass."
+   }
+  ],
+  "sweep_log": [
+   "2026-11-23T17:44Z competitor-gaps +0: Search 'assisted living Evanston IL' 2026-11-23: top results are directories (seniorliving.org, caring.com, aplaceformom, seniorly). Read their structure vs ou…",
+   "2026-11-23T17:43Z search-presence +0: Not repeated: discovery/search_presence was checked 2026-11-22T21:30Z (18 tracked searches, guide appears for 0 in the research index), inside this angle's 72h…",
+   "2026-11-23T17:43Z channel-yield +0: Last 7 days: only fb-rp-1122 (Rogers Park group post, 23 Nov) produced genuine visitors (5 facebook, partial day; tour-form views unreadable that day); fb-wil-…",
+   "2026-11-23T17:43Z search-console +0: Newest Search Console read in state.json is 2026-11-18T16:33Z (16 Nov: 38 impressions, 0 clicks, avg pos 47.4), already the newest scoreboard row; no newer rea…",
+   "2026-11-23T17:43Z asset-gaps +0: Same pass as plan:build at 17:41Z: no decision-stage need with recorded family-question, Search Console or competitor evidence remains uncovered; ACQ-038 built…",
+   "2026-11-23T17:43Z freshness +1: Fetched medicare.gov costs and SNF pages: 2027 figures published (Part A deductible 1,776; SNF 222/day; Part B deductible 292; premium 209.40). Live guides sta…",
+   "2026-11-23T17:41Z draft-review +4: 4 drafts on drafts not on main and with no packet: illinois-assisted-living-involuntary-move-out, illinois-nursing-home-responsible-party, illinois-money-manag…"
+  ],
+  "continue_by_default": "Joseph, 23 Nov 2026 10:36 Chicago: change from STOP-BY-DEFAULT to CONTINUE-BY-DEFAULT. After the ready tasks, a session plans and sweeps these angles before it may stop; it stops only for time, no-worthwhile-work, approval-pending, usage-reserve, usage-limit, permission or store-error, recording the alternatives considered and the condition to resume."
  }
 }
