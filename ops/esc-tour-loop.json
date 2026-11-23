@@ -2161,7 +2161,7 @@
    "holder": "cse_014eaiSbQh9aYSa5vTbwv5wK",
    "utc": "2026-11-23T17:43Z",
    "since_utc": "2026-11-23T17:36Z",
-   "productive_min": 7,
+   "productive_min": 9,
    "deliverables": [
     "guide:drafts 9e9427e"
    ]
@@ -2443,9 +2443,10 @@
     "evidence": "Public family questions, Search Console queries, search presence and competitor gaps already recorded in the sweep log, plus fresh searches; the guide index on main and drafts; DEMAND.md open and done.",
     "output": "Up to three BUILD tasks (lane build), each one asset with its evidence, never a topic in DEMAND.md's Open list. Deliverable of each task: guide, faq, checklist, resource or research_report on drafts.",
     "why": "Joseph wants assets built, not only opportunities reported.",
-    "last_checked_utc": "",
-    "next_check_utc": "",
-    "last_result": ""
+    "last_checked_utc": "2026-11-23T17:43Z",
+    "next_check_utc": "2026-11-24T05:43Z",
+    "last_result": "Same pass as plan:build at 17:41Z: no decision-stage need with recorded family-question, Search Console or competitor evidence remains uncovered; ACQ-038 built the evidenced discharge-appeal topic; fresh searches (memory-care rules, respite/trial stays) returned only provider marketing.",
+    "last_added": 0
    },
    {
     "id": "publish-ready",
@@ -2500,9 +2501,10 @@
     "evidence": "cloud.json metrics (per_tag) and scoreboard; state.json actions (the operator's posting plan and cap); opportunity_map channel_yield.",
     "output": "The final post text for the operator's next slot in that channel (step 8b), a similar venue added to the map with its own evidence, or the verdict that the channel is at its cap. Deliverable type post_text or map_item.",
     "why": "Local posts are the only channel with measured visitors so far.",
-    "last_checked_utc": "",
-    "next_check_utc": "",
-    "last_result": ""
+    "last_checked_utc": "2026-11-23T17:43Z",
+    "next_check_utc": "2026-11-25T17:43Z",
+    "last_result": "Last 7 days: only fb-rp-1122 (Rogers Park group post, 23 Nov) produced genuine visitors (5 facebook, partial day; tour-form views unreadable that day); fb-wil-1118, fb-evsk-1117, em-1118j produced 0. No pending facebook_post in state.json actions and growth.json already shipped P-1122-01's text; th…",
+    "last_added": 0
    },
    {
     "id": "search-console",
@@ -2514,9 +2516,10 @@
     "evidence": "The operator's Search Console record in state.json and scoreboard.search_console.",
     "output": "Demand topics for queries with no page; a title or description fix task for a low click-through page (search lane capacity permitting). No new read is a one-line result.",
     "why": "Real queries are the strongest demand evidence the site can get.",
-    "last_checked_utc": "",
-    "next_check_utc": "",
-    "last_result": ""
+    "last_checked_utc": "2026-11-23T17:43Z",
+    "next_check_utc": "2026-11-24T17:43Z",
+    "last_result": "Newest Search Console read in state.json is 2026-11-18T16:33Z (16 Nov: 38 impressions, 0 clicks, avg pos 47.4), already the newest scoreboard row; no newer read, no query list to act on. Next read is the operator's weekly export.",
+    "last_added": 0
    },
    {
     "id": "search-presence",
@@ -2577,6 +2580,9 @@
    }
   ],
   "sweep_log": [
+   "2026-11-23T17:43Z channel-yield +0: Last 7 days: only fb-rp-1122 (Rogers Park group post, 23 Nov) produced genuine visitors (5 facebook, partial day; tour-form views unreadable that day); fb-wil-…",
+   "2026-11-23T17:43Z search-console +0: Newest Search Console read in state.json is 2026-11-18T16:33Z (16 Nov: 38 impressions, 0 clicks, avg pos 47.4), already the newest scoreboard row; no newer rea…",
+   "2026-11-23T17:43Z asset-gaps +0: Same pass as plan:build at 17:41Z: no decision-stage need with recorded family-question, Search Console or competitor evidence remains uncovered; ACQ-038 built…",
    "2026-11-23T17:43Z freshness +1: Fetched medicare.gov costs and SNF pages: 2027 figures published (Part A deductible 1,776; SNF 222/day; Part B deductible 292; premium 209.40). Live guides sta…",
    "2026-11-23T17:41Z draft-review +4: 4 drafts on drafts not on main and with no packet: illinois-assisted-living-involuntary-move-out, illinois-nursing-home-responsible-party, illinois-money-manag…"
   ],
