@@ -417,6 +417,15 @@ SRC = {
                          'https://hfs.illinois.gov/medicalprograms/slf/residentfactsheet.html'),
     "idph_dementia_2025": ('Illinois Department of Public Health — Dementia Annual Report: Dementia Capability in Illinois 2025',
                            'https://dph.illinois.gov/content/dam/soi/en/web/idph/publications/idph/topics-and-services/diseases-and-conditions/alzheimers/dementia-capability-report-2025.pdf'),
+    "idph_al_itr_form": ('Illinois Department of Public Health — Assisted Living and '
+                         'Shared Housing Involuntary Termination of Residency, Appeal '
+                         'and Facility Representative Disclosure forms',
+                         'https://dph.illinois.gov/content/dam/soi/en/web/idph/files/'
+                         'forms/itrformwithhearingrequestrevised20200221.pdf'),
+    "idoa_ltc_rights_page": ('Illinois Department on Aging — Residents’ Rights in '
+                             'Long-Term Care Facilities',
+                             'https://ilaging.illinois.gov/programs/ltcombudsman/'
+                             'residents-rights-in-long-term-care-facilities1.html'),
     "cms_qso2514_nh": ('CMS — QSO-25-14-NH, Revised Long-Term Care Surveyor Guidance '
                        '(Admission Agreements, §483.15(a)(3))',
                        'https://www.cms.gov/files/document/qso-25-14-nh.pdf'),
@@ -5067,6 +5076,130 @@ GUIDES = [
     },
 
     {
+        "slug": "illinois-assisted-living-involuntary-move-out",
+        "bridge": ("Knowing the notice and appeal process is a different question "
+               "from knowing whether your parent actually needs a higher level of "
+               "care than this community can give."),
+        "reviewed": "2026-11-23",
+        "title": "Can an Illinois Assisted Living Make Your Parent Move Out?",
+        "h1": "Can an Illinois assisted living make your parent move out, and how much notice must it give?",
+        "desc": ("IDPH's form requires 30 days' written notice and a right to "
+                 "appeal before an Illinois assisted living can end a stay. The "
+                 "process, from the state's paperwork."),
+        "intent": "worry / resident rights",
+        "answer": ("<strong>Only through a formal process &mdash; not simply by "
+                   "being asked to leave.</strong> The Illinois Department of "
+                   "Public Health's own Involuntary Termination of Residency form "
+                   "states that a <strong>30-day prior written notice</strong> "
+                   "must go to the resident, the resident&rsquo;s representative, "
+                   "or both, and to the long-term care ombudsman, and that a "
+                   "resident &ldquo;has the right to continue to reside in the "
+                   "establishment until a decision is rendered.&rdquo; The Illinois "
+                   "Department on Aging&rsquo;s residents&rsquo; rights brochure, "
+                   "which it says is &ldquo;appropriate for nursing homes and "
+                   "assisted living&rdquo;, lists four reasons a facility can make "
+                   "a resident leave &mdash; see below."),
+        "sources": srcs("idph_al_itr_form", "idoa_ltc_rights_page", "idoa_resident_rights_brochure", "idph_al_div", "idoa_ombudsman", "idoa_ombudsman_contact"),
+        "body": [
+            ("What IDPH's own form requires before a move-out", [
+                "<p>When a family searches for whether an Illinois assisted "
+                "living or shared housing establishment can make a resident "
+                "leave, the most direct answer is the state's own paperwork for "
+                "it. The Illinois Department of Public Health (IDPH) publishes "
+                "an <em>Assisted Living and Shared Housing Involuntary "
+                "Termination of Residency</em> form, and the form itself states "
+                "the rule in one sentence: &ldquo;A 30-day prior written notice "
+                "must be provided to the resident, resident&rsquo;s "
+                "representative, or both, and to the long-term care "
+                "ombudsman.&rdquo; The same form adds: &ldquo;The establishment "
+                "must notify the Illinois Department of Public Health when it "
+                "initiates the termination process.&rdquo; So a termination is "
+                "not a private matter between the resident "
+                "and the establishment; the state is notified too.</p>",
+                "<p>The form itself has a line the establishment must fill in, "
+                "labelled &ldquo;Reason for Residency Termination&rdquo;. "
+                "The Department on Aging&rsquo;s residents&rsquo; rights brochure "
+                "adds that the written notice must include why the resident is "
+                "being asked to move.</p>",
+            ]),
+            ("The right to appeal, and what happens while you wait", [
+                "<p>The same IDPH form sets out exactly how a resident "
+                "contests a termination: by calling IDPH's Division of "
+                "Assisted Living at <strong>217-782-2448</strong>, or by "
+                "sending a signed Appeal Hearing Request form to IDPH. The "
+                "accompanying "
+                "Hearing Request form gives the deadline in capital letters: "
+                "&ldquo;Please submit completed forms within 10 DAYS after "
+                "receiving the Involuntary Termination of Residency form from "
+                "the facility.&rdquo;</p>",
+                "<p>Filing on time matters, because of what the form says "
+                "happens next: &ldquo;The resident has the right to continue to "
+                "reside in the establishment until a decision is rendered.&rdquo; "
+                "The Hearing Request form can be mailed or faxed to "
+                "217-557-2432, to the Illinois Department of Public Health, "
+                "Division of Assisted Living, 525 West Jefferson Street, 5th "
+                "Floor, Springfield, Illinois 62761. The termination form also "
+                "has a line naming the person at the establishment who will "
+                "assist with relocation.</p>",
+            ]),
+            ("What reasons can be given", [
+                "<p>The question families actually ask is broader than notice "
+                "periods: can an establishment end a stay because a parent's "
+                "care needs have grown? The Illinois Department on Aging's "
+                "brochure <em>Residents&rsquo; Rights for People in Long-Term "
+                "Care Facilities</em>, which the Department's residents' rights "
+                "page describes as &ldquo;appropriate for nursing homes and "
+                "assisted living&rdquo;, says a facility can make a resident "
+                "leave because the bill has not been paid, the resident is "
+                "dangerous to themselves or others, their medical needs cannot "
+                "be met, or the facility closes.</p>",
+                "<p>The full assisted living rules are in Part 295 of the "
+                "Illinois Administrative Code, which IDPH's Assisted Living "
+                "page links to as &ldquo;Assisted Living and Shared Housing - "
+                "295 Administrative Code&rdquo;.</p>",
+                "<p>Practically, that means: ask the establishment to point to "
+                "the specific reason it wrote on your parent's notice, and call "
+                "IDPH's Division of Assisted Living (217-782-2448) or the "
+                "Long-Term Care Ombudsman Program to ask whether that reason "
+                "matches a recognised ground for termination before deciding "
+                "whether to appeal.</p>",
+            ]),
+            ("Your parent's broader rights as a resident", [
+                "<p>The Illinois Department on Aging's page on residents' "
+                "rights in long-term care facilities states that care facility "
+                "residents keep certain rights, protections and privileges "
+                "under both Illinois and federal law. The Long-Term Care "
+                "Ombudsman Program &mdash; which "
+                "the involuntary termination notice must also be sent to "
+                "&mdash; is reached by calling the Department on Aging&rsquo;s "
+                "<strong>Senior HelpLine at 1-800-252-8966 (711 TRS)</strong>, "
+                "and the Department lists involuntary transfers or discharges "
+                "among the reasons to contact an ombudsman.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>This page covers assisted living and shared housing "
+                "establishments specifically, which IDPH&rsquo;s Division of "
+                "Assisted Living licenses, and whose notice and appeal forms are "
+                "the ones described above. For the wider set of residents&rsquo; "
+                "rights Illinois publishes for nursing homes and other care "
+                "facilities, see "
+                '<a href="/guides/illinois-nursing-home-resident-rights/">What '
+                "rights does your parent have in an Illinois nursing home or "
+                "care facility?</a> To report a live concern rather than "
+                "appeal a termination notice, see "
+                '<a href="/guides/illinois-care-facility-complaint/">How to '
+                "report a problem at an Illinois care facility</a>.</p>",
+                "<p>If a termination notice cites care needs your parent's "
+                "current setting cannot meet, the "
+                '<a href="/">free six-question assessment</a> on this site can '
+                "help you think through what level of care fits now. It asks "
+                "for no name, no email and no phone number, and your answers "
+                "never leave your device.</p>",
+            ]),
+        ],
+    },
+
+    {
         "slug": "illinois-nursing-home-responsible-party",
         "bridge": ("Signing paperwork at admission is a different moment from "
                "knowing whether a nursing home is even the right level of care "
@@ -5434,7 +5567,7 @@ RELATED = {
         "illinois-medicaid-look-back-period"],
     "check-illinois-inspection-records": [
         "illinois-care-facility-complaint",
-        "levels-of-senior-care-explained",
+        "illinois-assisted-living-involuntary-move-out",
         "illinois-nursing-home-resident-rights"],
     "levels-of-senior-care-explained": [
         "independent-living-evanston",
@@ -5482,7 +5615,7 @@ RELATED = {
         "illinois-medicare-savings-program"],
     "illinois-nursing-home-resident-rights": [
         "illinois-care-facility-complaint",
-        "check-illinois-inspection-records",
+        "illinois-assisted-living-involuntary-move-out",
         "illinois-advance-directive-power-of-attorney"],
     "illinois-nursing-home-preadmission-screening": [
         "levels-of-senior-care-explained",
@@ -5548,6 +5681,10 @@ RELATED = {
         "illinois-medicare-savings-program",
         "illinois-senior-health-insurance-program",
         "illinois-medicaid-long-term-care"],
+    "illinois-assisted-living-involuntary-move-out": [
+        "illinois-nursing-home-resident-rights",
+        "illinois-care-facility-complaint",
+        "levels-of-senior-care-explained"],
     "illinois-nursing-home-responsible-party": [
         "illinois-nursing-home-resident-rights",
         "illinois-advance-directive-power-of-attorney",
@@ -5954,6 +6091,12 @@ CARDS = {
         'Medicare',
         'What replaced MMAI for parents with Medicare and Medicaid?',
         'Illinois ended MMAI on 31 December 2025. What a FIDE SNP is, who can join one, and when a dually eligible parent can switch plans.'),
+    "illinois-assisted-living-involuntary-move-out": (
+        "Checking a community",
+        "Can an assisted living make your parent move out?",
+        "IDPH's own form requires 30 days' written notice and a right to "
+        "appeal before a stay can be ended — the process, read off the "
+        "state's own paperwork."),
     "illinois-nursing-home-responsible-party": (
         "Legal and planning",
         "Should you sign as a nursing home's “responsible party”?",
