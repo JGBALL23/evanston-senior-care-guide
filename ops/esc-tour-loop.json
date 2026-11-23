@@ -97,6 +97,20 @@
    "executor": "this loop (proposal); Joseph (decision to build)",
    "done_when": "If /assisted-living-evanston/ shows >=1 impression for a local query by its ~14-day mark, hand Joseph one yes/no proposal with the autocomplete evidence; if 0 impressions, record that indexing/authority is the bottleneck and keep S3 at watch.",
    "not_before_utc": "2026-12-06T15:00Z"
+  },
+  {
+   "id": "SYS-001",
+   "priority": 1,
+   "status": "waiting_on_data",
+   "not_before_utc": "2026-11-23T03:15Z",
+   "waiting_for": "Only the clock. From 2026-11-23T03:15Z this task needs no other data or event: set it to ready and work it in the same session.",
+   "workstream": "system_test",
+   "task": "Make independence test, with a live check of the tour-request path. Joseph set this up on 22 Nov 2026 at 20:04 Chicago and then left his chat alone, so only Make's scheduled timer can start the session that works it. Read only. (1) Record your session id (echo \"$CLAUDE_CODE_REMOTE_SESSION_ID\"), your start time (date -u +%Y-%m-%dT%H:%M:%SZ, first thing in the session) and the routine-fire-payload text exactly as you received it. (2) Fetch https://evanstonseniorcareguide.com/ and https://evanstonseniorcareguide.com/app.js once each with curl -sS -o FILE -w '%{http_code} %{size_download}' URL. For each, record the HTTP status, the byte size and the sha256 of the body (sha256sum FILE). Count with python3 (open(FILE).read().count(...)) how many times the home page contains tour=form#plan-visit (its links to the tour request form) and how many times app.js contains plan-visit (the code that shows the form). (3) Finish the task with a result that gives session_id, session_start_utc, launch_text and those values for both files. Do not alert, draft, post or change anything else for this task.",
+   "evidence": "Joseph, 22 Nov 2026, 20:04 Chicago, asked for proof that the system works without him talking to Claude: \"Make.com must independently detect that the task is due, launch the Claude Code worker, and record the completed result.\" This task was added while no session was running and becomes due only at 2026-11-23T03:15Z, after his chat went quiet.",
+   "expected_tour_acquisition_value": "Confirms that the tour-request path (the step where a family asks for a tour) is live, and that the Make-started loop runs on its own, which every other task depends on.",
+   "executor": "worker (read only)",
+   "done_when": "Result gives session_id, session_start_utc and launch_text exactly as observed, and for both files the HTTP status, byte size, sha256 and the count asked for.",
+   "found_utc": "2026-11-23T02:10Z"
   }
  ],
  "completed": [
