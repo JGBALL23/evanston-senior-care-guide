@@ -10,9 +10,15 @@ Read commands
   show ID                           one queue task, completed task, map item or scout
   dupes                             one line per known task and map item, for duplicate checks
   validate                          parse and sanity-check the state files
+  plan                              planner view: pipeline, lanes (owner WIP, cooldown), whether planning is due
+  outcomes [--days N] [--record]    qualified visitors, inquiries, referrals and tours from cloud.json's
+                                    scoreboard, by week; --record stores the newest full week in planner/outcomes
 
 Write commands (edit the working copy only; committing and pushing is the caller's job)
-  lock RUN                          take the session lock (exit 3 if a live session holds it)
+  lock RUN                          take the session lock (exit 3 if a live session holds it);
+                                    the holder runs it again before each task as a heartbeat
+  plan-done LANE --added N --result TEXT [--cooldown-hours H]
+                                    record a planning pass; N = 0 puts the lane on cooldown (no filler)
   add --from FILE                   add a queue task from a JSON file; assigns the next ACQ id
   update ID --from FILE             merge fields from a JSON file into a queue task
   finish ID --from FILE [--status done|dropped]   move a queue task to completed
@@ -31,7 +37,13 @@ import math
 import re
 import sys
 
-LOCK_STALE_MIN = 75
+LOCK_STALE_MIN = 90
+PLAN_LOW_WATER, PLAN_MIN_SCORE, PLAN_COOLDOWN_H = 3, 2.0, 24
+WORKSTREAM_LANE = {"search_acquisition": "search", "local_seo": "search", "conversion": "conversion",
+                   "referral_distribution": "partnerships", "referral_partnerships": "partnerships",
+                   "qualified_audience": "distribution", "distribution": "distribution",
+                   "demand": "demand", "technical": "technical", "measurement": "measurement",
+                   "discovery": "discovery", "system_test": "system"}
 WAKE_MIN, WAKE_MAX, WAKE_DEFAULT, WAKE_RETRY = 30, 2880, 720, 120
 TS = re.compile(r"^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::(\d{2})(?:\.\d+)?)?Z$")
 DATE_KEYS = ("not_before_utc", "recheck_utc")
@@ -107,6 +119,44 @@ def task_date(task):
     return None
 
 
+def lane_of(task):
+    if task.get("lane"):
+        return task["lane"]
+    return WORKSTREAM_LANE.get(task.get("workstream") or "", "other")
+
+
+def plan_view(d, now, pipeline):
+    """Planner state. Read only: never changes d."""
+    pl = d.get("planner") or {}
+    low = int(pl.get("low_water", PLAN_LOW_WATER))
+    queue = d.get("queue") or []
+    lanes = []
+    for ln in sorted(pl.get("lanes") or [], key=lambda x: (x.get("order", 99), str(x.get("id")))):
+        lid = ln.get("id")
+        waiting = sum(1 for t in queue if t.get("status") == WAIT_OWNER and lane_of(t) == lid)
+        wip = max(waiting, int(ln.get("owner_open") or 0))
+        limit = int(ln.get("owner_wip_limit", 3))
+        cool = parse_ts(ln.get("cooldown_until_utc"))
+        cooling = cool is not None and cool > now
+        live = sum(1 for t in queue if t.get("status") in (READY, WAIT_DATA) and lane_of(t) == lid)
+        lanes.append({"id": lid, "order": ln.get("order"), "owner_wip": wip, "wip_limit": limit,
+                      "saturated": wip >= limit, "cooling_until": fmt(cool) if cooling else None,
+                      "live_tasks": live, "last_planned_utc": ln.get("last_planned_utc") or None,
+                      "plannable": bool(ln.get("enabled", True)) and wip < limit and not cooling,
+                      "_cool": cool if cooling else None})
+    plannable = [x["id"] for x in lanes if x["plannable"]]
+    due = bool(pl.get("enabled", True)) and pipeline < low and bool(plannable)
+    wake = None
+    if pl.get("enabled", True) and pipeline < low and not plannable:
+        ends = [x["_cool"] for x in lanes if x["_cool"] and not x["saturated"]]
+        wake = min(ends) if ends else None
+    for x in lanes:
+        x.pop("_cool", None)
+    return {"enabled": bool(pl.get("enabled", True)), "low_water": low, "pipeline": pipeline, "due": due,
+            "plannable": plannable, "saturated": [x["id"] for x in lanes if x["saturated"]],
+            "lanes": lanes, "_wake": wake}
+
+
 def compute(d, now, monitor_hours):
     c = d.get("controller") or {}
     lock = c.get("lock") or {}
@@ -159,9 +209,15 @@ def compute(d, now, monitor_hours):
     if mon_t is not None and not mon_due:
         future.append((mon_t + dt.timedelta(hours=monitor_hours), "monitor"))
 
+    pipeline = len(ready) + len(recheck) + len(open_items) + len(scouts_due)
+    plan = plan_view(d, now, pipeline)
+    if plan["_wake"] is not None:
+        future.append((plan["_wake"], "planner cooldown ends"))
+    plan.pop("_wake", None)
+
     future.sort()
     next_due = future[0][0] if future else None
-    eligible = len(ready) + len(recheck) + len(open_items) + len(scouts_due)
+    eligible = pipeline + (1 if plan["due"] else 0)
     return {
         "now": fmt(now),
         "lock": {"holder": lock.get("holder", ""), "utc": lock.get("utc", ""), "age_min": lock_age, "live": lock_live},
@@ -173,6 +229,8 @@ def compute(d, now, monitor_hours):
         "event_waits": [{"id": t.get("id"), "status": t.get("status"),
                          "waiting_for": short(next((t[k] for k in WAIT_KEYS if t.get(k)), ""), 150)} for t in events],
         "monitor": {"last_utc": (c.get("monitor") or {}).get("last_utc", ""), "age_hours": mon_age, "due": mon_due},
+        "plan": {k: plan[k] for k in ("due", "pipeline", "low_water", "plannable", "saturated")},
+        "budget": budget_view(d, now),
         "eligible": eligible,
         "work_now": eligible > 0 or mon_due,
         "next_due_utc": fmt(next_due) if next_due else None,
@@ -181,6 +239,109 @@ def compute(d, now, monitor_hours):
         "counts": {"queue": len(queue), "completed": len(d.get("completed") or []),
                    "map_items": len(om.get("items") or []), "owner_review_needed": len(d.get("owner_review_needed") or [])},
     }
+
+
+def chicago_date(t):
+    try:
+        from zoneinfo import ZoneInfo
+        return t.astimezone(ZoneInfo("America/Chicago")).date()
+    except Exception:
+        return (t - dt.timedelta(hours=6)).date()
+
+
+def num(v):
+    return v if isinstance(v, (int, float)) and not isinstance(v, bool) else None
+
+
+def outcomes_view(cloud, now, days):
+    """Outcome counts from cloud.json's scoreboard: the last DAYS Chicago dates and the DAYS before them."""
+    sb = cloud.get("scoreboard") or {}
+    rows = {r.get("date_chicago"): r for r in (sb.get("daily") or []) if isinstance(r, dict)}
+    today = chicago_date(now)
+    fields = ("genuine_visitors", "tour_form_views", "checklist_opens", "assessment_starts", "tour_requests")
+
+    def window(end_offset):
+        dates = [(today - dt.timedelta(days=end_offset + i)).isoformat() for i in range(days)]
+        tot = {f: 0 for f in fields}
+        src = {}
+        unknown = {f: 0 for f in fields}
+        have = 0
+        for day in dates:
+            r = rows.get(day)
+            if not r:
+                continue
+            have += 1
+            for f in fields:
+                v = num(r.get(f))
+                if v is None:
+                    unknown[f] += 1
+                else:
+                    tot[f] += v
+            for k, v in (r.get("by_source") or {}).items():
+                if num(v) is not None:
+                    src[k] = src.get(k, 0) + v
+        return {"from": dates[-1], "to": dates[0], "days_with_rows": have, "qualified_visitors": tot["genuine_visitors"],
+                "by_source": src, "tour_form_views": tot["tour_form_views"], "checklist_opens": tot["checklist_opens"],
+                "assessment_starts": tot["assessment_starts"], "inquiries": tot["tour_requests"],
+                "unreadable_days": {f: n for f, n in unknown.items() if n}}
+
+    cur, prev = window(0), window(days)
+    totals = sb.get("totals") or {}
+    sc = sb.get("search_console") or []
+    src = cur["by_source"]
+    return {"window": cur, "previous": prev,
+            "referrals": {"org_replies": totals.get("org_replies"), "placements_live": totals.get("placements_live"),
+                          "referral_emails_sent": totals.get("referral_emails_sent")},
+            "tours_confirmed": totals.get("tours_confirmed"),
+            "search_console_latest": sc[0] if sc else None,
+            "lane_visitors": {"distribution": src.get("facebook", 0), "partnerships": src.get("referral", 0),
+                              "search": src.get("search", 0), "other": src.get("other", 0)},
+            "note": "Counts come only from the monitor's scoreboard rows; a date without a row is unmeasured, not zero."}
+
+
+def budget_view(d, now, extra_start=None):
+    """Worker session time against the usage reserve in planner: budget_hours_per_day (rolling 24 hours)
+    and budget_hours_per_week (rolling 7 days); a missing or zero value means no limit for that window.
+    extra_start: start time of the session that is closing now, counted up to now."""
+    pl = d.get("planner") or {}
+    spans_all = []
+    for s in (d.get("controller") or {}).get("sessions") or []:
+        a, b = parse_ts(s.get("start_utc")), parse_ts(s.get("end_utc"))
+        if a and b and b >= a:
+            spans_all.append((a, b))
+    if extra_start and extra_start < now:
+        spans_all.append((extra_start, now))
+    res = {"over": False, "resume_utc": None, "wake_minutes": None}
+    resume = None
+    for key, days in (("budget_hours_per_day", 1), ("budget_hours_per_week", 7)):
+        limit = pl.get(key)
+        limit = limit if isinstance(limit, (int, float)) and not isinstance(limit, bool) and limit > 0 else None
+        since = now - dt.timedelta(days=days)
+        spans = [(max(a, since), b) for a, b in spans_all if b > since]
+        used = sum((b - a).total_seconds() for a, b in spans) / 3600
+        tag = "day" if days == 1 else "week"
+        res["limit_hours_per_" + tag] = limit
+        res["used_hours_" + ("24h" if days == 1 else "7d")] = round(used, 1)
+        if limit is not None and used >= limit:
+            res["over"] = True
+            need = (used - limit) * 3600
+            wake = None
+            for a, b in sorted(spans):
+                dur = (b - a).total_seconds()
+                if dur >= need:
+                    wake = a + dt.timedelta(days=days, seconds=need + 60)
+                    break
+                need -= dur
+            wake = max(wake or now + dt.timedelta(hours=12), now + dt.timedelta(minutes=60))
+            resume = wake if resume is None else max(resume, wake)
+    if resume:
+        res["resume_utc"] = fmt(resume)
+        res["wake_minutes"] = wake_minutes(fmt(resume), now)
+    return res
+
+
+def norm_key(s):
+    return re.sub(r"[^a-z0-9]+", "-", str(s).lower()).strip("-")
 
 
 def wake_minutes(next_due_utc, now):
@@ -255,6 +416,13 @@ def main():
     p.add_argument("--tasks", default="")
     p.add_argument("--front", action="store_true")
     p.add_argument("--keep", type=int)
+    p.add_argument("--added", type=int, default=0)
+    p.add_argument("--result", default="")
+    p.add_argument("--cooldown-hours", type=float)
+    p.add_argument("--days", type=int, default=7)
+    p.add_argument("--record", action="store_true")
+    p.add_argument("--cloud", default="ops/cloud.json")
+    p.add_argument("--allow-repeat", action="store_true")
     a = p.parse_args()
 
     now = parse_ts(a.now) if a.now else dt.datetime.now(dt.timezone.utc).replace(microsecond=0)
@@ -266,6 +434,61 @@ def main():
 
     if cmd == "status":
         out(compute(d, now, a.monitor_hours))
+
+    if cmd == "plan":
+        st = compute(d, now, a.monitor_hours)
+        pv = plan_view(d, now, st["plan"]["pipeline"])
+        pv.pop("_wake", None)
+        pl = d.get("planner") or {}
+        pv["min_score"] = float(pl.get("min_score", PLAN_MIN_SCORE))
+        pv["recent_plans"] = (pl.get("log") or [])[:6]
+        out(pv)
+
+    if cmd == "outcomes":
+        try:
+            cloud = load(a.cloud)
+        except (OSError, ValueError) as e:
+            fail("cannot read %s: %s" % (a.cloud, e))
+        view = outcomes_view(cloud, now, max(1, a.days))
+        if a.record:
+            pl = d.setdefault("planner", {})
+            rows = pl.setdefault("outcomes", [])
+            w = view["window"]
+            row = {"to": w["to"], "days": a.days, "days_with_rows": w["days_with_rows"],
+                   "qualified_visitors": w["qualified_visitors"], "by_source": w["by_source"],
+                   "inquiries": w["inquiries"], "tour_form_views": w["tour_form_views"],
+                   "org_replies_total": view["referrals"]["org_replies"],
+                   "placements_live_total": view["referrals"]["placements_live"],
+                   "tours_confirmed": view["tours_confirmed"], "recorded_utc": fmt(now)}
+            rows[:] = [r for r in rows if not (r.get("to") == w["to"] and r.get("days") == a.days)]
+            rows.insert(0, row)
+            del rows[26:]
+            save(target, d)
+            view["recorded"] = True
+        out(view)
+
+    if cmd == "plan-done":
+        if not args:
+            fail("usage: plan-done LANE --added N --result TEXT [--cooldown-hours H]")
+        pl = d.get("planner")
+        if not isinstance(pl, dict):
+            fail("no planner block in " + target)
+        hits = [ln for ln in pl.get("lanes") or [] if ln.get("id") == args[0]]
+        if len(hits) != 1:
+            fail("unknown lane: " + args[0])
+        ln = hits[0]
+        ln["last_planned_utc"] = fmt(now)
+        ln["last_plan_result"] = short(a.result or "(no result given)", 300)
+        if a.added <= 0:
+            hours = a.cooldown_hours if a.cooldown_hours is not None else float(ln.get("plan_cooldown_hours", PLAN_COOLDOWN_H))
+            ln["cooldown_until_utc"] = fmt(now + dt.timedelta(hours=max(1.0, hours)))
+        else:
+            ln["cooldown_until_utc"] = ""
+        log = pl.setdefault("log", [])
+        log.insert(0, "%s %s +%d: %s" % (fmt(now), args[0], max(0, a.added), short(a.result or "", 160)))
+        del log[40:]
+        save(target, d)
+        out({"lane": args[0], "added": a.added, "cooldown_until_utc": ln["cooldown_until_utc"] or None})
 
     if cmd == "show":
         want = args[0]
@@ -307,6 +530,18 @@ def main():
                 problems.append("task %s is done but still in the queue" % t.get("id"))
             if t.get("map_item") and t["map_item"] not in item_ids:
                 problems.append("task %s names unknown map item %s" % (t.get("id"), t["map_item"]))
+        pl = d.get("planner")
+        if pl is not None:
+            lane_ids = [ln.get("id") for ln in (pl.get("lanes") or [])]
+            problems += ["duplicate lane " + str(i) for i in sorted({i for i in lane_ids if lane_ids.count(i) > 1})]
+            for ln in pl.get("lanes") or []:
+                if not isinstance(ln.get("owner_wip_limit", 3), int):
+                    problems.append("lane %s owner_wip_limit is not a whole number" % ln.get("id"))
+                if ln.get("cooldown_until_utc") and parse_ts(ln["cooldown_until_utc"]) is None:
+                    problems.append("lane %s has an unreadable cooldown_until_utc" % ln.get("id"))
+            for t in d.get("queue") or []:
+                if t.get("source") == "plan" and t.get("lane") not in lane_ids:
+                    problems.append("task %s names unknown lane %s" % (t.get("id"), t.get("lane")))
         out({"ok": not problems, "problems": problems,
              "counts": compute(d, now, a.monitor_hours)["counts"], "scouts": len(scouts)}, 0 if not problems else 4)
 
@@ -337,6 +572,36 @@ def main():
             missing = [k for k in need if not patch.get(k)]
             if missing:
                 fail("task is missing: " + ", ".join(missing))
+            lane = patch.get("lane") or WORKSTREAM_LANE.get(patch.get("workstream") or "")
+            if lane:
+                patch["lane"] = lane
+            if patch.get("source") == "plan":
+                missing = [k for k in ("lane", "key", "impact", "confidence", "effort") if patch.get(k) in (None, "")]
+                if missing:
+                    fail("a planned task also needs: " + ", ".join(missing))
+                try:
+                    impact, conf, effort = (int(patch[k]) for k in ("impact", "confidence", "effort"))
+                except (TypeError, ValueError):
+                    fail("impact, confidence and effort must be whole numbers from 1 to 5")
+                if not all(1 <= v <= 5 for v in (impact, conf, effort)):
+                    fail("impact, confidence and effort must be whole numbers from 1 to 5")
+                score = round(impact * conf / effort, 2)
+                floor = float((d.get("planner") or {}).get("min_score", PLAN_MIN_SCORE))
+                if score < floor:
+                    out({"rejected": True, "reason": "score %.2f is below %.2f: not worth a session" % (score, floor)}, 5)
+                patch["score"] = score
+                lanes = {x["id"]: x for x in plan_view(d, now, 0)["lanes"]}
+                if lane not in lanes:
+                    fail("unknown lane: %s (known: %s)" % (lane, ", ".join(sorted(lanes))))
+                if lanes[lane]["saturated"]:
+                    out({"rejected": True, "reason": "lane %s already has %d of %d items waiting on Joseph or the operator"
+                         % (lane, lanes[lane]["owner_wip"], lanes[lane]["wip_limit"])}, 5)
+            if patch.get("key") and not a.allow_repeat:
+                k = norm_key(patch["key"])
+                for pool in ("queue", "completed", "blocked"):
+                    for t in d.get(pool) or []:
+                        if isinstance(t, dict) and t.get("key") and norm_key(t["key"]) == k:
+                            out({"rejected": True, "reason": "same key as %s (%s, %s)" % (t.get("id"), pool, t.get("status"))}, 5)
             patch.setdefault("status", READY)
             patch.setdefault("priority", 2)
             patch.setdefault("found_utc", fmt(now))
@@ -405,18 +670,23 @@ def main():
         c = controller(d)
         st = compute(d, now, a.monitor_hours)
         progress = (a.done + a.changed) > 0
-        nxt = "yes" if (st["eligible"] > 0 and progress) else "no"
+        start = c["lock"].get("utc") if c["lock"].get("holder") == run else None
+        bud = budget_view(d, now, parse_ts(start) if start else None)
+        nxt = "yes" if (st["eligible"] > 0 and progress and not bud["over"]) else "no"
         if nxt == "yes":
             wake = None
+        elif bud["over"] and st["eligible"] > 0:
+            wake = wake_minutes(bud["resume_utc"], now)
         elif st["eligible"] > 0:
             wake = WAKE_RETRY
         else:
             wake = wake_minutes(st["next_due_utc"], now)
-        start = c["lock"].get("utc") if c["lock"].get("holder") == run else None
         c["sessions"].insert(0, {"run": run, "start_utc": start, "end_utc": fmt(now), "launch": a.launch,
                                  "outcome": a.outcome, "done": a.done, "changed": a.changed, "tasks": a.tasks,
-                                 "next": nxt, "wake_minutes": wake, "next_due_utc": st["next_due_utc"]})
-        del c["sessions"][30:]
+                                 "next": nxt, "wake_minutes": wake, "next_due_utc": st["next_due_utc"],
+                                 "plan_due": st["plan"]["due"], "saturated": st["plan"]["saturated"],
+                                 "budget_used_hours_24h": bud["used_hours_24h"], "budget_used_hours_7d": bud["used_hours_7d"]})
+        del c["sessions"][80:]
         if c["lock"].get("holder") in ("", run):
             c["lock"] = {"holder": "", "utc": ""}
         c["next"] = {"written_utc": fmt(now), "eligible_now": st["eligible"], "next_due": st["next_due"]}
@@ -424,7 +694,7 @@ def main():
                          "picked": a.tasks or "none", "why": a.outcome}
         save(target, d)
         out({"next": nxt, "wake_minutes": wake, "done": a.done, "eligible_left": st["eligible"],
-             "next_due_utc": st["next_due_utc"]})
+             "next_due_utc": st["next_due_utc"], "budget": bud})
 
     fail("unknown command: " + cmd)
 
