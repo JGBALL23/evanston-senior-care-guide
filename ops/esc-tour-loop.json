@@ -1282,10 +1282,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-22T21:40Z",
-  "event": "pull_request.synchronize c282321",
-  "picked": "ACQ-034 (SC6 new kinds of channel)",
-  "why": "Only ready item; no fresh demand data until the 25 Nov Search Console read."
+  "utc": "2026-11-23T00:26Z",
+  "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
+  "picked": "none ready",
+  "why": "Worked: monitor clean (0 genuine, 0 tour requests, 0 replies); Open Communities draft prepared for operator"
  },
  "last_verified_action": "ACQ-034 done 2026-11-22T21:40Z: SC6 found 1 new class (D14 public-access cable, WATCH tied to D8 talk); 5 routes dropped with sources. Research only; nothing sent. No ready task remains; next work is SC3 (25 Nov 16:00Z) and the Search Console read (ACQ-005/012/017, from 25 Nov 15:00Z).",
  "last_stop": {
@@ -1377,7 +1377,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "No ready task and no open map item after ACQ-034. Next: from 25 Nov 15:00Z Search Console read (ACQ-005/012/017) and SC3 (due 25 Nov 16:00Z); SC5 29 Nov; SC4 29 Nov; SC2 6 Dec; SC6 7 Dec; SC1 22 Dec; ACQ-030 from 6 Dec; operator: P-1228-01 from 28 Dec, P-0102-01 from 2 Jan. Runs before 25 Nov 15:00Z with no new evidence (reply, PR merge, Joseph answer, genuine tour-form view) stop without a commit. Still unanswered by Joseph: D8 talk (also unlocks D14), Patch account, Nextdoor Business Page, PRs #86 #85 #84 #81 #79 #78, Search Console indexing request; essay timing (by ~10 Dec).",
+ "next_discovery": "Next: monitor 23 Nov 12:25Z; ACQ-005/ACQ-012 rechecks and SC3 scout 25 Nov 15:00-16:00Z; operator posts Rogers Park P-1122-01 from 23 Nov 15:00Z. Waiting on Joseph: PR merges #78-81, #84-86, Open Communities draft (em-1122a) for the 25 Nov+ batch, D7 essay, Business Page.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -1954,12 +1954,56 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiSazf2tAxFhS1h8TCUw",
-   "utc": "2026-11-23T00:24Z"
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-23T00:25Z"
   },
-  "sessions": []
+  "sessions": [
+   {
+    "run": "cse_014eaiSazf2tAxFhS1h8TCUw",
+    "start_utc": "2026-11-23T00:24Z",
+    "end_utc": "2026-11-23T00:26Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: monitor clean (0 genuine, 0 tour requests, 0 replies); Open Communities draft prepared for operator",
+    "done": 0,
+    "changed": 2,
+    "tasks": "none ready",
+    "next": "no",
+    "wake_minutes": 719,
+    "next_due_utc": "2026-11-23T12:25Z"
+   }
+  ],
+  "next": {
+   "written_utc": "2026-11-23T00:26Z",
+   "eligible_now": 0,
+   "next_due": [
+    {
+     "utc": "2026-11-23T12:25Z",
+     "what": "monitor"
+    },
+    {
+     "utc": "2026-11-25T15:00Z",
+     "what": "ACQ-005"
+    },
+    {
+     "utc": "2026-11-25T15:00Z",
+     "what": "ACQ-012"
+    },
+    {
+     "utc": "2026-11-25T16:00Z",
+     "what": "SC3"
+    },
+    {
+     "utc": "2026-11-29T16:00Z",
+     "what": "SC5"
+    },
+    {
+     "utc": "2026-11-29T21:34Z",
+     "what": "SC4"
+    }
+   ]
+  }
  }
 }
