@@ -99,25 +99,6 @@
    "not_before_utc": "2026-12-06T15:00Z"
   },
   {
-   "id": "ACQ-042",
-   "task": "Review packet for the drafts guide va-home-based-primary-care-and-aide (not on main, no packet in ops/reviews/): re-fetch every cited source, match every quotation word for word, check each figure, rule and could-not-find sentence and every internal link against main, and give a verdict.",
-   "workstream": "demand",
-   "lane": "demand",
-   "source": "plan",
-   "key": "review:va-home-based-primary-care-and-aide",
-   "evidence": "git diff main...drafts on 2026-11-23 shows va-home-based-primary-care-and-aide on drafts and not on main; ops/reviews/ has no packet for it.",
-   "expected_tour_acquisition_value": "A verified packet turns publishing this guide into a few-minute decision for Joseph; once live it can earn search visitors who reach the assessment and tour path.",
-   "impact": 3,
-   "confidence": 4,
-   "effort": 2,
-   "executor": "worker (research and preparation only)",
-   "done_when": "ops/reviews/va-home-based-primary-care-and-aide.md committed with a Verdict line and an owner_review_needed line naming the verdict and minutes to publish.",
-   "score": 6.0,
-   "status": "ready",
-   "priority": 2,
-   "found_utc": "2026-11-23T17:41Z"
-  },
-  {
    "id": "ACQ-043",
    "task": "Prepare a review pull request against main (claude/medicare-2027-figures) that moves the live Medicare figures to 2027 for 1 January 2027: Part A deductible $1,736 -> $1,776, SNF days 21-100 $217 -> $222 a day (80-day total recomputed from the source figure), Part B deductible $283 -> $292, with the year words changed. Touches the F block in build-guides.py, diagrams.py, index.html and assessment.js notes; run main's build and all checks; re-read medicare.gov costs and SNF pages first.",
    "workstream": "technical",
@@ -137,6 +118,25 @@
    "found_utc": "2026-11-23T17:43Z",
    "not_before_utc": "2026-12-08T15:00Z",
    "not_before": "Timing, not data: 2027 figures are already on medicare.gov (read 2026-11-23). Prepare the PR in December so it is fresh when Joseph merges it for 1 Jan 2027."
+  },
+  {
+   "id": "ACQ-044",
+   "task": "Apply the 9 corrections in ops/reviews/illinois-assisted-living-involuntary-move-out.md to the drafts guide (not on main), each with its source sentence, under Build's checks; then note 'Corrections applied' in the packet.",
+   "workstream": "build",
+   "lane": "build",
+   "source": "plan",
+   "key": "improve:illinois-assisted-living-involuntary-move-out",
+   "evidence": "Review packet 2026-11-23: verdict publish-ready after corrections; main defect a wrong could-not-find claim contradicted by the IDoA brochure.",
+   "expected_tour_acquisition_value": "Makes a decision-stage guide (families facing an assisted-living move-out) publish-ready so Joseph can publish it in minutes; once live it earns search visits that lead to the assessment.",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "One drafts commit 'Correct <slug>: ...' with all five checks passing and the packet updated; or a verdict naming the check that failed.",
+   "score": 7.5,
+   "status": "ready",
+   "priority": 2,
+   "found_utc": "2026-11-23T17:45Z"
   }
  ],
  "completed": [
@@ -1502,6 +1502,32 @@
    },
    "done_utc": "2026-11-23T17:45Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-042",
+   "task": "Review packet for the drafts guide va-home-based-primary-care-and-aide (not on main, no packet in ops/reviews/): re-fetch every cited source, match every quotation word for word, check each figure, rule and could-not-find sentence and every internal link against main, and give a verdict.",
+   "workstream": "demand",
+   "lane": "demand",
+   "source": "plan",
+   "key": "review:va-home-based-primary-care-and-aide",
+   "evidence": "git diff main...drafts on 2026-11-23 shows va-home-based-primary-care-and-aide on drafts and not on main; ops/reviews/ has no packet for it.",
+   "expected_tour_acquisition_value": "A verified packet turns publishing this guide into a few-minute decision for Joseph; once live it can earn search visitors who reach the assessment and tour path.",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/va-home-based-primary-care-and-aide.md committed with a Verdict line and an owner_review_needed line naming the verdict and minutes to publish.",
+   "score": 6.0,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-23T17:41Z",
+   "result": "Packet written: 3 cited va.gov pages 200 plus 4 supporting va.gov pages; 9/13 quotations match, 4 do not (the aide page was updated 16 Nov 2026, after the draft's 13 Nov review); internal links live on main; rule checks clean. Verdict publish-ready after corrections: 13 corrections incl. exact quote replacements, the community-care eligibility condition (VHA Notice 2024-01), an unsupported 'led by' claim, a frequency phrase, the caregiver-stipend overstatement, contradicted 'found no page' sentences, the 10-10EC role, missing sources and the reviewed date.",
+   "deliverable": {
+    "type": "review_packet",
+    "ref": "ops/reviews/va-home-based-primary-care-and-aide.md"
+   },
+   "done_utc": "2026-11-23T17:46Z",
+   "minutes": 0
   }
  ],
  "blocked": [],
@@ -1512,7 +1538,7 @@
   "picked": "-",
   "why": "Worked: monitor only; nothing else due (waiting on Joseph: conversion, search PRs)"
  },
- "last_verified_action": "ACQ-040 done 2026-11-23T17:45Z: Packet written: 3 sources 200 (CMS QSO-25-14-NH, Medicare 12217, IDoA brochure); 21/22 quotations match word for word, 'guarantor' is on no source page; intern…",
+ "last_verified_action": "ACQ-042 done 2026-11-23T17:46Z: Packet written: 3 cited va.gov pages 200 plus 4 supporting va.gov pages; 9/13 quotations match, 4 do not (the aide page was updated 16 Nov 2026, after the draf…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -1563,7 +1589,8 @@
   "Evanston Now essay timing (22 Nov, ACQ-033): families look hardest right after holiday visits (trade reports put the inquiry peak about 3-4 Jan). If your essay can carry a 'what to notice on a holiday visit, and what to ask next' angle and be submitted by about 10 Dec, it lands in that window. Optional.",
   "Review packet ops/reviews/illinois-assisted-living-involuntary-move-out.md: Verdict: publish-ready after corrections. 9 corrections (main one: the guide's 'could not find grounds for termination' claim is wrong; IDoA's residents' rights brochure, 'appropriate for nursing homes and assisted living', lists four reasons). The worker can apply them on drafts (Improve); then about 10 minutes to publish.",
   "Review packet ops/reviews/illinois-money-management-program.md: Verdict: publish-ready after corrections. 12 corrections (unsupported legal framing vs power of attorney, wrong eligibility owner, an added 'lives independently' condition, a missing brochure source); the worker can apply them on drafts; Evanston is not served by a Program Site, so the guide's local value is limited.",
-  "Review packet ops/reviews/illinois-nursing-home-responsible-party.md: Verdict: publish-ready after corrections. 6 small corrections (a quoted word on no source page, the brochure presented as state law, 'conditions of participation' for nursing homes, an unsourced assisted-living licensing claim); the worker can apply them on drafts; then about 10 minutes to publish."
+  "Review packet ops/reviews/illinois-nursing-home-responsible-party.md: Verdict: publish-ready after corrections. 6 small corrections (a quoted word on no source page, the brochure presented as state law, 'conditions of participation' for nursing homes, an unsourced assisted-living licensing claim); the worker can apply them on drafts; then about 10 minutes to publish.",
+  "Review packet ops/reviews/va-home-based-primary-care-and-aide.md: Verdict: publish-ready after corrections. 13 corrections (4 quotations no longer match the VA aide page, updated 16 Nov; an eligibility condition missing; 'could not find' claims contradicted by VHA Notice 2024-01); the worker can apply them on drafts."
  ],
  "hourly_backlog_policy": {
   "enabled": true,
@@ -2183,14 +2210,15 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSbQh9aYSa5vTbwv5wK",
-   "utc": "2026-11-23T17:45Z",
+   "utc": "2026-11-23T17:46Z",
    "since_utc": "2026-11-23T17:36Z",
    "productive_min": 12,
    "deliverables": [
     "guide:drafts 9e9427e",
     "review_packet:ops/reviews/illinois-assisted-living-involuntary-move-out.md",
     "review_packet:ops/reviews/illinois-money-management-program.md",
-    "review_packet:ops/reviews/illinois-nursing-home-responsible-party.md"
+    "review_packet:ops/reviews/illinois-nursing-home-responsible-party.md",
+    "review_packet:ops/reviews/va-home-based-primary-care-and-aide.md"
    ]
   },
   "monitor": {
