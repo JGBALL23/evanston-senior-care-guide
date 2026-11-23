@@ -120,19 +120,6 @@
    "not_before": "Timing, not data: 2027 figures are already on medicare.gov (read 2026-11-23). Prepare the PR in December so it is fresh when Joseph merges it for 1 Jan 2027."
   },
   {
-   "id": "SYS-T4",
-   "task": "Chain test 4 of 5: record this session's RUN and LAUNCH (the routine-fire-payload text), which shows which Make scenario started it and after which session.",
-   "workstream": "system_test",
-   "lane": "system",
-   "status": "ready",
-   "priority": 1,
-   "evidence": "Joseph, 23 Nov 2026 11:31 Chicago: test the Make handoff end to end. Test branch only.",
-   "expected_tour_acquisition_value": "none: system test of the Make chain (worker report with next yes starts the next session)",
-   "executor": "worker (research and preparation only)",
-   "done_when": "RUN and LAUNCH are recorded",
-   "found_utc": "2026-11-23T18:08Z"
-  },
-  {
    "id": "SYS-T5",
    "task": "Chain test 5 of 5: record the session's START time and ELAPSED when this task finishes.",
    "workstream": "system_test",
@@ -1750,6 +1737,26 @@
    },
    "done_utc": "2026-11-23T18:16Z",
    "minutes": 0
+  },
+  {
+   "id": "SYS-T4",
+   "task": "Chain test 4 of 5: record this session's RUN and LAUNCH (the routine-fire-payload text), which shows which Make scenario started it and after which session.",
+   "workstream": "system_test",
+   "lane": "system",
+   "status": "done",
+   "priority": 1,
+   "evidence": "Joseph, 23 Nov 2026 11:31 Chicago: test the Make handoff end to end. Test branch only.",
+   "expected_tour_acquisition_value": "none: system test of the Make chain (worker report with next yes starts the next session)",
+   "executor": "worker (research and preparation only)",
+   "done_when": "RUN and LAUNCH are recorded",
+   "found_utc": "2026-11-23T18:08Z",
+   "result": "RUN=cse_014eaiSdi7TEWoCZQoSdi43S; LAUNCH='completion of cse_014eaiSaya467ukbGEb71r6K' (routine-fire-payload): started by Make scenario 7147057 ESCG Loop Controller v3 after the completion report of session cse_014eaiSaya467ukbGEb71r6K. Mode Smoke test, branch claude/make-ops-test.",
+   "deliverable": {
+    "type": "data",
+    "ref": "cse_014eaiSdi7TEWoCZQoSdi43S"
+   },
+   "done_utc": "2026-11-23T18:17Z",
+   "minutes": 1
   }
  ],
  "blocked": [],
@@ -1760,7 +1767,7 @@
   "picked": "SYS-T1 done, SYS-T2 done, SYS-T3 done",
   "why": "Worked: SYS-T1..T3 done (TEST cap 3 tasks); stopped: time; resume: SYS-T4, SYS-T5 ready now"
  },
- "last_verified_action": "SYS-T3 done 2026-11-23T18:16Z: main is at 4dc2468 (git ls-remote refs/heads/main, 2026-11-23T18:16Z); this session wrote only to claude/make-ops-test.",
+ "last_verified_action": "SYS-T4 done 2026-11-23T18:17Z: RUN=cse_014eaiSdi7TEWoCZQoSdi43S; LAUNCH='completion of cse_014eaiSaya467ukbGEb71r6K' (routine-fire-payload): started by Make scenario 7147057 ESCG Loop Contro…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -2431,7 +2438,11 @@
   "lock": {
    "holder": "cse_014eaiSdi7TEWoCZQoSdi43S",
    "utc": "2026-11-23T18:17Z",
-   "since_utc": "2026-11-23T18:17Z"
+   "since_utc": "2026-11-23T18:17Z",
+   "productive_min": 1,
+   "deliverables": [
+    "data:cse_014eaiSdi7TEWoCZQoSdi43S"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-23T15:25Z"
