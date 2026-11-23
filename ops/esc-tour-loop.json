@@ -2062,12 +2062,16 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSbQh9aYSa5vTbwv5wK",
-   "utc": "2026-11-23T17:40Z",
+   "utc": "2026-11-23T17:41Z",
    "since_utc": "2026-11-23T17:36Z",
    "productive_min": 5,
    "deliverables": [
     "guide:drafts 9e9427e"
-   ]
+   ],
+   "current": {
+    "what": "plan:publish",
+    "since_utc": "2026-11-23T17:41Z"
+   }
   },
   "monitor": {
    "last_utc": "2026-11-23T15:25Z"
@@ -2181,9 +2185,9 @@
     "plan_cooldown_hours": 12,
     "open_prs": [],
     "owner_open": 1,
-    "cooldown_until_utc": "",
-    "last_planned_utc": "",
-    "last_plan_result": "",
+    "cooldown_until_utc": "2026-11-24T05:41Z",
+    "last_planned_utc": "2026-11-23T17:41Z",
+    "last_plan_result": "Looked for decision-stage needs with recorded evidence (public family questions, Search Console, search presence 0/18, competitor gaps) not covered on main or drafts; fresh searches on memory-care rules and respite/trial stays found only provider marketing, no family questions or SC queries; ACQ-03…",
     "wip_note": "owner_open counts worker-built assets on drafts that are not on main yet; at 10 the lane waits for Joseph to publish"
    },
    {
@@ -2198,9 +2202,9 @@
     "plan_cooldown_hours": 12,
     "open_prs": [],
     "owner_open": 0,
-    "cooldown_until_utc": "",
-    "last_planned_utc": "",
-    "last_plan_result": ""
+    "cooldown_until_utc": "2026-11-24T05:41Z",
+    "last_planned_utc": "2026-11-23T17:41Z",
+    "last_plan_result": "ops/reviews/ is empty: no draft has a publish-ready packet, so no publish package can be prepared yet. Draft-review sweep runs next for the 4 reviewable drafts."
    },
    {
     "id": "demand",
@@ -2324,6 +2328,8 @@
    }
   ],
   "log": [
+   "2026-11-23T17:41Z publish +0: ops/reviews/ is empty: no draft has a publish-ready packet, so no publish package can be prepared yet. Draft-review sweep runs next for the 4 reviewable drafts.",
+   "2026-11-23T17:41Z build +0: Looked for decision-stage needs with recorded evidence (public family questions, Search Console, search presence 0/18, competitor gaps) not covered on main or …",
    "2026-11-23T06:28Z demand +0: 2026-11-23 second pass: the two qualifying topics from this session's first pass are now in DEMAND.md Open (8888a72, 5fb913b); remaining candidates from the sa…",
    "2026-11-23T06:28Z partnerships +0: 2026-11-23: no referral_partnerships map item has verdict ACT (R1 waiting, R8 waiting, the rest dropped); R1 class closed to new emails; one email draft alread…",
    "2026-11-23T06:28Z distribution +0: 2026-11-23: all distribution map items already have verdicts (D1 active within posting cap; P-1122-01 post text already ready for operator; D2/D11/D14 watch; D…",
