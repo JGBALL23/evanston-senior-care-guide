@@ -552,11 +552,16 @@ def main():
         if st["live"] and st["holder"] != run:
             out({"locked": True, "holder": st["holder"], "age_min": st["age_min"]}, 3)
         took_over = None
+        prev = c.get("lock") or {}
         if st["holder"] and st["holder"] != run:
             took_over = st["holder"]
-            c["sessions"].insert(0, {"run": st["holder"], "start_utc": st["utc"], "end_utc": None,
+            c["sessions"].insert(0, {"run": st["holder"], "start_utc": prev.get("since_utc") or st["utc"], "end_utc": None,
                                      "outcome": "abandoned: no close recorded; lock taken over by " + run})
-        c["lock"] = {"holder": run, "utc": fmt(now)}
+        if prev.get("holder") == run:
+            # heartbeat: refresh the time other sessions see, keep when this session took the lock
+            c["lock"] = {"holder": run, "utc": fmt(now), "since_utc": prev.get("since_utc") or prev.get("utc") or fmt(now)}
+        else:
+            c["lock"] = {"holder": run, "utc": fmt(now), "since_utc": fmt(now)}
         save(target, d)
         out({"locked": False, "holder": run, "took_over": took_over})
 
@@ -670,7 +675,7 @@ def main():
         c = controller(d)
         st = compute(d, now, a.monitor_hours)
         progress = (a.done + a.changed) > 0
-        start = c["lock"].get("utc") if c["lock"].get("holder") == run else None
+        start = (c["lock"].get("since_utc") or c["lock"].get("utc")) if c["lock"].get("holder") == run else None
         bud = budget_view(d, now, parse_ts(start) if start else None)
         nxt = "yes" if (st["eligible"] > 0 and progress and not bud["over"]) else "no"
         if nxt == "yes":
