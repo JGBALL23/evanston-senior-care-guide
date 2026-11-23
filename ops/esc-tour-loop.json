@@ -120,19 +120,6 @@
    "not_before": "Timing, not data: 2027 figures are already on medicare.gov (read 2026-11-23). Prepare the PR in December so it is fresh when Joseph merges it for 1 Jan 2027."
   },
   {
-   "id": "SYS-T3",
-   "task": "Chain test 3 of 5: record the short hash of main (git ls-remote <REPO> refs/heads/main) to show this session did not move it.",
-   "workstream": "system_test",
-   "lane": "system",
-   "status": "ready",
-   "priority": 1,
-   "evidence": "Joseph, 23 Nov 2026 11:31 Chicago: test the Make handoff end to end. Test branch only.",
-   "expected_tour_acquisition_value": "none: system test of the Make chain (worker report with next yes starts the next session)",
-   "executor": "worker (research and preparation only)",
-   "done_when": "the hash is recorded",
-   "found_utc": "2026-11-23T18:08Z"
-  },
-  {
    "id": "SYS-T4",
    "task": "Chain test 4 of 5: record this session's RUN and LAUNCH (the routine-fire-payload text), which shows which Make scenario started it and after which session.",
    "workstream": "system_test",
@@ -1743,6 +1730,26 @@
    },
    "done_utc": "2026-11-23T18:16Z",
    "minutes": 0
+  },
+  {
+   "id": "SYS-T3",
+   "task": "Chain test 3 of 5: record the short hash of main (git ls-remote <REPO> refs/heads/main) to show this session did not move it.",
+   "workstream": "system_test",
+   "lane": "system",
+   "status": "done",
+   "priority": 1,
+   "evidence": "Joseph, 23 Nov 2026 11:31 Chicago: test the Make handoff end to end. Test branch only.",
+   "expected_tour_acquisition_value": "none: system test of the Make chain (worker report with next yes starts the next session)",
+   "executor": "worker (research and preparation only)",
+   "done_when": "the hash is recorded",
+   "found_utc": "2026-11-23T18:08Z",
+   "result": "main is at 4dc2468 (git ls-remote refs/heads/main, 2026-11-23T18:16Z); this session wrote only to claude/make-ops-test.",
+   "deliverable": {
+    "type": "data",
+    "ref": "main@4dc2468"
+   },
+   "done_utc": "2026-11-23T18:16Z",
+   "minutes": 0
   }
  ],
  "blocked": [],
@@ -1753,7 +1760,7 @@
   "picked": "ACQ-038 done, ACQ-039 done, ACQ-040 done, ACQ-041 done, ACQ-042 done, ACQ-043 waiting_on_data (until 2026-12-08), ACQ-044 done, ACQ-045 done (PR #87), ACQ-046 done, ACQ-047 done (PR #88), ACQ-048 done, ACQ-049 done",
   "why": "Worked: built Medicare fast-appeal guide on drafts, 4 review packets, corrections applied to all 4 drafts, publish PRs #87 and #88 opened; stopped: approval-pending; resume: #87/#88 merged or 2026-11-24T03:25Z monitor"
  },
- "last_verified_action": "SYS-T2 done 2026-11-23T18:16Z: curl https://evanstonseniorcareguide.com/ returned HTTP 200 at 2026-11-23T18:16Z.",
+ "last_verified_action": "SYS-T3 done 2026-11-23T18:16Z: main is at 4dc2468 (git ls-remote refs/heads/main, 2026-11-23T18:16Z); this session wrote only to claude/make-ops-test.",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -2428,7 +2435,8 @@
    "productive_min": 0,
    "deliverables": [
     "data:claude/make-ops-test",
-    "data:claude/make-ops-test"
+    "data:claude/make-ops-test",
+    "data:main@4dc2468"
    ]
   },
   "monitor": {
