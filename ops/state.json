@@ -2,7 +2,7 @@
  "schema": 1,
  "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
  "updated_utc": "2026-11-18T23:05Z",
- "last_run_utc": "2026-11-22T23:30Z",
+ "last_run_utc": "2026-11-22T20:30Z",
  "facebook": {
   "access": "yes 2026-11-22T23:30Z",
   "last_access_ok_utc": "2026-11-18T21:16Z",
