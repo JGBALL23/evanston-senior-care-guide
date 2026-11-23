@@ -11,5 +11,6 @@ When a draft is written for a topic, move it to **Done** with the date.
 ## Open
 
 - Can an Illinois assisted living make my parent move out when their care needs change, and how much notice must it give? Evidence: question families asked in public, national caregiver Q&A forum, 2025-08-27; question families asked in public, national caregiver Q&A forum, 2023-09-30. Not covered by: illinois-nursing-home-resident-rights (nursing homes only). Added by the ESCG worker 2026-11-23.
+- Should I sign my parent's assisted living or nursing home admission contract as the responsible party? Evidence: question families asked in public, national caregiver Q&A forum, 2023-10-12; question families asked in public, national caregiver Q&A forum, 2021-03-20; question asked in public, legal Q&A site, 2020-11-25. Not covered by: illinois-advance-directive-power-of-attorney. Added by the ESCG worker 2026-11-23.
 
 ## Done
