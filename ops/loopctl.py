@@ -44,7 +44,8 @@ import sys
 
 LOCK_STALE_MIN = 90
 PLAN_LOW_WATER, PLAN_MIN_SCORE, PLAN_COOLDOWN_H = 3, 2.0, 24
-WORKSTREAM_LANE = {"search_acquisition": "search", "local_seo": "search", "conversion": "conversion",
+WORKSTREAM_LANE = {"build": "build", "assets": "build", "content": "build", "publish": "publish",
+                   "search_acquisition": "search", "local_seo": "search", "conversion": "conversion",
                    "referral_distribution": "partnerships", "referral_partnerships": "partnerships",
                    "qualified_audience": "distribution", "distribution": "distribution",
                    "demand": "demand", "technical": "technical", "measurement": "measurement",
