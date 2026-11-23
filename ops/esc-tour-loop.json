@@ -99,25 +99,6 @@
    "not_before_utc": "2026-12-06T15:00Z"
   },
   {
-   "id": "ACQ-039",
-   "task": "Review packet for the drafts guide illinois-assisted-living-involuntary-move-out (not on main, no packet in ops/reviews/): re-fetch every cited source, match every quotation word for word, check each figure, rule and could-not-find sentence and every internal link against main, and give a verdict.",
-   "workstream": "demand",
-   "lane": "demand",
-   "source": "plan",
-   "key": "review:illinois-assisted-living-involuntary-move-out",
-   "evidence": "git diff main...drafts on 2026-11-23 shows illinois-assisted-living-involuntary-move-out on drafts and not on main; ops/reviews/ has no packet for it.",
-   "expected_tour_acquisition_value": "A verified packet turns publishing this guide into a few-minute decision for Joseph; once live it can earn search visitors who reach the assessment and tour path.",
-   "impact": 3,
-   "confidence": 4,
-   "effort": 2,
-   "executor": "worker (research and preparation only)",
-   "done_when": "ops/reviews/illinois-assisted-living-involuntary-move-out.md committed with a Verdict line and an owner_review_needed line naming the verdict and minutes to publish.",
-   "score": 6.0,
-   "status": "ready",
-   "priority": 2,
-   "found_utc": "2026-11-23T17:41Z"
-  },
-  {
    "id": "ACQ-040",
    "task": "Review packet for the drafts guide illinois-nursing-home-responsible-party (not on main, no packet in ops/reviews/): re-fetch every cited source, match every quotation word for word, check each figure, rule and could-not-find sentence and every internal link against main, and give a verdict.",
    "workstream": "demand",
@@ -1481,6 +1462,32 @@
    },
    "done_utc": "2026-11-23T17:40Z",
    "minutes": 5
+  },
+  {
+   "id": "ACQ-039",
+   "task": "Review packet for the drafts guide illinois-assisted-living-involuntary-move-out (not on main, no packet in ops/reviews/): re-fetch every cited source, match every quotation word for word, check each figure, rule and could-not-find sentence and every internal link against main, and give a verdict.",
+   "workstream": "demand",
+   "lane": "demand",
+   "source": "plan",
+   "key": "review:illinois-assisted-living-involuntary-move-out",
+   "evidence": "git diff main...drafts on 2026-11-23 shows illinois-assisted-living-involuntary-move-out on drafts and not on main; ops/reviews/ has no packet for it.",
+   "expected_tour_acquisition_value": "A verified packet turns publishing this guide into a few-minute decision for Joseph; once live it can earn search visitors who reach the assessment and tour path.",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/illinois-assisted-living-involuntary-move-out.md committed with a Verdict line and an owner_review_needed line naming the verdict and minutes to publish.",
+   "score": 6.0,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-23T17:41Z",
+   "result": "Packet written: all 3 cited sources 200; 6/6 quotations match the IDPH form word for word; 5/5 internal links live on main; rule checks clean. Verdict publish-ready after corrections: 9 corrections with source sentences. Key defect: the answer and 'could not verify' section say no state page lists grounds for termination and frame the four reasons as nursing-home only, but the cited IDoA rights page says its brochure is 'appropriate for nursing homes and assisted living' and the brochure lists four reasons. Also: 'on a timely appeal' condition not on the form; reason-in-writing overstated; ombudsman advocacy and elder-law sentences unsupported; ombudsman HelpLine should cite the ombudsman page.",
+   "deliverable": {
+    "type": "review_packet",
+    "ref": "ops/reviews/illinois-assisted-living-involuntary-move-out.md"
+   },
+   "done_utc": "2026-11-23T17:45Z",
+   "minutes": 0
   }
  ],
  "blocked": [],
@@ -1491,7 +1498,7 @@
   "picked": "-",
   "why": "Worked: monitor only; nothing else due (waiting on Joseph: conversion, search PRs)"
  },
- "last_verified_action": "ACQ-038 done 2026-11-23T17:40Z: Built and pushed guide medicare-fast-appeal-hospital-rehab-discharge on drafts (9e9427e): the IM and NOMNC notices, the hospital and SNF deadlines, the BFCC-QI…",
+ "last_verified_action": "ACQ-039 done 2026-11-23T17:45Z: Packet written: all 3 cited sources 200; 6/6 quotations match the IDPH form word for word; 5/5 internal links live on main; rule checks clean. Verdict publish-…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -1539,7 +1546,8 @@
   "Call list (Joseph, optional): New Trier Township social services 847-446-8202; Village of Northbrook 847-272-5050 re its Senior Housing Resources directory",
   "PR #86: the checklist PDF gets one disclosed tour-request line and link. Review, merge and deploy if acceptable.",
   "Skokie Human Services (ACQ-001) publishes no email, so it is phone-only: add it to your optional call list. Niles was emailed 21 Nov (0 replies so far).",
-  "Evanston Now essay timing (22 Nov, ACQ-033): families look hardest right after holiday visits (trade reports put the inquiry peak about 3-4 Jan). If your essay can carry a 'what to notice on a holiday visit, and what to ask next' angle and be submitted by about 10 Dec, it lands in that window. Optional."
+  "Evanston Now essay timing (22 Nov, ACQ-033): families look hardest right after holiday visits (trade reports put the inquiry peak about 3-4 Jan). If your essay can carry a 'what to notice on a holiday visit, and what to ask next' angle and be submitted by about 10 Dec, it lands in that window. Optional.",
+  "Review packet ops/reviews/illinois-assisted-living-involuntary-move-out.md: Verdict: publish-ready after corrections. 9 corrections (main one: the guide's 'could not find grounds for termination' claim is wrong; IDoA's residents' rights brochure, 'appropriate for nursing homes and assisted living', lists four reasons). The worker can apply them on drafts (Improve); then about 10 minutes to publish."
  ],
  "hourly_backlog_policy": {
   "enabled": true,
@@ -2159,11 +2167,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSbQh9aYSa5vTbwv5wK",
-   "utc": "2026-11-23T17:44Z",
+   "utc": "2026-11-23T17:45Z",
    "since_utc": "2026-11-23T17:36Z",
    "productive_min": 11,
    "deliverables": [
-    "guide:drafts 9e9427e"
+    "guide:drafts 9e9427e",
+    "review_packet:ops/reviews/illinois-assisted-living-involuntary-move-out.md"
    ]
   },
   "monitor": {
