@@ -2,7 +2,7 @@
   "schema": 1,
   "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
   "updated_utc": "2026-11-18T23:05Z",
-  "last_run_utc": "2026-11-23T15:14Z",
+  "last_run_utc": "2026-11-23T15:40Z",
   "facebook": {
     "access": {
       "value": "yes",
@@ -471,9 +471,6 @@
     ]
   },
   "log": [
-    "2026-11-18T16:33Z Search Console: indexing checked (home and 7 key guides indexed), indexing requested for the caregiver background check guide; first performance data: 38 impressions on 16 Nov, Medicare cost queries",
-    "2026-11-18T16:40Z venues: read rules of 7 groups; joined What's Happening in Lake Forest (eligible), What's Happening in Glenview and Glenview - Northbrook Neighbors (read-only until he answers participant questions); Chicago caregiver groups are job boards (dropped); 80 more posts scanned, 0 requests",
-    "2026-11-18T16:41Z work loop paused: nothing else actionable now; next session 21:05Z (Facebook checks); night growth task runs from 23:07 Chicago on G4",
     "2026-11-18T19:45Z session operator: Wilmette post was held for admin approval until 17:44Z (visible_utc and E1 times corrected); lead scan 9 groups/367 posts/1 in-home request (no reply, group rules); Glenview IL group now eligible; OP1 handled (link last)",
     "2026-11-18T19:52Z outreach under the owner's 13:14 authorization: 4 personalized emails to North Shore senior-services organizations (verified public addresses, disclosure included); 8 sent today in all, 0 replies, 1 auto-reply",
     "2026-11-18T20:08Z venues (new audiences, north-side Chicago): joined Rogers Park News (49.5K; participation pending admin approval, rules agreement only) and Edgewater Chicago Neighborhood News (6.9K; eligible); 5 joins today",
@@ -510,15 +507,17 @@
     "2026-11-22T15:30Z checks: Wilmette post no longer visible to its author anywhere (likely admin removal, no notice); Evanston/Skokie and North Shore posts still live; Rogers Park post moved to Monday",
     "2026-11-22T19:35Z lead scan 174 posts, 0 new leads; Winnetka post still live, no comments yet",
     "2026-11-22T23:30Z evening lead scan 181 posts, 0 new leads; no org replies; next: Mon 9:00 Chicago Rogers Park post, one-off North Shore 7-day result, lead scan, Monday outreach",
-    "2026-11-23T15:14Z Rogers Park post P-1122-01 submitted (fb-rp-1122, template A with sources, site preview card chosen); pending admin approval; 5 posts in 7 days (cap reached until 24 Nov 00:41Z)"
+    "2026-11-23T15:14Z Rogers Park post P-1122-01 submitted (fb-rp-1122, template A with sources, site preview card chosen); pending admin approval; 5 posts in 7 days (cap reached until 24 Nov 00:41Z)",
+    "2026-11-23T15:16Z one-off sent: North Shore checklist post 7-day result (2 visitors incl. possibly owner phone, 2 checklist opens, all day 1; 0 assessments, 0 tour-form views, 0 tour requests) - done",
+    "2026-11-23T15:30Z morning lead scan 11 groups, 399 posts, 0 new leads (Glenview-Northbrook caregiver request already alerted; 1 false positive)",
+    "2026-11-23T15:40Z inbox: no org replies, no tour requests; outreach: Wilmette checked (senior services run by police social services, Wellmette is a mental-health campaign: no fit); no new verified email target today; Open Communities draft stays for 25 Nov batch"
   ],
   "next_actions": [
-    "STANDING (Joseph 18 Nov 16:44/17:08): continuous loop, day and night. Each session: plan, do a real tour-focused task, review, re-plan and immediately do the next actionable task in the same session; only when nothing is actionable, set the next wake 2 minutes after the CURRENT time (check the clock, never estimate). Never schedule a long sleep.",
-    "STANDING (Joseph 18 Nov 16:40: a 24/7 system focused on getting tours): every session, first ship growth.json ready items (status ready, for operator) after PREFLIGHT, mark them shipped; judge everything by tour-form visits and tour requests",
-    "PRIORITY (Joseph 18 Nov 18:06: scanning isn't moving us closer): weekday business hours, find and email new referral organizations with published addresses (care managers, hospital/rehab social work, township and village senior services, faith care ministries); phone-only ones go to Joseph's call list",
-    "Outreach: check Gmail for replies each session; answer questions promptly and accurately; no repeat contact; next small batch after replies are reviewed (night task G4 drafts)",
-    "E1 posted 15:06Z in Wilmette (fb-wil-1118), approved by admin 17:44Z; cloud operator measures +24h (19 Nov 17:44Z) and +48h (20 Nov 17:44Z) vs fb-evsk-1117",
-    "Last session each night: set due.lead_scan (and any other morning due item) to the 9:00 Chicago wake, so the cloud operator doesn't log the overnight sleep as a Facebook interruption (it did 18 Nov, 04:30Z-15:11Z, because due said 13:00Z)"
+    "17:15Z check Rogers Park post approval and Winnetka engagement",
+    "19:30Z lead scan",
+    "Tue 24 Nov 15:00Z next post only if 7-day cap allows (5 in window until 24 Nov 00:41Z)",
+    "25 Nov: Open Communities email + one follow-up batch per P-OUT-FOLLOWUP",
+    "Find verified email targets: New Trier Township, Winnetka/Glencoe senior programs"
   ],
   "one_offs": {
     "pr22": "done: released 2026-11-17T00:54Z. Merged with main (all suites passed: check-guides 1501, test.js 768, inquiry validation 36, checklist-click 30, start-source 21, tour-source 23, paying-nav 314, checklist PDF, publish 32; build reproduces _dist); consent wording, form fields, server code and inquiry payload unchanged; merge commit 1dc0004; Netlify deploy 6afba5a9ea3f94d69014251e (4 functions); live check 33/33 files, 0 problems; also shipped the reviewed #27 and #28",
@@ -634,18 +633,20 @@
       }
     ],
     "method": "chronological feed of each member group, in-page keyword filter (senior-care terms + a request + not a business ad); about 2-4 days of posts per group on the first scan",
-    "replied": []
+    "replied": [],
+    "last_scan_utc": "2026-11-23T15:30Z"
   },
   "due": {
     "post_next": "2026-11-24T15:00Z",
     "fb_checks": "2026-11-23T17:15Z",
-    "lead_scan": "2026-11-23T15:00Z",
+    "lead_scan": "2026-11-23T19:30Z",
     "metrics": "2026-11-19T00:05Z",
     "venues": "2026-11-25T15:00Z",
     "evanston_join_status": "2026-11-19T15:00Z",
     "rollup": "2026-11-19T01:00Z",
     "guides": "no drafts left worth publishing today (two deferred with reasons); next drafts run 18 Nov ~12:02Z",
-    "search_console": "2026-11-25T15:00Z"
+    "search_console": "2026-11-25T15:00Z",
+    "outreach_next": "2026-11-24T15:00Z"
   },
   "site": {
     "guides_published_1117": 17,
