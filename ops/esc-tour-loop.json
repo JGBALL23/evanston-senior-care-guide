@@ -2031,11 +2031,11 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSbAqDkDmCzdBFtk8Fg",
-   "utc": "2026-11-23T15:24Z",
+   "utc": "2026-11-23T15:25Z",
    "since_utc": "2026-11-23T15:24Z"
   },
   "monitor": {
-   "last_utc": "2026-11-23T00:25Z"
+   "last_utc": "2026-11-23T15:25Z"
   },
   "sessions": [
    {
@@ -2195,7 +2195,7 @@
     "owner_wip_limit": 3,
     "plan_cooldown_hours": 48,
     "open_prs": [],
-    "owner_open": 1,
+    "owner_open": 0,
     "cooldown_until_utc": "2026-11-25T06:28Z",
     "last_planned_utc": "2026-11-23T06:28Z",
     "last_plan_result": "2026-11-23: all distribution map items already have verdicts (D1 active within posting cap; P-1122-01 post text already ready for operator; D2/D11/D14 watch; D6-D8 owner; D13 ready for operator; rest dropped). No new venue with evidence; no new task."
@@ -2216,7 +2216,26 @@
     "last_plan_result": "2026-11-23: no referral_partnerships map item has verdict ACT (R1 waiting, R8 waiting, the rest dropped); R1 class closed to new emails; one email draft already ready for the operator. Nothing to prepare."
    }
   ],
-  "outcomes": [],
+  "outcomes": [
+   {
+    "to": "2026-11-23",
+    "days": 7,
+    "days_with_rows": 2,
+    "qualified_visitors": 5,
+    "by_source": {
+     "facebook": 5,
+     "referral": 0,
+     "search": 0,
+     "other": 0
+    },
+    "inquiries": 0,
+    "tour_form_views": 0,
+    "org_replies_total": 0,
+    "placements_live_total": 0,
+    "tours_confirmed": "unverified",
+    "recorded_utc": "2026-11-23T15:25Z"
+   }
+  ],
   "log": [
    "2026-11-23T06:28Z demand +0: 2026-11-23 second pass: the two qualifying topics from this session's first pass are now in DEMAND.md Open (8888a72, 5fb913b); remaining candidates from the sa…",
    "2026-11-23T06:28Z partnerships +0: 2026-11-23: no referral_partnerships map item has verdict ACT (R1 waiting, R8 waiting, the rest dropped); R1 class closed to new emails; one email draft alread…",
