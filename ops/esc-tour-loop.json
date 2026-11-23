@@ -120,19 +120,6 @@
    "not_before": "Timing, not data: 2027 figures are already on medicare.gov (read 2026-11-23). Prepare the PR in December so it is fresh when Joseph merges it for 1 Jan 2027."
   },
   {
-   "id": "SYS-T1",
-   "task": "Chain test 1 of 5: in /tmp/loop run python3 ops/loopctl.py validate and record whether it passed.",
-   "workstream": "system_test",
-   "lane": "system",
-   "status": "ready",
-   "priority": 1,
-   "evidence": "Joseph, 23 Nov 2026 11:31 Chicago: test the Make handoff end to end. Test branch only.",
-   "expected_tour_acquisition_value": "none: system test of the Make chain (worker report with next yes starts the next session)",
-   "executor": "worker (research and preparation only)",
-   "done_when": "the validate result is recorded",
-   "found_utc": "2026-11-23T18:08Z"
-  },
-  {
    "id": "SYS-T2",
    "task": "Chain test 2 of 5: fetch https://evanstonseniorcareguide.com/ with curl and record the HTTP status code.",
    "workstream": "system_test",
@@ -1729,6 +1716,26 @@
    },
    "done_utc": "2026-11-23T18:01Z",
    "minutes": 1
+  },
+  {
+   "id": "SYS-T1",
+   "task": "Chain test 1 of 5: in /tmp/loop run python3 ops/loopctl.py validate and record whether it passed.",
+   "workstream": "system_test",
+   "lane": "system",
+   "status": "done",
+   "priority": 1,
+   "evidence": "Joseph, 23 Nov 2026 11:31 Chicago: test the Make handoff end to end. Test branch only.",
+   "expected_tour_acquisition_value": "none: system test of the Make chain (worker report with next yes starts the next session)",
+   "executor": "worker (research and preparation only)",
+   "done_when": "the validate result is recorded",
+   "found_utc": "2026-11-23T18:08Z",
+   "result": "python3 ops/loopctl.py validate ran in /tmp/loop: \"{\\n \\\"ok\\\": true,\\n \\\"problems\\\": [],\\n \\\"counts\\\": {\\n  \\\"queue\\\": 11,\\n  \\\"completed\\\": 44,\\n  \\\"map_items\\\": 36,\\n  \\\"owner_review_needed\\\": 16\\n },\\n \\\"scouts\\\": 6\\n}\"",
+   "deliverable": {
+    "type": "data",
+    "ref": "claude/make-ops-test"
+   },
+   "done_utc": "2026-11-23T18:16Z",
+   "minutes": 0
   }
  ],
  "blocked": [],
@@ -1739,7 +1746,7 @@
   "picked": "ACQ-038 done, ACQ-039 done, ACQ-040 done, ACQ-041 done, ACQ-042 done, ACQ-043 waiting_on_data (until 2026-12-08), ACQ-044 done, ACQ-045 done (PR #87), ACQ-046 done, ACQ-047 done (PR #88), ACQ-048 done, ACQ-049 done",
   "why": "Worked: built Medicare fast-appeal guide on drafts, 4 review packets, corrections applied to all 4 drafts, publish PRs #87 and #88 opened; stopped: approval-pending; resume: #87/#88 merged or 2026-11-24T03:25Z monitor"
  },
- "last_verified_action": "ACQ-049 done 2026-11-23T18:01Z: Applied all 12 packet corrections to illinois-money-management-program on drafts (4f57bd8): Program Sites (not the state) train volunteers, unsupported POA/gua…",
+ "last_verified_action": "SYS-T1 done 2026-11-23T18:16Z: python3 ops/loopctl.py validate ran in /tmp/loop: \"{\\n \\\"ok\\\": true,\\n \\\"problems\\\": [],\\n \\\"counts\\\": {\\n \\\"queue\\\": 11,\\n \\\"completed\\\": 44,\\n \\\"map_items\\\":…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -2409,8 +2416,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSaya467ukbGEb71r6K",
-   "utc": "2026-11-23T18:15Z",
-   "since_utc": "2026-11-23T18:15Z"
+   "utc": "2026-11-23T18:16Z",
+   "since_utc": "2026-11-23T18:15Z",
+   "productive_min": 0,
+   "deliverables": [
+    "data:claude/make-ops-test"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-23T15:25Z"
