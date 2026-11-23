@@ -5308,14 +5308,14 @@ GUIDES = [
                    "&ldquo;Make a third party (like your family) pay your "
                    "nursing home bill.&rdquo; It may only ask a representative "
                    "with legal access to your parent&rsquo;s own money to use "
-                   "that money to pay, and Illinois&rsquo;s own residents&rsquo; "
-                   "rights brochure adds a state-law version of the same "
-                   "limit."),
+                   "that money to pay, and the Illinois Department on Aging&rsquo;s "
+                   "residents&rsquo; rights brochure states a similar limit in "
+                   "its own words."),
         "sources": srcs("cms_qso2514_nh", "medicare_nh_guide", "idoa_resident_rights_brochure"),
         "body": [
             ("The federal rule, in the regulation's own words", [
                 "<p>The requirement sits in the Medicare and Medicaid "
-                "conditions of participation every certified nursing facility "
+                "requirements for participation every certified nursing facility "
                 "must meet. CMS's current surveyor guidance (QSO-25-14-NH) "
                 "quotes the regulation directly: &ldquo;The facility must not "
                 "request or require a third party guarantee of payment to the "
@@ -5393,11 +5393,11 @@ GUIDES = [
                 "suggests asking a lawyer to review the agreement first, if "
                 "you have one.</p>",
             ]),
-            ("Illinois adds its own version of the same limit", [
+            ("How Illinois's residents' rights brochure puts it", [
                 "<p>Illinois&rsquo;s Department on Aging publishes a residents&rsquo; "
                 "rights brochure for long-term care facilities that states "
-                "the same protection in its own words, with a narrower "
-                "exception than the federal rule: &ldquo;Your facility must "
+                "the same protection in its own words, with a differently "
+                "worded exception from the federal rule: &ldquo;Your facility must "
                 "not require anyone else to sign an agreement stating they "
                 "will pay for your bill unless they are your court appointed "
                 "guardian.&rdquo; Notice the difference from the federal "
@@ -5414,18 +5414,17 @@ GUIDES = [
             ]),
             ("A gap this guide could not close: assisted living", [
                 "<p>The federal rule above, 42 CFR 483.15(a)(3), applies by "
-                "its own terms to Medicare- and Medicaid-certified "
-                "<strong>nursing facilities</strong>, not to assisted living "
-                "or shared housing establishments, which are licensed under a "
-                "separate Illinois law and are not nursing homes. This guide "
+                "its own terms to &ldquo;all certified long term care "
+                "facilities&rdquo;; none of the three sources this guide read "
+                "addresses assisted living or shared housing contracts. This guide "
                 "searched for an equivalent Illinois government page "
                 "addressing responsible-party or guarantor language "
                 "specifically in assisted living contracts and did not find "
                 "one on an allowed host. If your parent is moving into "
                 "assisted living rather than a nursing home, do not assume "
-                "the same federal protection applies &mdash; read any "
-                "signature line labelled &ldquo;responsible party&rdquo; or "
-                "&ldquo;guarantor&rdquo; carefully, and ask the establishment "
+                "the same federal protection applies &mdash; read carefully any "
+                "signature line that would make you a responsible party or "
+                "guarantor, and ask the establishment "
                 "in writing what liability it creates before signing.</p>",
             ]),
             ("Where this fits with the rest of this site", [
