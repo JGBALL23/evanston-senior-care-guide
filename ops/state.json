@@ -2,11 +2,11 @@
   "schema": 1,
   "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
   "updated_utc": "2026-11-18T23:05Z",
-  "last_run_utc": "2026-11-23T19:40Z",
+  "last_run_utc": "2026-11-23T22:35Z",
   "facebook": {
     "access": {
       "value": "yes",
-      "utc": "2026-11-23T19:40Z"
+      "utc": "2026-11-23T22:35Z"
     },
     "last_access_ok_utc": "2026-11-18T21:16Z",
     "last_checks_utc": "2026-11-18T15:08Z",
@@ -112,10 +112,11 @@
     {
       "tag": "fb-rp-1122",
       "venue": "group:RogersParkNeighborhoodNews",
-      "status": "pending",
+      "status": "live",
       "utc": "2026-11-23T15:14Z",
       "template": "A + sources (group rule)",
-      "preview": "site card selected"
+      "preview": "site card selected",
+      "approved_utc": "~2026-11-23T20:30Z (notification \"2h\" at 22:33Z)"
     }
   ],
   "venues": [
@@ -471,7 +472,6 @@
     ]
   },
   "log": [
-    "2026-11-18T20:08Z venues (new audiences, north-side Chicago): joined Rogers Park News (49.5K; participation pending admin approval, rules agreement only) and Edgewater Chicago Neighborhood News (6.9K; eligible); 5 joins today",
     "2026-11-18T20:14Z outreach: library community-engagement contact emailed (published staff-directory address); 9 sent today, 0 replies, 1 auto-reply; next batch waits for replies",
     "2026-11-18T20:55Z coordination fix (Joseph 14:30 Chicago): one operator (this session); preflight before every external action; shared action record in state.actions (9 emails, 1 post, 5 joins, 4 pending, 6 blocked)",
     "2026-11-18T20:50Z coordination audit: 1 operator, 4 assistant tasks aligned (cloud and night prompts updated), 1 task off; Sent = 9, all recorded; Drafts = 0; preflight proven (nssc.org BLOCK, cityofevanston.org BLOCK, skokie.org CLEAR)",
@@ -510,7 +510,8 @@
     "2026-11-23T15:30Z morning lead scan 11 groups, 399 posts, 0 new leads (Glenview-Northbrook caregiver request already alerted; 1 false positive)",
     "2026-11-23T15:40Z inbox: no org replies, no tour requests; outreach: Wilmette checked (senior services run by police social services, Wellmette is a mental-health campaign: no fit); no new verified email target today; Open Communities draft stays for 25 Nov batch",
     "2026-11-23T17:22Z checks: Rogers Park post still pending admin approval (not declined); Winnetka post live, no comments shown; no org replies or tour requests",
-    "2026-11-23T19:40Z afternoon lead scan 11 groups, 230 posts, 0 new leads; Rogers Park post still pending approval; no org replies"
+    "2026-11-23T19:40Z afternoon lead scan 11 groups, 230 posts, 0 new leads; Rogers Park post still pending approval; no org replies",
+    "2026-11-23T22:35Z Rogers Park post fb-rp-1122 approved by admins ~20:30Z, now live; Joseph pushed; no org replies"
   ],
   "next_actions": [
     "17:15Z check Rogers Park post approval and Winnetka engagement",
@@ -638,7 +639,7 @@
   },
   "due": {
     "post_next": "2026-11-24T15:00Z",
-    "fb_checks": "2026-11-23T22:30Z",
+    "fb_checks": "2026-11-24T00:30Z",
     "lead_scan": "2026-11-23T23:40Z",
     "metrics": "2026-11-19T00:05Z",
     "venues": "2026-11-25T15:00Z",
