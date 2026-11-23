@@ -97,6 +97,82 @@
    "executor": "this loop (proposal); Joseph (decision to build)",
    "done_when": "If /assisted-living-evanston/ shows >=1 impression for a local query by its ~14-day mark, hand Joseph one yes/no proposal with the autocomplete evidence; if 0 impressions, record that indexing/authority is the bottleneck and keep S3 at watch.",
    "not_before_utc": "2026-12-06T15:00Z"
+  },
+  {
+   "id": "ACQ-039",
+   "task": "Review packet for the drafts guide illinois-assisted-living-involuntary-move-out (not on main, no packet in ops/reviews/): re-fetch every cited source, match every quotation word for word, check each figure, rule and could-not-find sentence and every internal link against main, and give a verdict.",
+   "workstream": "demand",
+   "lane": "demand",
+   "source": "plan",
+   "key": "review:illinois-assisted-living-involuntary-move-out",
+   "evidence": "git diff main...drafts on 2026-11-23 shows illinois-assisted-living-involuntary-move-out on drafts and not on main; ops/reviews/ has no packet for it.",
+   "expected_tour_acquisition_value": "A verified packet turns publishing this guide into a few-minute decision for Joseph; once live it can earn search visitors who reach the assessment and tour path.",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/illinois-assisted-living-involuntary-move-out.md committed with a Verdict line and an owner_review_needed line naming the verdict and minutes to publish.",
+   "score": 6.0,
+   "status": "ready",
+   "priority": 2,
+   "found_utc": "2026-11-23T17:41Z"
+  },
+  {
+   "id": "ACQ-040",
+   "task": "Review packet for the drafts guide illinois-nursing-home-responsible-party (not on main, no packet in ops/reviews/): re-fetch every cited source, match every quotation word for word, check each figure, rule and could-not-find sentence and every internal link against main, and give a verdict.",
+   "workstream": "demand",
+   "lane": "demand",
+   "source": "plan",
+   "key": "review:illinois-nursing-home-responsible-party",
+   "evidence": "git diff main...drafts on 2026-11-23 shows illinois-nursing-home-responsible-party on drafts and not on main; ops/reviews/ has no packet for it.",
+   "expected_tour_acquisition_value": "A verified packet turns publishing this guide into a few-minute decision for Joseph; once live it can earn search visitors who reach the assessment and tour path.",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/illinois-nursing-home-responsible-party.md committed with a Verdict line and an owner_review_needed line naming the verdict and minutes to publish.",
+   "score": 6.0,
+   "status": "ready",
+   "priority": 2,
+   "found_utc": "2026-11-23T17:41Z"
+  },
+  {
+   "id": "ACQ-041",
+   "task": "Review packet for the drafts guide illinois-money-management-program (not on main, no packet in ops/reviews/): re-fetch every cited source, match every quotation word for word, check each figure, rule and could-not-find sentence and every internal link against main, and give a verdict.",
+   "workstream": "demand",
+   "lane": "demand",
+   "source": "plan",
+   "key": "review:illinois-money-management-program",
+   "evidence": "git diff main...drafts on 2026-11-23 shows illinois-money-management-program on drafts and not on main; ops/reviews/ has no packet for it.",
+   "expected_tour_acquisition_value": "A verified packet turns publishing this guide into a few-minute decision for Joseph; once live it can earn search visitors who reach the assessment and tour path.",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/illinois-money-management-program.md committed with a Verdict line and an owner_review_needed line naming the verdict and minutes to publish.",
+   "score": 6.0,
+   "status": "ready",
+   "priority": 2,
+   "found_utc": "2026-11-23T17:41Z"
+  },
+  {
+   "id": "ACQ-042",
+   "task": "Review packet for the drafts guide va-home-based-primary-care-and-aide (not on main, no packet in ops/reviews/): re-fetch every cited source, match every quotation word for word, check each figure, rule and could-not-find sentence and every internal link against main, and give a verdict.",
+   "workstream": "demand",
+   "lane": "demand",
+   "source": "plan",
+   "key": "review:va-home-based-primary-care-and-aide",
+   "evidence": "git diff main...drafts on 2026-11-23 shows va-home-based-primary-care-and-aide on drafts and not on main; ops/reviews/ has no packet for it.",
+   "expected_tour_acquisition_value": "A verified packet turns publishing this guide into a few-minute decision for Joseph; once live it can earn search visitors who reach the assessment and tour path.",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/va-home-based-primary-care-and-aide.md committed with a Verdict line and an owner_review_needed line naming the verdict and minutes to publish.",
+   "score": 6.0,
+   "status": "ready",
+   "priority": 2,
+   "found_utc": "2026-11-23T17:41Z"
   }
  ],
  "completed": [
@@ -2064,14 +2140,10 @@
    "holder": "cse_014eaiSbQh9aYSa5vTbwv5wK",
    "utc": "2026-11-23T17:41Z",
    "since_utc": "2026-11-23T17:36Z",
-   "productive_min": 5,
+   "productive_min": 6,
    "deliverables": [
     "guide:drafts 9e9427e"
-   ],
-   "current": {
-    "what": "plan:publish",
-    "since_utc": "2026-11-23T17:41Z"
-   }
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-23T15:25Z"
@@ -2378,9 +2450,10 @@
     "evidence": "git diff of main...drafts for new guide slugs; each draft's own cited sources, fetched and read now.",
     "output": "One review packet per draft at ops/reviews/<slug>.md on ops/operator-state: every factual claim checked against the source it cites (holds / does not hold / source unreachable, quoting the source's own short wording), the rule checks (independent-guide disclosure, no community ranking, no Westminster Place prices, no unverified medical, legal, financial or benefits claim) and a verdict: publish-ready, or the exact fixes. One owner_review_needed line per draft with the verdict and the minutes it takes to publish. Deliverable type review_packet.",
     "why": "A draft only helps families once Joseph publishes it; a verified packet turns that into a few-minute decision.",
-    "last_checked_utc": "",
-    "next_check_utc": "",
-    "last_result": ""
+    "last_checked_utc": "2026-11-23T17:41Z",
+    "next_check_utc": "2026-11-24T05:41Z",
+    "last_result": "4 drafts on drafts not on main and with no packet: illinois-assisted-living-involuntary-move-out, illinois-nursing-home-responsible-party, illinois-money-management-program, va-home-based-primary-care-and-aide; all 4 queued (ACQ-039..042). medicare-fast-appeal-hospital-rehab-discharge excluded: bui…",
+    "last_added": 4
    },
    {
     "id": "demand-questions",
@@ -2481,7 +2554,9 @@
     "last_result": "Covered by the technical and search planning passes of 06:26Z and 06:28Z: 36 live URLs load, checks pass."
    }
   ],
-  "sweep_log": [],
+  "sweep_log": [
+   "2026-11-23T17:41Z draft-review +4: 4 drafts on drafts not on main and with no packet: illinois-assisted-living-involuntary-move-out, illinois-nursing-home-responsible-party, illinois-money-manag…"
+  ],
   "continue_by_default": "Joseph, 23 Nov 2026 10:36 Chicago: change from STOP-BY-DEFAULT to CONTINUE-BY-DEFAULT. After the ready tasks, a session plans and sweeps these angles before it may stop; it stops only for time, no-worthwhile-work, approval-pending, usage-reserve, usage-limit, permission or store-error, recording the alternatives considered and the condition to resume."
  }
 }
