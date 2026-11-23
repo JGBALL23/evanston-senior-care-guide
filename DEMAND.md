@@ -10,6 +10,6 @@ When a draft is written for a topic, move it to **Done** with the date.
 
 ## Open
 
-(none yet: Search Console data for this site starts arriving around 19 Nov 2026)
+- Can an Illinois assisted living make my parent move out when their care needs change, and how much notice must it give? Evidence: question families asked in public, national caregiver Q&A forum, 2025-08-27; question families asked in public, national caregiver Q&A forum, 2023-09-30. Not covered by: illinois-nursing-home-resident-rights (nursing homes only). Added by the ESCG worker 2026-11-23.
 
 ## Done
