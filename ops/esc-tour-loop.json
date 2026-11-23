@@ -1669,10 +1669,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-23T15:25Z",
+  "utc": "2026-11-23T18:02Z",
   "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
-  "picked": "-",
-  "why": "Worked: monitor only; nothing else due (waiting on Joseph: conversion, search PRs)"
+  "picked": "ACQ-038 done, ACQ-039 done, ACQ-040 done, ACQ-041 done, ACQ-042 done, ACQ-043 waiting_on_data (until 2026-12-08), ACQ-044 done, ACQ-045 done (PR #87), ACQ-046 done, ACQ-047 done (PR #88), ACQ-048 done, ACQ-049 done",
+  "why": "Worked: built Medicare fast-appeal guide on drafts, 4 review packets, corrections applied to all 4 drafts, publish PRs #87 and #88 opened; stopped: approval-pending; resume: #87/#88 merged or 2026-11-24T03:25Z monitor"
  },
  "last_verified_action": "ACQ-049 done 2026-11-23T18:01Z: Applied all 12 packet corrections to illinois-money-management-program on drafts (4f57bd8): Program Sites (not the state) train volunteers, unsupported POA/gua…",
  "last_stop": {
@@ -1766,7 +1766,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Next: monitor ~03:25Z 24 Nov, planner cooldown ends 06:28Z 24 Nov, ACQ-005/ACQ-012 rechecks and referral follow-up window 25 Nov 15:00Z, SC3 25 Nov 16:00Z. Waiting on Joseph: PRs #78-81, #84-86 (conversion, search) and ACQ-007 checklist decision; ACQ-017 waits on #85 deploy.",
+ "next_discovery": "Next: monitor at 2026-11-24T03:25Z, then planner and draft-review cooldowns end 05:41Z (review the new Medicare fast-appeal draft then). Waiting on Joseph: publish PRs #87 (assisted-living move-out) and #88 (nursing-home responsible party); once either clears, publish packages for the corrected VA home-care and money-management guides. ACQ-043 (2027 Medicare figures PR) due 8 Dec.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -2343,28 +2343,51 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiSbQh9aYSa5vTbwv5wK",
-   "utc": "2026-11-23T18:02Z",
-   "since_utc": "2026-11-23T17:36Z",
-   "productive_min": 16,
-   "deliverables": [
-    "guide:drafts 9e9427e",
-    "review_packet:ops/reviews/illinois-assisted-living-involuntary-move-out.md",
-    "review_packet:ops/reviews/illinois-money-management-program.md",
-    "review_packet:ops/reviews/illinois-nursing-home-responsible-party.md",
-    "review_packet:ops/reviews/va-home-based-primary-care-and-aide.md",
-    "correction:drafts 3c7bc75",
-    "publish_pr:PR #87",
-    "correction:drafts a68e5aa",
-    "publish_pr:PR #88",
-    "correction:drafts 7defb27",
-    "correction:drafts 4f57bd8"
-   ]
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-23T15:25Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSbQh9aYSa5vTbwv5wK",
+    "start_utc": "2026-11-23T17:36Z",
+    "end_utc": "2026-11-23T18:02Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: built Medicare fast-appeal guide on drafts, 4 review packets, corrections applied to all 4 drafts, publish PRs #87 and #88 opened; stopped: approval-pending; resume: #87/#88 merged or 2026-11-24T03:25Z monitor",
+    "done": 11,
+    "changed": 2,
+    "tasks": "ACQ-038 done, ACQ-039 done, ACQ-040 done, ACQ-041 done, ACQ-042 done, ACQ-043 waiting_on_data (until 2026-12-08), ACQ-044 done, ACQ-045 done (PR #87), ACQ-046 done, ACQ-047 done (PR #88), ACQ-048 done, ACQ-049 done",
+    "next": "no",
+    "wake_minutes": 563,
+    "next_due_utc": "2026-11-24T03:25Z",
+    "plan_due": false,
+    "saturated": [
+     "publish",
+     "conversion"
+    ],
+    "budget_used_hours_24h": 0.6,
+    "budget_used_hours_7d": 0.6,
+    "productive_min": 16,
+    "deliverables": [
+     "guide:drafts 9e9427e",
+     "review_packet:ops/reviews/illinois-assisted-living-involuntary-move-out.md",
+     "review_packet:ops/reviews/illinois-money-management-program.md",
+     "review_packet:ops/reviews/illinois-nursing-home-responsible-party.md",
+     "review_packet:ops/reviews/va-home-based-primary-care-and-aide.md",
+     "correction:drafts 3c7bc75",
+     "publish_pr:PR #87",
+     "correction:drafts a68e5aa",
+     "publish_pr:PR #88",
+     "correction:drafts 7defb27",
+     "correction:drafts 4f57bd8"
+    ],
+    "stop_reason": "approval-pending",
+    "considered": "plan build +0 (no uncovered evidenced need; cooling to 2026-11-24T05:41Z); plan publish +0 then 2 publish PRs once packets existed (lane now 2/2, waiting on Joseph); sweeps: draft-review +4 (all worked), freshness +1 (2027 Medicare figures, ACQ-043 due 8 Dec), asset-gaps +0, search-console +0 (no read newer than 18 Nov), channel-yield +0 (only fb-rp-1122 yielded; no pending post), search-presence +0 (checked 22 Nov 21:30Z, inside 72h), competitor-gaps +0 (directories: rankings and unsourced prices barred); publish-ready waits on Joseph (#87, #88) for the VA and money-management packages; demand lane cooling to 2026-11-24T06:28Z; conversion saturated; technical cooling to 2026-11-26; monitor…",
+    "resume_when": "PR #87 or #88 merged or closed (frees the publish lane for the VA and money-management packages), or the monitor at 2026-11-24T03:25Z, or planner/draft-review cooldowns ending 2026-11-24T05:41Z",
+    "sweep_due_left": []
+   },
    {
     "run": "cse_014eaiSbAqDkDmCzdBFtk8Fg",
     "start_utc": "2026-11-23T15:24Z",
@@ -2419,7 +2442,7 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-23T15:25Z",
+   "written_utc": "2026-11-23T18:02Z",
    "eligible_now": 0,
    "next_due": [
     {
@@ -2427,24 +2450,24 @@
      "what": "monitor"
     },
     {
-     "utc": "2026-11-24T06:28Z",
+     "utc": "2026-11-24T05:41Z",
      "what": "planner cooldown ends"
     },
     {
-     "utc": "2026-11-25T15:00Z",
-     "what": "ACQ-005"
+     "utc": "2026-11-24T05:41Z",
+     "what": "sweep angle draft-review"
     },
     {
-     "utc": "2026-11-25T15:00Z",
-     "what": "ACQ-012"
+     "utc": "2026-11-24T05:43Z",
+     "what": "sweep angle asset-gaps"
     },
     {
-     "utc": "2026-11-25T16:00Z",
-     "what": "SC3"
+     "utc": "2026-11-24T06:28Z",
+     "what": "sweep angle demand-questions"
     },
     {
-     "utc": "2026-11-29T16:00Z",
-     "what": "SC5"
+     "utc": "2026-11-24T17:43Z",
+     "what": "sweep angle search-console"
     }
    ]
   },
