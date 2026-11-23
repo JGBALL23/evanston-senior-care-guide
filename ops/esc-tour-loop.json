@@ -97,6 +97,44 @@
    "executor": "this loop (proposal); Joseph (decision to build)",
    "done_when": "If /assisted-living-evanston/ shows >=1 impression for a local query by its ~14-day mark, hand Joseph one yes/no proposal with the autocomplete evidence; if 0 impressions, record that indexing/authority is the bottleneck and keep S3 at watch.",
    "not_before_utc": "2026-12-06T15:00Z"
+  },
+  {
+   "id": "ACQ-036",
+   "task": "Add the demand topic 'Can an Illinois assisted living make my parent move out when their care needs change, and how much notice must it give?' to DEMAND.md Open on drafts, with its public evidence.",
+   "workstream": "demand",
+   "lane": "demand",
+   "source": "plan",
+   "key": "demand:al-move-out-notice",
+   "evidence": "Family questions on a national caregiver Q&A forum: 30-day notice to move mom (asked 2025-08-27); facility says it can't meet needs though they haven't changed (asked 2023-09-30). KFF Health News reporting: evictions top ombudsman complaints about assisted living. Not covered: illinois-nursing-home-resident-rights covers nursing homes (Nursing Home Care Act), not assisted living termination; checked build-guides.py on main and drafts 2026-11-23.",
+   "expected_tour_acquisition_value": "Decision-stage question a family asks while choosing or changing communities (ROUTINE.md step 2 names 'what happens when care needs change'); a guide restarts the drafts engine and targets search visitors near a move decision.",
+   "impact": 3,
+   "confidence": 3,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "Topic line committed under ## Open in DEMAND.md on drafts and pushed; commit hash recorded.",
+   "score": 9.0,
+   "status": "ready",
+   "priority": 2,
+   "found_utc": "2026-11-23T06:26Z"
+  },
+  {
+   "id": "ACQ-037",
+   "task": "Add the demand topic 'Should I sign my parent's assisted living or nursing home admission contract as the responsible party?' to DEMAND.md Open on drafts, with its public evidence.",
+   "workstream": "demand",
+   "lane": "demand",
+   "source": "plan",
+   "key": "demand:responsible-party-signing",
+   "evidence": "Family questions on a national caregiver Q&A forum: refusing to sign as responsible party after signing as POA (asked 2023-10-12); facility demanding financial disclosure under the contract (asked 2021-03-20); public legal Q&A site question on what 'responsible party' means legally (2020-11-25). No guide on main or drafts mentions responsible party or guarantor (grep 2026-11-23); closest: illinois-advance-directive-power-of-attorney, assisted-living-cost-illinois.",
+   "expected_tour_acquisition_value": "Asked at the admission step, right before a move; a guide reaches families at the tour and sign-up stage and builds trust in the site's tour route.",
+   "impact": 3,
+   "confidence": 3,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "Topic line committed under ## Open in DEMAND.md on drafts and pushed; commit hash recorded.",
+   "score": 9.0,
+   "status": "ready",
+   "priority": 2,
+   "found_utc": "2026-11-23T06:26Z"
   }
  ],
  "completed": [
@@ -1981,7 +2019,7 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeYyJtiJvKjjnoBrQi",
-   "utc": "2026-11-23T06:24Z"
+   "utc": "2026-11-23T06:26Z"
   },
   "monitor": {
    "last_utc": "2026-11-23T00:25Z"
@@ -2057,8 +2095,8 @@
     "open_prs": [],
     "owner_open": 0,
     "cooldown_until_utc": "",
-    "last_planned_utc": "",
-    "last_plan_result": ""
+    "last_planned_utc": "2026-11-23T06:26Z",
+    "last_plan_result": "Searched public caregiver Q&A forums and legal Q&A (2026-11-23) for decision-stage Illinois questions; checked 49 slugs/h1 on main+drafts. Passed: assisted-living move-out notice when care needs change; signing admission contract as responsible party. Failed: memory-care-vs-AL timing (covered by le…"
    },
    {
     "id": "search",
@@ -2146,7 +2184,9 @@
    }
   ],
   "outcomes": [],
-  "log": [],
+  "log": [
+   "2026-11-23T06:26Z demand +2: Searched public caregiver Q&A forums and legal Q&A (2026-11-23) for decision-stage Illinois questions; checked 49 slugs/h1 on main+drafts. Passed: assisted-liv…"
+  ],
   "budget_hours_per_day": 6,
   "budget_hours_per_week": null
  }
