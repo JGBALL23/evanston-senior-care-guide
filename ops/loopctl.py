@@ -18,6 +18,11 @@ Write commands (edit the working copy only; committing and pushing is the caller
   lock RUN                          take the session lock (exit 3 if a live session holds it);
                                     the holder runs it again before each task as a heartbeat
   plan-done LANE --added N --result TEXT [--cooldown-hours H]
+  start WHAT                        mark what the session works on now (a task id, angle:ID or plan:LANE);
+                                    also a heartbeat. finish / sweep-done add its minutes to productive time
+  sweep-done ANGLE --added N --result TEXT [--recheck-hours H]
+                                    record one sweep angle checked (N tasks added; 0 is a complete result)
+  metrics [--days N]                productive time, deliverables, stop reasons and outcomes for N days
                                     record a planning pass; N = 0 puts the lane on cooldown (no filler)
   add --from FILE                   add a queue task from a JSON file; assigns the next ACQ id
   update ID --from FILE             merge fields from a JSON file into a queue task
@@ -157,6 +162,43 @@ def plan_view(d, now, pipeline):
             "lanes": lanes, "_wake": wake}
 
 
+def sweep_view(d, now, lanes_info):
+    """Sweep angles: specific evidence sources the session checks before it may stop (continue by default).
+    An angle is due when its recheck time has passed and its lane is not waiting on Joseph. Read only."""
+    pl = d.get("planner") or {}
+    sat = {x["id"] for x in lanes_info if x.get("saturated")}
+    due, waiting, later = [], [], []
+    for ang in sorted(pl.get("angles") or [], key=lambda x: (x.get("priority", 9), str(x.get("id")))):
+        if not isinstance(ang, dict) or not ang.get("enabled", True):
+            continue
+        if ang.get("lane") in sat:
+            waiting.append(ang.get("id"))
+            continue
+        nxt = parse_ts(ang.get("next_check_utc"))
+        if nxt is None or nxt <= now:
+            due.append({"id": ang.get("id"), "lane": ang.get("lane"), "priority": ang.get("priority"),
+                        "question": short(ang.get("question") or "", 150)})
+        else:
+            later.append((nxt, "sweep angle " + str(ang.get("id"))))
+    return {"due": due, "waiting_on_owner": waiting, "_later": later}
+
+
+def end_current(c, what, now, deliverable=None):
+    """Close the item marked by start: add its minutes to the session's productive time."""
+    lk = c.get("lock") or {}
+    cur = lk.get("current") or {}
+    minutes = None
+    if cur.get("what") == what:
+        t0 = parse_ts(cur.get("since_utc"))
+        if t0 is not None:
+            minutes = max(0, int(round((now - t0).total_seconds() / 60)))
+        lk["productive_min"] = int(lk.get("productive_min") or 0) + (minutes or 0)
+        lk.pop("current", None)
+    if deliverable:
+        lk.setdefault("deliverables", []).append(short(str(deliverable), 120))
+    return minutes
+
+
 def compute(d, now, monitor_hours):
     c = d.get("controller") or {}
     lock = c.get("lock") or {}
@@ -214,10 +256,12 @@ def compute(d, now, monitor_hours):
     if plan["_wake"] is not None:
         future.append((plan["_wake"], "planner cooldown ends"))
     plan.pop("_wake", None)
+    sweep = sweep_view(d, now, plan["lanes"])
+    future.extend(sweep.pop("_later"))
 
     future.sort()
     next_due = future[0][0] if future else None
-    eligible = pipeline + (1 if plan["due"] else 0)
+    eligible = pipeline + (1 if plan["due"] else 0) + len(sweep["due"])
     return {
         "now": fmt(now),
         "lock": {"holder": lock.get("holder", ""), "utc": lock.get("utc", ""), "age_min": lock_age, "live": lock_live},
@@ -230,6 +274,7 @@ def compute(d, now, monitor_hours):
                          "waiting_for": short(next((t[k] for k in WAIT_KEYS if t.get(k)), ""), 150)} for t in events],
         "monitor": {"last_utc": (c.get("monitor") or {}).get("last_utc", ""), "age_hours": mon_age, "due": mon_due},
         "plan": {k: plan[k] for k in ("due", "pipeline", "low_water", "plannable", "saturated")},
+        "sweep": sweep,
         "budget": budget_view(d, now),
         "eligible": eligible,
         "work_now": eligible > 0 or mon_due,
@@ -423,6 +468,10 @@ def main():
     p.add_argument("--record", action="store_true")
     p.add_argument("--cloud", default="ops/cloud.json")
     p.add_argument("--allow-repeat", action="store_true")
+    p.add_argument("--recheck-hours", type=float)
+    p.add_argument("--stop-reason", default="")
+    p.add_argument("--considered", default="")
+    p.add_argument("--resume-when", default="")
     a = p.parse_args()
 
     now = parse_ts(a.now) if a.now else dt.datetime.now(dt.timezone.utc).replace(microsecond=0)
@@ -542,6 +591,13 @@ def main():
             for t in d.get("queue") or []:
                 if t.get("source") == "plan" and t.get("lane") not in lane_ids:
                     problems.append("task %s names unknown lane %s" % (t.get("id"), t.get("lane")))
+            angle_ids = [x.get("id") for x in pl.get("angles") or []]
+            problems += ["duplicate sweep angle " + str(i) for i in sorted({i for i in angle_ids if angle_ids.count(i) > 1})]
+            for x in pl.get("angles") or []:
+                if x.get("lane") not in lane_ids:
+                    problems.append("sweep angle %s names unknown lane %s" % (x.get("id"), x.get("lane")))
+                if x.get("next_check_utc") and parse_ts(x["next_check_utc"]) is None:
+                    problems.append("sweep angle %s has an unreadable next_check_utc" % x.get("id"))
         out({"ok": not problems, "problems": problems,
              "counts": compute(d, now, a.monitor_hours)["counts"], "scouts": len(scouts)}, 0 if not problems else 4)
 
@@ -558,8 +614,10 @@ def main():
             c["sessions"].insert(0, {"run": st["holder"], "start_utc": prev.get("since_utc") or st["utc"], "end_utc": None,
                                      "outcome": "abandoned: no close recorded; lock taken over by " + run})
         if prev.get("holder") == run:
-            # heartbeat: refresh the time other sessions see, keep when this session took the lock
-            c["lock"] = {"holder": run, "utc": fmt(now), "since_utc": prev.get("since_utc") or prev.get("utc") or fmt(now)}
+            # heartbeat: refresh the time other sessions see; keep the start and the session's tallies
+            prev["since_utc"] = prev.get("since_utc") or prev.get("utc") or fmt(now)
+            prev["utc"] = fmt(now)
+            c["lock"] = prev
         else:
             c["lock"] = {"holder": run, "utc": fmt(now), "since_utc": fmt(now)}
         save(target, d)
@@ -632,6 +690,12 @@ def main():
             out({"updated": task["id"], "status": task.get("status")})
         task["status"] = a.status
         task["done_utc"] = fmt(now)
+        deliv = task.get("deliverable")
+        if isinstance(deliv, dict):
+            deliv = "%s:%s" % (deliv.get("type") or "item", deliv.get("ref") or task["id"])
+        mins = end_current(controller(d), str(task["id"]), now, deliv if deliv else None)
+        if mins is not None:
+            task["minutes"] = mins
         d.setdefault("completed", []).append(queue.pop(hits[0]))
         d["last_verified_action"] = "%s %s %s: %s" % (task["id"], a.status, fmt(now), short(task.get("result", title_of(task)), 160))
         save(target, d)
@@ -670,6 +734,69 @@ def main():
         save(target, d)
         out({"monitor_last_utc": fmt(now)})
 
+    if cmd == "start":
+        if not args:
+            fail("usage: start WHAT (a task id, angle:ID or plan:LANE)")
+        c = controller(d)
+        if not c["lock"].get("holder"):
+            fail("no session holds the lock")
+        c["lock"]["utc"] = fmt(now)
+        c["lock"]["current"] = {"what": args[0], "since_utc": fmt(now)}
+        save(target, d)
+        out({"started": args[0], "utc": fmt(now)})
+
+    if cmd == "sweep-done":
+        if not args:
+            fail("usage: sweep-done ANGLE --added N --result TEXT [--recheck-hours H]")
+        pl = d.get("planner")
+        if not isinstance(pl, dict):
+            fail("no planner block in " + target)
+        hits = [x for x in pl.get("angles") or [] if x.get("id") == args[0]]
+        if len(hits) != 1:
+            fail("unknown sweep angle: " + args[0])
+        ang = hits[0]
+        hours = a.recheck_hours if a.recheck_hours is not None else float(ang.get("recheck_hours", 24))
+        ang["last_checked_utc"] = fmt(now)
+        ang["next_check_utc"] = fmt(now + dt.timedelta(hours=max(1.0, hours)))
+        ang["last_added"] = max(0, a.added)
+        ang["last_result"] = short(a.result or "(no result given)", 300)
+        log = pl.setdefault("sweep_log", [])
+        log.insert(0, "%s %s +%d: %s" % (fmt(now), args[0], max(0, a.added), short(a.result or "", 160)))
+        del log[60:]
+        c = controller(d)
+        mins = end_current(c, "angle:" + args[0], now) if c["lock"].get("holder") else None
+        save(target, d)
+        out({"angle": args[0], "added": a.added, "next_check_utc": ang["next_check_utc"], "minutes": mins})
+
+    if cmd == "metrics":
+        days = max(1, a.days)
+        since = now - dt.timedelta(days=days)
+        rows, active, productive = [], 0.0, 0
+        from collections import Counter
+        launches, stops, deliverables = Counter(), Counter(), Counter()
+        for s_ in (d.get("controller") or {}).get("sessions") or []:
+            b = parse_ts(s_.get("end_utc"))
+            if b is None or b < since:
+                continue
+            a0 = parse_ts(s_.get("start_utc")) or b
+            active += max(0.0, (b - max(a0, since)).total_seconds() / 60)
+            productive += int(s_.get("productive_min") or 0)
+            la = (s_.get("launch") or "").lower()
+            launches["timer" if la.startswith("timer") else "controller chain" if la.startswith("completion") else "manual or other"] += 1
+            stops[s_.get("stop_reason") or "not recorded"] += 1
+            for x in s_.get("deliverables") or []:
+                deliverables[str(x).split(":")[0]] += 1
+            rows.append(s_.get("run"))
+        done = [t for t in d.get("completed") or [] if (parse_ts(t.get("done_utc")) or since) > since]
+        view = {"days": days, "sessions": len(rows), "launches": dict(launches), "active_hours": round(active / 60, 2),
+                "productive_hours": round(productive / 60, 2), "tasks_completed": len(done),
+                "deliverables": dict(deliverables), "stop_reasons": dict(stops)}
+        try:
+            view["outcomes"] = outcomes_view(load(a.cloud), now, days)
+        except (OSError, ValueError):
+            view["outcomes"] = "cloud.json not readable"
+        out(view)
+
     if cmd == "close":
         run = args[0]
         c = controller(d)
@@ -690,7 +817,12 @@ def main():
                                  "outcome": a.outcome, "done": a.done, "changed": a.changed, "tasks": a.tasks,
                                  "next": nxt, "wake_minutes": wake, "next_due_utc": st["next_due_utc"],
                                  "plan_due": st["plan"]["due"], "saturated": st["plan"]["saturated"],
-                                 "budget_used_hours_24h": bud["used_hours_24h"], "budget_used_hours_7d": bud["used_hours_7d"]})
+                                 "budget_used_hours_24h": bud["used_hours_24h"], "budget_used_hours_7d": bud["used_hours_7d"],
+                                 "productive_min": int(c["lock"].get("productive_min") or 0) if c["lock"].get("holder") == run else 0,
+                                 "deliverables": (c["lock"].get("deliverables") or [])[:25] if c["lock"].get("holder") == run else [],
+                                 "stop_reason": a.stop_reason or ("continuing" if nxt == "yes" else "not recorded"),
+                                 "considered": short(a.considered, 700), "resume_when": short(a.resume_when, 240),
+                                 "sweep_due_left": [x["id"] for x in st["sweep"]["due"]]})
         del c["sessions"][80:]
         if c["lock"].get("holder") in ("", run):
             c["lock"] = {"holder": "", "utc": ""}
@@ -699,7 +831,8 @@ def main():
                          "picked": a.tasks or "none", "why": a.outcome}
         save(target, d)
         out({"next": nxt, "wake_minutes": wake, "done": a.done, "eligible_left": st["eligible"],
-             "next_due_utc": st["next_due_utc"], "budget": bud})
+             "next_due_utc": st["next_due_utc"], "budget": bud,
+             "warning": None if (nxt == "yes" or a.stop_reason) else "stopping without --stop-reason, --considered and --resume-when"})
 
     fail("unknown command: " + cmd)
 
