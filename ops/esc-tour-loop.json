@@ -99,25 +99,6 @@
    "not_before_utc": "2026-12-06T15:00Z"
   },
   {
-   "id": "ACQ-036",
-   "task": "Add the demand topic 'Can an Illinois assisted living make my parent move out when their care needs change, and how much notice must it give?' to DEMAND.md Open on drafts, with its public evidence.",
-   "workstream": "demand",
-   "lane": "demand",
-   "source": "plan",
-   "key": "demand:al-move-out-notice",
-   "evidence": "Family questions on a national caregiver Q&A forum: 30-day notice to move mom (asked 2025-08-27); facility says it can't meet needs though they haven't changed (asked 2023-09-30). KFF Health News reporting: evictions top ombudsman complaints about assisted living. Not covered: illinois-nursing-home-resident-rights covers nursing homes (Nursing Home Care Act), not assisted living termination; checked build-guides.py on main and drafts 2026-11-23.",
-   "expected_tour_acquisition_value": "Decision-stage question a family asks while choosing or changing communities (ROUTINE.md step 2 names 'what happens when care needs change'); a guide restarts the drafts engine and targets search visitors near a move decision.",
-   "impact": 3,
-   "confidence": 3,
-   "effort": 1,
-   "executor": "worker (research and preparation only)",
-   "done_when": "Topic line committed under ## Open in DEMAND.md on drafts and pushed; commit hash recorded.",
-   "score": 9.0,
-   "status": "ready",
-   "priority": 2,
-   "found_utc": "2026-11-23T06:26Z"
-  },
-  {
    "id": "ACQ-037",
    "task": "Add the demand topic 'Should I sign my parent's assisted living or nursing home admission contract as the responsible party?' to DEMAND.md Open on drafts, with its public evidence.",
    "workstream": "demand",
@@ -1341,6 +1322,32 @@
    ],
    "lesson": "The timer-launched path runs end to end without a chat session; a 3h gap between not_before (03:15Z) and pickup (06:24Z) reflects timer cadence, not failure.",
    "done_utc": "2026-11-23T06:24Z"
+  },
+  {
+   "id": "ACQ-036",
+   "task": "Add the demand topic 'Can an Illinois assisted living make my parent move out when their care needs change, and how much notice must it give?' to DEMAND.md Open on drafts, with its public evidence.",
+   "workstream": "demand",
+   "lane": "demand",
+   "source": "plan",
+   "key": "demand:al-move-out-notice",
+   "evidence": "Family questions on a national caregiver Q&A forum: 30-day notice to move mom (asked 2025-08-27); facility says it can't meet needs though they haven't changed (asked 2023-09-30). KFF Health News reporting: evictions top ombudsman complaints about assisted living. Not covered: illinois-nursing-home-resident-rights covers nursing homes (Nursing Home Care Act), not assisted living termination; checked build-guides.py on main and drafts 2026-11-23.",
+   "expected_tour_acquisition_value": "Decision-stage question a family asks while choosing or changing communities (ROUTINE.md step 2 names 'what happens when care needs change'); a guide restarts the drafts engine and targets search visitors near a move decision.",
+   "impact": 3,
+   "confidence": 3,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "Topic line committed under ## Open in DEMAND.md on drafts and pushed; commit hash recorded.",
+   "score": 9.0,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-23T06:26Z",
+   "result": "Added the topic 'Can an Illinois assisted living make my parent move out when their care needs change, and how much notice must it give?' under ## Open in DEMAND.md on drafts (commit 8888a72, pushed). Evidence: 2 family questions on a national caregiver Q&A forum (2025-08-27, 2023-09-30); no names or links recorded. Coverage check: 49 slugs/h1 on drafts and main; illinois-nursing-home-resident-rights covers nursing homes only. The 6 AM drafts routine can now write a draft; Joseph reviews and publishes.",
+   "sources": [
+    "drafts DEMAND.md commit 8888a72",
+    "build-guides.py on main and drafts, 2026-11-23"
+   ],
+   "lesson": "Caregiver Q&A forum pages expose dateCreated in markup, so evidence dates can be verified with curl.",
+   "done_utc": "2026-11-23T06:27Z"
   }
  ],
  "blocked": [],
@@ -1351,7 +1358,7 @@
   "picked": "none ready",
   "why": "Worked: monitor clean (0 genuine, 0 tour requests, 0 replies); Open Communities draft prepared for operator"
  },
- "last_verified_action": "SYS-001 done 2026-11-23T06:24Z: Make-started session worked SYS-001 with no chat involvement. session_id=cse_014eaiSeYyJtiJvKjjnoBrQi; session_start_utc=2026-11-23T06:24Z (first command in se…",
+ "last_verified_action": "ACQ-036 done 2026-11-23T06:27Z: Added the topic 'Can an Illinois assisted living make my parent move out when their care needs change, and how much notice must it give?' under ## Open in DEMA…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -2019,7 +2026,7 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeYyJtiJvKjjnoBrQi",
-   "utc": "2026-11-23T06:26Z"
+   "utc": "2026-11-23T06:27Z"
   },
   "monitor": {
    "last_utc": "2026-11-23T00:25Z"
