@@ -1769,10 +1769,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-23T18:16Z",
-  "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
-  "picked": "SYS-T1 done, SYS-T2 done, SYS-T3 done",
-  "why": "Worked: SYS-T1..T3 done (TEST cap 3 tasks); stopped: time; resume: SYS-T4, SYS-T5 ready now"
+  "utc": "2026-11-23T18:18Z",
+  "event": "Make controller: completion of cse_014eaiSaya467ukbGEb71r6K",
+  "picked": "SYS-T4 done, SYS-T5 done",
+  "why": "Worked: chain tests SYS-T4 and SYS-T5 done; stopped: no-worthwhile-work; resume: monitor due 2026-11-24T03:25Z"
  },
  "last_verified_action": "SYS-T5 done 2026-11-23T18:17Z: START=2026-11-23T18:17Z; finished at 2026-11-23T18:17Z; ELAPSED 0 minutes. Session cse_014eaiSdi7TEWoCZQoSdi43S.",
  "last_stop": {
@@ -2443,19 +2443,42 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiSdi7TEWoCZQoSdi43S",
-   "utc": "2026-11-23T18:17Z",
-   "since_utc": "2026-11-23T18:17Z",
-   "productive_min": 2,
-   "deliverables": [
-    "data:cse_014eaiSdi7TEWoCZQoSdi43S",
-    "data:cse_014eaiSdi7TEWoCZQoSdi43S"
-   ]
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-23T15:25Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSdi7TEWoCZQoSdi43S",
+    "start_utc": "2026-11-23T18:17Z",
+    "end_utc": "2026-11-23T18:18Z",
+    "launch": "completion of cse_014eaiSaya467ukbGEb71r6K",
+    "outcome": "Worked: chain tests SYS-T4 and SYS-T5 done; stopped: no-worthwhile-work; resume: monitor due 2026-11-24T03:25Z",
+    "done": 2,
+    "changed": 0,
+    "tasks": "SYS-T4 done, SYS-T5 done",
+    "next": "no",
+    "wake_minutes": 547,
+    "next_due_utc": "2026-11-24T03:25Z",
+    "plan_due": false,
+    "saturated": [
+     "publish",
+     "conversion"
+    ],
+    "budget_used_hours_24h": 0.6,
+    "budget_used_hours_7d": 0.6,
+    "productive_min": 2,
+    "deliverables": [
+     "data:cse_014eaiSdi7TEWoCZQoSdi43S",
+     "data:cse_014eaiSdi7TEWoCZQoSdi43S"
+    ],
+    "stop_reason": "no-worthwhile-work",
+    "considered": "Ready: SYS-T4, SYS-T5 worked. Event waits: ACQ-017 checked (production: only / links to /assisted-living-evanston/, PR #85 not deployed) left waiting; ACQ-007 waiting on Joseph, no answer recorded. Plan not due (no plannable lanes; publish and conversion saturated). Sweep: no angles due. Monitor not due until 03:25Z. TEST mode: no builds, PRs or drafts.",
+    "resume_when": "Monitor due 2026-11-24T03:25Z, or PR #85 deploy, or a new chain-test task",
+    "sweep_due_left": []
+   },
    {
     "run": "cse_014eaiSaya467ukbGEb71r6K",
     "start_utc": "2026-11-23T18:15Z",
@@ -2578,8 +2601,8 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-23T18:16Z",
-   "eligible_now": 2,
+   "written_utc": "2026-11-23T18:18Z",
+   "eligible_now": 0,
    "next_due": [
     {
      "utc": "2026-11-24T03:25Z",
@@ -2609,7 +2632,7 @@
   },
   "procedure": "v4.3 (continue by default, build on drafts)",
   "note_test": "Test copy for the Make chain test, 2026-11-23T18:08Z: planner and angles disabled, open items set to watch, scouts deferred, 5 ready SYS-T tasks. TEST mode works at most 3 tasks per session, so the first session should report next yes and Make should start a second one.",
-  "next_discovery": "Test chain: SYS-T4 and SYS-T5 ready for the next session. Monitor due 2026-11-24T03:25Z; ACQ-007 waits on Joseph, ACQ-017 waits on PR #85 deploy."
+  "next_discovery": "Next: monitor at 2026-11-24T03:25Z; ACQ-005/ACQ-012 rechecks 2026-11-25. Waiting on Joseph: ACQ-007, PR #85 deploy for ACQ-017."
  },
  "planner": {
   "version": 1,
