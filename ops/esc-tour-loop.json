@@ -2120,7 +2120,7 @@
     }
    ]
   },
-  "procedure": "v4.1 (demand topics queued directly on drafts), from 2026-11-23T04:33Z"
+  "procedure": "v4.2 (continue by default), from 2026-11-23T16:41Z"
  },
  "planner": {
   "version": 1,
@@ -2263,6 +2263,122 @@
    "2026-11-23T06:26Z demand +2: Searched public caregiver Q&A forums and legal Q&A (2026-11-23) for decision-stage Illinois questions; checked 49 slugs/h1 on main+drafts. Passed: assisted-liv…"
   ],
   "budget_hours_per_day": 6,
-  "budget_hours_per_week": null
+  "budget_hours_per_week": null,
+  "angles": [
+   {
+    "id": "draft-review",
+    "lane": "demand",
+    "priority": 1,
+    "recheck_hours": 12,
+    "enabled": true,
+    "question": "Which guide drafts on the drafts branch are not yet on main and have no review packet in ops/reviews/?",
+    "evidence": "git diff of main...drafts for new guide slugs; each draft's own cited sources, fetched and read now.",
+    "output": "One review packet per draft at ops/reviews/<slug>.md on ops/operator-state: every factual claim checked against the source it cites (holds / does not hold / source unreachable, quoting the source's own short wording), the rule checks (independent-guide disclosure, no community ranking, no Westminster Place prices, no unverified medical, legal, financial or benefits claim) and a verdict: publish-ready, or the exact fixes. One owner_review_needed line per draft with the verdict and the minutes it takes to publish. Deliverable type review_packet.",
+    "why": "A draft only helps families once Joseph publishes it; a verified packet turns that into a few-minute decision.",
+    "last_checked_utc": "",
+    "next_check_utc": "",
+    "last_result": ""
+   },
+   {
+    "id": "demand-questions",
+    "lane": "demand",
+    "priority": 1,
+    "recheck_hours": 24,
+    "enabled": true,
+    "question": "Which decision-stage questions are Illinois and North Shore families asking in public that no guide and no DEMAND.md entry answers?",
+    "evidence": "The demand lane's evidence: public Q&A sites, forums, community boards and news comment sections (type, venue kind and date only); Search Console queries when available.",
+    "output": "Topics committed to DEMAND.md's Open list on drafts, at most three open at once (step 7). Deliverable type demand_topic.",
+    "why": "Each topic becomes a guide draft at 6 AM the next morning.",
+    "last_checked_utc": "2026-11-23T06:28Z",
+    "next_check_utc": "2026-11-24T06:28Z",
+    "last_result": "Covered by the demand planning passes of 06:26Z and 06:28Z: 2 topics added (drafted as guides at 6:18 AM), remaining candidates from the same sources did not pass."
+   },
+   {
+    "id": "channel-yield",
+    "lane": "distribution",
+    "priority": 2,
+    "recheck_hours": 48,
+    "enabled": true,
+    "question": "Which channel or venue produced genuine visitors, tour-form views or inquiries in the last 7 days, and what is the next authorized step there?",
+    "evidence": "cloud.json metrics (per_tag) and scoreboard; state.json actions (the operator's posting plan and cap); opportunity_map channel_yield.",
+    "output": "The final post text for the operator's next slot in that channel (step 8b), a similar venue added to the map with its own evidence, or the verdict that the channel is at its cap. Deliverable type post_text or map_item.",
+    "why": "Local posts are the only channel with measured visitors so far.",
+    "last_checked_utc": "",
+    "next_check_utc": "",
+    "last_result": ""
+   },
+   {
+    "id": "search-console",
+    "lane": "search",
+    "priority": 2,
+    "recheck_hours": 24,
+    "enabled": true,
+    "question": "Is there a Search Console read newer than the last one used? If so, which queries have impressions but no matching page, or a matching page with low click-through?",
+    "evidence": "The operator's Search Console record in state.json and scoreboard.search_console.",
+    "output": "Demand topics for queries with no page; a title or description fix task for a low click-through page (search lane capacity permitting). No new read is a one-line result.",
+    "why": "Real queries are the strongest demand evidence the site can get.",
+    "last_checked_utc": "",
+    "next_check_utc": "",
+    "last_result": ""
+   },
+   {
+    "id": "search-presence",
+    "lane": "search",
+    "priority": 2,
+    "recheck_hours": 72,
+    "enabled": true,
+    "question": "For the tracked decision-stage searches in opportunity_map/discovery/search_presence, where does the guide appear now, and which page should rank for each?",
+    "evidence": "Live web search results for each tracked search, recorded with the date.",
+    "output": "Updated search_presence; for a search where a fitting page exists but does not appear, one concrete on-page or internal-link task; for a search with no fitting page, a demand topic.",
+    "why": "Search is how families at the decision stage find local help.",
+    "last_checked_utc": "",
+    "next_check_utc": "",
+    "last_result": ""
+   },
+   {
+    "id": "competitor-gaps",
+    "lane": "search",
+    "priority": 3,
+    "recheck_hours": 168,
+    "enabled": true,
+    "question": "For /assisted-living-evanston/ and the guides with the most genuine visitors, what do the top three ranking pages answer that ours does not?",
+    "evidence": "The ranking pages themselves, read in full; our pages on main.",
+    "output": "Specific missing answers as one PR task per page, or demand topics; never copying anyone's text.",
+    "why": "Closing real answer gaps is what lets a page outrank directories.",
+    "last_checked_utc": "",
+    "next_check_utc": "",
+    "last_result": ""
+   },
+   {
+    "id": "freshness",
+    "lane": "technical",
+    "priority": 3,
+    "recheck_hours": 168,
+    "enabled": true,
+    "question": "Which published guides state rates, income or asset limits, deadlines or program rules that their official source has since changed (for example 2027 figures)?",
+    "evidence": "The official source each guide cites (HFS, SSA, CMS, IDoA, IDPH and the like), fetched now.",
+    "output": "A correction PR citing the official source for each changed figure, or the verdict 'current' per guide checked. Deliverable type pr or verdict.",
+    "why": "A wrong figure on a published guide misleads families and costs trust.",
+    "last_checked_utc": "",
+    "next_check_utc": "",
+    "last_result": ""
+   },
+   {
+    "id": "site-health",
+    "lane": "technical",
+    "priority": 4,
+    "recheck_hours": 72,
+    "enabled": true,
+    "question": "Does every live page and asset load, link correctly and pass the repository's own checks?",
+    "evidence": "A crawl of the live sitemap; check-guides.js, test.js and the checklist PDF test on a clone of main.",
+    "output": "A review PR for a real defect on a page visitors reach, or a clean verdict.",
+    "why": "Broken pages lose visitors and rankings.",
+    "last_checked_utc": "2026-11-23T06:28Z",
+    "next_check_utc": "2026-11-26T06:28Z",
+    "last_result": "Covered by the technical and search planning passes of 06:26Z and 06:28Z: 36 live URLs load, checks pass."
+   }
+  ],
+  "sweep_log": [],
+  "continue_by_default": "Joseph, 23 Nov 2026 10:36 Chicago: change from STOP-BY-DEFAULT to CONTINUE-BY-DEFAULT. After the ready tasks, a session plans and sweeps these angles before it may stop; it stops only for time, no-worthwhile-work, approval-pending, usage-reserve, usage-limit, permission or store-error, recording the alternatives considered and the condition to resume."
  }
 }
