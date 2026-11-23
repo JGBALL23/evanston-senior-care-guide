@@ -417,6 +417,22 @@ SRC = {
                          'https://hfs.illinois.gov/medicalprograms/slf/residentfactsheet.html'),
     "idph_dementia_2025": ('Illinois Department of Public Health — Dementia Annual Report: Dementia Capability in Illinois 2025',
                            'https://dph.illinois.gov/content/dam/soi/en/web/idph/publications/idph/topics-and-services/diseases-and-conditions/alzheimers/dementia-capability-report-2025.pdf'),
+    "idph_al_itr_form": ('Illinois Department of Public Health — Assisted Living and '
+                         'Shared Housing Involuntary Termination of Residency, Appeal '
+                         'and Facility Representative Disclosure forms',
+                         'https://dph.illinois.gov/content/dam/soi/en/web/idph/files/'
+                         'forms/itrformwithhearingrequestrevised20200221.pdf'),
+    "idoa_ltc_rights_page": ('Illinois Department on Aging — Residents’ Rights in '
+                             'Long-Term Care Facilities',
+                             'https://ilaging.illinois.gov/programs/ltcombudsman/'
+                             'residents-rights-in-long-term-care-facilities1.html'),
+    "cms_qso2514_nh": ('CMS — QSO-25-14-NH, Revised Long-Term Care Surveyor Guidance '
+                       '(Admission Agreements, §483.15(a)(3))',
+                       'https://www.cms.gov/files/document/qso-25-14-nh.pdf'),
+    "medicare_nh_guide": ('Medicare.gov — Your Guide to Living in a Nursing Home '
+                          '(publication 12217)',
+                          'https://www.medicare.gov/publications/'
+                          '12217-your-guide-to-living-in-a-nursing-home'),
 }
 
 
@@ -5058,6 +5074,296 @@ GUIDES = [
             ]),
         ],
     },
+
+    {
+        "slug": "illinois-assisted-living-involuntary-move-out",
+        "bridge": ("Knowing the notice and appeal process is a different question "
+               "from knowing whether your parent actually needs a higher level of "
+               "care than this community can give."),
+        "reviewed": "2026-11-23",
+        "title": "Can an Illinois Assisted Living Make Your Parent Move Out?",
+        "h1": "Can an Illinois assisted living make your parent move out, and how much notice must it give?",
+        "desc": ("IDPH's form requires 30 days' written notice and a right to "
+                 "appeal before an Illinois assisted living can end a stay. The "
+                 "process, from the state's paperwork."),
+        "intent": "worry / resident rights",
+        "answer": ("<strong>Only through a formal process &mdash; not simply by "
+                   "being asked to leave.</strong> The Illinois Department of "
+                   "Public Health's own Involuntary Termination of Residency form "
+                   "states that a <strong>30-day prior written notice</strong> "
+                   "must go to the resident, the resident&rsquo;s representative, "
+                   "or both, and to the long-term care ombudsman, and that a "
+                   "resident &ldquo;has the right to continue to reside in the "
+                   "establishment until a decision is rendered.&rdquo; The Illinois "
+                   "Department on Aging&rsquo;s residents&rsquo; rights brochure, "
+                   "which it says is &ldquo;appropriate for nursing homes and "
+                   "assisted living&rdquo;, lists four reasons a facility can make "
+                   "a resident leave &mdash; see below."),
+        "sources": srcs("idph_al_itr_form", "idoa_ltc_rights_page", "idoa_resident_rights_brochure", "idph_al_div", "idoa_ombudsman", "idoa_ombudsman_contact"),
+        "body": [
+            ("What IDPH's own form requires before a move-out", [
+                "<p>When a family searches for whether an Illinois assisted "
+                "living or shared housing establishment can make a resident "
+                "leave, the most direct answer is the state's own paperwork for "
+                "it. The Illinois Department of Public Health (IDPH) publishes "
+                "an <em>Assisted Living and Shared Housing Involuntary "
+                "Termination of Residency</em> form, and the form itself states "
+                "the rule in one sentence: &ldquo;A 30-day prior written notice "
+                "must be provided to the resident, resident&rsquo;s "
+                "representative, or both, and to the long-term care "
+                "ombudsman.&rdquo; The same form adds: &ldquo;The establishment "
+                "must notify the Illinois Department of Public Health when it "
+                "initiates the termination process.&rdquo; So a termination is "
+                "not a private matter between the resident "
+                "and the establishment; the state is notified too.</p>",
+                "<p>The form itself has a line the establishment must fill in, "
+                "labelled &ldquo;Reason for Residency Termination&rdquo;. "
+                "The Department on Aging&rsquo;s residents&rsquo; rights brochure "
+                "adds that the written notice must include why the resident is "
+                "being asked to move.</p>",
+            ]),
+            ("The right to appeal, and what happens while you wait", [
+                "<p>The same IDPH form sets out exactly how a resident "
+                "contests a termination: by calling IDPH's Division of "
+                "Assisted Living at <strong>217-782-2448</strong>, or by "
+                "sending a signed Appeal Hearing Request form to IDPH. The "
+                "accompanying "
+                "Hearing Request form gives the deadline in capital letters: "
+                "&ldquo;Please submit completed forms within 10 DAYS after "
+                "receiving the Involuntary Termination of Residency form from "
+                "the facility.&rdquo;</p>",
+                "<p>Filing on time matters, because of what the form says "
+                "happens next: &ldquo;The resident has the right to continue to "
+                "reside in the establishment until a decision is rendered.&rdquo; "
+                "The Hearing Request form can be mailed or faxed to "
+                "217-557-2432, to the Illinois Department of Public Health, "
+                "Division of Assisted Living, 525 West Jefferson Street, 5th "
+                "Floor, Springfield, Illinois 62761. The termination form also "
+                "has a line naming the person at the establishment who will "
+                "assist with relocation.</p>",
+            ]),
+            ("What reasons can be given", [
+                "<p>The question families actually ask is broader than notice "
+                "periods: can an establishment end a stay because a parent's "
+                "care needs have grown? The Illinois Department on Aging's "
+                "brochure <em>Residents&rsquo; Rights for People in Long-Term "
+                "Care Facilities</em>, which the Department's residents' rights "
+                "page describes as &ldquo;appropriate for nursing homes and "
+                "assisted living&rdquo;, says a facility can make a resident "
+                "leave because the bill has not been paid, the resident is "
+                "dangerous to themselves or others, their medical needs cannot "
+                "be met, or the facility closes.</p>",
+                "<p>The full assisted living rules are in Part 295 of the "
+                "Illinois Administrative Code, which IDPH's Assisted Living "
+                "page links to as &ldquo;Assisted Living and Shared Housing - "
+                "295 Administrative Code&rdquo;.</p>",
+                "<p>Practically, that means: ask the establishment to point to "
+                "the specific reason it wrote on your parent's notice, and call "
+                "IDPH's Division of Assisted Living (217-782-2448) or the "
+                "Long-Term Care Ombudsman Program to ask whether that reason "
+                "matches a recognised ground for termination before deciding "
+                "whether to appeal.</p>",
+            ]),
+            ("Your parent's broader rights as a resident", [
+                "<p>The Illinois Department on Aging's page on residents' "
+                "rights in long-term care facilities states that care facility "
+                "residents keep certain rights, protections and privileges "
+                "under both Illinois and federal law. The Long-Term Care "
+                "Ombudsman Program &mdash; which "
+                "the involuntary termination notice must also be sent to "
+                "&mdash; is reached by calling the Department on Aging&rsquo;s "
+                "<strong>Senior HelpLine at 1-800-252-8966 (711 TRS)</strong>, "
+                "and the Department lists involuntary transfers or discharges "
+                "among the reasons to contact an ombudsman.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>This page covers assisted living and shared housing "
+                "establishments specifically, which IDPH&rsquo;s Division of "
+                "Assisted Living licenses, and whose notice and appeal forms are "
+                "the ones described above. For the wider set of residents&rsquo; "
+                "rights Illinois publishes for nursing homes and other care "
+                "facilities, see "
+                '<a href="/guides/illinois-nursing-home-resident-rights/">What '
+                "rights does your parent have in an Illinois nursing home or "
+                "care facility?</a> To report a live concern rather than "
+                "appeal a termination notice, see "
+                '<a href="/guides/illinois-care-facility-complaint/">How to '
+                "report a problem at an Illinois care facility</a>.</p>",
+                "<p>If a termination notice cites care needs your parent's "
+                "current setting cannot meet, the "
+                '<a href="/">free six-question assessment</a> on this site can '
+                "help you think through what level of care fits now. It asks "
+                "for no name, no email and no phone number, and your answers "
+                "never leave your device.</p>",
+            ]),
+        ],
+    },
+
+    {
+        "slug": "illinois-nursing-home-responsible-party",
+        "bridge": ("Signing paperwork at admission is a different moment from "
+               "knowing whether a nursing home is even the right level of care "
+               "for your parent in the first place."),
+        "reviewed": "2026-11-23",
+        "title": "Should You Sign a Nursing Home Contract as Responsible Party?",
+        "h1": "Should I sign my parent's nursing home admission contract as the responsible party?",
+        "desc": ("Federal law bars a certified nursing home from making you "
+                 "personally pay your parent's bill. What responsible-party "
+                 "language can and cannot ask of you."),
+        "intent": "worry / legal",
+        "answer": ("<strong>Not as a personal guarantee of payment &mdash; and "
+                   "a nursing home is not allowed to make you.</strong> Federal "
+                   "regulation 42 CFR 483.15(a)(3), which binds every Medicare- "
+                   "or Medicaid-certified nursing facility, states the facility "
+                   '&ldquo;must not request or require a third party guarantee '
+                   "of payment to the facility as a condition of admission or "
+                   "expedited admission, or continued stay in the "
+                   "facility.&rdquo; Medicare's own consumer guide lists, among "
+                   "things a nursing home isn&rsquo;t allowed to do: "
+                   "&ldquo;Make a third party (like your family) pay your "
+                   "nursing home bill.&rdquo; It may only ask a representative "
+                   "with legal access to your parent&rsquo;s own money to use "
+                   "that money to pay, and the Illinois Department on Aging&rsquo;s "
+                   "residents&rsquo; rights brochure states a similar limit in "
+                   "its own words."),
+        "sources": srcs("cms_qso2514_nh", "medicare_nh_guide", "idoa_resident_rights_brochure"),
+        "body": [
+            ("The federal rule, in the regulation's own words", [
+                "<p>The requirement sits in the Medicare and Medicaid "
+                "requirements for participation every certified nursing facility "
+                "must meet. CMS's current surveyor guidance (QSO-25-14-NH) "
+                "quotes the regulation directly: &ldquo;The facility must not "
+                "request or require a third party guarantee of payment to the "
+                "facility as a condition of admission or expedited admission, "
+                "or continued stay in the facility.&rdquo; The same guidance "
+                "states plainly who that protects: &ldquo;The prohibition "
+                "against third-party guarantees applies to all residents and "
+                "prospective residents in all certified long term care "
+                "facilities, regardless of payment source.&rdquo; Your "
+                "parent's ability to private-pay does not remove this "
+                "protection.</p>",
+                "<p>What is still allowed is narrow and specific. CMS's "
+                "guidance continues: &ldquo;the facility may request and "
+                "require a resident representative with legal access to the "
+                "resident&rsquo;s funds available to pay for facility care to "
+                "access and use the resident&rsquo;s money or other assets to "
+                "pay for care, as authorized by law. The facility may request "
+                "and require this representative to sign a contract, without "
+                "incurring personal liability, to provide the facility with "
+                "payment from the resident&rsquo;s income or assets.&rdquo; "
+                "That is a promise to pay from <em>your parent's</em> money if "
+                "you control it &mdash; not a promise to pay from "
+                "<em>yours</em>.</p>",
+            ]),
+            ("Language that counts as noncompliant, even without the word &ldquo;guarantee&rdquo;", [
+                "<p>CMS's guidance is explicit that a facility cannot get "
+                "around the rule by avoiding the word &ldquo;guarantee.&rdquo; "
+                "It states: &ldquo;language can be noncompliant even if it does "
+                "not specifically reference a &lsquo;guarantee&rsquo; by a "
+                "third party. Any language contained in an agreement that "
+                "seeks to hold a third party personally responsible for paying "
+                "the facility would violate this requirement.&rdquo; The "
+                "guidance lists examples of what that covers, including:</p>",
+                "<ul class=\"res__list\">"
+                "<li>Language that holds both the resident and a "
+                "representative or other individual jointly responsible for "
+                "sums due to the facility (naming the resident alone is "
+                "allowed).</li>"
+                "<li>Language that holds a representative personally liable "
+                "for &ldquo;breach of an obligation in the agreement,&rdquo; "
+                "such as not applying for Medicaid in time.</li>"
+                "<li>Language that does not mention a guarantee but "
+                "&ldquo;implies the resident could be discharged if the "
+                "representative does not voluntarily agree to personally pay "
+                "to prevent the discharge.&rdquo;</li>"
+                "<li>Language that holds a representative personally liable "
+                "for unpaid amounts because they did not supply accurate "
+                "financial information or report a change in the "
+                "resident&rsquo;s finances.</li></ul>",
+                "<p>CMS's guidance also states this is not limited to the "
+                "main admission agreement: noncompliant language is a problem "
+                "&ldquo;if it appears in the main document that a facility "
+                "uses as its admission agreement or in other documents that "
+                "are signed at admission,&rdquo; and a facility &ldquo;cannot "
+                "use such language in agreements regarding a resident&rsquo;s "
+                "continued stay&rdquo; after admission either.</p>",
+            ]),
+            ("What Medicare tells families directly", [
+                "<p>Medicare's own consumer guide, <em>Your Guide to Living in "
+                "a Nursing Home</em>, puts the same rule in plain language "
+                "under the heading &ldquo;Read your admission agreement "
+                "carefully&rdquo;: &ldquo;You aren&rsquo;t required to agree "
+                "to everything. For example, a nursing home isn&rsquo;t "
+                "allowed to: Make a third party (like your family) pay your "
+                "nursing home bill. It may only ask your family to use your "
+                "money to pay the bills (if your family has legal access to "
+                "your funds).&rdquo; The same guide also flags a separate "
+                "clause worth watching for: a nursing home &ldquo;isn&rsquo;t "
+                "allowed to&rdquo; require you to sign a binding-arbitration "
+                "agreement, resolving disputes outside court, as a condition "
+                "of admission or care.</p>",
+                "<p>Medicare's practical advice if something in the agreement "
+                "concerns you: &ldquo;cross out the item with a pen or marker "
+                "before signing to show you don&rsquo;t agree.&rdquo; It also "
+                "suggests asking a lawyer to review the agreement first, if "
+                "you have one.</p>",
+            ]),
+            ("How Illinois's residents' rights brochure puts it", [
+                "<p>Illinois&rsquo;s Department on Aging publishes a residents&rsquo; "
+                "rights brochure for long-term care facilities that states "
+                "the same protection in its own words, with a differently "
+                "worded exception from the federal rule: &ldquo;Your facility must "
+                "not require anyone else to sign an agreement stating they "
+                "will pay for your bill unless they are your court appointed "
+                "guardian.&rdquo; Notice the difference from the federal "
+                "exception above: Illinois&rsquo;s brochure names a <strong>court "
+                "appointed guardian</strong>, while the federal rule speaks "
+                "more broadly of a representative with &ldquo;legal access&rdquo; "
+                "to a resident's funds. This guide read both documents as "
+                "written and is reporting that difference rather than "
+                "resolving it &mdash; which one applies to a specific "
+                "representative (an agent under a power of attorney, for "
+                "example, versus a court-appointed guardian) is a question for "
+                "the facility, the Long-Term Care Ombudsman, or an elder law "
+                "attorney, not something this guide will guess at.</p>",
+            ]),
+            ("A gap this guide could not close: assisted living", [
+                "<p>The federal rule above, 42 CFR 483.15(a)(3), applies by "
+                "its own terms to &ldquo;all certified long term care "
+                "facilities&rdquo;; none of the three sources this guide read "
+                "addresses assisted living or shared housing contracts. This guide "
+                "searched for an equivalent Illinois government page "
+                "addressing responsible-party or guarantor language "
+                "specifically in assisted living contracts and did not find "
+                "one on an allowed host. If your parent is moving into "
+                "assisted living rather than a nursing home, do not assume "
+                "the same federal protection applies &mdash; read carefully any "
+                "signature line that would make you a responsible party or "
+                "guarantor, and ask the establishment "
+                "in writing what liability it creates before signing.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>This page is about one clause in an admission agreement, "
+                "not the rest of a resident's rights once admitted. For the "
+                "fuller list &mdash; money, privacy, discharge and grievances "
+                "&mdash; see "
+                '<a href="/guides/illinois-nursing-home-resident-rights/">What '
+                "rights does your parent have in an Illinois nursing home or "
+                "care facility?</a> For a decision about health care "
+                "authority rather than payment, see "
+                '<a href="/guides/illinois-advance-directive-power-of-attorney/">'
+                "Does your parent need a power of attorney for health "
+                "care?</a>, which covers a different kind of document "
+                "entirely.</p>",
+                "<p>If you are still weighing whether a nursing home is the "
+                "right setting at all, the "
+                '<a href="/">free six-question assessment</a> on this site '
+                "walks through that separately. It asks for no name, no "
+                "email and no phone number, and your answers never leave "
+                "your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -5261,7 +5567,7 @@ RELATED = {
         "illinois-medicaid-look-back-period"],
     "check-illinois-inspection-records": [
         "illinois-care-facility-complaint",
-        "levels-of-senior-care-explained",
+        "illinois-assisted-living-involuntary-move-out",
         "illinois-nursing-home-resident-rights"],
     "levels-of-senior-care-explained": [
         "independent-living-evanston",
@@ -5273,7 +5579,7 @@ RELATED = {
         "illinois-nursing-home-preadmission-screening"],
     "illinois-medicaid-long-term-care": [
         "illinois-medicaid-estate-recovery",
-        "illinois-supportive-living-program",
+        "illinois-nursing-home-responsible-party",
         "illinois-nursing-home-preadmission-screening"],
     "illinois-care-facility-complaint": [
         "check-illinois-inspection-records",
@@ -5309,7 +5615,7 @@ RELATED = {
         "illinois-medicare-savings-program"],
     "illinois-nursing-home-resident-rights": [
         "illinois-care-facility-complaint",
-        "check-illinois-inspection-records",
+        "illinois-assisted-living-involuntary-move-out",
         "illinois-advance-directive-power-of-attorney"],
     "illinois-nursing-home-preadmission-screening": [
         "levels-of-senior-care-explained",
@@ -5326,7 +5632,7 @@ RELATED = {
     "illinois-advance-directive-power-of-attorney": [
         "illinois-nursing-home-resident-rights",
         "medicare-hospice-benefit-explained",
-        "levels-of-senior-care-explained"],
+        "illinois-nursing-home-responsible-party"],
     "illinois-medicare-savings-program": [
         "illinois-senior-health-insurance-program",
         "illinois-fide-snp-explained",
@@ -5374,6 +5680,14 @@ RELATED = {
     "illinois-fide-snp-explained": [
         "illinois-medicare-savings-program",
         "illinois-senior-health-insurance-program",
+        "illinois-medicaid-long-term-care"],
+    "illinois-assisted-living-involuntary-move-out": [
+        "illinois-nursing-home-resident-rights",
+        "illinois-care-facility-complaint",
+        "levels-of-senior-care-explained"],
+    "illinois-nursing-home-responsible-party": [
+        "illinois-nursing-home-resident-rights",
+        "illinois-advance-directive-power-of-attorney",
         "illinois-medicaid-long-term-care"],
 }
 
@@ -5777,6 +6091,18 @@ CARDS = {
         'Medicare',
         'What replaced MMAI for parents with Medicare and Medicaid?',
         'Illinois ended MMAI on 31 December 2025. What a FIDE SNP is, who can join one, and when a dually eligible parent can switch plans.'),
+    "illinois-assisted-living-involuntary-move-out": (
+        "Checking a community",
+        "Can an assisted living make your parent move out?",
+        "IDPH's own form requires 30 days' written notice and a right to "
+        "appeal before a stay can be ended — the process, read off the "
+        "state's own paperwork."),
+    "illinois-nursing-home-responsible-party": (
+        "Legal and planning",
+        "Should you sign as a nursing home's “responsible party”?",
+        "Federal law bars a certified nursing home from making you "
+        "personally pay your parent's bill — what “responsible "
+        "party” language can and cannot legally ask of you."),
 }
 
 
