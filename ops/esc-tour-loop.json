@@ -1358,10 +1358,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-23T00:26Z",
+  "utc": "2026-11-23T06:28Z",
   "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
-  "picked": "none ready",
-  "why": "Worked: monitor clean (0 genuine, 0 tour requests, 0 replies); Open Communities draft prepared for operator"
+  "picked": "SYS-001 done, ACQ-036 done, ACQ-037 done",
+  "why": "Worked: SYS-001 Make-timer test passed (tour path live); 2 evidence-backed demand topics added to drafts DEMAND.md; all lanes planned, cooling; waiting on Joseph: conversion"
  },
  "last_verified_action": "ACQ-037 done 2026-11-23T06:27Z: Added the topic 'Should I sign my parent's assisted living or nursing home admission contract as the responsible party?' under ## Open in DEMAND.md on drafts (…",
  "last_stop": {
@@ -1453,7 +1453,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "No ready task, no open map item. Next: monitor 23 Nov 12:25Z; Search Console read (ACQ-005/012/017) from 25 Nov 15:00Z and SC3 25 Nov 16:00Z; SC5 and SC4 29 Nov; SC2 6 Dec; SC6 7 Dec; SC1 22 Dec; ACQ-030 from 6 Dec; operator: P-1122-01 from 23 Nov 15:00Z, P-1228-01 from 28 Dec, P-0102-01 from 2 Jan. Waiting on Joseph: Open Communities draft (em-1122a, 25 Nov+ batch), PRs #86 #85 #84 #81 #79 #78, D8 talk (also unlocks D14), Patch account, Nextdoor Business Page, Search Console indexing request, essay timing (by ~10 Dec).",
+ "next_discovery": "Next: monitor at 12:25Z; operator post P-1122-01 not before 15:00Z; Search Console rechecks ACQ-005/ACQ-012 and scout SC3 on 25 Nov; drafts routine can now write the 2 open DEMAND topics. Waiting on Joseph: PRs #81, #85, #86 (and #79, #84) to merge.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -2030,13 +2030,32 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiSeYyJtiJvKjjnoBrQi",
-   "utc": "2026-11-23T06:28Z"
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-23T00:25Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSeYyJtiJvKjjnoBrQi",
+    "start_utc": "2026-11-23T06:28Z",
+    "end_utc": "2026-11-23T06:28Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: SYS-001 Make-timer test passed (tour path live); 2 evidence-backed demand topics added to drafts DEMAND.md; all lanes planned, cooling; waiting on Joseph: conversion",
+    "done": 3,
+    "changed": 7,
+    "tasks": "SYS-001 done, ACQ-036 done, ACQ-037 done",
+    "next": "no",
+    "wake_minutes": 357,
+    "next_due_utc": "2026-11-23T12:25Z",
+    "plan_due": false,
+    "saturated": [
+     "conversion"
+    ],
+    "budget_used_hours_24h": 0.0,
+    "budget_used_hours_7d": 0.0
+   },
    {
     "run": "cse_014eaiSazf2tAxFhS1h8TCUw",
     "start_utc": "2026-11-23T00:24Z",
@@ -2052,12 +2071,16 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-23T00:26Z",
+   "written_utc": "2026-11-23T06:28Z",
    "eligible_now": 0,
    "next_due": [
     {
      "utc": "2026-11-23T12:25Z",
      "what": "monitor"
+    },
+    {
+     "utc": "2026-11-24T06:28Z",
+     "what": "planner cooldown ends"
     },
     {
      "utc": "2026-11-25T15:00Z",
@@ -2074,10 +2097,6 @@
     {
      "utc": "2026-11-29T16:00Z",
      "what": "SC5"
-    },
-    {
-     "utc": "2026-11-29T21:34Z",
-     "what": "SC4"
     }
    ]
   },
