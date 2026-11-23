@@ -1282,10 +1282,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-22T21:40Z",
-  "event": "pull_request.synchronize c282321",
-  "picked": "ACQ-034 (SC6 new kinds of channel)",
-  "why": "Only ready item; no fresh demand data until the 25 Nov Search Console read."
+  "utc": "2026-11-23T00:02Z",
+  "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
+  "picked": "ACQ-017 waiting_on_data (PR #85 not deployed), ACQ-007 waiting_on_owner (PR #86 open)",
+  "why": "Worked: monitor only (site OK, 0 genuine visitors, 0 tour requests, 0 replies, no merges); no ready task"
  },
  "last_verified_action": "ACQ-034 done 2026-11-22T21:40Z: SC6 found 1 new class (D14 public-access cable, WATCH tied to D8 talk); 5 routes dropped with sources. Research only; nothing sent. No ready task remains; next work is SC3 (25 Nov 16:00Z) and the Search Console read (ACQ-005/012/017, from 25 Nov 15:00Z).",
  "last_stop": {
@@ -1377,7 +1377,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "No ready task and no open map item after ACQ-034. Next: from 25 Nov 15:00Z Search Console read (ACQ-005/012/017) and SC3 (due 25 Nov 16:00Z); SC5 29 Nov; SC4 29 Nov; SC2 6 Dec; SC6 7 Dec; SC1 22 Dec; ACQ-030 from 6 Dec; operator: P-1228-01 from 28 Dec, P-0102-01 from 2 Jan. Runs before 25 Nov 15:00Z with no new evidence (reply, PR merge, Joseph answer, genuine tour-form view) stop without a commit. Still unanswered by Joseph: D8 talk (also unlocks D14), Patch account, Nextdoor Business Page, PRs #86 #85 #84 #81 #79 #78, Search Console indexing request; essay timing (by ~10 Dec).",
+ "next_discovery": "Next: monitor due 23 Nov 12:02Z; ACQ-005 and ACQ-012 rechecks and scout SC3 due 25 Nov 15:00-16:00Z. Waiting on Joseph: PRs #78-#86 (merge/deploy unblocks ACQ-005, ACQ-007, ACQ-012, ACQ-017) and 14 owner_review_needed lines.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -1954,12 +1954,56 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:01Z",
   "lock": {
-   "holder": "cse_014eaiSenjYZE5RrwzTxC7jp",
-   "utc": "2026-11-23T00:01Z"
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-23T00:02Z"
   },
-  "sessions": []
+  "sessions": [
+   {
+    "run": "cse_014eaiSenjYZE5RrwzTxC7jp",
+    "start_utc": "2026-11-23T00:01Z",
+    "end_utc": "2026-11-23T00:02Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: monitor only (site OK, 0 genuine visitors, 0 tour requests, 0 replies, no merges); no ready task",
+    "done": 0,
+    "changed": 1,
+    "tasks": "ACQ-017 waiting_on_data (PR #85 not deployed), ACQ-007 waiting_on_owner (PR #86 open)",
+    "next": "no",
+    "wake_minutes": 720,
+    "next_due_utc": "2026-11-23T12:02Z"
+   }
+  ],
+  "next": {
+   "written_utc": "2026-11-23T00:02Z",
+   "eligible_now": 0,
+   "next_due": [
+    {
+     "utc": "2026-11-23T12:02Z",
+     "what": "monitor"
+    },
+    {
+     "utc": "2026-11-25T15:00Z",
+     "what": "ACQ-005"
+    },
+    {
+     "utc": "2026-11-25T15:00Z",
+     "what": "ACQ-012"
+    },
+    {
+     "utc": "2026-11-25T16:00Z",
+     "what": "SC3"
+    },
+    {
+     "utc": "2026-11-29T16:00Z",
+     "what": "SC5"
+    },
+    {
+     "utc": "2026-11-29T21:34Z",
+     "what": "SC4"
+    }
+   ]
+  }
  }
 }
