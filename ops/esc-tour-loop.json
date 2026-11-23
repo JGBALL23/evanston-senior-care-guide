@@ -2159,9 +2159,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSbQh9aYSa5vTbwv5wK",
-   "utc": "2026-11-23T17:43Z",
+   "utc": "2026-11-23T17:44Z",
    "since_utc": "2026-11-23T17:36Z",
-   "productive_min": 9,
+   "productive_min": 11,
    "deliverables": [
     "guide:drafts 9e9427e"
    ]
@@ -2531,9 +2531,10 @@
     "evidence": "Live web search results for each tracked search, recorded with the date.",
     "output": "Updated search_presence; for a search where a fitting page exists but does not appear, one concrete on-page or internal-link task; for a search with no fitting page, a demand topic.",
     "why": "Search is how families at the decision stage find local help.",
-    "last_checked_utc": "",
-    "next_check_utc": "",
-    "last_result": ""
+    "last_checked_utc": "2026-11-23T17:43Z",
+    "next_check_utc": "2026-11-25T21:43Z",
+    "last_result": "Not repeated: discovery/search_presence was checked 2026-11-22T21:30Z (18 tracked searches, guide appears for 0 in the research index), inside this angle's 72h recheck window; Google positions come from Search Console, whose newest read is 18 Nov.",
+    "last_added": 0
    },
    {
     "id": "competitor-gaps",
@@ -2545,9 +2546,10 @@
     "evidence": "The ranking pages themselves, read in full; our pages on main.",
     "output": "Specific missing answers as one PR task per page, or demand topics; never copying anyone's text.",
     "why": "Closing real answer gaps is what lets a page outrank directories.",
-    "last_checked_utc": "",
-    "next_check_utc": "",
-    "last_result": ""
+    "last_checked_utc": "2026-11-23T17:44Z",
+    "next_check_utc": "2026-11-30T17:44Z",
+    "last_result": "Search 'assisted living Evanston IL' 2026-11-23: top results are directories (seniorliving.org, caring.com, aplaceformom, seniorly). Read their structure vs our /assisted-living-evanston/ (what AL helps with, finding/checking communities, cost, tour questions, other care types, sources). What they …",
+    "last_added": 0
    },
    {
     "id": "freshness",
@@ -2580,6 +2582,8 @@
    }
   ],
   "sweep_log": [
+   "2026-11-23T17:44Z competitor-gaps +0: Search 'assisted living Evanston IL' 2026-11-23: top results are directories (seniorliving.org, caring.com, aplaceformom, seniorly). Read their structure vs ou…",
+   "2026-11-23T17:43Z search-presence +0: Not repeated: discovery/search_presence was checked 2026-11-22T21:30Z (18 tracked searches, guide appears for 0 in the research index), inside this angle's 72h…",
    "2026-11-23T17:43Z channel-yield +0: Last 7 days: only fb-rp-1122 (Rogers Park group post, 23 Nov) produced genuine visitors (5 facebook, partial day; tour-form views unreadable that day); fb-wil-…",
    "2026-11-23T17:43Z search-console +0: Newest Search Console read in state.json is 2026-11-18T16:33Z (16 Nov: 38 impressions, 0 clicks, avg pos 47.4), already the newest scoreboard row; no newer rea…",
    "2026-11-23T17:43Z asset-gaps +0: Same pass as plan:build at 17:41Z: no decision-stage need with recorded family-question, Search Console or competitor evidence remains uncovered; ACQ-038 built…",
