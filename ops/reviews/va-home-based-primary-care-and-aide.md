@@ -179,3 +179,5 @@ No links to draft-only guides. All three external source links returned 200.
 - Replace: the date these corrections are applied and re-checked against the live pages. Source 2 shows "Last updated November 16, 2026", which is after the current reviewed date.
 
 Verdict: publish-ready after corrections
+
+Corrections applied: drafts 7defb27, 2026-11-23 (C1-C13; C7 wording kept to what VHA Notice 2024-01 states; C11 "contact ... to complete"; also the quote "Talk with a VA social worker..." capitalised to match the page; ESCG worker ACQ-048).

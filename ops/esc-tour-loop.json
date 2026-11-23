@@ -1612,6 +1612,32 @@
    },
    "done_utc": "2026-11-23T17:57Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-048",
+   "task": "Apply the 13 corrections in ops/reviews/va-home-based-primary-care-and-aide.md to the drafts guide (not on main), under Build checks; then note Corrections applied in the packet.",
+   "workstream": "build",
+   "lane": "build",
+   "source": "plan",
+   "key": "improve:va-home-based-primary-care-and-aide",
+   "evidence": "Review packet 2026-11-23: verdict publish-ready after corrections (13; 4 quotations no longer match the VA aide page updated 16 Nov 2026).",
+   "expected_tour_acquisition_value": "Makes the VA in-home care guide publish-ready; families of veteran parents weighing home care versus a move are at the decision stage.",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "One drafts commit 'Correct <slug>: ...' with all five checks passing and the packet updated; or a verdict naming the check that failed.",
+   "score": 7.5,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-23T18:00Z",
+   "result": "Applied all 13 packet corrections to va-home-based-primary-care-and-aide on drafts (7defb27): 4 quotations replaced with the current VA wording, community-care condition stated and explained from VHA Notice 2024-01 (added to SRC), contradicted could-not-find sentences replaced, caregiver stipend limited to PCAFC, frequency phrase removed, 10-10EC role corrected, sources added, reviewed 2026-11-23. Quote audit 15/15 against re-fetched va.gov text. Checks: build ok, test.js 669/669, check-guides 2454/0, citations 97 resolve, mobile-nav skipped.",
+   "deliverable": {
+    "type": "correction",
+    "ref": "drafts 7defb27"
+   },
+   "done_utc": "2026-11-23T18:00Z",
+   "minutes": 1
   }
  ],
  "blocked": [],
@@ -1622,7 +1648,7 @@
   "picked": "-",
   "why": "Worked: monitor only; nothing else due (waiting on Joseph: conversion, search PRs)"
  },
- "last_verified_action": "ACQ-047 done 2026-11-23T17:57Z: Opened review PR #88 (claude/publish-illinois-nursing-home-responsible-party) against main: GUIDES dict, CARDS, SRC cms_qso2514_nh and medicare_nh_guide, RELAT…",
+ "last_verified_action": "ACQ-048 done 2026-11-23T18:00Z: Applied all 13 packet corrections to va-home-based-primary-care-and-aide on drafts (7defb27): 4 quotations replaced with the current VA wording, community-care…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -1674,7 +1700,7 @@
   "PR #87: publish the assisted-living move-out guide (review packet ops/reviews/illinois-assisted-living-involuntary-move-out.md, corrections applied on drafts 3c7bc75, all checks pass). About 10 minutes to read and merge; then run tools/publish.py yourself.",
   "Review packet ops/reviews/illinois-money-management-program.md: Verdict: publish-ready after corrections. 12 corrections (unsupported legal framing vs power of attorney, wrong eligibility owner, an added 'lives independently' condition, a missing brochure source); the worker can apply them on drafts; Evanston is not served by a Program Site, so the guide's local value is limited.",
   "PR #88: publish the nursing-home responsible-party guide (packet ops/reviews/illinois-nursing-home-responsible-party.md, corrections applied on drafts a68e5aa, all checks pass; title shortened for the 70-char gate). About 10 minutes to read and merge; then run tools/publish.py yourself.",
-  "Review packet ops/reviews/va-home-based-primary-care-and-aide.md: Verdict: publish-ready after corrections. 13 corrections (4 quotations no longer match the VA aide page, updated 16 Nov; an eligibility condition missing; 'could not find' claims contradicted by VHA Notice 2024-01); the worker can apply them on drafts."
+  "Review packet ops/reviews/va-home-based-primary-care-and-aide.md: corrections applied on drafts 7defb27; now publish-ready. Publish PR waits until #87 or #88 clears (publish lane limit 2)."
  ],
  "hourly_backlog_policy": {
   "enabled": true,
@@ -2294,9 +2320,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSbQh9aYSa5vTbwv5wK",
-   "utc": "2026-11-23T17:57Z",
+   "utc": "2026-11-23T18:00Z",
    "since_utc": "2026-11-23T17:36Z",
-   "productive_min": 14,
+   "productive_min": 15,
    "deliverables": [
     "guide:drafts 9e9427e",
     "review_packet:ops/reviews/illinois-assisted-living-involuntary-move-out.md",
@@ -2306,7 +2332,8 @@
     "correction:drafts 3c7bc75",
     "publish_pr:PR #87",
     "correction:drafts a68e5aa",
-    "publish_pr:PR #88"
+    "publish_pr:PR #88",
+    "correction:drafts 7defb27"
    ]
   },
   "monitor": {
