@@ -3948,7 +3948,7 @@ GUIDES = [
         "reviewed": "2026-11-10",
         "title": "Who Can Help My Parent Pay Bills and Manage Money in Illinois?",
         "h1": "Who can help my parent pay bills and manage money in Illinois?",
-        "desc": ("Illinois trains volunteers to budget, pay bills and even act as "
+        "desc": ("Local agencies contracted by Illinois train volunteers to budget, pay bills and even act as "
                  "a Social Security representative payee for an older adult who "
                  "can no longer manage money alone &mdash; but only through two "
                  "narrow eligibility paths, and only where a local Program Site "
@@ -3968,7 +3968,7 @@ GUIDES = [
                    "Program Site reaching Evanston Township &mdash; call the "
                    "Senior HelpLine to check before assuming it is out of "
                    "reach."),
-        "sources": srcs("idoa_money_mgmt", "idoa_money_mgmt_sites"),
+        "sources": srcs("idoa_money_mgmt", "idoa_money_mgmt_sites", "idoa_resident_rights_brochure"),
         "body": [
             ("What the Volunteer Money Management Program actually does", [
                 "<p>The Illinois Department on Aging describes its Volunteer "
@@ -3980,13 +3980,13 @@ GUIDES = [
                 "medical forms&rdquo;, &ldquo;setting up a budget, writing "
                 "checks, balancing a checkbook&rdquo;, and &ldquo;assisting with "
                 "large purchases&rdquo;.</p>",
-                "<p>This sits below <a href=\"/guides/"
-                "illinois-advance-directive-power-of-attorney/\">a Power of "
-                "Attorney</a> and short of a court guardianship. Nobody signs "
-                "away legal authority to make this work &mdash; a trained "
-                "volunteer simply does the paperwork your parent can no longer "
-                "keep up with, under a programme the state recruits, trains and "
-                "monitors.</p>",
+                "<p>The department's page describes a service, not a legal "
+                "arrangement, and says nothing about how it relates to "
+                "<a href=\"/guides/illinois-advance-directive-power-of-attorney/\">"
+                "a power of attorney</a> or a guardianship. Local Program Sites "
+                "recruit, select, train, match and monitor the volunteers; the "
+                "department administers the programme and monitors the Program "
+                "Sites.</p>",
             ]),
             ("Who qualifies &mdash; and where", [
                 "<p>The department's page gives exactly two eligibility paths. "
@@ -3996,15 +3996,13 @@ GUIDES = [
                 "parent get paid help at home in Illinois?</a> for what CCP "
                 "itself requires &mdash; or to &ldquo;individuals who have a "
                 "substantiated Adult Protective Services (APS) case in certain "
-                "areas of the State&rdquo;. For what counts as a substantiated "
-                "APS case, see "
+                "areas of the State&rdquo;. For what Adult Protective Services investigates and how to report, see "
                 '<a href="/guides/illinois-elder-abuse-reporting/">What to do '
                 "about suspected elder abuse or neglect at home in "
                 "Illinois</a>.</p>",
                 "<p>Both paths carry the same catch: &ldquo;in certain areas of "
                 "the State&rdquo; is doing real work in that sentence. This is "
-                "not a programme every Illinois county runs &mdash; it operates "
-                "through a fixed list of contracted Program Sites, and whether "
+                "not a programme every Illinois county runs &mdash; it operates through contracted local Program Sites, and whether "
                 "one serves your parent's township decides whether any of this "
                 "is actually available to them.</p>",
             ]),
@@ -4019,21 +4017,17 @@ GUIDES = [
                 "needs help &ldquo;organizing, reviewing, and paying "
                 "bills&rdquo;.</p>",
                 "<p>One sentence on the page matters more than the rest for a "
-                "family wondering how a parent's Social Security or other "
-                "federal benefit cheque gets managed: &ldquo;Volunteers also "
+                "family wondering how a parent's Social Security benefit gets managed: &ldquo;Volunteers also "
                 "serve as Representative Payees, persons designated by the "
                 "Social Security Administration to manage the monthly benefits "
                 "of certain beneficiaries.&rdquo; That is the same role the "
                 "Illinois Department on Aging's own resident-rights brochure "
                 "warns a care facility may not take on &ldquo;without your "
-                "permission&rdquo; &mdash; this programme is a vetted, "
-                "state-monitored way to fill that role with someone other than "
-                "the facility, a stranger, or nobody at all.</p>",
+                "permission&rdquo; &mdash; this programme is one way to have that role filled by a trained volunteer from a Program Site the department monitors.</p>",
             ]),
             ("What this guide could not verify, and will not guess at", [
                 "<p>The department's page does not state what the programme "
-                "costs a family, does not describe how a volunteer is screened "
-                "beyond being &ldquo;trained&rdquo;, and does not explain what "
+                "costs a family, does not describe how a volunteer is screened beyond saying Program Sites &ldquo;recruit, select, train, match and monitor the volunteers&rdquo;, and does not explain what "
                 "happens if a volunteer mishandles money beyond saying the "
                 "department &ldquo;monitors&rdquo; Program Sites. This guide "
                 "will not guess at a fee, a background-check standard, or a "
@@ -4043,38 +4037,31 @@ GUIDES = [
             ]),
             ("Is a Program Site actually near Evanston?", [
                 "<p>The department publishes the current roster as a PDF, "
-                "&ldquo;Find Your Local Program Site/Agency&rdquo;, organised "
-                "by the state's Planning and Service Areas. The copy this "
-                "guide read, dated 22 October 2026, lists two Program Sites "
-                "covering parts of Chicago's suburbs: Kenneth W. Young Centers "
+                "&ldquo;Find Your Local Program Site/Agency&rdquo;, organised by numbered PSA. The copy this "
+                "guide read, dated 22 October 2026, lists two Program Sites under PSA 13: Kenneth W. Young Centers "
                 "for Elk Grove and Schaumburg Townships, and Oak Park Township "
                 "Senior Services for Oak Park and River Forest Townships. "
                 "Neither covers Evanston Township, and this guide found no "
                 "separate listing for the City of Chicago or the rest of Cook "
                 "County on that document.</p>",
                 "<p>That is a fact about one dated PDF, not a permanent answer. "
-                "Program Site lists change, and the department's Service "
-                "Locator tool &mdash; built for Care Coordination Units rather "
-                "than this programme specifically &mdash; may turn up a more "
-                "current answer than this guide's single reading of one "
-                "document. Call the Senior HelpLine at <strong>1-800-252-8966 "
+                "Program Site lists change, and the department's page itself tells families to contact their local Care Coordination Unit, found with its map tool, to find out if they are eligible. Call the Senior HelpLine at <strong>1-800-252-8966 "
                 "(711 TRS)</strong> and ask directly whether a Program Site "
                 "currently serves Evanston Township, rather than relying on "
                 "either this guide or an out-of-date list found elsewhere.</p>",
             ]),
             ("How to find out, for your specific parent", [
-                "<p>Start with the Senior HelpLine at <strong>1-800-252-8966 "
-                "(711 TRS)</strong>, or a local Care Coordination Unit found "
-                "through the department's online Service Locator. Either can "
-                "tell you whether your parent's situation &mdash; already on "
-                "CCP, or with a substantiated APS case &mdash; qualifies, and "
-                "whether a Program Site actually reaches where your parent "
-                "lives, before you assume either answer yourself.</p>",
+                "<p>Start with your parent's local Care Coordination Unit, "
+                "found through the department's map tool: the department's page "
+                "says to contact it to learn more about this programme and find "
+                "out if you are eligible. Ask there whether your parent's "
+                "situation &mdash; already on CCP, or with a substantiated APS "
+                "case &mdash; qualifies, and whether a Program Site reaches "
+                "where your parent lives. The department's Senior HelpLine is "
+                "<strong>1-800-252-8966 (711 TRS)</strong>.</p>",
             ]),
             ("Where this fits with the rest of this site", [
-                "<p>This is a narrow tool for a narrow problem: bills going "
-                "unpaid or a benefit cheque with nobody to manage it, while "
-                "your parent still lives independently. If the honest picture "
+                "<p>This is a narrow tool for a narrow problem: bills going unpaid or a benefit cheque with nobody to manage it. If the honest picture "
                 "is bigger than that &mdash; your parent can no longer manage "
                 "daily life safely on their own &mdash; see "
                 '<a href="/guides/levels-of-senior-care-explained/">Assisted '
