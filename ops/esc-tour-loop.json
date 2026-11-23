@@ -97,25 +97,6 @@
    "executor": "this loop (proposal); Joseph (decision to build)",
    "done_when": "If /assisted-living-evanston/ shows >=1 impression for a local query by its ~14-day mark, hand Joseph one yes/no proposal with the autocomplete evidence; if 0 impressions, record that indexing/authority is the bottleneck and keep S3 at watch.",
    "not_before_utc": "2026-12-06T15:00Z"
-  },
-  {
-   "id": "ACQ-037",
-   "task": "Add the demand topic 'Should I sign my parent's assisted living or nursing home admission contract as the responsible party?' to DEMAND.md Open on drafts, with its public evidence.",
-   "workstream": "demand",
-   "lane": "demand",
-   "source": "plan",
-   "key": "demand:responsible-party-signing",
-   "evidence": "Family questions on a national caregiver Q&A forum: refusing to sign as responsible party after signing as POA (asked 2023-10-12); facility demanding financial disclosure under the contract (asked 2021-03-20); public legal Q&A site question on what 'responsible party' means legally (2020-11-25). No guide on main or drafts mentions responsible party or guarantor (grep 2026-11-23); closest: illinois-advance-directive-power-of-attorney, assisted-living-cost-illinois.",
-   "expected_tour_acquisition_value": "Asked at the admission step, right before a move; a guide reaches families at the tour and sign-up stage and builds trust in the site's tour route.",
-   "impact": 3,
-   "confidence": 3,
-   "effort": 1,
-   "executor": "worker (research and preparation only)",
-   "done_when": "Topic line committed under ## Open in DEMAND.md on drafts and pushed; commit hash recorded.",
-   "score": 9.0,
-   "status": "ready",
-   "priority": 2,
-   "found_utc": "2026-11-23T06:26Z"
   }
  ],
  "completed": [
@@ -1348,6 +1329,30 @@
    ],
    "lesson": "Caregiver Q&A forum pages expose dateCreated in markup, so evidence dates can be verified with curl.",
    "done_utc": "2026-11-23T06:27Z"
+  },
+  {
+   "id": "ACQ-037",
+   "task": "Add the demand topic 'Should I sign my parent's assisted living or nursing home admission contract as the responsible party?' to DEMAND.md Open on drafts, with its public evidence.",
+   "workstream": "demand",
+   "lane": "demand",
+   "source": "plan",
+   "key": "demand:responsible-party-signing",
+   "evidence": "Family questions on a national caregiver Q&A forum: refusing to sign as responsible party after signing as POA (asked 2023-10-12); facility demanding financial disclosure under the contract (asked 2021-03-20); public legal Q&A site question on what 'responsible party' means legally (2020-11-25). No guide on main or drafts mentions responsible party or guarantor (grep 2026-11-23); closest: illinois-advance-directive-power-of-attorney, assisted-living-cost-illinois.",
+   "expected_tour_acquisition_value": "Asked at the admission step, right before a move; a guide reaches families at the tour and sign-up stage and builds trust in the site's tour route.",
+   "impact": 3,
+   "confidence": 3,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "Topic line committed under ## Open in DEMAND.md on drafts and pushed; commit hash recorded.",
+   "score": 9.0,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-23T06:26Z",
+   "result": "Added the topic 'Should I sign my parent's assisted living or nursing home admission contract as the responsible party?' under ## Open in DEMAND.md on drafts (commit 5fb913b, pushed). Evidence: 2 family questions on a national caregiver Q&A forum (2023-10-12, 2021-03-20) and 1 on a legal Q&A site (2020-11-25); no names or links recorded. No guide on main or drafts mentions responsible party or guarantor. DEMAND.md now has 2 open topics (limit 3).",
+   "sources": [
+    "drafts DEMAND.md commit 5fb913b"
+   ],
+   "done_utc": "2026-11-23T06:27Z"
   }
  ],
  "blocked": [],
@@ -1358,7 +1363,7 @@
   "picked": "none ready",
   "why": "Worked: monitor clean (0 genuine, 0 tour requests, 0 replies); Open Communities draft prepared for operator"
  },
- "last_verified_action": "ACQ-036 done 2026-11-23T06:27Z: Added the topic 'Can an Illinois assisted living make my parent move out when their care needs change, and how much notice must it give?' under ## Open in DEMA…",
+ "last_verified_action": "ACQ-037 done 2026-11-23T06:27Z: Added the topic 'Should I sign my parent's assisted living or nursing home admission contract as the responsible party?' under ## Open in DEMAND.md on drafts (…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
