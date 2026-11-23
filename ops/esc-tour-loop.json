@@ -1560,6 +1560,32 @@
    },
    "done_utc": "2026-11-23T17:53Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-046",
+   "task": "Apply the 6 required corrections in ops/reviews/illinois-nursing-home-responsible-party.md to the drafts guide (not on main), under Build checks; then note Corrections applied in the packet.",
+   "workstream": "build",
+   "lane": "build",
+   "source": "plan",
+   "key": "improve:illinois-nursing-home-responsible-party",
+   "evidence": "Review packet 2026-11-23: verdict publish-ready after corrections (6 corrections).",
+   "expected_tour_acquisition_value": "Makes the admission-contract guide publish-ready; families signing admission paperwork are at the move-in decision.",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "One drafts commit 'Correct <slug>: ...' with all five checks passing and the packet updated; or a verdict naming the check that failed.",
+   "score": 7.5,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-23T17:55Z",
+   "result": "Applied the 6 required packet corrections to illinois-nursing-home-responsible-party on drafts (a68e5aa): 'guarantor' no longer in quotation marks, brochure described as a similar limit not a state-law version, heading reworded, 'narrower' interpretation removed, unsourced AL licensing sentence replaced with the CMS 'all certified long term care facilities' wording (verified in QSO-25-14-NH), 'requirements for participation'. Checks: build ok, test.js 669/669, check-guides 2454/0, citations 96 resolve, mobile-nav skipped. Now publish-ready per its packet.",
+   "deliverable": {
+    "type": "correction",
+    "ref": "drafts a68e5aa"
+   },
+   "done_utc": "2026-11-23T17:55Z",
+   "minutes": 0
   }
  ],
  "blocked": [],
@@ -1570,7 +1596,7 @@
   "picked": "-",
   "why": "Worked: monitor only; nothing else due (waiting on Joseph: conversion, search PRs)"
  },
- "last_verified_action": "ACQ-045 done 2026-11-23T17:53Z: Opened review PR #87 (claude/publish-illinois-assisted-living-involuntary-move-out) against main: GUIDES dict, CARDS, 2 SRC entries, RELATED entry plus two inb…",
+ "last_verified_action": "ACQ-046 done 2026-11-23T17:55Z: Applied the 6 required packet corrections to illinois-nursing-home-responsible-party on drafts (a68e5aa): 'guarantor' no longer in quotation marks, brochure de…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -1621,7 +1647,7 @@
   "Evanston Now essay timing (22 Nov, ACQ-033): families look hardest right after holiday visits (trade reports put the inquiry peak about 3-4 Jan). If your essay can carry a 'what to notice on a holiday visit, and what to ask next' angle and be submitted by about 10 Dec, it lands in that window. Optional.",
   "PR #87: publish the assisted-living move-out guide (review packet ops/reviews/illinois-assisted-living-involuntary-move-out.md, corrections applied on drafts 3c7bc75, all checks pass). About 10 minutes to read and merge; then run tools/publish.py yourself.",
   "Review packet ops/reviews/illinois-money-management-program.md: Verdict: publish-ready after corrections. 12 corrections (unsupported legal framing vs power of attorney, wrong eligibility owner, an added 'lives independently' condition, a missing brochure source); the worker can apply them on drafts; Evanston is not served by a Program Site, so the guide's local value is limited.",
-  "Review packet ops/reviews/illinois-nursing-home-responsible-party.md: Verdict: publish-ready after corrections. 6 small corrections (a quoted word on no source page, the brochure presented as state law, 'conditions of participation' for nursing homes, an unsourced assisted-living licensing claim); the worker can apply them on drafts; then about 10 minutes to publish.",
+  "Review packet ops/reviews/illinois-nursing-home-responsible-party.md: corrections applied on drafts a68e5aa; now publish-ready. A publish pull request can be prepared next (publish lane limit 2).",
   "Review packet ops/reviews/va-home-based-primary-care-and-aide.md: Verdict: publish-ready after corrections. 13 corrections (4 quotations no longer match the VA aide page, updated 16 Nov; an eligibility condition missing; 'could not find' claims contradicted by VHA Notice 2024-01); the worker can apply them on drafts."
  ],
  "hourly_backlog_policy": {
@@ -2242,7 +2268,7 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSbQh9aYSa5vTbwv5wK",
-   "utc": "2026-11-23T17:53Z",
+   "utc": "2026-11-23T17:55Z",
    "since_utc": "2026-11-23T17:36Z",
    "productive_min": 13,
    "deliverables": [
@@ -2252,7 +2278,8 @@
     "review_packet:ops/reviews/illinois-nursing-home-responsible-party.md",
     "review_packet:ops/reviews/va-home-based-primary-care-and-aide.md",
     "correction:drafts 3c7bc75",
-    "publish_pr:PR #87"
+    "publish_pr:PR #87",
+    "correction:drafts a68e5aa"
    ]
   },
   "monitor": {

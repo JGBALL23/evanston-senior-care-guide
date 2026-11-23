@@ -123,3 +123,5 @@ The draft links to no draft-only guide. The only external links on the page are 
 Optional (not required): drop "current" from "CMS's current surveyor guidance" and from "CMS's own current guidance" in the desc. The memo is dated March 10, 2025, and this review did not confirm that no later revision exists.
 
 Verdict: publish-ready after corrections
+
+Corrections applied: drafts a68e5aa, 2026-11-23 (required corrections 1-6; optional "current" wording left as is; ESCG worker ACQ-046).
