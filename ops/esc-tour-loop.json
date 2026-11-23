@@ -2018,6 +2018,124 @@
      "what": "SC4"
     }
    ]
-  }
+  },
+  "procedure": "v4.0 (continuous execution with planner), live from 2026-11-23T03:31Z"
+ },
+ "planner": {
+  "version": 1,
+  "added_utc": "2026-11-23T03:31Z",
+  "why": "Joseph, 22 Nov 2026 20:54 Chicago: redesign around continuous, meaningful execution; when the backlog gets low, generate and prioritize new evidence-based opportunities instead of stopping; no filler; measure qualified traffic, inquiries, referrals and tours, not task counts.",
+  "enabled": true,
+  "low_water": 3,
+  "min_score": 2.0,
+  "budget_note": "Usage reserve, not a task cap: the worker, Joseph's own chats, the drafts routine, the Daily Report and the outreach operator all share one Claude Max allowance (a 5-hour window and a weekly limit that resets Monday 4:00 am Chicago). The worker stops starting sessions once its sessions add up to budget_hours_per_day in the last 24 hours (and budget_hours_per_week in 7 days, when set), then resumes on its own. Starting value 6 hours per 24 hours, to be calibrated against the usage readings. Joseph changes it with one word.",
+  "how_to_use": "When status shows plan.due (fewer than low_water items in the pipeline and at least one lane neither waiting on Joseph nor cooling down), plan for at most two plannable lanes, best measured outcome first (python3 ops/loopctl.py outcomes --days 28: lane_visitors, plus 10 per inquiry and 5 per organization reply attributed to the lane), then by order. Gather the lane's evidence, put every candidate through the gate, add the survivors with source plan, then record the pass with plan-done. Finding nothing is a complete result and puts the lane on cooldown. A lane whose owner_wip reaches its limit takes no new tasks until Joseph or the operator clears items.",
+  "gate": "A candidate becomes a task only if all hold: (1) concrete evidence with its source and date, never a guess; (2) a stated, plausible effect on qualified visitors, inquiries, referrals or tours; (3) not already queued, done, dropped or waiting (dupes and key); (4) its output is a change, a prepared handoff or a verdict that someone can act on, never only a document, a rewording or a cosmetic change; (5) the worker can finish it within ROLE AND LIMITS; (6) impact x confidence / effort (each 1-5) of at least min_score.",
+  "lanes": [
+   {
+    "id": "demand",
+    "order": 1,
+    "name": "Topics with demonstrated demand for the guide-drafts routine",
+    "why": "DEMAND.md on drafts has listed no open topic since 17 Nov 2026, so the drafts routine has written no guide since then (last: 17 Nov). Evidence-backed topics restart the site's only content engine.",
+    "evidence": "Questions families asked in public about choosing, paying for or moving into senior living or care in Illinois, Evanston or the North Shore (Q&A sites, forums, community boards, library and senior-center FAQs, news comment sections): record only the evidence type, the kind of venue and the date, never names or links to anyone's post. Search Console queries with impressions for this site when the operator's record or a connector provides them. Check each topic against existing guides (slugs and h1 in build-guides.py on drafts and main) and DEMAND.md.",
+    "output": "One review pull request against drafts (branch claude/demand-<MMDD>, base drafts) adding at most three topics under ## Open in DEMAND.md, each with its evidence lines and the closest existing guide it does not duplicate. Decision-stage topics first (ROUTINE.md step 2).",
+    "outcome": "drafts written, guides Joseph publishes, then search impressions, clicks and search visitors",
+    "owner_wip_limit": 1,
+    "plan_cooldown_hours": 24,
+    "open_prs": [],
+    "owner_open": 0,
+    "cooldown_until_utc": "",
+    "last_planned_utc": "",
+    "last_plan_result": ""
+   },
+   {
+    "id": "search",
+    "order": 2,
+    "name": "Search visibility of pages that already exist",
+    "evidence": "A crawl of the live sitemap: each page's status, title, meta description, canonical, h1, structured data, internal links to /assisted-living-evanston/ and the tour path, presence in sitemap.xml; the SC2 results-page checks; Search Console rows.",
+    "output": "A small tested review pull request to main fixing a verified gap on a page with search demand (one pull request may bundle several fixes of one kind), or an owner line for a Search Console action.",
+    "outcome": "impressions, clicks, search visitors",
+    "owner_wip_limit": 3,
+    "plan_cooldown_hours": 48,
+    "open_prs": [
+     81,
+     85
+    ],
+    "owner_open": 2,
+    "cooldown_until_utc": "",
+    "last_planned_utc": "",
+    "last_plan_result": ""
+   },
+   {
+    "id": "technical",
+    "order": 3,
+    "name": "Site health",
+    "evidence": "A crawl of every live page and asset: status codes, broken internal and outbound links, redirect chains, robots.txt and sitemap consistency, page weight; the repository's own checks (check-guides.js, check-mobile-nav.py, browser tests) run on a clone of main.",
+    "output": "A review pull request only for a real defect on a page genuine visitors reach. A clean crawl is a complete result.",
+    "outcome": "pages that load, get crawled and keep visitors",
+    "owner_wip_limit": 2,
+    "plan_cooldown_hours": 72,
+    "open_prs": [],
+    "owner_open": 0,
+    "cooldown_until_utc": "",
+    "last_planned_utc": "",
+    "last_plan_result": ""
+   },
+   {
+    "id": "conversion",
+    "order": 4,
+    "name": "Conversion and tracking",
+    "evidence": "Genuine visitors measured at each step (cloud.json metrics and scoreboard). A conversion change waits for 30 genuine visitors at that step; tracking fixes are the exception.",
+    "output": "A review pull request for tracking or for a measured step; never the tour form's fields, its consent text, the privacy notice or how Westminster Place is presented.",
+    "outcome": "tour-form views and tour requests",
+    "owner_wip_limit": 3,
+    "plan_cooldown_hours": 72,
+    "open_prs": [
+     86,
+     84,
+     80,
+     79,
+     78
+    ],
+    "owner_open": 5,
+    "cooldown_until_utc": "",
+    "last_planned_utc": "",
+    "last_plan_result": ""
+   },
+   {
+    "id": "distribution",
+    "order": 5,
+    "name": "Channels that reach families",
+    "evidence": "opportunity_map items in the distribution lane, scouts SC1 to SC6 and channel_yield (D1 local posts: 8 shipped, 4 to 5 genuine visitors as of 22 Nov, the only channel with measured visitors).",
+    "output": "Post texts prepared for the outreach operator within its posting cap; owner lines for steps only Joseph can take.",
+    "outcome": "genuine visitors by ref tag",
+    "owner_wip_limit": 3,
+    "plan_cooldown_hours": 48,
+    "open_prs": [],
+    "owner_open": 1,
+    "cooldown_until_utc": "",
+    "last_planned_utc": "",
+    "last_plan_result": ""
+   },
+   {
+    "id": "partnerships",
+    "order": 6,
+    "name": "Local referral partners",
+    "evidence": "opportunity_map items in referral_partnerships with verdict ACT; channel_yield (11 referral emails and 0 replies as of 22 Nov; class R1 closed).",
+    "output": "One Gmail draft per ACT target for the outreach operator (step 8c limits apply).",
+    "outcome": "organization replies, placements live, referral visitors",
+    "owner_wip_limit": 3,
+    "plan_cooldown_hours": 72,
+    "open_prs": [],
+    "owner_open": 1,
+    "cooldown_until_utc": "",
+    "last_planned_utc": "",
+    "last_plan_result": ""
+   }
+  ],
+  "outcomes": [],
+  "log": [],
+  "budget_hours_per_day": 6,
+  "budget_hours_per_week": null
  }
 }
