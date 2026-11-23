@@ -1358,10 +1358,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-23T06:28Z",
+  "utc": "2026-11-23T15:25Z",
   "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
-  "picked": "SYS-001 done, ACQ-036 done, ACQ-037 done",
-  "why": "Worked: SYS-001 Make-timer test passed (tour path live); 2 evidence-backed demand topics added to drafts DEMAND.md; all lanes planned, cooling; waiting on Joseph: conversion"
+  "picked": "-",
+  "why": "Worked: monitor only; nothing else due (waiting on Joseph: conversion, search PRs)"
  },
  "last_verified_action": "ACQ-037 done 2026-11-23T06:27Z: Added the topic 'Should I sign my parent's assisted living or nursing home admission contract as the responsible party?' under ## Open in DEMAND.md on drafts (…",
  "last_stop": {
@@ -1453,7 +1453,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Next: monitor at 12:25Z; operator post P-1122-01 not before 15:00Z; Search Console rechecks ACQ-005/ACQ-012 and scout SC3 on 25 Nov; drafts routine can now write the 2 open DEMAND topics. Waiting on Joseph: PRs #81, #85, #86 (and #79, #84) to merge.",
+ "next_discovery": "Next: monitor ~03:25Z 24 Nov, planner cooldown ends 06:28Z 24 Nov, ACQ-005/ACQ-012 rechecks and referral follow-up window 25 Nov 15:00Z, SC3 25 Nov 16:00Z. Waiting on Joseph: PRs #78-81, #84-86 (conversion, search) and ACQ-007 checklist decision; ACQ-017 waits on #85 deploy.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -2030,14 +2030,32 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiSbAqDkDmCzdBFtk8Fg",
-   "utc": "2026-11-23T15:25Z",
-   "since_utc": "2026-11-23T15:24Z"
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-23T15:25Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSbAqDkDmCzdBFtk8Fg",
+    "start_utc": "2026-11-23T15:24Z",
+    "end_utc": "2026-11-23T15:25Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: monitor only; nothing else due (waiting on Joseph: conversion, search PRs)",
+    "done": 0,
+    "changed": 1,
+    "tasks": "-",
+    "next": "no",
+    "wake_minutes": 720,
+    "next_due_utc": "2026-11-24T03:25Z",
+    "plan_due": false,
+    "saturated": [
+     "conversion"
+    ],
+    "budget_used_hours_24h": 0.1,
+    "budget_used_hours_7d": 0.1
+   },
    {
     "run": "cse_014eaiSeYyJtiJvKjjnoBrQi",
     "start_utc": "2026-11-23T06:24Z",
@@ -2073,11 +2091,11 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-23T06:28Z",
+   "written_utc": "2026-11-23T15:25Z",
    "eligible_now": 0,
    "next_due": [
     {
-     "utc": "2026-11-23T12:25Z",
+     "utc": "2026-11-24T03:25Z",
      "what": "monitor"
     },
     {
