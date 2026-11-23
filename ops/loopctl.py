@@ -608,8 +608,14 @@ def main():
         st = compute(d, now, a.monitor_hours)["lock"]
         if st["live"] and st["holder"] != run:
             out({"locked": True, "holder": st["holder"], "age_min": st["age_min"]}, 3)
-        took_over = None
         prev = c.get("lock") or {}
+        if not prev.get("holder") and any(isinstance(s_, dict) and s_.get("run") == run and s_.get("end_utc")
+                                          for s_ in (c.get("sessions") or [])[:10]):
+            # this run has already closed: a heartbeat before its end commit must not take the lock again,
+            # or the next session Make starts would find a live lock and stop with "Lock held"
+            out({"locked": False, "holder": "", "closed": True,
+                 "note": "this run already closed; the lock stays free"})
+        took_over = None
         if st["holder"] and st["holder"] != run:
             took_over = st["holder"]
             c["sessions"].insert(0, {"run": st["holder"], "start_utc": prev.get("since_utc") or st["utc"], "end_utc": None,
