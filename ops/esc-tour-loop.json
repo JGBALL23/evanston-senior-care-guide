@@ -2019,7 +2019,7 @@
     }
    ]
   },
-  "procedure": "v4.0 (continuous execution with planner), live from 2026-11-23T03:31Z"
+  "procedure": "v4.1 (demand topics queued directly on drafts), from 2026-11-23T04:52Z"
  },
  "planner": {
   "version": 1,
@@ -2038,7 +2038,7 @@
     "name": "Topics with demonstrated demand for the guide-drafts routine",
     "why": "DEMAND.md on drafts has listed no open topic since 17 Nov 2026, so the drafts routine has written no guide since then (last: 17 Nov). Evidence-backed topics restart the site's only content engine.",
     "evidence": "Questions families asked in public about choosing, paying for or moving into senior living or care in Illinois, Evanston or the North Shore (Q&A sites, forums, community boards, library and senior-center FAQs, news comment sections): record only the evidence type, the kind of venue and the date, never names or links to anyone's post. Search Console queries with impressions for this site when the operator's record or a connector provides them. Check each topic against existing guides (slugs and h1 in build-guides.py on drafts and main) and DEMAND.md.",
-    "output": "One review pull request against drafts (branch claude/demand-<MMDD>, base drafts) adding at most three topics under ## Open in DEMAND.md, each with its evidence lines and the closest existing guide it does not duplicate. Decision-stage topics first (ROUTINE.md step 2).",
+    "output": "Up to three evidence-backed topics committed directly to DEMAND.md's Open list on drafts (nonproduction), never more than three open at once; the 6 AM drafts routine writes them as drafts and Joseph reviews and publishes every guide. Joseph's decision, 22 Nov 2026 22:26 Chicago: \"Allow automatic evidence-backed demand-topic discovery and queueing in a nonproduction branch or planning file.\"",
     "outcome": "drafts written, guides Joseph publishes, then search impressions, clicks and search visitors",
     "owner_wip_limit": 1,
     "plan_cooldown_hours": 24,
