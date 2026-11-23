@@ -1755,10 +1755,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-23T18:02Z",
+  "utc": "2026-11-23T18:16Z",
   "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
-  "picked": "ACQ-038 done, ACQ-039 done, ACQ-040 done, ACQ-041 done, ACQ-042 done, ACQ-043 waiting_on_data (until 2026-12-08), ACQ-044 done, ACQ-045 done (PR #87), ACQ-046 done, ACQ-047 done (PR #88), ACQ-048 done, ACQ-049 done",
-  "why": "Worked: built Medicare fast-appeal guide on drafts, 4 review packets, corrections applied to all 4 drafts, publish PRs #87 and #88 opened; stopped: approval-pending; resume: #87/#88 merged or 2026-11-24T03:25Z monitor"
+  "picked": "SYS-T1 done, SYS-T2 done, SYS-T3 done",
+  "why": "Worked: SYS-T1..T3 done (TEST cap 3 tasks); stopped: time; resume: SYS-T4, SYS-T5 ready now"
  },
  "last_verified_action": "SYS-T3 done 2026-11-23T18:16Z: main is at 4dc2468 (git ls-remote refs/heads/main, 2026-11-23T18:16Z); this session wrote only to claude/make-ops-test.",
  "last_stop": {
@@ -2431,18 +2431,42 @@
   "lock": {
    "holder": "cse_014eaiSaya467ukbGEb71r6K",
    "utc": "2026-11-23T18:16Z",
-   "since_utc": "2026-11-23T18:15Z",
-   "productive_min": 0,
-   "deliverables": [
-    "data:claude/make-ops-test",
-    "data:claude/make-ops-test",
-    "data:main@4dc2468"
-   ]
+   "since_utc": "2026-11-23T18:16Z"
   },
   "monitor": {
    "last_utc": "2026-11-23T15:25Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSaya467ukbGEb71r6K",
+    "start_utc": "2026-11-23T18:15Z",
+    "end_utc": "2026-11-23T18:16Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: SYS-T1..T3 done (TEST cap 3 tasks); stopped: time; resume: SYS-T4, SYS-T5 ready now",
+    "done": 3,
+    "changed": 0,
+    "tasks": "SYS-T1 done, SYS-T2 done, SYS-T3 done",
+    "next": "yes",
+    "wake_minutes": null,
+    "next_due_utc": "2026-11-24T03:25Z",
+    "plan_due": false,
+    "saturated": [
+     "publish",
+     "conversion"
+    ],
+    "budget_used_hours_24h": 0.6,
+    "budget_used_hours_7d": 0.6,
+    "productive_min": 0,
+    "deliverables": [
+     "data:claude/make-ops-test",
+     "data:claude/make-ops-test",
+     "data:main@4dc2468"
+    ],
+    "stop_reason": "time",
+    "considered": "Ready SYS-T1..T3 worked; SYS-T4, SYS-T5 left for next session (TEST mode caps 3 tasks per session). Monitor not due until 2026-11-24T03:25Z. Plan not due (publish, conversion saturated). Sweep: none due. Event waits ACQ-007 (waiting on Joseph) and ACQ-017 (PR #85 deploy) left untouched; no new evidence checked in TEST.",
+    "resume_when": "Now: SYS-T4 and SYS-T5 are ready",
+    "sweep_due_left": []
+   },
    {
     "run": "cse_014eaiSbQh9aYSa5vTbwv5wK",
     "start_utc": "2026-11-23T17:36Z",
@@ -2535,37 +2559,38 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-23T18:02Z",
-   "eligible_now": 0,
+   "written_utc": "2026-11-23T18:16Z",
+   "eligible_now": 2,
    "next_due": [
     {
      "utc": "2026-11-24T03:25Z",
      "what": "monitor"
     },
     {
-     "utc": "2026-11-24T05:41Z",
-     "what": "planner cooldown ends"
+     "utc": "2026-11-25T15:00Z",
+     "what": "ACQ-005"
     },
     {
-     "utc": "2026-11-24T05:41Z",
-     "what": "sweep angle draft-review"
+     "utc": "2026-11-25T15:00Z",
+     "what": "ACQ-012"
     },
     {
-     "utc": "2026-11-24T05:43Z",
-     "what": "sweep angle asset-gaps"
+     "utc": "2026-12-06T15:00Z",
+     "what": "ACQ-030"
     },
     {
-     "utc": "2026-11-24T06:28Z",
-     "what": "sweep angle demand-questions"
+     "utc": "2026-12-08T15:00Z",
+     "what": "ACQ-043"
     },
     {
-     "utc": "2026-11-24T17:43Z",
-     "what": "sweep angle search-console"
+     "utc": "2026-12-31T00:00Z",
+     "what": "SC1"
     }
    ]
   },
   "procedure": "v4.3 (continue by default, build on drafts)",
-  "note_test": "Test copy for the Make chain test, 2026-11-23T18:08Z: planner and angles disabled, open items set to watch, scouts deferred, 5 ready SYS-T tasks. TEST mode works at most 3 tasks per session, so the first session should report next yes and Make should start a second one."
+  "note_test": "Test copy for the Make chain test, 2026-11-23T18:08Z: planner and angles disabled, open items set to watch, scouts deferred, 5 ready SYS-T tasks. TEST mode works at most 3 tasks per session, so the first session should report next yes and Make should start a second one.",
+  "next_discovery": "Test chain: SYS-T4 and SYS-T5 ready for the next session. Monitor due 2026-11-24T03:25Z; ACQ-007 waits on Joseph, ACQ-017 waits on PR #85 deploy."
  },
  "planner": {
   "version": 1,
