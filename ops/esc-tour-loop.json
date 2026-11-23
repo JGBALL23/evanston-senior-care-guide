@@ -118,25 +118,6 @@
    "found_utc": "2026-11-23T17:41Z"
   },
   {
-   "id": "ACQ-041",
-   "task": "Review packet for the drafts guide illinois-money-management-program (not on main, no packet in ops/reviews/): re-fetch every cited source, match every quotation word for word, check each figure, rule and could-not-find sentence and every internal link against main, and give a verdict.",
-   "workstream": "demand",
-   "lane": "demand",
-   "source": "plan",
-   "key": "review:illinois-money-management-program",
-   "evidence": "git diff main...drafts on 2026-11-23 shows illinois-money-management-program on drafts and not on main; ops/reviews/ has no packet for it.",
-   "expected_tour_acquisition_value": "A verified packet turns publishing this guide into a few-minute decision for Joseph; once live it can earn search visitors who reach the assessment and tour path.",
-   "impact": 3,
-   "confidence": 4,
-   "effort": 2,
-   "executor": "worker (research and preparation only)",
-   "done_when": "ops/reviews/illinois-money-management-program.md committed with a Verdict line and an owner_review_needed line naming the verdict and minutes to publish.",
-   "score": 6.0,
-   "status": "ready",
-   "priority": 2,
-   "found_utc": "2026-11-23T17:41Z"
-  },
-  {
    "id": "ACQ-042",
    "task": "Review packet for the drafts guide va-home-based-primary-care-and-aide (not on main, no packet in ops/reviews/): re-fetch every cited source, match every quotation word for word, check each figure, rule and could-not-find sentence and every internal link against main, and give a verdict.",
    "workstream": "demand",
@@ -1488,6 +1469,32 @@
    },
    "done_utc": "2026-11-23T17:45Z",
    "minutes": 0
+  },
+  {
+   "id": "ACQ-041",
+   "task": "Review packet for the drafts guide illinois-money-management-program (not on main, no packet in ops/reviews/): re-fetch every cited source, match every quotation word for word, check each figure, rule and could-not-find sentence and every internal link against main, and give a verdict.",
+   "workstream": "demand",
+   "lane": "demand",
+   "source": "plan",
+   "key": "review:illinois-money-management-program",
+   "evidence": "git diff main...drafts on 2026-11-23 shows illinois-money-management-program on drafts and not on main; ops/reviews/ has no packet for it.",
+   "expected_tour_acquisition_value": "A verified packet turns publishing this guide into a few-minute decision for Joseph; once live it can earn search visitors who reach the assessment and tour path.",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/illinois-money-management-program.md committed with a Verdict line and an owner_review_needed line naming the verdict and minutes to publish.",
+   "score": 6.0,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-23T17:41Z",
+   "result": "Packet written: 2 cited sources 200 plus the uncited brochure; 15/15 quotations match word for word, but 'without your permission' comes from the brochure, which is missing from Sources; internal links live on main; rule checks clean. Verdict publish-ready after corrections: 12 corrections with source sentences (who trains volunteers, unsupported POA/guardianship framing, elder-abuse link text, 'fixed list', benefit type, brochure source, screening wording, PSA wording, suburbs claim, Service Locator speculation, eligibility decided by the Care Coordination Unit, added condition).",
+   "deliverable": {
+    "type": "review_packet",
+    "ref": "ops/reviews/illinois-money-management-program.md"
+   },
+   "done_utc": "2026-11-23T17:45Z",
+   "minutes": 0
   }
  ],
  "blocked": [],
@@ -1498,7 +1505,7 @@
   "picked": "-",
   "why": "Worked: monitor only; nothing else due (waiting on Joseph: conversion, search PRs)"
  },
- "last_verified_action": "ACQ-039 done 2026-11-23T17:45Z: Packet written: all 3 cited sources 200; 6/6 quotations match the IDPH form word for word; 5/5 internal links live on main; rule checks clean. Verdict publish-…",
+ "last_verified_action": "ACQ-041 done 2026-11-23T17:45Z: Packet written: 2 cited sources 200 plus the uncited brochure; 15/15 quotations match word for word, but 'without your permission' comes from the brochure, whi…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -1547,7 +1554,8 @@
   "PR #86: the checklist PDF gets one disclosed tour-request line and link. Review, merge and deploy if acceptable.",
   "Skokie Human Services (ACQ-001) publishes no email, so it is phone-only: add it to your optional call list. Niles was emailed 21 Nov (0 replies so far).",
   "Evanston Now essay timing (22 Nov, ACQ-033): families look hardest right after holiday visits (trade reports put the inquiry peak about 3-4 Jan). If your essay can carry a 'what to notice on a holiday visit, and what to ask next' angle and be submitted by about 10 Dec, it lands in that window. Optional.",
-  "Review packet ops/reviews/illinois-assisted-living-involuntary-move-out.md: Verdict: publish-ready after corrections. 9 corrections (main one: the guide's 'could not find grounds for termination' claim is wrong; IDoA's residents' rights brochure, 'appropriate for nursing homes and assisted living', lists four reasons). The worker can apply them on drafts (Improve); then about 10 minutes to publish."
+  "Review packet ops/reviews/illinois-assisted-living-involuntary-move-out.md: Verdict: publish-ready after corrections. 9 corrections (main one: the guide's 'could not find grounds for termination' claim is wrong; IDoA's residents' rights brochure, 'appropriate for nursing homes and assisted living', lists four reasons). The worker can apply them on drafts (Improve); then about 10 minutes to publish.",
+  "Review packet ops/reviews/illinois-money-management-program.md: Verdict: publish-ready after corrections. 12 corrections (unsupported legal framing vs power of attorney, wrong eligibility owner, an added 'lives independently' condition, a missing brochure source); the worker can apply them on drafts; Evanston is not served by a Program Site, so the guide's local value is limited."
  ],
  "hourly_backlog_policy": {
   "enabled": true,
@@ -2172,7 +2180,8 @@
    "productive_min": 11,
    "deliverables": [
     "guide:drafts 9e9427e",
-    "review_packet:ops/reviews/illinois-assisted-living-involuntary-move-out.md"
+    "review_packet:ops/reviews/illinois-assisted-living-involuntary-move-out.md",
+    "review_packet:ops/reviews/illinois-money-management-program.md"
    ]
   },
   "monitor": {
