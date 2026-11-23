@@ -1307,10 +1307,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-23T00:02Z",
+  "utc": "2026-11-23T00:05Z",
   "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
-  "picked": "ACQ-017 waiting_on_data (PR #85 not deployed), ACQ-007 waiting_on_owner (PR #86 open)",
-  "why": "Worked: monitor only (site OK, 0 genuine visitors, 0 tour requests, 0 replies, no merges); no ready task"
+  "picked": "ACQ-036 done; ACQ-017 waiting_on_data (PR #85 open); ACQ-007 waiting_on_owner (PR #86 open)",
+  "why": "Worked: SC5 recheck (ACQ-036) done, 0 items reopened; all waits still on PR merges #79/#81/#84/#85/#86"
  },
  "last_verified_action": "ACQ-036 done 2026-11-23T00:05Z: SC5 recheck at 2026-11-23T00:05Z: 29 watch/waiting/owner/drop items tested on their written reopen condition only. PR conditions (S5, S6, C1, C2, ACQ-017, ACQ-…",
  "last_stop": {
@@ -1402,7 +1402,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Next: monitor due 23 Nov 12:02Z; ACQ-005 and ACQ-012 rechecks and scout SC3 due 25 Nov 15:00-16:00Z. Waiting on Joseph: PRs #78-#86 (merge/deploy unblocks ACQ-005, ACQ-007, ACQ-012, ACQ-017) and 14 owner_review_needed lines.",
+ "next_discovery": "Next due: monitor 23 Nov 12:02Z, then Search Console reads ACQ-005/ACQ-012 and SC3 on 25 Nov. Waiting on Joseph: merging review PRs #79, #81, #84, #85, #86 unblocks S5, S6, C1, C2 and ACQ-017.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -1980,13 +1980,26 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:01Z",
   "lock": {
-   "holder": "cse_014eaiSeyRE89i8nZV6fcuh9",
-   "utc": "2026-11-23T00:05Z"
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-23T00:02Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSeyRE89i8nZV6fcuh9",
+    "start_utc": "2026-11-23T00:05Z",
+    "end_utc": "2026-11-23T00:05Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: SC5 recheck (ACQ-036) done, 0 items reopened; all waits still on PR merges #79/#81/#84/#85/#86",
+    "done": 1,
+    "changed": 1,
+    "tasks": "ACQ-036 done; ACQ-017 waiting_on_data (PR #85 open); ACQ-007 waiting_on_owner (PR #86 open)",
+    "next": "no",
+    "wake_minutes": 717,
+    "next_due_utc": "2026-11-23T12:02Z"
+   },
    {
     "run": "cse_014eaiSenjYZE5RrwzTxC7jp",
     "start_utc": "2026-11-23T00:01Z",
@@ -2002,7 +2015,7 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-23T00:02Z",
+   "written_utc": "2026-11-23T00:05Z",
    "eligible_now": 0,
    "next_due": [
     {
@@ -2022,12 +2035,12 @@
      "what": "SC3"
     },
     {
-     "utc": "2026-11-29T16:00Z",
-     "what": "SC5"
-    },
-    {
      "utc": "2026-11-29T21:34Z",
      "what": "SC4"
+    },
+    {
+     "utc": "2026-11-30T00:05Z",
+     "what": "SC5"
     }
    ]
   }
