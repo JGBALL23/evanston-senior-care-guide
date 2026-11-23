@@ -97,6 +97,25 @@
    "executor": "this loop (proposal); Joseph (decision to build)",
    "done_when": "If /assisted-living-evanston/ shows >=1 impression for a local query by its ~14-day mark, hand Joseph one yes/no proposal with the autocomplete evidence; if 0 impressions, record that indexing/authority is the bottleneck and keep S3 at watch.",
    "not_before_utc": "2026-12-06T15:00Z"
+  },
+  {
+   "id": "ACQ-038",
+   "task": "Build guide on drafts: my parent is being discharged from the hospital or from a Medicare-covered rehab (skilled nursing) stay too soon. How to ask Medicare for a fast appeal, and what the notices mean",
+   "workstream": "build",
+   "lane": "build",
+   "source": "operator",
+   "seeded_by": "main chat for Joseph: end-to-end test of procedure v4.3, 23 Nov 2026",
+   "key": "build:medicare-fast-appeal-discharge",
+   "priority": 1,
+   "impact": 4,
+   "confidence": 4,
+   "effort": 3,
+   "evidence": "Questions families asked in public: national caregiver Q&A forum, May 2023 (a parent's short-term rehab stay being ended by insurance; can the family appeal); national caregiver Q&A forum, 2023 (a parent with dementia signed a Notice of Medicare Non-Coverage; is there anything the family can do); Medicare consumer Q&A column, an Illinois family asking about a skilled nursing facility discharge (record its date from the page). Primary sources exist on medicare.gov (fast appeals in a hospital and in a skilled nursing facility, the BFCC-QIO, An Important Message from Medicare, the Notice of Medicare Non-Coverage). Checked 23 Nov 2026: no guide on main or drafts covers discharge appeals (does-medicare-pay-for-senior-care mentions inpatient and observation status only). Decision stage: a discharge is when a family must decide where a parent will live and get care.",
+   "expected_tour_acquisition_value": "Families facing a hospital or rehab discharge are at the decision point the site serves; a precise, sourced answer can earn search visits on high-intent discharge and appeal queries and leads to the assessment through the bridge and the closing CTA.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "A new guide is committed and pushed on drafts as procedure step 7 Build says: every claim from medicare.gov pages fetched and read in the session, quotations matched word for word, ROUTINE.md Step 5's five checks run with their final lines in the commit body, a DEMAND.md ## Done line added; or a verdict naming the claim or check that failed and why nothing was pushed.",
+   "status": "ready",
+   "found_utc": "2026-11-23T17:35Z"
   }
  ],
  "completed": [
