@@ -173,6 +173,27 @@
    "status": "ready",
    "priority": 2,
    "found_utc": "2026-11-23T17:41Z"
+  },
+  {
+   "id": "ACQ-043",
+   "task": "Prepare a review pull request against main (claude/medicare-2027-figures) that moves the live Medicare figures to 2027 for 1 January 2027: Part A deductible $1,736 -> $1,776, SNF days 21-100 $217 -> $222 a day (80-day total recomputed from the source figure), Part B deductible $283 -> $292, with the year words changed. Touches the F block in build-guides.py, diagrams.py, index.html and assessment.js notes; run main's build and all checks; re-read medicare.gov costs and SNF pages first.",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "technical:medicare-2027-figures",
+   "evidence": "medicare.gov Medicare costs page and SNF coverage page fetched 2026-11-23 state 2027 figures: Part A deductible $1,776, SNF days 21-100 $222/day, Part B deductible $292, Part B premium $209.40. Live guides label $1,736/$217/$283 as 2026, so they are correct until 31 Dec 2026 and stale from 1 Jan 2027 (does-medicare-pay-for-senior-care answer and desc, home page and assessment note).",
+   "expected_tour_acquisition_value": "Keeps the most-visited Medicare figures on the site correct on 1 January; a stale cost figure on the guide that leads to the tour path costs trust with families comparing care.",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "A tested review PR against main with each figure's medicare.gov source sentence in its body, opened in December so Joseph can merge it on or just before 1 Jan 2027; or a verdict that the figures changed again.",
+   "score": 7.5,
+   "status": "waiting_on_data",
+   "priority": 2,
+   "found_utc": "2026-11-23T17:43Z",
+   "not_before_utc": "2026-12-08T15:00Z",
+   "not_before": "Timing, not data: 2027 figures are already on medicare.gov (read 2026-11-23). Prepare the PR in December so it is fresh when Joseph merges it for 1 Jan 2027."
   }
  ],
  "completed": [
@@ -2138,9 +2159,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSbQh9aYSa5vTbwv5wK",
-   "utc": "2026-11-23T17:41Z",
+   "utc": "2026-11-23T17:43Z",
    "since_utc": "2026-11-23T17:36Z",
-   "productive_min": 6,
+   "productive_min": 7,
    "deliverables": [
     "guide:drafts 9e9427e"
    ]
@@ -2535,9 +2556,10 @@
     "evidence": "The official source each guide cites (HFS, SSA, CMS, IDoA, IDPH and the like), fetched now.",
     "output": "A correction PR citing the official source for each changed figure, or the verdict 'current' per guide checked. Deliverable type pr or verdict.",
     "why": "A wrong figure on a published guide misleads families and costs trust.",
-    "last_checked_utc": "",
-    "next_check_utc": "",
-    "last_result": ""
+    "last_checked_utc": "2026-11-23T17:43Z",
+    "next_check_utc": "2026-11-30T17:43Z",
+    "last_result": "Fetched medicare.gov costs and SNF pages: 2027 figures published (Part A deductible 1,776; SNF 222/day; Part B deductible 292; premium 209.40). Live guides state 2026 figures labelled as 2026: current until 31 Dec. Queued ACQ-043 (refresh PR, due 8 Dec). HFS/VA/SSA figures not rechecked this pass (…",
+    "last_added": 1
    },
    {
     "id": "site-health",
@@ -2555,6 +2577,7 @@
    }
   ],
   "sweep_log": [
+   "2026-11-23T17:43Z freshness +1: Fetched medicare.gov costs and SNF pages: 2027 figures published (Part A deductible 1,776; SNF 222/day; Part B deductible 292; premium 209.40). Live guides sta…",
    "2026-11-23T17:41Z draft-review +4: 4 drafts on drafts not on main and with no packet: illinois-assisted-living-involuntary-move-out, illinois-nursing-home-responsible-party, illinois-money-manag…"
   ],
   "continue_by_default": "Joseph, 23 Nov 2026 10:36 Chicago: change from STOP-BY-DEFAULT to CONTINUE-BY-DEFAULT. After the ready tasks, a session plans and sweeps these angles before it may stop; it stops only for time, no-worthwhile-work, approval-pending, usage-reserve, usage-limit, permission or store-error, recording the alternatives considered and the condition to resume."
