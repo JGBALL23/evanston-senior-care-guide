@@ -1277,6 +1277,31 @@
     }
    ],
    "result": "6 routes checked, 1 passed the gate (D14 public-access cable, WATCH tied to D8), 0 reopened. Lesson: comparable guides elsewhere reach families mainly through print racks, sponsors and paid directories; the free, local ones depend on an author appearing in person (talks, shows), which keeps the binding constraint at D8/D7 (Joseph's time), not at undiscovered channels."
+  },
+  {
+   "id": "ACQ-036",
+   "status": "done",
+   "priority": 2,
+   "task": "(SC5) Recheck: for every watch, waiting, owner and drop map item, test only the reopen condition written in its note; reopen those whose condition came true.",
+   "workstream": "discovery",
+   "scout": "SC5",
+   "evidence": "Scout SC5 next_due_utc 2026-11-23T00:00Z passed; no open map items and no ready tasks.",
+   "expected_tour_acquisition_value": "Low cost; returns items to work whose blocker has cleared, so effort goes to channels that can now reach Evanston and North Shore families.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "Each watch/waiting/owner/drop item's reopen condition tested and recorded; reopened items set open with reason; scout SC5 updated and one discovery log line appended.",
+   "found_utc": "2026-11-23T00:05Z",
+   "result": "SC5 recheck at 2026-11-23T00:05Z: 29 watch/waiting/owner/drop items tested on their written reopen condition only. PR conditions (S5, S6, C1, C2, ACQ-017, ACQ-012): git ls-remote shows merge refs for #79, #81, #84, #85, #86, so all still open; production guides do not link /assisted-living-evanston/ (6 of 6 checked). Reply conditions (R1, R8, D9 Endeavor): outreach_watch shows 0 org replies. Owner conditions (D6, D7, D8, D14, S8): no new owner_answer beyond ACQ-007/C1. Date conditions (D11 2027-02-15, S2 25 Nov, R1 follow-up 25 Nov): not arrived. C3: 0 genuine visitors at any step (<30). D2, drop items (D3-D5, D9, D10, D12, R2-R7, R9, R10, S4, S9): no new evidence. 0 reopened, 0 added.",
+   "verdicts": {
+    "reopened": [],
+    "unchanged": 29
+   },
+   "sources": [
+    "git ls-remote refs/pull/*/merge",
+    "https://evanstonseniorcareguide.com/guides/",
+    "ops/cloud.json outreach_watch and scoreboard"
+   ],
+   "lesson": "Most waits hinge on Joseph merging PRs #79/#81/#84/#85/#86; until then SC5 finds nothing.",
+   "done_utc": "2026-11-23T00:05Z"
   }
  ],
  "blocked": [],
@@ -1287,7 +1312,7 @@
   "picked": "ACQ-017 waiting_on_data (PR #85 not deployed), ACQ-007 waiting_on_owner (PR #86 open)",
   "why": "Worked: monitor only (site OK, 0 genuine visitors, 0 tour requests, 0 replies, no merges); no ready task"
  },
- "last_verified_action": "ACQ-034 done 2026-11-22T21:40Z: SC6 found 1 new class (D14 public-access cable, WATCH tied to D8 talk); 5 routes dropped with sources. Research only; nothing sent. No ready task remains; next work is SC3 (25 Nov 16:00Z) and the Search Console read (ACQ-005/012/017, from 25 Nov 15:00Z).",
+ "last_verified_action": "ACQ-036 done 2026-11-23T00:05Z: SC5 recheck at 2026-11-23T00:05Z: 29 watch/waiting/owner/drop items tested on their written reopen condition only. PR conditions (S5, S6, C1, C2, ACQ-017, ACQ-…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -1858,9 +1883,9 @@
      "question": "Has the reopen condition of any watch, waiting, owner or drop item come true?",
      "evidence": "Test only the condition written in each item's note (a date passed, a page now exists, a rule changed, a reply came, Joseph decided, a pull request merged). Do not redo the research; reopen the item and let its own task do that.",
      "interval_days": 7,
-     "last_run_utc": null,
-     "next_due_utc": "2026-11-23T00:00Z",
-     "last_result": null
+     "last_run_utc": "2026-11-23T00:05Z",
+     "next_due_utc": "2026-11-30T00:05Z",
+     "last_result": "ACQ-036: 29 items tested, 0 reopened, 0 added; all five PRs still open, 0 replies"
     },
     {
      "id": "SC6",
@@ -1885,7 +1910,8 @@
     "2026-11-22T21:28Z SC1 peer listings (ACQ-031): 5 targets checked, 0 passed the gate, 0 reopened; next due 2026-12-22T21:28Z.",
     "2026-11-22T21:30Z SC2 what families find (ACQ-032): 18 queries, guide in 0 results, 6 candidate groups checked, 0 passed the gate, 0 reopened; next due 2026-12-06.",
     "2026-11-22T21:34Z SC4 calendar (ACQ-033): window to 21 Jan 2027; 6 candidate groups, 1 passed the gate (D13 post-holiday family-visit window), 0 reopened; interval 14->7, next due 2026-11-29.",
-    "2026-11-22T21:40Z SC6 new kinds of channel (ACQ-034): 6 routes from comparable guides elsewhere, 1 passed the gate (D14 public-access cable, WATCH on D8), 0 reopened; interval 30->15, next due 2026-12-07."
+    "2026-11-22T21:40Z SC6 new kinds of channel (ACQ-034): 6 routes from comparable guides elsewhere, 1 passed the gate (D14 public-access cable, WATCH on D8), 0 reopened; interval 30->15, next due 2026-12-07.",
+    "2026-11-23T00:05Z SC5 recheck (ACQ-036): 29 items tested, 0 reopened, 0 added; interval stays 7 (first empty run), next due 2026-11-30."
    ]
   }
  },
