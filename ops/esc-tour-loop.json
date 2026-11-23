@@ -2039,7 +2039,7 @@
   "sessions": [
    {
     "run": "cse_014eaiSeYyJtiJvKjjnoBrQi",
-    "start_utc": "2026-11-23T06:28Z",
+    "start_utc": "2026-11-23T06:24Z",
     "end_utc": "2026-11-23T06:28Z",
     "launch": "timer start: recovery, waiting work, wake time or pickup",
     "outcome": "Worked: SYS-001 Make-timer test passed (tour path live); 2 evidence-backed demand topics added to drafts DEMAND.md; all lanes planned, cooling; waiting on Joseph: conversion",
@@ -2054,7 +2054,8 @@
      "conversion"
     ],
     "budget_used_hours_24h": 0.0,
-    "budget_used_hours_7d": 0.0
+    "budget_used_hours_7d": 0.0,
+    "note": "start_utc corrected from 06:28Z (last heartbeat) to 06:24Z (lock commit 84e31b0); helper fixed so heartbeats keep the start"
    },
    {
     "run": "cse_014eaiSazf2tAxFhS1h8TCUw",
