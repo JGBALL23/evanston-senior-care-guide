@@ -1638,6 +1638,32 @@
    },
    "done_utc": "2026-11-23T18:00Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-049",
+   "task": "Apply the 12 corrections in ops/reviews/illinois-money-management-program.md to the drafts guide (not on main), under Build checks; then note Corrections applied in the packet.",
+   "workstream": "build",
+   "lane": "build",
+   "source": "plan",
+   "key": "improve:illinois-money-management-program",
+   "evidence": "Review packet 2026-11-23: verdict publish-ready after corrections (12).",
+   "expected_tour_acquisition_value": "Makes the money-management guide publish-ready; modest local value (no Program Site serves Evanston), but a correct guide avoids misleading families about legal authority.",
+   "impact": 2,
+   "confidence": 5,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "One drafts commit 'Correct <slug>: ...' with all five checks passing and the packet updated; or a verdict naming the check that failed.",
+   "score": 5.0,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-23T18:01Z",
+   "result": "Applied all 12 packet corrections to illinois-money-management-program on drafts (4f57bd8): Program Sites (not the state) train volunteers, unsupported POA/guardianship framing replaced with the department roles sentence, eligibility routed to the Care Coordination Unit per the page, added condition and speculation removed, brochure added to sources. 15/15 quotations match. Checks: build ok, test.js 669/669, check-guides 2454/0, citations 97 resolve, mobile-nav skipped.",
+   "deliverable": {
+    "type": "correction",
+    "ref": "drafts 4f57bd8"
+   },
+   "done_utc": "2026-11-23T18:01Z",
+   "minutes": 1
   }
  ],
  "blocked": [],
@@ -1648,7 +1674,7 @@
   "picked": "-",
   "why": "Worked: monitor only; nothing else due (waiting on Joseph: conversion, search PRs)"
  },
- "last_verified_action": "ACQ-048 done 2026-11-23T18:00Z: Applied all 13 packet corrections to va-home-based-primary-care-and-aide on drafts (7defb27): 4 quotations replaced with the current VA wording, community-care…",
+ "last_verified_action": "ACQ-049 done 2026-11-23T18:01Z: Applied all 12 packet corrections to illinois-money-management-program on drafts (4f57bd8): Program Sites (not the state) train volunteers, unsupported POA/gua…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -1698,9 +1724,7 @@
   "Skokie Human Services (ACQ-001) publishes no email, so it is phone-only: add it to your optional call list. Niles was emailed 21 Nov (0 replies so far).",
   "Evanston Now essay timing (22 Nov, ACQ-033): families look hardest right after holiday visits (trade reports put the inquiry peak about 3-4 Jan). If your essay can carry a 'what to notice on a holiday visit, and what to ask next' angle and be submitted by about 10 Dec, it lands in that window. Optional.",
   "PR #87: publish the assisted-living move-out guide (review packet ops/reviews/illinois-assisted-living-involuntary-move-out.md, corrections applied on drafts 3c7bc75, all checks pass). About 10 minutes to read and merge; then run tools/publish.py yourself.",
-  "Review packet ops/reviews/illinois-money-management-program.md: Verdict: publish-ready after corrections. 12 corrections (unsupported legal framing vs power of attorney, wrong eligibility owner, an added 'lives independently' condition, a missing brochure source); the worker can apply them on drafts; Evanston is not served by a Program Site, so the guide's local value is limited.",
-  "PR #88: publish the nursing-home responsible-party guide (packet ops/reviews/illinois-nursing-home-responsible-party.md, corrections applied on drafts a68e5aa, all checks pass; title shortened for the 70-char gate). About 10 minutes to read and merge; then run tools/publish.py yourself.",
-  "Review packet ops/reviews/va-home-based-primary-care-and-aide.md: corrections applied on drafts 7defb27; now publish-ready. Publish PR waits until #87 or #88 clears (publish lane limit 2)."
+  "PR #88: publish the nursing-home responsible-party guide (packet ops/reviews/illinois-nursing-home-responsible-party.md, corrections applied on drafts a68e5aa, all checks pass; title shortened for the 70-char gate). About 10 minutes to read and merge; then run tools/publish.py yourself."
  ],
  "hourly_backlog_policy": {
   "enabled": true,
@@ -2320,9 +2344,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSbQh9aYSa5vTbwv5wK",
-   "utc": "2026-11-23T18:00Z",
+   "utc": "2026-11-23T18:02Z",
    "since_utc": "2026-11-23T17:36Z",
-   "productive_min": 15,
+   "productive_min": 16,
    "deliverables": [
     "guide:drafts 9e9427e",
     "review_packet:ops/reviews/illinois-assisted-living-involuntary-move-out.md",
@@ -2333,7 +2357,8 @@
     "publish_pr:PR #87",
     "correction:drafts a68e5aa",
     "publish_pr:PR #88",
-    "correction:drafts 7defb27"
+    "correction:drafts 7defb27",
+    "correction:drafts 4f57bd8"
    ]
   },
   "monitor": {

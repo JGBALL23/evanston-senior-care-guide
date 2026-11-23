@@ -118,3 +118,5 @@ No links to draft-only guides. External citations are only on ilaging.illinois.g
 12. **Added condition.** Current: "bills going unpaid or a benefit cheque with nobody to manage it, while your parent still lives independently." Replacement: "bills going unpaid or a benefit cheque with nobody to manage it." Basis: no source limits the programme to people living independently.
 
 Verdict: publish-ready after corrections
+
+Corrections applied: drafts 4f57bd8, 2026-11-23 (all twelve; correction 11 reworded slightly so the eligibility clause reads as a question to ask the CCU; 15/15 quotations re-matched; ESCG worker ACQ-049).
