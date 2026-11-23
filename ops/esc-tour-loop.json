@@ -97,25 +97,6 @@
    "executor": "this loop (proposal); Joseph (decision to build)",
    "done_when": "If /assisted-living-evanston/ shows >=1 impression for a local query by its ~14-day mark, hand Joseph one yes/no proposal with the autocomplete evidence; if 0 impressions, record that indexing/authority is the bottleneck and keep S3 at watch.",
    "not_before_utc": "2026-12-06T15:00Z"
-  },
-  {
-   "id": "ACQ-038",
-   "task": "Build guide on drafts: my parent is being discharged from the hospital or from a Medicare-covered rehab (skilled nursing) stay too soon. How to ask Medicare for a fast appeal, and what the notices mean",
-   "workstream": "build",
-   "lane": "build",
-   "source": "operator",
-   "seeded_by": "main chat for Joseph: end-to-end test of procedure v4.3, 23 Nov 2026",
-   "key": "build:medicare-fast-appeal-discharge",
-   "priority": 1,
-   "impact": 4,
-   "confidence": 4,
-   "effort": 3,
-   "evidence": "Questions families asked in public: national caregiver Q&A forum, May 2023 (a parent's short-term rehab stay being ended by insurance; can the family appeal); national caregiver Q&A forum, 2023 (a parent with dementia signed a Notice of Medicare Non-Coverage; is there anything the family can do); Medicare consumer Q&A column, an Illinois family asking about a skilled nursing facility discharge (record its date from the page). Primary sources exist on medicare.gov (fast appeals in a hospital and in a skilled nursing facility, the BFCC-QIO, An Important Message from Medicare, the Notice of Medicare Non-Coverage). Checked 23 Nov 2026: no guide on main or drafts covers discharge appeals (does-medicare-pay-for-senior-care mentions inpatient and observation status only). Decision stage: a discharge is when a family must decide where a parent will live and get care.",
-   "expected_tour_acquisition_value": "Families facing a hospital or rehab discharge are at the decision point the site serves; a precise, sourced answer can earn search visits on high-intent discharge and appeal queries and leads to the assessment through the bridge and the closing CTA.",
-   "executor": "worker (research and preparation only)",
-   "done_when": "A new guide is committed and pushed on drafts as procedure step 7 Build says: every claim from medicare.gov pages fetched and read in the session, quotations matched word for word, ROUTINE.md Step 5's five checks run with their final lines in the commit body, a DEMAND.md ## Done line added; or a verdict naming the claim or check that failed and why nothing was pushed.",
-   "status": "ready",
-   "found_utc": "2026-11-23T17:35Z"
   }
  ],
  "completed": [
@@ -1372,6 +1353,37 @@
     "drafts DEMAND.md commit 5fb913b"
    ],
    "done_utc": "2026-11-23T06:27Z"
+  },
+  {
+   "id": "ACQ-038",
+   "task": "Build guide on drafts: my parent is being discharged from the hospital or from a Medicare-covered rehab (skilled nursing) stay too soon. How to ask Medicare for a fast appeal, and what the notices mean",
+   "workstream": "build",
+   "lane": "build",
+   "source": "operator",
+   "seeded_by": "main chat for Joseph: end-to-end test of procedure v4.3, 23 Nov 2026",
+   "key": "build:medicare-fast-appeal-discharge",
+   "priority": 1,
+   "impact": 4,
+   "confidence": 4,
+   "effort": 3,
+   "evidence": "Questions families asked in public: national caregiver Q&A forum, May 2023 (a parent's short-term rehab stay being ended by insurance; can the family appeal); national caregiver Q&A forum, 2023 (a parent with dementia signed a Notice of Medicare Non-Coverage; is there anything the family can do); Medicare consumer Q&A column, an Illinois family asking about a skilled nursing facility discharge (record its date from the page). Primary sources exist on medicare.gov (fast appeals in a hospital and in a skilled nursing facility, the BFCC-QIO, An Important Message from Medicare, the Notice of Medicare Non-Coverage). Checked 23 Nov 2026: no guide on main or drafts covers discharge appeals (does-medicare-pay-for-senior-care mentions inpatient and observation status only). Decision stage: a discharge is when a family must decide where a parent will live and get care.",
+   "expected_tour_acquisition_value": "Families facing a hospital or rehab discharge are at the decision point the site serves; a precise, sourced answer can earn search visits on high-intent discharge and appeal queries and leads to the assessment through the bridge and the closing CTA.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "A new guide is committed and pushed on drafts as procedure step 7 Build says: every claim from medicare.gov pages fetched and read in the session, quotations matched word for word, ROUTINE.md Step 5's five checks run with their final lines in the commit body, a DEMAND.md ## Done line added; or a verdict naming the claim or check that failed and why nothing was pushed.",
+   "status": "done",
+   "found_utc": "2026-11-23T17:35Z",
+   "result": "Built and pushed guide medicare-fast-appeal-hospital-rehab-discharge on drafts (9e9427e): the IM and NOMNC notices, the hospital and SNF deadlines, the BFCC-QIO review sequence and who pays after each decision, plus the inpatient-to-observation fast appeal. Sources fetched and read: medicare.gov Fast appeals page and publication 11376. 31 quotations matched word for word. Checks: build ok (40 URLs), test.js 669/669, check-guides 2454 passed 0 failed, citations 96 resolve, mobile-nav skipped (no websockets). Refused: an Illinois BFCC-QIO name and phone (not read off an allowed page; guide points to the notice and 1-800-MEDICARE), Livanta (older booklet only), a worked Friday/Thursday deadline example, caregiver-authority advice. Medicare consumer column evidence not recorded (date not verified this session). DEMAND.md Done line added. Awaits Joseph's review; never on main.",
+   "sources": [
+    "https://www.medicare.gov/providers-services/claims-appeals-complaints/appeals/fast-appeals",
+    "https://www.medicare.gov/publications/11376-your-discharge-planning-checklist.pdf"
+   ],
+   "lesson": "check-guides.js treats the word 'urgent' anywhere in a guide (including the intent field) as manufactured urgency.",
+   "deliverable": {
+    "type": "guide",
+    "ref": "drafts 9e9427e"
+   },
+   "done_utc": "2026-11-23T17:40Z",
+   "minutes": 5
   }
  ],
  "blocked": [],
@@ -1382,7 +1394,7 @@
   "picked": "-",
   "why": "Worked: monitor only; nothing else due (waiting on Joseph: conversion, search PRs)"
  },
- "last_verified_action": "ACQ-037 done 2026-11-23T06:27Z: Added the topic 'Should I sign my parent's assisted living or nursing home admission contract as the responsible party?' under ## Open in DEMAND.md on drafts (…",
+ "last_verified_action": "ACQ-038 done 2026-11-23T17:40Z: Built and pushed guide medicare-fast-appeal-hospital-rehab-discharge on drafts (9e9427e): the IM and NOMNC notices, the hospital and SNF deadlines, the BFCC-QI…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -2050,8 +2062,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSbQh9aYSa5vTbwv5wK",
-   "utc": "2026-11-23T17:36Z",
-   "since_utc": "2026-11-23T17:36Z"
+   "utc": "2026-11-23T17:40Z",
+   "since_utc": "2026-11-23T17:36Z",
+   "productive_min": 5,
+   "deliverables": [
+    "guide:drafts 9e9427e"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-23T15:25Z"
@@ -2164,7 +2180,7 @@
     "owner_wip_limit": 10,
     "plan_cooldown_hours": 12,
     "open_prs": [],
-    "owner_open": 0,
+    "owner_open": 1,
     "cooldown_until_utc": "",
     "last_planned_utc": "",
     "last_plan_result": "",
