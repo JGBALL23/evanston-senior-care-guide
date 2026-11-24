@@ -118,25 +118,6 @@
    "found_utc": "2026-11-23T17:43Z",
    "not_before_utc": "2026-12-08T15:00Z",
    "not_before": "Timing, not data: 2027 figures are already on medicare.gov (read 2026-11-23). Prepare the PR in December so it is fresh when Joseph merges it for 1 Jan 2027."
-  },
-  {
-   "id": "ACQ-050",
-   "task": "Build guide on drafts: my parent moved into an Illinois nursing home and the Medicaid application is still pending. Who pays meanwhile, how long the decision takes, what provisional eligibility is, and what the family should keep doing",
-   "workstream": "build",
-   "lane": "build",
-   "source": "plan",
-   "key": "build:illinois-medicaid-pending-nursing-home",
-   "impact": 3,
-   "confidence": 3,
-   "effort": 4,
-   "evidence": "Questions families asked in public, national caregiver Q&A forum: 2022-01-26 (how long until Medicaid begins once a parent is in the facility, five weeks in); 2019-12-09 (can a Medicaid-accepting unit require private pay before Medicaid reimburses); 2015-06-29 (parent approved for Medicaid but billed the self-pay rate); 2013-10-08 (how long until Medicaid decides and starts paying the nursing home). Official Illinois sources found 24 Nov 2026 on allowed hosts: HFS provisional eligibility FAQ and LTC determinations documents (hfs.illinois.gov), Illinois Auditor General 2025 Medicaid LTC eligibility performance audit (auditor.illinois.gov). Coverage check 24 Nov 2026: illinois-medicaid-long-term-care covers spend-down and eligibility, illinois-nursing-home-resident-rights covers Medicaid billing rights; no guide on main or drafts covers the pending period, processing times or provisional eligibility; DEMAND.md Open empty, Done does not list it.",
-   "expected_tour_acquisition_value": "Families admitting a parent to a nursing home while Medicaid is pending are at the placement decision; a sourced Illinois answer can earn search visits on 'Medicaid pending nursing home Illinois' style queries and leads to the assessment through the bridge and closing CTA.",
-   "executor": "worker (research and preparation only)",
-   "done_when": "A new guide is committed and pushed on drafts as procedure step 7 Build says: every claim from illinois.gov (or other allowed-host) pages fetched and read in the session, quotations matched word for word, ROUTINE.md Step 5's five checks run with final lines in the commit body, a DEMAND.md ## Done line added; or a verdict naming the claim or check that failed and why nothing was pushed.",
-   "score": 2.25,
-   "status": "ready",
-   "priority": 2,
-   "found_utc": "2026-11-24T06:28Z"
   }
  ],
  "completed": [
@@ -1683,6 +1664,42 @@
    },
    "done_utc": "2026-11-23T18:01Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-050",
+   "task": "Build guide on drafts: my parent moved into an Illinois nursing home and the Medicaid application is still pending. Who pays meanwhile, how long the decision takes, what provisional eligibility is, and what the family should keep doing",
+   "workstream": "build",
+   "lane": "build",
+   "source": "plan",
+   "key": "build:illinois-medicaid-pending-nursing-home",
+   "impact": 3,
+   "confidence": 3,
+   "effort": 4,
+   "evidence": "Questions families asked in public, national caregiver Q&A forum: 2022-01-26 (how long until Medicaid begins once a parent is in the facility, five weeks in); 2019-12-09 (can a Medicaid-accepting unit require private pay before Medicaid reimburses); 2015-06-29 (parent approved for Medicaid but billed the self-pay rate); 2013-10-08 (how long until Medicaid decides and starts paying the nursing home). Official Illinois sources found 24 Nov 2026 on allowed hosts: HFS provisional eligibility FAQ and LTC determinations documents (hfs.illinois.gov), Illinois Auditor General 2025 Medicaid LTC eligibility performance audit (auditor.illinois.gov). Coverage check 24 Nov 2026: illinois-medicaid-long-term-care covers spend-down and eligibility, illinois-nursing-home-resident-rights covers Medicaid billing rights; no guide on main or drafts covers the pending period, processing times or provisional eligibility; DEMAND.md Open empty, Done does not list it.",
+   "expected_tour_acquisition_value": "Families admitting a parent to a nursing home while Medicaid is pending are at the placement decision; a sourced Illinois answer can earn search visits on 'Medicaid pending nursing home Illinois' style queries and leads to the assessment through the bridge and closing CTA.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "A new guide is committed and pushed on drafts as procedure step 7 Build says: every claim from illinois.gov (or other allowed-host) pages fetched and read in the session, quotations matched word for word, ROUTINE.md Step 5's five checks run with final lines in the commit body, a DEMAND.md ## Done line added; or a verdict naming the claim or check that failed and why nothing was pushed.",
+   "score": 2.25,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-24T06:28Z",
+   "result": "Built and pushed guide illinois-medicaid-pending-nursing-home on drafts (4b5dca4): Illinois decision deadlines (45 days; 60 Illinois/90 federal for disability) and 30-day extensions per the Auditor General July 2025 audit, its 2023 sample results (22% late, 41-day average, 58 days at OIG), HFS Provisional Eligibility (reimplemented Nov 2023; automatic after 45 days of state delay; family-caused delays and spend-down excluded), what HFS 3191 says about back months and the resident's share, guarantor and discharge rights from the IDoA brochure, and paperwork steps. 20 quotations matched word for word. Checks: build ok (41 URLs), test.js 669/669, check-guides 2512 passed 0 failed, citations 101 resolve, mobile-nav skipped (no websockets). Refused: the $30 personal needs figure (HFS 3191 is a 2015 revision), statute text (auditor mirror may predate PA 100-665), any rule on what a facility may bill while pending (not on any page read). Links only to guides on main. DEMAND.md Done line added. Awaits Joseph's review.",
+   "sources": [
+    "https://www.auditor.illinois.gov/Audit-Reports/Performance-Special-Multi/Performance-Audits/2025_Releases/25-Medicaid-LTC-Eligibility-Perf-Full.pdf",
+    "https://hfs.illinois.gov/medicalproviders/notices/notice.prn231127a.html",
+    "https://hfs.illinois.gov/content/dam/soi/en/web/hfs/sitecollectiondocuments/provisionaleligibilityfaq9122018.pdf",
+    "https://hfs.illinois.gov/info/brochures-and-forms/brochures/hfs3191.html",
+    "https://hfs.illinois.gov/content/dam/soi/en/web/hfs/sitecollectiondocuments/ltc_faq.pdf",
+    "https://hfs.illinois.gov/medicalclients/ltc",
+    "https://ilaging.illinois.gov/content/dam/soi/en/web/aging/resources/newsandpublications/publications/documents/ltc-resrights.pdf"
+   ],
+   "lesson": "Auditor General PDFs interleave exhibit text with body text under pdftotext; quote only sentences that survive as one contiguous run, paraphrase the rest.",
+   "deliverable": {
+    "type": "guide",
+    "ref": "drafts 4b5dca4"
+   },
+   "done_utc": "2026-11-24T06:33Z",
+   "minutes": 5
   }
  ],
  "blocked": [],
@@ -1693,7 +1710,7 @@
   "picked": "ACQ-038 done, ACQ-039 done, ACQ-040 done, ACQ-041 done, ACQ-042 done, ACQ-043 waiting_on_data (until 2026-12-08), ACQ-044 done, ACQ-045 done (PR #87), ACQ-046 done, ACQ-047 done (PR #88), ACQ-048 done, ACQ-049 done",
   "why": "Worked: built Medicare fast-appeal guide on drafts, 4 review packets, corrections applied to all 4 drafts, publish PRs #87 and #88 opened; stopped: approval-pending; resume: #87/#88 merged or 2026-11-24T03:25Z monitor"
  },
- "last_verified_action": "ACQ-049 done 2026-11-23T18:01Z: Applied all 12 packet corrections to illinois-money-management-program on drafts (4f57bd8): Program Sites (not the state) train volunteers, unsupported POA/gua…",
+ "last_verified_action": "ACQ-050 done 2026-11-24T06:33Z: Built and pushed guide illinois-medicaid-pending-nursing-home on drafts (4b5dca4): Illinois decision deadlines (45 days; 60 Illinois/90 federal for disability)…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -2363,12 +2380,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSaawGGbUyc4hBUU42n",
-   "utc": "2026-11-24T06:28Z",
+   "utc": "2026-11-24T06:33Z",
    "since_utc": "2026-11-24T06:24Z",
-   "current": {
-    "what": "plan:build",
-    "since_utc": "2026-11-24T06:26Z"
-   }
+   "productive_min": 5,
+   "deliverables": [
+    "guide:drafts 4b5dca4"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-24T06:25Z"
@@ -2519,7 +2536,7 @@
     "owner_wip_limit": 10,
     "plan_cooldown_hours": 12,
     "open_prs": [],
-    "owner_open": 1,
+    "owner_open": 2,
     "cooldown_until_utc": "",
     "last_planned_utc": "2026-11-24T06:28Z",
     "last_plan_result": "Rechecked public family questions against guide index (main 32, drafts 37) and DEMAND.md (Open empty): Medicaid-pending period at nursing-home admission has 4 caregiver-forum questions (2013-2022) and current illinois.gov sources (HFS provisional eligibility, Auditor General 2025 LTC audit), no gui…",
