@@ -5478,9 +5478,11 @@ GUIDES = [
                 "you don&rsquo;t get this notice, ask for it.&rdquo; Medicare's "
                 "discharge planning checklist adds: &ldquo;Read the notice "
                 "carefully because it contains information about your fast appeal "
-                "rights.&rdquo; The notice also states the date your parent's "
-                "covered services will end &mdash; the date every deadline below "
-                "is counted from.</p>",
+                "rights.&rdquo; Both notices include, where it applies, the date "
+                "your parent's covered services will end; in a skilled nursing "
+                "facility the deadline below is counted from that date, and in a "
+                "hospital from the day your parent is scheduled to be "
+                "discharged.</p>",
             ]),
             ("The deadlines, in Medicare's own words", [
                 "<p><strong>Hospital.</strong> Follow the directions on the "
