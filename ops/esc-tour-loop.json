@@ -2573,13 +2573,17 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeCbxcXmLkr5rR2XFr",
-   "utc": "2026-11-24T18:37Z",
+   "utc": "2026-11-24T18:40Z",
    "since_utc": "2026-11-24T18:24Z",
    "productive_min": 2,
    "deliverables": [
     "review_packet:ops/reviews/illinois-medicaid-pending-nursing-home.md",
     "review_packet:ops/reviews/illinois-parent-refuses-to-move-guardianship.md"
-   ]
+   ],
+   "current": {
+    "what": "plan:build",
+    "since_utc": "2026-11-24T18:40Z"
+   }
   },
   "monitor": {
    "last_utc": "2026-11-24T18:26Z"
@@ -2763,9 +2767,9 @@
     "plan_cooldown_hours": 12,
     "open_prs": [],
     "owner_open": 3,
-    "cooldown_until_utc": "2026-11-24T18:40Z",
-    "last_planned_utc": "2026-11-24T06:40Z",
-    "last_plan_result": "Third pass 24 Nov: hospice while living in a facility already covered (medicare-hospice-benefit-explained); hospital-to-rehab facility choice still lacks a dated family question; observation status covered. Two guides built this session (ACQ-050, ACQ-054); owner_open 3 of 10.",
+    "cooldown_until_utc": "2026-11-25T06:40Z",
+    "last_planned_utc": "2026-11-24T18:40Z",
+    "last_plan_result": "Same evidence pass as sweep asset-gaps at 18:37Z: 39 guide slugs on main+drafts, DEMAND Open/Done, no new Search Console read, measured channel results (Facebook visitors view costs and tour-questions, both covered). Memory care overlaps ACQ-030 (waiting); adult day covered by the Community Care Pr…",
     "wip_note": "owner_open counts worker-built assets on drafts that are not on main yet; at 10 the lane waits for Joseph to publish"
    },
    {
@@ -2927,6 +2931,7 @@
    }
   ],
   "log": [
+   "2026-11-24T18:40Z build +0: Same evidence pass as sweep asset-gaps at 18:37Z: 39 guide slugs on main+drafts, DEMAND Open/Done, no new Search Console read, measured channel results (Facebo…",
    "2026-11-24T06:40Z demand +0: Second pass 24 Nov: DEMAND.md Open holds 2 topics added this session (3496888); no further question with dated public evidence that no guide or DEMAND entry co…",
    "2026-11-24T06:40Z build +0: Third pass 24 Nov: hospice while living in a facility already covered (medicare-hospice-benefit-explained); hospital-to-rehab facility choice still lacks a dat…",
    "2026-11-24T06:37Z build +1: Second pass 24 Nov: parent refusing a needed move (4 caregiver-forum questions 2012-2023, one Illinois-specific) with gac.illinois.gov guardianship sources; no…",
