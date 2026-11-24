@@ -1726,6 +1726,65 @@
    },
    "done_utc": "2026-11-24T06:34Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-052",
+   "task": "Review packet for draft medicare-fast-appeal-hospital-rehab-discharge (on drafts, not on main, no packet; built by another session)",
+   "workstream": "demand",
+   "lane": "demand",
+   "source": "plan",
+   "key": "review:medicare-fast-appeal-hospital-rehab-discharge",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "evidence": "draft-review sweep 24 Nov 2026: drafts slugs minus main slugs = 5; ops/reviews has packets for 4; this one excluded on 23 Nov because built in that session (cse_014eaiSbQh9aYSa5vTbwv5wK).",
+   "expected_tour_acquisition_value": "A verified packet turns publishing this decision-stage discharge guide into a short owner decision; once live it can earn discharge and appeal search visits leading to the assessment.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md with sources fetched, quote audit, claim checks, link checks and a verdict line, plus its owner_review_needed line.",
+   "score": 6.0,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-24T06:37Z",
+   "result": "Packet ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md: both cited Medicare.gov sources fetched (200); 31 of 31 quotations matched word for word; deadlines, notice timings, BFCC-QIO decision timing and liability rules hold; all 8 internal links are live on main; no community named, no Westminster Place claim. One claim did not hold: 'the date every deadline below is counted from' (the hospital deadline runs from the scheduled discharge day). Verdict: publish-ready after corrections (1 correction).",
+   "verdicts": [
+    "publish-ready after corrections"
+   ],
+   "sources": [
+    "https://www.medicare.gov/providers-services/claims-appeals-complaints/appeals/fast-appeals",
+    "https://www.medicare.gov/publications/11376-your-discharge-planning-checklist.pdf"
+   ],
+   "deliverable": {
+    "type": "review_packet",
+    "ref": "ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md"
+   },
+   "done_utc": "2026-11-24T06:37Z",
+   "minutes": 0
+  },
+  {
+   "id": "ACQ-053",
+   "task": "Apply the review packet's correction to drafts page medicare-fast-appeal-hospital-rehab-discharge (not on main)",
+   "workstream": "build",
+   "lane": "build",
+   "source": "plan",
+   "key": "improve:medicare-fast-appeal-hospital-rehab-discharge",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 1,
+   "evidence": "ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md, 24 Nov 2026: Verdict publish-ready after corrections, 1 correction with its source sentence.",
+   "expected_tour_acquisition_value": "Makes the draft publish-ready so Joseph can publish it in minutes once the publish lane frees up.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "One drafts commit applying exactly the packet's correction with all five checks, and a 'Corrections applied' line in the packet.",
+   "score": 15.0,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-24T06:37Z",
+   "result": "Applied correction 1 (deadline anchor per setting) on drafts 52bffc3; build ok (41 URLs), test.js 669/669, check-guides 2512 passed 0 failed, citations 101 resolve, mobile-nav skipped (no websockets). Packet updated with 'Corrections applied: drafts 52bffc3, 2026-11-24'. The page is now publish-ready per its packet; a publish package waits because the publish lane is at its limit (PRs #87, #88 open).",
+   "deliverable": {
+    "type": "correction",
+    "ref": "drafts 52bffc3"
+   },
+   "done_utc": "2026-11-24T06:37Z",
+   "minutes": 0
   }
  ],
  "blocked": [],
@@ -1736,7 +1795,7 @@
   "picked": "ACQ-038 done, ACQ-039 done, ACQ-040 done, ACQ-041 done, ACQ-042 done, ACQ-043 waiting_on_data (until 2026-12-08), ACQ-044 done, ACQ-045 done (PR #87), ACQ-046 done, ACQ-047 done (PR #88), ACQ-048 done, ACQ-049 done",
   "why": "Worked: built Medicare fast-appeal guide on drafts, 4 review packets, corrections applied to all 4 drafts, publish PRs #87 and #88 opened; stopped: approval-pending; resume: #87/#88 merged or 2026-11-24T03:25Z monitor"
  },
- "last_verified_action": "ACQ-051 done 2026-11-24T06:34Z: Added 2 topics under DEMAND.md ## Open on drafts (3496888): (1) hospital wants to discharge a parent who cannot safely go home, closest guide medicare-fast-app…",
+ "last_verified_action": "ACQ-053 done 2026-11-24T06:37Z: Applied correction 1 (deadline anchor per setting) on drafts 52bffc3; build ok (41 URLs), test.js 669/669, check-guides 2512 passed 0 failed, citations 101 res…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -1786,7 +1845,8 @@
   "Skokie Human Services (ACQ-001) publishes no email, so it is phone-only: add it to your optional call list. Niles was emailed 21 Nov (0 replies so far).",
   "Evanston Now essay timing (22 Nov, ACQ-033): families look hardest right after holiday visits (trade reports put the inquiry peak about 3-4 Jan). If your essay can carry a 'what to notice on a holiday visit, and what to ask next' angle and be submitted by about 10 Dec, it lands in that window. Optional.",
   "PR #87: publish the assisted-living move-out guide (review packet ops/reviews/illinois-assisted-living-involuntary-move-out.md, corrections applied on drafts 3c7bc75, all checks pass). About 10 minutes to read and merge; then run tools/publish.py yourself.",
-  "PR #88: publish the nursing-home responsible-party guide (packet ops/reviews/illinois-nursing-home-responsible-party.md, corrections applied on drafts a68e5aa, all checks pass; title shortened for the 70-char gate). About 10 minutes to read and merge; then run tools/publish.py yourself."
+  "PR #88: publish the nursing-home responsible-party guide (packet ops/reviews/illinois-nursing-home-responsible-party.md, corrections applied on drafts a68e5aa, all checks pass; title shortened for the 70-char gate). About 10 minutes to read and merge; then run tools/publish.py yourself.",
+  "Draft medicare-fast-appeal-hospital-rehab-discharge: packet ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md says publish-ready after corrections; correction applied on drafts 52bffc3. A publish PR follows once #87 or #88 is merged (publish lane at its limit). About 10 minutes to review."
  ],
  "hourly_backlog_policy": {
   "enabled": true,
@@ -2406,12 +2466,14 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSaawGGbUyc4hBUU42n",
-   "utc": "2026-11-24T06:34Z",
+   "utc": "2026-11-24T06:37Z",
    "since_utc": "2026-11-24T06:24Z",
    "productive_min": 6,
    "deliverables": [
     "guide:drafts 4b5dca4",
-    "demand_topic:drafts 3496888"
+    "demand_topic:drafts 3496888",
+    "review_packet:ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md",
+    "correction:drafts 52bffc3"
    ]
   },
   "monitor": {
@@ -2763,10 +2825,10 @@
     "evidence": "git diff of main...drafts for new guide slugs; each draft's own cited sources, fetched and read now.",
     "output": "One review packet per draft at ops/reviews/<slug>.md on ops/operator-state: every factual claim checked against the source it cites (holds / does not hold / source unreachable, quoting the source's own short wording), the rule checks (independent-guide disclosure, no community ranking, no Westminster Place prices, no unverified medical, legal, financial or benefits claim) and a verdict: publish-ready, or the exact fixes. One owner_review_needed line per draft with the verdict and the minutes it takes to publish. Deliverable type review_packet.",
     "why": "A draft only helps families once Joseph publishes it; a verified packet turns that into a few-minute decision.",
-    "last_checked_utc": "2026-11-23T17:41Z",
-    "next_check_utc": "2026-11-24T05:41Z",
-    "last_result": "4 drafts on drafts not on main and with no packet: illinois-assisted-living-involuntary-move-out, illinois-nursing-home-responsible-party, illinois-money-management-program, va-home-based-primary-care-and-aide; all 4 queued (ACQ-039..042). medicare-fast-appeal-hospital-rehab-discharge excluded: bui…",
-    "last_added": 4
+    "last_checked_utc": "2026-11-24T06:37Z",
+    "next_check_utc": "2026-11-24T18:37Z",
+    "last_result": "1 draft on drafts not on main without a packet (medicare-fast-appeal-hospital-rehab-discharge); packet written (31/31 quotes, 1 correction, publish-ready after corrections) and correction applied on drafts 52bffc3. New guide illinois-medicaid-pending-nursing-home built this session, so not reviewab…",
+    "last_added": 1
    },
    {
     "id": "demand-questions",
@@ -2874,6 +2936,7 @@
    }
   ],
   "sweep_log": [
+   "2026-11-24T06:37Z draft-review +1: 1 draft on drafts not on main without a packet (medicare-fast-appeal-hospital-rehab-discharge); packet written (31/31 quotes, 1 correction, publish-ready after…",
    "2026-11-24T06:34Z asset-gaps +0: Same pass as plan:build 24 Nov: Medicaid-pending admission was the one evidenced uncovered need (ACQ-050, built 4b5dca4); hospital-to-rehab choice lacked dated…",
    "2026-11-24T06:34Z demand-questions +0: Same pass as plan:demand 24 Nov: 2 topics committed to DEMAND.md Open (ACQ-051); no further qualifying question found.",
    "2026-11-23T17:44Z competitor-gaps +0: Search 'assisted living Evanston IL' 2026-11-23: top results are directories (seniorliving.org, caring.com, aplaceformom, seniorly). Read their structure vs ou…",
