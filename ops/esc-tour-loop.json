@@ -1895,10 +1895,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-24T06:40Z",
+  "utc": "2026-11-24T18:40Z",
   "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
-  "picked": "ACQ-050 done, ACQ-051 done, ACQ-052 done, ACQ-053 done, ACQ-054 done",
-  "why": "Worked: built 2 guides on drafts (Medicaid pending, parent refuses to move/guardianship), 2 DEMAND topics, review packet + correction for fast-appeal draft; stopped: no-worthwhile-work; resume: search-console angle 17:43Z"
+  "picked": "ACQ-055 done, ACQ-056 done",
+  "why": "Worked: monitor (site OK, ~2 genuine, 0 tour requests) and 2 publish-ready review packets (Medicaid-pending, guardianship); stopped: no-worthwhile-work; resume: monitor 25 Nov 06:26Z"
  },
  "last_verified_action": "ACQ-056 done 2026-11-24T18:37Z: Packet ops/reviews/illinois-parent-refuses-to-move-guardianship.md: all 3 cited sources fetched (200); 24 of 24 quotations matched word for word with correct f…",
  "last_stop": {
@@ -1995,7 +1995,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Next: search-console angle 24 Nov 17:43Z and monitor 18:25Z; asset-gaps and draft-review re-open after 18:34Z (the two new guides become reviewable by a later session). Waiting on Joseph: publish PRs #87/#88 (fast-appeal draft is publish-ready once the publish lane frees), conversion PRs #78-80/#84/#86, #81/#85.",
+ "next_discovery": "Next due: monitor and planner at 25 Nov 06:26Z, demand-questions 06:34Z, asset-gaps and draft-review 06:37Z. Waiting on Joseph: publish PRs #87/#88 (3 more drafts publish-ready: medicare-fast-appeal, medicaid-pending, guardianship), conversion PRs #78-80/#84/#86, search PRs #81/#85; ACQ-030 memory-care decision waits on a Search Console read.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -2572,23 +2572,42 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiSeCbxcXmLkr5rR2XFr",
-   "utc": "2026-11-24T18:40Z",
-   "since_utc": "2026-11-24T18:24Z",
-   "productive_min": 2,
-   "deliverables": [
-    "review_packet:ops/reviews/illinois-medicaid-pending-nursing-home.md",
-    "review_packet:ops/reviews/illinois-parent-refuses-to-move-guardianship.md"
-   ],
-   "current": {
-    "what": "plan:build",
-    "since_utc": "2026-11-24T18:40Z"
-   }
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-24T18:26Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSeCbxcXmLkr5rR2XFr",
+    "start_utc": "2026-11-24T18:24Z",
+    "end_utc": "2026-11-24T18:40Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: monitor (site OK, ~2 genuine, 0 tour requests) and 2 publish-ready review packets (Medicaid-pending, guardianship); stopped: no-worthwhile-work; resume: monitor 25 Nov 06:26Z",
+    "done": 2,
+    "changed": 3,
+    "tasks": "ACQ-055 done, ACQ-056 done",
+    "next": "no",
+    "wake_minutes": 706,
+    "next_due_utc": "2026-11-25T06:26Z",
+    "plan_due": false,
+    "saturated": [
+     "publish",
+     "conversion"
+    ],
+    "budget_used_hours_24h": 0.5,
+    "budget_used_hours_7d": 1.1,
+    "productive_min": 2,
+    "deliverables": [
+     "review_packet:ops/reviews/illinois-medicaid-pending-nursing-home.md",
+     "review_packet:ops/reviews/illinois-parent-refuses-to-move-guardianship.md"
+    ],
+    "stop_reason": "no-worthwhile-work",
+    "considered": "monitor: done (site OK, ~2 genuine incl. 1 fb-glv-1124, 0 tour requests, 0 org replies, no merges; Glenview post declined by admins); event_waits ACQ-017 (#85 open) and ACQ-007 (#86 open) unchanged; sweep search-console +0 (no SC read newer than 18 Nov); sweep asset-gaps +0 (memory care overlaps ACQ-030 waiting; adult day covered; no new evidence); sweep draft-review +2 (ACQ-055, ACQ-056 packets, both publish-ready); plan build +0; publish-ready angle waiting on Joseph (#87, #88 open, lane at limit); conversion lane saturated (5 PRs open); demand, search, technical, distribution, partnerships cooling until 25-26 Nov; step 8: no reply, no post due within 48h, email draft already ready",
+    "resume_when": "monitor at 2026-11-25T06:26Z, or earlier on a merge of #87/#88 (publish lane frees; 3 publish-ready drafts waiting) or #85/#86, or a new Search Console read",
+    "sweep_due_left": []
+   },
    {
     "run": "cse_014eaiSaawGGbUyc4hBUU42n",
     "start_utc": "2026-11-24T06:24Z",
@@ -2713,32 +2732,32 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-24T06:40Z",
+   "written_utc": "2026-11-24T18:40Z",
    "eligible_now": 0,
    "next_due": [
     {
-     "utc": "2026-11-24T17:43Z",
-     "what": "sweep angle search-console"
-    },
-    {
-     "utc": "2026-11-24T18:25Z",
+     "utc": "2026-11-25T06:26Z",
      "what": "monitor"
     },
     {
-     "utc": "2026-11-24T18:34Z",
-     "what": "sweep angle asset-gaps"
-    },
-    {
-     "utc": "2026-11-24T18:37Z",
-     "what": "sweep angle draft-review"
-    },
-    {
-     "utc": "2026-11-24T18:40Z",
+     "utc": "2026-11-25T06:26Z",
      "what": "planner cooldown ends"
     },
     {
      "utc": "2026-11-25T06:34Z",
      "what": "sweep angle demand-questions"
+    },
+    {
+     "utc": "2026-11-25T06:37Z",
+     "what": "sweep angle asset-gaps"
+    },
+    {
+     "utc": "2026-11-25T06:37Z",
+     "what": "sweep angle draft-review"
+    },
+    {
+     "utc": "2026-11-25T15:00Z",
+     "what": "ACQ-005"
     }
    ]
   },
