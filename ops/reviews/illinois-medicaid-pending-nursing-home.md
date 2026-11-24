@@ -1,0 +1,54 @@
+# Review packet: illinois-medicaid-pending-nursing-home
+
+- Date: 2026-11-24
+- Reviewer: ESCG worker (session cse_014eaiSeCbxcXmLkr5rR2XFr; the draft was built by session cse_014eaiSaawGGbUyc4hBUU42n, drafts 4b5dca4)
+- Draft: GUIDES entry `illinois-medicaid-pending-nursing-home` in drafts build-guides.py (rendered: _dist/guides/illinois-medicaid-pending-nursing-home/index.html, drafts cf6aaf8)
+
+## Sources fetched (24 Nov 2026, 18:2x UTC)
+
+| # | Cited key | URL | Status | Use |
+|---|-----------|-----|--------|-----|
+| 1 | oag_ltc_2025 | https://www.auditor.illinois.gov/Audit-Reports/Performance-Special-Multi/Performance-Audits/2025_Releases/25-Medicaid-LTC-Eligibility-Perf-Full.pdf | 200 application/pdf | deadlines, extensions, sample results |
+| 2 | hfs_pe_notice_2023 | https://hfs.illinois.gov/medicalproviders/notices/notice.prn231127a.html | 200 | Provisional Eligibility history and entitlement |
+| 3 | hfs_pe_faq | https://hfs.illinois.gov/content/dam/soi/en/web/hfs/sitecollectiondocuments/provisionaleligibilityfaq9122018.pdf | 200 application/pdf | four PE points, start of the 45 days |
+| 4 | hfs_3191 | https://hfs.illinois.gov/info/brochures-and-forms/brochures/hfs3191.html | 200 | start month, retroactive months, paying bills, FCRC, cannot make you leave |
+| 5 | hfs_abe_ltc_faq | https://hfs.illinois.gov/content/dam/soi/en/web/hfs/sitecollectiondocuments/ltc_faq.pdf | 200 application/pdf | submitting without verifications |
+| 6 | hfs_ltc_clients | https://hfs.illinois.gov/medicalclients/ltc | 200 | apply through DHS, needs screening; links HFS 3191 |
+| 7 | idoa_resident_rights_brochure | https://ilaging.illinois.gov/content/dam/soi/en/web/aging/resources/newsandpublications/publications/documents/ltc-resrights.pdf | 200 application/pdf | co-signer rule, four reasons to leave, notice, 10-day appeal, phone |
+
+## Quote audit
+
+Script: extracted every “…” from the rendered guide's main content, normalised whitespace, apostrophes, dashes and PDF line breaks, and searched each fetched source text. 20 quotes, 20 matched word for word, each in the source the guide attributes it to.
+
+## Claims and figures checked against the source
+
+- Apply for medical benefits through DHS and obtain a needs screening through the Department on Aging or DHS: holds (source 6).
+- 45 days for applicants not applying on the basis of a disability; 90 federal and 60 Illinois for disability-based applicants: holds (source 1, timeline table, "89 Ill. Adm. Code 110.20 and 10.420").
+- 30-day extension on request and a second 30-day extension: holds (source 1, "A second extension of 30 days may be granted upon request").
+- Sample of 50 applications from 2023; 11 (22%) pending past the required days; 41-day average; 58 days at OIG: holds (source 1, "We found that 11 of 50 (22%) of applications were pending past the required").
+- Provisional Eligibility set up in 2018; delays grew after the COVID emergency ended: holds (source 2, "identified increases in processing delays since the end of the COVID PHE").
+- "Citing the Public Aid Code": holds (source 2, "Pursuant to 305 ILCS 5/11-5.4(i)").
+- HFS reviews applications and admissions pending more than 45 days each month: holds (source 3, monthly as of the 15th; "45 days old on the 15th of each month").
+- DHS caseworkers continue to process the application: holds (source 3, "The DHS caseworkers will continue to process medical").
+- 45 days for PE counted from the date the application is entered online: holds (source 3, Q17: "the 45 day period begins the date the application is entered through ABE").
+- HFS 3191 "revised February 2015" and still linked from HFS's long-term care page: holds (source 4 footer "HFS 3191 (R-2-15)"; source 6 links /info/brochures-and-forms/brochures/hfs3191.html).
+- Depending on income and resources it may be necessary to pay part of those bills: holds (source 4).
+- FCRC = DHS Family Community Resource Center: holds (source 4).
+- ABE FAQ "written for facilities that file online": holds in substance (source 5 is an FAQ on completing the ABE application, with facility and skilled nursing facility questions).
+- Four reasons a facility can make a resident leave; written notice with reason, appeal instructions and self-addressed envelope to IDPH; 10-day appeal; 1-800-252-8966: holds (source 7, "Stay in your facility").
+- "None of the HFS pages read for this guide sets out what a nursing home may bill a resident while an application is pending": holds for sources 2 to 6 as fetched (no such rule found in any of them); it is phrased as a statement about these pages, not a claim that no rule exists.
+- Answer box ("can let the nursing home bill Medicaid before the final decision"): holds (source 2, PE "allowed LTC providers to submit claims for Medicaid reimbursement more quickly"; source 3, DHS still processes the application).
+
+## Rule checks
+
+- Independent-guide disclosure and the assessment block: present (generated by build_guide; check-guides.js on drafts: 2570 passed, 0 failed).
+- No community named, ranked or recommended; no Westminster Place price or claim: none found (Westminster Place appears only in the standard disclosure); no dollar figures on the page.
+- No unverified medical, legal, financial or benefits claim: every rule is quoted or paraphrased from sources 1 to 7; the practical advice (ask the business office in writing) is framed as a suggestion.
+- Links: /, /guides/, /guides/illinois-medicaid-look-back-period/, /guides/illinois-medicaid-long-term-care/, /guides/illinois-nursing-home-resident-rights/, /guides/illinois-nursing-home-preadmission-screening/, and in Related guides /guides/assisted-living-cost-illinois/, /guides/does-medicare-pay-for-senior-care/, /guides/illinois-supportive-living-program/: all live on main (checked against main's build-guides.py and _dist, 24 Nov 2026).
+- Bridge: one sentence, unique (check-guides.js passes).
+
+## Corrections
+
+None.
+
+Verdict: publish-ready

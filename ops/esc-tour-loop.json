@@ -120,25 +120,6 @@
    "not_before": "Timing, not data: 2027 figures are already on medicare.gov (read 2026-11-23). Prepare the PR in December so it is fresh when Joseph merges it for 1 Jan 2027."
   },
   {
-   "id": "ACQ-055",
-   "task": "Review packet for draft illinois-medicaid-pending-nursing-home (on drafts, not on main, no packet; built by another session)",
-   "workstream": "demand",
-   "lane": "demand",
-   "source": "plan",
-   "key": "review:illinois-medicaid-pending-nursing-home",
-   "impact": 3,
-   "confidence": 4,
-   "effort": 2,
-   "evidence": "draft-review sweep 24 Nov 2026 18:37Z: drafts slugs minus main slugs = 7; ops/reviews has packets for 5; this one was built by session cse_014eaiSaawGGbUyc4hBUU42n (drafts 4b5dca4), not this session.",
-   "expected_tour_acquisition_value": "A verified packet turns publishing this decision-stage guide into a short owner decision; once live it can earn search visits from families at the admission or move decision, leading to the assessment and tour path.",
-   "executor": "worker (research and preparation only)",
-   "done_when": "ops/reviews/illinois-medicaid-pending-nursing-home.md with sources fetched, quote audit, claim checks, link checks and a verdict line, plus its owner_review_needed line.",
-   "score": 6.0,
-   "status": "ready",
-   "priority": 2,
-   "found_utc": "2026-11-24T18:37Z"
-  },
-  {
    "id": "ACQ-056",
    "task": "Review packet for draft illinois-parent-refuses-to-move-guardianship (on drafts, not on main, no packet; built by another session)",
    "workstream": "demand",
@@ -1854,6 +1835,45 @@
    },
    "done_utc": "2026-11-24T06:40Z",
    "minutes": 3
+  },
+  {
+   "id": "ACQ-055",
+   "task": "Review packet for draft illinois-medicaid-pending-nursing-home (on drafts, not on main, no packet; built by another session)",
+   "workstream": "demand",
+   "lane": "demand",
+   "source": "plan",
+   "key": "review:illinois-medicaid-pending-nursing-home",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "evidence": "draft-review sweep 24 Nov 2026 18:37Z: drafts slugs minus main slugs = 7; ops/reviews has packets for 5; this one was built by session cse_014eaiSaawGGbUyc4hBUU42n (drafts 4b5dca4), not this session.",
+   "expected_tour_acquisition_value": "A verified packet turns publishing this decision-stage guide into a short owner decision; once live it can earn search visits from families at the admission or move decision, leading to the assessment and tour path.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/illinois-medicaid-pending-nursing-home.md with sources fetched, quote audit, claim checks, link checks and a verdict line, plus its owner_review_needed line.",
+   "score": 6.0,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-24T18:37Z",
+   "result": "Packet ops/reviews/illinois-medicaid-pending-nursing-home.md: all 7 cited sources fetched (200); 20 of 20 quotations matched word for word in the attributed source; 45/60/90-day deadlines, 30-day extensions, 11 of 50 (22%) late, 41- and 58-day averages, PE start of the 45 days (entered through ABE), HFS 3191 (R-2-15), the four discharge reasons, 10-day appeal and 1-800-252-8966 all hold; 9 internal links live on main; check-guides 2570/2570; no community named, no Westminster Place claim beyond the disclosure. Verdict: publish-ready (no corrections).",
+   "verdicts": [
+    "publish-ready"
+   ],
+   "sources": [
+    "https://www.auditor.illinois.gov/Audit-Reports/Performance-Special-Multi/Performance-Audits/2025_Releases/25-Medicaid-LTC-Eligibility-Perf-Full.pdf",
+    "https://hfs.illinois.gov/medicalproviders/notices/notice.prn231127a.html",
+    "https://hfs.illinois.gov/content/dam/soi/en/web/hfs/sitecollectiondocuments/provisionaleligibilityfaq9122018.pdf",
+    "https://hfs.illinois.gov/info/brochures-and-forms/brochures/hfs3191.html",
+    "https://hfs.illinois.gov/content/dam/soi/en/web/hfs/sitecollectiondocuments/ltc_faq.pdf",
+    "https://hfs.illinois.gov/medicalclients/ltc",
+    "https://ilaging.illinois.gov/content/dam/soi/en/web/aging/resources/newsandpublications/publications/documents/ltc-resrights.pdf"
+   ],
+   "lesson": "Both drafts from the same build session held up fully; the quote-audit script plus targeted greps of the paraphrases is enough for a packet in under 20 minutes.",
+   "deliverable": {
+    "type": "review_packet",
+    "ref": "ops/reviews/illinois-medicaid-pending-nursing-home.md"
+   },
+   "done_utc": "2026-11-24T18:37Z",
+   "minutes": 1
   }
  ],
  "blocked": [],
@@ -1864,7 +1884,7 @@
   "picked": "ACQ-050 done, ACQ-051 done, ACQ-052 done, ACQ-053 done, ACQ-054 done",
   "why": "Worked: built 2 guides on drafts (Medicaid pending, parent refuses to move/guardianship), 2 DEMAND topics, review packet + correction for fast-appeal draft; stopped: no-worthwhile-work; resume: search-console angle 17:43Z"
  },
- "last_verified_action": "ACQ-054 done 2026-11-24T06:40Z: Built and pushed guide illinois-parent-refuses-to-move-guardianship on drafts (cf6aaf8): Illinois presumption of capacity and the Commission's decision-making …",
+ "last_verified_action": "ACQ-055 done 2026-11-24T18:37Z: Packet ops/reviews/illinois-medicaid-pending-nursing-home.md: all 7 cited sources fetched (200); 20 of 20 quotations matched word for word in the attributed so…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -1915,7 +1935,8 @@
   "Evanston Now essay timing (22 Nov, ACQ-033): families look hardest right after holiday visits (trade reports put the inquiry peak about 3-4 Jan). If your essay can carry a 'what to notice on a holiday visit, and what to ask next' angle and be submitted by about 10 Dec, it lands in that window. Optional.",
   "PR #87: publish the assisted-living move-out guide (review packet ops/reviews/illinois-assisted-living-involuntary-move-out.md, corrections applied on drafts 3c7bc75, all checks pass). About 10 minutes to read and merge; then run tools/publish.py yourself.",
   "PR #88: publish the nursing-home responsible-party guide (packet ops/reviews/illinois-nursing-home-responsible-party.md, corrections applied on drafts a68e5aa, all checks pass; title shortened for the 70-char gate). About 10 minutes to read and merge; then run tools/publish.py yourself.",
-  "Draft medicare-fast-appeal-hospital-rehab-discharge: packet ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md says publish-ready after corrections; correction applied on drafts 52bffc3. A publish PR follows once #87 or #88 is merged (publish lane at its limit). About 10 minutes to review."
+  "Draft medicare-fast-appeal-hospital-rehab-discharge: packet ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md says publish-ready after corrections; correction applied on drafts 52bffc3. A publish PR follows once #87 or #88 is merged (publish lane at its limit). About 10 minutes to review.",
+  "Draft illinois-medicaid-pending-nursing-home: packet ops/reviews/illinois-medicaid-pending-nursing-home.md says publish-ready (20/20 quotes, no corrections). A publish PR follows once #87 or #88 is merged (publish lane at its limit). About 10 minutes to review."
  ],
  "hourly_backlog_policy": {
   "enabled": true,
@@ -2537,7 +2558,10 @@
    "holder": "cse_014eaiSeCbxcXmLkr5rR2XFr",
    "utc": "2026-11-24T18:37Z",
    "since_utc": "2026-11-24T18:24Z",
-   "productive_min": 0
+   "productive_min": 1,
+   "deliverables": [
+    "review_packet:ops/reviews/illinois-medicaid-pending-nursing-home.md"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-24T18:26Z"
