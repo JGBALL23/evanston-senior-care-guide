@@ -10,6 +10,9 @@ When a draft is written for a topic, move it to **Done** with the date.
 
 ## Open
 
+- The hospital wants to discharge my parent but they cannot safely go home; do we have to take them home, and how does a move to rehab or a nursing home get arranged? Evidence: question families asked in public, national caregiver Q&A forum, 2024-05-11; question families asked in public, national caregiver Q&A forum, 2022-05-01; question families asked in public, national caregiver Q&A forum, 2018-03-15. Not covered by: medicare-fast-appeal-hospital-rehab-discharge (Medicare coverage ending, not an unsafe discharge home). Added by the ESCG worker 2026-11-24.
+- Our parent's assisted living raised the monthly charge after a level-of-care reassessment; how are care levels set and what notice must an Illinois assisted living give before raising the rate? Evidence: question families asked in public, national caregiver Q&A forum, 2025-04-20; question families asked in public, national caregiver Q&A forum, 2020-08-18; question families asked in public, national caregiver Q&A forum, 2018-08-28. Not covered by: assisted-living-cost-illinois (typical costs, not the rules for rate changes). Added by the ESCG worker 2026-11-24.
+
 ## Done
 
 - Can an Illinois assisted living make my parent move out when their care needs change, and how much notice must it give? Evidence: question families asked in public, national caregiver Q&A forum, 2025-08-27; question families asked in public, national caregiver Q&A forum, 2023-09-30. Not covered by: illinois-nursing-home-resident-rights (nursing homes only). Added by the ESCG worker 2026-11-23. Drafted 2026-11-23 as illinois-assisted-living-involuntary-move-out.
