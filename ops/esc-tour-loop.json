@@ -2344,11 +2344,11 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSaawGGbUyc4hBUU42n",
-   "utc": "2026-11-24T06:24Z",
+   "utc": "2026-11-24T06:25Z",
    "since_utc": "2026-11-24T06:24Z"
   },
   "monitor": {
-   "last_utc": "2026-11-23T15:25Z"
+   "last_utc": "2026-11-24T06:25Z"
   },
   "sessions": [
    {

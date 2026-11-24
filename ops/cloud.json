@@ -6,8 +6,8 @@
   "note": "tour-request alerts: sha256(message id) and time only"
  },
  "metrics": {
-  "last_utc": "2026-11-23T15:25Z",
-  "window_utc": "2026-11-23T00:25Z/2026-11-23T15:25Z",
+  "last_utc": "2026-11-24T06:24Z",
+  "window_utc": "2026-11-23T15:25Z/2026-11-24T06:24Z",
   "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs",
   "per_tag": {
    "fb-wil-1118": {
@@ -53,12 +53,13 @@
     "tour_requests": 0
    },
    "fb-rp-1122": {
-    "genuine_visitors": 5,
+    "genuine_visitors": 7,
     "checklist_opens": null,
     "assessment_starts": null,
     "assessment_completions": null,
     "tour_form_views": null,
-    "tour_requests": 0
+    "tour_requests": 0,
+    "tour_questions_views": 2
    }
   },
   "checklist_opens": null,
@@ -66,7 +67,7 @@
   "assessment_completions": null,
   "tour_form_views": null,
   "tour_requests": 0,
-  "genuine_detail": "00:25Z-15:25Z: ~5 genuine (5 landed beacons s=fb-rp-1122 at 15:04-15:08Z, 7 distinct fbclid URLs on ?ref=fb-rp-1122, mobile/desktop browsers) + 1 landed s=direct; 0 tour requests. Automated: facebookexternalhit x361 (og-card, link previews), Mac Chrome131 .env/phpinfo scanner x170, curl x89 (checks), iOS13 crawler x53, link check x51, meta-webindexer, Amazonbot, Semrush, bing, Google. Checklist/assessment/tour-form views not separable from bots in this read (null). No 5xx."
+  "genuine_detail": "15:25Z-06:24Z: ~6 genuine by landed beacons: s=direct at 16:50Z (x2, one visitor), 17:04Z, 17:33Z, 01:33Z; s=fb-rp-1122 at 21:19Z and 00:00Z (Facebook late clicks on the Rogers Park post). Beacons: viewed-costs x5, viewed-tour-questions x3 (2 fb-rp-1122, 1 direct). 1 browser ?tour=form + checklist PDF pair at 17:09Z 8s apart, pattern of a check, not counted. 0 tour requests (Gmail). Automated: facebookexternalhit og-card x536 (link previews), tooling x76, crawlers x33, ai-agents x15, wp-admin scanner. No 5xx."
  },
  "summary": {
   "last_utc": "2026-11-19T01:24Z",
@@ -75,8 +76,8 @@
  "site": {
   "fail_count": 0,
   "down_since_utc": null,
-  "last_check_utc": "2026-11-23T15:25Z",
-  "last_check_method": "curl (loop worker): home, ?tour=form 200, /assisted-living-evanston/ 200, checklist PDF 200 application/pdf, #assessment present; Netlify 00:25Z-15:25Z: 901 req, 615x200, 188x404 (.env/phpinfo/wp-admin scanner), 57x301, 37x206, no 5xx"
+  "last_check_utc": "2026-11-24T06:26Z",
+  "last_check_method": "curl (loop worker): home 200, ?tour=form 200, /assisted-living-evanston/ 200, checklist PDF 200 application/pdf, #assessment present; Netlify 15:25Z-06:24Z: 1015 req (566 page-preview/og-card, 284 browser, 76 tooling), 821x200, 78x301, 74x304, 13x404 (wp-admin scanner), 8x206, no 5xx"
  },
  "recovery": {
   "last_attempt_utc": "2026-11-18T01:39Z",
@@ -172,7 +173,6 @@
  },
  "demand_candidates": [],
  "log": [
-  "2026-11-20T03:24Z run: 0 tour requests (no POSTs); outreach watch: no org replies; site OK (no 5xx); session operator still idle since 16:22Z 19 Nov (interruption recorded, watchdog owns alert); metrics 02:24Z-03:24Z: 0 genuine (checks, crawler, scanners, previews); acquisition loop ran 02:45Z (ACQ-007 checklist-PDF tour route, blocked on owner decision; Joseph notified once); idle gate holds (PR #78 open, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task",
   "2026-11-20T04:24Z run: 0 tour requests (no POSTs); outreach watch: no org replies; site OK (no 5xx); session operator still idle since 16:22Z 19 Nov (interruption recorded, watchdog owns alert); metrics 03:24Z-04:24Z: 0 genuine (checks, previews, scanner, crawlers); acquisition loop idle gate holds (PR #78 open, ACQ-007 awaiting owner, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task",
   "2026-11-20T05:24Z run: 0 tour requests (no POSTs); outreach watch: no org replies; site OK (no 5xx); session operator still idle since 16:22Z 19 Nov (interruption recorded, watchdog owns alert); metrics 04:24Z-05:24Z: 0 genuine (checks, previews, scanners, crawlers); acquisition loop idle gate holds (PR #78 open, ACQ-007 awaiting owner, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task",
   "2026-11-20T06:24Z run: 0 tour requests (no POSTs); outreach watch: no org replies; site OK (no 5xx); session operator still idle since 16:22Z 19 Nov (interruption recorded, watchdog owns alert); metrics 05:24Z-06:24Z: 0 genuine (checks, previews, scanner); acquisition loop idle gate holds (PR #78 open, ACQ-007 awaiting owner, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task",
@@ -231,7 +231,8 @@
   "2026-11-22T21:23Z run: site OK; 0 genuine (31 automated req); no org replies/inquiries; no merges (PR #86 open); loop idle with no ready item -> one loop commit 186b7ba: discovery scouts created, ACQ-031 SC1 / ACQ-032 SC2 / ACQ-033 SC4 ready, Joseph's 22 Nov answers recorded (ACQ-007 -> PR #86; D7 essay draft with him), 22 Nov worker timestamps corrected from commit times",
   "2026-11-22T22:25Z run: site OK; 0 genuine (59 automated req incl. loop worker HeadlessChrome test of fb-hol-test); no org replies/inquiries; no merges (PR #86 open); loop idle by design after ACQ-034 (no ready, no open map item, no scout due until SC3 25 Nov 16:00Z), no loop write",
   "2026-11-23T00:25Z worker monitor: site OK; 0 genuine (87 automated req 22:25Z-00:25Z); 0 tour requests; 0 org replies; no merges (#78-81, #84-86 open); operator ran 23:30Z; SC row seeded from operator 18 Nov read",
-  "2026-11-23T15:25Z worker monitor: site OK (no 5xx); ~5 genuine (fb-rp-1122 Facebook clicks 15:04-15:08Z); 0 tour requests; 0 org replies; no merges (#78-81, #84-86 open); operator ran 2026-11-23T15:40Z"
+  "2026-11-23T15:25Z worker monitor: site OK (no 5xx); ~5 genuine (fb-rp-1122 Facebook clicks 15:04-15:08Z); 0 tour requests; 0 org replies; no merges (#78-81, #84-86 open); operator ran 2026-11-23T15:40Z",
+  "2026-11-24T06:26Z worker monitor: site OK (no 5xx); ~6 genuine (4 direct, 2 fb-rp-1122 late clicks) 15:25Z-06:24Z; 0 tour requests; 0 org replies; no merges (#78-81, #84-88 open); operator ran 03:58Z"
  ],
  "facebook_interruptions_past": [
   {
@@ -258,8 +259,8 @@
  "outreach_watch": {
   "alerted": [],
   "replies_alerted": [],
-  "last_utc": "2026-11-23T15:25Z",
-  "note": "no org replies (inbox 3d, 29 threads vs 11 sent outreach threads: no overlap)"
+  "last_utc": "2026-11-24T06:25Z",
+  "note": "no org replies (inbox 3d, 23 threads vs 11 sent outreach threads: no overlap)"
  },
  "facebook_interruption": {
   "since_utc": "2026-11-19T16:22Z",
@@ -275,18 +276,18 @@
   "daily": [
    {
     "date_chicago": "2026-11-23",
-    "genuine_visitors": 5,
+    "genuine_visitors": 11,
     "by_source": {
-     "facebook": 5,
+     "facebook": 7,
      "referral": 0,
      "search": 0,
-     "other": 0
+     "other": 4
     },
     "checklist_opens": null,
     "assessment_starts": null,
     "tour_form_views": null,
     "tour_requests": 0,
-    "note": "partial day to 09:25 Chicago; fb-rp-1122 post; +1 direct landed beacon unattributed by time"
+    "note": "to 00:24 Chicago 24 Nov; fb-rp-1122 post (5 at 15:04-15:08Z, 2 more 21:19Z/00:00Z); 4 direct landed beacons (16:50-01:33Z) + 1 earlier unattributed; 3 tour-questions views; checklist/assessment/tour-form not separable (null)"
    },
    {
     "date_chicago": "2026-11-22",
