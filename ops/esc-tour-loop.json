@@ -118,6 +118,44 @@
    "found_utc": "2026-11-23T17:43Z",
    "not_before_utc": "2026-12-08T15:00Z",
    "not_before": "Timing, not data: 2027 figures are already on medicare.gov (read 2026-11-23). Prepare the PR in December so it is fresh when Joseph merges it for 1 Jan 2027."
+  },
+  {
+   "id": "ACQ-055",
+   "task": "Review packet for draft illinois-medicaid-pending-nursing-home (on drafts, not on main, no packet; built by another session)",
+   "workstream": "demand",
+   "lane": "demand",
+   "source": "plan",
+   "key": "review:illinois-medicaid-pending-nursing-home",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "evidence": "draft-review sweep 24 Nov 2026 18:37Z: drafts slugs minus main slugs = 7; ops/reviews has packets for 5; this one was built by session cse_014eaiSaawGGbUyc4hBUU42n (drafts 4b5dca4), not this session.",
+   "expected_tour_acquisition_value": "A verified packet turns publishing this decision-stage guide into a short owner decision; once live it can earn search visits from families at the admission or move decision, leading to the assessment and tour path.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/illinois-medicaid-pending-nursing-home.md with sources fetched, quote audit, claim checks, link checks and a verdict line, plus its owner_review_needed line.",
+   "score": 6.0,
+   "status": "ready",
+   "priority": 2,
+   "found_utc": "2026-11-24T18:37Z"
+  },
+  {
+   "id": "ACQ-056",
+   "task": "Review packet for draft illinois-parent-refuses-to-move-guardianship (on drafts, not on main, no packet; built by another session)",
+   "workstream": "demand",
+   "lane": "demand",
+   "source": "plan",
+   "key": "review:illinois-parent-refuses-to-move-guardianship",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "evidence": "draft-review sweep 24 Nov 2026 18:37Z: drafts slugs minus main slugs = 7; ops/reviews has packets for 5; this one was built by session cse_014eaiSaawGGbUyc4hBUU42n (drafts cf6aaf8), not this session.",
+   "expected_tour_acquisition_value": "A verified packet turns publishing this decision-stage guide into a short owner decision; once live it can earn search visits from families at the admission or move decision, leading to the assessment and tour path.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/illinois-parent-refuses-to-move-guardianship.md with sources fetched, quote audit, claim checks, link checks and a verdict line, plus its owner_review_needed line.",
+   "score": 6.0,
+   "status": "ready",
+   "priority": 2,
+   "found_utc": "2026-11-24T18:37Z"
   }
  ],
  "completed": [
@@ -2903,10 +2941,10 @@
     "evidence": "git diff of main...drafts for new guide slugs; each draft's own cited sources, fetched and read now.",
     "output": "One review packet per draft at ops/reviews/<slug>.md on ops/operator-state: every factual claim checked against the source it cites (holds / does not hold / source unreachable, quoting the source's own short wording), the rule checks (independent-guide disclosure, no community ranking, no Westminster Place prices, no unverified medical, legal, financial or benefits claim) and a verdict: publish-ready, or the exact fixes. One owner_review_needed line per draft with the verdict and the minutes it takes to publish. Deliverable type review_packet.",
     "why": "A draft only helps families once Joseph publishes it; a verified packet turns that into a few-minute decision.",
-    "last_checked_utc": "2026-11-24T06:37Z",
-    "next_check_utc": "2026-11-24T18:37Z",
-    "last_result": "1 draft on drafts not on main without a packet (medicare-fast-appeal-hospital-rehab-discharge); packet written (31/31 quotes, 1 correction, publish-ready after corrections) and correction applied on drafts 52bffc3. New guide illinois-medicaid-pending-nursing-home built this session, so not reviewab…",
-    "last_added": 1
+    "last_checked_utc": "2026-11-24T18:37Z",
+    "next_check_utc": "2026-11-25T06:37Z",
+    "last_result": "2 drafts on drafts not on main without a packet: illinois-medicaid-pending-nursing-home (drafts 4b5dca4) and illinois-parent-refuses-to-move-guardianship (cf6aaf8), both built by session cse_014eaiSaawGGbUyc4hBUU42n, so reviewable; queued ACQ-055 and ACQ-056.",
+    "last_added": 2
    },
    {
     "id": "demand-questions",
@@ -3014,6 +3052,7 @@
    }
   ],
   "sweep_log": [
+   "2026-11-24T18:37Z draft-review +2: 2 drafts on drafts not on main without a packet: illinois-medicaid-pending-nursing-home (drafts 4b5dca4) and illinois-parent-refuses-to-move-guardianship (cf6a…",
    "2026-11-24T18:37Z asset-gaps +0: Guide index on main+drafts (39 slugs), DEMAND Open (2, the drafts routine's) and Done read 24 Nov 18:3xZ. Memory care is the one uncovered decision-stage need …",
    "2026-11-24T18:26Z search-console +0: Newest Search Console read in state.json is still 2026-11-18T16:33Z (16 Nov: 38 impressions, 0 clicks, avg pos 47.4), already the newest scoreboard row; no new…",
    "2026-11-24T06:37Z draft-review +1: 1 draft on drafts not on main without a packet (medicare-fast-appeal-hospital-rehab-discharge); packet written (31/31 quotes, 1 correction, publish-ready after…",
