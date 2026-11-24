@@ -118,25 +118,6 @@
    "found_utc": "2026-11-23T17:43Z",
    "not_before_utc": "2026-12-08T15:00Z",
    "not_before": "Timing, not data: 2027 figures are already on medicare.gov (read 2026-11-23). Prepare the PR in December so it is fresh when Joseph merges it for 1 Jan 2027."
-  },
-  {
-   "id": "ACQ-054",
-   "task": "Build guide on drafts: my parent is not safe at home but refuses to move to assisted living or a nursing home. What Illinois allows a family to do, and what adult guardianship involves",
-   "workstream": "build",
-   "lane": "build",
-   "source": "plan",
-   "key": "build:illinois-parent-refuses-move-guardianship",
-   "impact": 4,
-   "confidence": 3,
-   "effort": 4,
-   "evidence": "Questions families asked in public, national caregiver Q&A forum: 2012-09-03 (the process in Illinois to have someone admitted to assisted living), 2015-09-24 (granted guardianship, parent refusing assisted living), 2020-06-02 (what can be done legally when a parent needs care and refuses), 2023-03-02 (parent refuses help, options). Official sources on allowed hosts found 24 Nov 2026: Illinois Guardianship and Advocacy Commission (gac.illinois.gov) guardianship fact sheet and procedures; Department on Aging Adult Protective Services pages. Coverage check 24 Nov 2026: illinois-advance-directive-power-of-attorney mentions guardians only as surrogates; no guide on main or drafts covers a refusing parent or guardianship; not in DEMAND.md Open or Done.",
-   "expected_tour_acquisition_value": "A parent refusing a needed move is the decision point the site serves; an accurate Illinois answer can earn decision-stage search visits and leads to the assessment through the bridge and the closing CTA.",
-   "executor": "worker (research and preparation only)",
-   "done_when": "A new guide committed and pushed on drafts per procedure step 7 Build: every claim from allowed-host pages fetched and read in the session, quotations matched word for word, ROUTINE.md Step 5's five checks with final lines in the commit body, a DEMAND.md Done line; or a verdict naming what failed.",
-   "score": 3.0,
-   "status": "ready",
-   "priority": 2,
-   "found_utc": "2026-11-24T06:37Z"
   }
  ],
  "completed": [
@@ -1804,6 +1785,37 @@
    },
    "done_utc": "2026-11-24T06:37Z",
    "minutes": 0
+  },
+  {
+   "id": "ACQ-054",
+   "task": "Build guide on drafts: my parent is not safe at home but refuses to move to assisted living or a nursing home. What Illinois allows a family to do, and what adult guardianship involves",
+   "workstream": "build",
+   "lane": "build",
+   "source": "plan",
+   "key": "build:illinois-parent-refuses-move-guardianship",
+   "impact": 4,
+   "confidence": 3,
+   "effort": 4,
+   "evidence": "Questions families asked in public, national caregiver Q&A forum: 2012-09-03 (the process in Illinois to have someone admitted to assisted living), 2015-09-24 (granted guardianship, parent refusing assisted living), 2020-06-02 (what can be done legally when a parent needs care and refuses), 2023-03-02 (parent refuses help, options). Official sources on allowed hosts found 24 Nov 2026: Illinois Guardianship and Advocacy Commission (gac.illinois.gov) guardianship fact sheet and procedures; Department on Aging Adult Protective Services pages. Coverage check 24 Nov 2026: illinois-advance-directive-power-of-attorney mentions guardians only as surrogates; no guide on main or drafts covers a refusing parent or guardianship; not in DEMAND.md Open or Done.",
+   "expected_tour_acquisition_value": "A parent refusing a needed move is the decision point the site serves; an accurate Illinois answer can earn decision-stage search visits and leads to the assessment through the bridge and the closing CTA.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "A new guide committed and pushed on drafts per procedure step 7 Build: every claim from allowed-host pages fetched and read in the session, quotations matched word for word, ROUTINE.md Step 5's five checks with final lines in the commit body, a DEMAND.md Done line; or a verdict naming what failed.",
+   "score": 3.0,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-24T06:37Z",
+   "result": "Built and pushed guide illinois-parent-refuses-to-move-guardianship on drafts (cf6aaf8): Illinois presumption of capacity and the Commission's decision-making test, alternatives the state says to try first (POA, Health Care Surrogate Act, payees, in-home support), APS for self-neglect (24-hour hotline), and the guardianship process (physician report within 3 months, petition, hearing within 30 days, jury and attorney rights, limited vs plenary, temporary up to 60 days, 14 days to two months, costs, Cook County rules, OSG intake). 24 quotations matched word for word. Checks: build ok (42 URLs), test.js 669/669, check-guides 2570 passed 0 failed, citations 103 resolve, mobile-nav skipped. Refused: any claim that a POA agent can or cannot compel a move (no allowed-host source states it). Links only to guides on main. DEMAND.md Done line added. Awaits Joseph's review.",
+   "sources": [
+    "https://gac.illinois.gov/osg/guardianship-fact-sheet.html",
+    "https://gac.illinois.gov/aboutus/guard-faq.html",
+    "https://ilaging.illinois.gov/programs/adult-protective-services-aps-.html"
+   ],
+   "deliverable": {
+    "type": "guide",
+    "ref": "drafts cf6aaf8"
+   },
+   "done_utc": "2026-11-24T06:40Z",
+   "minutes": 3
   }
  ],
  "blocked": [],
@@ -1814,7 +1826,7 @@
   "picked": "ACQ-038 done, ACQ-039 done, ACQ-040 done, ACQ-041 done, ACQ-042 done, ACQ-043 waiting_on_data (until 2026-12-08), ACQ-044 done, ACQ-045 done (PR #87), ACQ-046 done, ACQ-047 done (PR #88), ACQ-048 done, ACQ-049 done",
   "why": "Worked: built Medicare fast-appeal guide on drafts, 4 review packets, corrections applied to all 4 drafts, publish PRs #87 and #88 opened; stopped: approval-pending; resume: #87/#88 merged or 2026-11-24T03:25Z monitor"
  },
- "last_verified_action": "ACQ-053 done 2026-11-24T06:37Z: Applied correction 1 (deadline anchor per setting) on drafts 52bffc3; build ok (41 URLs), test.js 669/669, check-guides 2512 passed 0 failed, citations 101 res…",
+ "last_verified_action": "ACQ-054 done 2026-11-24T06:40Z: Built and pushed guide illinois-parent-refuses-to-move-guardianship on drafts (cf6aaf8): Illinois presumption of capacity and the Commission's decision-making …",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -2485,14 +2497,15 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSaawGGbUyc4hBUU42n",
-   "utc": "2026-11-24T06:37Z",
+   "utc": "2026-11-24T06:40Z",
    "since_utc": "2026-11-24T06:24Z",
-   "productive_min": 6,
+   "productive_min": 9,
    "deliverables": [
     "guide:drafts 4b5dca4",
     "demand_topic:drafts 3496888",
     "review_packet:ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md",
-    "correction:drafts 52bffc3"
+    "correction:drafts 52bffc3",
+    "guide:drafts cf6aaf8"
    ]
   },
   "monitor": {
@@ -2644,7 +2657,7 @@
     "owner_wip_limit": 10,
     "plan_cooldown_hours": 12,
     "open_prs": [],
-    "owner_open": 2,
+    "owner_open": 3,
     "cooldown_until_utc": "",
     "last_planned_utc": "2026-11-24T06:37Z",
     "last_plan_result": "Second pass 24 Nov: parent refusing a needed move (4 caregiver-forum questions 2012-2023, one Illinois-specific) with gac.illinois.gov guardianship sources; no guide covers it -> ACQ-054.",
