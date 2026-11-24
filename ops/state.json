@@ -2,7 +2,7 @@
   "schema": 1,
   "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
   "updated_utc": "2026-11-18T23:05Z",
-  "last_run_utc": "2026-11-24T19:45Z",
+  "last_run_utc": "2026-11-24T22:45Z",
   "facebook": {
     "access": {
       "value": "yes",
@@ -482,7 +482,6 @@
     ]
   },
   "log": [
-    "2026-11-18T22:45Z operator: G4 outreach research done now instead of tonight (DROP, nothing to send); owner told plainly where the operator fell short (self-set limits presented as hard limits, deferred work, noisy check-ins, account browsing, public-file details) and what changes",
     "2026-11-18T22:45Z night growth task rebuilt as the 24/7 tour engine (every 3 hours) at Joseph's request; operator ships its ready items each session",
     "2026-11-18T23:05Z loop: complaint guide now links the tour checklist and tour request (PR 74 merged 83c2264, all suites passed, deployed, live check 200); next: ship tour-engine items after its 18:07 run",
     "2026-11-18T22:53Z Joseph asked for a nonstop plan-execute-review loop: next wake is always 2 minutes after a session ends, day and night",
@@ -521,7 +520,8 @@
     "2026-11-24T15:20Z Glenview post P-1124-01 submitted (fb-glv-1124, template A), pending admin approval; Edgewater skipped: his participant review still pending there (posts would not publish)",
     "2026-11-24T15:35Z morning lead scan 11 groups, 377 posts, 0 new leads; no org replies or tour requests",
     "2026-11-24T17:25Z Glenview post fb-glv-1124 DECLINED by admins (no reason); Joseph told; never resubmit. Pattern: What's Happening network removed Wilmette and declined Glenview; deprioritize Lake Forest (same network)",
-    "2026-11-24T19:45Z afternoon lead scan 11 groups, 217 posts, 0 new leads; no org replies or tour requests"
+    "2026-11-24T19:45Z afternoon lead scan 11 groups, 217 posts, 0 new leads; no org replies or tour requests",
+    "2026-11-24T22:45Z check: Rogers Park post live, 0 comments; no org replies or tour requests; evening scan next at 23:56Z"
   ],
   "next_actions": [
     "Tue 15:00Z: post if a venue is eligible (7+ days since last post there, new content); candidates Evanston/Skokie (after 15:00Z), Edgewater, Highland Park, Lake Forest; verify rules",
@@ -648,7 +648,7 @@
   },
   "due": {
     "post_next": "2026-11-25T15:00Z",
-    "fb_checks": "2026-11-24T17:20Z",
+    "fb_checks": "2026-11-25T15:00Z",
     "lead_scan": "2026-11-24T23:45Z",
     "metrics": "2026-11-19T00:05Z",
     "venues": "2026-11-25T15:00Z",
