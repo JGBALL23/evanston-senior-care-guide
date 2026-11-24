@@ -340,6 +340,12 @@ SRC = {
                         'for Long Term Supports and Services',
                         'https://hfs.illinois.gov/content/dam/soi/en/web/hfs/sitecollectiondocuments/'
                         'ltc_faq.pdf'),
+    "gac_fact_sheet": ('Illinois Guardianship and Advocacy Commission — Office of State Guardian, '
+                       'Guardianship fact sheet',
+                       'https://gac.illinois.gov/osg/guardianship-fact-sheet.html'),
+    "gac_faq": ('Illinois Guardianship and Advocacy Commission — Frequently Asked Questions '
+                'About Guardianship',
+                'https://gac.illinois.gov/aboutus/guard-faq.html'),
 }
 
 
@@ -5788,6 +5794,155 @@ GUIDES = [
             ]),
         ],
     },
+    {
+        "slug": "illinois-parent-refuses-to-move-guardianship",
+        "bridge": ("Whether the law lets you decide for your parent is a separate "
+                   "question from what level of care your parent actually needs."),
+        "reviewed": "2026-11-24",
+        "title": "Parent Refuses to Move? Illinois Options and Guardianship",
+        "h1": "My parent isn't safe at home but refuses to move. What can we do in Illinois?",
+        "desc": ("Illinois presumes an adult can make their own decisions. What "
+                 "the state's Guardianship and Advocacy Commission says to try "
+                 "first, when guardianship applies, and how the court process "
+                 "works, read off its own pages."),
+        "intent": "decision / legal",
+        "answer": ("<strong>In Illinois, an adult parent decides where they live "
+                   "unless a court appoints a guardian.</strong> The state&rsquo;s "
+                   "Guardianship and Advocacy Commission states that &ldquo;The "
+                   "law presumes that an adult eighteen years of age or older is "
+                   "capable of handling his/her own affairs,&rdquo; and that "
+                   "&ldquo;In Illinois, the only way someone can be a guardian for "
+                   "a person who is eighteen years old or older is to be appointed "
+                   "by the circuit court.&rdquo; A guardian of the person can make "
+                   "decisions about residential placement, but the Commission "
+                   "calls guardianship a last resort and says that where possible, "
+                   "alternatives should be pursued first."),
+        "sources": srcs("gac_fact_sheet", "gac_faq", "idoa_aps_program"),
+        "body": [
+            ("Where Illinois law starts", [
+                "<p>The Commission&rsquo;s Office of State Guardian is plain that "
+                "age or illness alone is not enough: &ldquo;Without more, a "
+                "mental, physical or developmental disability is not sufficient "
+                "for the appointment of a guardian.&rdquo; Guardianship, its fact "
+                "sheet says, &ldquo;is needed when a person is unable to make and "
+                "communicate responsible decisions regarding his personal care or "
+                "finances due to a mental, physical or developmental "
+                "disability.&rdquo;</p>",
+                "<p>A parent who makes a choice the family thinks is unwise has not "
+                "met that test. The Commission&rsquo;s questions-and-answers page "
+                "states: &ldquo;Making incorrect or ill-advised decisions on a "
+                "periodic basis is not the test. Rather, it is an inability to "
+                "engage in the decision making in the first place which is "
+                "important.&rdquo; It suggests four practical questions:</p>",
+                "<ul class=\"res__list\">"
+                "<li>&ldquo;Does the person understand that a particular decision "
+                "needs to be made?&rdquo;</li>"
+                "<li>&ldquo;Does the person understand the options available in "
+                "any decision?&rdquo;</li>"
+                "<li>&ldquo;Does the person understand the consequences of each "
+                "option?&rdquo;</li>"
+                "<li>&ldquo;Is the person able to properly inform appropriate "
+                "parties once the decision has been made?&rdquo;</li></ul>",
+                "<p>The same page says that an inability to make sound decisions "
+                "about matters including where to live and when to seek medical "
+                "care is an indication that a person may need some guardianship "
+                "services.</p>",
+            ]),
+            ("What the state says to try first", [
+                "<p>The Commission states: &ldquo;All possible alternatives "
+                "should be explored before instituting guardianship "
+                "proceedings.&rdquo; It names representative or protective payees, "
+                "financial counselling and bill-paying assistance programmes, "
+                "living trusts, and homemaker and other in-home support programmes "
+                "as ways that may avoid the need for guardianship.</p>",
+                "<p>It also points to arrangements a parent can make while they "
+                "still can. Under the Illinois Power of Attorney Act, the page "
+                "says, a person can appoint an agent to make property or personal "
+                "and health care decisions, and &ldquo;The execution of the form "
+                "requires no court involvement, and forms are readily "
+                "available.&rdquo; Under the Health Care Surrogate Act, a relative "
+                "or friend can make some medical decisions for a person who lacks "
+                "capacity without a court appointment. "
+                "<a href=\"/guides/illinois-advance-directive-power-of-attorney/\">The "
+                "power of attorney guide</a> covers those documents.</p>",
+            ]),
+            ("If you are worried about self-neglect", [
+                "<p>When a parent living at home is not managing food, medicine or "
+                "safety, the Illinois Department on Aging&rsquo;s Adult Protective "
+                "Services programme is another route. Its page states that it "
+                "&ldquo;investigates reports of abuse, neglect, exploitation, and "
+                "self-neglect of adults age 60 or older, and adults age 18-59 with "
+                "disabilities living in the community,&rdquo; and gives a "
+                "statewide, 24-hour hotline: <strong>1-866-800-1409</strong>. "
+                "<a href=\"/guides/illinois-elder-abuse-reporting/\">The elder "
+                "abuse and neglect guide</a> explains what happens after a "
+                "report.</p>",
+            ]),
+            ("What guardianship involves", [
+                "<p>The fact sheet describes two kinds. A &ldquo;guardian of the "
+                "person&rdquo; is appointed when someone cannot make or "
+                "communicate responsible decisions about personal care, and "
+                "&ldquo;This guardian will make decisions about medical treatment, "
+                "residential placement, social services and other needs.&rdquo; A "
+                "&ldquo;guardian of the estate&rdquo; handles money and property. "
+                "Either can be <strong>limited</strong>, covering only the "
+                "decisions the court specifies, or <strong>plenary</strong>, "
+                "covering all of them.</p>",
+                "<ul class=\"res__list\">"
+                "<li><strong>The report.</strong> Before going to court, the "
+                "Commission says, one must obtain a report certifying that the "
+                "person is disabled and needs a guardian, signed by a licensed "
+                "physician, based on evaluations performed within 3 months of "
+                "filing and including a recommendation on the most suitable "
+                "living arrangement.</li>"
+                "<li><strong>The petition and hearing.</strong> An "
+                "&ldquo;interested person&rdquo; files a petition in the circuit "
+                "court of the county where your parent lives, and the fact sheet "
+                "states: &ldquo;Guardianship hearings are set within 30 days of a "
+                "petition being filed with the court.&rdquo;</li>"
+                "<li><strong>Your parent&rsquo;s rights.</strong> &ldquo;A person "
+                "facing a guardianship adjudication has the right to a court "
+                "appointed attorney and a trial by a jury of six persons.&rdquo; "
+                "Most counties also appoint a guardian ad litem to advise the "
+                "court independently.</li>"
+                "<li><strong>Emergencies.</strong> A temporary guardian can be "
+                "appointed while the case is pending, and the fact sheet says "
+                "temporary guardianship &ldquo;lasts no longer than 60 "
+                "days&rdquo; and is used &ldquo;only where a demonstrated harm or "
+                "emergency exists.&rdquo;</li>"
+                "<li><strong>Time and cost.</strong> &ldquo;Once the case is "
+                "filed, it usually takes from 14 days to two months for a decision "
+                "to be reached by the court.&rdquo; The petitioner usually pays "
+                "filing fees, sheriff&rsquo;s fees for serving the summons, and "
+                "attorney&rsquo;s fees; the fact sheet adds that "
+                "&ldquo;Guardianship can be costly and complicated.&rdquo;</li>"
+                "<li><strong>Who serves.</strong> &ldquo;Family members are not "
+                "automatically named the legal guardian for their disabled "
+                "relative.&rdquo; The judge decides. The Office of State Guardian "
+                "serves only when no other suitable person is willing.</li></ul>",
+                "<p>For Cook County, the Commission notes that the rules are in "
+                "Part 12 of the general rules of practice for the Circuit Court of "
+                "Cook County, and that the Probate Court Clerk can usually supply the "
+                "physician&rsquo;s report form. The Office of State Guardian&rsquo;s "
+                "toll-free intake number is <strong>1-866-274-8023</strong>.</p>",
+            ]),
+            ("Before you file", [
+                "<p>The fact sheet ends with a warning worth reading twice: "
+                "guardianship &ldquo;should never be used in a retaliatory manner "
+                "or as a convenience for a health care provider or a family "
+                "member.&rdquo; The Commission also says that once established, a "
+                "guardianship can be extremely difficult to revoke. Talking to an "
+                "attorney before filing is sensible; the Commission says an Office "
+                "of State Guardian attorney or a legal assistance agency can be "
+                "consulted by a family filing without one.</p>",
+                "<p>Often the more useful first step is a calm conversation about "
+                "what kind of help would actually make home safe, or which kind of "
+                "setting would. If you are trying to work that out, the "
+                "<a href=\"/\">free six-question assessment</a> on the home page "
+                "is a private place to start.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -6341,6 +6496,12 @@ CARDS = {
         "How long the state has to decide, what Provisional Eligibility is, "
         "and what your parent may owe while you wait, read off HFS and the "
         "Auditor General."),
+    "illinois-parent-refuses-to-move-guardianship": (
+        "Legal and planning",
+        "Parent refuses to move? Illinois options and guardianship",
+        "Illinois presumes an adult decides where they live. What the state "
+        "says to try first, when guardianship applies and how the court "
+        "process works, read off the Guardianship and Advocacy Commission."),
 }
 
 
