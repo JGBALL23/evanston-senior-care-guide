@@ -2658,9 +2658,9 @@
     "plan_cooldown_hours": 12,
     "open_prs": [],
     "owner_open": 3,
-    "cooldown_until_utc": "",
-    "last_planned_utc": "2026-11-24T06:37Z",
-    "last_plan_result": "Second pass 24 Nov: parent refusing a needed move (4 caregiver-forum questions 2012-2023, one Illinois-specific) with gac.illinois.gov guardianship sources; no guide covers it -> ACQ-054.",
+    "cooldown_until_utc": "2026-11-24T18:40Z",
+    "last_planned_utc": "2026-11-24T06:40Z",
+    "last_plan_result": "Third pass 24 Nov: hospice while living in a facility already covered (medicare-hospice-benefit-explained); hospital-to-rehab facility choice still lacks a dated family question; observation status covered. Two guides built this session (ACQ-050, ACQ-054); owner_open 3 of 10.",
     "wip_note": "owner_open counts worker-built assets on drafts that are not on main yet; at 10 the lane waits for Joseph to publish"
    },
    {
@@ -2694,9 +2694,9 @@
     "plan_cooldown_hours": 24,
     "open_prs": [],
     "owner_open": 0,
-    "cooldown_until_utc": "",
-    "last_planned_utc": "2026-11-24T06:34Z",
-    "last_plan_result": "Caregiver-forum questions rechecked against guide index and DEMAND.md: unsafe hospital discharge home (2018-2024) and assisted-living level-of-care rate changes (2018-2025) qualified and were committed to Open (3496888); Medicaid-pending admission built directly as ACQ-050; hospital-to-rehab facili…"
+    "cooldown_until_utc": "2026-11-25T06:40Z",
+    "last_planned_utc": "2026-11-24T06:40Z",
+    "last_plan_result": "Second pass 24 Nov: DEMAND.md Open holds 2 topics added this session (3496888); no further question with dated public evidence that no guide or DEMAND entry covers."
    },
    {
     "id": "search",
@@ -2804,6 +2804,8 @@
    }
   ],
   "log": [
+   "2026-11-24T06:40Z demand +0: Second pass 24 Nov: DEMAND.md Open holds 2 topics added this session (3496888); no further question with dated public evidence that no guide or DEMAND entry co…",
+   "2026-11-24T06:40Z build +0: Third pass 24 Nov: hospice while living in a facility already covered (medicare-hospice-benefit-explained); hospital-to-rehab facility choice still lacks a dat…",
    "2026-11-24T06:37Z build +1: Second pass 24 Nov: parent refusing a needed move (4 caregiver-forum questions 2012-2023, one Illinois-specific) with gac.illinois.gov guardianship sources; no…",
    "2026-11-24T06:34Z demand +1: Caregiver-forum questions rechecked against guide index and DEMAND.md: unsafe hospital discharge home (2018-2024) and assisted-living level-of-care rate change…",
    "2026-11-24T06:28Z build +1: Rechecked public family questions against guide index (main 32, drafts 37) and DEMAND.md (Open empty): Medicaid-pending period at nursing-home admission has 4 …",
