@@ -2,11 +2,11 @@
   "schema": 1,
   "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
   "updated_utc": "2026-11-18T23:05Z",
-  "last_run_utc": "2026-11-24T15:35Z",
+  "last_run_utc": "2026-11-24T17:25Z",
   "facebook": {
     "access": {
       "value": "yes",
-      "utc": "2026-11-24T15:20Z"
+      "utc": "2026-11-24T17:25Z"
     },
     "last_access_ok_utc": "2026-11-18T21:16Z",
     "last_checks_utc": "2026-11-18T15:08Z",
@@ -121,10 +121,11 @@
     {
       "tag": "fb-glv-1124",
       "venue": "group:glenviewil",
-      "status": "pending",
+      "status": "declined",
       "utc": "2026-11-24T15:20Z",
       "template": "A",
-      "preview": "site card"
+      "preview": "site card",
+      "declined_seen_utc": "2026-11-24T17:25Z"
     }
   ],
   "venues": [
@@ -267,7 +268,7 @@
       "name": "What's Happening in Glenview, IL?",
       "member": true,
       "joined_utc": "2026-11-18T16:40Z",
-      "eligible": true,
+      "eligible": "no: admins declined the disclosed checklist post 24 Nov; do not resubmit",
       "rules": "events, questions and local business referrals welcome; no sales, politics or GoFundMe; admins remove posts at their discretion",
       "notes": "public, 6.6K members; participant questions (why join, live or work here, county) left unanswered",
       "checked_utc": "2026-11-18T16:40Z",
@@ -481,7 +482,6 @@
     ]
   },
   "log": [
-    "2026-11-18T21:40Z operator session: first cloud run with the outreach watch (21:24Z) succeeded and wrote nothing, so it found no unrecorded guide email and no reply; learned: em- tag landings within a minute of a send (19:41Z) are mail-security link scanners, not people",
     "2026-11-18T22:12Z verified for Joseph: outreach mailbox renamed (sender \"Evanston Senior Care Guide\", new default address, old address kept as alternate and still receiving); Gmail connector follows the renamed account",
     "2026-11-18T22:45Z operator: G4 outreach research done now instead of tonight (DROP, nothing to send); owner told plainly where the operator fell short (self-set limits presented as hard limits, deferred work, noisy check-ins, account browsing, public-file details) and what changes",
     "2026-11-18T22:45Z night growth task rebuilt as the 24/7 tour engine (every 3 hours) at Joseph's request; operator ships its ready items each session",
@@ -520,7 +520,8 @@
     "2026-11-23T23:55Z evening lead scan 11 groups, 228 posts, 0 new leads; Rogers Park post live, no reactions or comments yet; no org replies",
     "2026-11-24T03:58Z late lead scan 11 groups, 182 posts, 0 new leads; no org replies; sleep until Tue 9:00 Chicago (post window reopens: 4 posts in 7-day window after 24 Nov 00:41Z)",
     "2026-11-24T15:20Z Glenview post P-1124-01 submitted (fb-glv-1124, template A), pending admin approval; Edgewater skipped: his participant review still pending there (posts would not publish)",
-    "2026-11-24T15:35Z morning lead scan 11 groups, 377 posts, 0 new leads; no org replies or tour requests"
+    "2026-11-24T15:35Z morning lead scan 11 groups, 377 posts, 0 new leads; no org replies or tour requests",
+    "2026-11-24T17:25Z Glenview post fb-glv-1124 DECLINED by admins (no reason); Joseph told; never resubmit. Pattern: What's Happening network removed Wilmette and declined Glenview; deprioritize Lake Forest (same network)"
   ],
   "next_actions": [
     "Tue 15:00Z: post if a venue is eligible (7+ days since last post there, new content); candidates Evanston/Skokie (after 15:00Z), Edgewater, Highland Park, Lake Forest; verify rules",
@@ -1128,7 +1129,7 @@
       "venue": "group:glenviewil",
       "tag": "fb-glv-1124",
       "kind": "template A (Glenview first line)",
-      "result": "pending admin approval",
+      "result": "declined by admins (seen 17:25Z, no reason shown)",
       "by": "operator"
     }
   ],
