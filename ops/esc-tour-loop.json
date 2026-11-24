@@ -1700,6 +1700,32 @@
    },
    "done_utc": "2026-11-24T06:33Z",
    "minutes": 5
+  },
+  {
+   "id": "ACQ-051",
+   "task": "Queue evidenced demand topics in DEMAND.md Open on drafts for the 6 AM drafts routine: unsafe hospital discharge home, and assisted-living level-of-care rate changes in Illinois",
+   "workstream": "demand",
+   "lane": "demand",
+   "source": "plan",
+   "key": "demand:unsafe-discharge-and-al-level-fees",
+   "impact": 3,
+   "confidence": 3,
+   "effort": 1,
+   "evidence": "Public family questions, national caregiver Q&A forum: unsafe discharge home 2024-05-11, 2022-05-01, 2018-03-15; assisted-living level-of-care charge changes 2025-04-20, 2020-08-18, 2018-08-28 (dates read off each question page 24 Nov 2026). Guide index on main (32) and drafts (38) and DEMAND.md Open/Done checked: neither covered.",
+   "expected_tour_acquisition_value": "Both questions are asked at the moment a family chooses or re-evaluates a care setting; drafted guides, once Joseph publishes them, can earn decision-stage search visits leading to the assessment.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "Topics committed under DEMAND.md ## Open on drafts with evidence type, venue kind and date, before 10:45Z.",
+   "score": 9.0,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-24T06:34Z",
+   "result": "Added 2 topics under DEMAND.md ## Open on drafts (3496888): (1) hospital wants to discharge a parent who cannot safely go home, closest guide medicare-fast-appeal-hospital-rehab-discharge (coverage ending, a different question); (2) assisted living raised the rate after a level-of-care reassessment, Illinois notice rules, closest assisted-living-cost-illinois. Evidence: 3 dated caregiver-forum questions each (2018-2025). Open now holds 2 of max 3. The 6 AM drafts routine decides whether each can be sourced from allowed hosts; it ships zero otherwise.",
+   "deliverable": {
+    "type": "demand_topic",
+    "ref": "drafts 3496888"
+   },
+   "done_utc": "2026-11-24T06:34Z",
+   "minutes": 1
   }
  ],
  "blocked": [],
@@ -1710,7 +1736,7 @@
   "picked": "ACQ-038 done, ACQ-039 done, ACQ-040 done, ACQ-041 done, ACQ-042 done, ACQ-043 waiting_on_data (until 2026-12-08), ACQ-044 done, ACQ-045 done (PR #87), ACQ-046 done, ACQ-047 done (PR #88), ACQ-048 done, ACQ-049 done",
   "why": "Worked: built Medicare fast-appeal guide on drafts, 4 review packets, corrections applied to all 4 drafts, publish PRs #87 and #88 opened; stopped: approval-pending; resume: #87/#88 merged or 2026-11-24T03:25Z monitor"
  },
- "last_verified_action": "ACQ-050 done 2026-11-24T06:33Z: Built and pushed guide illinois-medicaid-pending-nursing-home on drafts (4b5dca4): Illinois decision deadlines (45 days; 60 Illinois/90 federal for disability)…",
+ "last_verified_action": "ACQ-051 done 2026-11-24T06:34Z: Added 2 topics under DEMAND.md ## Open on drafts (3496888): (1) hospital wants to discharge a parent who cannot safely go home, closest guide medicare-fast-app…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -2380,11 +2406,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSaawGGbUyc4hBUU42n",
-   "utc": "2026-11-24T06:33Z",
+   "utc": "2026-11-24T06:34Z",
    "since_utc": "2026-11-24T06:24Z",
-   "productive_min": 5,
+   "productive_min": 6,
    "deliverables": [
-    "guide:drafts 4b5dca4"
+    "guide:drafts 4b5dca4",
+    "demand_topic:drafts 3496888"
    ]
   },
   "monitor": {
@@ -2573,9 +2600,9 @@
     "plan_cooldown_hours": 24,
     "open_prs": [],
     "owner_open": 0,
-    "cooldown_until_utc": "2026-11-24T06:28Z",
-    "last_planned_utc": "2026-11-23T06:28Z",
-    "last_plan_result": "2026-11-23 second pass: the two qualifying topics from this session's first pass are now in DEMAND.md Open (8888a72, 5fb913b); remaining candidates from the same evidence search were covered by existing guides (levels-of-senior-care-explained, assisted-living-cost-illinois). No new Search Console q…"
+    "cooldown_until_utc": "",
+    "last_planned_utc": "2026-11-24T06:34Z",
+    "last_plan_result": "Caregiver-forum questions rechecked against guide index and DEMAND.md: unsafe hospital discharge home (2018-2024) and assisted-living level-of-care rate changes (2018-2025) qualified and were committed to Open (3496888); Medicaid-pending admission built directly as ACQ-050; hospital-to-rehab facili…"
    },
    {
     "id": "search",
@@ -2683,6 +2710,7 @@
    }
   ],
   "log": [
+   "2026-11-24T06:34Z demand +1: Caregiver-forum questions rechecked against guide index and DEMAND.md: unsafe hospital discharge home (2018-2024) and assisted-living level-of-care rate change…",
    "2026-11-24T06:28Z build +1: Rechecked public family questions against guide index (main 32, drafts 37) and DEMAND.md (Open empty): Medicaid-pending period at nursing-home admission has 4 …",
    "2026-11-23T17:41Z publish +0: ops/reviews/ is empty: no draft has a publish-ready packet, so no publish package can be prepared yet. Draft-review sweep runs next for the 4 reviewable drafts.",
    "2026-11-23T17:41Z build +0: Looked for decision-stage needs with recorded evidence (public family questions, Search Console, search presence 0/18, competitor gaps) not covered on main or …",
@@ -2706,9 +2734,9 @@
     "evidence": "Public family questions, Search Console queries, search presence and competitor gaps already recorded in the sweep log, plus fresh searches; the guide index on main and drafts; DEMAND.md open and done.",
     "output": "Up to three BUILD tasks (lane build), each one asset with its evidence, never a topic in DEMAND.md's Open list. Deliverable of each task: guide, faq, checklist, resource or research_report on drafts.",
     "why": "Joseph wants assets built, not only opportunities reported.",
-    "last_checked_utc": "2026-11-23T17:43Z",
-    "next_check_utc": "2026-11-24T05:43Z",
-    "last_result": "Same pass as plan:build at 17:41Z: no decision-stage need with recorded family-question, Search Console or competitor evidence remains uncovered; ACQ-038 built the evidenced discharge-appeal topic; fresh searches (memory-care rules, respite/trial stays) returned only provider marketing.",
+    "last_checked_utc": "2026-11-24T06:34Z",
+    "next_check_utc": "2026-11-24T18:34Z",
+    "last_result": "Same pass as plan:build 24 Nov: Medicaid-pending admission was the one evidenced uncovered need (ACQ-050, built 4b5dca4); hospital-to-rehab choice lacked dated family evidence.",
     "last_added": 0
    },
    {
@@ -2750,9 +2778,10 @@
     "evidence": "The demand lane's evidence: public Q&A sites, forums, community boards and news comment sections (type, venue kind and date only); Search Console queries when available.",
     "output": "Topics committed to DEMAND.md's Open list on drafts, at most three open at once (step 7). Deliverable type demand_topic.",
     "why": "Each topic becomes a guide draft at 6 AM the next morning.",
-    "last_checked_utc": "2026-11-23T06:28Z",
-    "next_check_utc": "2026-11-24T06:28Z",
-    "last_result": "Covered by the demand planning passes of 06:26Z and 06:28Z: 2 topics added (drafted as guides at 6:18 AM), remaining candidates from the same sources did not pass."
+    "last_checked_utc": "2026-11-24T06:34Z",
+    "next_check_utc": "2026-11-25T06:34Z",
+    "last_result": "Same pass as plan:demand 24 Nov: 2 topics committed to DEMAND.md Open (ACQ-051); no further qualifying question found.",
+    "last_added": 0
    },
    {
     "id": "channel-yield",
@@ -2845,6 +2874,8 @@
    }
   ],
   "sweep_log": [
+   "2026-11-24T06:34Z asset-gaps +0: Same pass as plan:build 24 Nov: Medicaid-pending admission was the one evidenced uncovered need (ACQ-050, built 4b5dca4); hospital-to-rehab choice lacked dated…",
+   "2026-11-24T06:34Z demand-questions +0: Same pass as plan:demand 24 Nov: 2 topics committed to DEMAND.md Open (ACQ-051); no further qualifying question found.",
    "2026-11-23T17:44Z competitor-gaps +0: Search 'assisted living Evanston IL' 2026-11-23: top results are directories (seniorliving.org, caring.com, aplaceformom, seniorly). Read their structure vs ou…",
    "2026-11-23T17:43Z search-presence +0: Not repeated: discovery/search_presence was checked 2026-11-22T21:30Z (18 tracked searches, guide appears for 0 in the research index), inside this angle's 72h…",
    "2026-11-23T17:43Z channel-yield +0: Last 7 days: only fb-rp-1122 (Rogers Park group post, 23 Nov) produced genuine visitors (5 facebook, partial day; tour-form views unreadable that day); fb-wil-…",
