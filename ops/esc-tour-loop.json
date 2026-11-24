@@ -2497,7 +2497,7 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeCbxcXmLkr5rR2XFr",
-   "utc": "2026-11-24T18:26Z",
+   "utc": "2026-11-24T18:37Z",
    "since_utc": "2026-11-24T18:24Z",
    "productive_min": 0
   },
@@ -2874,9 +2874,9 @@
     "evidence": "Public family questions, Search Console queries, search presence and competitor gaps already recorded in the sweep log, plus fresh searches; the guide index on main and drafts; DEMAND.md open and done.",
     "output": "Up to three BUILD tasks (lane build), each one asset with its evidence, never a topic in DEMAND.md's Open list. Deliverable of each task: guide, faq, checklist, resource or research_report on drafts.",
     "why": "Joseph wants assets built, not only opportunities reported.",
-    "last_checked_utc": "2026-11-24T06:34Z",
-    "next_check_utc": "2026-11-24T18:34Z",
-    "last_result": "Same pass as plan:build 24 Nov: Medicaid-pending admission was the one evidenced uncovered need (ACQ-050, built 4b5dca4); hospital-to-rehab choice lacked dated family evidence.",
+    "last_checked_utc": "2026-11-24T18:37Z",
+    "next_check_utc": "2026-11-25T06:37Z",
+    "last_result": "Guide index on main+drafts (39 slugs), DEMAND Open (2, the drafts routine's) and Done read 24 Nov 18:3xZ. Memory care is the one uncovered decision-stage need with recorded search evidence (ACQ-019 autocomplete, 22 Nov), but it overlaps ACQ-030 (memory-care page or cost section, waiting on the /ass…",
     "last_added": 0
    },
    {
@@ -3014,6 +3014,7 @@
    }
   ],
   "sweep_log": [
+   "2026-11-24T18:37Z asset-gaps +0: Guide index on main+drafts (39 slugs), DEMAND Open (2, the drafts routine's) and Done read 24 Nov 18:3xZ. Memory care is the one uncovered decision-stage need …",
    "2026-11-24T18:26Z search-console +0: Newest Search Console read in state.json is still 2026-11-18T16:33Z (16 Nov: 38 impressions, 0 clicks, avg pos 47.4), already the newest scoreboard row; no new…",
    "2026-11-24T06:37Z draft-review +1: 1 draft on drafts not on main without a packet (medicare-fast-appeal-hospital-rehab-discharge); packet written (31/31 quotes, 1 correction, publish-ready after…",
    "2026-11-24T06:34Z asset-gaps +0: Same pass as plan:build 24 Nov: Medicaid-pending admission was the one evidenced uncovered need (ACQ-050, built 4b5dca4); hospital-to-rehab choice lacked dated…",
