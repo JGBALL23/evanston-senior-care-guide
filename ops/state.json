@@ -2,11 +2,11 @@
   "schema": 1,
   "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
   "updated_utc": "2026-11-18T23:05Z",
-  "last_run_utc": "2026-11-24T03:58Z",
+  "last_run_utc": "2026-11-24T15:20Z",
   "facebook": {
     "access": {
       "value": "yes",
-      "utc": "2026-11-23T23:55Z"
+      "utc": "2026-11-24T15:20Z"
     },
     "last_access_ok_utc": "2026-11-18T21:16Z",
     "last_checks_utc": "2026-11-18T15:08Z",
@@ -117,6 +117,14 @@
       "template": "A + sources (group rule)",
       "preview": "site card selected",
       "approved_utc": "~2026-11-23T20:30Z (notification \"2h\" at 22:33Z)"
+    },
+    {
+      "tag": "fb-glv-1124",
+      "venue": "group:glenviewil",
+      "status": "pending",
+      "utc": "2026-11-24T15:20Z",
+      "template": "A",
+      "preview": "site card"
     }
   ],
   "venues": [
@@ -326,7 +334,8 @@
       "eligible": true,
       "rules": "no rules list; About invites news of new businesses, events and anything that keeps Edgewater residents aware and safe",
       "notes": "public, 6.9K members, about 136 posts a month; joined at once, no questions",
-      "checked_utc": "2026-11-18T20:08Z"
+      "checked_utc": "2026-11-18T20:08Z",
+      "note": "participant review pending (checked 24 Nov); retry post after admins approve him"
     },
     {
       "id": "group:2730752207171394",
@@ -472,7 +481,6 @@
     ]
   },
   "log": [
-    "2026-11-18T20:50Z coordination audit: 1 operator, 4 assistant tasks aligned (cloud and night prompts updated), 1 task off; Sent = 9, all recorded; Drafts = 0; preflight proven (nssc.org BLOCK, cityofevanston.org BLOCK, skokie.org CLEAR)",
     "2026-11-18T21:16Z operator session: Facebook reachable (identity confirmed); Wilmette, Evanston/Skokie and North Shore posts 0 reactions/0 comments; Everything Evanston still pending; Rogers Park News participation approved (eligible); first lead scan of the 2 new groups: 78 posts, 0 requests; no outreach replies",
     "2026-11-18T21:40Z operator session: first cloud run with the outreach watch (21:24Z) succeeded and wrote nothing, so it found no unrecorded guide email and no reply; learned: em- tag landings within a minute of a send (19:41Z) are mail-security link scanners, not people",
     "2026-11-18T22:12Z verified for Joseph: outreach mailbox renamed (sender \"Evanston Senior Care Guide\", new default address, old address kept as alternate and still receiving); Gmail connector follows the renamed account",
@@ -511,7 +519,8 @@
     "2026-11-23T19:40Z afternoon lead scan 11 groups, 230 posts, 0 new leads; Rogers Park post still pending approval; no org replies",
     "2026-11-23T22:35Z Rogers Park post fb-rp-1122 approved by admins ~20:30Z, now live; Joseph pushed; no org replies",
     "2026-11-23T23:55Z evening lead scan 11 groups, 228 posts, 0 new leads; Rogers Park post live, no reactions or comments yet; no org replies",
-    "2026-11-24T03:58Z late lead scan 11 groups, 182 posts, 0 new leads; no org replies; sleep until Tue 9:00 Chicago (post window reopens: 4 posts in 7-day window after 24 Nov 00:41Z)"
+    "2026-11-24T03:58Z late lead scan 11 groups, 182 posts, 0 new leads; no org replies; sleep until Tue 9:00 Chicago (post window reopens: 4 posts in 7-day window after 24 Nov 00:41Z)",
+    "2026-11-24T15:20Z Glenview post P-1124-01 submitted (fb-glv-1124, template A), pending admin approval; Edgewater skipped: his participant review still pending there (posts would not publish)"
   ],
   "next_actions": [
     "Tue 15:00Z: post if a venue is eligible (7+ days since last post there, new content); candidates Evanston/Skokie (after 15:00Z), Edgewater, Highland Park, Lake Forest; verify rules",
@@ -637,8 +646,8 @@
     "last_scan_utc": "2026-11-23T15:30Z"
   },
   "due": {
-    "post_next": "2026-11-24T15:00Z",
-    "fb_checks": "2026-11-24T15:00Z",
+    "post_next": "2026-11-25T15:00Z",
+    "fb_checks": "2026-11-24T17:20Z",
     "lead_scan": "2026-11-24T15:00Z",
     "metrics": "2026-11-19T00:05Z",
     "venues": "2026-11-25T15:00Z",
@@ -1110,6 +1119,17 @@
       "kind": "municipal human services (senior and disability services)",
       "domain_sha256": "5c614ad549b895ad",
       "note": "the Village's own Human Services page publishes phone numbers only, no email (checked 21 Nov 02:33Z); call list"
+    },
+    {
+      "id": "P-1124-01",
+      "type": "facebook_post",
+      "status": "completed",
+      "utc": "2026-11-24T15:20Z",
+      "venue": "group:glenviewil",
+      "tag": "fb-glv-1124",
+      "kind": "template A (Glenview first line)",
+      "result": "pending admin approval",
+      "by": "operator"
     }
   ],
   "measurement_notes": [
