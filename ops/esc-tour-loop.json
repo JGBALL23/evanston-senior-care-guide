@@ -1821,10 +1821,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-23T18:02Z",
+  "utc": "2026-11-24T06:40Z",
   "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
-  "picked": "ACQ-038 done, ACQ-039 done, ACQ-040 done, ACQ-041 done, ACQ-042 done, ACQ-043 waiting_on_data (until 2026-12-08), ACQ-044 done, ACQ-045 done (PR #87), ACQ-046 done, ACQ-047 done (PR #88), ACQ-048 done, ACQ-049 done",
-  "why": "Worked: built Medicare fast-appeal guide on drafts, 4 review packets, corrections applied to all 4 drafts, publish PRs #87 and #88 opened; stopped: approval-pending; resume: #87/#88 merged or 2026-11-24T03:25Z monitor"
+  "picked": "ACQ-050 done, ACQ-051 done, ACQ-052 done, ACQ-053 done, ACQ-054 done",
+  "why": "Worked: built 2 guides on drafts (Medicaid pending, parent refuses to move/guardianship), 2 DEMAND topics, review packet + correction for fast-appeal draft; stopped: no-worthwhile-work; resume: search-console angle 17:43Z"
  },
  "last_verified_action": "ACQ-054 done 2026-11-24T06:40Z: Built and pushed guide illinois-parent-refuses-to-move-guardianship on drafts (cf6aaf8): Illinois presumption of capacity and the Commission's decision-making …",
  "last_stop": {
@@ -1919,7 +1919,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Next: monitor at 2026-11-24T03:25Z, then planner and draft-review cooldowns end 05:41Z (review the new Medicare fast-appeal draft then). Waiting on Joseph: publish PRs #87 (assisted-living move-out) and #88 (nursing-home responsible party); once either clears, publish packages for the corrected VA home-care and money-management guides. ACQ-043 (2027 Medicare figures PR) due 8 Dec.",
+ "next_discovery": "Next: search-console angle 24 Nov 17:43Z and monitor 18:25Z; asset-gaps and draft-review re-open after 18:34Z (the two new guides become reviewable by a later session). Waiting on Joseph: publish PRs #87/#88 (fast-appeal draft is publish-ready once the publish lane frees), conversion PRs #78-80/#84/#86, #81/#85.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -2496,22 +2496,45 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiSaawGGbUyc4hBUU42n",
-   "utc": "2026-11-24T06:40Z",
-   "since_utc": "2026-11-24T06:24Z",
-   "productive_min": 9,
-   "deliverables": [
-    "guide:drafts 4b5dca4",
-    "demand_topic:drafts 3496888",
-    "review_packet:ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md",
-    "correction:drafts 52bffc3",
-    "guide:drafts cf6aaf8"
-   ]
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-24T06:25Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSaawGGbUyc4hBUU42n",
+    "start_utc": "2026-11-24T06:24Z",
+    "end_utc": "2026-11-24T06:40Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: built 2 guides on drafts (Medicaid pending, parent refuses to move/guardianship), 2 DEMAND topics, review packet + correction for fast-appeal draft; stopped: no-worthwhile-work; resume: search-console angle 17:43Z",
+    "done": 5,
+    "changed": 9,
+    "tasks": "ACQ-050 done, ACQ-051 done, ACQ-052 done, ACQ-053 done, ACQ-054 done",
+    "next": "no",
+    "wake_minutes": 663,
+    "next_due_utc": "2026-11-24T17:43Z",
+    "plan_due": false,
+    "saturated": [
+     "publish",
+     "conversion"
+    ],
+    "budget_used_hours_24h": 0.7,
+    "budget_used_hours_7d": 0.8,
+    "productive_min": 9,
+    "deliverables": [
+     "guide:drafts 4b5dca4",
+     "demand_topic:drafts 3496888",
+     "review_packet:ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md",
+     "correction:drafts 52bffc3",
+     "guide:drafts cf6aaf8"
+    ],
+    "stop_reason": "no-worthwhile-work",
+    "considered": "monitor: done (site OK, ~6 genuine, 0 tour requests, 0 replies, no merges); plan:build x3 (+1 ACQ-050, +1 ACQ-054, then +0: hospice-in-facility covered, rehab-choice lacks dated family evidence); plan:demand x2 (+1 ACQ-051 two DEMAND topics, then +0); sweeps asset-gaps, demand-questions, draft-review done; publish lane waiting on Joseph (#87, #88 open; fast-appeal draft now publish-ready); conversion saturated (#78-80, #84, #86); search cooling until 2026-11-25T06:26Z; distribution until 2026-11-25T06:28Z; technical and partnerships until 2026-11-26T06:28Z; ACQ-007 waits on Joseph (#86), ACQ-017 waits on #85 merge; step 8: no reply, no due post, no new ACT target",
+    "resume_when": "search-console angle due 2026-11-24T17:43Z, monitor 18:25Z, or a merge of #85/#87/#88 (publish lane frees for the fast-appeal publish PR)",
+    "sweep_due_left": []
+   },
    {
     "run": "cse_014eaiSbQh9aYSa5vTbwv5wK",
     "start_utc": "2026-11-23T17:36Z",
@@ -2604,32 +2627,32 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-23T18:02Z",
+   "written_utc": "2026-11-24T06:40Z",
    "eligible_now": 0,
    "next_due": [
     {
-     "utc": "2026-11-24T03:25Z",
+     "utc": "2026-11-24T17:43Z",
+     "what": "sweep angle search-console"
+    },
+    {
+     "utc": "2026-11-24T18:25Z",
      "what": "monitor"
     },
     {
-     "utc": "2026-11-24T05:41Z",
-     "what": "planner cooldown ends"
-    },
-    {
-     "utc": "2026-11-24T05:41Z",
-     "what": "sweep angle draft-review"
-    },
-    {
-     "utc": "2026-11-24T05:43Z",
+     "utc": "2026-11-24T18:34Z",
      "what": "sweep angle asset-gaps"
     },
     {
-     "utc": "2026-11-24T06:28Z",
-     "what": "sweep angle demand-questions"
+     "utc": "2026-11-24T18:37Z",
+     "what": "sweep angle draft-review"
     },
     {
-     "utc": "2026-11-24T17:43Z",
-     "what": "sweep angle search-console"
+     "utc": "2026-11-24T18:40Z",
+     "what": "planner cooldown ends"
+    },
+    {
+     "utc": "2026-11-25T06:34Z",
+     "what": "sweep angle demand-questions"
     }
    ]
   },
