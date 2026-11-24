@@ -118,25 +118,6 @@
    "found_utc": "2026-11-23T17:43Z",
    "not_before_utc": "2026-12-08T15:00Z",
    "not_before": "Timing, not data: 2027 figures are already on medicare.gov (read 2026-11-23). Prepare the PR in December so it is fresh when Joseph merges it for 1 Jan 2027."
-  },
-  {
-   "id": "ACQ-056",
-   "task": "Review packet for draft illinois-parent-refuses-to-move-guardianship (on drafts, not on main, no packet; built by another session)",
-   "workstream": "demand",
-   "lane": "demand",
-   "source": "plan",
-   "key": "review:illinois-parent-refuses-to-move-guardianship",
-   "impact": 3,
-   "confidence": 4,
-   "effort": 2,
-   "evidence": "draft-review sweep 24 Nov 2026 18:37Z: drafts slugs minus main slugs = 7; ops/reviews has packets for 5; this one was built by session cse_014eaiSaawGGbUyc4hBUU42n (drafts cf6aaf8), not this session.",
-   "expected_tour_acquisition_value": "A verified packet turns publishing this decision-stage guide into a short owner decision; once live it can earn search visits from families at the admission or move decision, leading to the assessment and tour path.",
-   "executor": "worker (research and preparation only)",
-   "done_when": "ops/reviews/illinois-parent-refuses-to-move-guardianship.md with sources fetched, quote audit, claim checks, link checks and a verdict line, plus its owner_review_needed line.",
-   "score": 6.0,
-   "status": "ready",
-   "priority": 2,
-   "found_utc": "2026-11-24T18:37Z"
   }
  ],
  "completed": [
@@ -1874,6 +1855,41 @@
    },
    "done_utc": "2026-11-24T18:37Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-056",
+   "task": "Review packet for draft illinois-parent-refuses-to-move-guardianship (on drafts, not on main, no packet; built by another session)",
+   "workstream": "demand",
+   "lane": "demand",
+   "source": "plan",
+   "key": "review:illinois-parent-refuses-to-move-guardianship",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "evidence": "draft-review sweep 24 Nov 2026 18:37Z: drafts slugs minus main slugs = 7; ops/reviews has packets for 5; this one was built by session cse_014eaiSaawGGbUyc4hBUU42n (drafts cf6aaf8), not this session.",
+   "expected_tour_acquisition_value": "A verified packet turns publishing this decision-stage guide into a short owner decision; once live it can earn search visits from families at the admission or move decision, leading to the assessment and tour path.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/illinois-parent-refuses-to-move-guardianship.md with sources fetched, quote audit, claim checks, link checks and a verdict line, plus its owner_review_needed line.",
+   "score": 6.0,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-24T18:37Z",
+   "result": "Packet ops/reviews/illinois-parent-refuses-to-move-guardianship.md: all 3 cited sources fetched (200); 24 of 24 quotations matched word for word with correct fact-sheet vs FAQ attribution; last resort, alternatives, POA and Surrogate Acts, physician report within 3 months, county of residence, jury of six, guardian ad litem in most counties, 60-day temporary guardian, 14 days to two months, fees, Cook County Part 12, intake 1-866-274-8023 and APS 1-866-800-1409 all hold; 7 internal links live on main; check-guides 2570/2570. Verdict: publish-ready (no corrections).",
+   "verdicts": [
+    "publish-ready"
+   ],
+   "sources": [
+    "https://gac.illinois.gov/osg/guardianship-fact-sheet.html",
+    "https://gac.illinois.gov/aboutus/guard-faq.html",
+    "https://ilaging.illinois.gov/programs/adult-protective-services-aps-.html"
+   ],
+   "lesson": "Both drafts from the same build session held up fully; the quote-audit script plus targeted greps of the paraphrases is enough for a packet in under 20 minutes.",
+   "deliverable": {
+    "type": "review_packet",
+    "ref": "ops/reviews/illinois-parent-refuses-to-move-guardianship.md"
+   },
+   "done_utc": "2026-11-24T18:37Z",
+   "minutes": 1
   }
  ],
  "blocked": [],
@@ -1884,7 +1900,7 @@
   "picked": "ACQ-050 done, ACQ-051 done, ACQ-052 done, ACQ-053 done, ACQ-054 done",
   "why": "Worked: built 2 guides on drafts (Medicaid pending, parent refuses to move/guardianship), 2 DEMAND topics, review packet + correction for fast-appeal draft; stopped: no-worthwhile-work; resume: search-console angle 17:43Z"
  },
- "last_verified_action": "ACQ-055 done 2026-11-24T18:37Z: Packet ops/reviews/illinois-medicaid-pending-nursing-home.md: all 7 cited sources fetched (200); 20 of 20 quotations matched word for word in the attributed so…",
+ "last_verified_action": "ACQ-056 done 2026-11-24T18:37Z: Packet ops/reviews/illinois-parent-refuses-to-move-guardianship.md: all 3 cited sources fetched (200); 24 of 24 quotations matched word for word with correct f…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -1936,7 +1952,8 @@
   "PR #87: publish the assisted-living move-out guide (review packet ops/reviews/illinois-assisted-living-involuntary-move-out.md, corrections applied on drafts 3c7bc75, all checks pass). About 10 minutes to read and merge; then run tools/publish.py yourself.",
   "PR #88: publish the nursing-home responsible-party guide (packet ops/reviews/illinois-nursing-home-responsible-party.md, corrections applied on drafts a68e5aa, all checks pass; title shortened for the 70-char gate). About 10 minutes to read and merge; then run tools/publish.py yourself.",
   "Draft medicare-fast-appeal-hospital-rehab-discharge: packet ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md says publish-ready after corrections; correction applied on drafts 52bffc3. A publish PR follows once #87 or #88 is merged (publish lane at its limit). About 10 minutes to review.",
-  "Draft illinois-medicaid-pending-nursing-home: packet ops/reviews/illinois-medicaid-pending-nursing-home.md says publish-ready (20/20 quotes, no corrections). A publish PR follows once #87 or #88 is merged (publish lane at its limit). About 10 minutes to review."
+  "Draft illinois-medicaid-pending-nursing-home: packet ops/reviews/illinois-medicaid-pending-nursing-home.md says publish-ready (20/20 quotes, no corrections). A publish PR follows once #87 or #88 is merged (publish lane at its limit). About 10 minutes to review.",
+  "Draft illinois-parent-refuses-to-move-guardianship: packet ops/reviews/illinois-parent-refuses-to-move-guardianship.md says publish-ready (24/24 quotes, no corrections). A publish PR follows once #87 or #88 is merged (publish lane at its limit). About 10 minutes to review."
  ],
  "hourly_backlog_policy": {
   "enabled": true,
@@ -2558,9 +2575,10 @@
    "holder": "cse_014eaiSeCbxcXmLkr5rR2XFr",
    "utc": "2026-11-24T18:37Z",
    "since_utc": "2026-11-24T18:24Z",
-   "productive_min": 1,
+   "productive_min": 2,
    "deliverables": [
-    "review_packet:ops/reviews/illinois-medicaid-pending-nursing-home.md"
+    "review_packet:ops/reviews/illinois-medicaid-pending-nursing-home.md",
+    "review_packet:ops/reviews/illinois-parent-refuses-to-move-guardianship.md"
    ]
   },
   "monitor": {
