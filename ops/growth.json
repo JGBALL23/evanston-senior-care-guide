@@ -163,10 +163,10 @@
  ],
  "limits": [],
  "brief": {
-  "date_chicago": "2026-11-23",
-  "ready": "1 referral email draft ready for the operator (not before 25 Nov 15:00Z); Rogers Park post P-1122-01 shipped this morning; no reply drafts waiting",
+  "date_chicago": "2026-11-24",
+  "ready": "1 referral email draft ready for the operator (not before 25 Nov 15:00Z); no reply drafts waiting; no post text due",
   "learned": [
-   "Rogers Park post (fb-rp-1122) brought ~5 genuine visitors within minutes of posting (15:04-15:08Z) - first measured Facebook yield since 20 Nov; no tour-form view or request yet",
+   "Glenview group post (fb-glv-1124) was declined by the group admins; 1 landed visit, likely an admin review",
    "still 0 organization replies to 11 outreach emails"
   ]
  },

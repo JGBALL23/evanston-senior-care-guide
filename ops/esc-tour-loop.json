@@ -2497,11 +2497,11 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeCbxcXmLkr5rR2XFr",
-   "utc": "2026-11-24T18:24Z",
+   "utc": "2026-11-24T18:26Z",
    "since_utc": "2026-11-24T18:24Z"
   },
   "monitor": {
-   "last_utc": "2026-11-24T06:25Z"
+   "last_utc": "2026-11-24T18:26Z"
   },
   "sessions": [
    {
@@ -2808,6 +2808,24 @@
    }
   ],
   "outcomes": [
+   {
+    "to": "2026-11-24",
+    "days": 7,
+    "days_with_rows": 3,
+    "qualified_visitors": 13,
+    "by_source": {
+     "facebook": 8,
+     "referral": 0,
+     "search": 0,
+     "other": 5
+    },
+    "inquiries": 0,
+    "tour_form_views": 0,
+    "org_replies_total": 0,
+    "placements_live_total": 0,
+    "tours_confirmed": "unverified",
+    "recorded_utc": "2026-11-24T18:25Z"
+   },
    {
     "to": "2026-11-23",
     "days": 7,
