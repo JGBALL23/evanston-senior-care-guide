@@ -2498,7 +2498,8 @@
   "lock": {
    "holder": "cse_014eaiSeCbxcXmLkr5rR2XFr",
    "utc": "2026-11-24T18:26Z",
-   "since_utc": "2026-11-24T18:24Z"
+   "since_utc": "2026-11-24T18:24Z",
+   "productive_min": 0
   },
   "monitor": {
    "last_utc": "2026-11-24T18:26Z"
@@ -2947,9 +2948,9 @@
     "evidence": "The operator's Search Console record in state.json and scoreboard.search_console.",
     "output": "Demand topics for queries with no page; a title or description fix task for a low click-through page (search lane capacity permitting). No new read is a one-line result.",
     "why": "Real queries are the strongest demand evidence the site can get.",
-    "last_checked_utc": "2026-11-23T17:43Z",
-    "next_check_utc": "2026-11-24T17:43Z",
-    "last_result": "Newest Search Console read in state.json is 2026-11-18T16:33Z (16 Nov: 38 impressions, 0 clicks, avg pos 47.4), already the newest scoreboard row; no newer read, no query list to act on. Next read is the operator's weekly export.",
+    "last_checked_utc": "2026-11-24T18:26Z",
+    "next_check_utc": "2026-11-25T18:26Z",
+    "last_result": "Newest Search Console read in state.json is still 2026-11-18T16:33Z (16 Nov: 38 impressions, 0 clicks, avg pos 47.4), already the newest scoreboard row; no newer read, no query list to act on. Waits on the operator's weekly export.",
     "last_added": 0
    },
    {
@@ -3013,6 +3014,7 @@
    }
   ],
   "sweep_log": [
+   "2026-11-24T18:26Z search-console +0: Newest Search Console read in state.json is still 2026-11-18T16:33Z (16 Nov: 38 impressions, 0 clicks, avg pos 47.4), already the newest scoreboard row; no new…",
    "2026-11-24T06:37Z draft-review +1: 1 draft on drafts not on main without a packet (medicare-fast-appeal-hospital-rehab-discharge); packet written (31/31 quotes, 1 correction, publish-ready after…",
    "2026-11-24T06:34Z asset-gaps +0: Same pass as plan:build 24 Nov: Medicaid-pending admission was the one evidenced uncovered need (ACQ-050, built 4b5dca4); hospital-to-rehab choice lacked dated…",
    "2026-11-24T06:34Z demand-questions +0: Same pass as plan:demand 24 Nov: 2 topics committed to DEMAND.md Open (ACQ-051); no further qualifying question found.",
