@@ -118,6 +118,25 @@
    "found_utc": "2026-11-23T17:43Z",
    "not_before_utc": "2026-12-08T15:00Z",
    "not_before": "Timing, not data: 2027 figures are already on medicare.gov (read 2026-11-23). Prepare the PR in December so it is fresh when Joseph merges it for 1 Jan 2027."
+  },
+  {
+   "id": "ACQ-050",
+   "task": "Build guide on drafts: my parent moved into an Illinois nursing home and the Medicaid application is still pending. Who pays meanwhile, how long the decision takes, what provisional eligibility is, and what the family should keep doing",
+   "workstream": "build",
+   "lane": "build",
+   "source": "plan",
+   "key": "build:illinois-medicaid-pending-nursing-home",
+   "impact": 3,
+   "confidence": 3,
+   "effort": 4,
+   "evidence": "Questions families asked in public, national caregiver Q&A forum: 2022-01-26 (how long until Medicaid begins once a parent is in the facility, five weeks in); 2019-12-09 (can a Medicaid-accepting unit require private pay before Medicaid reimburses); 2015-06-29 (parent approved for Medicaid but billed the self-pay rate); 2013-10-08 (how long until Medicaid decides and starts paying the nursing home). Official Illinois sources found 24 Nov 2026 on allowed hosts: HFS provisional eligibility FAQ and LTC determinations documents (hfs.illinois.gov), Illinois Auditor General 2025 Medicaid LTC eligibility performance audit (auditor.illinois.gov). Coverage check 24 Nov 2026: illinois-medicaid-long-term-care covers spend-down and eligibility, illinois-nursing-home-resident-rights covers Medicaid billing rights; no guide on main or drafts covers the pending period, processing times or provisional eligibility; DEMAND.md Open empty, Done does not list it.",
+   "expected_tour_acquisition_value": "Families admitting a parent to a nursing home while Medicaid is pending are at the placement decision; a sourced Illinois answer can earn search visits on 'Medicaid pending nursing home Illinois' style queries and leads to the assessment through the bridge and closing CTA.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "A new guide is committed and pushed on drafts as procedure step 7 Build says: every claim from illinois.gov (or other allowed-host) pages fetched and read in the session, quotations matched word for word, ROUTINE.md Step 5's five checks run with final lines in the commit body, a DEMAND.md ## Done line added; or a verdict naming the claim or check that failed and why nothing was pushed.",
+   "score": 2.25,
+   "status": "ready",
+   "priority": 2,
+   "found_utc": "2026-11-24T06:28Z"
   }
  ],
  "completed": [
@@ -2344,8 +2363,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSaawGGbUyc4hBUU42n",
-   "utc": "2026-11-24T06:25Z",
-   "since_utc": "2026-11-24T06:24Z"
+   "utc": "2026-11-24T06:28Z",
+   "since_utc": "2026-11-24T06:24Z",
+   "current": {
+    "what": "plan:build",
+    "since_utc": "2026-11-24T06:26Z"
+   }
   },
   "monitor": {
    "last_utc": "2026-11-24T06:25Z"
@@ -2497,9 +2520,9 @@
     "plan_cooldown_hours": 12,
     "open_prs": [],
     "owner_open": 1,
-    "cooldown_until_utc": "2026-11-24T05:41Z",
-    "last_planned_utc": "2026-11-23T17:41Z",
-    "last_plan_result": "Looked for decision-stage needs with recorded evidence (public family questions, Search Console, search presence 0/18, competitor gaps) not covered on main or drafts; fresh searches on memory-care rules and respite/trial stays found only provider marketing, no family questions or SC queries; ACQ-03…",
+    "cooldown_until_utc": "",
+    "last_planned_utc": "2026-11-24T06:28Z",
+    "last_plan_result": "Rechecked public family questions against guide index (main 32, drafts 37) and DEMAND.md (Open empty): Medicaid-pending period at nursing-home admission has 4 caregiver-forum questions (2013-2022) and current illinois.gov sources (HFS provisional eligibility, Auditor General 2025 LTC audit), no gui…",
     "wip_note": "owner_open counts worker-built assets on drafts that are not on main yet; at 10 the lane waits for Joseph to publish"
    },
    {
@@ -2643,6 +2666,7 @@
    }
   ],
   "log": [
+   "2026-11-24T06:28Z build +1: Rechecked public family questions against guide index (main 32, drafts 37) and DEMAND.md (Open empty): Medicaid-pending period at nursing-home admission has 4 …",
    "2026-11-23T17:41Z publish +0: ops/reviews/ is empty: no draft has a publish-ready packet, so no publish package can be prepared yet. Draft-review sweep runs next for the 4 reviewable drafts.",
    "2026-11-23T17:41Z build +0: Looked for decision-stage needs with recorded evidence (public family questions, Search Console, search presence 0/18, competitor gaps) not covered on main or …",
    "2026-11-23T06:28Z demand +0: 2026-11-23 second pass: the two qualifying topics from this session's first pass are now in DEMAND.md Open (8888a72, 5fb913b); remaining candidates from the sa…",
