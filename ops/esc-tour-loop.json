@@ -2505,6 +2505,39 @@
    ],
    "done_utc": "2026-11-25T01:14Z",
    "minutes": 2
+  },
+  {
+   "id": "ACQ-077",
+   "task": "Accuracy audit of the live guide illinois-community-care-program under the review rules (quotation checker, scope rule, figures against IDoA and HFS pages as they read today); packet at ops/reviews/live/illinois-community-care-program.md",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:illinois-community-care-program",
+   "evidence": "Live guide on main 4dc2468, reviewed 2026-10-23, states a $17,500 non-exempt asset limit, age bands of the Persons who are Elderly waiver and a proposed waiver amendment effective 1 January 2027; no packet in ops/reviews/live (checked 2026-11-25).",
+   "expected_tour_acquisition_value": "The asset limit and age rules decide whether a family pursues paid home help or a move; a wrong one misdirects families at the decision point.",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet at ops/reviews/live/illinois-community-care-program.md ending 'Verdict: holds' or listing each correction with its source sentence; corrections go into the rolling accuracy PR (#89)",
+   "score": 6.0,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-25T01:16Z",
+   "result": "Audited live illinois-community-care-program (main 4dc2468) against the IDoA CCP page and the HFS Persons who are Elderly waiver page, both fetched 2026-11-25. Quotecheck 2/2 FOUND. $17,500 non-exempt asset limit, exempt assets, age 60+, DON, Medicaid application, waiver target groups (65+, disabled 60 through 64), the two waiver conditions, HelpLine routing and hours, MCO instructions and the 1 Jan 2027 proposed amendment all match their source and scope. Verdict: holds; re-read after 1 Jan 2027.",
+   "verdicts": [
+    "holds"
+   ],
+   "deliverable": {
+    "type": "audit",
+    "ref": "ops/reviews/live/illinois-community-care-program.md"
+   },
+   "sources": [
+    "https://ilaging.illinois.gov/programs/ccp.html",
+    "https://hfs.illinois.gov/medicalclients/hcbs/elderly.html"
+   ],
+   "done_utc": "2026-11-25T01:16Z",
+   "minutes": 1
   }
  ],
  "blocked": [],
@@ -2515,7 +2548,7 @@
   "picked": "ACQ-057 done, ACQ-058 done, ACQ-059 done, ACQ-060 done, ACQ-061 done, ACQ-062 done, ACQ-063 done, ACQ-068 done, ACQ-069 done, ACQ-070 done, ACQ-071 done, ACQ-072 done; queued for a later session: ACQ-064..067 (verify), not_run this RUN",
   "why": "Worked: 7 drafts re-reviewed under the scope rule (4 corrected on drafts, 3 publish-ready), 5 live guides audited (3 corrected in review PR #89); stopped: no-worthwhile-work; resume: next session verifies 4 corrections, then the publish batch"
  },
- "last_verified_action": "ACQ-075 done 2026-11-25T01:14Z: Audited live va-aid-and-attendance-benefit (main 4dc2468) against its 7 VA.gov sources fetched 2026-11-25. Quotecheck 9/9 FOUND. All 12 MAPR figures, the $163,…",
+ "last_verified_action": "ACQ-077 done 2026-11-25T01:16Z: Audited live illinois-community-care-program (main 4dc2468) against the IDoA CCP page and the HFS Persons who are Elderly waiver page, both fetched 2026-11-25.…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -3178,7 +3211,7 @@
    "holder": "cse_014eaiSaeYoez1bK3E9MFwz4",
    "utc": "2026-11-25T01:16Z",
    "since_utc": "2026-11-25T01:02Z",
-   "productive_min": 17,
+   "productive_min": 19,
    "deliverables": [
     "verification:ops/reviews/illinois-nursing-home-responsible-party.md (drafts 2c46e74)",
     "verification:ops/reviews/illinois-assisted-living-involuntary-move-out.md (drafts babc23c)",
@@ -3186,7 +3219,8 @@
     "verification:ops/reviews/va-home-based-primary-care-and-aide.md (drafts 38ba709)",
     "publish_pr:PR #90",
     "audit:ops/reviews/live/illinois-medicaid-long-term-care.md; PR #89 commit d396ad4",
-    "audit:ops/reviews/live/va-aid-and-attendance-benefit.md"
+    "audit:ops/reviews/live/va-aid-and-attendance-benefit.md",
+    "audit:ops/reviews/live/illinois-community-care-program.md"
    ]
   },
   "monitor": {
@@ -3837,6 +3871,16 @@
    "exhausted_until_utc": "",
    "empty_streak": 0,
    "log": [
+    {
+     "utc": "2026-11-25T01:16Z",
+     "run": "cse_014eaiSaeYoez1bK3E9MFwz4",
+     "key": "quality-audit-live-ccp",
+     "avenue": "quality",
+     "lane": "technical",
+     "candidates": 1,
+     "added": 1,
+     "result": "Main 4dc2468 (2026-11-25): illinois-community-care-program has the asset limit, age bands and a 2027 waiver amendment with no packet in ops/reviews/live. Added as audit:illinois-community-care-program (ACQ-077) and worked in this session."
+    },
     {
      "utc": "2026-11-25T01:16Z",
      "run": "cse_014eaiSaeYoez1bK3E9MFwz4",
