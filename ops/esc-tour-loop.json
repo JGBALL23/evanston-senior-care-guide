@@ -3021,10 +3021,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-25T06:46Z",
+  "utc": "2026-11-25T13:17Z",
   "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
-  "picked": "ACQ-082 done, ACQ-083 done, ACQ-085 done, ACQ-084 ready (next session), ACQ-086 ready (next session)",
-  "why": "Worked: verified fast-appeal additions (ported to #90); built LTC-insurance guide on drafts; audited complaint guide (3 fixes in #89). stopped: no-worthwhile-work; resume: next session reviews ACQ-084, verifies ACQ-086"
+  "picked": "ACQ-084 done, ACQ-088 done, ACQ-089 done, ACQ-090 done; added ACQ-091, ACQ-092, ACQ-093 (next session); ACQ-017 still waiting (live guides do not yet link /assisted-living-evanston/)",
+  "why": "Worked: LTC-insurance draft reviewed and corrected; look-back and Extra Help live audits, 2 commits on #89; stopped: no-worthwhile-work; resume: verifications ACQ-091/092/093 next session"
  },
  "last_verified_action": "ACQ-088 done 2026-11-25T13:16Z: Applied the two required corrections from the review packet to long-term-care-insurance-assisted-living-illinois on drafts (commit 2c15ef1), after the drafts q…",
  "last_stop": {
@@ -3108,7 +3108,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Next: ACQ-084 (review of the long-term-care insurance guide, drafts 83fc8f3) for a different session, due with the 12:24Z start; 12:50Z live-accuracy, 13:43Z publish-ready, 15:00Z ACQ-005/ACQ-012. The next package cut is due 26 Nov from 05:00Z (status package.due). Waiting on Joseph: package #91 (merge, then deploy; decision A removes the deploy step), decisions B and C.",
+ "next_discovery": "Next: verifications handed to the next session (ACQ-091 look-back d27ae01 and ACQ-092 Extra Help 7a12f29 on #89; ACQ-093 LTC-insurance draft 2c15ef1); 15:00Z ACQ-005/ACQ-012 Search Console recheck; monitor 18:25Z; backlog discovery rests until 18:46Z; package cut 26 Nov from 05:00Z. Waiting on Joseph: package #91 (merge, then deploy; decision A removes the deploy step), decisions B and C.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -3685,21 +3685,63 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiScJVcYfw9RjXT6F5Km",
-   "utc": "2026-11-25T13:16Z",
-   "since_utc": "2026-11-25T12:24Z",
-   "productive_min": 15,
-   "deliverables": [
-    "review_packet:ops/reviews/long-term-care-insurance-assisted-living-illinois.md",
-    "correction:PR #89 commit d27ae01; ops/reviews/live/illinois-medicaid-look-back-period.md",
-    "correction:PR #89 commit 7a12f29; ops/reviews/live/medicare-extra-help-prescription-drug-costs.md",
-    "correction:drafts 2c15ef1"
-   ]
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-25T06:25Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiScJVcYfw9RjXT6F5Km",
+    "start_utc": "2026-11-25T12:24Z",
+    "end_utc": "2026-11-25T13:17Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: LTC-insurance draft reviewed and corrected; look-back and Extra Help live audits, 2 commits on #89; stopped: no-worthwhile-work; resume: verifications ACQ-091/092/093 next session",
+    "done": 4,
+    "changed": 9,
+    "tasks": "ACQ-084 done, ACQ-088 done, ACQ-089 done, ACQ-090 done; added ACQ-091, ACQ-092, ACQ-093 (next session); ACQ-017 still waiting (live guides do not yet link /assisted-living-evanston/)",
+    "next": "no",
+    "wake_minutes": 73,
+    "next_due_utc": "2026-11-25T15:00Z",
+    "plan_due": false,
+    "saturated": [
+     "conversion"
+    ],
+    "budget_used_hours_24h": 2.4,
+    "budget_used_hours_7d": 3.2,
+    "productive_min": 15,
+    "deliverables": [
+     "review_packet:ops/reviews/long-term-care-insurance-assisted-living-illinois.md",
+     "correction:PR #89 commit d27ae01; ops/reviews/live/illinois-medicaid-look-back-period.md",
+     "correction:PR #89 commit 7a12f29; ops/reviews/live/medicare-extra-help-prescription-drug-costs.md",
+     "correction:drafts 2c15ef1"
+    ],
+    "stop_reason": "no-worthwhile-work",
+    "considered": "build lane: review ACQ-084 done, corrections ACQ-088 done; technical: live-accuracy sweep +2 (audits done; next check 2026-11-26T00:28Z); publish: plan +0 and publish-ready sweep +0 (all 7 qualifying pages in #90; LTC page awaits verification); conversion saturated (waiting on Joseph); monitor not due until 18:25Z; backlog fallback resting until 18:46Z; step 8 nothing qualifying (no org replies, no post due, the one ACT draft already ready); event ACQ-017 condition false (no live guide links /assisted-living-evanston/)",
+    "resume_when": "a new session for the three handed-off verifications (ACQ-091, ACQ-092, ACQ-093); ACQ-005/ACQ-012 Search Console recheck at 15:00Z; monitor at 18:25Z; package cut window 2026-11-26T05:00Z",
+    "sweep_due_left": [],
+    "sessions_24h": 6,
+    "handoff": {
+     "tasks_for_next_session": [
+      "ACQ-091",
+      "ACQ-092",
+      "ACQ-093"
+     ],
+     "waits_for_next_due_session": true
+    },
+    "package": {
+     "due_at_close": false,
+     "skipped": null,
+     "done_today": true
+    },
+    "backlog_discovery": {
+     "explorations": 0,
+     "avenue_classes": [],
+     "tasks_added": 0,
+     "concluded": null
+    }
+   },
    {
     "run": "cse_014eaiSeZV5K4aUnZndensii",
     "start_utc": "2026-11-25T06:24Z",
@@ -4070,21 +4112,9 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-25T06:46Z",
-   "eligible_now": 2,
+   "written_utc": "2026-11-25T13:17Z",
+   "eligible_now": 3,
    "next_due": [
-    {
-     "utc": "2026-11-25T12:50Z",
-     "what": "sweep angle live-accuracy"
-    },
-    {
-     "utc": "2026-11-25T13:43Z",
-     "what": "planner cooldown ends"
-    },
-    {
-     "utc": "2026-11-25T13:43Z",
-     "what": "sweep angle publish-ready"
-    },
     {
      "utc": "2026-11-25T15:00Z",
      "what": "ACQ-005"
@@ -4096,6 +4126,18 @@
     {
      "utc": "2026-11-25T16:00Z",
      "what": "SC3"
+    },
+    {
+     "utc": "2026-11-25T17:43Z",
+     "what": "sweep angle channel-yield"
+    },
+    {
+     "utc": "2026-11-25T18:25Z",
+     "what": "monitor"
+    },
+    {
+     "utc": "2026-11-25T18:26Z",
+     "what": "sweep angle search-console"
     }
    ]
   },
