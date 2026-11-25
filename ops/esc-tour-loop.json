@@ -138,6 +138,25 @@
    "not_before": "VA.gov rate pages show the table effective 1 December 2026",
    "priority": 2,
    "found_utc": "2026-11-25T01:14Z"
+  },
+  {
+   "id": "ACQ-083",
+   "task": "Build guide on drafts: my parent has long-term care insurance; will it pay for assisted living, and how do we start a claim in Illinois?",
+   "workstream": "build",
+   "lane": "build",
+   "source": "plan",
+   "key": "build:ltc-insurance-claim-assisted-living",
+   "priority": 1,
+   "evidence": "Questions families asked in public on a national caregiver Q&A forum: 2023-11, 2020-09, 2020-07, 2017-04 (using a parent's long-term care insurance for assisted living; what qualifies; filing a claim). No guide on main or drafts covers it (2 passing mentions in build-guides.py); not in DEMAND.md Open or Done. Official sources on allowed hosts read 2026-11-25: idoi.illinois.gov long-term care page and complaint process; ilaging.illinois.gov SHIP long-term care insurance page and the Shopper's Guide PDF it hosts.",
+   "expected_tour_acquisition_value": "Families at the paying-for-assisted-living step; a parent with a policy can afford private-pay assisted living, the decision that leads to tours.",
+   "impact": 4,
+   "confidence": 4,
+   "effort": 3,
+   "executor": "worker (research and preparation only)",
+   "done_when": "Guide built on drafts by build-guides.py under ROUTINE.md, five checks pass, quotecheck all FOUND, DEMAND.md Done line, review queued for another session",
+   "score": 5.33,
+   "status": "ready",
+   "found_utc": "2026-11-25T06:32Z"
   }
  ],
  "completed": [
@@ -3371,16 +3390,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeZV5K4aUnZndensii",
-   "utc": "2026-11-25T06:30Z",
+   "utc": "2026-11-25T06:33Z",
    "since_utc": "2026-11-25T06:24Z",
-   "productive_min": 3,
+   "productive_min": 5,
    "deliverables": [
     "verification:PR #90 commit 4f77740"
-   ],
-   "current": {
-    "what": "plan:search",
-    "since_utc": "2026-11-25T06:30Z"
-   }
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-25T06:25Z"
@@ -3976,10 +3991,10 @@
     "evidence": "Public family questions, Search Console queries, search presence and competitor gaps already recorded in the sweep log, plus fresh searches; the guide index on main and drafts; DEMAND.md open and done.",
     "output": "Up to three BUILD tasks (lane build), each one asset with its evidence, never a topic in DEMAND.md's Open list. Deliverable of each task: guide, faq, checklist, resource or research_report on drafts.",
     "why": "Joseph wants assets built, not only opportunities reported.",
-    "last_checked_utc": "2026-11-24T18:37Z",
-    "next_check_utc": "2026-11-25T06:37Z",
-    "last_result": "Guide index on main+drafts (39 slugs), DEMAND Open (2, the drafts routine's) and Done read 24 Nov 18:3xZ. Memory care is the one uncovered decision-stage need with recorded search evidence (ACQ-019 autocomplete, 22 Nov), but it overlaps ACQ-030 (memory-care page or cost section, waiting on the /ass…",
-    "last_added": 0
+    "last_checked_utc": "2026-11-25T06:33Z",
+    "next_check_utc": "2026-11-25T18:33Z",
+    "last_result": "2026-11-25: guide index (32 main, 39 drafts), DEMAND Open/Done read. Candidates: (1) long-term care insurance claims for assisted living: 4 dated public family questions (national caregiver Q&A forum 2023-11, 2020-09, 2020-07, 2017-04), no guide, official sources on idoi.illinois.gov and ilaging.il…",
+    "last_added": 1
    },
    {
     "id": "publish-ready",
@@ -4006,10 +4021,10 @@
     "evidence": "git diff of main...drafts for new guide slugs; each draft's own cited sources, fetched and read now.",
     "output": "One review task per page (key review:<slug>), worked under the review rules of procedure step 7: quotation checker, wording, the scope rule, figures, links, advice; packet at ops/reviews/<slug>.md with its table, counts line and verdict. Never a page this session built. Deliverable type review_packet.",
     "why": "A draft only helps families once Joseph publishes it; a verified packet turns that into a few-minute decision.",
-    "last_checked_utc": "2026-11-24T18:37Z",
-    "next_check_utc": "2026-11-25T06:37Z",
-    "last_result": "2 drafts on drafts not on main without a packet: illinois-medicaid-pending-nursing-home (drafts 4b5dca4) and illinois-parent-refuses-to-move-guardianship (cf6aaf8), both built by session cse_014eaiSaawGGbUyc4hBUU42n, so reviewable; queued ACQ-055 and ACQ-056.",
-    "last_added": 2
+    "last_checked_utc": "2026-11-25T06:30Z",
+    "next_check_utc": "2026-11-25T18:30Z",
+    "last_result": "2026-11-25: main...drafts has 7 guide slugs not on main; all 7 have packets in ops/reviews/ (all in publish batch #90). No unreviewed draft.",
+    "last_added": 0
    },
    {
     "id": "live-accuracy",
@@ -4132,6 +4147,8 @@
    }
   ],
   "sweep_log": [
+   "2026-11-25T06:33Z asset-gaps +1: 2026-11-25: guide index (32 main, 39 drafts), DEMAND Open/Done read. Candidates: (1) long-term care insurance claims for assisted living: 4 dated public family…",
+   "2026-11-25T06:30Z draft-review +0: 2026-11-25: main...drafts has 7 guide slugs not on main; all 7 have packets in ops/reviews/ (all in publish batch #90). No unreviewed draft.",
    "2026-11-25T01:43Z publish-ready +0: Same read as the publish plan pass at 01:45Z: 7 of 7 qualifying pages are in open #90; the only content change on drafts since porting (fast-appeal additions 5…",
    "2026-11-25T00:50Z live-accuracy +3: quotecheck --all on main 4dc2468: 32 live guides; 1 NOT FOUND (illinois-pace-program, 'scheduled to begin in June 2024'), 2 NEAR MATCH (preadmission-screening,…",
    "2026-11-25T00:49Z publish-ready +0: Read all 7 packets after this session's re-review. Qualify now: illinois-medicaid-pending-nursing-home, illinois-parent-refuses-to-move-guardianship, illinois-…",
