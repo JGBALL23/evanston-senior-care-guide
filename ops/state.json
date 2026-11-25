@@ -2,11 +2,11 @@
   "schema": 1,
   "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
   "updated_utc": "2026-11-18T23:05Z",
-  "last_run_utc": "2026-11-25T15:10Z",
+  "last_run_utc": "2026-11-25T17:12Z",
   "facebook": {
     "access": {
       "value": "yes",
-      "utc": "2026-11-25T03:40Z"
+      "utc": "2026-11-25T17:12Z"
     },
     "last_access_ok_utc": "2026-11-18T21:16Z",
     "last_checks_utc": "2026-11-18T15:08Z",
@@ -490,7 +490,6 @@
     ]
   },
   "log": [
-    "2026-11-18T23:20Z loop: Chrome connected; nothing actionable until the lead scan opens at 23:40Z, so the next wake is set to that time (waking every 2 min until then would only re-poll unchanged data)",
     "2026-11-18T23:50Z loop: lead scan of all 11 member groups, 358 posts, 0 new leads; next: ship tour-engine items after its 00:07Z run, last lead scan of the evening 03:40Z",
     "2026-11-19T00:00Z venue search (owner asked to use the wait): 3 groups read, 0 eligible; caregiver groups are mostly national job boards; joins already at 5 today",
     "2026-11-19T00:24Z outreach: E-1118-10 sent (municipal senior services, published role address; preflight clean)",
@@ -529,7 +528,8 @@
     "2026-11-25T03:40Z late lead scan 11 groups, 193 posts, 0 new leads; no org replies or tour requests",
     "2026-11-25T15:03Z email E-1125-01 sent (fair-housing nonprofit, em-1125a) after preflight; no org replies; Search Console: 5 Google clicks in 28 days",
     "2026-11-25T15:05Z posted template C to Evanston/Skokie neighbors (fb-evsk-1125), published at once; 3 posts in trailing 7 days after this",
-    "2026-11-25T15:10Z morning lead scan 11 groups, 367 posts, 0 new leads; E-1125-02 sent (Glenview Senior Services, em-1125b); checked New Trier Township (lists NSSC, already contacted) and Family Service of Glencoe (already contacted); follow-ups held: nothing new to add"
+    "2026-11-25T15:10Z morning lead scan 11 groups, 367 posts, 0 new leads; E-1125-02 sent (Glenview Senior Services, em-1125b); checked New Trier Township (lists NSSC, already contacted) and Family Service of Glencoe (already contacted); follow-ups held: nothing new to add",
+    "2026-11-25T17:12Z check: fb-evsk-1125 live (2 posts of his in that group), 0 reactions, 0 comments; corrected permalink sent to Joseph (morning push linked the wrong post); no org replies"
   ],
   "next_actions": [
     "17:05Z: check fb-evsk-1125 engagement + Rogers Park/Winnetka comments",
@@ -656,7 +656,7 @@
   },
   "due": {
     "post_next": "2026-11-26T15:00Z",
-    "fb_checks": "2026-11-25T17:05Z",
+    "fb_checks": "2026-11-25T23:05Z",
     "lead_scan": "2026-11-25T19:10Z",
     "metrics": "2026-11-19T00:05Z",
     "venues": "2026-11-25T15:00Z",
