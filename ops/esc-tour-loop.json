@@ -140,22 +140,6 @@
    "found_utc": "2026-11-25T01:14Z"
   },
   {
-   "id": "ACQ-078",
-   "task": "Verify the two commits the main chat added to pull request #89 (branch claude/accuracy-20261125): d4bed8b (illinois-medicaid-long-term-care: the personal needs allowance paragraph quoting HFS's notice of 25 January 2024, the notice added to the sources, the review date set to 2026-11-25, and two assertions in check-guides.js re-pinned) and 50fa120 (a \"listed\" date on the four audited guides so the library-level dates stay where they were)",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "operator",
-   "seeded_by": "main chat for Joseph, 25 Nov 2026: corrections are checked by a different session than the one that wrote them",
-   "key": "verify-live:accuracy-20261125:d4bed8b-50fa120",
-   "priority": 1,
-   "evidence": "Packet ops/reviews/live/illinois-medicaid-long-term-care.md, correction C3. The worker's audit (ACQ-074) left C3 unapplied because check-guides.js required the old refusal sentence; the main chat applied it inside the review pull request with the changed assertions listed at the top of #89. HFS notice: https://hfs.illinois.gov/medicalproviders/notices/notice.prn240125a.html",
-   "expected_tour_acquisition_value": "Quality gate before Joseph merges corrections to live pages families act on.",
-   "executor": "worker (research and preparation only)",
-   "done_when": "In a clone of the branch: git show d4bed8b and 50fa120 read; the new paragraph compared word for word and for scope with the notice as it reads today; quotecheck on the page all FOUND; git diff main -- sitemap.xml shows only the four guides' own lastmod lines and _dist/guides/index.html is unchanged from main; test.js and check-guides.js pass. Then add 'Corrections verified: <date>, <RUN> (d4bed8b, 50fa120)' to the packet, or reopen with what is wrong and a line at the top of owner_review_needed.",
-   "status": "ready",
-   "found_utc": "2026-11-25T01:29Z"
-  },
-  {
    "id": "ACQ-079",
    "task": "Accuracy audit of the live guide va-veteran-directed-care-program",
    "workstream": "technical",
@@ -2589,6 +2573,36 @@
    ],
    "done_utc": "2026-11-25T01:16Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-078",
+   "task": "Verify the two commits the main chat added to pull request #89 (branch claude/accuracy-20261125): d4bed8b (illinois-medicaid-long-term-care: the personal needs allowance paragraph quoting HFS's notice of 25 January 2024, the notice added to the sources, the review date set to 2026-11-25, and two assertions in check-guides.js re-pinned) and 50fa120 (a \"listed\" date on the four audited guides so the library-level dates stay where they were)",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "operator",
+   "seeded_by": "main chat for Joseph, 25 Nov 2026: corrections are checked by a different session than the one that wrote them",
+   "key": "verify-live:accuracy-20261125:d4bed8b-50fa120",
+   "priority": 1,
+   "evidence": "Packet ops/reviews/live/illinois-medicaid-long-term-care.md, correction C3. The worker's audit (ACQ-074) left C3 unapplied because check-guides.js required the old refusal sentence; the main chat applied it inside the review pull request with the changed assertions listed at the top of #89. HFS notice: https://hfs.illinois.gov/medicalproviders/notices/notice.prn240125a.html",
+   "expected_tour_acquisition_value": "Quality gate before Joseph merges corrections to live pages families act on.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "In a clone of the branch: git show d4bed8b and 50fa120 read; the new paragraph compared word for word and for scope with the notice as it reads today; quotecheck on the page all FOUND; git diff main -- sitemap.xml shows only the four guides' own lastmod lines and _dist/guides/index.html is unchanged from main; test.js and check-guides.js pass. Then add 'Corrections verified: <date>, <RUN> (d4bed8b, 50fa120)' to the packet, or reopen with what is wrong and a line at the top of owner_review_needed.",
+   "status": "done",
+   "found_utc": "2026-11-25T01:29Z",
+   "result": "Verified d4bed8b and 50fa120 on claude/accuracy-20261125 (PR #89). PNA paragraph quotes HFS notice of 25 Jan 2024 word for word with its scope (NHCA-licensed nursing facility, resident eligible for Medical Assistance); notice added to sources; re-pinned assertions are stricter, none removed. listed dates equal the previous main review dates. Rebuild clean; sitemaps differ from main only in the four guides' lastmod; guides index unchanged; test.js 768/768; check-guides 2696/0; quotecheck 5/5 FOUND. Packet line added. Every commit in #89 is now verified, so the existing ACCURACY merge line stands.",
+   "verdicts": [
+    "d4bed8b: verified",
+    "50fa120: verified"
+   ],
+   "sources": [
+    "https://hfs.illinois.gov/medicalproviders/notices/notice.prn240125a.html"
+   ],
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/live/illinois-medicaid-long-term-care.md; PR #89"
+   },
+   "done_utc": "2026-11-25T01:35Z",
+   "minutes": 1
   }
  ],
  "blocked": [],
@@ -2599,7 +2613,7 @@
   "picked": "ACQ-064 done, ACQ-065 done, ACQ-066 done, ACQ-067 done, ACQ-073 done, ACQ-074 done, ACQ-075 done, ACQ-077 done, ACQ-076 waiting_on_data",
   "why": "Worked: 4 corrections verified, publish batch PR #90 (7 guides), 3 live audits (1 with corrections in #89); stopped: no-worthwhile-work; resume: monitor and sweeps from 06:26Z, or a merge of #90/#89"
  },
- "last_verified_action": "ACQ-077 done 2026-11-25T01:16Z: Audited live illinois-community-care-program (main 4dc2468) against the IDoA CCP page and the HFS Persons who are Elderly waiver page, both fetched 2026-11-25.…",
+ "last_verified_action": "ACQ-078 done 2026-11-25T01:35Z: Verified d4bed8b and 50fa120 on claude/accuracy-20261125 (PR #89). PNA paragraph quotes HFS notice of 25 Jan 2024 word for word with its scope (NHCA-licensed n…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -3262,7 +3276,11 @@
   "lock": {
    "holder": "cse_014eaiSbgoXSGhv7gxJtBvna",
    "utc": "2026-11-25T01:35Z",
-   "since_utc": "2026-11-25T01:35Z"
+   "since_utc": "2026-11-25T01:35Z",
+   "productive_min": 1,
+   "deliverables": [
+    "verification:ops/reviews/live/illinois-medicaid-long-term-care.md; PR #89"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-24T18:26Z"
