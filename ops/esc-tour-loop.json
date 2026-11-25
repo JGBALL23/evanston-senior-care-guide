@@ -118,6 +118,44 @@
    "found_utc": "2026-11-23T17:43Z",
    "not_before_utc": "2026-12-08T15:00Z",
    "not_before": "Timing, not data: 2027 figures are already on medicare.gov (read 2026-11-23). Prepare the PR in December so it is fresh when Joseph merges it for 1 Jan 2027."
+  },
+  {
+   "id": "ACQ-074",
+   "task": "Accuracy audit of the live guide illinois-medicaid-long-term-care under the review rules (quotation checker, scope rule, figures and dates against sources as they read today); packet at ops/reviews/live/illinois-medicaid-long-term-care.md",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:illinois-medicaid-long-term-care",
+   "evidence": "Live guide on main 4dc2468, reviewed 2026-10-23, cites HFS spousal impoverishment 2026 figures (hfs_spousal2026), spend-down and LTC client pages; no packet in ops/reviews/live (checked 2026-11-25).",
+   "expected_tour_acquisition_value": "A wrong eligibility figure or rule on a live decision-stage guide misleads families paying for long-term care and costs trust; a verified page keeps search visitors who reach it.",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet at ops/reviews/live/illinois-medicaid-long-term-care.md ending 'Verdict: holds' or listing each correction with its source sentence; corrections, if any, go into the rolling accuracy PR (#89 branch)",
+   "score": 6.0,
+   "status": "ready",
+   "priority": 2,
+   "found_utc": "2026-11-25T01:11Z"
+  },
+  {
+   "id": "ACQ-075",
+   "task": "Accuracy audit of the live guide va-aid-and-attendance-benefit under the review rules (quotation checker, scope rule, figures and dates against sources as they read today); packet at ops/reviews/live/va-aid-and-attendance-benefit.md",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:va-aid-and-attendance-benefit",
+   "evidence": "Live guide on main 4dc2468, reviewed 2026-10-29, cites VA pension rate tables (va_rates, va_survivors_rates) that VA resets each 1 December with the COLA; no packet in ops/reviews/live (checked 2026-11-25).",
+   "expected_tour_acquisition_value": "A wrong eligibility figure or rule on a live decision-stage guide misleads families paying for long-term care and costs trust; a verified page keeps search visitors who reach it.",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet at ops/reviews/live/va-aid-and-attendance-benefit.md ending 'Verdict: holds' or listing each correction with its source sentence; corrections, if any, go into the rolling accuracy PR (#89 branch)",
+   "score": 6.0,
+   "status": "ready",
+   "priority": 2,
+   "found_utc": "2026-11-25T01:11Z"
   }
  ],
  "completed": [
@@ -3088,9 +3126,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSaeYoez1bK3E9MFwz4",
-   "utc": "2026-11-25T01:10Z",
+   "utc": "2026-11-25T01:11Z",
    "since_utc": "2026-11-25T01:02Z",
-   "productive_min": 10,
+   "productive_min": 11,
    "deliverables": [
     "verification:ops/reviews/illinois-nursing-home-responsible-party.md (drafts 2c46e74)",
     "verification:ops/reviews/illinois-assisted-living-involuntary-move-out.md (drafts babc23c)",
@@ -3747,6 +3785,16 @@
    "exhausted_until_utc": "",
    "empty_streak": 0,
    "log": [
+    {
+     "utc": "2026-11-25T01:11Z",
+     "run": "cse_014eaiSaeYoez1bK3E9MFwz4",
+     "key": "quality-audit-live-medicaid-ltc-va-pension",
+     "avenue": "quality",
+     "lane": "technical",
+     "candidates": 3,
+     "added": 2,
+     "result": "Read main 4dc2468 build-guides.py (2026-11-25): live guides with consequential figures and no packet in ops/reviews/live. Added illinois-medicaid-long-term-care (HFS 2026 spousal figures) and va-aid-and-attendance-benefit (VA rate tables reset each 1 Dec). Not added: illinois-community-care-program (fewer figures; aft…"
+    },
     {
      "utc": "2026-11-25T00:58Z",
      "run": "cse_014eaiSarrUfj6PScmQNGxys",
