@@ -5507,12 +5507,17 @@ GUIDES = [
                 "<p><strong>Skilled nursing facility (rehab).</strong> Follow the "
                 "instructions on the Notice of Medicare Non-Coverage &ldquo;no "
                 "later than noon the day before the termination date listed on "
-                "the notice.&rdquo; If that deadline is missed, Medicare.gov states "
-                "&ldquo;you can request "
+                "the notice.&rdquo; If that deadline is missed and your parent "
+                "is in a Medicare health plan, such as a Medicare Advantage Plan, "
+                "Medicare.gov states &ldquo;you can request "
                 "a fast reconsideration from your plan, but services will only be "
-                "covered if there&rsquo;s a decision issued in your favor.&rdquo;</p>",
-                "<p>If your parent is in a Medicare Advantage Plan and is in the "
-                "hospital, Medicare.gov adds: &ldquo;you can ask your plan for an "
+                "covered if there&rsquo;s a decision issued in your favor.&rdquo; "
+                "The page does not say what applies after a missed deadline with "
+                "Original Medicare: ask the BFCC-QIO named on the notice, or "
+                "1-800-MEDICARE, straight away.</p>",
+                "<p>Right after its warning about a missed hospital deadline, "
+                "Medicare.gov adds, for a parent in a Medicare Advantage Plan: "
+                "&ldquo;you can ask your plan for an "
                 "appeal, but different rules apply.&rdquo; Read the notice your "
                 "parent was given, and ask the plan which route applies before "
                 "the deadline passes.</p>",
