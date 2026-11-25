@@ -126,6 +126,14 @@
       "template": "A",
       "preview": "site card",
       "declined_seen_utc": "2026-11-24T17:25Z"
+    },
+    {
+      "tag": "fb-evsk-1125",
+      "venue": "group:280339146984145",
+      "status": "live",
+      "utc": "2026-11-25T15:20Z",
+      "template": "C (assessment)",
+      "preview": "site card"
     }
   ],
   "venues": [
@@ -174,9 +182,9 @@
       "rules": "public, no membership questions; no rules posted even for members; business promotions appear in the feed",
       "notes": "1.8K members, about 17 posts a day; no rules (re-read 17 Nov); home-care businesses post there",
       "min_gap_days": 7,
-      "next_ok_utc": "2026-11-24T15:00Z",
+      "next_ok_utc": "2026-12-02T15:20Z",
       "checked_utc": "2026-11-17T14:59Z",
-      "last_post_utc": "2026-11-17T15:00Z"
+      "last_post_utc": "2026-11-25T15:20Z"
     },
     {
       "id": "group:1398934874303150",
@@ -482,7 +490,6 @@
     ]
   },
   "log": [
-    "2026-11-18T23:16Z Medicare guide tour path live (PR #75); live page 200 with checklist + tour links. Next tour-path candidate: estate-recovery guide.",
     "2026-11-18T23:15Z loop: no outreach replies (inbox 2d: only notifications); no ready items; posting cap met today; estate-recovery tour path skipped (readers are past the move; page already links the assessment); tour-path work done for every page with search evidence; next real task: lead scan at 23:40Z",
     "2026-11-18T23:20Z loop: Chrome connected; nothing actionable until the lead scan opens at 23:40Z, so the next wake is set to that time (waking every 2 min until then would only re-poll unchanged data)",
     "2026-11-18T23:50Z loop: lead scan of all 11 member groups, 358 posts, 0 new leads; next: ship tour-engine items after its 00:07Z run, last lead scan of the evening 03:40Z",
@@ -521,7 +528,8 @@
     "2026-11-24T22:45Z check: Rogers Park post live, 0 comments; no org replies or tour requests; evening scan next at 23:56Z",
     "2026-11-25T00:05Z evening lead scan 11 groups, 204 posts, 0 new leads; no org replies or tour requests",
     "2026-11-25T03:40Z late lead scan 11 groups, 193 posts, 0 new leads; no org replies or tour requests",
-    "2026-11-25T15:12Z email E-1125-01 sent (fair-housing nonprofit, em-1125a) after preflight; no org replies; Search Console: 5 Google clicks in 28 days"
+    "2026-11-25T15:12Z email E-1125-01 sent (fair-housing nonprofit, em-1125a) after preflight; no org replies; Search Console: 5 Google clicks in 28 days",
+    "2026-11-25T15:20Z posted template C to Evanston/Skokie neighbors (fb-evsk-1125), published at once; 3 posts in trailing 7 days after this"
   ],
   "next_actions": [
     "Wed 15:00Z: post if an eligible venue remains (Highland Park group, Edgewater once participant review clears); avoid What's Happening network",
@@ -647,8 +655,8 @@
     "last_scan_utc": "2026-11-23T15:30Z"
   },
   "due": {
-    "post_next": "2026-11-25T15:00Z",
-    "fb_checks": "2026-11-25T15:00Z",
+    "post_next": "2026-11-26T15:00Z",
+    "fb_checks": "2026-11-25T17:20Z",
     "lead_scan": "2026-11-25T15:00Z",
     "metrics": "2026-11-19T00:05Z",
     "venues": "2026-11-25T15:00Z",
@@ -1144,6 +1152,17 @@
       "by": "operator",
       "disclosure": true,
       "note": "sent fresh (older draft had Google redirect links and an unverifiable claim; draft left untouched)"
+    },
+    {
+      "id": "F-1125-01",
+      "type": "facebook_post",
+      "status": "completed",
+      "utc": "2026-11-25T15:20Z",
+      "venue": "group:280339146984145",
+      "tag": "fb-evsk-1125",
+      "kind": "template C (assessment, Evanston and Skokie first line); new content for this venue",
+      "result": "published immediately",
+      "by": "operator"
     }
   ],
   "measurement_notes": [
