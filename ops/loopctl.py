@@ -285,7 +285,8 @@ def package_view(d, now):
     else:
         nxt = start + dt.timedelta(days=1)
     return {"enabled": enabled, "due": due, "key": key, "task": queued[0].get("id") if queued else None,
-            "done_today": bool(settled), "window_utc": ["%02d:%02d" % (h0, m0), "%02d:%02d" % (h1, m1)],
+            "done_today": bool(settled), "ahead_today": bool(enabled and not settled and now < start),
+            "window_utc": ["%02d:%02d" % (h0, m0), "%02d:%02d" % (h1, m1)],
             "stale_tasks": stale, "next_due_utc": fmt(nxt) if nxt else None, "_next": nxt}
 
 
@@ -1075,8 +1076,14 @@ def main():
         progress = (a.done + a.changed) > 0
         start = (c["lock"].get("since_utc") or c["lock"].get("utc")) if c["lock"].get("holder") == run else None
         bud = budget_view(d, now, parse_ts(start) if start else None)
-        # work that only a different session may do (not_run names this run): chain on, but not beyond a few
-        # sessions a day, because every start spends Make operations; it then waits for the next due session
+        # Work that only a different session may do (not_run names this run). Joseph, 25 Nov 2026: "If those
+        # tasks require an independent session, Make should coordinate that session automatically." So NEXT is
+        # yes and Make starts that session at once, with two exceptions that keep Make inside its free
+        # operations and keep the daily package: (1) before the package cut of the UTC day, the session that
+        # cuts the package takes the work, so it waits for that session; (2) when today's sessions have used
+        # Make's operations for the day (planner/make_ops_per_day mirrors the allowance in Make's V3 record:
+        # 3 per start, 2 per closing report), it waits for the next due session, which Make starts as soon as
+        # its allowance has room. Without make_ops_per_day the older limit applies (sessions in 24 hours).
         blocked_here = [t for t in (d.get("queue") or []) if t.get("status") == READY and run in (t.get("not_run") or [])]
         handoff_only = st["eligible"] > 0 and st["eligible"] == len(blocked_here)
         day_ago = now - dt.timedelta(hours=24)
@@ -1084,7 +1091,22 @@ def main():
                                and (parse_ts(s_.get("end_utc")) or parse_ts(s_.get("start_utc")) or day_ago) > day_ago)
         cap = pl.get("handoff_sessions_24h", HANDOFF_SESSIONS_24H)
         cap = cap if isinstance(cap, int) and not isinstance(cap, bool) and cap >= 1 else HANDOFF_SESSIONS_24H
-        handoff_wait = handoff_only and sessions_24h >= cap
+        mops = pl.get("make_ops_per_day")
+        mops = mops if isinstance(mops, int) and not isinstance(mops, bool) and mops >= 5 else None
+        day0 = now.replace(hour=0, minute=0, second=0, microsecond=0)
+        earlier_today = [s_ for s_ in c["sessions"] if isinstance(s_, dict) and s_.get("run") != run
+                         and (parse_ts(s_.get("start_utc")) or day_ago) >= day0]
+        ops_today = (3 * (len(earlier_today) + (1 if (parse_ts(start) if start else now) >= day0 else 0))
+                     + 2 * sum(1 for s_ in earlier_today if s_.get("next") != "yes"))
+        hold_cut = bool(st["package"]["ahead_today"])
+        hold_ops = (ops_today + 5 > mops) if mops is not None else (sessions_24h >= cap)
+        handoff_wait = handoff_only and (hold_cut or hold_ops)
+        handoff_why = None
+        if handoff_wait:
+            handoff_why = ("the session that cuts the daily package takes it (window from %s UTC)" % st["package"]["window_utc"][0]
+                           if hold_cut else
+                           ("Make's operations for today are used by its sessions (about %d of %d)" % (ops_today, mops)
+                            if mops is not None else "%d sessions in 24 hours (limit %d)" % (sessions_24h, cap)))
         nxt = "yes" if (st["eligible"] > 0 and progress and not bud["over"] and not handoff_wait) else "no"
         if nxt == "yes":
             wake = None
@@ -1108,7 +1130,8 @@ def main():
                                  "sweep_due_left": [x["id"] for x in st["sweep"]["due"]],
                                  "sessions_24h": sessions_24h,
                                  "handoff": {"tasks_for_next_session": [t.get("id") for t in blocked_here],
-                                             "waits_for_next_due_session": handoff_wait} if blocked_here else None,
+                                             "waits_for_next_due_session": handoff_wait, "why": handoff_why,
+                                             "make_ops_today_estimate": ops_today} if blocked_here else None,
                                  "package": {"due_at_close": pkg_due_at_close, "skipped": short(pkg_skipped, 200) or None,
                                              "done_today": st["package"]["done_today"]} if st["package"]["enabled"] else None,
                                  "backlog_discovery": {"explorations": len(mine), "avenue_classes": classes,
@@ -1124,7 +1147,8 @@ def main():
         out({"next": nxt, "wake_minutes": wake, "done": a.done, "eligible_left": st["eligible"],
              "next_due_utc": st["next_due_utc"], "budget": bud, "sessions_24h": sessions_24h,
              "handoff_tasks_for_next_session": [t.get("id") for t in blocked_here],
-             "handoff_waits_for_next_due_session": handoff_wait, "backlog_discovery": fb_note,
+             "handoff_waits_for_next_due_session": handoff_wait, "handoff_why": handoff_why,
+             "make_ops_today_estimate": ops_today, "backlog_discovery": fb_note,
              "warning": None if (nxt == "yes" or a.stop_reason) else "stopping without --stop-reason, --considered and --resume-when"})
 
     fail("unknown command: " + cmd)
