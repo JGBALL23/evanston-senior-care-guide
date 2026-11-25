@@ -140,23 +140,25 @@
    "found_utc": "2026-11-25T01:14Z"
   },
   {
-   "id": "ACQ-083",
-   "task": "Build guide on drafts: my parent has long-term care insurance; will it pay for assisted living, and how do we start a claim in Illinois?",
+   "id": "ACQ-084",
+   "task": "Review long-term-care-insurance-assisted-living-illinois under the review rules",
    "workstream": "build",
    "lane": "build",
-   "source": "plan",
-   "key": "build:ltc-insurance-claim-assisted-living",
+   "source": "followup",
+   "key": "review:long-term-care-insurance-assisted-living-illinois",
+   "not_run": [
+    "cse_014eaiSeZV5K4aUnZndensii"
+   ],
    "priority": 1,
-   "evidence": "Questions families asked in public on a national caregiver Q&A forum: 2023-11, 2020-09, 2020-07, 2017-04 (using a parent's long-term care insurance for assisted living; what qualifies; filing a claim). No guide on main or drafts covers it (2 passing mentions in build-guides.py); not in DEMAND.md Open or Done. Official sources on allowed hosts read 2026-11-25: idoi.illinois.gov long-term care page and complaint process; ilaging.illinois.gov SHIP long-term care insurance page and the Shopper's Guide PDF it hosts.",
-   "expected_tour_acquisition_value": "Families at the paying-for-assisted-living step; a parent with a policy can afford private-pay assisted living, the decision that leads to tours.",
-   "impact": 4,
-   "confidence": 4,
-   "effort": 3,
+   "evidence": "drafts commit 83fc8f3 (ACQ-083). Builder's note: the Shopper's Guide is a 2019 NAIC buying guide posted by the Illinois Department on Aging; check that every rule taken from it is presented as how policies are commonly written, not as Illinois law or the parent's policy.",
+   "expected_tour_acquisition_value": "quality gate before publication",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 2,
    "executor": "worker (research and preparation only)",
-   "done_when": "Guide built on drafts by build-guides.py under ROUTINE.md, five checks pass, quotecheck all FOUND, DEMAND.md Done line, review queued for another session",
-   "score": 5.33,
+   "done_when": "packet at ops/reviews/long-term-care-insurance-assisted-living-illinois.md with its counts and verdict",
    "status": "ready",
-   "found_utc": "2026-11-25T06:32Z"
+   "found_utc": "2026-11-25T06:36Z"
   }
  ],
  "completed": [
@@ -2720,6 +2722,39 @@
    },
    "done_utc": "2026-11-25T06:29Z",
    "minutes": 3
+  },
+  {
+   "id": "ACQ-083",
+   "task": "Build guide on drafts: my parent has long-term care insurance; will it pay for assisted living, and how do we start a claim in Illinois?",
+   "workstream": "build",
+   "lane": "build",
+   "source": "plan",
+   "key": "build:ltc-insurance-claim-assisted-living",
+   "priority": 1,
+   "evidence": "Questions families asked in public on a national caregiver Q&A forum: 2023-11, 2020-09, 2020-07, 2017-04 (using a parent's long-term care insurance for assisted living; what qualifies; filing a claim). No guide on main or drafts covers it (2 passing mentions in build-guides.py); not in DEMAND.md Open or Done. Official sources on allowed hosts read 2026-11-25: idoi.illinois.gov long-term care page and complaint process; ilaging.illinois.gov SHIP long-term care insurance page and the Shopper's Guide PDF it hosts.",
+   "expected_tour_acquisition_value": "Families at the paying-for-assisted-living step; a parent with a policy can afford private-pay assisted living, the decision that leads to tours.",
+   "impact": 4,
+   "confidence": 4,
+   "effort": 3,
+   "executor": "worker (research and preparation only)",
+   "done_when": "Guide built on drafts by build-guides.py under ROUTINE.md, five checks pass, quotecheck all FOUND, DEMAND.md Done line, review queued for another session",
+   "score": 5.33,
+   "status": "done",
+   "found_utc": "2026-11-25T06:32Z",
+   "result": "Built long-term-care-insurance-assisted-living-illinois on drafts (83fc8f3): whether a parent's long-term care policy pays for assisted living: facility definitions, benefit triggers (ADLs, cognitive impairment, doctor certification), the elimination period and how days are counted, waiver of premium, third-party notice, and the IDOI complaint route with its limits. Sources: IDOI long-term care page and complaint process, the NAIC Shopper's Guide posted by IDoA SHIP, the SHIP LTC page. Links only to live guides (assisted-living-cost-illinois, illinois-medicaid-long-term-care). Checks: build 43 URLs; test.js 669/669; check-guides 2628/0; citations all 107 resolve; mobile-nav skipped (websockets); quotecheck 21/21 FOUND. DEMAND.md Done line added. Review queued for another session.",
+   "sources": [
+    "https://idoi.illinois.gov/consumers/consumerinsurance/lifeannuities/long-term-care.html",
+    "https://idoi.illinois.gov/consumers/understanding-complaint-process.html",
+    "https://ilaging.illinois.gov/content/dam/soi/en/web/aging/ship/documents/shoppers-guide-ltc-insur.pdf",
+    "https://ilaging.illinois.gov/ship/long-term-care-insurance.html"
+   ],
+   "lesson": "Allowed-host sourcing for insurance topics exists on idoi.illinois.gov and in NAIC documents the Department on Aging hosts; present NAIC text as typical policy terms, never as Illinois law.",
+   "deliverable": {
+    "type": "guide",
+    "ref": "drafts 83fc8f3"
+   },
+   "done_utc": "2026-11-25T06:36Z",
+   "minutes": 4
   }
  ],
  "blocked": [],
@@ -2730,7 +2765,7 @@
   "picked": "ACQ-078 done, ACQ-079 done, ACQ-080 done, ACQ-081 queued for next session, ACQ-082 queued for next session",
   "why": "Worked: #89 commits verified, VA Veteran-Directed Care audit (3 corrections in #89), fast-appeal additions on drafts; stopped: no-worthwhile-work; resume: next session verifies ACQ-081/082"
  },
- "last_verified_action": "ACQ-082 done 2026-11-25T06:29Z: Verified drafts 5025764 (A1 late hospital request, A2 Medicare health plan condition on a favourable hospital decision) against Medicare.gov Fast appeals: quot…",
+ "last_verified_action": "ACQ-083 done 2026-11-25T06:36Z: Built long-term-care-insurance-assisted-living-illinois on drafts (83fc8f3): whether a parent's long-term care policy pays for assisted living: facility defini…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -3390,11 +3425,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeZV5K4aUnZndensii",
-   "utc": "2026-11-25T06:33Z",
+   "utc": "2026-11-25T06:36Z",
    "since_utc": "2026-11-25T06:24Z",
-   "productive_min": 5,
+   "productive_min": 9,
    "deliverables": [
-    "verification:PR #90 commit 4f77740"
+    "verification:PR #90 commit 4f77740",
+    "guide:drafts 83fc8f3"
    ]
   },
   "monitor": {
@@ -3791,7 +3827,7 @@
     "owner_wip_limit": 10,
     "plan_cooldown_hours": 12,
     "open_prs": [],
-    "owner_open": 3,
+    "owner_open": 4,
     "cooldown_until_utc": "2026-11-25T06:40Z",
     "last_planned_utc": "2026-11-24T18:40Z",
     "last_plan_result": "Same evidence pass as sweep asset-gaps at 18:37Z: 39 guide slugs on main+drafts, DEMAND Open/Done, no new Search Console read, measured channel results (Facebook visitors view costs and tour-questions, both covered). Memory care overlaps ACQ-030 (waiting); adult day covered by the Community Care Pr…",
