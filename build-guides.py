@@ -459,6 +459,13 @@ SRC = {
     "gac_faq": ('Illinois Guardianship and Advocacy Commission — Frequently Asked Questions '
                 'About Guardianship',
                 'https://gac.illinois.gov/aboutus/guard-faq.html'),
+    "medicare_discharge_checklist": ('Medicare.gov — Your discharge planning checklist '
+                                     '(publication 11376)',
+                                     'https://www.medicare.gov/publications/'
+                                     '11376-your-discharge-planning-checklist.pdf'),
+    "medicare_fast_appeals": ('Medicare.gov — Fast appeals',
+                              'https://www.medicare.gov/providers-services/'
+                              'claims-appeals-complaints/appeals/fast-appeals'),
 }
 
 
@@ -5864,6 +5871,184 @@ GUIDES = [
             ]),
         ],
     },
+    {
+        "slug": "medicare-fast-appeal-hospital-rehab-discharge",
+        "bridge": ("Winning a few more covered days is a different question from "
+               "knowing what level of care your parent will need once those days "
+               "run out."),
+        "reviewed": "2026-11-23",
+        "title": "Discharged Too Soon? How a Medicare Fast Appeal Works",
+        "h1": "My parent is being discharged from the hospital or from rehab too soon. Can we appeal?",
+        "desc": ("Medicare gives patients leaving a hospital or a skilled nursing "
+                 "(rehab) stay the right to a fast appeal: the two notices, the "
+                 "deadlines and who pays."),
+        "intent": "deadline / Medicare",
+        "answer": ("<strong>Yes, if Medicare is paying for the stay, you can ask "
+                   "for a fast appeal &mdash; but the deadline is short.</strong> "
+                   "Medicare.gov states you &ldquo;may have the right to ask for a "
+                   "fast appeal if you think your services are ending too soon (or "
+                   "that you&rsquo;re being discharged too soon)&rdquo; from a "
+                   "hospital, a skilled nursing facility and three other kinds of "
+                   "provider. An independent reviewer, the Beneficiary and Family "
+                   "Centered Care-Quality Improvement Organization (BFCC-QIO), "
+                   "decides. In a hospital the request is due &ldquo;no later than "
+                   "the day you&rsquo;re scheduled to be discharged from the "
+                   "hospital&rdquo;; in a skilled nursing facility, &ldquo;no later "
+                   "than noon the day before the termination date listed on the "
+                   "notice.&rdquo; The notice your parent is given tells you how to "
+                   "ask."),
+        "sources": srcs("medicare_fast_appeals", "medicare_discharge_checklist"),
+        "body": [
+            ("Two settings, two notices", [
+                "<p>Everything turns on a written notice, and which one your "
+                "parent should receive depends on where they are.</p>",
+                "<ul class=\"res__list\">"
+                "<li><strong>In a hospital:</strong> Medicare.gov states that "
+                "within 2 days of admission and before discharge, a patient "
+                "should get a notice called &ldquo;An Important Message from "
+                "Medicare about Your Rights,&rdquo; which it says &ldquo;is "
+                "sometimes called the Important Message from Medicare or the "
+                "IM.&rdquo; If the hospital gave it more than 2 days before the "
+                "discharge day, the page states the hospital &ldquo;must give you "
+                "a copy of your original, signed IM or give you a new one (that "
+                "you must sign) before you&rsquo;re discharged.&rdquo;</li>"
+                "<li><strong>In a skilled nursing facility (and with home health, "
+                "hospice or a comprehensive outpatient rehabilitation "
+                "facility):</strong> the notice is called the &ldquo;Notice of "
+                "Medicare Non-Coverage,&rdquo; and Medicare.gov states you should "
+                "get it &ldquo;at least 2 days before covered services "
+                "end.&rdquo;</li></ul>",
+                "<p>For both, Medicare.gov's instruction is the same: &ldquo;If "
+                "you don&rsquo;t get this notice, ask for it.&rdquo; Medicare's "
+                "discharge planning checklist adds: &ldquo;Read the notice "
+                "carefully because it contains information about your fast appeal "
+                "rights.&rdquo; Both notices include, where it applies, the date "
+                "your parent's covered services will end; in a skilled nursing "
+                "facility the deadline below is counted from that date, and in a "
+                "hospital from the day your parent is scheduled to be "
+                "discharged.</p>",
+            ]),
+            ("The deadlines, in Medicare's own words", [
+                "<p><strong>Hospital.</strong> Follow the directions on the "
+                "Important Message from Medicare &ldquo;no later than the day "
+                "you&rsquo;re scheduled to be discharged from the hospital.&rdquo; "
+                "Medicare.gov then states: &ldquo;If you ask for your appeal "
+                "within this time frame, you can stay in the hospital while you "
+                "wait to get the BFCC-QIO&rsquo;s decision. You won&rsquo;t have "
+                "to pay for your stay (except for applicable coinsurance or "
+                "deductibles).&rdquo; Miss it, and the page warns that different "
+                "rules and time frames apply and &ldquo;you might be responsible "
+                "for the cost of the hospital stay past the original day the "
+                "hospital tries to discharge you.&rdquo;</p>",
+                "<p><strong>Skilled nursing facility (rehab).</strong> Follow the "
+                "instructions on the Notice of Medicare Non-Coverage &ldquo;no "
+                "later than noon the day before the termination date listed on "
+                "the notice.&rdquo; If that deadline is missed and your parent "
+                "is in a Medicare health plan, such as a Medicare Advantage Plan, "
+                "Medicare.gov states &ldquo;you can request "
+                "a fast reconsideration from your plan, but services will only be "
+                "covered if there&rsquo;s a decision issued in your favor.&rdquo; "
+                "The page does not say what applies after a missed deadline with "
+                "Original Medicare: ask the BFCC-QIO named on the notice, or "
+                "1-800-MEDICARE, straight away.</p>",
+                "<p>Right after its warning about a missed hospital deadline, "
+                "Medicare.gov adds, for a parent in a Medicare Advantage Plan: "
+                "&ldquo;you can ask your plan for an "
+                "appeal, but different rules apply.&rdquo; Read the notice your "
+                "parent was given, and ask the plan which route applies before "
+                "the deadline passes.</p>",
+            ]),
+            ("Who to call", [
+                "<p>The appeal goes to the BFCC-QIO, which Medicare's checklist "
+                "describes as &ldquo;an independent reviewer under contract with "
+                "Medicare.&rdquo; The notice itself carries the contact details. "
+                "Medicare.gov states the BFCC-QIO &ldquo;is administered for "
+                "Medicare by Commence or Acentra, depending on what state you live "
+                "in,&rdquo; and the checklist adds: &ldquo;You can also call "
+                "1-800-MEDICARE to get the phone number for your BFCC-QIO.&rdquo; "
+                "This guide does not print a number for Illinois: use the one on "
+                "your parent's notice, or the one 1-800-MEDICARE gives you.</p>",
+            ]),
+            ("What happens after you call", [
+                "<p>Medicare.gov describes the same sequence in both settings, "
+                "with different timing:</p>",
+                "<ul class=\"res__list\">"
+                "<li>The BFCC-QIO notifies the hospital (and your parent's plan, if "
+                "they have a Medicare health plan) or the facility.</li>"
+                "<li>The provider gives your parent a detailed written "
+                "explanation: in a hospital a &ldquo;Detailed Notice of "
+                "Discharge,&rdquo; by noon the day after the hospital is "
+                "notified; elsewhere a &ldquo;Detailed Explanation of "
+                "Non-Coverage,&rdquo; by the end of the day the provider is "
+                "notified. Both state why the services are no longer covered and "
+                "the coverage rule being applied.</li>"
+                "<li>The BFCC-QIO asks why you believe coverage should continue "
+                "and looks at the medical records.</li>"
+                "<li>It decides: in a hospital &ldquo;Within one day of getting "
+                "the requested information&rdquo;; elsewhere &ldquo;By close of "
+                "business the day after it gets the information it needs to make "
+                "a decision.&rdquo;</li></ul>",
+                "<p>Medicare.gov also states: &ldquo;You can also ask for copies of "
+                "any of the materials that were sent to the BFCC-QIO.&rdquo;</p>",
+            ]),
+            ("What the decision means for the bill", [
+                "<p><strong>If the reviewer agrees services are ending too "
+                "soon:</strong> in a hospital, for a parent with Original "
+                "Medicare, Medicare.gov states Medicare &ldquo;will continue to "
+                "cover your hospital stay as long as medically necessary (except "
+                "for applicable coinsurance or deductibles).&rdquo; In a skilled "
+                "nursing facility, the page is more guarded: &ldquo;Depending on "
+                "your care needs, Medicare may continue to cover&rdquo; the "
+                "care.</p>",
+                "<p><strong>If the reviewer agrees services should end:</strong> "
+                "in a hospital, provided the deadline was met, Medicare.gov "
+                "states &ldquo;you won&rsquo;t be responsible for paying the "
+                "hospital charges (except for applicable coinsurance or "
+                "deductibles) incurred through noon of the day after the BFCC-QIO "
+                "gives you its decision.&rdquo; In a skilled nursing facility: "
+                "&ldquo;You won&rsquo;t be responsible for paying for any SNF, "
+                "HHA, CORF, or hospice services provided before the coverage end "
+                "date on the &lsquo;Notice of Medicare Non-Coverage.&rsquo; If you "
+                "continue to get services after the coverage end date, you may "
+                "have to pay for those services.&rdquo;</p>",
+                "<p>Read that before deciding whether your parent stays on while "
+                "the appeal is decided: in a skilled nursing facility, a lost "
+                "appeal leaves the days after the end date on the notice "
+                "potentially your parent's to pay.</p>",
+            ]),
+            ("A different problem: inpatient changed to observation", [
+                "<p>Medicare.gov describes a separate case: &ldquo;You can ask for "
+                "a fast appeal while you&rsquo;re still in the hospital if you "
+                "were admitted to the hospital as an inpatient and the hospital "
+                "changed your status to &lsquo;outpatient getting observation "
+                "services.&rsquo;&rdquo; It points to a separate appeal process "
+                "for that. See "
+                '<a href="/guides/does-medicare-pay-for-senior-care/">Does '
+                "Medicare pay for assisted living or nursing home care?</a> for "
+                "what Medicare covers after a hospital stay, and what it never "
+                "covers.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>A fast appeal can buy time; it does not answer where your "
+                "parent will live and get care afterwards. Medicare's discharge "
+                "checklist suggests asking &ldquo;where you&rsquo;ll get care "
+                "after you&rsquo;re discharged&rdquo; and whether you have options "
+                "&ldquo;(like home health care)&rdquo; &mdash; see "
+                '<a href="/guides/medicare-home-health-care/">Medicare home health '
+                "care</a> for that route, and "
+                '<a href="/guides/levels-of-senior-care-explained/">the levels of '
+                "senior care</a> for the others. For free, unbiased help with "
+                "Medicare questions, see "
+                '<a href="/guides/illinois-senior-health-insurance-program/">'
+                "Illinois&rsquo;s Senior Health Insurance Program</a>.</p>",
+                "<p>If you are deciding what comes after the discharge, the "
+                '<a href="/">free six-question assessment</a> on this site '
+                "looks at that question directly. It asks for no name, no email "
+                "and no phone number, and your answers never leave your "
+                "device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -6060,7 +6245,7 @@ RELATED = {
     "does-medicare-pay-for-senior-care": [
         "medicare-home-health-care",
         "medicare-durable-medical-equipment-coverage",
-        "assisted-living-cost-illinois"],
+        "medicare-fast-appeal-hospital-rehab-discharge"],
     "illinois-supportive-living-program": [
         "illinois-pace-program",
         "illinois-medicaid-estate-recovery",
@@ -6142,7 +6327,7 @@ RELATED = {
         "illinois-supportive-living-program",
         "illinois-home-delivered-meals"],
     "medicare-home-health-care": [
-        "does-medicare-pay-for-senior-care",
+        "medicare-fast-appeal-hospital-rehab-discharge",
         "medicare-durable-medical-equipment-coverage",
         "illinois-home-caregiver-background-check"],
     "medicare-extra-help-prescription-drug-costs": [
@@ -6201,6 +6386,10 @@ RELATED = {
         "illinois-advance-directive-power-of-attorney",
         "illinois-elder-abuse-reporting",
         "illinois-money-management-program"],
+    "medicare-fast-appeal-hospital-rehab-discharge": [
+        "does-medicare-pay-for-senior-care",
+        "medicare-home-health-care",
+        "illinois-senior-health-insurance-program"],
 }
 
 RELATED_MIN_INBOUND = 2
@@ -6634,6 +6823,11 @@ CARDS = {
         "Illinois presumes an adult decides where they live. What the state "
         "says to try first, when guardianship applies and how the court "
         "process works, read off the Guardianship and Advocacy Commission."),
+    "medicare-fast-appeal-hospital-rehab-discharge": (
+        "Medicare",
+        "Discharged too soon? How a Medicare fast appeal works",
+        "The two notices, the deadlines and who pays while you wait when a "
+        "hospital or rehab stay is ending, read off Medicare.gov."),
 }
 
 
