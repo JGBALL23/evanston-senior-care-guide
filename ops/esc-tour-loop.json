@@ -3371,12 +3371,16 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeZV5K4aUnZndensii",
-   "utc": "2026-11-25T06:29Z",
+   "utc": "2026-11-25T06:30Z",
    "since_utc": "2026-11-25T06:24Z",
    "productive_min": 3,
    "deliverables": [
     "verification:PR #90 commit 4f77740"
-   ]
+   ],
+   "current": {
+    "what": "plan:search",
+    "since_utc": "2026-11-25T06:30Z"
+   }
   },
   "monitor": {
    "last_utc": "2026-11-25T06:25Z"
@@ -3828,9 +3832,9 @@
      85
     ],
     "owner_open": 2,
-    "cooldown_until_utc": "2026-11-25T06:26Z",
-    "last_planned_utc": "2026-11-23T06:26Z",
-    "last_plan_result": "Crawled live sitemap 2026-11-23 (36 URLs): all 200, canonical correct, one h1, JSON-LD on all but privacy. Gaps found are already tracked: guide titles 72-99 chars (ACQ-005), guide links to /assisted-living-evanston/ (PR #85, ACQ-017), homepage local intent (PR #81, ACQ-012). Guides hub not linking…"
+    "cooldown_until_utc": "2026-11-27T06:30Z",
+    "last_planned_utc": "2026-11-25T06:30Z",
+    "last_plan_result": "2026-11-25 06:3xZ crawl of the live sitemap (36 URLs): all 200, canonical self, one h1 each, descriptions 145-172 chars; only the home page and /assisted-living-evanston/ link to the local page on production because #85 is not merged or deployed. Every gap found is already tracked: titles 72-99 cha…"
    },
    {
     "id": "technical",
@@ -3881,9 +3885,9 @@
     "plan_cooldown_hours": 48,
     "open_prs": [],
     "owner_open": 0,
-    "cooldown_until_utc": "2026-11-25T06:28Z",
-    "last_planned_utc": "2026-11-23T06:28Z",
-    "last_plan_result": "2026-11-23: all distribution map items already have verdicts (D1 active within posting cap; P-1122-01 post text already ready for operator; D2/D11/D14 watch; D6-D8 owner; D13 ready for operator; rest dropped). No new venue with evidence; no new task."
+    "cooldown_until_utc": "2026-11-27T06:30Z",
+    "last_planned_utc": "2026-11-25T06:30Z",
+    "last_plan_result": "2026-11-25: state.json (operator last run 03:40Z) holds no pending facebook_post action; P-1122-01 and P-1124-01 completed; next post 15:00Z is the operator's own venue choice (Highland Park group, Edgewater pending review) and step 8b needs a pending action, so no post text to prepare. Map items u…"
    },
    {
     "id": "partnerships",
@@ -3940,6 +3944,8 @@
    }
   ],
   "log": [
+   "2026-11-25T06:30Z search +0: 2026-11-25 06:3xZ crawl of the live sitemap (36 URLs): all 200, canonical self, one h1 each, descriptions 145-172 chars; only the home page and /assisted-livin…",
+   "2026-11-25T06:30Z distribution +0: 2026-11-25: state.json (operator last run 03:40Z) holds no pending facebook_post action; P-1122-01 and P-1124-01 completed; next post 15:00Z is the operator's …",
    "2026-11-25T01:43Z publish +0: Read 7 packets in ops/reviews/ and compared each page's GUIDES dict on drafts with #90's branch (claude/publish-batch-20261125-1): all 7 are in #90; difference…",
    "2026-11-25T01:04Z publish +1: Read ops/reviews/ (7 packets with counts lines): 3 publish-ready, 4 publish-ready after corrections now verified (ACQ-064..067). One batch task passed the gate…",
    "2026-11-24T18:40Z build +0: Same evidence pass as sweep asset-gaps at 18:37Z: 39 guide slugs on main+drafts, DEMAND Open/Done, no new Search Console read, measured channel results (Facebo…",
