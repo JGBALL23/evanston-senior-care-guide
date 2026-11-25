@@ -46,3 +46,5 @@ Corrections applied: drafts 2dfe3dc, 2026-11-25, cse_014eaiSarrUfj6PScmQNGxys (b
 Quotations checked: 30. Claims scope-checked: 17. Scope defects: 2. Corrections required: 2.
 
 Verdict: publish-ready after corrections (two payer-scope fixes; packaging waits for "Corrections verified")
+
+Corrections verified: 2026-11-25, cse_014eaiSaeYoez1bK3E9MFwz4 (drafts 2dfe3dc re-read against its source; quotecheck 30/30 found; scope of each changed sentence matches its source).

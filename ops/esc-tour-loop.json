@@ -120,24 +120,6 @@
    "not_before": "Timing, not data: 2027 figures are already on medicare.gov (read 2026-11-23). Prepare the PR in December so it is fresh when Joseph merges it for 1 Jan 2027."
   },
   {
-   "id": "ACQ-066",
-   "task": "Verify the corrections to medicare-fast-appeal-hospital-rehab-discharge",
-   "workstream": "build",
-   "lane": "build",
-   "source": "followup",
-   "key": "verify:medicare-fast-appeal-hospital-rehab-discharge:2dfe3dc",
-   "not_run": [
-    "cse_014eaiSarrUfj6PScmQNGxys"
-   ],
-   "priority": 1,
-   "evidence": "drafts 2dfe3dc applied C1 and C2 of ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md (ACQ-059)",
-   "expected_tour_acquisition_value": "quality gate before publication",
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
-   "status": "ready",
-   "found_utc": "2026-11-25T00:44Z"
-  },
-  {
    "id": "ACQ-067",
    "task": "Verify the corrections to va-home-based-primary-care-and-aide",
    "workstream": "build",
@@ -2368,6 +2350,35 @@
    "lesson": "A scope correction that names the payer or person in the same sentence as the quotation re-reads cleanly against the checker context.",
    "done_utc": "2026-11-25T01:03Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-066",
+   "task": "Verify the corrections to medicare-fast-appeal-hospital-rehab-discharge",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "verify:medicare-fast-appeal-hospital-rehab-discharge:2dfe3dc",
+   "not_run": [
+    "cse_014eaiSarrUfj6PScmQNGxys"
+   ],
+   "priority": 1,
+   "evidence": "drafts 2dfe3dc applied C1 and C2 of ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md (ACQ-059)",
+   "expected_tour_acquisition_value": "quality gate before publication",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-25T00:44Z",
+   "result": "Re-read the changed sentences of drafts 2dfe3dc. SNF missed deadline: Medicare.gov 'you can request a fast reconsideration from your plan' (under 'How do I ask for a fast appeal?', In other settings) now limited to a parent in a Medicare health plan; the added line that the page does not say what applies with Original Medicare is true of the page today. The MA sentence 'you can ask your plan for an appeal, but different rules apply' is now placed right after the hospital missed-deadline text, where the checker finds it. Quotation checker 30/30 FOUND. Packet line added.",
+   "verdicts": [
+    "corrections verified"
+   ],
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md (drafts 2dfe3dc)"
+   },
+   "lesson": "A scope correction that names the payer or person in the same sentence as the quotation re-reads cleanly against the checker context.",
+   "done_utc": "2026-11-25T01:03Z",
+   "minutes": 1
   }
  ],
  "blocked": [],
@@ -2378,7 +2389,7 @@
   "picked": "ACQ-057 done, ACQ-058 done, ACQ-059 done, ACQ-060 done, ACQ-061 done, ACQ-062 done, ACQ-063 done, ACQ-068 done, ACQ-069 done, ACQ-070 done, ACQ-071 done, ACQ-072 done; queued for a later session: ACQ-064..067 (verify), not_run this RUN",
   "why": "Worked: 7 drafts re-reviewed under the scope rule (4 corrected on drafts, 3 publish-ready), 5 live guides audited (3 corrected in review PR #89); stopped: no-worthwhile-work; resume: next session verifies 4 corrections, then the publish batch"
  },
- "last_verified_action": "ACQ-065 done 2026-11-25T01:03Z: Re-read the changed sentence of drafts babc23c: 'a resident who appeals the termination has the right to continue to reside in the establishment until a decisi…",
+ "last_verified_action": "ACQ-066 done 2026-11-25T01:03Z: Re-read the changed sentences of drafts 2dfe3dc. SNF missed deadline: Medicare.gov 'you can request a fast reconsideration from your plan' (under 'How do I ask…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -3041,10 +3052,11 @@
    "holder": "cse_014eaiSaeYoez1bK3E9MFwz4",
    "utc": "2026-11-25T01:03Z",
    "since_utc": "2026-11-25T01:02Z",
-   "productive_min": 2,
+   "productive_min": 3,
    "deliverables": [
     "verification:ops/reviews/illinois-nursing-home-responsible-party.md (drafts 2c46e74)",
-    "verification:ops/reviews/illinois-assisted-living-involuntary-move-out.md (drafts babc23c)"
+    "verification:ops/reviews/illinois-assisted-living-involuntary-move-out.md (drafts babc23c)",
+    "verification:ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md (drafts 2dfe3dc)"
    ]
   },
   "monitor": {
