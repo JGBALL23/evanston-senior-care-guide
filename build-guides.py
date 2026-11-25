@@ -514,8 +514,10 @@ TRULEE_EXAMPLE = (
 # tappable download link, never a button class, so the gold assessment
 # button stays each page's only primary action. Shared by the homepage's
 # tour section (index.html, same markup), the three guides whose
-# advice the checklist is built from, and the complaint guide (a family
-# reporting a facility may be about to compare others). No email, no sign-up, no script.
+# advice the checklist is built from, the complaint guide (a family
+# reporting a facility may be about to compare others), the Medicare guide
+# and the estate-recovery guide (families weighing how long-term care gets
+# paid for, often while choosing where). No email, no sign-up, no script.
 TOUR_CHECKLIST = (
     '<p class="dl-cta"><a class="dl-link" '
     'href="/downloads/senior-living-tour-checklist.pdf" '
@@ -528,7 +530,7 @@ TOUR_CHECKLIST = (
     'tour. No email or sign-up.</span></p>')
 
 # For a reader already planning visits, one quiet sentence under the
-# checklist on the cost, inspection-record, complaint and Medicare guides: the homepage's own
+# checklist on the cost, inspection-record, complaint, Medicare and estate-recovery guides: the homepage's own
 # "Ask about a tour" shortcut, with the affiliation stated in the sentence.
 # A plain link, never a button; same form, same consent, nothing new counted.
 # (The independent-living guide has its own tour block and does not use it.)
@@ -1551,6 +1553,7 @@ GUIDES = [
 
     {
         "slug": "illinois-medicaid-estate-recovery",
+        "after_section": {"Where this fits with the rest of this site": TOUR_CHECKLIST + TOUR_ASK},
         "bridge": ("Estate recovery is a question about money after the fact. It sits "
                "downstream of a more immediate one: what level of care your parent "
                "needs now."),
