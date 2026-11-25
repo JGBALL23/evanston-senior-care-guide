@@ -2493,8 +2493,8 @@ section[id], header[id] { scroll-margin-top: calc(var(--nav-h) + 14px); }
 .paynav__entry-btn:hover { filter: brightness(1.08); }
 /* The one quiet line on a paying-related guide. A link, never a second
    button: the guide already ends with the assessment's button. */
-.related__pay { margin: 14px 0 0; font-size: 16.5px; line-height: 1.6; color: var(--ink-soft); max-width: 62ch; }
-.related__pay a { color: var(--sage-deep); text-underline-offset: 3px; }
+.related__pay, .related__local { margin: 14px 0 0; font-size: 16.5px; line-height: 1.6; color: var(--ink-soft); max-width: 62ch; }
+.related__pay a, .related__local a { color: var(--sage-deep); text-underline-offset: 3px; }
 @media (max-width: 620px) {
   .paynav__widget { padding: 20px 16px; }
   .paynav__route { padding: 15px; }
