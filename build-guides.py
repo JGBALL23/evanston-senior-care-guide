@@ -1244,6 +1244,9 @@ GUIDES = [
         # ops/reviews/live/illinois-medicaid-long-term-care.md on branch
         # ops/operator-state), when the personal needs allowance was added.
         "reviewed": "2026-11-25",
+        # Joined the library on this date; re-read in full on the review date above
+        # (accuracy audit, 25 Nov 2026). Keeps the library-level dates where they were.
+        "listed": "2026-10-23",
         "title": "How Illinois Medicaid Pays for Long-Term Care and Spend-Down",
         "h1": "How Illinois Medicaid pays for long-term care, and what spend-down means",
         "desc": ("Illinois Medicaid can pay for nursing home and other long-term care. "
@@ -2804,6 +2807,9 @@ GUIDES = [
                "question from knowing whether a nursing home is even the "
                "setting your parent actually needs."),
         "reviewed": "2026-11-25",
+        # Joined the library on this date; re-read in full on the review date above
+        # (accuracy audit, 25 Nov 2026). Keeps the library-level dates where they were.
+        "listed": "2026-11-17",
         "title": "Pre-Admission Screening for an Illinois Nursing Home, Explained",
         "h1": "Does my parent need to be screened before moving into an Illinois nursing home?",
         "desc": ("Illinois screens everyone before a nursing home admission, even "
@@ -3484,6 +3490,9 @@ GUIDES = [
                "medical and personal care without leaving home &mdash; is the "
                "same question every setting on this site is trying to answer."),
         "reviewed": "2026-11-25",
+        # Joined the library on this date; re-read in full on the review date above
+        # (accuracy audit, 25 Nov 2026). Keeps the library-level dates where they were.
+        "listed": "2026-11-17",
         "title": "What Is PACE, and Can a Parent in Evanston Use It?",
         "h1": "What is PACE, and can a parent in Evanston use it?",
         "desc": ("PACE coordinates full medical and personal care so an older adult "
@@ -4098,6 +4107,9 @@ GUIDES = [
                "different question from whether your parent can still get "
                "around safely enough to use either one."),
         "reviewed": "2026-11-25",
+        # Joined the library on this date; re-read in full on the review date above
+        # (accuracy audit, 25 Nov 2026). Keeps the library-level dates where they were.
+        "listed": "2026-11-17",
         "title": "Illinois Benefit Access: Free Transit and a Cheaper License Plate",
         "h1": "Illinois Benefit Access Program: free transit and a cheaper license plate",
         "desc": ("Illinois seniors and people with disabilities under an income limit "
