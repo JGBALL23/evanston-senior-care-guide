@@ -190,6 +190,44 @@
    "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
    "found_utc": "2026-11-25T00:48Z"
+  },
+  {
+   "id": "ACQ-071",
+   "task": "Accuracy audit of the live guide illinois-medicare-savings-program under the review rules (quotation checker, scope rule), packet at ops/reviews/live/illinois-medicare-savings-program.md; corrections into the rolling review PR #89 (claude/accuracy-20261125)",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:illinois-medicare-savings-program",
+   "evidence": "quotecheck --all on main 4dc2468, 2026-11-25: 9/9 quotations found, so wording holds; the page states income and asset limits by programme and household size (reviewed 2026-11-17), the kind of claim the 24 Nov scope rule targets (year, household, payer); no packet in ops/reviews/live/.",
+   "expected_tour_acquisition_value": "Families decide whether to apply from these income and asset limits; a limit that is wrong for their payer, year or household size costs a benefit and trust in the site that sends them to tours.",
+   "impact": 4,
+   "confidence": 3,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/live/illinois-medicare-savings-program.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to PR #89",
+   "score": 6.0,
+   "status": "ready",
+   "priority": 2,
+   "found_utc": "2026-11-25T00:58Z"
+  },
+  {
+   "id": "ACQ-072",
+   "task": "Accuracy audit of the live guide illinois-benefit-access-program under the review rules (quotation checker, scope rule), packet at ops/reviews/live/illinois-benefit-access-program.md; corrections into the rolling review PR #89 (claude/accuracy-20261125)",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:illinois-benefit-access-program",
+   "evidence": "quotecheck --all on main 4dc2468, 2026-11-25: 11/11 quotations found; the page states Benefit Access Program income limits and eligibility (age, disability, household size) that families act on (reviewed 2026-11-17); no packet in ops/reviews/live/.",
+   "expected_tour_acquisition_value": "Families decide whether to apply from these income and asset limits; a limit that is wrong for their payer, year or household size costs a benefit and trust in the site that sends them to tours.",
+   "impact": 4,
+   "confidence": 3,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/live/illinois-benefit-access-program.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to PR #89",
+   "score": 6.0,
+   "status": "ready",
+   "priority": 2,
+   "found_utc": "2026-11-25T00:58Z"
   }
  ],
  "completed": [
@@ -2952,7 +2990,7 @@
    "holder": "cse_014eaiSarrUfj6PScmQNGxys",
    "utc": "2026-11-25T00:58Z",
    "since_utc": "2026-11-25T00:36Z",
-   "productive_min": 27,
+   "productive_min": 28,
    "deliverables": [
     "review_packet:ops/reviews/illinois-nursing-home-responsible-party.md; drafts 2c46e74",
     "review_packet:ops/reviews/illinois-assisted-living-involuntary-move-out.md; drafts babc23c",
@@ -3555,7 +3593,18 @@
    "exhausted_max_hours": 96,
    "exhausted_until_utc": "",
    "empty_streak": 0,
-   "log": [],
+   "log": [
+    {
+     "utc": "2026-11-25T00:58Z",
+     "run": "cse_014eaiSarrUfj6PScmQNGxys",
+     "key": "quality-audit-live-income-limits",
+     "avenue": "quality",
+     "lane": "technical",
+     "candidates": 4,
+     "added": 2,
+     "result": "Read quotecheck --all on main 4dc2468 (2026-11-25) and review dates of live guides with figures. Candidates: illinois-medicare-savings-program, illinois-benefit-access-program (added: income/asset limits by household, no live packet), illinois-medicaid-estate-recovery (not added: open PR #78 touches it; audit after it…"
+    }
+   ],
    "why": "Joseph, 24 Nov 2026: \"Maintain a replenishing backlog instead of relying exclusively on scheduled discovery windows.\" \"Do not manufacture meaningless work to consume usage.\"",
    "how": "Procedure step 7, INDEPENDENT BACKLOG FALLBACK and RECORDING IT. One explore record per avenue; a key is not explored twice in 14 days without new evidence; close refuses no-worthwhile-work until three avenue classes are recorded or --fallback-skipped says why; after an empty conclusion discovery rests 12 hours, doubling to 96."
   }
