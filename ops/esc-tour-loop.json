@@ -190,6 +190,63 @@
    "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
    "found_utc": "2026-11-25T00:48Z"
+  },
+  {
+   "id": "ACQ-068",
+   "task": "Accuracy audit of the live guide illinois-pace-program under the review rules (quotation checker, scope rule), packet at ops/reviews/live/illinois-pace-program.md; corrections into the rolling review PR claude/accuracy-20261125",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:illinois-pace-program",
+   "evidence": "quotecheck --all on main 4dc2468, 2026-11-25 ~00:55Z: 1 NOT FOUND, the quotation 'scheduled to begin in June 2024,' is no longer on its cited page; a 2024 launch date stated on a live page in Nov 2026 is probably stale (also flagged by the main chat 25 Nov 00:25Z run).",
+   "expected_tour_acquisition_value": "Families act on live deadlines, figures and eligibility rules; a wrong one costs trust and the inquiry that would follow from it.",
+   "impact": 4,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/live/illinois-pace-program.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to the rolling accuracy PR against main",
+   "score": 8.0,
+   "status": "ready",
+   "priority": 2,
+   "found_utc": "2026-11-25T00:50Z"
+  },
+  {
+   "id": "ACQ-069",
+   "task": "Accuracy audit of the live guide va-caregiver-support-program under the review rules (quotation checker, scope rule), packet at ops/reviews/live/va-caregiver-support-program.md; corrections into the rolling review PR claude/accuracy-20261125",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:va-caregiver-support-program",
+   "evidence": "quotecheck --all 2026-11-25: 29/29 found, but the scope check in ACQ-062 (this session) found VA.gov 'How are the 2 VA caregiver support programs different?' limits the PCAFC monthly stipend to 'Eligible primary family caregivers'; the live guide's desc says the programme pays a stipend 'to a qualifying family member' and its answer 'directly to a family member' (drafts copy lines 3515, 3523, 6416). Also flagged NOT FOUND by the main chat's 00:25Z run.",
+   "expected_tour_acquisition_value": "Families act on live deadlines, figures and eligibility rules; a wrong one costs trust and the inquiry that would follow from it.",
+   "impact": 4,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/live/va-caregiver-support-program.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to the rolling accuracy PR against main",
+   "score": 8.0,
+   "status": "ready",
+   "priority": 2,
+   "found_utc": "2026-11-25T00:50Z"
+  },
+  {
+   "id": "ACQ-070",
+   "task": "Accuracy audit of the live guide illinois-nursing-home-preadmission-screening under the review rules (quotation checker, scope rule), packet at ops/reviews/live/illinois-nursing-home-preadmission-screening.md; corrections into the rolling review PR claude/accuracy-20261125",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:illinois-nursing-home-preadmission-screening",
+   "evidence": "quotecheck --all 2026-11-25: 1 NEAR MATCH on an eligibility phrase 'regardless of income, assets, or funding source' (punctuation differs from the source; flagged NOT FOUND by the main chat's 00:25Z run); the guide states who must be screened before nursing home admission, an eligibility rule families act on.",
+   "expected_tour_acquisition_value": "Families act on live deadlines, figures and eligibility rules; a wrong one costs trust and the inquiry that would follow from it.",
+   "impact": 3,
+   "confidence": 3,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/live/illinois-nursing-home-preadmission-screening.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to the rolling accuracy PR against main",
+   "score": 4.5,
+   "status": "ready",
+   "priority": 2,
+   "found_utc": "2026-11-25T00:50Z"
   }
  ],
  "completed": [
@@ -2849,9 +2906,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSarrUfj6PScmQNGxys",
-   "utc": "2026-11-25T00:49Z",
+   "utc": "2026-11-25T00:50Z",
    "since_utc": "2026-11-25T00:36Z",
-   "productive_min": 17,
+   "productive_min": 19,
    "deliverables": [
     "review_packet:ops/reviews/illinois-nursing-home-responsible-party.md; drafts 2c46e74",
     "review_packet:ops/reviews/illinois-assisted-living-involuntary-move-out.md; drafts babc23c",
@@ -3311,9 +3368,10 @@
     "evidence": "python3 ops/quotecheck.py --site <clone of main> --all: every guide with a NOT FOUND quotation (the source changed, or the wording was never exact); then, among guides without a packet in ops/reviews/live/, those with deadlines, dollar figures or eligibility rules. First run by the main chat, 25 Nov 2026 00:25Z: 32 live guides, 252 quotations, 247 found, 5 not found (one each in illinois-nursing-home-preadmission-screening, illinois-pace-program, medicare-durable-medical-equipment-coverage, va-caregiver-support-program, va-veteran-directed-care-program); ilga.gov pages could not be read from that workspace.",
     "output": "One audit task per live guide with a NOT FOUND quotation (all of them, key audit:<slug>), plus at most two more guides per check chosen by risk; each audit under procedure step 7 Improve, ACCURACY AUDIT. Corrections go into one rolling review pull request. When every live guide has a packet, record that and pass --recheck-hours 720.",
     "why": "Joseph, 24 Nov 2026: \"Correct the known content accuracy problems and strengthen the review process.\" Families act on these deadlines and figures.",
-    "last_checked_utc": "",
-    "next_check_utc": "",
-    "last_result": ""
+    "last_checked_utc": "2026-11-25T00:50Z",
+    "next_check_utc": "2026-11-25T12:50Z",
+    "last_result": "quotecheck --all on main 4dc2468: 32 live guides; 1 NOT FOUND (illinois-pace-program, 'scheduled to begin in June 2024'), 2 NEAR MATCH (preadmission-screening, VDC: punctuation only, VDC wording-only so not queued); va-caregiver-support-program 29/29 found but a primary-caregiver scope defect seen …",
+    "last_added": 3
    },
    {
     "id": "demand-questions",
@@ -3421,6 +3479,7 @@
    }
   ],
   "sweep_log": [
+   "2026-11-25T00:50Z live-accuracy +3: quotecheck --all on main 4dc2468: 32 live guides; 1 NOT FOUND (illinois-pace-program, 'scheduled to begin in June 2024'), 2 NEAR MATCH (preadmission-screening,…",
    "2026-11-25T00:49Z publish-ready +0: Read all 7 packets after this session's re-review. Qualify now: illinois-medicaid-pending-nursing-home, illinois-parent-refuses-to-move-guardianship, illinois-…",
    "2026-11-24T18:37Z draft-review +2: 2 drafts on drafts not on main without a packet: illinois-medicaid-pending-nursing-home (drafts 4b5dca4) and illinois-parent-refuses-to-move-guardianship (cf6a…",
    "2026-11-24T18:37Z asset-gaps +0: Guide index on main+drafts (39 slugs), DEMAND Open (2, the drafts routine's) and Done read 24 Nov 18:3xZ. Memory care is the one uncovered decision-stage need …",
