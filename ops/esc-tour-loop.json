@@ -120,25 +120,6 @@
    "not_before": "Timing, not data: 2027 figures are already on medicare.gov (read 2026-11-23). Prepare the PR in December so it is fresh when Joseph merges it for 1 Jan 2027."
   },
   {
-   "id": "ACQ-074",
-   "task": "Accuracy audit of the live guide illinois-medicaid-long-term-care under the review rules (quotation checker, scope rule, figures and dates against sources as they read today); packet at ops/reviews/live/illinois-medicaid-long-term-care.md",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "plan",
-   "key": "audit:illinois-medicaid-long-term-care",
-   "evidence": "Live guide on main 4dc2468, reviewed 2026-10-23, cites HFS spousal impoverishment 2026 figures (hfs_spousal2026), spend-down and LTC client pages; no packet in ops/reviews/live (checked 2026-11-25).",
-   "expected_tour_acquisition_value": "A wrong eligibility figure or rule on a live decision-stage guide misleads families paying for long-term care and costs trust; a verified page keeps search visitors who reach it.",
-   "impact": 3,
-   "confidence": 4,
-   "effort": 2,
-   "executor": "worker (research and preparation only)",
-   "done_when": "packet at ops/reviews/live/illinois-medicaid-long-term-care.md ending 'Verdict: holds' or listing each correction with its source sentence; corrections, if any, go into the rolling accuracy PR (#89 branch)",
-   "score": 6.0,
-   "status": "ready",
-   "priority": 2,
-   "found_utc": "2026-11-25T01:11Z"
-  },
-  {
    "id": "ACQ-075",
    "task": "Accuracy audit of the live guide va-aid-and-attendance-benefit under the review rules (quotation checker, scope rule, figures and dates against sources as they read today); packet at ops/reviews/live/va-aid-and-attendance-benefit.md",
    "workstream": "technical",
@@ -2455,6 +2436,41 @@
    "lesson": "When porting a GUIDES block, take the closing '    },' line with its newline; a missing newline leaves '},]' which parses but breaks the next insertion point.",
    "done_utc": "2026-11-25T01:10Z",
    "minutes": 6
+  },
+  {
+   "id": "ACQ-074",
+   "task": "Accuracy audit of the live guide illinois-medicaid-long-term-care under the review rules (quotation checker, scope rule, figures and dates against sources as they read today); packet at ops/reviews/live/illinois-medicaid-long-term-care.md",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:illinois-medicaid-long-term-care",
+   "evidence": "Live guide on main 4dc2468, reviewed 2026-10-23, cites HFS spousal impoverishment 2026 figures (hfs_spousal2026), spend-down and LTC client pages; no packet in ops/reviews/live (checked 2026-11-25).",
+   "expected_tour_acquisition_value": "A wrong eligibility figure or rule on a live decision-stage guide misleads families paying for long-term care and costs trust; a verified page keeps search visitors who reach it.",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet at ops/reviews/live/illinois-medicaid-long-term-care.md ending 'Verdict: holds' or listing each correction with its source sentence; corrections, if any, go into the rolling accuracy PR (#89 branch)",
+   "score": 6.0,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-25T01:11Z",
+   "result": "Audited live illinois-medicaid-long-term-care (main 4dc2468) against its 5 HFS sources fetched 2026-11-25. Quotecheck 3/3 FOUND. Spousal 2026 figures ($143,172 CSRA, $4,066.50 CSMNA) match the 22 Jan 2026 notice. 3 defects: C1 unsupported claim that spenddown is frequently how nursing home stays get Medicaid-covered (HFS only lists nursing home bills as countable); C2 annual-change advice omits HFS's 'The CSRA determination only occurs once'; C3 'could not read a verifiable number' for the personal needs allowance is contradicted by HFS notice 25 Jan 2024 ($30 to $60 a month, NHCA-licensed facilities, Medical Assistance eligible). C1 and C2 committed to #89 (d396ad4; checks pass). C3 blocked by an owner gate in check-guides.js; put to Joseph in the #89 line.",
+   "verdicts": [
+    "3 corrections; 2 applied in PR #89, 1 awaiting owner"
+   ],
+   "deliverable": {
+    "type": "audit",
+    "ref": "ops/reviews/live/illinois-medicaid-long-term-care.md; PR #89 commit d396ad4"
+   },
+   "sources": [
+    "https://hfs.illinois.gov/info/brochures-and-forms/brochures/hfs591sp.html",
+    "https://hfs.illinois.gov/medicalproviders/notices/notice.prn260122a.html",
+    "https://hfs.illinois.gov/medicalproviders/notices/notice.prn240125a.html"
+   ],
+   "lesson": "Check check-guides.js for content-pinning assertions before drafting a correction to a live guide; an owner gate turns the correction into an owner decision.",
+   "done_utc": "2026-11-25T01:13Z",
+   "minutes": 3
   }
  ],
  "blocked": [],
@@ -2465,7 +2481,7 @@
   "picked": "ACQ-057 done, ACQ-058 done, ACQ-059 done, ACQ-060 done, ACQ-061 done, ACQ-062 done, ACQ-063 done, ACQ-068 done, ACQ-069 done, ACQ-070 done, ACQ-071 done, ACQ-072 done; queued for a later session: ACQ-064..067 (verify), not_run this RUN",
   "why": "Worked: 7 drafts re-reviewed under the scope rule (4 corrected on drafts, 3 publish-ready), 5 live guides audited (3 corrected in review PR #89); stopped: no-worthwhile-work; resume: next session verifies 4 corrections, then the publish batch"
  },
- "last_verified_action": "ACQ-073 done 2026-11-25T01:10Z: Opened review PR #90 'Publish batch: 7 guides' from claude/publish-batch-20261125-1, cut from #88 (which contains #87). Two 'Update guide' commits port the ver…",
+ "last_verified_action": "ACQ-074 done 2026-11-25T01:13Z: Audited live illinois-medicaid-long-term-care (main 4dc2468) against its 5 HFS sources fetched 2026-11-25. Quotecheck 3/3 FOUND. Spousal 2026 figures ($143,172…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -2501,7 +2517,7 @@
  },
  "owner_review_needed": [
   "PUBLISH (the most valuable thing you can do; about 15 minutes): merge #90 'Publish batch: 7 guides' and nothing else of the publish pull requests. It contains #87 and #88 (close those after), and publishes all seven unpublished guides: nursing home responsible-party signing, assisted-living move-out notice, Medicare fast appeal from hospital or rehab, Medicaid pending in a nursing home, VA home care and aide, Illinois money management program, parent refusing to move and guardianship. Every page passed review under the scope rule (corrections verified 25 Nov); 122 of 122 quotations found. Then run tools/publish.py.",
-  "TRACKING AND SEARCH pull requests (about 10 minutes; merge any you accept, then redeploy): #84 with #79 (a tour inquiry keeps its arrival channel; #84 contains #80), #85 (four choosing-stage guides link to the Evanston assisted-living page), #81 (homepage title names assisted living and memory care in Evanston), #86 (the checklist PDF gets one disclosed tour-request line), #78 (estate-recovery guide: tour checklist and tour link), #89 (rolling accuracy corrections to live guides: a stale PACE launch date removed; the nursing home screening answer limits the PASRR screen to Medicaid-certified homes; the Benefit Access answer names the disability route). Optional with it: request indexing for /assisted-living-evanston/ in Search Console.",
+  "TRACKING AND SEARCH pull requests (about 10 minutes; merge any you accept, then redeploy): #84 with #79 (a tour inquiry keeps its arrival channel; #84 contains #80), #85 (four choosing-stage guides link to the Evanston assisted-living page), #81 (homepage title names assisted living and memory care in Evanston), #86 (the checklist PDF gets one disclosed tour-request line), #78 (estate-recovery guide: tour checklist and tour link), #89 (rolling accuracy corrections to live guides: a stale PACE launch date removed; the nursing home screening answer limits the PASRR screen to Medicaid-certified homes; the Benefit Access answer names the disability route; the Medicaid long-term care guide drops an unsupported claim that spenddown is the usual route for nursing home stays and notes the CSRA is set once). One decision with it (2 minutes): HFS's notice of 25 Jan 2024 states the nursing home personal needs allowance is $60 a month, but the Medicaid guide still says it could not find a figure because check-guides.js requires that refusal; say yes and the next session adds the sourced figure and changes that one check in #89. Optional with it: request indexing for /assisted-living-evanston/ in Search Console.",
   "EVANSTON NOW ESSAY (yours; the draft is in your Claude chat): rewrite it and submit it through their contact form. A 'what to notice on a holiday visit, and what to ask next' angle submitted by about 10 Dec lands in the early-January inquiry peak. Decide on Patch after that.",
   "ONE FREE PUBLIC TALK? Yes or no is enough (for example 'What to ask on a senior-living tour' at a library or senior center). It would open the Evanston Now calendar, the Daily Herald, Patch calendars and Rotary at once; Wilmette, Niles-Maine and Morton Grove libraries run such programs.",
   "OPTIONAL CALLS (these publish no email address): New Trier Township social services 847-446-8202; Village of Northbrook 847-272-5050 about its Senior Housing Resources directory; Skokie Human Services.",
@@ -3126,15 +3142,16 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSaeYoez1bK3E9MFwz4",
-   "utc": "2026-11-25T01:11Z",
+   "utc": "2026-11-25T01:13Z",
    "since_utc": "2026-11-25T01:02Z",
-   "productive_min": 11,
+   "productive_min": 14,
    "deliverables": [
     "verification:ops/reviews/illinois-nursing-home-responsible-party.md (drafts 2c46e74)",
     "verification:ops/reviews/illinois-assisted-living-involuntary-move-out.md (drafts babc23c)",
     "verification:ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md (drafts 2dfe3dc)",
     "verification:ops/reviews/va-home-based-primary-care-and-aide.md (drafts 38ba709)",
-    "publish_pr:PR #90"
+    "publish_pr:PR #90",
+    "audit:ops/reviews/live/illinois-medicaid-long-term-care.md; PR #89 commit d396ad4"
    ]
   },
   "monitor": {
