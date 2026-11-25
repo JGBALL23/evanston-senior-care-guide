@@ -266,6 +266,8 @@ SRC = {
                       'https://hfs.illinois.gov/info/brochures-and-forms/brochures/hfs591sp.html'),
     "hfs_spousal2026": ('Illinois HFS Provider Notice, 22 January 2026 — 2026 spousal impoverishment standards',
                         'https://hfs.illinois.gov/medicalproviders/notices/notice.prn260122a.html'),
+    "hfs_pna2024": ('Illinois HFS Provider Notice, 25 January 2024 — Personal Needs Allowance increase in nursing facilities',
+                    'https://hfs.illinois.gov/medicalproviders/notices/notice.prn240125a.html'),
     "idoa_ombudsman": ('Illinois Department on Aging — Long-Term Care Ombudsman Program',
                        'https://ilaging.illinois.gov/programs/ltcombudsman.html'),
     "idoa_ombudsman_contact": ('Illinois Department on Aging — Office of the State Long-Term Care Ombudsman, contact information',
@@ -1293,9 +1295,15 @@ GUIDES = [
         "bridge": ("Working out who pays is a separate problem from working out what "
                "your parent needs paying for. Most families end up doing both, and "
                "the second one usually comes first."),
-        # Researched and verified in the cloud routine's own run on this date,
-        # not on the library's original 2026-10-18 review date.
-        "reviewed": "2026-10-23",
+        # Researched and verified in the cloud routine's own run on 2026-10-23,
+        # not on the library's original 2026-10-18 review date. Re-read in full
+        # against its sources on 2026-11-25 (accuracy audit, packet
+        # ops/reviews/live/illinois-medicaid-long-term-care.md on branch
+        # ops/operator-state), when the personal needs allowance was added.
+        "reviewed": "2026-11-25",
+        # Joined the library on this date; re-read in full on the review date above
+        # (accuracy audit, 25 Nov 2026). Keeps the library-level dates where they were.
+        "listed": "2026-10-23",
         "title": "How Illinois Medicaid Pays for Long-Term Care and Spend-Down",
         "h1": "How Illinois Medicaid pays for long-term care, and what spend-down means",
         "desc": ("Illinois Medicaid can pay for nursing home and other long-term care. "
@@ -1313,7 +1321,7 @@ GUIDES = [
                    "&ldquo;a little like an insurance deductible,&rdquo; where medical "
                    "bills above a set monthly amount count toward eligibility."),
         "sources": srcs("hfs_ltc_clients", "hfs_ltc_providers", "hfs_spenddown",
-                        "hfs_spousal2026", "hfs_elderly"),
+                        "hfs_spousal2026", "hfs_pna2024", "hfs_elderly"),
         "body": [
             ("What Illinois Medicaid actually pays for", [
                 "<p>Medicaid is not one single long-term-care benefit. The Illinois "
@@ -1362,12 +1370,11 @@ GUIDES = [
                 "instead of submitting bills; HFS describes this option as available to "
                 "people enrolled in spenddown who are aged, blind, or have a disability "
                 "and live in the community.</p>",
-                "<p>This is the detail families miss: nursing home care is expensive "
-                "enough that the monthly spend-down amount for someone in a facility is "
-                "often met immediately by the facility's own bill. Spenddown is "
-                "frequently the route by which a long nursing home stay ends up "
-                "Medicaid-covered even when the same person would not have qualified for "
-                "Medicaid the month before they were admitted.</p>",
+                "<p>HFS lists bills for nursing home services among the medical "
+                "expenses that count toward spenddown. How spenddown and your "
+                "parent's own income apply to a nursing home stay is worked out by "
+                "the DHS caseworker; ask before assuming the facility's bill settles "
+                "it.</p>",
             ]),
             ("Protecting a spouse who stays at home", [
                 "<p>Federal and state rules exist specifically so that one spouse "
@@ -1402,18 +1409,22 @@ GUIDES = [
                 "<p>Both standards change every year, and HFS reissues the notice each "
                 "time. Do not rely on a figure copied from any article, including this "
                 "one, once a year has passed &mdash; check the current HFS notice or ask "
-                "the DHS caseworker handling the case.</p>",
+                "the DHS caseworker handling the case. One exception, in HFS's "
+                "words: &ldquo;The CSRA determination only occurs once.&rdquo; If it "
+                "was already determined at application, the amount is not updated "
+                "when the standard rises.</p>",
             ]),
-            ("A figure this guide will not publish", [
+            ("The personal needs allowance", [
                 "<p>Illinois law sets a monthly personal needs allowance for Medicaid "
                 "nursing facility residents &mdash; a small amount of their own income "
                 "protected for personal spending rather than put toward the cost of "
-                "care. This guide went looking for the current figure on the HFS public "
-                "notice that sets it, and could not read a verifiable number off that "
-                "document. Rather than repeat a figure picked up secondhand, this guide "
-                "leaves it out. Ask the nursing facility's business office or the DHS "
-                "caseworker what the current personal needs allowance is before "
-                "assuming any number you have seen elsewhere.</p>",
+                "care. An HFS provider notice of 25 January 2024 states that, effective "
+                "1 January 2024, the Personal Needs Allowance increased &ldquo;from $30 "
+                "per month to $60 per month for nursing home residents who reside in a "
+                "nursing facility licensed under the Nursing Home Care Act and who are "
+                "determined to be eligible for Medical Assistance.&rdquo; Ask the "
+                "nursing facility's business office or the DHS caseworker whether a "
+                "later change applies before relying on that figure.</p>",
             ]),
             ("Where to go from here", [
                 "<p>If the person you are helping is not yet in a facility and the "
@@ -2289,7 +2300,12 @@ GUIDES = [
         "bridge": ("Knowing that the VA will fund help at home answers how your "
                "veteran parent might pay for it. It does not answer whether help "
                "at home, rather than a higher level of care, is actually enough."),
-        "reviewed": "2026-10-27",
+        # Re-read in full against its sources on 2026-11-25 (accuracy audit,
+        # packet ops/reviews/live/va-veteran-directed-care-program.md on branch
+        # ops/operator-state).
+        "reviewed": "2026-11-25",
+        # Joined the library on this date; keeps the library-level dates where they were.
+        "listed": "2026-10-27",
         "title": "Can a Veteran Get Paid In-Home Care Through the VA?",
         "h1": "Can a veteran get paid in-home care through the VA?",
         "desc": ("Veteran Directed Care lets an eligible veteran set a spending plan "
@@ -2348,8 +2364,11 @@ GUIDES = [
                 "care&rdquo; and &ldquo;you have approval from your VA health "
                 "care team before you get care from a community provider&rdquo; "
                 "&mdash; plus at least one of several further conditions, such as "
-                "needing a service VA does not provide at any facility or living "
-                "somewhere without a full-service VA facility nearby.</p>",
+                "needing a service VA does not provide at any VA health facility, "
+                "living in a state or territory that has no full-service VA health "
+                "facility at all, or VA being unable to provide the care within its "
+                "own standards for drive and wait times. Living some distance from "
+                "a VA facility is not, by itself, one of the conditions.</p>",
                 "<p>This guide has not confirmed, on any VA.gov page, that the "
                 "general community-care eligibility rules apply to Veteran "
                 "Directed Care exactly as written for an outside specialist "
@@ -2384,17 +2403,19 @@ GUIDES = [
                 "the Veteran Decision Aid for Care at Home or in the Community "
                 "&ldquo;to help you figure out what home care services or long "
                 "term care services may best meet your needs&rdquo; now or in "
-                "the future, and then: &ldquo;If Veteran Directed Care seems "
+                "the future, and then: &ldquo;If Veteran-Directed Care seems "
                 "right for you, talk with your VA social worker and find out if "
                 "it is available&rdquo; in your location.</p>",
                 "<p>A veteran who is not yet enrolled in VA health care has to "
                 "clear that step first, since enrollment is one of the stated "
-                "gates above. VA.gov lists four ways to apply for VA health "
-                "care: online, by phone at <strong>877-222-8387</strong> "
-                "(Monday&ndash;Friday, 8:00 a.m. to 8:00 p.m. ET), by mailing a "
-                "signed VA Form 10-10EZ to the Health Eligibility Center, PO Box "
-                "5207, Janesville, WI 53547-5207, or in person at the nearest VA "
-                "medical centre or clinic with the same signed form in hand.</p>",
+                "gates above. VA.gov says a veteran can apply for VA health care "
+                "online, or in four other ways: by phone at <strong>877-222-8387"
+                "</strong> (Monday&ndash;Friday, 8:00 a.m. to 8:00 p.m. ET), by "
+                "mailing a signed VA Form 10-10EZ to the Health Eligibility Center, "
+                "PO Box 5207, Janesville, WI 53547-5207, in person at the nearest "
+                "VA medical centre or clinic with the same signed form in hand, or "
+                "with the help of an accredited attorney, claims agent or Veterans "
+                "Service Organization representative.</p>",
             ]),
             ("A figure this guide will not guess at", [
                 "<p>Families will want to know the size of the budget a veteran "
@@ -2852,7 +2873,10 @@ GUIDES = [
         "bridge": ("Knowing that a screening is required is a different "
                "question from knowing whether a nursing home is even the "
                "setting your parent actually needs."),
-        "reviewed": "2026-11-17",
+        "reviewed": "2026-11-25",
+        # Joined the library on this date; re-read in full on the review date above
+        # (accuracy audit, 25 Nov 2026). Keeps the library-level dates where they were.
+        "listed": "2026-11-17",
         "title": "Pre-Admission Screening for an Illinois Nursing Home, Explained",
         "h1": "Does my parent need to be screened before moving into an Illinois nursing home?",
         "desc": ("Illinois screens everyone before a nursing home admission, even "
@@ -2866,7 +2890,8 @@ GUIDES = [
                    "&mdash; a private-pay admission is not exempt. Two separate checks "
                    "are involved: a <strong>Determination of Need (DON)</strong> "
                    "assessment of the functional need for nursing-facility-level care, "
-                   "and a <strong>PASRR Level I screen</strong> for serious mental "
+                   "and, at a Medicaid-certified nursing facility, a <strong>PASRR "
+                   "Level I screen</strong> for serious mental "
                    "illness or an intellectual/developmental disability. Both must be "
                    "completed before admission."),
         "sources": srcs("hfs_preadmission_notice", "hfs_ltc_brochure", "idoa_ccp"),
@@ -2913,7 +2938,7 @@ GUIDES = [
                 "privately and assume Medicaid rules do not apply to them. The "
                 "screening requirement is a state statute covering <strong>every</strong> "
                 "nursing facility admission &mdash; the HFS notice is explicit that it "
-                "applies &ldquo;regardless of income, assets, or funding source&rdquo;. "
+                "applies &ldquo;regardless of income, assets or funding source&rdquo;. "
                 "Paying the full bill out of pocket does not remove the requirement to "
                 "be screened before moving in.</p>",
                 "<p>HFS's own consumer brochure on long-term care frames the same rule "
@@ -3531,7 +3556,10 @@ GUIDES = [
                "because the question it answers &mdash; can my parent get full "
                "medical and personal care without leaving home &mdash; is the "
                "same question every setting on this site is trying to answer."),
-        "reviewed": "2026-11-17",
+        "reviewed": "2026-11-25",
+        # Joined the library on this date; re-read in full on the review date above
+        # (accuracy audit, 25 Nov 2026). Keeps the library-level dates where they were.
+        "listed": "2026-11-17",
         "title": "What Is PACE, and Can a Parent in Evanston Use It?",
         "h1": "What is PACE, and can a parent in Evanston use it?",
         "desc": ("PACE coordinates full medical and personal care so an older adult "
@@ -3598,7 +3626,7 @@ GUIDES = [
                 "West Side Chicago; Habitat Health at Annie's Place and Esperanza "
                 "Health Centers for South Side Chicago; BoldAge PACE Illinois for "
                 "Southern Cook County; OSF HealthCare System for Peoria; and Habitat "
-                "Health at Stella's Place for East St. Louis. The page&rsquo;s only date is a launch &ldquo;scheduled to begin in June 2024,&rdquo; and it describes Kinship specifically as &ldquo;a "
+                "Health at Stella's Place for East St. Louis. The page describes Kinship specifically as &ldquo;a "
                 "new entrant into the Illinois health care delivery system&rdquo; "
                 "&mdash; so a family calling any of these should ask directly whether it "
                 "is actually taking participants yet, rather than assume active service "
@@ -4145,7 +4173,10 @@ GUIDES = [
         "bridge": ("A cheaper license plate and free transit rides are a "
                "different question from whether your parent can still get "
                "around safely enough to use either one."),
-        "reviewed": "2026-11-17",
+        "reviewed": "2026-11-25",
+        # Joined the library on this date; re-read in full on the review date above
+        # (accuracy audit, 25 Nov 2026). Keeps the library-level dates where they were.
+        "listed": "2026-11-17",
         "title": "Illinois Benefit Access: Free Transit and a Cheaper License Plate",
         "h1": "Illinois Benefit Access Program: free transit and a cheaper license plate",
         "desc": ("Illinois seniors and people with disabilities under an income limit "
@@ -4159,7 +4190,9 @@ GUIDES = [
                    "discounted license plate sticker through the Secretary "
                    "of State. To qualify, a person must be 65 or older "
                    "before January 1 of the current year (or turning 65 "
-                   "this year), live in Illinois, and have had gross "
+                   "this year) or be at least 16 and totally and "
+                   "permanently disabled before January 1, live in "
+                   "Illinois, and have had gross "
                    "household income below a published limit for the last "
                    "closed tax year &mdash; <strong>$33,562</strong> for one "
                    "person, <strong>$44,533</strong> for two, or "
