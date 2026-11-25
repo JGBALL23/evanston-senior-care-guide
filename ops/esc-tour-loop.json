@@ -118,6 +118,25 @@
    "found_utc": "2026-11-23T17:43Z",
    "not_before_utc": "2026-12-08T15:00Z",
    "not_before": "Timing, not data: 2027 figures are already on medicare.gov (read 2026-11-23). Prepare the PR in December so it is fresh when Joseph merges it for 1 Jan 2027."
+  },
+  {
+   "id": "ACQ-073",
+   "task": "Publish batch: port the 7 publish-ready guides (illinois-assisted-living-involuntary-move-out, illinois-nursing-home-responsible-party, medicare-fast-appeal-hospital-rehab-discharge, va-home-based-primary-care-and-aide, illinois-medicaid-pending-nursing-home, illinois-money-management-program, illinois-parent-refuses-to-move-guardianship) from drafts into one review pull request against main that supersedes #87 and #88",
+   "workstream": "publish",
+   "lane": "publish",
+   "source": "plan",
+   "key": "publish:batch-20261125",
+   "evidence": "ops/reviews/ packets dated 2026-11-25: 3 say 'Verdict: publish-ready' with counts line; 4 say 'publish-ready after corrections' and carry 'Corrections verified: 2026-11-25' (ACQ-064..067, this session). #87 and #88 hold older text of two of these pages.",
+   "expected_tour_acquisition_value": "Seven decision-stage guides (nursing home admission papers, assisted-living move-out, Medicare rehab appeals, Medicaid pending, VA home care, money management, parent refusing to move) go live with one merge, each with the tour path; more qualified search entry points for families at the decision stage.",
+   "impact": 4,
+   "confidence": 4,
+   "effort": 3,
+   "executor": "worker (research and preparation only)",
+   "done_when": "branch claude/publish-batch-20261125-1 pushed with one commit per page, build and five checks and quotecheck on every page, one review PR opened against main, its number in planner/lanes[id=publish]/open_prs, owner_review_needed publish line updated",
+   "score": 5.33,
+   "status": "ready",
+   "priority": 2,
+   "found_utc": "2026-11-25T01:04Z"
   }
  ],
  "completed": [
@@ -3061,7 +3080,7 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSaeYoez1bK3E9MFwz4",
-   "utc": "2026-11-25T01:03Z",
+   "utc": "2026-11-25T01:04Z",
    "since_utc": "2026-11-25T01:02Z",
    "productive_min": 4,
    "deliverables": [
@@ -3069,7 +3088,11 @@
     "verification:ops/reviews/illinois-assisted-living-involuntary-move-out.md (drafts babc23c)",
     "verification:ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md (drafts 2dfe3dc)",
     "verification:ops/reviews/va-home-based-primary-care-and-aide.md (drafts 38ba709)"
-   ]
+   ],
+   "current": {
+    "what": "plan:publish",
+    "since_utc": "2026-11-25T01:04Z"
+   }
   },
   "monitor": {
    "last_utc": "2026-11-24T18:26Z"
@@ -3358,9 +3381,9 @@
      88
     ],
     "owner_open": 2,
-    "cooldown_until_utc": "2026-11-24T05:41Z",
-    "last_planned_utc": "2026-11-23T17:41Z",
-    "last_plan_result": "ops/reviews/ is empty: no draft has a publish-ready packet, so no publish package can be prepared yet. Draft-review sweep runs next for the 4 reviewable drafts.",
+    "cooldown_until_utc": "",
+    "last_planned_utc": "2026-11-25T01:04Z",
+    "last_plan_result": "Read ops/reviews/ (7 packets with counts lines): 3 publish-ready, 4 publish-ready after corrections now verified (ACQ-064..067). One batch task passed the gate (score 4x4/3); no other publish candidate (live audits go to #89).",
     "wip_note": "Limit 3 open publish pull requests since 24 Nov 2026 (was 2): batches are stacked, so the newest one publishes all of them with a single merge."
    },
    {
@@ -3505,6 +3528,7 @@
    }
   ],
   "log": [
+   "2026-11-25T01:04Z publish +1: Read ops/reviews/ (7 packets with counts lines): 3 publish-ready, 4 publish-ready after corrections now verified (ACQ-064..067). One batch task passed the gate…",
    "2026-11-24T18:40Z build +0: Same evidence pass as sweep asset-gaps at 18:37Z: 39 guide slugs on main+drafts, DEMAND Open/Done, no new Search Console read, measured channel results (Facebo…",
    "2026-11-24T06:40Z demand +0: Second pass 24 Nov: DEMAND.md Open holds 2 topics added this session (3496888); no further question with dated public evidence that no guide or DEMAND entry co…",
    "2026-11-24T06:40Z build +0: Third pass 24 Nov: hospice while living in a facility already covered (medicare-hospice-benefit-explained); hospital-to-rehab facility choice still lacks a dat…",
