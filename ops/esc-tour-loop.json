@@ -2543,10 +2543,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-25T01:02Z",
-  "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
-  "picked": "ACQ-057 done, ACQ-058 done, ACQ-059 done, ACQ-060 done, ACQ-061 done, ACQ-062 done, ACQ-063 done, ACQ-068 done, ACQ-069 done, ACQ-070 done, ACQ-071 done, ACQ-072 done; queued for a later session: ACQ-064..067 (verify), not_run this RUN",
-  "why": "Worked: 7 drafts re-reviewed under the scope rule (4 corrected on drafts, 3 publish-ready), 5 live guides audited (3 corrected in review PR #89); stopped: no-worthwhile-work; resume: next session verifies 4 corrections, then the publish batch"
+  "utc": "2026-11-25T01:17Z",
+  "event": "Make controller: completion of cse_014eaiSarrUfj6PScmQNGxys",
+  "picked": "ACQ-064 done, ACQ-065 done, ACQ-066 done, ACQ-067 done, ACQ-073 done, ACQ-074 done, ACQ-075 done, ACQ-077 done, ACQ-076 waiting_on_data",
+  "why": "Worked: 4 corrections verified, publish batch PR #90 (7 guides), 3 live audits (1 with corrections in #89); stopped: no-worthwhile-work; resume: monitor and sweeps from 06:26Z, or a merge of #90/#89"
  },
  "last_verified_action": "ACQ-077 done 2026-11-25T01:16Z: Audited live illinois-community-care-program (main 4dc2468) against the IDoA CCP page and the HFS Persons who are Elderly waiver page, both fetched 2026-11-25.…",
  "last_stop": {
@@ -2631,7 +2631,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "25 Nov 01:02Z (session cse_014eaiSarrUfj6PScmQNGxys): all 7 drafts re-reviewed under the scope rule; 4 corrections on drafts await verification by the next session (ACQ-064..067), then the publish-ready sweep can build one batch of all 7 replacing #87/#88. Live accuracy: 5 guides audited, 3 corrected in rolling PR #89; next live-accuracy check 12:50Z. Waiting on Joseph: #89 and the tracking/search PRs; do not merge #87/#88 alone.",
+ "next_discovery": "Next due: monitor and planner cooldown at 06:26Z, then demand-questions, asset-gaps and draft-review sweeps from 06:34Z, live-accuracy 12:50Z; ACQ-076 (VA Dec 2026 rates) from 3 Dec. Waiting on Joseph: merge PR #90 (7 guides, contains #87 and #88), the #89 accuracy PR, and a yes/no on replacing the Medicaid guide's personal-needs-allowance refusal with HFS's $60 figure.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -3208,25 +3208,72 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiSaeYoez1bK3E9MFwz4",
-   "utc": "2026-11-25T01:17Z",
-   "since_utc": "2026-11-25T01:02Z",
-   "productive_min": 20,
-   "deliverables": [
-    "verification:ops/reviews/illinois-nursing-home-responsible-party.md (drafts 2c46e74)",
-    "verification:ops/reviews/illinois-assisted-living-involuntary-move-out.md (drafts babc23c)",
-    "verification:ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md (drafts 2dfe3dc)",
-    "verification:ops/reviews/va-home-based-primary-care-and-aide.md (drafts 38ba709)",
-    "publish_pr:PR #90",
-    "audit:ops/reviews/live/illinois-medicaid-long-term-care.md; PR #89 commit d396ad4",
-    "audit:ops/reviews/live/va-aid-and-attendance-benefit.md",
-    "audit:ops/reviews/live/illinois-community-care-program.md"
-   ]
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-24T18:26Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSaeYoez1bK3E9MFwz4",
+    "start_utc": "2026-11-25T01:02Z",
+    "end_utc": "2026-11-25T01:17Z",
+    "launch": "completion of cse_014eaiSarrUfj6PScmQNGxys",
+    "outcome": "Worked: 4 corrections verified, publish batch PR #90 (7 guides), 3 live audits (1 with corrections in #89); stopped: no-worthwhile-work; resume: monitor and sweeps from 06:26Z, or a merge of #90/#89",
+    "done": 8,
+    "changed": 13,
+    "tasks": "ACQ-064 done, ACQ-065 done, ACQ-066 done, ACQ-067 done, ACQ-073 done, ACQ-074 done, ACQ-075 done, ACQ-077 done, ACQ-076 waiting_on_data",
+    "next": "no",
+    "wake_minutes": 279,
+    "next_due_utc": "2026-11-25T06:26Z",
+    "plan_due": false,
+    "saturated": [
+     "publish",
+     "conversion"
+    ],
+    "budget_used_hours_24h": 1.2,
+    "budget_used_hours_7d": 1.8,
+    "productive_min": 20,
+    "deliverables": [
+     "verification:ops/reviews/illinois-nursing-home-responsible-party.md (drafts 2c46e74)",
+     "verification:ops/reviews/illinois-assisted-living-involuntary-move-out.md (drafts babc23c)",
+     "verification:ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md (drafts 2dfe3dc)",
+     "verification:ops/reviews/va-home-based-primary-care-and-aide.md (drafts 38ba709)",
+     "publish_pr:PR #90",
+     "audit:ops/reviews/live/illinois-medicaid-long-term-care.md; PR #89 commit d396ad4",
+     "audit:ops/reviews/live/va-aid-and-attendance-benefit.md",
+     "audit:ops/reviews/live/illinois-community-care-program.md"
+    ],
+    "stop_reason": "no-worthwhile-work",
+    "considered": "Ready verifications ACQ-064..067 all done. Plan: publish lane planned (+1, worked: PR #90); publish now saturated (3 open PRs, waiting on Joseph); conversion saturated; build, demand, search, technical, distribution, partnerships cooling until 06:26-06:40Z. Sweeps: none due (publish-ready waits on Joseph; demand-questions, asset-gaps, draft-review 06:34-06:37Z; live-accuracy 12:50Z). Fallback: quality (medicaid-ltc and va-pension audits +2, ccp audit +1, cost-guide audit +0 blocked by unreachable ilga.gov), needs (tax deduction: irs.gov not an allowed host; bed hold: already in resident-rights guide; +0), search (production crawl clean; +0). Event waits: ACQ-017 PR #85 still open; ACQ-007 w…",
+    "resume_when": "monitor and planner cooldown at 2026-11-25T06:26Z; sweeps demand-questions, asset-gaps, draft-review from 06:34Z; or Joseph merging #90 or #89, or answering the personal-needs-allowance gate question",
+    "sweep_due_left": [],
+    "sessions_24h": 4,
+    "handoff": null,
+    "backlog_discovery": {
+     "explorations": 5,
+     "avenue_classes": [
+      "needs",
+      "quality",
+      "search"
+     ],
+     "tasks_added": 3,
+     "concluded": {
+      "utc": "2026-11-25T01:17Z",
+      "run": "cse_014eaiSaeYoez1bK3E9MFwz4",
+      "explorations": 5,
+      "avenue_classes": [
+       "needs",
+       "quality",
+       "search"
+      ],
+      "tasks_added": 3,
+      "skipped": null,
+      "rest_hours": 12
+     }
+    }
+   },
    {
     "run": "cse_014eaiSarrUfj6PScmQNGxys",
     "start_utc": "2026-11-25T00:36Z",
@@ -3436,16 +3483,16 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-25T01:02Z",
-   "eligible_now": 4,
+   "written_utc": "2026-11-25T01:17Z",
+   "eligible_now": 0,
    "next_due": [
-    {
-     "utc": "2026-11-25T01:49Z",
-     "what": "sweep angle publish-ready"
-    },
     {
      "utc": "2026-11-25T06:26Z",
      "what": "monitor"
+    },
+    {
+     "utc": "2026-11-25T06:26Z",
+     "what": "planner cooldown ends"
     },
     {
      "utc": "2026-11-25T06:34Z",
@@ -3868,7 +3915,7 @@
    "explore_recheck_days": 14,
    "exhausted_base_hours": 12,
    "exhausted_max_hours": 96,
-   "exhausted_until_utc": "",
+   "exhausted_until_utc": "2026-11-25T13:17Z",
    "empty_streak": 0,
    "log": [
     {
@@ -3933,7 +3980,20 @@
     }
    ],
    "why": "Joseph, 24 Nov 2026: \"Maintain a replenishing backlog instead of relying exclusively on scheduled discovery windows.\" \"Do not manufacture meaningless work to consume usage.\"",
-   "how": "Procedure step 7, INDEPENDENT BACKLOG FALLBACK and RECORDING IT. One explore record per avenue; a key is not explored twice in 14 days without new evidence; close refuses no-worthwhile-work until three avenue classes are recorded or --fallback-skipped says why; after an empty conclusion discovery rests 12 hours, doubling to 96."
+   "how": "Procedure step 7, INDEPENDENT BACKLOG FALLBACK and RECORDING IT. One explore record per avenue; a key is not explored twice in 14 days without new evidence; close refuses no-worthwhile-work until three avenue classes are recorded or --fallback-skipped says why; after an empty conclusion discovery rests 12 hours, doubling to 96.",
+   "last_conclusion": {
+    "utc": "2026-11-25T01:17Z",
+    "run": "cse_014eaiSaeYoez1bK3E9MFwz4",
+    "explorations": 5,
+    "avenue_classes": [
+     "needs",
+     "quality",
+     "search"
+    ],
+    "tasks_added": 3,
+    "skipped": null,
+    "rest_hours": 12
+   }
   }
  }
 }
