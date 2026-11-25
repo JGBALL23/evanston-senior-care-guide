@@ -3355,11 +3355,9 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "",
-   "utc": "",
-   "deliverables": [
-    "verification:ops/reviews/live/va-veteran-directed-care-program.md; PR #89 commit 3cd72d7"
-   ]
+   "holder": "cse_014eaiSeZV5K4aUnZndensii",
+   "utc": "2026-11-25T06:24Z",
+   "since_utc": "2026-11-25T06:24Z"
   },
   "monitor": {
    "last_utc": "2026-11-24T18:26Z"
