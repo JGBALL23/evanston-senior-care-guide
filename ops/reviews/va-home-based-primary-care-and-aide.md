@@ -45,3 +45,5 @@ Corrections applied: drafts 38ba709, 2026-11-25, cse_014eaiSarrUfj6PScmQNGxys (b
 Quotations checked: 13. Claims scope-checked: 14. Scope defects: 1. Corrections required: 1.
 
 Verdict: publish-ready after corrections (one word restoring the primary-caregiver limit; packaging waits for "Corrections verified")
+
+Corrections verified: 2026-11-25, cse_014eaiSaeYoez1bK3E9MFwz4 (drafts 38ba709 re-read against its source; quotecheck 13/13 found; scope of each changed sentence matches its source).
