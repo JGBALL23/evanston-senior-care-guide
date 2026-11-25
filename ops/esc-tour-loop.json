@@ -3564,10 +3564,10 @@
     }
    ]
   },
-  "procedure": "v4.3.2 (v4.3.1 checked against the helper and the Make controller; backlog discovery recorded with explore; scope rule and quotation checker in reviews; corrections verified by a later session; publish batches)"
+  "procedure": "v4.3.3 (25 Nov 2026 01:35Z: v4.3.2 after its first production chain; hand-off tasks are not a session's own backlog, live corrections are verified and keep the library date, pinned tests are re-pinned inside the review pull request, an open batch is updated in place, pull requests are kept mergeable)"
  },
  "planner": {
-  "version": "4.3.2",
+  "version": "4.3.3",
   "added_utc": "2026-11-23T03:31Z",
   "why": "Joseph, 22 Nov 2026 20:54 Chicago: redesign around continuous, meaningful execution; when the backlog gets low, generate and prioritize new evidence-based opportunities instead of stopping; no filler; measure qualified traffic, inquiries, referrals and tours, not task counts.",
   "enabled": true,
