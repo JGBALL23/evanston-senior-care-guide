@@ -356,6 +356,8 @@ SRC = {
                                 'shoppers-guide-ltc-insur.pdf'),
     "ship_ltc": ('Illinois Department on Aging — SHIP, Long-Term Care Insurance',
                  'https://ilaging.illinois.gov/ship/long-term-care-insurance.html'),
+    "hfs_slp": ('Illinois HFS — Supportive Living Program',
+                'https://hfs.illinois.gov/medicalprograms/slf.html'),
 }
 
 
@@ -5993,7 +5995,7 @@ GUIDES = [
                    "their own policy, so the first step is to find it and read "
                    "three parts: who qualifies, where care is covered and when "
                    "payments start."),
-        "sources": srcs("idoi_ltc", "ship_ltc_shoppers_guide", "idoi_complaints", "ship_ltc"),
+        "sources": srcs("idoi_ltc", "ship_ltc_shoppers_guide", "idoi_complaints", "ship_ltc", "hfs_slp"),
         "body": [
             ("Start with the policy, not the sales brochure", [
                 "<p>The Department of Insurance tells policyholders to read the "
@@ -6058,7 +6060,7 @@ GUIDES = [
                 "whichever test the policy uses.</p>",
             ]),
             ("When payments start: the elimination period", [
-                "<p>Most policies do not pay from the first day. The Shopper&rsquo;s "
+                "<p>Many policies do not pay from the first day. The Shopper&rsquo;s "
                 "Guide states that the elimination period &ldquo;can be 20, 30, 60, "
                 "90 or 100 days before benefits begin,&rdquo; and that &ldquo;you "
                 "must pay for your own care during the elimination period before "
@@ -6123,10 +6125,19 @@ GUIDES = [
             ("Where the policy fits in the bigger picture", [
                 "<p>A policy pays only up to the limits written in it, so it may "
                 "not settle the whole question of paying for care. If savings "
-                "may run out later, "
+                "may run out later, Medicaid does not simply pick up an assisted "
+                "living bill. One Illinois Medicaid route into this kind of "
+                "residence is the Supportive Living Program, which HFS describes "
+                "as &ldquo;an alternative to nursing home care for low-income older "
+                "persons and persons with physical disabilities under "
+                "Medicaid&rdquo;; there, HFS says, &ldquo;The resident is "
+                "responsible for paying the cost of room and board at the "
+                "facility.&rdquo; "
+                "<a href=\"/guides/illinois-supportive-living-program/\">The "
+                "Supportive Living Program guide</a> explains it, and "
                 "<a href=\"/guides/illinois-medicaid-long-term-care/\">the Illinois "
-                "Medicaid long-term care guide</a> explains how the state can take "
-                "over. The Illinois Department on Aging&rsquo;s SHIP page on "
+                "Medicaid long-term care guide</a> covers nursing home care and "
+                "care at home. The Illinois Department on Aging&rsquo;s SHIP page on "
                 "long-term care insurance lists its Senior HelpLine, "
                 "<strong>1-800-252-8966</strong>.</p>",
                 "<p>If you are still working out whether assisted living is the "
