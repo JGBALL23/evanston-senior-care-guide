@@ -2,7 +2,7 @@
   "schema": 1,
   "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
   "updated_utc": "2026-11-18T23:05Z",
-  "last_run_utc": "2026-11-25T19:15Z",
+  "last_run_utc": "2026-11-25T22:20Z",
   "facebook": {
     "access": {
       "value": "yes",
@@ -490,7 +490,6 @@
     ]
   },
   "log": [
-    "2026-11-19T00:00Z venue search (owner asked to use the wait): 3 groups read, 0 eligible; caregiver groups are mostly national job boards; joins already at 5 today",
     "2026-11-19T00:24Z outreach: E-1118-10 sent (municipal senior services, published role address; preflight clean)",
     "2026-11-19T00:32Z review: tour engine ready list empty; funnel since 16 Nov = single-digit genuine visitors, some checklist opens, 1 tour-questions view, 0 assessment starts, 0 tour-form views; homepage tour section already links the tour request, so the bottleneck is volume of families reached, not the page. Shift effort to referral outreach (business hours) and owner phone/flyer drops; scanning gets leftover time",
     "2026-11-19T03:50Z loop: Chrome not connected, so the 21:45 lead scan was skipped; no org replies except one automatic reply (E-1118-03: HR desk answers in 2-3 business days and names a separate general-HR inbox for caregiving questions; not re-sending to the same organization, wait for their reply); tour engine ready list empty. Next wake 7:30 Chicago for business-hours outreach",
@@ -529,7 +528,8 @@
     "2026-11-25T15:05Z posted template C to Evanston/Skokie neighbors (fb-evsk-1125), published at once; 3 posts in trailing 7 days after this",
     "2026-11-25T15:10Z morning lead scan 11 groups, 367 posts, 0 new leads; E-1125-02 sent (Glenview Senior Services, em-1125b); checked New Trier Township (lists NSSC, already contacted) and Family Service of Glencoe (already contacted); follow-ups held: nothing new to add",
     "2026-11-25T17:12Z check: fb-evsk-1125 live (2 posts of his in that group), 0 reactions, 0 comments; corrected permalink sent to Joseph (morning push linked the wrong post); no org replies",
-    "2026-11-25T19:15Z afternoon lead scan 11 groups, 215 posts, 0 new leads; fb-evsk-1125 still 0 comments; no org replies"
+    "2026-11-25T19:15Z afternoon lead scan 11 groups, 215 posts, 0 new leads; fb-evsk-1125 still 0 comments; no org replies",
+    "2026-11-25T22:20Z engagement check: Rogers Park, Winnetka and Evanston/Skokie (25 Nov) posts all live, 0 reactions, 0 comments; no org replies"
   ],
   "next_actions": [
     "17:05Z: check fb-evsk-1125 engagement + Rogers Park/Winnetka comments",
@@ -656,8 +656,8 @@
   },
   "due": {
     "post_next": "2026-11-26T15:00Z",
-    "fb_checks": "2026-11-25T23:05Z",
-    "lead_scan": "2026-11-25T22:15Z",
+    "fb_checks": "2026-11-26T15:00Z",
+    "lead_scan": "2026-11-25T23:31Z",
     "metrics": "2026-11-19T00:05Z",
     "venues": "2026-11-25T15:00Z",
     "evanston_join_status": "2026-11-19T15:00Z",
