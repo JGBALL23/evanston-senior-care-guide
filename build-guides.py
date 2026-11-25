@@ -6440,7 +6440,7 @@ LOCAL_AL_HREF = "/assisted-living-evanston/"
 def local_al_line(g):
     if g["slug"] not in LOCAL_AL_GUIDES:
         return ""
-    return ('<p class="related__pay">Looking in Evanston itself? '
+    return ('<p class="related__local">Looking in Evanston itself? '
             '<a href="%s">Assisted living in Evanston, Illinois</a> shows how '
             'to compare local care, costs and licenses and what to bring to '
             'a tour.</p>\n' % LOCAL_AL_HREF)
