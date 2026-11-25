@@ -120,22 +120,6 @@
    "not_before": "Timing, not data: 2027 figures are already on medicare.gov (read 2026-11-23). Prepare the PR in December so it is fresh when Joseph merges it for 1 Jan 2027."
   },
   {
-   "id": "ACQ-061",
-   "task": "Review illinois-parent-refuses-to-move-guardianship again under the review rules of procedure v4.3.2 (quotation checker, then the scope rule): its packet ops/reviews/illinois-parent-refuses-to-move-guardianship.md was written before the scope rule and has no scope table or counts line",
-   "workstream": "build",
-   "lane": "build",
-   "source": "operator",
-   "seeded_by": "main chat for Joseph, 24 Nov 2026 18:05 Chicago: \"Correct the known content accuracy problems and strengthen the review process.\"",
-   "key": "rereview:illinois-parent-refuses-to-move-guardianship",
-   "priority": 1,
-   "evidence": "A scope defect passed the 24 Nov review of medicare-fast-appeal-hospital-rehab-discharge: a Medicare.gov sentence about what \"your plan\" does was presented as the rule for everyone in a skilled nursing facility. quotecheck on drafts cf6aaf8, 25 Nov 2026 00:25Z: 23 of 23 quotations of this page are found word for word in its 3 cited pages, so the wording holds and scope is the open question.",
-   "expected_tour_acquisition_value": "Nothing reaches families until Joseph merges a publish pull request, and he should only be asked to merge pages whose every claim applies to the reader the page addresses.",
-   "executor": "worker (research and preparation only)",
-   "done_when": "ops/reviews/illinois-parent-refuses-to-move-guardianship.md rewritten under the review rules with its table, counts line and verdict; each required correction applied on drafts and its verify task queued for a later session; or the verdict publish-ready with zero scope defects",
-   "status": "ready",
-   "found_utc": "2026-11-25T00:27Z"
-  },
-  {
    "id": "ACQ-062",
    "task": "Review va-home-based-primary-care-and-aide again under the review rules of procedure v4.3.2 (quotation checker, then the scope rule): its packet ops/reviews/va-home-based-primary-care-and-aide.md was written before the scope rule and has no scope table or counts line",
    "workstream": "build",
@@ -2116,6 +2100,37 @@
    },
    "done_utc": "2026-11-25T00:45Z",
    "minutes": 2
+  },
+  {
+   "id": "ACQ-061",
+   "task": "Review illinois-parent-refuses-to-move-guardianship again under the review rules of procedure v4.3.2 (quotation checker, then the scope rule): its packet ops/reviews/illinois-parent-refuses-to-move-guardianship.md was written before the scope rule and has no scope table or counts line",
+   "workstream": "build",
+   "lane": "build",
+   "source": "operator",
+   "seeded_by": "main chat for Joseph, 24 Nov 2026 18:05 Chicago: \"Correct the known content accuracy problems and strengthen the review process.\"",
+   "key": "rereview:illinois-parent-refuses-to-move-guardianship",
+   "priority": 1,
+   "evidence": "A scope defect passed the 24 Nov review of medicare-fast-appeal-hospital-rehab-discharge: a Medicare.gov sentence about what \"your plan\" does was presented as the rule for everyone in a skilled nursing facility. quotecheck on drafts cf6aaf8, 25 Nov 2026 00:25Z: 23 of 23 quotations of this page are found word for word in its 3 cited pages, so the wording holds and scope is the open question.",
+   "expected_tour_acquisition_value": "Nothing reaches families until Joseph merges a publish pull request, and he should only be asked to merge pages whose every claim applies to the reader the page addresses.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/illinois-parent-refuses-to-move-guardianship.md rewritten under the review rules with its table, counts line and verdict; each required correction applied on drafts and its verify task queued for a later session; or the verdict publish-ready with zero scope defects",
+   "status": "done",
+   "found_utc": "2026-11-25T00:27Z",
+   "result": "Re-reviewed under v4.3.2 rules. quotecheck 23/23 FOUND on the two GAC pages and IDoA APS. 16 claims scope-checked, including the paraphrases (Health Care Surrogate Act, 3-month evaluation window, guardian ad litem, Probate Clerk report form, OSG only when no other suitable person). All are Illinois-wide rules applied to Illinois adults; APS scope (living in the community) matches the at-home reader. 0 scope defects, 0 corrections. Verdict publish-ready; never in a publish PR, so it qualifies for the next batch.",
+   "verdicts": [
+    "publish-ready"
+   ],
+   "sources": [
+    "https://gac.illinois.gov/aboutus/guard-faq.html",
+    "https://gac.illinois.gov/osg/guardianship-fact-sheet.html",
+    "https://ilaging.illinois.gov/programs/adult-protective-services-aps-.html"
+   ],
+   "deliverable": {
+    "type": "review_packet",
+    "ref": "ops/reviews/illinois-parent-refuses-to-move-guardianship.md"
+   },
+   "done_utc": "2026-11-25T00:46Z",
+   "minutes": 2
   }
  ],
  "blocked": [],
@@ -2126,7 +2141,7 @@
   "picked": "ACQ-055 done, ACQ-056 done",
   "why": "Worked: monitor (site OK, ~2 genuine, 0 tour requests) and 2 publish-ready review packets (Medicaid-pending, guardianship); stopped: no-worthwhile-work; resume: monitor 25 Nov 06:26Z"
  },
- "last_verified_action": "ACQ-060 done 2026-11-25T00:45Z: Re-reviewed under v4.3.2 rules. quotecheck 20/20 FOUND across 7 Illinois sources. 14 claims scope-checked (audit deadlines and sample figures re-read in the Ju…",
+ "last_verified_action": "ACQ-061 done 2026-11-25T00:46Z: Re-reviewed under v4.3.2 rules. quotecheck 23/23 FOUND on the two GAC pages and IDoA APS. 16 claims scope-checked, including the paraphrases (Health Care Surro…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -2787,14 +2802,15 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSarrUfj6PScmQNGxys",
-   "utc": "2026-11-25T00:45Z",
+   "utc": "2026-11-25T00:46Z",
    "since_utc": "2026-11-25T00:36Z",
-   "productive_min": 10,
+   "productive_min": 12,
    "deliverables": [
     "review_packet:ops/reviews/illinois-nursing-home-responsible-party.md; drafts 2c46e74",
     "review_packet:ops/reviews/illinois-assisted-living-involuntary-move-out.md; drafts babc23c",
     "review_packet:ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md; drafts 2dfe3dc",
-    "review_packet:ops/reviews/illinois-medicaid-pending-nursing-home.md"
+    "review_packet:ops/reviews/illinois-medicaid-pending-nursing-home.md",
+    "review_packet:ops/reviews/illinois-parent-refuses-to-move-guardianship.md"
    ]
   },
   "monitor": {

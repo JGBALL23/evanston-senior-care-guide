@@ -1,55 +1,44 @@
 # Review packet: illinois-parent-refuses-to-move-guardianship
 
-- Date: 2026-11-24
-- Reviewer: ESCG worker (session cse_014eaiSeCbxcXmLkr5rR2XFr; the draft was built by session cse_014eaiSaawGGbUyc4hBUU42n, drafts cf6aaf8)
-- Draft: GUIDES entry `illinois-parent-refuses-to-move-guardianship` in drafts build-guides.py (rendered: _dist/guides/illinois-parent-refuses-to-move-guardianship/index.html, drafts cf6aaf8)
+- Date: 2026-11-25
+- Reviewer: ESCG worker, session cse_014eaiSarrUfj6PScmQNGxys (task ACQ-061, key rereview:illinois-parent-refuses-to-move-guardianship)
+- Draft reviewed: drafts cf6aaf8 (built by session cse_014eaiSaawGGbUyc4hBUU42n, ACQ-054)
+- Rules: procedure v4.3.2 review rules. This packet replaces the 24 Nov packet (verdict publish-ready), which had no scope table or counts line.
+- Quotation checker: 23 quotations, 23 FOUND, 0 NEAR MATCH, 0 NOT FOUND; 1 short term found; 3 cited pages, 0 unreadable.
 
-## Sources fetched (24 Nov 2026, 18:2x UTC)
+## Sources (fetched 2026-11-25)
 
-| # | Cited key | URL | Status | Use |
-|---|-----------|-----|--------|-----|
-| 1 | gac_fact_sheet | https://gac.illinois.gov/osg/guardianship-fact-sheet.html | 200 | Office of State Guardian fact sheet: test, kinds, hearing, temporary guardian, fees, who serves, intake number |
-| 2 | gac_faq | https://gac.illinois.gov/aboutus/guard-faq.html | 200 | presumption of capacity, four questions, alternatives, POA and surrogate acts, report, rights, guardian ad litem, Cook County rules, timing, revocation |
-| 3 | idoa_aps_program | https://ilaging.illinois.gov/programs/adult-protective-services-aps-.html | 200 | APS scope and hotline |
+1. Illinois Guardianship and Advocacy Commission, "Frequently Asked Questions About Guardianship" (gac.illinois.gov/aboutus/guard-faq.html). Scope: adults in Illinois; sections "Court Procedures", "Preliminary Steps", "Guardians ad Litem", "Attorney Representation and Other Protections".
+2. GAC Office of State Guardian, Guardianship fact sheet (gac.illinois.gov/osg/guardianship-fact-sheet.html). Scope: Illinois adult guardianship; sections "GUARDIANSHIP FACTS", "INITIATING THE LEGAL PROCESS".
+3. Illinois Department on Aging, Adult Protective Services page. Scope: adults 60+ and adults 18–59 with disabilities living in the community.
 
-## Quote audit
+## Scope table
 
-Script: extracted every “…” from the rendered guide's main content, normalised whitespace, apostrophes and dashes, and searched each fetched source text. 24 quotes, 24 matched word for word. Attribution checked: quotes the guide gives to "the fact sheet" are on source 1; those given to the "questions-and-answers page" or "the Commission" are on source 2.
+| # | Guide's claim | Guide's scope | Source's scope (heading / context) | Result |
+|---|---|---|---|---|
+| 1 | Adults presumed capable; only the circuit court can appoint a guardian for an adult | Illinois adults | Src 1 Q2 | same |
+| 2 | Disability alone is not enough; guardianship needed when unable to make and communicate responsible decisions due to disability | Illinois adults | Src 2 "GUARDIANSHIP FACTS" | same |
+| 3 | Ill-advised decisions are not the test; four questions; inability about where to live and when to seek medical care indicates possible need | Illinois adults | Src 1 "Court Procedures" | same |
+| 4 | Alternatives first: payees, financial counselling, bill paying, living trusts, homemaker and in-home support | Illinois | Src 1 ("All possible alternatives should be explored…") | same |
+| 5 | Power of Attorney Act agent for property or personal and health care; "no court involvement" | Illinois | Src 1 | same |
+| 6 | Health Care Surrogate Act: a relative or friend can make some medical decisions for a person who lacks capacity, without court appointment | Illinois, person lacking capacity | Src 1: "a parent, spouse, child, sibling, relative, or friend of a person who lacks capacity … may act without court appointment"; applies where no guardian or POA exists | same ("some medical decisions" does not overstate) |
+| 7 | APS investigates abuse, neglect, exploitation and self-neglect of adults 60+ and 18–59 with disabilities living in the community; hotline 1-866-800-1409 | a parent living at home | Src 3 | same |
+| 8 | Guardian of the person decides medical treatment, residential placement, social services; guardian of the estate; limited or plenary | Illinois | Src 2 | same |
+| 9 | Physician report on evaluations within 3 months of filing, with a living-arrangement recommendation | Illinois petitions | Src 1 "Preliminary Steps" (Probate Act 11a-9) | same |
+| 10 | Petition by an interested person in the county where the parent lives; hearing within 30 days | Illinois | Src 1 ("the court in the county where the person with disabilities resides"); Src 2 "INITIATING THE LEGAL PROCESS" | same |
+| 11 | Right to court-appointed attorney and jury of six; most counties appoint a guardian ad litem | Illinois respondents | Src 1 "Attorney Representation…" and "Guardians ad Litem" ("Most counties in Illinois require the appointment…"; some courts waive it) | same |
+| 12 | Temporary guardian, no longer than 60 days, only with demonstrated harm or emergency | Illinois | Src 2 | same |
+| 13 | 14 days to two months to decision; petitioner usually pays filing, sheriff's and attorney's fees; costly and complicated | Illinois | Src 1 "Court Procedures"; Src 2 | same |
+| 14 | Family not automatically named; OSG serves only when no other suitable person is willing | Illinois | Src 2 ("serves as guardian only when no other person is suitable and willing") | same |
+| 15 | Cook County rules in Part 12; Probate Clerk can usually supply the report form; OSG intake 1-866-274-8023 | Cook County / Illinois | Src 1 ("A pre-printed form for the report can usually be obtained from the Probate Clerk"); Src 2 | same |
+| 16 | Never retaliatory or for convenience; extremely difficult to revoke; OSG attorney or legal assistance agency for a family filing without one | Illinois | Src 2; Src 1 | same |
 
-## Claims and figures checked against the source
+Links: assisted-living-cost-illinois, does-medicare-pay-for-senior-care, illinois-advance-directive-power-of-attorney, illinois-elder-abuse-reporting, illinois-supportive-living-program are live on main. Advice: alternatives first, APS for self-neglect, attorney before filing, Cook County specifics for Evanston families: right for the reader. No community ranking, no Westminster Place claim or price.
 
-- Only the circuit court can appoint a guardian for an adult: holds (source 2, quoted).
-- Guardian of the person decides residential placement: holds (source 1, quoted).
-- Guardianship as a last resort; alternatives first: holds (source 1, "Guardianship should be considered a last resort"; source 2, quoted).
-- "age or illness alone is not enough": holds (source 1, "The fact that a person is elderly, mentally ill, developmentally disabled, or physically disabled does not necessarily indicate a need for guardianship").
-- Inability to make sound decisions about where to live and when to seek medical care as an indication: holds (source 2, "The inability to make sound decisions about where to live, seek medical care ... is indication that a person may be in need of some guardianship services").
-- Alternatives named (representative or protective payees, financial counseling and bill-paying programs, living trusts, homemaker and in-home support): holds (source 2).
-- Power of Attorney Act (property or personal and health care decisions) and Health Care Surrogate Act (a relative or friend, no court appointment, person lacking capacity): holds (source 2).
-- APS scope, statewide 24-hour hotline 1-866-800-1409: holds (source 3).
-- Limited or plenary guardianship: holds (source 1).
-- Physician's report: certifies disability and need, evaluations within 3 months of filing, recommendation on the most suitable living arrangement, signed by a licensed physician: holds (source 2, "Preliminary Steps" and the report contents).
-- Petition by an "interested person" in the circuit court of the county where the person lives: holds (source 1; source 2, "This is the court in the county where the person with disabilities resides").
-- Right to a court-appointed attorney and a jury of six: holds (source 2, quoted).
-- Most counties appoint a guardian ad litem: holds (source 2, "Most counties in Illinois require the appointment of a guardian ad litem").
-- Temporary guardian while the case is pending, no longer than 60 days, only for demonstrated harm or emergency: holds (source 1).
-- 14 days to two months for a decision: holds (source 2, quoted; the guide does not attribute this one to the fact sheet).
-- Petitioner usually pays filing, sheriff's and attorney's fees: holds (source 1).
-- Family not automatically named; the judge decides; the Office of State Guardian serves only when no other suitable person is willing: holds (source 1).
-- Cook County rules in Part 12 of the Circuit Court's general rules; the report form usually from the Probate Clerk: holds (source 2; the page says the form "can usually be obtained from the Probate Clerk of the court where the guardianship proceeding would take place", which for a Cook County resident is the Cook County probate clerk).
-- Intake number 1-866-274-8023: holds (source 1).
-- Extremely difficult to revoke: holds (source 2, "Once established, it can be extremely difficult to revoke").
-- A family filing without a lawyer can consult an Office of State Guardian attorney or a legal assistance agency: holds (source 2).
-
-## Rule checks
-
-- Independent-guide disclosure and the assessment block: present (generated by build_guide; check-guides.js on drafts: 2570 passed, 0 failed).
-- No community named, ranked or recommended; no Westminster Place price or claim: none found (Westminster Place appears only in the standard disclosure); no dollar figures.
-- No unverified legal claim: every legal statement is quoted or paraphrased from the Guardianship and Advocacy Commission's own pages; the guide recommends talking to an attorney before filing.
-- Links: /, /guides/, /guides/illinois-advance-directive-power-of-attorney/, /guides/illinois-elder-abuse-reporting/, and in Related guides /guides/assisted-living-cost-illinois/, /guides/does-medicare-pay-for-senior-care/, /guides/illinois-supportive-living-program/: all live on main (checked 24 Nov 2026).
-- Bridge: one sentence, unique (check-guides.js passes).
-
-## Corrections
+## Required corrections
 
 None.
+
+Quotations checked: 23. Claims scope-checked: 16. Scope defects: 0. Corrections required: 0.
 
 Verdict: publish-ready
