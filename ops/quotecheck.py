@@ -16,11 +16,16 @@ Usage
 Result for each quotation of four or more words
   FOUND            the words are in a cited page (quote marks, list bullets, dashes, capitals and spacing
                    are not compared; a comma or full stop just inside the closing quote may be the guide's own)
+  NEAR MATCH       the words are in a cited page, but its hyphenation or punctuation differs from what the
+                   guide puts inside quotation marks. Both readings are printed. Correct the guide to the
+                   source's characters, unless the difference is only a hyphen that splits a word at a line
+                   end in a PDF
   NOT FOUND        the words are in none of the cited pages that could be read: a required correction,
                    unless a cited page could not be read (then check that page by hand)
   Shorter quotations are terms; they are listed, and a missing one is only a note.
 
-Exit code: 0 when every quotation of four or more words was found, 1 when any was not, 2 on a usage error.
+Exit code: 0 when every quotation of four or more words was FOUND, 1 when any was a NEAR MATCH or NOT FOUND,
+2 on a usage error.
 Standard library only (pdftotext is used for PDF pages when it is installed). Network: curl.
 """
 import argparse
@@ -53,23 +58,34 @@ def norm(s):
 DROP = set("'\"`\u2022\u25cf\u25e6\u25aa\u25a0\u00b7\u2023\uf0b7")
 
 
-def squeeze(s):
+def squeeze(s, level=0):
     """Text as compared: quote marks and list bullets removed (a guide turns a source's double quotes into
     single ones inside a quotation, and runs a bulleted list on as a sentence), spacing collapsed, lower case.
-    Returns the compared text and, for each of its characters, the position in the text given."""
+    level 1 also drops every space (a link or a line break inside a source sentence leaves a stray space),
+    level 2 also drops hyphens, level 3 keeps letters and digits only. Levels 2 and 3 are near matches: the
+    words are there, the characters differ. Returns the compared text and, for each of its characters, the
+    position in the text given."""
     out, idx, prev_space = [], [], True
     for i, ch in enumerate(s):
         if ch in DROP:
             continue
         if ch == " ":
-            if prev_space:
+            if prev_space or level >= 1:
                 continue
             prev_space = True
         else:
+            if level >= 2 and ch == "-":
+                continue
+            if level >= 3 and not ch.isalnum():
+                continue
             prev_space = False
         out.append(ch.lower())
         idx.append(i)
     return "".join(out), idx
+
+
+LEVELS = (0, 1, 2, 3)
+DIFFERS = {1: "spacing", 2: "hyphenation", 3: "punctuation"}
 
 
 class Blocks(HTMLParser):
@@ -174,21 +190,34 @@ class Source:
                 pos += len(t) + 1
             self.flat = " ".join(parts)
         elif kind == "pdf":
-            # PDF text breaks lines mid-sentence and hyphenates: join them
-            t = re.sub(r"(\w)-\n(\w)", r"\1\2", payload)
-            self.flat = norm(t)
-        self.low, self.idx = squeeze(self.flat)
+            # PDF text breaks lines mid-sentence. A hyphen at a line end is either a word split in two
+            # ("locali-" / "ty") or a real hyphen ("self-" / "sustain"): keep both readings.
+            self.flat = norm(re.sub(r"(\w)-[ \t]*\n\s*(\w)", r"\1\2", payload))
+            other = norm(re.sub(r"(\w)-[ \t]*\n\s*(\w)", r"\1-\2", payload))
+            self.variants = [self.flat] + ([other] if other != self.flat else [])
+        if not getattr(self, "variants", None):
+            self.variants = [self.flat]
+        self._sq = {}
+
+    def _squeezed(self, v, level):
+        if (v, level) not in self._sq:
+            self._sq[(v, level)] = squeeze(self.variants[v], level)
+        return self._sq[(v, level)]
 
     def find(self, needle):
-        """Position and length of the needle in the page text as displayed, or (-1, 0)."""
-        key = squeeze(needle)[0].strip()
-        if not key:
-            return -1, 0
-        j = self.low.find(key)
-        if j < 0:
-            return -1, 0
-        a, b = self.idx[j], self.idx[j + len(key) - 1]
-        return a, b - a + 1
+        """(position, length, level, variant) of the needle in the page text as displayed, or (-1, 0, 0, 0).
+        Exact comparison first; the looser levels only when it fails."""
+        for level in LEVELS:
+            key = squeeze(needle, level)[0].strip()
+            if len(key) < (2 if level == 0 else 12):
+                continue
+            for v in range(len(self.variants)):
+                low, idx = self._squeezed(v, level)
+                j = low.find(key)
+                if j >= 0:
+                    a, b = idx[j], idx[j + len(key) - 1]
+                    return a, b - a + 1, level, v
+        return -1, 0, 0, 0
 
     def heading_at(self, i):
         h = ""
@@ -198,9 +227,13 @@ class Source:
             h = head
         return h
 
-    def context(self, i, n, width):
-        a, b = max(0, i - width), min(len(self.flat), i + n + width)
-        return self.flat[a:i].strip(), self.flat[i + n:b].strip()
+    def context(self, i, n, width, v=0):
+        flat = self.variants[v]
+        a, b = max(0, i - width), min(len(flat), i + n + width)
+        return flat[a:i].strip(), flat[i + n:b].strip()
+
+    def exact(self, i, n, v=0):
+        return self.variants[v][i:i + n]
 
 
 def quotations(block_text):
@@ -216,20 +249,24 @@ def fragments(q):
 
 
 def locate(frag, sources):
-    """Find one fragment; a comma, semicolon or full stop just inside the closing quote may be the guide's own."""
+    """Find one fragment; a comma, semicolon or full stop just inside the closing quote may be the guide's own.
+    Returns the best hit over all sources: (source, position, length, final-punctuation-trimmed, level, variant)."""
     tries = [frag]
     if frag[-1:] in ".,;:":
         tries.append(frag[:-1].rstrip())
+    best = None
     for n, t in enumerate(tries):
         if len(t) < 2:
             continue
         for s in sources:
             if not s.flat:
                 continue
-            i, width = s.find(t)
-            if i >= 0:
-                return s, i, width, n == 1
-    return None, -1, 0, False
+            i, width, level, v = s.find(t)
+            if i >= 0 and (best is None or level < best[4]):
+                best = (s, i, width, n == 1, level, v)
+                if level == 0:
+                    return best
+    return best or (None, -1, 0, False, 0, 0)
 
 
 def check_slug(site, slug, cache, width):
@@ -258,29 +295,42 @@ def check_slug(site, slug, cache, width):
             seen.add(key)
             words = len(key.split())
             frs = fragments(q)
-            hits, missing, trimmed = [], [], False
+            hits, missing, trimmed, worst = [], [], False, 0
             for fr in frs:
                 # prefer the pages linked from the same block, then every cited page
                 near = [s for s in sources if s.url in b["links"]]
-                s, i, n, trim = locate(fr, near + [x for x in sources if x not in near])
+                s, i, n, trim, level, v = locate(fr, near + [x for x in sources if x not in near])
                 if s is None:
                     missing.append(fr)
                 else:
-                    before, after = s.context(i, n, width)
-                    hits.append({"source": s.url, "heading": s.heading_at(i), "before": before, "after": after})
+                    before, after = s.context(i, n, width, v)
+                    hit = {"source": s.url, "heading": s.heading_at(i) if v == 0 else "", "before": before, "after": after}
+                    if level:
+                        hit["differs_in"] = DIFFERS[level]
+                        hit["source_reads"] = s.exact(i, n, v)
+                        hit["guide_reads"] = fr
+                    hits.append(hit)
                     trimmed = trimmed or trim
-            status = "FOUND" if not missing else "NOT FOUND"
+                    worst = max(worst, level)
+            status = "NOT FOUND" if missing else ("NEAR MATCH" if worst >= 2 else "FOUND")
             rows.append({"quotation": key, "words": words, "kind": "quotation" if words >= 4 else "term",
                          "status": status, "final_punctuation_is_the_guides": trimmed,
                          "guide_heading": norm(b["heading"]), "guide_sentence": norm(b["text"])[:700],
                          "found": hits, "missing_fragments": missing})
     long_rows = [r for r in rows if r["kind"] == "quotation"]
-    bad = [r for r in long_rows if r["status"] != "FOUND"]
+    near = [r for r in long_rows if r["status"] == "NEAR MATCH"]
+    bad = [r for r in long_rows if r["status"] == "NOT FOUND"]
     return {"slug": slug, "cited_pages": [{"url": s.url, "kind": s.kind, "chars": len(s.flat), "note": s.note} for s in sources],
-            "unreadable_pages": unread, "quotations": len(long_rows), "found": len(long_rows) - len(bad),
-            "not_found": len(bad), "terms": len(rows) - len(long_rows),
+            "unreadable_pages": unread, "quotations": len(long_rows), "found": len(long_rows) - len(bad) - len(near),
+            "near_match": len(near), "not_found": len(bad), "terms": len(rows) - len(long_rows),
             "terms_not_found": sum(1 for r in rows if r["kind"] == "term" and r["status"] != "FOUND"),
             "rows": rows}
+
+
+NEAR_HELP = ("NEAR MATCH: the words are in the source, but its hyphenation or punctuation differs from what the guide puts "
+             "inside quotation marks. Compare GUIDE READS with SOURCE READS. Inside quotation marks the guide copies the "
+             "source character for character, so correct the guide to the source's characters; the one exception is a "
+             "hyphen that only splits a word at a line end in a PDF.")
 
 
 def show(res, width):
@@ -288,9 +338,11 @@ def show(res, width):
         print("%s: %s" % (res["slug"], res["error"]))
         return
     print("=" * 100)
-    print("%s: %d quotations, %d found, %d NOT FOUND; %d short terms (%d not found); %d cited pages, %d unreadable"
-          % (res["slug"], res["quotations"], res["found"], res["not_found"], res["terms"], res["terms_not_found"],
-             len(res["cited_pages"]), len(res["unreadable_pages"])))
+    print("%s: %d quotations, %d found, %d NEAR MATCH, %d NOT FOUND; %d short terms (%d not found); %d cited pages, %d unreadable"
+          % (res["slug"], res["quotations"], res["found"], res["near_match"], res["not_found"], res["terms"],
+             res["terms_not_found"], len(res["cited_pages"]), len(res["unreadable_pages"])))
+    if res["near_match"]:
+        print("  " + NEAR_HELP)
     for u in res["unreadable_pages"]:
         print("  UNREADABLE PAGE (check by hand): %s (%s)" % (u["url"], u["why"]))
     for n, r in enumerate(res["rows"], 1):
@@ -302,6 +354,9 @@ def show(res, width):
         for h in r["found"]:
             print("   SOURCE %s" % h["source"])
             print("     under the heading: %s" % (h["heading"] or "(no heading read; PDF or top of page)"))
+            if h.get("differs_in"):
+                print("     differs in %s. GUIDE READS:  %s" % (h["differs_in"], h["guide_reads"]))
+                print("     %s  SOURCE READS: %s" % (" " * len("differs in %s." % h["differs_in"]), h["source_reads"]))
             print("     before: ...%s" % h["before"][-width:])
             print("     after:  %s..." % h["after"][:width])
         for fr in r["missing_fragments"]:
@@ -333,10 +388,12 @@ def main():
     else:
         for r in results:
             show(r, a.context)
-        print("SUMMARY: " + "; ".join("%s %s/%s found%s" % (r["slug"], r.get("found", "?"), r.get("quotations", "?"),
-                                                              (", %d unreadable page(s)" % len(r["unreadable_pages"])) if r.get("unreadable_pages") else "")
-                                       for r in results))
-    sys.exit(1 if any(r.get("error") or r.get("not_found") for r in results) else 0)
+        print("SUMMARY: " + "; ".join("%s %s/%s found%s%s%s" % (
+            r["slug"], r.get("found", "?"), r.get("quotations", "?"),
+            (", %d NEAR MATCH" % r["near_match"]) if r.get("near_match") else "",
+            (", %d NOT FOUND" % r["not_found"]) if r.get("not_found") else "",
+            (", %d unreadable page(s)" % len(r["unreadable_pages"])) if r.get("unreadable_pages") else "") for r in results))
+    sys.exit(1 if any(r.get("error") or r.get("not_found") or r.get("near_match") for r in results) else 0)
 
 
 if __name__ == "__main__":
