@@ -1414,7 +1414,7 @@ GUIDES = [
                    "investigates facilities &mdash; call <strong>800-252-4343</strong>, "
                    "Monday&ndash;Friday 8:30 a.m. to 4:30 p.m. You do not have to choose "
                    "just one."),
-        "sources": srcs("idoa_ombudsman", "idoa_ombudsman_contact", "idph_ccr", "idph_ccr_form", "idoa_aps_program"),
+        "sources": srcs("idoa_ombudsman", "idoa_ombudsman_contact", "idph_ccr", "idph_ccr_form", "hfs_slf", "idoa_aps_program"),
         "body": [
             ("Two kinds of help, and when to use each", [
                 "<p>Families searching for how to complain about a care community "
@@ -1478,6 +1478,17 @@ GUIDES = [
                 "may file anonymously or leave contact information to receive written "
                 "notice of the outcome. Describing who, what, when, where and how gives "
                 "investigators the most to work with.</p>",
+            ]),
+            ("If your parent is in a supportive living facility", [
+                "<p>A supportive living facility under Illinois&rsquo;s Supportive "
+                "Living Program has its own complaint line, run by the Department of "
+                "Healthcare and Family Services rather than IDPH. The programme&rsquo;s "
+                "resident fact sheet states: &ldquo;Complaints concerning a Supportive "
+                "Living Program provider may be directed to the SLP complaint hotline: "
+                "1-844-528-8444&rdquo;. "
+                '<a href="/guides/illinois-supportive-living-program/">The Supportive '
+                "Living Program guide</a> explains how these facilities differ from "
+                "licensed assisted living.</p>",
             ]),
             ("The other number on the Ombudsman page", [
                 "<p>The Ombudsman Program's own page also carries a navigation link "
