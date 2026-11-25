@@ -120,24 +120,6 @@
    "not_before": "Timing, not data: 2027 figures are already on medicare.gov (read 2026-11-23). Prepare the PR in December so it is fresh when Joseph merges it for 1 Jan 2027."
   },
   {
-   "id": "ACQ-065",
-   "task": "Verify the corrections to illinois-assisted-living-involuntary-move-out",
-   "workstream": "build",
-   "lane": "build",
-   "source": "followup",
-   "key": "verify:illinois-assisted-living-involuntary-move-out:babc23c",
-   "not_run": [
-    "cse_014eaiSarrUfj6PScmQNGxys"
-   ],
-   "priority": 1,
-   "evidence": "drafts babc23c applied C1 of ops/reviews/illinois-assisted-living-involuntary-move-out.md (ACQ-058)",
-   "expected_tour_acquisition_value": "quality gate before publication",
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
-   "status": "ready",
-   "found_utc": "2026-11-25T00:42Z"
-  },
-  {
    "id": "ACQ-066",
    "task": "Verify the corrections to medicare-fast-appeal-hospital-rehab-discharge",
    "workstream": "build",
@@ -2357,6 +2339,35 @@
    "lesson": "A scope correction that names the payer or person in the same sentence as the quotation re-reads cleanly against the checker context.",
    "done_utc": "2026-11-25T01:03Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-065",
+   "task": "Verify the corrections to illinois-assisted-living-involuntary-move-out",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "verify:illinois-assisted-living-involuntary-move-out:babc23c",
+   "not_run": [
+    "cse_014eaiSarrUfj6PScmQNGxys"
+   ],
+   "priority": 1,
+   "evidence": "drafts babc23c applied C1 of ops/reviews/illinois-assisted-living-involuntary-move-out.md (ACQ-058)",
+   "expected_tour_acquisition_value": "quality gate before publication",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-25T00:42Z",
+   "result": "Re-read the changed sentence of drafts babc23c: 'a resident who appeals the termination has the right to continue to reside in the establishment until a decision is rendered'. On the IDPH Involuntary Termination form the sentence follows 'THE RESIDENT MAY INITIATE AN APPEAL BY' (call IDPH or send the Appeal Hearing Request), so limiting it to a resident who appeals matches the source scope. Quotation checker 8/8 FOUND. Packet line added.",
+   "verdicts": [
+    "corrections verified"
+   ],
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/illinois-assisted-living-involuntary-move-out.md (drafts babc23c)"
+   },
+   "lesson": "A scope correction that names the payer or person in the same sentence as the quotation re-reads cleanly against the checker context.",
+   "done_utc": "2026-11-25T01:03Z",
+   "minutes": 1
   }
  ],
  "blocked": [],
@@ -2367,7 +2378,7 @@
   "picked": "ACQ-057 done, ACQ-058 done, ACQ-059 done, ACQ-060 done, ACQ-061 done, ACQ-062 done, ACQ-063 done, ACQ-068 done, ACQ-069 done, ACQ-070 done, ACQ-071 done, ACQ-072 done; queued for a later session: ACQ-064..067 (verify), not_run this RUN",
   "why": "Worked: 7 drafts re-reviewed under the scope rule (4 corrected on drafts, 3 publish-ready), 5 live guides audited (3 corrected in review PR #89); stopped: no-worthwhile-work; resume: next session verifies 4 corrections, then the publish batch"
  },
- "last_verified_action": "ACQ-064 done 2026-11-25T01:03Z: Re-read both changed sentences of drafts 2c46e74. C1 'a Medicare- or Medicaid-certified nursing home is not allowed to make you' matches CMS QSO-25-14-NH 'appl…",
+ "last_verified_action": "ACQ-065 done 2026-11-25T01:03Z: Re-read the changed sentence of drafts babc23c: 'a resident who appeals the termination has the right to continue to reside in the establishment until a decisi…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -3030,9 +3041,10 @@
    "holder": "cse_014eaiSaeYoez1bK3E9MFwz4",
    "utc": "2026-11-25T01:03Z",
    "since_utc": "2026-11-25T01:02Z",
-   "productive_min": 1,
+   "productive_min": 2,
    "deliverables": [
-    "verification:ops/reviews/illinois-nursing-home-responsible-party.md (drafts 2c46e74)"
+    "verification:ops/reviews/illinois-nursing-home-responsible-party.md (drafts 2c46e74)",
+    "verification:ops/reviews/illinois-assisted-living-involuntary-move-out.md (drafts babc23c)"
    ]
   },
   "monitor": {

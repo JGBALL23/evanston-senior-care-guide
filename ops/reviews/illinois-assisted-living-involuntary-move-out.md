@@ -43,3 +43,5 @@ Corrections applied: drafts babc23c, 2026-11-25, cse_014eaiSarrUfj6PScmQNGxys (b
 Quotations checked: 8. Claims scope-checked: 12. Scope defects: 1. Corrections required: 1.
 
 Verdict: publish-ready after corrections (one clause restoring the appeal condition; packaging waits for "Corrections verified")
+
+Corrections verified: 2026-11-25, cse_014eaiSaeYoez1bK3E9MFwz4 (drafts babc23c re-read against its source; quotecheck 8/8 found; scope of each changed sentence matches its source).
