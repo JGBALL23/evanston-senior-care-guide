@@ -433,6 +433,22 @@ SRC = {
                           '(publication 12217)',
                           'https://www.medicare.gov/publications/'
                           '12217-your-guide-to-living-in-a-nursing-home'),
+    "hfs_3191": ('Illinois HFS — HFS 3191, Long Term Services & Information for Couples (brochure)',
+                 'https://hfs.illinois.gov/info/brochures-and-forms/brochures/hfs3191.html'),
+    "hfs_abe_ltc_faq": ('Illinois HFS — Frequently Asked Questions About Medicaid Eligibility '
+                        'for Long Term Supports and Services',
+                        'https://hfs.illinois.gov/content/dam/soi/en/web/hfs/sitecollectiondocuments/'
+                        'ltc_faq.pdf'),
+    "hfs_pe_faq": ('Illinois HFS — Provisional Eligibility Process, Questions and Answers',
+                   'https://hfs.illinois.gov/content/dam/soi/en/web/hfs/sitecollectiondocuments/'
+                   'provisionaleligibilityfaq9122018.pdf'),
+    "hfs_pe_notice_2023": ('Illinois HFS Provider Notice, 27 November 2023 — Long Term Care '
+                           'facilities: Provisional Eligibility reimplemented',
+                           'https://hfs.illinois.gov/medicalproviders/notices/notice.prn231127a.html'),
+    "oag_ltc_2025": ('Illinois Auditor General — Performance Audit of Medicaid Eligibility '
+                     'Determinations for Long-Term Care (July 2025)',
+                     'https://www.auditor.illinois.gov/Audit-Reports/Performance-Special-Multi/'
+                     'Performance-Audits/2025_Releases/25-Medicaid-LTC-Eligibility-Perf-Full.pdf'),
 }
 
 
@@ -5366,6 +5382,193 @@ GUIDES = [
             ]),
         ],
     },
+    {
+        "slug": "illinois-medicaid-pending-nursing-home",
+        "bridge": ("Getting the application decided is a different question from "
+                   "knowing whether a nursing home is the right level of care for "
+                   "your parent in the first place."),
+        "reviewed": "2026-11-24",
+        "title": "Medicaid Pending in an Illinois Nursing Home: Who Pays, How Long",
+        "h1": "My parent is in an Illinois nursing home and Medicaid is still pending. What happens now?",
+        "desc": ("How long Illinois has to decide a long-term care Medicaid "
+                 "application, what Provisional Eligibility is, and what your "
+                 "parent may owe while it is pending."),
+        "intent": "admission / Medicaid",
+        "answer": ("<strong>Illinois is meant to decide most long-term care "
+                   "Medicaid applications within 45 days, and when the state "
+                   "runs late, HFS can let the nursing home bill Medicaid before "
+                   "the final decision.</strong> HFS calls this Provisional "
+                   "Eligibility; its November 2023 notice states that "
+                   "&ldquo;The Provisional Eligibility process will occur monthly "
+                   "as long as eligibility determinations exceed the 45 day "
+                   "threshold.&rdquo; Meanwhile, the HFS brochure for nursing "
+                   "home applicants says eligibility &ldquo;usually begins with "
+                   "the month you apply&rdquo; and can reach back up to three "
+                   "months before it, and that your parent &ldquo;may also be "
+                   "responsible to pay for some of your long term care "
+                   "services.&rdquo;"),
+        "sources": srcs("oag_ltc_2025", "hfs_pe_notice_2023", "hfs_pe_faq",
+                        "hfs_3191", "hfs_abe_ltc_faq", "hfs_ltc_clients",
+                        "idoa_resident_rights_brochure"),
+        "body": [
+            ("How long Illinois has to decide, and how long it really takes", [
+                "<p>A parent who moves into a nursing home before Medicaid has "
+                "approved them is often described as <em>Medicaid "
+                "pending</em>. HFS&rsquo;s page for long-term care clients "
+                "says that if you want the state to pay for nursing home care, "
+                "you must apply for medical benefits through the Department of "
+                "Human Services (DHS) and obtain a needs screening through the "
+                "Department on Aging or DHS.</p>",
+                "<p>The Illinois Auditor General&rsquo;s July 2025 audit of "
+                "long-term care Medicaid decisions sets out the deadlines: "
+                "under the federal rules and the Illinois Administrative Code, "
+                "a decision is due within <strong>45 days</strong> for "
+                "applicants who are not applying on the basis of a disability; "
+                "for applicants who are, the federal limit is 90 days and "
+                "Illinois sets 60. The audit also records that "
+                "&ldquo;The applicant, his or her spouse, an approved "
+                "representative, or the facility in which the applicant lives "
+                "may request a 30-day extension to provide verification of "
+                "current resources or resources transferred during the "
+                "look-back period,&rdquo; and that a second 30-day extension "
+                "may be allowed on request.</p>",
+                "<p>In practice, the auditors tested a sample of 50 "
+                "applications submitted in 2023 and found that 11 of them "
+                "(22%) were pending past the required number of days. The "
+                "report states: &ldquo;For the 50 applications "
+                "sampled, it took on average 41 days from receipt of "
+                "application to decision.&rdquo; Applications sent to the HFS "
+                "Office of Inspector General for an asset investigation took "
+                "longer: &ldquo;The applications that were referred to HFS OIG "
+                "spent on average 58 days at the OIG.&rdquo;</p>",
+            ]),
+            ("Provisional Eligibility: what happens when the state is late", [
+                "<p>HFS first set up Provisional Eligibility in 2018. Its "
+                "provider notice of 27 November 2023 explains that delays grew "
+                "again after the COVID-19 emergency ended, and that &ldquo;HFS "
+                "has reimplemented the assignment of Provisional Eligibility "
+                "for LTC applications which meet the criteria "
+                "requirements.&rdquo; Citing the Public Aid Code, the notice "
+                "states that &ldquo;individuals given Provisional Eligibility "
+                "are entitled to receive the same services as individuals with "
+                "regular Medicaid eligibility regardless of fee-for-service or "
+                "Managed Care Organization (MCO) plan enrollment.&rdquo;</p>",
+                "<p>HFS&rsquo;s questions-and-answers document on the process "
+                "makes four points a family should know:</p>",
+                "<ul class=\"res__list\">"
+                "<li><strong>Nobody has to ask for it.</strong> &ldquo;Provisional "
+                "Eligibility is not requested.&rdquo; HFS reviews applications "
+                "and nursing home admissions pending more than 45 days each "
+                "month.</li>"
+                "<li><strong>Delays the family causes do not count.</strong> "
+                "&ldquo;State delays in excess of 45 days in processing "
+                "submission of a complete application do not include delays "
+                "caused by incomplete applications or applicant requests for "
+                "extensions in timeframes to submit required "
+                "verifications.&rdquo;</li>"
+                "<li><strong>A spend-down is not &lsquo;pending&rsquo;.</strong> "
+                "&ldquo;Cases in resource spenddown status are not considered "
+                "pending and will not be eligible for Provisional "
+                "Eligibility.&rdquo;</li>"
+                "<li><strong>It is not the final decision.</strong> DHS "
+                "caseworkers continue to process the application, and the "
+                "document states that &ldquo;Questions regarding the status of "
+                "a pending Medicaid application should be sent to the "
+                "appropriate DHS office.&rdquo;</li></ul>",
+            ]),
+            ("What your parent may owe while the application is pending", [
+                "<p>The HFS brochure for people applying for nursing home "
+                "coverage (HFS 3191, revised February 2015 and still linked "
+                "from HFS&rsquo;s long-term care page) states that if the "
+                "application is approved, &ldquo;your eligibility for medical "
+                "benefits usually begins with the month you apply, as long as "
+                "you meet all the eligibility requirements,&rdquo; and that "
+                "&ldquo;you may be eligible for medical benefits for up to "
+                "three months before the month you apply.&rdquo;</p>",
+                "<p>The same brochure advises: &ldquo;If possible, do not pay "
+                "your medical bills until you learn whether or not you are "
+                "eligible for medical benefits from the state.&rdquo; It "
+                "immediately adds that, depending on income and resources, it "
+                "may be necessary to pay part of those bills, and that "
+                "&ldquo;You may also be responsible to pay for some of your long "
+                "term care services.&rdquo; Once a case is decided, "
+                "&ldquo;Your local FCRC will tell you how much of your own money "
+                "you will have to pay to the nursing home or SLF each "
+                "month.&rdquo; (An FCRC is a DHS Family Community Resource "
+                "Center.)</p>",
+                "<p>None of the HFS pages read for this guide sets out what a "
+                "nursing home may bill a resident while an application is "
+                "pending. Ask the facility&rsquo;s business office to put in "
+                "writing what it will charge each month until the decision, "
+                "and what happens to any payment if Medicaid is later approved "
+                "for those months. If the application is refused or a penalty "
+                "period is imposed for gifts made in the five-year look-back, "
+                "Medicaid will not pay for those months; "
+                "<a href=\"/guides/illinois-medicaid-look-back-period/\">the "
+                "look-back guide</a> explains how a penalty is worked out, and "
+                "<a href=\"/guides/illinois-medicaid-long-term-care/\">the "
+                "long-term care Medicaid guide</a> explains spend-down.</p>",
+            ]),
+            ("Contracts, guarantees and being asked to leave", [
+                "<p>The Department on Aging&rsquo;s residents&rsquo; rights "
+                "brochure states that a facility &ldquo;must not require anyone "
+                "else to sign an agreement stating they will pay for your bill "
+                "unless they are your court appointed guardian.&rdquo; Read any "
+                "admission agreement before a family member signs it.</p>",
+                "<p>The brochure lists an unpaid bill as one of four reasons a "
+                "facility can make a resident leave, alongside danger to "
+                "themselves or others, medical needs the facility cannot meet, "
+                "and the facility closing. A written notice is required, and "
+                "it must say why, explain how to appeal and include a "
+                "self-addressed envelope to the Illinois Department of Public "
+                "Health. A resident has the right to appeal within "
+                "<strong>10 days</strong>, and the brochure says to call the "
+                "Department on Aging at <strong>1-800-252-8966</strong> for help "
+                "with an involuntary discharge notice. HFS&rsquo;s brochure adds "
+                "that &ldquo;If you receive medical benefits, the nursing home "
+                "cannot make you leave even if it decides to stop taking care of "
+                "patients who receive medical benefits.&rdquo; "
+                "<a href=\"/guides/illinois-nursing-home-resident-rights/\">The "
+                "residents&rsquo; rights guide</a> covers the rest of the "
+                "brochure.</p>",
+            ]),
+            ("Keeping the application moving", [
+                "<p>Most of the delay a family can control is paperwork. HFS&rsquo;s "
+                "long-term care application FAQ, written for facilities that file "
+                "online, states: &ldquo;Yes, the application may be submitted "
+                "without verifications. DHS caseworkers will attempt to verify "
+                "income information electronically. If that is not possible, the "
+                "caseworker will send a request for the information. An "
+                "application cannot be processed without all necessary "
+                "verifications.&rdquo;</p>",
+                "<ul class=\"res__list\">"
+                "<li>Find out who filed the application &mdash; the family or the "
+                "nursing home &mdash; and the date it was entered, since HFS "
+                "counts the 45 days for Provisional Eligibility from the date "
+                "an application is entered online.</li>"
+                "<li>Answer every caseworker request by its due date, and if "
+                "bank or transfer records will take longer, ask for the 30-day "
+                "extension in writing rather than letting the request lapse. "
+                "Remember that an extension you ask for is not counted as a "
+                "state delay.</li>"
+                "<li>Make sure the needs screening has been done; "
+                "<a href=\"/guides/illinois-nursing-home-preadmission-screening/\">the "
+                "pre-admission screening guide</a> explains it.</li>"
+                "<li>Ask the facility whether a pending application has passed "
+                "45 days and been picked up for Provisional Eligibility.</li>"
+                "</ul>",
+            ]),
+            ("Before your parent moves in", [
+                "<p>If a move is still being planned, it is worth asking each "
+                "nursing home how it handles a resident whose Medicaid "
+                "application is pending, and asking for its answer in writing, "
+                "before choosing. And if you are not yet sure a nursing home is "
+                "the right level of care, the "
+                "<a href=\"/\">free six-question assessment</a> on the home "
+                "page can help you think it through before you apply.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -5582,7 +5785,7 @@ RELATED = {
     "illinois-medicaid-long-term-care": [
         "illinois-medicaid-estate-recovery",
         "illinois-nursing-home-responsible-party",
-        "illinois-nursing-home-preadmission-screening"],
+        "illinois-medicaid-pending-nursing-home"],
     "illinois-care-facility-complaint": [
         "check-illinois-inspection-records",
         "illinois-elder-abuse-reporting",
@@ -5690,7 +5893,11 @@ RELATED = {
     "illinois-nursing-home-responsible-party": [
         "illinois-nursing-home-resident-rights",
         "illinois-advance-directive-power-of-attorney",
-        "illinois-medicaid-long-term-care"],
+        "illinois-medicaid-pending-nursing-home"],
+    "illinois-medicaid-pending-nursing-home": [
+        "illinois-medicaid-long-term-care",
+        "illinois-medicaid-look-back-period",
+        "illinois-nursing-home-preadmission-screening"],
 }
 
 RELATED_MIN_INBOUND = 2
@@ -6105,6 +6312,12 @@ CARDS = {
         "Federal law bars a certified nursing home from making you "
         "personally pay your parent's bill — what “responsible "
         "party” language can and cannot legally ask of you."),
+    "illinois-medicaid-pending-nursing-home": (
+        "Paying with Medicaid",
+        "Medicaid pending in an Illinois nursing home?",
+        "How long the state has to decide, what Provisional Eligibility is, "
+        "and what your parent may owe while you wait, read off HFS and the "
+        "Auditor General."),
 }
 
 
