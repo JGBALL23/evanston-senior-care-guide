@@ -251,7 +251,7 @@ def end_current(c, what, now, deliverable=None):
     return minutes
 
 
-def compute(d, now, monitor_hours):
+def compute(d, now, monitor_hours, run=None):
     c = d.get("controller") or {}
     lock = c.get("lock") or {}
     lock_t = parse_ts(lock.get("utc"))
@@ -305,7 +305,12 @@ def compute(d, now, monitor_hours):
     if mon_t is not None and not mon_due:
         future.append((mon_t + dt.timedelta(hours=monitor_hours), "monitor"))
 
-    pipeline = len(ready) + len(recheck) + len(open_items) + len(scouts_due)
+    # Tasks that the asking session may not work (not_run names it: the review of a page it built, the check
+    # of a correction it applied) are work for the NEXT session. They keep the chain going (eligible) but do
+    # not fill this session's pipeline: with only those left, this session still plans and looks for new work
+    # instead of closing early. (25 Nov 2026: a session closed after 26 minutes with four hand-offs waiting.)
+    handoff = [t for t in ready if run and run in (t.get("not_run") or [])]
+    pipeline = len(ready) - len(handoff) + len(recheck) + len(open_items) + len(scouts_due)
     plan = plan_view(d, soon, pipeline)
     if plan["_wake"] is not None:
         future.append((plan["_wake"], "planner cooldown ends"))
@@ -319,7 +324,7 @@ def compute(d, now, monitor_hours):
 
     future.sort(key=lambda x: x[0])
     next_due = future[0][0] if future else None
-    eligible = pipeline + (1 if plan["due"] else 0) + len(sweep["due"]) + (1 if fbv["due"] else 0)
+    eligible = pipeline + len(handoff) + (1 if plan["due"] else 0) + len(sweep["due"]) + (1 if fbv["due"] else 0)
 
     def ready_row(t):
         row = {"id": t.get("id"), "priority": t.get("priority"), "workstream": t.get("workstream"),
@@ -339,6 +344,7 @@ def compute(d, now, monitor_hours):
                          "waiting_for": short(next((t[k] for k in WAIT_KEYS if t.get(k)), ""), 150)} for t in events],
         "monitor": {"last_utc": (c.get("monitor") or {}).get("last_utc", ""), "age_hours": mon_age, "due": mon_due},
         "plan": {k: plan[k] for k in ("due", "pipeline", "low_water", "plannable", "saturated")},
+        "handoff_waiting": len(handoff),
         "sweep": sweep,
         "fallback": fbv,
         "budget": budget_view(d, now),
@@ -555,7 +561,7 @@ def main():
     cmd, args = a.cmd, a.args
 
     if cmd == "status":
-        st = compute(d, now, a.monitor_hours)
+        st = compute(d, now, a.monitor_hours, a.run or None)
         if a.run:
             st["ready_next_session"] = [r for r in st["ready"] if a.run in (r.get("not_run") or [])]
             st["ready"] = [r for r in st["ready"] if a.run not in (r.get("not_run") or [])]
@@ -959,7 +965,7 @@ def main():
     if cmd == "close":
         run = args[0]
         c = controller(d)
-        st = compute(d, now, a.monitor_hours)
+        st = compute(d, now, a.monitor_hours, run)
         pl = d.get("planner") if isinstance(d.get("planner"), dict) else {}
         fb = pl.get("fallback") if isinstance(pl.get("fallback"), dict) else {}
         mine = [e for e in (fb.get("log") or []) if isinstance(e, dict) and e.get("run") == run]
@@ -994,7 +1000,7 @@ def main():
                                      "tasks_added": added, "skipped": short(skipped, 200) if skipped else None,
                                      "rest_hours": hours}
             fb_note = fb["last_conclusion"]
-            st = compute(d, now, a.monitor_hours)
+            st = compute(d, now, a.monitor_hours, run)
         progress = (a.done + a.changed) > 0
         start = (c["lock"].get("since_utc") or c["lock"].get("utc")) if c["lock"].get("holder") == run else None
         bud = budget_view(d, now, parse_ts(start) if start else None)
