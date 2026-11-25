@@ -3061,12 +3061,9 @@
   "confirmation": "Claude Scheduled Tasks screenshot: ESCG Tour Acquisition Loop active, Pull request: Commits pushed on matching repository. Previous setup screenshot: head branch automation/esc-tour-loop."
  },
  "owner_review_needed": [
-  "PACKAGE 25 Nov (one merge, about 15 minutes to skim): merge #91. It holds 7 new guides, corrections to 6 live guides and 5 tracking, search and tour-path changes (#90, #89, #84, #79, #85, #81, #86, #78), tested together: the rebuild changes nothing and all eleven test suites pass. Two items touch things you reserved and are quoted at the top of the pull request: #86 adds the tour line you asked for on 22 Nov to the checklist PDF ('Want a tour of Westminster Place, where the author works? Ask online.'), and #84 with #79 keep a visitor's arrival channel through the tour click (no new data). After the merge the site still has to be deployed: say 'deploy' in the Claude chat where you asked for the daily package, or run python tools/publish.py on your PC (decision A removes that step). To leave something out: 'package without #<n>'.",
-  "A. AUTO-DEPLOY (you, once, about 5 minutes in Netlify; $0): merging does not publish today, because Netlify is not connected to GitHub; every release waits for a manual deploy. In Netlify open the project evanston-senior-care-guide, Project configuration, Build & deploy, Continuous deployment, Link repository, GitHub, JGBALL23/evanston-senior-care-guide, branch main, build command empty; then under Branches and deploy contexts turn Deploy Previews off. From then on a merge is live about a minute later. Say 'A done' when it is linked, or 'A no' to keep deploying by hand.",
-  "B. SEARCH CONSOLE WITHOUT YOUR PC ('B yes' or 'B no'; then about 2 minutes, once; $0): the weekly Search Console read happens only when your PC's Chrome is on (last read 18 Nov), and the search and demand work waits for it. Your own Make account can read it instead, about 3 operations a week, after one Google sign-in through a Make link. It gives Make's Search Console app access to your property; on 17 Nov you ruled out third-party access, so this one is yours to decide.",
-  "C. ONE FREE PUBLIC TALK? ('C yes' or 'C no') For example 'What to ask on a senior-living tour' at a library or senior center. A yes opens the Evanston Now calendar, the Daily Herald, Patch calendars and Rotary at once; Wilmette, Niles-Maine and Morton Grove libraries run such programs.",
-  "ONLY YOU (when you have time): the Evanston Now essay (the draft is in your Claude chat; a 'what to notice on a holiday visit, and what to ask next' angle submitted through their contact form by about 10 Dec lands in the early-January inquiry peak); two optional calls to offices that publish no email address: New Trier Township social services 847-446-8202 and Village of Northbrook 847-272-5050 about its Senior Housing Resources directory.",
-  "FOR THE OPERATOR (nothing for you to do): one referral proposal is ready (Open Communities' Older Adult Housing Resources list; Gmail draft, ref em-1122a); the weekly Search Console read is due, with an indexing request for /assisted-living-evanston/ once #91 is live."
+  "PACKAGE 25 Nov (one merge, about 15 minutes to skim): merge #91. It holds 7 new guides, corrections to 6 live guides and 5 tracking, search and tour-path changes (#90, #89, #84, #79, #85, #81, #86, #78), tested together: the rebuild changes nothing and all eleven test suites pass. Two items touch things you reserved and are quoted at the top of the pull request: #86 adds the tour line you asked for on 22 Nov to the checklist PDF ('Want a tour of Westminster Place, where the author works? Ask online.'), and #84 with #79 keep a visitor's arrival channel through the tour click (no new data). After the merge the site still has to be deployed: say 'deploy' in the Claude chat where you asked for the daily package, or run python tools/publish.py on your PC (that step disappears once Netlify is linked to GitHub, which you approved on 25 Nov and which waits for your Netlify sign-in). To leave something out: 'package without #<n>'.",
+  "ONLY YOU: Netlify sign-in (decision A, your yes of 25 Nov): sign in to Netlify in Chrome on your PC, then say 'Netlify is signed in' in the Claude chat; the link to GitHub is set up from there (main only, no previews, $0). Search Console sign-in (decision B, your yes of 25 Nov): open the Make link from the Claude chat of 25 Nov and sign in with Google; it asks for read-only access. When you have time: the Evanston Now essay (the draft is in your Claude chat; submit through their contact form by about 10 Dec); two optional calls to offices that publish no email address: New Trier Township social services 847-446-8202 and Village of Northbrook 847-272-5050 about its Senior Housing Resources directory.",
+  "FOR THE OPERATOR (nothing for you to do): an indexing request for /assisted-living-evanston/ in Search Console once #91 is live."
  ],
  "hourly_backlog_policy": {
   "enabled": true,
@@ -3108,7 +3105,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Next: verifications handed to the next session (ACQ-091 look-back d27ae01 and ACQ-092 Extra Help 7a12f29 on #89; ACQ-093 LTC-insurance draft 2c15ef1); 15:00Z ACQ-005/ACQ-012 Search Console recheck; monitor 18:25Z; backlog discovery rests until 18:46Z; package cut 26 Nov from 05:00Z. Waiting on Joseph: package #91 (merge, then deploy; decision A removes the deploy step), decisions B and C.",
+ "next_discovery": "Next: ACQ-091, ACQ-092, ACQ-093 (checks of the look-back and Extra Help corrections on #89 and of the long-term-care insurance draft) for a session other than the one that wrote them; Make's operations for 25 Nov are used, so its timer starts that session when the allowance refills (00:24Z tick on 26 Nov). The package cut is due 26 Nov from 05:00Z. Waiting on Joseph: package #91 (merge, then deploy) and the two sign-ins in the ONLY YOU line.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -4141,7 +4138,7 @@
     }
    ]
   },
-  "procedure": "v4.3.3 with the daily package, helper-enforced (25 Nov 2026, second revision: status shows package.due inside 05:00-10:30 UTC and close refuses until the cut is done or skipped with a reason; after a merged package, pull requests it contained are refreshed against main and finished only when nothing is left; the accuracy pull request enters a package up to its newest verified commit)",
+  "procedure": "v4.3.3 with the daily package and the independent reader (25 Nov 2026 15:29Z: a reviewer agent inside the session checks what the session wrote, so a check no longer waits for another session; work that still needs another session is started by Make at once, except before the day's package cut and when the day's Make operations are used; Search Console data arrives from Make in the start message once Joseph has signed in)",
   "package": {
    "pr": 91,
    "branch": "claude/package-20261125",
@@ -4167,7 +4164,11 @@
    "superseded": [],
    "after_merge": "After the merge the site is not live yet: Netlify is not connected to GitHub, so nothing deploys by itself. Say \"deploy\" in the Claude chat where you asked for the daily package and it is deployed and checked page by page, or run python tools/publish.py on your PC. Decision A (link Netlify to GitHub once) removes this step for good.",
    "about": "The daily approval package (procedure step 7, DAILY PACKAGE). One pull request for Joseph to merge; the worker re-cuts it once a day. after_merge is changed only by a session that heard Joseph say how the site gets deployed.",
-   "note": "Cut twice on 25 Nov by the supervising chat (03:33Z and 07:08Z, the second with #90 at 4f77740 and #89 at 5bf3b46); from 26 Nov the worker cuts it (status package.due)."
+   "note": "Cut twice on 25 Nov by the supervising chat (03:33Z and 07:08Z, the second with #90 at 4f77740 and #89 at 5bf3b46); from 26 Nov the worker cuts it (status package.due).",
+   "owner_actions": [
+    "Netlify sign-in (decision A, your yes of 25 Nov): sign in to Netlify in Chrome on your PC, then say 'Netlify is signed in' in the Claude chat; the link to GitHub is set up from there (main only, no previews, $0)",
+    "Search Console sign-in (decision B, your yes of 25 Nov): open the Make link from the Claude chat of 25 Nov and sign in with Google; it asks for read-only access"
+   ]
   }
  },
  "planner": {
@@ -4699,7 +4700,31 @@
     "10:30"
    ],
    "about": "The daily approval package (procedure step 7, DAILY PACKAGE). status shows package.due inside this UTC window while no task keyed package:YYYYMMDD is finished for the date; close refuses (exit 6) until the cut is done or --package-skipped gives the reason. Outside the window nothing is cut, so the package Joseph's 11:44 UTC report shows is the one he merges."
-  }
+  },
+  "make_ops_per_day": 16,
+  "make_ops_about": "Mirror of Make's daily allowance for session starts and reports (record V3, ops_per_day; 3 per start, 2 per closing report). The helper uses it to decide whether work handed to another session is started at once. Measured 25 Nov 2026: Make Free gives 1,000 operations a month, 266 were used in the first 4.6 days (tests included), the idle timer costs 12 a day, so about 16 a day are left for sessions."
  },
- "owner_decisions": []
+ "owner_decisions": [
+  {
+   "utc": "2026-11-25T15:08Z",
+   "said": "A: Yes, connect Netlify to GitHub with production deployment from main only, provided there is no additional cost.",
+   "heard_in": "supervising chat",
+   "for": "supervisor",
+   "applied": "Not linked yet: Chrome on his PC showed Netlify's login page (email and password), and the Netlify connector has no link operation. Waiting for him to sign in there; then the supervising chat links the repository (production branch main, no previews, no branch deploys) and confirms the plan shows no cost. Recorded in controller/package/owner_actions."
+  },
+  {
+   "utc": "2026-11-25T15:08Z",
+   "said": "B: Yes, automate Search Console with narrowly scoped read-only access to my website's property.",
+   "heard_in": "supervising chat",
+   "for": "supervisor",
+   "applied": "Make credential request created for the read-only scope (webmasters.readonly) and the one module that reads reports; the link was given to him in the chat. After his Google sign-in the supervising chat adds a weekly read to the Make timer (Make Free allows only two scenarios) and passes the numbers to the worker in the start message (procedure step 5e, SEARCH CONSOLE FROM MAKE). Recorded in controller/package/owner_actions."
+  },
+  {
+   "utc": "2026-11-25T15:08Z",
+   "said": "C: Not yet.",
+   "heard_in": "supervising chat",
+   "for": "worker",
+   "applied": "Line C removed (one free public talk: not yet). Do not ask again; the venues it would open stay parked in the map."
+  }
+ ]
 }

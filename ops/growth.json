@@ -231,14 +231,15 @@
    "type": "email_draft",
    "org": "Open Communities (Evanston fair-housing and HUD housing counseling nonprofit)",
    "for": "operator",
-   "status": "ready",
+   "status": "shipped",
    "created_utc": "2026-11-23T00:26Z",
    "source": "ACQ-027 verdict ACT (R8)",
    "ref": "em-1122a",
    "domain_sha256": "46c6229032def55c",
    "not_before_utc": "2026-11-25T15:00Z",
    "checks": "Gmail sent to domain: none; no existing draft; domain hash not in state.json; not DROP in growth.json; published general address and 'no housing location services' line re-verified on its own pages 2026-11-23T00:26Z",
-   "note": "Gmail draft created by loop worker, not sent; send with the 25 Nov+ batch if Joseph accepts; one email, no follow-up before 7 days"
+   "note": "Gmail draft created by loop worker, not sent; send with the 25 Nov+ batch if Joseph accepts; one email, no follow-up before 7 days",
+   "shipped_note": "state.json E-1125-01 completed 25 Nov 15:03Z (the operator sent a fresh text to the same published address; the older Gmail draft was left untouched)"
   }
  ]
 }
