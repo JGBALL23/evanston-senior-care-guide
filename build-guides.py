@@ -3474,7 +3474,7 @@ GUIDES = [
                "because the question it answers &mdash; can my parent get full "
                "medical and personal care without leaving home &mdash; is the "
                "same question every setting on this site is trying to answer."),
-        "reviewed": "2026-11-17",
+        "reviewed": "2026-11-25",
         "title": "What Is PACE, and Can a Parent in Evanston Use It?",
         "h1": "What is PACE, and can a parent in Evanston use it?",
         "desc": ("PACE coordinates full medical and personal care so an older adult "
@@ -3541,7 +3541,7 @@ GUIDES = [
                 "West Side Chicago; Habitat Health at Annie's Place and Esperanza "
                 "Health Centers for South Side Chicago; BoldAge PACE Illinois for "
                 "Southern Cook County; OSF HealthCare System for Peoria; and Habitat "
-                "Health at Stella's Place for East St. Louis. The page&rsquo;s only date is a launch &ldquo;scheduled to begin in June 2024,&rdquo; and it describes Kinship specifically as &ldquo;a "
+                "Health at Stella's Place for East St. Louis. The page describes Kinship specifically as &ldquo;a "
                 "new entrant into the Illinois health care delivery system&rdquo; "
                 "&mdash; so a family calling any of these should ask directly whether it "
                 "is actually taking participants yet, rather than assume active service "
