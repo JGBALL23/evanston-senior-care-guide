@@ -3349,7 +3349,7 @@
    "holder": "cse_014eaiSbgoXSGhv7gxJtBvna",
    "utc": "2026-11-25T01:43Z",
    "since_utc": "2026-11-25T01:35Z",
-   "productive_min": 9,
+   "productive_min": 10,
    "deliverables": [
     "verification:ops/reviews/live/illinois-medicaid-long-term-care.md; PR #89",
     "audit:ops/reviews/live/va-veteran-directed-care-program.md; PR #89 commit 3cd72d7",
@@ -3701,9 +3701,9 @@
      90
     ],
     "owner_open": 1,
-    "cooldown_until_utc": "",
-    "last_planned_utc": "2026-11-25T01:04Z",
-    "last_plan_result": "Read ops/reviews/ (7 packets with counts lines): 3 publish-ready, 4 publish-ready after corrections now verified (ACQ-064..067). One batch task passed the gate (score 4x4/3); no other publish candidate (live audits go to #89).",
+    "cooldown_until_utc": "2026-11-25T13:43Z",
+    "last_planned_utc": "2026-11-25T01:43Z",
+    "last_plan_result": "Read 7 packets in ops/reviews/ and compared each page's GUIDES dict on drafts with #90's branch (claude/publish-batch-20261125-1): all 7 are in #90; differences are #90's deliberate shortened title/desc except medicare-fast-appeal (drafts 5025764, unverified additions) whose port is already queued …",
     "wip_note": "Limit 3 open publish pull requests since 24 Nov 2026 (was 2): batches are stacked, so the newest one publishes all of them with a single merge.",
     "note_open_prs": "#90 contains #87 and #88 (one decision for Joseph); when a batch is open, changed pages are added to its branch, not to a new pull request"
    },
@@ -3849,6 +3849,7 @@
    }
   ],
   "log": [
+   "2026-11-25T01:43Z publish +0: Read 7 packets in ops/reviews/ and compared each page's GUIDES dict on drafts with #90's branch (claude/publish-batch-20261125-1): all 7 are in #90; difference…",
    "2026-11-25T01:04Z publish +1: Read ops/reviews/ (7 packets with counts lines): 3 publish-ready, 4 publish-ready after corrections now verified (ACQ-064..067). One batch task passed the gate…",
    "2026-11-24T18:40Z build +0: Same evidence pass as sweep asset-gaps at 18:37Z: 39 guide slugs on main+drafts, DEMAND Open/Done, no new Search Console read, measured channel results (Facebo…",
    "2026-11-24T06:40Z demand +0: Second pass 24 Nov: DEMAND.md Open holds 2 topics added this session (3496888); no further question with dated public evidence that no guide or DEMAND entry co…",
@@ -3893,9 +3894,9 @@
     "evidence": "ops/reviews/ packets; open pull requests; the asset on drafts and its absence from main.",
     "output": "One publish-batch task for this session (key publish-batch:<YYYYMMDD>-<n>) covering all of them: procedure step 7, Publish package.",
     "why": "Publishing is the step that turns drafts into visitors.",
-    "last_checked_utc": "2026-11-25T00:49Z",
-    "next_check_utc": "2026-11-25T01:49Z",
-    "last_result": "Read all 7 packets after this session's re-review. Qualify now: illinois-medicaid-pending-nursing-home, illinois-parent-refuses-to-move-guardianship, illinois-money-management-program (publish-ready, counts line). Not yet: responsible-party, AL move-out (both in #87/#88), medicare-fast-appeal, va-h…",
+    "last_checked_utc": "2026-11-25T01:43Z",
+    "next_check_utc": "2026-11-25T13:43Z",
+    "last_result": "Same read as the publish plan pass at 01:45Z: 7 of 7 qualifying pages are in open #90; the only content change on drafts since porting (fast-appeal additions 5025764) waits for verification in ACQ-082, which also ports it to #90. Nothing to package now.",
     "last_added": 0
    },
    {
@@ -4034,6 +4035,7 @@
    }
   ],
   "sweep_log": [
+   "2026-11-25T01:43Z publish-ready +0: Same read as the publish plan pass at 01:45Z: 7 of 7 qualifying pages are in open #90; the only content change on drafts since porting (fast-appeal additions 5…",
    "2026-11-25T00:50Z live-accuracy +3: quotecheck --all on main 4dc2468: 32 live guides; 1 NOT FOUND (illinois-pace-program, 'scheduled to begin in June 2024'), 2 NEAR MATCH (preadmission-screening,…",
    "2026-11-25T00:49Z publish-ready +0: Read all 7 packets after this session's re-review. Qualify now: illinois-medicaid-pending-nursing-home, illinois-parent-refuses-to-move-guardianship, illinois-…",
    "2026-11-24T18:37Z draft-review +2: 2 drafts on drafts not on main without a packet: illinois-medicaid-pending-nursing-home (drafts 4b5dca4) and illinois-parent-refuses-to-move-guardianship (cf6a…",
