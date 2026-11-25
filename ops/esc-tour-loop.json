@@ -3061,8 +3061,8 @@
   "confirmation": "Claude Scheduled Tasks screenshot: ESCG Tour Acquisition Loop active, Pull request: Commits pushed on matching repository. Previous setup screenshot: head branch automation/esc-tour-loop."
  },
  "owner_review_needed": [
-  "PACKAGE 25 Nov (one merge, about 15 minutes to skim): merge #91. It holds 7 new guides, corrections to 6 live guides and 5 tracking, search and tour-path changes (#90, #89, #84, #79, #85, #81, #86, #78), tested together: the rebuild changes nothing and all eleven test suites pass. Two items touch things you reserved and are quoted at the top of the pull request: #86 adds the tour line you asked for on 22 Nov to the checklist PDF ('Want a tour of Westminster Place, where the author works? Ask online.'), and #84 with #79 keep a visitor's arrival channel through the tour click (no new data). After the merge the site still has to be deployed: say 'deploy' in the Claude chat where you asked for the daily package, or run python tools/publish.py on your PC (that step disappears once Netlify is linked to GitHub, which you approved on 25 Nov and which waits for your Netlify sign-in). To leave something out: 'package without #<n>'.",
-  "ONLY YOU: Netlify sign-in (decision A, your yes of 25 Nov): sign in to Netlify in Chrome on your PC, then say 'Netlify is signed in' in the Claude chat; the link to GitHub is set up from there (main only, no previews, $0). Search Console sign-in (decision B, your yes of 25 Nov): open the Make link from the Claude chat of 25 Nov and sign in with Google; it asks for read-only access. When you have time: the Evanston Now essay (the draft is in your Claude chat; submit through their contact form by about 10 Dec); two optional calls to offices that publish no email address: New Trier Township social services 847-446-8202 and Village of Northbrook 847-272-5050 about its Senior Housing Resources directory.",
+  "PACKAGE 25 Nov (one merge, about 15 minutes to skim): merge #91. It holds 7 new guides, corrections to 6 live guides and 5 tracking, search and tour-path changes (#90, #89, #84, #79, #85, #81, #86, #78), tested together: the rebuild changes nothing and all eleven test suites pass. Two items touch things you reserved and are quoted at the top of the pull request: #86 adds the tour line you asked for on 22 Nov to the checklist PDF ('Want a tour of Westminster Place, where the author works? Ask online.'), and #84 with #79 keep a visitor's arrival channel through the tour click (no new data). After the merge the site still has to be deployed: say 'deploy' in the Claude chat where you asked for the daily package and it is published and checked page by page (that step disappears once Netlify is linked to GitHub: see ONLY YOU). To leave something out: 'package without #<n>'.",
+  "ONLY YOU: Netlify sign-in, once (decision A, your yes of 25 Nov): sign in to Netlify in Chrome on your PC and leave it signed in; the supervising chat then links GitHub itself (main only, no previews, $0), and from then on a merge is live in about a minute with nothing more from you. Tried without you on 25 Nov: the Netlify connector has no way to link a repository, your Netlify account signs in by password only (no Google or GitHub sign-in to reuse), your PC's Chrome is signed out of Netlify, and a deploy by Claude needs your word each time. When you have time: the Evanston Now essay (the draft is in your Claude chat; submit through their contact form by about 10 Dec); two optional calls to offices that publish no email address: New Trier Township social services 847-446-8202 and Village of Northbrook 847-272-5050 about its Senior Housing Resources directory.",
   "FOR THE OPERATOR (nothing for you to do): an indexing request for /assisted-living-evanston/ in Search Console once #91 is live."
  ],
  "hourly_backlog_policy": {
@@ -4162,12 +4162,11 @@
    "out": [],
    "excluded": [],
    "superseded": [],
-   "after_merge": "After the merge the site is not live yet: Netlify is not connected to GitHub yet (you approved connecting it on 25 Nov; it waits for your Netlify sign-in), so nothing deploys by itself. Say \"deploy\" in the Claude chat where you asked for the daily package and it is deployed and checked page by page, or run python tools/publish.py on your PC.",
+   "after_merge": "After the merge the site is not live until it is deployed. Say \"deploy\" in the Claude chat where you asked for the daily package and it is published and checked page by page. (Netlify cannot publish from GitHub by itself yet; the one step that needs you is under ONLY YOU.)",
    "about": "The daily approval package (procedure step 7, DAILY PACKAGE). One pull request for Joseph to merge; the worker re-cuts it once a day. after_merge is changed only by a session that heard Joseph say how the site gets deployed.",
    "note": "Cut twice on 25 Nov by the supervising chat (03:33Z and 07:08Z, the second with #90 at 4f77740 and #89 at 5bf3b46); from 26 Nov the worker cuts it (status package.due).",
    "owner_actions": [
-    "Netlify sign-in (decision A, your yes of 25 Nov): sign in to Netlify in Chrome on your PC, then say 'Netlify is signed in' in the Claude chat; the link to GitHub is set up from there (main only, no previews, $0)",
-    "Search Console sign-in (decision B, your yes of 25 Nov): open the Make link from the Claude chat of 25 Nov and sign in with Google; it asks for read-only access"
+    "Netlify sign-in, once (decision A, your yes of 25 Nov): sign in to Netlify in Chrome on your PC and leave it signed in; the supervising chat then links GitHub itself (main only, no previews, $0), and from then on a merge is live in about a minute with nothing more from you. Tried without you on 25 Nov: the Netlify connector has no way to link a repository, your Netlify account signs in by password only (no Google or GitHub sign-in to reuse), your PC's Chrome is signed out of Netlify, and a deploy by Claude needs your word each time"
    ]
   }
  },
@@ -4710,14 +4709,14 @@
    "said": "A: Yes, connect Netlify to GitHub with production deployment from main only, provided there is no additional cost.",
    "heard_in": "supervising chat",
    "for": "supervisor",
-   "applied": "Not linked yet: Chrome on his PC showed Netlify's login page (email and password), and the Netlify connector has no link operation. Waiting for him to sign in there; then the supervising chat links the repository (production branch main, no previews, no branch deploys) and confirms the plan shows no cost. Recorded in controller/package/owner_actions."
+   "applied": "Not possible without him, checked 25 Nov 20:15Z to 20:45Z: the Netlify connector has no link operation; his Netlify account has only a password sign-in (login_providers: password; no Google or GitHub account attached), Chrome on his PC is signed out of Netlify, and Claude does not enter passwords. A deploy by Claude after a merge still needs his word 'deploy' (the platform refused an unattended deploy path). The one owner step is in controller/package/owner_actions: one Netlify sign-in; the supervising chat then links the repository (production branch main, no previews, no branch deploys) after confirming the plan shows no cost."
   },
   {
    "utc": "2026-11-25T15:08Z",
    "said": "B: Yes, automate Search Console with narrowly scoped read-only access to my website's property.",
    "heard_in": "supervising chat",
    "for": "supervisor",
-   "applied": "Make credential request created for the read-only scope (webmasters.readonly) and the one module that reads reports; the link was given to him in the chat. After his Google sign-in the supervising chat adds a weekly read to the Make timer (Make Free allows only two scenarios) and passes the numbers to the worker in the start message (procedure step 5e, SEARCH CONSOLE FROM MAKE). Recorded in controller/package/owner_actions."
+   "applied": "Done 25 Nov 20:35Z without anything from him: the supervising chat completed Make's read-only request with the Google sign-ins already in his PC's Chrome (scope webmasters.readonly only; that Google account holds one Search Console property, this site). Make's timer now reads Search Console once a week (days, queries with 3 or more impressions, pages; 8 Make operations a week) and passes the read to the worker with every timer start (procedure step 5e). First read 25 Nov 20:35Z, Make execution 15b09066fd574835bee4a7ceb87356a5. Off-switch: gsc_enabled in Make's V3 record."
   },
   {
    "utc": "2026-11-25T15:08Z",
@@ -4725,6 +4724,13 @@
    "heard_in": "supervising chat",
    "for": "worker",
    "applied": "Line C removed (one free public talk: not yet). Do not ask again; the venues it would open stay parked in the map."
+  },
+  {
+   "utc": "2026-11-25T20:10Z",
+   "said": "Before asking me to do anything manually, exhaust your existing authorized tools and integrations. This applies to Netlify, GitHub, Make, Airtable, and all other connected services. Independently investigate, execute, troubleshoot, and verify. Only involve me when you have confirmed that an action genuinely requires my authorization. Keep this as a permanent operating principle. I want solutions, not additional responsibilities.",
+   "heard_in": "supervising chat",
+   "for": "worker",
+   "applied": "Standing rule since 25 Nov: EXHAUST THE TOOLS FIRST in the procedure (step 7, THE LIST HE READS). The Search Console sign-in was removed from the owner list because the supervising chat finished it with his existing sign-ins; the owner list now holds only steps that were tried and found to need him, each with what was tried."
   }
  ]
 }
