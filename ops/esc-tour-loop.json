@@ -3425,13 +3425,17 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeZV5K4aUnZndensii",
-   "utc": "2026-11-25T06:36Z",
+   "utc": "2026-11-25T06:37Z",
    "since_utc": "2026-11-25T06:24Z",
    "productive_min": 9,
    "deliverables": [
     "verification:PR #90 commit 4f77740",
     "guide:drafts 83fc8f3"
-   ]
+   ],
+   "current": {
+    "what": "plan:build",
+    "since_utc": "2026-11-25T06:37Z"
+   }
   },
   "monitor": {
    "last_utc": "2026-11-25T06:25Z"
@@ -3828,9 +3832,9 @@
     "plan_cooldown_hours": 12,
     "open_prs": [],
     "owner_open": 4,
-    "cooldown_until_utc": "2026-11-25T06:40Z",
-    "last_planned_utc": "2026-11-24T18:40Z",
-    "last_plan_result": "Same evidence pass as sweep asset-gaps at 18:37Z: 39 guide slugs on main+drafts, DEMAND Open/Done, no new Search Console read, measured channel results (Facebook visitors view costs and tour-questions, both covered). Memory care overlaps ACQ-030 (waiting); adult day covered by the Community Care Pr…",
+    "cooldown_until_utc": "2026-11-25T18:37Z",
+    "last_planned_utc": "2026-11-25T06:37Z",
+    "last_plan_result": "Same evidence pass as sweep asset-gaps 2026-11-25 (which added and completed ACQ-083, LTC insurance guide). Remaining candidates failed: Illinois memory-care rules guide (only a 2019 proposed IDPH rule and a conditional IDPH page on allowed hosts; overlaps ACQ-030 until 6 Dec); assisted living cont…",
     "wip_note": "owner_open counts worker-built assets on drafts that are not on main yet; at 10 the lane waits for Joseph to publish"
    },
    {
@@ -3865,9 +3869,9 @@
     "plan_cooldown_hours": 24,
     "open_prs": [],
     "owner_open": 0,
-    "cooldown_until_utc": "2026-11-25T06:40Z",
-    "last_planned_utc": "2026-11-24T06:40Z",
-    "last_plan_result": "Second pass 24 Nov: DEMAND.md Open holds 2 topics added this session (3496888); no further question with dated public evidence that no guide or DEMAND entry covers."
+    "cooldown_until_utc": "2026-11-26T06:37Z",
+    "last_planned_utc": "2026-11-25T06:37Z",
+    "last_plan_result": "Same evidence pass as sweep demand-questions 2026-11-25: the one qualifying question (LTC insurance and assisted living) was built directly (ACQ-083); assisted living contract review rejected (no dated question, overlaps Open topic). 0 new topics."
    },
    {
     "id": "search",
@@ -3995,6 +3999,8 @@
    }
   ],
   "log": [
+   "2026-11-25T06:37Z build +0: Same evidence pass as sweep asset-gaps 2026-11-25 (which added and completed ACQ-083, LTC insurance guide). Remaining candidates failed: Illinois memory-care r…",
+   "2026-11-25T06:37Z demand +0: Same evidence pass as sweep demand-questions 2026-11-25: the one qualifying question (LTC insurance and assisted living) was built directly (ACQ-083); assisted…",
    "2026-11-25T06:30Z search +0: 2026-11-25 06:3xZ crawl of the live sitemap (36 URLs): all 200, canonical self, one h1 each, descriptions 145-172 chars; only the home page and /assisted-livin…",
    "2026-11-25T06:30Z distribution +0: 2026-11-25: state.json (operator last run 03:40Z) holds no pending facebook_post action; P-1122-01 and P-1124-01 completed; next post 15:00Z is the operator's …",
    "2026-11-25T01:43Z publish +0: Read 7 packets in ops/reviews/ and compared each page's GUIDES dict on drafts with #90's branch (claude/publish-batch-20261125-1): all 7 are in #90; difference…",
@@ -4087,9 +4093,9 @@
     "evidence": "The demand lane's evidence: public Q&A sites, forums, community boards and news comment sections (type, venue kind and date only); Search Console queries when available.",
     "output": "Topics committed to DEMAND.md's Open list on drafts, at most three open at once (step 7). Deliverable type demand_topic.",
     "why": "Each topic becomes a guide draft at 6 AM the next morning.",
-    "last_checked_utc": "2026-11-24T06:34Z",
-    "next_check_utc": "2026-11-25T06:34Z",
-    "last_result": "Same pass as plan:demand 24 Nov: 2 topics committed to DEMAND.md Open (ACQ-051); no further qualifying question found.",
+    "last_checked_utc": "2026-11-25T06:37Z",
+    "next_check_utc": "2026-11-26T06:37Z",
+    "last_result": "2026-11-25: DEMAND.md Open holds 2 (unsafe discharge; AL rate rise after reassessment, both added 24 Nov 06:34Z, not yet 30 h old). Searched public caregiver Q&A for decision-stage questions: long-term care insurance claims for assisted living qualified (4 dated questions) and was BUILT this sessio…",
     "last_added": 0
    },
    {
@@ -4183,6 +4189,7 @@
    }
   ],
   "sweep_log": [
+   "2026-11-25T06:37Z demand-questions +0: 2026-11-25: DEMAND.md Open holds 2 (unsafe discharge; AL rate rise after reassessment, both added 24 Nov 06:34Z, not yet 30 h old). Searched public caregiver Q…",
    "2026-11-25T06:33Z asset-gaps +1: 2026-11-25: guide index (32 main, 39 drafts), DEMAND Open/Done read. Candidates: (1) long-term care insurance claims for assisted living: 4 dated public family…",
    "2026-11-25T06:30Z draft-review +0: 2026-11-25: main...drafts has 7 guide slugs not on main; all 7 have packets in ops/reviews/ (all in publish batch #90). No unreviewed draft.",
    "2026-11-25T01:43Z publish-ready +0: Same read as the publish plan pass at 01:45Z: 7 of 7 qualifying pages are in open #90; the only content change on drafts since porting (fast-appeal additions 5…",
