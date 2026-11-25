@@ -4471,7 +4471,7 @@ GUIDES = [
                 "veteran directing their own hire.</p>",
                 "<p>Separately again, "
                 '<a href="/guides/va-caregiver-support-program/">the VA '
-                "caregiver programmes</a> support the family member doing the caring, and one of them, the Program of Comprehensive Assistance for Family Caregivers, pays an eligible family caregiver a monthly stipend. Neither involves an outside aide or clinician visiting the veteran. Both VA pages say their service &ldquo;can be used in combination with other Home and Community Based Services&rdquo;. Ask the VA social worker which combination fits the veteran's assessed needs.</p>",
+                "caregiver programmes</a> support the family member doing the caring, and one of them, the Program of Comprehensive Assistance for Family Caregivers, pays an eligible primary family caregiver a monthly stipend. Neither involves an outside aide or clinician visiting the veteran. Both VA pages say their service &ldquo;can be used in combination with other Home and Community Based Services&rdquo;. Ask the VA social worker which combination fits the veteran's assessed needs.</p>",
             ]),
             ("What this guide could not verify", [
                 "<p>Neither VA.gov page this guide read gives a dollar "
