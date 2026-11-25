@@ -192,25 +192,6 @@
    "found_utc": "2026-11-25T00:48Z"
   },
   {
-   "id": "ACQ-071",
-   "task": "Accuracy audit of the live guide illinois-medicare-savings-program under the review rules (quotation checker, scope rule), packet at ops/reviews/live/illinois-medicare-savings-program.md; corrections into the rolling review PR #89 (claude/accuracy-20261125)",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "plan",
-   "key": "audit:illinois-medicare-savings-program",
-   "evidence": "quotecheck --all on main 4dc2468, 2026-11-25: 9/9 quotations found, so wording holds; the page states income and asset limits by programme and household size (reviewed 2026-11-17), the kind of claim the 24 Nov scope rule targets (year, household, payer); no packet in ops/reviews/live/.",
-   "expected_tour_acquisition_value": "Families decide whether to apply from these income and asset limits; a limit that is wrong for their payer, year or household size costs a benefit and trust in the site that sends them to tours.",
-   "impact": 4,
-   "confidence": 3,
-   "effort": 2,
-   "executor": "worker (research and preparation only)",
-   "done_when": "ops/reviews/live/illinois-medicare-savings-program.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to PR #89",
-   "score": 6.0,
-   "status": "ready",
-   "priority": 2,
-   "found_utc": "2026-11-25T00:58Z"
-  },
-  {
    "id": "ACQ-072",
    "task": "Accuracy audit of the live guide illinois-benefit-access-program under the review rules (quotation checker, scope rule), packet at ops/reviews/live/illinois-benefit-access-program.md; corrections into the rolling review PR #89 (claude/accuracy-20261125)",
    "workstream": "technical",
@@ -2317,6 +2298,40 @@
    },
    "done_utc": "2026-11-25T00:58Z",
    "minutes": 3
+  },
+  {
+   "id": "ACQ-071",
+   "task": "Accuracy audit of the live guide illinois-medicare-savings-program under the review rules (quotation checker, scope rule), packet at ops/reviews/live/illinois-medicare-savings-program.md; corrections into the rolling review PR #89 (claude/accuracy-20261125)",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:illinois-medicare-savings-program",
+   "evidence": "quotecheck --all on main 4dc2468, 2026-11-25: 9/9 quotations found, so wording holds; the page states income and asset limits by programme and household size (reviewed 2026-11-17), the kind of claim the 24 Nov scope rule targets (year, household, payer); no packet in ops/reviews/live/.",
+   "expected_tour_acquisition_value": "Families decide whether to apply from these income and asset limits; a limit that is wrong for their payer, year or household size costs a benefit and trust in the site that sends them to tours.",
+   "impact": 4,
+   "confidence": 3,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/live/illinois-medicare-savings-program.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to PR #89",
+   "score": 6.0,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-25T00:58Z",
+   "result": "Audited live illinois-medicare-savings-program on main. quotecheck 9/9 FOUND. 12 claims scope-checked; every 2026 income and asset limit re-read in the IDoA 2026 chart and matches; QMB-only billing protection stays scoped to QMB; QI rules scoped to QI; Extra Help $12.65 (2026) confirmed on Medicare.gov; DHS helpline details confirmed on HFS 3352. Verdict holds, no correction. Figures due to change with DHS's early-April 2027 update.",
+   "verdicts": [
+    "holds"
+   ],
+   "sources": [
+    "https://ilaging.illinois.gov/content/dam/soi/en/web/aging/ship/documents/medicare-savings-program-chart.pdf",
+    "https://www.medicare.gov/medicare-savings-programs",
+    "https://hfs.illinois.gov/info/brochures-and-forms/brochures/hfs3352.html"
+   ],
+   "deliverable": {
+    "type": "audit",
+    "ref": "ops/reviews/live/illinois-medicare-savings-program.md"
+   },
+   "done_utc": "2026-11-25T00:59Z",
+   "minutes": 1
   }
  ],
  "blocked": [],
@@ -2327,7 +2342,7 @@
   "picked": "ACQ-055 done, ACQ-056 done",
   "why": "Worked: monitor (site OK, ~2 genuine, 0 tour requests) and 2 publish-ready review packets (Medicaid-pending, guardianship); stopped: no-worthwhile-work; resume: monitor 25 Nov 06:26Z"
  },
- "last_verified_action": "ACQ-070 done 2026-11-25T00:58Z: Audited live illinois-nursing-home-preadmission-screening on main. quotecheck 7 FOUND + 1 NEAR MATCH (comma added inside quotation marks). 12 claims scope-chec…",
+ "last_verified_action": "ACQ-071 done 2026-11-25T00:59Z: Audited live illinois-medicare-savings-program on main. quotecheck 9/9 FOUND. 12 claims scope-checked; every 2026 income and asset limit re-read in the IDoA 20…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -2988,9 +3003,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSarrUfj6PScmQNGxys",
-   "utc": "2026-11-25T00:58Z",
+   "utc": "2026-11-25T00:59Z",
    "since_utc": "2026-11-25T00:36Z",
-   "productive_min": 28,
+   "productive_min": 29,
    "deliverables": [
     "review_packet:ops/reviews/illinois-nursing-home-responsible-party.md; drafts 2c46e74",
     "review_packet:ops/reviews/illinois-assisted-living-involuntary-move-out.md; drafts babc23c",
@@ -3001,7 +3016,8 @@
     "review_packet:ops/reviews/illinois-money-management-program.md",
     "pr:#89; ops/reviews/live/illinois-pace-program.md",
     "audit:ops/reviews/live/va-caregiver-support-program.md",
-    "pr:#89 commit 7c76548; ops/reviews/live/illinois-nursing-home-preadmission-screening.md"
+    "pr:#89 commit 7c76548; ops/reviews/live/illinois-nursing-home-preadmission-screening.md",
+    "audit:ops/reviews/live/illinois-medicare-savings-program.md"
    ]
   },
   "monitor": {
