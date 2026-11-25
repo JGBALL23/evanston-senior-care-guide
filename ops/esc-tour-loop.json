@@ -140,25 +140,6 @@
    "found_utc": "2026-11-25T01:14Z"
   },
   {
-   "id": "ACQ-088",
-   "task": "Apply the two required corrections in ops/reviews/long-term-care-insurance-assisted-living-illinois.md on drafts (Improve): 'Most' to 'Many' policies for the elimination period, and replace the Medicaid 'take over' sentence with the SLP-scoped sentence and HFS source",
-   "workstream": "build",
-   "lane": "build",
-   "source": "followup",
-   "key": "improve:long-term-care-insurance-assisted-living-illinois:review-corrections",
-   "priority": 1,
-   "status": "waiting_on_data",
-   "not_before_utc": "2026-11-25T13:16Z",
-   "evidence": "Review packet ACQ-084 (2026-11-25): Shopper's Guide p.19 says 'With many policies'; HFS SLP page says Medicaid pays SLP waiver services 'not routinely covered by Medicaid' and 'The resident is responsible for paying the cost of room and board at the facility.' Waits only for the drafts quiet window (10:45-13:15 UTC) to end.",
-   "expected_tour_acquisition_value": "Removes a payer claim a family could act on wrongly before the page is packaged; unblocks publication of an assisted-living payment guide.",
-   "impact": 3,
-   "confidence": 5,
-   "effort": 1,
-   "executor": "worker (research and preparation only)",
-   "done_when": "One 'Correct <slug>' commit on drafts under Build's checks; 'Corrections applied' line in the packet; verify:<slug>:<commit> queued for a later session.",
-   "found_utc": "2026-11-25T12:26Z"
-  },
-  {
    "id": "ACQ-091",
    "task": "Verify the correction to illinois-medicaid-look-back-period on the accuracy pull request #89 (commit d27ae01): re-read each changed sentence against HFS 3191 and the HFS provider notice of 22 Jan 2026, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <RUN>' to ops/reviews/live/illinois-medicaid-look-back-period.md and to that guide's lines in the #89 body, or reopen the correction",
    "workstream": "technical",
@@ -199,6 +180,27 @@
    "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
    "found_utc": "2026-11-25T12:36Z"
+  },
+  {
+   "id": "ACQ-093",
+   "task": "Verify the corrections to long-term-care-insurance-assisted-living-illinois (drafts 2c15ef1): read only the changed sentences (git show 2c15ef1 in a drafts clone), run the quotation checker, apply the review rules to them; add 'Corrections verified: <date>, <RUN>' to ops/reviews/long-term-care-insurance-assisted-living-illinois.md or reopen the correction",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "verify:long-term-care-insurance-assisted-living-illinois:2c15ef1",
+   "not_run": [
+    "cse_014eaiScJVcYfw9RjXT6F5Km"
+   ],
+   "priority": 1,
+   "evidence": "drafts commit 2c15ef1 (ACQ-088)",
+   "expected_tour_acquisition_value": "quality gate before the page enters the publish batch",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "ready",
+   "found_utc": "2026-11-25T13:16Z"
   }
  ],
  "completed": [
@@ -2988,6 +2990,32 @@
    },
    "done_utc": "2026-11-25T12:36Z",
    "minutes": 3
+  },
+  {
+   "id": "ACQ-088",
+   "task": "Apply the two required corrections in ops/reviews/long-term-care-insurance-assisted-living-illinois.md on drafts (Improve): 'Most' to 'Many' policies for the elimination period, and replace the Medicaid 'take over' sentence with the SLP-scoped sentence and HFS source",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "improve:long-term-care-insurance-assisted-living-illinois:review-corrections",
+   "priority": 1,
+   "status": "done",
+   "not_before_utc": "2026-11-25T13:16Z",
+   "evidence": "Review packet ACQ-084 (2026-11-25): Shopper's Guide p.19 says 'With many policies'; HFS SLP page says Medicaid pays SLP waiver services 'not routinely covered by Medicaid' and 'The resident is responsible for paying the cost of room and board at the facility.' Waits only for the drafts quiet window (10:45-13:15 UTC) to end.",
+   "expected_tour_acquisition_value": "Removes a payer claim a family could act on wrongly before the page is packaged; unblocks publication of an assisted-living payment guide.",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "One 'Correct <slug>' commit on drafts under Build's checks; 'Corrections applied' line in the packet; verify:<slug>:<commit> queued for a later session.",
+   "found_utc": "2026-11-25T12:26Z",
+   "result": "Applied the two required corrections from the review packet to long-term-care-insurance-assisted-living-illinois on drafts (commit 2c15ef1), after the drafts quiet window: 'Most policies' changed to 'Many policies' (Shopper's Guide p.19); the Medicaid 'take over' sentence replaced by one scoped to the Supportive Living Program, quoting HFS's SLP page (alternative to nursing home care under Medicaid; resident pays room and board), linking the live SLP guide, with the HFS page added to sources. Checks: build OK, test.js 669/669, check-guides 2628/0, all 108 citations resolve, mobile-nav skipped (no websockets), quotecheck 23/23. Packet line added; verification queued for a later session.",
+   "deliverable": {
+    "type": "correction",
+    "ref": "drafts 2c15ef1"
+   },
+   "done_utc": "2026-11-25T13:16Z",
+   "minutes": 0
   }
  ],
  "blocked": [],
@@ -2998,7 +3026,7 @@
   "picked": "ACQ-082 done, ACQ-083 done, ACQ-085 done, ACQ-084 ready (next session), ACQ-086 ready (next session)",
   "why": "Worked: verified fast-appeal additions (ported to #90); built LTC-insurance guide on drafts; audited complaint guide (3 fixes in #89). stopped: no-worthwhile-work; resume: next session reviews ACQ-084, verifies ACQ-086"
  },
- "last_verified_action": "ACQ-090 done 2026-11-25T12:36Z: Audited live medicare-extra-help-prescription-drug-costs (main 4dc2468): 9/9 quotations found; every figure (2026 limits $23,940/$18,090 and $32,460/$36,100; 2…",
+ "last_verified_action": "ACQ-088 done 2026-11-25T13:16Z: Applied the two required corrections from the review packet to long-term-care-insurance-assisted-living-illinois on drafts (commit 2c15ef1), after the drafts q…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -3658,13 +3686,14 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiScJVcYfw9RjXT6F5Km",
-   "utc": "2026-11-25T12:38Z",
+   "utc": "2026-11-25T13:16Z",
    "since_utc": "2026-11-25T12:24Z",
    "productive_min": 14,
    "deliverables": [
     "review_packet:ops/reviews/long-term-care-insurance-assisted-living-illinois.md",
     "correction:PR #89 commit d27ae01; ops/reviews/live/illinois-medicaid-look-back-period.md",
-    "correction:PR #89 commit 7a12f29; ops/reviews/live/medicare-extra-help-prescription-drug-costs.md"
+    "correction:PR #89 commit 7a12f29; ops/reviews/live/medicare-extra-help-prescription-drug-costs.md",
+    "correction:drafts 2c15ef1"
    ]
   },
   "monitor": {
