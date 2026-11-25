@@ -120,22 +120,6 @@
    "not_before": "Timing, not data: 2027 figures are already on medicare.gov (read 2026-11-23). Prepare the PR in December so it is fresh when Joseph merges it for 1 Jan 2027."
   },
   {
-   "id": "ACQ-058",
-   "task": "Review illinois-assisted-living-involuntary-move-out again under the review rules of procedure v4.3.2 (quotation checker, then the scope rule): its packet ops/reviews/illinois-assisted-living-involuntary-move-out.md was written before the scope rule and has no scope table or counts line",
-   "workstream": "build",
-   "lane": "build",
-   "source": "operator",
-   "seeded_by": "main chat for Joseph, 24 Nov 2026 18:05 Chicago: \"Correct the known content accuracy problems and strengthen the review process.\"",
-   "key": "rereview:illinois-assisted-living-involuntary-move-out",
-   "priority": 1,
-   "evidence": "A scope defect passed the 24 Nov review of medicare-fast-appeal-hospital-rehab-discharge: a Medicare.gov sentence about what \"your plan\" does was presented as the rule for everyone in a skilled nursing facility. quotecheck on drafts cf6aaf8, 25 Nov 2026 00:25Z: 8 of 8 quotations of this page are found word for word in its 6 cited pages, so the wording holds and scope is the open question. It is in open publish pull requests #87 and #88.",
-   "expected_tour_acquisition_value": "Nothing reaches families until Joseph merges a publish pull request, and he should only be asked to merge pages whose every claim applies to the reader the page addresses.",
-   "executor": "worker (research and preparation only)",
-   "done_when": "ops/reviews/illinois-assisted-living-involuntary-move-out.md rewritten under the review rules with its table, counts line and verdict; each required correction applied on drafts and its verify task queued for a later session; or the verdict publish-ready with zero scope defects",
-   "status": "ready",
-   "found_utc": "2026-11-25T00:27Z"
-  },
-  {
    "id": "ACQ-059",
    "task": "Review medicare-fast-appeal-hospital-rehab-discharge again under the review rules of procedure v4.3.2 (quotation checker, then the scope rule): its packet ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md was written before the scope rule and has no scope table or counts line",
    "workstream": "build",
@@ -232,6 +216,24 @@
    "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
    "found_utc": "2026-11-25T00:40Z"
+  },
+  {
+   "id": "ACQ-065",
+   "task": "Verify the corrections to illinois-assisted-living-involuntary-move-out",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "verify:illinois-assisted-living-involuntary-move-out:babc23c",
+   "not_run": [
+    "cse_014eaiSarrUfj6PScmQNGxys"
+   ],
+   "priority": 1,
+   "evidence": "drafts babc23c applied C1 of ops/reviews/illinois-assisted-living-involuntary-move-out.md (ACQ-058)",
+   "expected_tour_acquisition_value": "quality gate before publication",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "ready",
+   "found_utc": "2026-11-25T00:42Z"
   }
  ],
  "completed": [
@@ -2036,6 +2038,37 @@
    },
    "done_utc": "2026-11-25T00:40Z",
    "minutes": 4
+  },
+  {
+   "id": "ACQ-058",
+   "task": "Review illinois-assisted-living-involuntary-move-out again under the review rules of procedure v4.3.2 (quotation checker, then the scope rule): its packet ops/reviews/illinois-assisted-living-involuntary-move-out.md was written before the scope rule and has no scope table or counts line",
+   "workstream": "build",
+   "lane": "build",
+   "source": "operator",
+   "seeded_by": "main chat for Joseph, 24 Nov 2026 18:05 Chicago: \"Correct the known content accuracy problems and strengthen the review process.\"",
+   "key": "rereview:illinois-assisted-living-involuntary-move-out",
+   "priority": 1,
+   "evidence": "A scope defect passed the 24 Nov review of medicare-fast-appeal-hospital-rehab-discharge: a Medicare.gov sentence about what \"your plan\" does was presented as the rule for everyone in a skilled nursing facility. quotecheck on drafts cf6aaf8, 25 Nov 2026 00:25Z: 8 of 8 quotations of this page are found word for word in its 6 cited pages, so the wording holds and scope is the open question. It is in open publish pull requests #87 and #88.",
+   "expected_tour_acquisition_value": "Nothing reaches families until Joseph merges a publish pull request, and he should only be asked to merge pages whose every claim applies to the reader the page addresses.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/illinois-assisted-living-involuntary-move-out.md rewritten under the review rules with its table, counts line and verdict; each required correction applied on drafts and its verify task queued for a later session; or the verdict publish-ready with zero scope defects",
+   "status": "done",
+   "found_utc": "2026-11-25T00:27Z",
+   "result": "Re-reviewed under v4.3.2 rules. quotecheck 8/8 FOUND across 6 IDPH/IDoA pages. 12 claims scope-checked. Confirmed the cited brochure (ltc-resrights.pdf) is the one IDoA calls appropriate for nursing homes and assisted living. 1 scope defect: the answer quoted the right to stay 'until a decision is rendered' without the appeal condition the IDPH form attaches to it. Corrected on drafts babc23c (checks pass). Verdict publish-ready after corrections; verify queued. Page is in open publish PRs #87/#88.",
+   "verdicts": [
+    "publish-ready after corrections"
+   ],
+   "sources": [
+    "https://dph.illinois.gov/content/dam/soi/en/web/idph/files/forms/itrformwithhearingrequestrevised20200221.pdf",
+    "https://ilaging.illinois.gov/programs/ltcombudsman/residents-rights-in-long-term-care-facilities1.html"
+   ],
+   "lesson": "A quoted right that the source places after appeal instructions carries the appeal condition with it.",
+   "deliverable": {
+    "type": "review_packet",
+    "ref": "ops/reviews/illinois-assisted-living-involuntary-move-out.md; drafts babc23c"
+   },
+   "done_utc": "2026-11-25T00:42Z",
+   "minutes": 2
   }
  ],
  "blocked": [],
@@ -2046,7 +2079,7 @@
   "picked": "ACQ-055 done, ACQ-056 done",
   "why": "Worked: monitor (site OK, ~2 genuine, 0 tour requests) and 2 publish-ready review packets (Medicaid-pending, guardianship); stopped: no-worthwhile-work; resume: monitor 25 Nov 06:26Z"
  },
- "last_verified_action": "ACQ-057 done 2026-11-25T00:40Z: Re-reviewed under v4.3.2 rules. quotecheck 15/15 FOUND. 13 claims scope-checked against CMS QSO-25-14-NH, Medicare pub 12217 and the IDoA brochure. 1 scope def…",
+ "last_verified_action": "ACQ-058 done 2026-11-25T00:42Z: Re-reviewed under v4.3.2 rules. quotecheck 8/8 FOUND across 6 IDPH/IDoA pages. 12 claims scope-checked. Confirmed the cited brochure (ltc-resrights.pdf) is the…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -2707,11 +2740,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSarrUfj6PScmQNGxys",
-   "utc": "2026-11-25T00:40Z",
+   "utc": "2026-11-25T00:42Z",
    "since_utc": "2026-11-25T00:36Z",
-   "productive_min": 4,
+   "productive_min": 6,
    "deliverables": [
-    "review_packet:ops/reviews/illinois-nursing-home-responsible-party.md; drafts 2c46e74"
+    "review_packet:ops/reviews/illinois-nursing-home-responsible-party.md; drafts 2c46e74",
+    "review_packet:ops/reviews/illinois-assisted-living-involuntary-move-out.md; drafts babc23c"
    ]
   },
   "monitor": {
