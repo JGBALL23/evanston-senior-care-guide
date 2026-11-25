@@ -6415,6 +6415,35 @@ def pay_nav_line(g):
 
 
 # --------------------------------------------------------------------------
+# LOCAL ASSISTED LIVING LINE — 22 Nov 2026.
+#
+# /assisted-living-evanston/ (PR #83, live 22 Nov) is the site's page for the
+# highest-intent local search, but only the homepage linked to it: no guide
+# did, so search engines and readers reached it from one internal link. One
+# quiet sentence under "Related guides", only on the guides a family reads
+# while choosing a community. It repeats the landing page's own title and
+# description, so it adds no new factual claim, and it is a link, never a
+# button.
+# --------------------------------------------------------------------------
+LOCAL_AL_GUIDES = [
+    "assisted-living-cost-illinois",
+    "levels-of-senior-care-explained",
+    "check-illinois-inspection-records",
+    "independent-living-evanston",
+]
+LOCAL_AL_HREF = "/assisted-living-evanston/"
+
+
+def local_al_line(g):
+    if g["slug"] not in LOCAL_AL_GUIDES:
+        return ""
+    return ('<p class="related__pay">Looking in Evanston itself? '
+            '<a href="%s">Assisted living in Evanston, Illinois</a> shows how '
+            'to compare local care, costs and licenses and what to bring to '
+            'a tour.</p>\n' % LOCAL_AL_HREF)
+
+
+# --------------------------------------------------------------------------
 # RELATED GUIDES — chosen by topic, not by position.
 #
 # Until 2026-10-31 related() took the first three guides in file order, so
@@ -6637,7 +6666,7 @@ def related(g):
         for s in RELATED[g["slug"]])
     return ('<section class="res__block related">\n'
             '<h2 class="res__h">Related guides</h2>\n'
-            '<ul class="res__list related__list">%s</ul>\n%s</section>' % (items, pay_nav_line(g)))
+            '<ul class="res__list related__list">%s</ul>\n%s%s</section>' % (items, local_al_line(g), pay_nav_line(g)))
 
 
 def sources_block(g):
