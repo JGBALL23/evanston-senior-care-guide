@@ -118,6 +118,118 @@
    "found_utc": "2026-11-23T17:43Z",
    "not_before_utc": "2026-12-08T15:00Z",
    "not_before": "Timing, not data: 2027 figures are already on medicare.gov (read 2026-11-23). Prepare the PR in December so it is fresh when Joseph merges it for 1 Jan 2027."
+  },
+  {
+   "id": "ACQ-057",
+   "task": "Review illinois-nursing-home-responsible-party again under the review rules of procedure v4.3.2 (quotation checker, then the scope rule): its packet ops/reviews/illinois-nursing-home-responsible-party.md was written before the scope rule and has no scope table or counts line",
+   "workstream": "build",
+   "lane": "build",
+   "source": "operator",
+   "seeded_by": "main chat for Joseph, 24 Nov 2026 18:05 Chicago: \"Correct the known content accuracy problems and strengthen the review process.\"",
+   "key": "rereview:illinois-nursing-home-responsible-party",
+   "priority": 1,
+   "evidence": "A scope defect passed the 24 Nov review of medicare-fast-appeal-hospital-rehab-discharge: a Medicare.gov sentence about what \"your plan\" does was presented as the rule for everyone in a skilled nursing facility. quotecheck on drafts cf6aaf8, 25 Nov 2026 00:25Z: 15 of 15 quotations of this page are found word for word in its 3 cited pages, so the wording holds and scope is the open question. It is in open publish pull request #88.",
+   "expected_tour_acquisition_value": "Nothing reaches families until Joseph merges a publish pull request, and he should only be asked to merge pages whose every claim applies to the reader the page addresses.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/illinois-nursing-home-responsible-party.md rewritten under the review rules with its table, counts line and verdict; each required correction applied on drafts and its verify task queued for a later session; or the verdict publish-ready with zero scope defects",
+   "status": "ready",
+   "found_utc": "2026-11-25T00:27Z"
+  },
+  {
+   "id": "ACQ-058",
+   "task": "Review illinois-assisted-living-involuntary-move-out again under the review rules of procedure v4.3.2 (quotation checker, then the scope rule): its packet ops/reviews/illinois-assisted-living-involuntary-move-out.md was written before the scope rule and has no scope table or counts line",
+   "workstream": "build",
+   "lane": "build",
+   "source": "operator",
+   "seeded_by": "main chat for Joseph, 24 Nov 2026 18:05 Chicago: \"Correct the known content accuracy problems and strengthen the review process.\"",
+   "key": "rereview:illinois-assisted-living-involuntary-move-out",
+   "priority": 1,
+   "evidence": "A scope defect passed the 24 Nov review of medicare-fast-appeal-hospital-rehab-discharge: a Medicare.gov sentence about what \"your plan\" does was presented as the rule for everyone in a skilled nursing facility. quotecheck on drafts cf6aaf8, 25 Nov 2026 00:25Z: 8 of 8 quotations of this page are found word for word in its 6 cited pages, so the wording holds and scope is the open question. It is in open publish pull requests #87 and #88.",
+   "expected_tour_acquisition_value": "Nothing reaches families until Joseph merges a publish pull request, and he should only be asked to merge pages whose every claim applies to the reader the page addresses.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/illinois-assisted-living-involuntary-move-out.md rewritten under the review rules with its table, counts line and verdict; each required correction applied on drafts and its verify task queued for a later session; or the verdict publish-ready with zero scope defects",
+   "status": "ready",
+   "found_utc": "2026-11-25T00:27Z"
+  },
+  {
+   "id": "ACQ-059",
+   "task": "Review medicare-fast-appeal-hospital-rehab-discharge again under the review rules of procedure v4.3.2 (quotation checker, then the scope rule): its packet ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md was written before the scope rule and has no scope table or counts line",
+   "workstream": "build",
+   "lane": "build",
+   "source": "operator",
+   "seeded_by": "main chat for Joseph, 24 Nov 2026 18:05 Chicago: \"Correct the known content accuracy problems and strengthen the review process.\"",
+   "key": "rereview:medicare-fast-appeal-hospital-rehab-discharge",
+   "priority": 1,
+   "evidence": "A scope defect passed the 24 Nov review of medicare-fast-appeal-hospital-rehab-discharge: a Medicare.gov sentence about what \"your plan\" does was presented as the rule for everyone in a skilled nursing facility. quotecheck on drafts cf6aaf8, 25 Nov 2026 00:25Z: 30 of 30 quotations of this page are found word for word in its 2 cited pages, so the wording holds and scope is the open question. This is the page where the scope defect was found.",
+   "expected_tour_acquisition_value": "Nothing reaches families until Joseph merges a publish pull request, and he should only be asked to merge pages whose every claim applies to the reader the page addresses.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md rewritten under the review rules with its table, counts line and verdict; each required correction applied on drafts and its verify task queued for a later session; or the verdict publish-ready with zero scope defects",
+   "status": "ready",
+   "found_utc": "2026-11-25T00:27Z"
+  },
+  {
+   "id": "ACQ-060",
+   "task": "Review illinois-medicaid-pending-nursing-home again under the review rules of procedure v4.3.2 (quotation checker, then the scope rule): its packet ops/reviews/illinois-medicaid-pending-nursing-home.md was written before the scope rule and has no scope table or counts line",
+   "workstream": "build",
+   "lane": "build",
+   "source": "operator",
+   "seeded_by": "main chat for Joseph, 24 Nov 2026 18:05 Chicago: \"Correct the known content accuracy problems and strengthen the review process.\"",
+   "key": "rereview:illinois-medicaid-pending-nursing-home",
+   "priority": 1,
+   "evidence": "A scope defect passed the 24 Nov review of medicare-fast-appeal-hospital-rehab-discharge: a Medicare.gov sentence about what \"your plan\" does was presented as the rule for everyone in a skilled nursing facility. quotecheck on drafts cf6aaf8, 25 Nov 2026 00:25Z: 20 of 20 quotations of this page are found word for word in its 7 cited pages, so the wording holds and scope is the open question.",
+   "expected_tour_acquisition_value": "Nothing reaches families until Joseph merges a publish pull request, and he should only be asked to merge pages whose every claim applies to the reader the page addresses.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/illinois-medicaid-pending-nursing-home.md rewritten under the review rules with its table, counts line and verdict; each required correction applied on drafts and its verify task queued for a later session; or the verdict publish-ready with zero scope defects",
+   "status": "ready",
+   "found_utc": "2026-11-25T00:27Z"
+  },
+  {
+   "id": "ACQ-061",
+   "task": "Review illinois-parent-refuses-to-move-guardianship again under the review rules of procedure v4.3.2 (quotation checker, then the scope rule): its packet ops/reviews/illinois-parent-refuses-to-move-guardianship.md was written before the scope rule and has no scope table or counts line",
+   "workstream": "build",
+   "lane": "build",
+   "source": "operator",
+   "seeded_by": "main chat for Joseph, 24 Nov 2026 18:05 Chicago: \"Correct the known content accuracy problems and strengthen the review process.\"",
+   "key": "rereview:illinois-parent-refuses-to-move-guardianship",
+   "priority": 1,
+   "evidence": "A scope defect passed the 24 Nov review of medicare-fast-appeal-hospital-rehab-discharge: a Medicare.gov sentence about what \"your plan\" does was presented as the rule for everyone in a skilled nursing facility. quotecheck on drafts cf6aaf8, 25 Nov 2026 00:25Z: 23 of 23 quotations of this page are found word for word in its 3 cited pages, so the wording holds and scope is the open question.",
+   "expected_tour_acquisition_value": "Nothing reaches families until Joseph merges a publish pull request, and he should only be asked to merge pages whose every claim applies to the reader the page addresses.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/illinois-parent-refuses-to-move-guardianship.md rewritten under the review rules with its table, counts line and verdict; each required correction applied on drafts and its verify task queued for a later session; or the verdict publish-ready with zero scope defects",
+   "status": "ready",
+   "found_utc": "2026-11-25T00:27Z"
+  },
+  {
+   "id": "ACQ-062",
+   "task": "Review va-home-based-primary-care-and-aide again under the review rules of procedure v4.3.2 (quotation checker, then the scope rule): its packet ops/reviews/va-home-based-primary-care-and-aide.md was written before the scope rule and has no scope table or counts line",
+   "workstream": "build",
+   "lane": "build",
+   "source": "operator",
+   "seeded_by": "main chat for Joseph, 24 Nov 2026 18:05 Chicago: \"Correct the known content accuracy problems and strengthen the review process.\"",
+   "key": "rereview:va-home-based-primary-care-and-aide",
+   "priority": 1,
+   "evidence": "A scope defect passed the 24 Nov review of medicare-fast-appeal-hospital-rehab-discharge: a Medicare.gov sentence about what \"your plan\" does was presented as the rule for everyone in a skilled nursing facility. quotecheck on drafts cf6aaf8, 25 Nov 2026 00:25Z: 13 of 13 quotations of this page are found word for word in its 6 cited pages, so the wording holds and scope is the open question.",
+   "expected_tour_acquisition_value": "Nothing reaches families until Joseph merges a publish pull request, and he should only be asked to merge pages whose every claim applies to the reader the page addresses.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/va-home-based-primary-care-and-aide.md rewritten under the review rules with its table, counts line and verdict; each required correction applied on drafts and its verify task queued for a later session; or the verdict publish-ready with zero scope defects",
+   "status": "ready",
+   "found_utc": "2026-11-25T00:27Z"
+  },
+  {
+   "id": "ACQ-063",
+   "task": "Review illinois-money-management-program again under the review rules of procedure v4.3.2 (quotation checker, then the scope rule): its packet ops/reviews/illinois-money-management-program.md was written before the scope rule and has no scope table or counts line",
+   "workstream": "build",
+   "lane": "build",
+   "source": "operator",
+   "seeded_by": "main chat for Joseph, 24 Nov 2026 18:05 Chicago: \"Correct the known content accuracy problems and strengthen the review process.\"",
+   "key": "rereview:illinois-money-management-program",
+   "priority": 1,
+   "evidence": "A scope defect passed the 24 Nov review of medicare-fast-appeal-hospital-rehab-discharge: a Medicare.gov sentence about what \"your plan\" does was presented as the rule for everyone in a skilled nursing facility. quotecheck on drafts cf6aaf8, 25 Nov 2026 00:25Z: 13 of 13 quotations of this page are found word for word in its 3 cited pages, so the wording holds and scope is the open question.",
+   "expected_tour_acquisition_value": "Nothing reaches families until Joseph merges a publish pull request, and he should only be asked to merge pages whose every claim applies to the reader the page addresses.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/illinois-money-management-program.md rewritten under the review rules with its table, counts line and verdict; each required correction applied on drafts and its verify task queued for a later session; or the verdict publish-ready with zero scope defects",
+   "status": "ready",
+   "found_utc": "2026-11-25T00:27Z"
   }
  ],
  "completed": [
@@ -1935,25 +2047,13 @@
   "confirmation": "Claude Scheduled Tasks screenshot: ESCG Tour Acquisition Loop active, Pull request: Commits pushed on matching repository. Previous setup screenshot: head branch automation/esc-tour-loop."
  },
  "owner_review_needed": [
-  "ACQ-027 (22 Nov): one new referral proposal ready for the outreach operator: Open Communities (Evanston fair-housing/HUD counseling nonprofit) keeps an Older Adult Housing Resources list that already links senior-placement and home-care sites. Gmail draft to its published general address is ready (growth.json ready, ref em-1122a); send with the 25 Nov+ batch if acceptable.",
-  "D8/D10 (22 Nov): newsletters and calendars give the outreach operator no route of its own. One free public talk by you (e.g. 'What to ask on a senior-living tour' at the library, Levy or North Shore Senior Center) would open the Evanston Now calendar, Daily Herald share, Patch calendars and Rotary at once. Would you do one? Yes or no is enough. Venues found 22 Nov (ACQ-028): Wilmette, Niles-Maine and Morton Grove libraries all run caregiver or senior-living programs; Morton Grove has already hosted one on senior living options.",
-  "Evanston Now essay: your draft is in your Claude chat. Rewrite it, then submit it through their contact form. Decide on Patch after that.",
-  "Optional: request indexing for https://evanstonseniorcareguide.com/assisted-living-evanston/ in Search Console (live since 2026-11-22T00:38Z, deploy 6b0238b3). Merge #84 (+#79) and redeploy if you want its search visitors counted at the tour click.",
-  "PR #85: four choosing-stage guides link to the new /assisted-living-evanston/ page (today only the homepage does). Small, tested, no new claims; merge + redeploy if acceptable, ideally with the Search Console indexing request.",
-  "PR #84 = PR #80 + the same tag-carry on the new assisted-living page (25/25 tests). Merge #84 and close #80, or merge #80 then #84. Merge with #79 either way; this loop does not merge.",
-  "PR #81: homepage title names assisted living and memory care in Evanston (head/meta only). Review and merge if acceptable.",
-  "PR #79: tour click keeps the arrival tag. Without it, a tour inquiry from the Winnetka post or any tagged post counts as direct. Review and merge if acceptable (this loop does not merge).",
-  "PR #78: review and merge if acceptable (this loop does not merge)",
-  "Stray branch claude/estate-recovery-tour-path (same commit as PR #78) is safe to delete",
-  "Call list (Joseph, optional): New Trier Township social services 847-446-8202; Village of Northbrook 847-272-5050 re its Senior Housing Resources directory",
-  "PR #86: the checklist PDF gets one disclosed tour-request line and link. Review, merge and deploy if acceptable.",
-  "Skokie Human Services (ACQ-001) publishes no email, so it is phone-only: add it to your optional call list. Niles was emailed 21 Nov (0 replies so far).",
-  "Evanston Now essay timing (22 Nov, ACQ-033): families look hardest right after holiday visits (trade reports put the inquiry peak about 3-4 Jan). If your essay can carry a 'what to notice on a holiday visit, and what to ask next' angle and be submitted by about 10 Dec, it lands in that window. Optional.",
-  "PR #87: publish the assisted-living move-out guide (review packet ops/reviews/illinois-assisted-living-involuntary-move-out.md, corrections applied on drafts 3c7bc75, all checks pass). About 10 minutes to read and merge; then run tools/publish.py yourself.",
-  "PR #88: publish the nursing-home responsible-party guide (packet ops/reviews/illinois-nursing-home-responsible-party.md, corrections applied on drafts a68e5aa, all checks pass; title shortened for the 70-char gate). About 10 minutes to read and merge; then run tools/publish.py yourself.",
-  "Draft medicare-fast-appeal-hospital-rehab-discharge: packet ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md says publish-ready after corrections; correction applied on drafts 52bffc3. A publish PR follows once #87 or #88 is merged (publish lane at its limit). About 10 minutes to review.",
-  "Draft illinois-medicaid-pending-nursing-home: packet ops/reviews/illinois-medicaid-pending-nursing-home.md says publish-ready (20/20 quotes, no corrections). A publish PR follows once #87 or #88 is merged (publish lane at its limit). About 10 minutes to review.",
-  "Draft illinois-parent-refuses-to-move-guardianship: packet ops/reviews/illinois-parent-refuses-to-move-guardianship.md says publish-ready (24/24 quotes, no corrections). A publish PR follows once #87 or #88 is merged (publish lane at its limit). About 10 minutes to review."
+  "PUBLISH (the most valuable thing you can do; about 15 minutes when it is ready): the pull request to merge will be named in this line. The seven unpublished guides are being reviewed again under the scope rule of 24 Nov (wording already checked by machine: 122 of 122 quotations match their sources); one batch pull request with every guide that passes follows, and it will include #87 and #88. Merging it publishes them; then run tools/publish.py.",
+  "TRACKING AND SEARCH pull requests (about 10 minutes; merge any you accept, then redeploy): #84 with #79 (a tour inquiry keeps its arrival channel; #84 contains #80), #85 (four choosing-stage guides link to the Evanston assisted-living page), #81 (homepage title names assisted living and memory care in Evanston), #86 (the checklist PDF gets one disclosed tour-request line), #78 (estate-recovery guide: tour checklist and tour link). Optional with it: request indexing for /assisted-living-evanston/ in Search Console.",
+  "EVANSTON NOW ESSAY (yours; the draft is in your Claude chat): rewrite it and submit it through their contact form. A 'what to notice on a holiday visit, and what to ask next' angle submitted by about 10 Dec lands in the early-January inquiry peak. Decide on Patch after that.",
+  "ONE FREE PUBLIC TALK? Yes or no is enough (for example 'What to ask on a senior-living tour' at a library or senior center). It would open the Evanston Now calendar, the Daily Herald, Patch calendars and Rotary at once; Wilmette, Niles-Maine and Morton Grove libraries run such programs.",
+  "OPTIONAL CALLS (these publish no email address): New Trier Township social services 847-446-8202; Village of Northbrook 847-272-5050 about its Senior Housing Resources directory; Skokie Human Services.",
+  "HOUSEKEEPING (2 minutes): close #80 once #84 is merged; the stray branch claude/estate-recovery-tour-path (same commit as #78) can be deleted.",
+  "For the outreach operator, nothing for you to do: one referral proposal is ready (Open Communities' Older Adult Housing Resources list; Gmail draft, ref em-1122a)."
  ],
  "hourly_backlog_policy": {
   "enabled": true,
@@ -1995,7 +2095,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Next due: monitor and planner at 25 Nov 06:26Z, demand-questions 06:34Z, asset-gaps and draft-review 06:37Z. Waiting on Joseph: publish PRs #87/#88 (3 more drafts publish-ready: medicare-fast-appeal, medicaid-pending, guardianship), conversion PRs #78-80/#84/#86, search PRs #81/#85; ACQ-030 memory-care decision waits on a Search Console read.",
+ "next_discovery": "25 Nov 00:30Z (main chat, at Joseph's request): procedure v4.3.2 and helper update live; seven re-review tasks queued under the scope rule; live-accuracy and publish-ready angles due; backlog discovery (explore) starts when the pipeline falls under three. Waiting on Joseph: see owner_review_needed (7 lines).",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -2761,17 +2861,17 @@
     }
    ]
   },
-  "procedure": "v4.3 (continue by default, build on drafts)"
+  "procedure": "v4.3.2 (v4.3.1 checked against the helper and the Make controller; backlog discovery recorded with explore; scope rule and quotation checker in reviews; corrections verified by a later session; publish batches)"
  },
  "planner": {
-  "version": 1,
+  "version": "4.3.2",
   "added_utc": "2026-11-23T03:31Z",
   "why": "Joseph, 22 Nov 2026 20:54 Chicago: redesign around continuous, meaningful execution; when the backlog gets low, generate and prioritize new evidence-based opportunities instead of stopping; no filler; measure qualified traffic, inquiries, referrals and tours, not task counts.",
   "enabled": true,
   "low_water": 3,
   "min_score": 2.0,
   "budget_note": "Usage reserve, not a task cap: the worker, Joseph's own chats, the drafts routine, the Daily Report and the outreach operator all share one Claude Max allowance (a 5-hour window and a weekly limit that resets Monday 4:00 am Chicago). The worker stops starting sessions once its sessions add up to budget_hours_per_day in the last 24 hours (and budget_hours_per_week in 7 days, when set), then resumes on its own. Starting value 6 hours per 24 hours, to be calibrated against the usage readings. Joseph changes it with one word.",
-  "how_to_use": "When status shows plan.due (fewer than low_water items in the pipeline and at least one lane neither waiting on Joseph nor cooling down), plan for at most two plannable lanes, best measured outcome first (python3 ops/loopctl.py outcomes --days 28: lane_visitors, plus 10 per inquiry and 5 per organization reply attributed to the lane), then by order. Gather the lane's evidence, put every candidate through the gate, add the survivors with source plan, then record the pass with plan-done. Finding nothing is a complete result and puts the lane on cooldown. A lane whose owner_wip reaches its limit takes no new tasks until Joseph or the operator clears items.",
+  "how_to_use": "When status shows plan.due (fewer than low_water items in the pipeline and at least one lane neither waiting on Joseph nor cooling down), plan for at most two plannable lanes, best measured outcome first (python3 ops/loopctl.py outcomes --days 28: lane_visitors, plus 10 per inquiry and 5 per organization reply attributed to the lane), then by order. Gather the lane's evidence, put every candidate through the gate, add the survivors with source plan, then record the pass with plan-done. Finding nothing is a complete result and puts the lane on cooldown. A lane whose owner_wip reaches its limit takes no new tasks until Joseph or the operator clears items. Since 24 Nov 2026 (v4.3.2): when the pipeline is under low_water and no planning pass or sweep is left, status shows fallback.due and the session runs the independent backlog fallback, recording each avenue with explore (see planner/fallback/how).",
   "gate": "A candidate becomes a task only if all hold: (1) concrete evidence with its source and date, never a guess; (2) a stated, plausible effect on qualified visitors, inquiries, referrals or tours; (3) not already queued, done, dropped or waiting (dupes and key); (4) its output is a change, a business asset (guide, FAQ, checklist, comparison or research resource that families or Joseph will use), a prepared handoff or a verdict someone can act on, never only an internal note, a rewording or a cosmetic change; (5) the worker can finish it within ROLE AND LIMITS; (6) impact x confidence / effort (each 1-5) of at least min_score.",
   "lanes": [
    {
@@ -2797,9 +2897,9 @@
     "name": "Publish packages for finished drafts",
     "why": "Finished guides sit on drafts until Joseph ports them to main; a ready pull request turns publishing into one merge.",
     "evidence": "ops/reviews/ packets with verdict publish-ready; main's own 'Publish guide' commits as the porting pattern.",
-    "output": "One review pull request per asset from a branch of main (claude/publish-<slug>) with the build entry, page, guides index, sitemap and checks.",
+    "output": "One review pull request per session (a batch) from branch claude/publish-batch-<YYYYMMDD>-<n>, cut from the newest open publish branch, with one commit per page; merging the newest publishes everything in the stack.",
     "outcome": "guides live on the site sooner",
-    "owner_wip_limit": 2,
+    "owner_wip_limit": 3,
     "plan_cooldown_hours": 12,
     "open_prs": [
      87,
@@ -2808,7 +2908,8 @@
     "owner_open": 2,
     "cooldown_until_utc": "2026-11-24T05:41Z",
     "last_planned_utc": "2026-11-23T17:41Z",
-    "last_plan_result": "ops/reviews/ is empty: no draft has a publish-ready packet, so no publish package can be prepared yet. Draft-review sweep runs next for the 4 reviewable drafts."
+    "last_plan_result": "ops/reviews/ is empty: no draft has a publish-ready packet, so no publish package can be prepared yet. Draft-review sweep runs next for the 4 reviewable drafts.",
+    "wip_note": "Limit 3 open publish pull requests since 24 Nov 2026 (was 2): batches are stacked, so the newest one publishes all of them with a single merge."
    },
    {
     "id": "demand",
@@ -2989,9 +3090,9 @@
     "priority": 1,
     "recheck_hours": 12,
     "enabled": true,
-    "question": "Which assets on drafts have a review packet with the verdict publish-ready and no open publish pull request?",
+    "question": "Which pages on drafts qualify for packaging (packet with the counts line and verdict publish-ready, or publish-ready after corrections with 'Corrections verified') and are not in an open publish pull request, or are in one but changed on drafts since they were ported?",
     "evidence": "ops/reviews/ packets; open pull requests; the asset on drafts and its absence from main.",
-    "output": "One publish-package task per asset (at most two open publish pull requests).",
+    "output": "One publish-batch task for this session (key publish-batch:<YYYYMMDD>-<n>) covering all of them: procedure step 7, Publish package.",
     "why": "Publishing is the step that turns drafts into visitors.",
     "last_checked_utc": "",
     "next_check_utc": "",
@@ -3005,12 +3106,26 @@
     "enabled": true,
     "question": "Which guide drafts on the drafts branch are not yet on main and have no review packet in ops/reviews/?",
     "evidence": "git diff of main...drafts for new guide slugs; each draft's own cited sources, fetched and read now.",
-    "output": "One review packet per draft at ops/reviews/<slug>.md on ops/operator-state: every factual claim checked against the source it cites (holds / does not hold / source unreachable, quoting the source's own short wording), the rule checks (independent-guide disclosure, no community ranking, no Westminster Place prices, no unverified medical, legal, financial or benefits claim) and a verdict: publish-ready, or the exact fixes. One owner_review_needed line per draft with the verdict and the minutes it takes to publish. Deliverable type review_packet.",
+    "output": "One review task per page (key review:<slug>), worked under the review rules of procedure step 7: quotation checker, wording, the scope rule, figures, links, advice; packet at ops/reviews/<slug>.md with its table, counts line and verdict. Never a page this session built. Deliverable type review_packet.",
     "why": "A draft only helps families once Joseph publishes it; a verified packet turns that into a few-minute decision.",
     "last_checked_utc": "2026-11-24T18:37Z",
     "next_check_utc": "2026-11-25T06:37Z",
     "last_result": "2 drafts on drafts not on main without a packet: illinois-medicaid-pending-nursing-home (drafts 4b5dca4) and illinois-parent-refuses-to-move-guardianship (cf6aaf8), both built by session cse_014eaiSaawGGbUyc4hBUU42n, so reviewable; queued ACQ-055 and ACQ-056.",
     "last_added": 2
+   },
+   {
+    "id": "live-accuracy",
+    "lane": "technical",
+    "priority": 1,
+    "recheck_hours": 12,
+    "enabled": true,
+    "question": "Which live guides state something their cited sources do not say today, or say for a narrower case than the guide does?",
+    "evidence": "python3 ops/quotecheck.py --site <clone of main> --all: every guide with a NOT FOUND quotation (the source changed, or the wording was never exact); then, among guides without a packet in ops/reviews/live/, those with deadlines, dollar figures or eligibility rules. First run by the main chat, 25 Nov 2026 00:25Z: 32 live guides, 252 quotations, 247 found, 5 not found (one each in illinois-nursing-home-preadmission-screening, illinois-pace-program, medicare-durable-medical-equipment-coverage, va-caregiver-support-program, va-veteran-directed-care-program); ilga.gov pages could not be read from that workspace.",
+    "output": "One audit task per live guide with a NOT FOUND quotation (all of them, key audit:<slug>), plus at most two more guides per check chosen by risk; each audit under procedure step 7 Improve, ACCURACY AUDIT. Corrections go into one rolling review pull request. When every live guide has a packet, record that and pass --recheck-hours 720.",
+    "why": "Joseph, 24 Nov 2026: \"Correct the known content accuracy problems and strengthen the review process.\" Families act on these deadlines and figures.",
+    "last_checked_utc": "",
+    "next_check_utc": "",
+    "last_result": ""
    },
    {
     "id": "demand-questions",
@@ -3094,7 +3209,7 @@
     "recheck_hours": 168,
     "enabled": true,
     "question": "Which published guides state rates, income or asset limits, deadlines or program rules that their official source has since changed (for example 2027 figures)?",
-    "evidence": "The official source each guide cites (HFS, SSA, CMS, IDoA, IDPH and the like), fetched now.",
+    "evidence": "The official source each guide cites (HFS, SSA, CMS, IDoA, IDPH and the like), fetched now. python3 ops/quotecheck.py on a clone of main shows quotations whose source wording changed.",
     "output": "A correction PR citing the official source for each changed figure, or the verdict 'current' per guide checked. Deliverable type pr or verdict.",
     "why": "A wrong figure on a published guide misleads families and costs trust.",
     "last_checked_utc": "2026-11-23T17:43Z",
@@ -3132,6 +3247,20 @@
    "2026-11-23T17:43Z freshness +1: Fetched medicare.gov costs and SNF pages: 2027 figures published (Part A deductible 1,776; SNF 222/day; Part B deductible 292; premium 209.40). Live guides sta…",
    "2026-11-23T17:41Z draft-review +4: 4 drafts on drafts not on main and with no packet: illinois-assisted-living-involuntary-move-out, illinois-nursing-home-responsible-party, illinois-money-manag…"
   ],
-  "continue_by_default": "Joseph, 23 Nov 2026 10:36 Chicago: change from STOP-BY-DEFAULT to CONTINUE-BY-DEFAULT. After the ready tasks, a session plans and sweeps these angles before it may stop; it stops only for time, no-worthwhile-work, approval-pending, usage-reserve, usage-limit, permission or store-error, recording the alternatives considered and the condition to resume."
+  "continue_by_default": "Joseph, 23 Nov 2026 10:36 Chicago: change from STOP-BY-DEFAULT to CONTINUE-BY-DEFAULT. After the ready tasks, a session plans and sweeps these angles before it may stop; it stops only for time, no-worthwhile-work, approval-pending, usage-reserve, usage-limit, permission or store-error, recording the alternatives considered and the condition to resume.",
+  "due_grace_minutes": 30,
+  "handoff_sessions_24h": 4,
+  "fallback": {
+   "enabled": true,
+   "min_avenues": 3,
+   "explore_recheck_days": 14,
+   "exhausted_base_hours": 12,
+   "exhausted_max_hours": 96,
+   "exhausted_until_utc": "",
+   "empty_streak": 0,
+   "log": [],
+   "why": "Joseph, 24 Nov 2026: \"Maintain a replenishing backlog instead of relying exclusively on scheduled discovery windows.\" \"Do not manufacture meaningless work to consume usage.\"",
+   "how": "Procedure step 7, INDEPENDENT BACKLOG FALLBACK and RECORDING IT. One explore record per avenue; a key is not explored twice in 14 days without new evidence; close refuses no-worthwhile-work until three avenue classes are recorded or --fallback-skipped says why; after an empty conclusion discovery rests 12 hours, doubling to 96."
+  }
  }
 }
