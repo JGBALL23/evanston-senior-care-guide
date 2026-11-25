@@ -1,48 +1,48 @@
 # Review packet: medicare-fast-appeal-hospital-rehab-discharge
 
-- Date: 2026-11-24
-- Reviewer: ESCG worker (session cse_014eaiSaawGGbUyc4hBUU42n; the draft was built by session cse_014eaiSbQh9aYSa5vTbwv5wK, drafts 9e9427e)
-- Draft: GUIDES entry `medicare-fast-appeal-hospital-rehab-discharge` in drafts build-guides.py (rendered: _dist/guides/medicare-fast-appeal-hospital-rehab-discharge/index.html, drafts 3496888)
+- Date: 2026-11-25
+- Reviewer: ESCG worker, session cse_014eaiSarrUfj6PScmQNGxys (task ACQ-059, key rereview:medicare-fast-appeal-hospital-rehab-discharge)
+- Draft reviewed: drafts cf6aaf8 (including 52bffc3, the 24 Nov correction of the deadline anchor per setting)
+- Rules: procedure v4.3.2 review rules. This packet replaces the 24 Nov packet, which passed the page with a scope defect (a "your plan" sentence presented as the rule for every SNF resident) and had no scope table or counts line.
+- Quotation checker: 30 quotations, 30 FOUND, 0 NEAR MATCH, 0 NOT FOUND; 2 cited pages, 0 unreadable.
 
-## Sources fetched
+## Sources (fetched 2026-11-25)
 
-| # | URL | Status | Use |
-|---|-----|--------|-----|
-| 1 | https://www.medicare.gov/providers-services/claims-appeals-complaints/appeals/fast-appeals (cited: medicare_fast_appeals) | 200 | quotes, deadlines, review sequence, decisions |
-| 2 | https://www.medicare.gov/publications/11376-your-discharge-planning-checklist.pdf (cited: medicare_discharge_checklist) | 200 application/pdf | quotes on the notices, BFCC-QIO, after-discharge questions |
+1. Medicare.gov, "Fast appeals" (providers-services/claims-appeals-complaints/appeals/fast-appeals). Sections: "What do I need to know before I ask for a fast appeal?", "How do I ask for a fast appeal?" (In a hospital / In other settings), "What will happen during the BFCC-QIO's review?", "What does the BFCC-QIO's decision mean for my appeal?" (In a hospital, split into Original Medicare and Medicare health plan / In other settings).
+2. Medicare publication 11376, "Your discharge planning checklist" (PDF).
 
-## Quote audit
+## Scope table
 
-Script: extracted every “…” from the rendered guide, normalised whitespace, apostrophes and dashes, and searched each fetched source text. 31 quotes, 31 matched. Two contain a nested quotation where the guide uses single inner marks for the page's double marks (‘Notice of Medicare Non-Coverage.’ and ‘outpatient getting observation services.’); the words match exactly.
+| # | Guide's claim | Guide's scope | Source's scope (heading / context) | Result |
+|---|---|---|---|---|
+| 1 | Answer: may have the right to a fast appeal from hospital, SNF and three other providers | anyone whose Medicare-covered services are ending | Src 1 top, "Fast appeals" | same |
+| 2 | Answer and deadlines: hospital "no later than the day you're scheduled to be discharged"; other settings "no later than noon the day before the termination date listed on the notice" | hospital / SNF and other settings | Src 1 "How do I ask…", In a hospital / In other settings | same (anchors corrected 24 Nov) |
+| 3 | IM within 2 days of admission and before discharge; copy or new IM if given more than 2 days before | hospital | Src 1 "What do I need to know…", In a hospital | same |
+| 4 | NOMNC at least 2 days before covered services end, in SNF, HHA, hospice, CORF | other settings | Src 1, In other settings | same |
+| 5 | "If you don't get this notice, ask for it"; checklist "Read the notice carefully…" applied to both notices | both settings | Src 1 (said for each); Src 2 says both the IM and the NOMNC carry fast-appeal information | same |
+| 6 | Both notices include, as applicable, the end date; deadline counted from it in SNF, from scheduled discharge in hospital | both | Src 1 "Both notices will include, as applicable: … The date your covered services will end" | same |
+| 7 | Hospital: appeal in time, stay while waiting, no charge except coinsurance or deductibles; missed deadline may mean paying past the original day | hospital, all Medicare | Src 1, In a hospital (no plan limit) | same |
+| 8 | SNF missed deadline: "you can request a fast reconsideration from your plan, but services will only be covered if there's a decision issued in your favor" | every SNF resident | Src 1, In other settings: "your plan", i.e. people in a Medicare health plan; the page says nothing about Original Medicare after a missed SNF deadline | SCOPE DEFECT (the one found on 24 Nov). Corrected (C1). |
+| 9 | "you can ask your plan for an appeal, but different rules apply" presented as the rule for a Medicare Advantage member in the hospital | MA members in hospital, generally | Src 1: the sentence follows the missed-hospital-deadline warning in the same paragraph | SCOPE DEFECT (context dropped). Corrected (C2) by stating where Medicare.gov says it. |
+| 10 | BFCC-QIO independent reviewer under contract; Commence or Acentra by state; 1-800-MEDICARE gives the number | all | Src 1, Src 2 | same |
+| 11 | Review steps: notifies hospital (and plan, if a Medicare health plan) or facility; Detailed Notice of Discharge by noon the day after; Detailed Explanation of Non-Coverage by end of the day; decision timing per setting; copies of materials | hospital / other settings | Src 1 "What will happen during the BFCC-QIO's review?" | same |
+| 12 | Decision favourable, hospital: Medicare continues to cover "as long as medically necessary" | Original Medicare | Src 1, In a hospital, "And you have Original Medicare" (plan members only if the plan authorized the admission or it was emergency care) | same: the guide says "for a parent with Original Medicare" |
+| 13 | Decision favourable, SNF: "Depending on your care needs, Medicare may continue to cover" | other settings | Src 1, In other settings | same |
+| 14 | Decision unfavourable, hospital: no charges through noon the day after the decision, if the deadline was met | hospital | Src 1 "If you met the deadline…" | same |
+| 15 | Decision unfavourable, SNF: not responsible before the coverage end date; may pay after | other settings | Src 1, In other settings | same |
+| 16 | Observation-status fast appeal while still in the hospital | inpatient changed to observation | Src 1 "Fast appeals" | same |
+| 17 | Checklist: ask "where you'll get care after you're discharged", options "(like home health care)" | anyone being discharged | Src 2 action items | same |
 
-## Claims and figures checked against the source
+Links: assisted-living-cost-illinois, does-medicare-pay-for-senior-care, illinois-senior-health-insurance-program, illinois-supportive-living-program, levels-of-senior-care-explained, medicare-home-health-care are live on main. Advice: what to do and by when is now right for both Original Medicare and plan members; where Medicare.gov is silent (Original Medicare after a missed SNF deadline) the guide says so and names whom to ask. No figures besides the time limits above; no community ranking, no Westminster Place claim.
 
-- Five provider types (hospital, SNF, HHA, CORF, hospice), so "three other kinds of provider": holds (source 1, list under "Fast appeals").
-- IM within 2 days of admission and before discharge; copy or new IM if given more than 2 days before the discharge day: holds (source 1, "In a hospital").
-- NOMNC "at least 2 days before covered services end" in other settings: holds.
-- Hospital deadline, stay while waiting, cost if missed: holds (source 1, "How do I ask for a fast appeal?").
-- SNF deadline and the fast reconsideration sentence: holds as quoted. Note: the page's sentence says "from your plan", which applies only to a parent in a Medicare health plan; the guide quotes it verbatim, so no correction.
-- Medicare Advantage sentence placed under the hospital setting: holds (it sits in the hospital paragraph).
-- Detailed Notice of Discharge by noon the day after the BFCC-QIO notifies the hospital; Detailed Explanation of Non-Coverage by the end of the day the provider gets the notice; contents of both: holds.
-- BFCC-QIO decision timing in each setting: holds.
-- Decision outcomes (Original Medicare continued coverage; SNF "may continue"; hospital liability through noon of the day after the decision "If you met the deadline"; SNF liability before and after the end date): holds.
-- Commence or Acentra; 1-800-MEDICARE for the BFCC-QIO number: holds (source 1 and source 2).
-- Checklist questions "where you'll get care after you're discharged" and "(like home health care)": holds (source 2, page 2).
-- "This guide does not print a number for Illinois": a statement about the guide itself, not a could-not-find claim.
-- Does not hold: "The notice also states the date your parent's covered services will end — the date every deadline below is counted from." Source 1 says both notices include, "as applicable", the date covered services will end; the hospital deadline is counted from "the day you're scheduled to be discharged from the hospital", not from an end date on the notice. See correction 1.
+## Required corrections
 
-## Rule checks
+C1. SNF paragraph. Was: "If that deadline is missed, Medicare.gov states 'you can request a fast reconsideration from your plan, but services will only be covered if there's a decision issued in your favor.'" Now: "If that deadline is missed and your parent is in a Medicare health plan, such as a Medicare Advantage Plan, Medicare.gov states 'you can request a fast reconsideration from your plan, …' The page does not say what applies after a missed deadline with Original Medicare: ask the BFCC-QIO named on the notice, or 1-800-MEDICARE, straight away." Source sentence (Src 1, How do I ask for a fast appeal?, In other settings): "If you miss the deadline for requesting a fast appeal from the BFCC-QIO, you can request a fast reconsideration from your plan, but services will only be covered if there's a decision issued in your favor." The page states no rule for Original Medicare here.
 
-- Independent-guide disclosure and the assessment block: present (generated by build_guide; check-guides.js passes).
-- No community named, ranked or recommended; no Westminster Place price or claim: none found.
-- No unverified medical, legal, financial or benefits claim: every Medicare rule is quoted or paraphrased from source 1 or 2.
-- Links: /, /guides/, /guides/does-medicare-pay-for-senior-care/, /guides/medicare-home-health-care/, /guides/levels-of-senior-care-explained/, /guides/illinois-senior-health-insurance-program/, and in Related guides /guides/assisted-living-cost-illinois/ and /guides/illinois-supportive-living-program/: all are live on main (checked against main's build-guides.py slugs, 24 Nov 2026).
-- Bridge: one sentence, unique (check-guides.js passes).
+C2. Medicare Advantage paragraph. Was: "If your parent is in a Medicare Advantage Plan and is in the hospital, Medicare.gov adds: 'you can ask your plan for an appeal, but different rules apply.'" Now: "Right after its warning about a missed hospital deadline, Medicare.gov adds, for a parent in a Medicare Advantage Plan: 'you can ask your plan for an appeal, but different rules apply.'" Source context (Src 1, In a hospital): "If you miss the deadline for a fast appeal, you can still ask the BFCC-QIO to review your case, but different rules and time frames apply, and you might be responsible for the cost of the hospital stay past the original day the hospital tries to discharge you. If you're in a Medicare Advantage Plan, you can ask your plan for an appeal, but different rules apply."
 
-## Corrections
+Corrections applied: drafts 2dfe3dc, 2026-11-25, cse_014eaiSarrUfj6PScmQNGxys (build 42 URLs; test.js 669/669 passed; check-guides 2570 passed, 0 failed; citations all 103 resolve; mobile-nav skipped, websockets not installed; quotecheck 30/30 found). Verification queued for a later session: verify:medicare-fast-appeal-hospital-rehab-discharge:2dfe3dc.
 
-1. **Deadline anchor.** Current: "The notice also states the date your parent's covered services will end &mdash; the date every deadline below is counted from." Replacement: "Both notices include, where it applies, the date your parent's covered services will end; in a skilled nursing facility the deadline below is counted from that date, and in a hospital from the day your parent is scheduled to be discharged." Source: "Both notices will include, as applicable: … The date your covered services will end"; "Follow the directions on the Important Message from Medicare no later than the day you're scheduled to be discharged from the hospital"; "Follow the instructions on the "Notice of Medicare Non-Coverage" no later than noon the day before the termination date listed on the notice."
+Quotations checked: 30. Claims scope-checked: 17. Scope defects: 2. Corrections required: 2.
 
-Verdict: publish-ready after corrections
-
-Corrections applied: drafts 52bffc3, 2026-11-24 (correction 1; checks re-run, all pass; ESCG worker ACQ-053).
+Verdict: publish-ready after corrections (two payer-scope fixes; packaging waits for "Corrections verified")

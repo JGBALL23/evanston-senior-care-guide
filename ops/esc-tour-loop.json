@@ -120,22 +120,6 @@
    "not_before": "Timing, not data: 2027 figures are already on medicare.gov (read 2026-11-23). Prepare the PR in December so it is fresh when Joseph merges it for 1 Jan 2027."
   },
   {
-   "id": "ACQ-059",
-   "task": "Review medicare-fast-appeal-hospital-rehab-discharge again under the review rules of procedure v4.3.2 (quotation checker, then the scope rule): its packet ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md was written before the scope rule and has no scope table or counts line",
-   "workstream": "build",
-   "lane": "build",
-   "source": "operator",
-   "seeded_by": "main chat for Joseph, 24 Nov 2026 18:05 Chicago: \"Correct the known content accuracy problems and strengthen the review process.\"",
-   "key": "rereview:medicare-fast-appeal-hospital-rehab-discharge",
-   "priority": 1,
-   "evidence": "A scope defect passed the 24 Nov review of medicare-fast-appeal-hospital-rehab-discharge: a Medicare.gov sentence about what \"your plan\" does was presented as the rule for everyone in a skilled nursing facility. quotecheck on drafts cf6aaf8, 25 Nov 2026 00:25Z: 30 of 30 quotations of this page are found word for word in its 2 cited pages, so the wording holds and scope is the open question. This is the page where the scope defect was found.",
-   "expected_tour_acquisition_value": "Nothing reaches families until Joseph merges a publish pull request, and he should only be asked to merge pages whose every claim applies to the reader the page addresses.",
-   "executor": "worker (research and preparation only)",
-   "done_when": "ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md rewritten under the review rules with its table, counts line and verdict; each required correction applied on drafts and its verify task queued for a later session; or the verdict publish-ready with zero scope defects",
-   "status": "ready",
-   "found_utc": "2026-11-25T00:27Z"
-  },
-  {
    "id": "ACQ-060",
    "task": "Review illinois-medicaid-pending-nursing-home again under the review rules of procedure v4.3.2 (quotation checker, then the scope rule): its packet ops/reviews/illinois-medicaid-pending-nursing-home.md was written before the scope rule and has no scope table or counts line",
    "workstream": "build",
@@ -234,6 +218,24 @@
    "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
    "found_utc": "2026-11-25T00:42Z"
+  },
+  {
+   "id": "ACQ-066",
+   "task": "Verify the corrections to medicare-fast-appeal-hospital-rehab-discharge",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "verify:medicare-fast-appeal-hospital-rehab-discharge:2dfe3dc",
+   "not_run": [
+    "cse_014eaiSarrUfj6PScmQNGxys"
+   ],
+   "priority": 1,
+   "evidence": "drafts 2dfe3dc applied C1 and C2 of ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md (ACQ-059)",
+   "expected_tour_acquisition_value": "quality gate before publication",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "ready",
+   "found_utc": "2026-11-25T00:44Z"
   }
  ],
  "completed": [
@@ -2069,6 +2071,37 @@
    },
    "done_utc": "2026-11-25T00:42Z",
    "minutes": 2
+  },
+  {
+   "id": "ACQ-059",
+   "task": "Review medicare-fast-appeal-hospital-rehab-discharge again under the review rules of procedure v4.3.2 (quotation checker, then the scope rule): its packet ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md was written before the scope rule and has no scope table or counts line",
+   "workstream": "build",
+   "lane": "build",
+   "source": "operator",
+   "seeded_by": "main chat for Joseph, 24 Nov 2026 18:05 Chicago: \"Correct the known content accuracy problems and strengthen the review process.\"",
+   "key": "rereview:medicare-fast-appeal-hospital-rehab-discharge",
+   "priority": 1,
+   "evidence": "A scope defect passed the 24 Nov review of medicare-fast-appeal-hospital-rehab-discharge: a Medicare.gov sentence about what \"your plan\" does was presented as the rule for everyone in a skilled nursing facility. quotecheck on drafts cf6aaf8, 25 Nov 2026 00:25Z: 30 of 30 quotations of this page are found word for word in its 2 cited pages, so the wording holds and scope is the open question. This is the page where the scope defect was found.",
+   "expected_tour_acquisition_value": "Nothing reaches families until Joseph merges a publish pull request, and he should only be asked to merge pages whose every claim applies to the reader the page addresses.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md rewritten under the review rules with its table, counts line and verdict; each required correction applied on drafts and its verify task queued for a later session; or the verdict publish-ready with zero scope defects",
+   "status": "done",
+   "found_utc": "2026-11-25T00:27Z",
+   "result": "Re-reviewed under v4.3.2 rules. quotecheck 30/30 FOUND on Medicare.gov Fast appeals and pub 11376. 17 claims scope-checked by section (hospital vs other settings, Original Medicare vs health plan). 2 scope defects: (1) the known one, the missed-SNF-deadline 'fast reconsideration from your plan' sentence presented for every SNF resident; now limited to Medicare health plans, with a plain line that the page is silent on Original Medicare and whom to ask; (2) the MA 'ask your plan' sentence lost its missed-hospital-deadline context; now placed. Corrected on drafts 2dfe3dc (checks pass). Verdict publish-ready after corrections; verify queued.",
+   "verdicts": [
+    "publish-ready after corrections"
+   ],
+   "sources": [
+    "https://www.medicare.gov/providers-services/claims-appeals-complaints/appeals/fast-appeals",
+    "https://www.medicare.gov/publications/11376-your-discharge-planning-checklist.pdf"
+   ],
+   "lesson": "On Medicare.gov pages split by setting and payer, check each quote's sub-heading and its neighbouring sentence; 'your plan' means a Medicare health plan.",
+   "deliverable": {
+    "type": "review_packet",
+    "ref": "ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md; drafts 2dfe3dc"
+   },
+   "done_utc": "2026-11-25T00:44Z",
+   "minutes": 2
   }
  ],
  "blocked": [],
@@ -2079,7 +2112,7 @@
   "picked": "ACQ-055 done, ACQ-056 done",
   "why": "Worked: monitor (site OK, ~2 genuine, 0 tour requests) and 2 publish-ready review packets (Medicaid-pending, guardianship); stopped: no-worthwhile-work; resume: monitor 25 Nov 06:26Z"
  },
- "last_verified_action": "ACQ-058 done 2026-11-25T00:42Z: Re-reviewed under v4.3.2 rules. quotecheck 8/8 FOUND across 6 IDPH/IDoA pages. 12 claims scope-checked. Confirmed the cited brochure (ltc-resrights.pdf) is the…",
+ "last_verified_action": "ACQ-059 done 2026-11-25T00:44Z: Re-reviewed under v4.3.2 rules. quotecheck 30/30 FOUND on Medicare.gov Fast appeals and pub 11376. 17 claims scope-checked by section (hospital vs other settin…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -2740,12 +2773,13 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSarrUfj6PScmQNGxys",
-   "utc": "2026-11-25T00:42Z",
+   "utc": "2026-11-25T00:44Z",
    "since_utc": "2026-11-25T00:36Z",
-   "productive_min": 6,
+   "productive_min": 8,
    "deliverables": [
     "review_packet:ops/reviews/illinois-nursing-home-responsible-party.md; drafts 2c46e74",
-    "review_packet:ops/reviews/illinois-assisted-living-involuntary-move-out.md; drafts babc23c"
+    "review_packet:ops/reviews/illinois-assisted-living-involuntary-move-out.md; drafts babc23c",
+    "review_packet:ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md; drafts 2dfe3dc"
    ]
   },
   "monitor": {
