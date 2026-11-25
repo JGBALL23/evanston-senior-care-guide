@@ -272,6 +272,9 @@ SRC = {
                        'https://ilaging.illinois.gov/programs/ltcombudsman.html'),
     "idoa_ombudsman_contact": ('Illinois Department on Aging — Office of the State Long-Term Care Ombudsman, contact information',
                                'https://ilaging.illinois.gov/programs/ltcombudsman/contact-information--office-of-the-state-long-term-care-ombudsma.html'),
+    "idph_ccr_form": ('Illinois Department of Public Health — Health Care Facility Complaint Form',
+                      'https://dph.illinois.gov/content/dam/soi/en/web/idph/forms/topics-services/'
+                      'health-care-regulation/complaints/healthcarefacilitycomplaintform20210625.pdf'),
     "idph_ccr": ('Illinois Department of Public Health — Health care facility complaints',
                 'https://dph.illinois.gov/topics-services/health-care-regulation/complaints.html'),
     "hfs_estate_guide": ('Illinois HFS — Guide to the Medicaid Estate Recovery Program',
@@ -1453,7 +1456,8 @@ GUIDES = [
         "bridge": ("Some concerns are a problem with the care being given. Others are a "
                "sign the setting itself no longer matches what your parent needs. "
                "Those two look alike from the outside."),
-        "reviewed": "2026-10-23",
+        "reviewed": "2026-11-25",
+        "listed": "2026-10-23",
         "title": "How to Report a Problem at an Illinois Nursing Home or Assisted Living",
         "h1": "How to report a problem at an Illinois care facility",
         "desc": ("A concern about an Illinois nursing home or assisted living has two "
@@ -1469,7 +1473,7 @@ GUIDES = [
                    "investigates facilities &mdash; call <strong>800-252-4343</strong>, "
                    "Monday&ndash;Friday 8:30 a.m. to 4:30 p.m. You do not have to choose "
                    "just one."),
-        "sources": srcs("idoa_ombudsman", "idoa_ombudsman_contact", "idph_ccr", "idoa_aps_program"),
+        "sources": srcs("idoa_ombudsman", "idoa_ombudsman_contact", "idph_ccr", "idph_ccr_form", "hfs_slf", "idoa_aps_program"),
         "body": [
             ("Two kinds of help, and when to use each", [
                 "<p>Families searching for how to complain about a care community "
@@ -1510,19 +1514,40 @@ GUIDES = [
                 "The department's complaints page gives the hotline as "
                 "<strong>800-252-4343</strong>, with hours of "
                 "<strong>Monday&ndash;Friday 8:30 a.m. to 4:30 p.m.</strong></p>",
-                "<p>The same page states that for a long-term care complaint "
-                "specifically, that same number reaches the department's Bureau of "
-                "Long-Term Care. Besides the phone line, the page lists three other ways "
-                "to file: online through the OHCR Portal, by fax at 217-524-8885, or by "
-                "e-mail to DPH.CCR@illinois.gov using the Health Care Facilities "
-                "Complaint Form. Written complaints can also go by mail to the Illinois "
-                "Department of Public Health, Office of Health Care Regulation, Central "
-                "Complaint Registry, 525 W. Jefferson St., Ground Floor, Springfield, IL "
-                "62761-0001.</p>",
+                "<p>The same page gives that number, for the department's Bureau of "
+                "Long-Term Care, as the one to call to check the status of a long-term "
+                "care complaint. For a written complaint, use IDPH's Health Care "
+                "Facility Complaint Form, linked from that page: it lists &ldquo;nursing "
+                "homes, skilled nursing homes, licensed facilities for individuals with "
+                "intellectual disability, and assisted living facilities&rdquo; among the "
+                "places it covers, and goes by fax to 217-524-8885, by e-mail to "
+                "DPH.CCR@illinois.gov, or by mail to the Illinois Department of Public "
+                "Health, Office of Health Care Regulation, Central Complaint Registry, "
+                "525 W. Jefferson St., Ground Floor, Springfield, IL 62761-0001. The "
+                "complaints page&rsquo;s own list of providers for complaints submitted "
+                "through the site does not name nursing homes or assisted living, so "
+                "for a care-facility concern use the phone line or the form.</p>",
+                "<p>The form gives the hotline as &ldquo;Available 24 hours a day - 7 "
+                "days per week,&rdquo; while the complaints page gives weekday hours, and "
+                "the form adds: &ldquo;If a resident&rsquo;s immediate health and/or "
+                "safety are at risk please call 800-252-4343 to speak with an IDPH "
+                "representative.&rdquo; Forms sent after 4:30 p.m., it says, are not seen "
+                "until the next business day.</p>",
                 "<p>IDPH says your identity is not disclosed to the facility, and you "
                 "may file anonymously or leave contact information to receive written "
                 "notice of the outcome. Describing who, what, when, where and how gives "
                 "investigators the most to work with.</p>",
+            ]),
+            ("If your parent is in a supportive living facility", [
+                "<p>A supportive living facility under Illinois&rsquo;s Supportive "
+                "Living Program has its own complaint line, run by the Department of "
+                "Healthcare and Family Services rather than IDPH. The programme&rsquo;s "
+                "resident fact sheet states: &ldquo;Complaints concerning a Supportive "
+                "Living Program provider may be directed to the SLP complaint hotline: "
+                "1-844-528-8444&rdquo;. "
+                '<a href="/guides/illinois-supportive-living-program/">The Supportive '
+                "Living Program guide</a> explains how these facilities differ from "
+                "licensed assisted living.</p>",
             ]),
             ("The other number on the Ombudsman page", [
                 "<p>The Ombudsman Program's own page also carries a navigation link "
