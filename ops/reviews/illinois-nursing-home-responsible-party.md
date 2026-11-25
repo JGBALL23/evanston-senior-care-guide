@@ -43,3 +43,5 @@ Corrections applied: drafts 2c46e74, 2026-11-25, cse_014eaiSarrUfj6PScmQNGxys (b
 Quotations checked: 15. Claims scope-checked: 13. Scope defects: 1. Corrections required: 2.
 
 Verdict: publish-ready after corrections (both corrections are one-clause scope and attribution fixes; packaging waits for "Corrections verified")
+
+Corrections verified: 2026-11-25, cse_014eaiSaeYoez1bK3E9MFwz4 (drafts 2c46e74 re-read against its source; quotecheck 15/15 found; scope of each changed sentence matches its source).
