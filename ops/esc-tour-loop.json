@@ -192,25 +192,6 @@
    "found_utc": "2026-11-25T00:48Z"
   },
   {
-   "id": "ACQ-068",
-   "task": "Accuracy audit of the live guide illinois-pace-program under the review rules (quotation checker, scope rule), packet at ops/reviews/live/illinois-pace-program.md; corrections into the rolling review PR claude/accuracy-20261125",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "plan",
-   "key": "audit:illinois-pace-program",
-   "evidence": "quotecheck --all on main 4dc2468, 2026-11-25 ~00:55Z: 1 NOT FOUND, the quotation 'scheduled to begin in June 2024,' is no longer on its cited page; a 2024 launch date stated on a live page in Nov 2026 is probably stale (also flagged by the main chat 25 Nov 00:25Z run).",
-   "expected_tour_acquisition_value": "Families act on live deadlines, figures and eligibility rules; a wrong one costs trust and the inquiry that would follow from it.",
-   "impact": 4,
-   "confidence": 4,
-   "effort": 2,
-   "executor": "worker (research and preparation only)",
-   "done_when": "ops/reviews/live/illinois-pace-program.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to the rolling accuracy PR against main",
-   "score": 8.0,
-   "status": "ready",
-   "priority": 2,
-   "found_utc": "2026-11-25T00:50Z"
-  },
-  {
    "id": "ACQ-069",
    "task": "Accuracy audit of the live guide va-caregiver-support-program under the review rules (quotation checker, scope rule), packet at ops/reviews/live/va-caregiver-support-program.md; corrections into the rolling review PR claude/accuracy-20261125",
    "workstream": "technical",
@@ -2235,6 +2216,40 @@
    },
    "done_utc": "2026-11-25T00:49Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-068",
+   "task": "Accuracy audit of the live guide illinois-pace-program under the review rules (quotation checker, scope rule), packet at ops/reviews/live/illinois-pace-program.md; corrections into the rolling review PR claude/accuracy-20261125",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:illinois-pace-program",
+   "evidence": "quotecheck --all on main 4dc2468, 2026-11-25 ~00:55Z: 1 NOT FOUND, the quotation 'scheduled to begin in June 2024,' is no longer on its cited page; a 2024 launch date stated on a live page in Nov 2026 is probably stale (also flagged by the main chat 25 Nov 00:25Z run).",
+   "expected_tour_acquisition_value": "Families act on live deadlines, figures and eligibility rules; a wrong one costs trust and the inquiry that would follow from it.",
+   "impact": 4,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/live/illinois-pace-program.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to the rolling accuracy PR against main",
+   "score": 8.0,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-25T00:50Z",
+   "result": "Audited live illinois-pace-program on main 4dc2468. quotecheck 5/6 FOUND; the NOT FOUND 'scheduled to begin in June 2024' is gone from HFS's Designated PACE Organizations page (no launch date there now). 11 claims scope-checked, payer by payer for costs; all hold, including the Evanston zip check (none of 60201/02/03/08 in HFS's 150-zip list). Correction: clause removed, reviewed date 2026-11-25; branch claude/accuracy-20261125 (ab58cc6), review PR #89 opened, not merged. Checks pass except check-citations' 15 pre-existing failures on ilga.gov/truleeevanston.com, none cited by this page.",
+   "verdicts": [
+    "corrections"
+   ],
+   "sources": [
+    "https://hfs.illinois.gov/medicalproviders/pace/designatedpaceorganizations.html",
+    "https://hfs.illinois.gov/medicalproviders/pace/zipsearch.html",
+    "https://www.medicare.gov/health-drug-plans/health-plans/your-coverage-options/other-medicare-health-plans/PACE"
+   ],
+   "deliverable": {
+    "type": "pr",
+    "ref": "#89; ops/reviews/live/illinois-pace-program.md"
+   },
+   "done_utc": "2026-11-25T00:55Z",
+   "minutes": 4
   }
  ],
  "blocked": [],
@@ -2245,7 +2260,7 @@
   "picked": "ACQ-055 done, ACQ-056 done",
   "why": "Worked: monitor (site OK, ~2 genuine, 0 tour requests) and 2 publish-ready review packets (Medicaid-pending, guardianship); stopped: no-worthwhile-work; resume: monitor 25 Nov 06:26Z"
  },
- "last_verified_action": "ACQ-063 done 2026-11-25T00:49Z: Re-reviewed under v4.3.2 rules. quotecheck 13/13 FOUND. 10 claims scope-checked. The one ambiguity (does 'in certain areas of the State' limit the CCP path too…",
+ "last_verified_action": "ACQ-068 done 2026-11-25T00:55Z: Audited live illinois-pace-program on main 4dc2468. quotecheck 5/6 FOUND; the NOT FOUND 'scheduled to begin in June 2024' is gone from HFS's Designated PACE Or…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -2281,7 +2296,7 @@
  },
  "owner_review_needed": [
   "PUBLISH (the most valuable thing you can do; about 15 minutes when it is ready): do not merge #87 or #88 yet. The 25 Nov re-review under the scope rule passed 3 of the 7 unpublished guides as they stand and found small scope defects in the other 4 (each corrected on drafts; 2 of them are the pages in #87 and #88). A later session checks those corrections, then one batch pull request with all 7 follows and replaces #87 and #88; this line will name it. Merging it publishes them; then run tools/publish.py.",
-  "TRACKING AND SEARCH pull requests (about 10 minutes; merge any you accept, then redeploy): #84 with #79 (a tour inquiry keeps its arrival channel; #84 contains #80), #85 (four choosing-stage guides link to the Evanston assisted-living page), #81 (homepage title names assisted living and memory care in Evanston), #86 (the checklist PDF gets one disclosed tour-request line), #78 (estate-recovery guide: tour checklist and tour link). Optional with it: request indexing for /assisted-living-evanston/ in Search Console.",
+  "TRACKING AND SEARCH pull requests (about 10 minutes; merge any you accept, then redeploy): #84 with #79 (a tour inquiry keeps its arrival channel; #84 contains #80), #85 (four choosing-stage guides link to the Evanston assisted-living page), #81 (homepage title names assisted living and memory care in Evanston), #86 (the checklist PDF gets one disclosed tour-request line), #78 (estate-recovery guide: tour checklist and tour link), #89 (rolling accuracy corrections to live guides; today one stale PACE launch date removed). Optional with it: request indexing for /assisted-living-evanston/ in Search Console.",
   "EVANSTON NOW ESSAY (yours; the draft is in your Claude chat): rewrite it and submit it through their contact form. A 'what to notice on a holiday visit, and what to ask next' angle submitted by about 10 Dec lands in the early-January inquiry peak. Decide on Patch after that.",
   "ONE FREE PUBLIC TALK? Yes or no is enough (for example 'What to ask on a senior-living tour' at a library or senior center). It would open the Evanston Now calendar, the Daily Herald, Patch calendars and Rotary at once; Wilmette, Niles-Maine and Morton Grove libraries run such programs.",
   "OPTIONAL CALLS (these publish no email address): New Trier Township social services 847-446-8202; Village of Northbrook 847-272-5050 about its Senior Housing Resources directory; Skokie Human Services.",
@@ -2906,9 +2921,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSarrUfj6PScmQNGxys",
-   "utc": "2026-11-25T00:50Z",
+   "utc": "2026-11-25T00:55Z",
    "since_utc": "2026-11-25T00:36Z",
-   "productive_min": 19,
+   "productive_min": 23,
    "deliverables": [
     "review_packet:ops/reviews/illinois-nursing-home-responsible-party.md; drafts 2c46e74",
     "review_packet:ops/reviews/illinois-assisted-living-involuntary-move-out.md; drafts babc23c",
@@ -2916,7 +2931,8 @@
     "review_packet:ops/reviews/illinois-medicaid-pending-nursing-home.md",
     "review_packet:ops/reviews/illinois-parent-refuses-to-move-guardianship.md",
     "review_packet:ops/reviews/va-home-based-primary-care-and-aide.md; drafts 38ba709",
-    "review_packet:ops/reviews/illinois-money-management-program.md"
+    "review_packet:ops/reviews/illinois-money-management-program.md",
+    "pr:#89; ops/reviews/live/illinois-pace-program.md"
    ]
   },
   "monitor": {
@@ -3198,8 +3214,10 @@
     "outcome": "pages that load, get crawled and keep visitors",
     "owner_wip_limit": 2,
     "plan_cooldown_hours": 72,
-    "open_prs": [],
-    "owner_open": 0,
+    "open_prs": [
+     89
+    ],
+    "owner_open": 1,
     "cooldown_until_utc": "2026-11-26T06:28Z",
     "last_planned_utc": "2026-11-23T06:28Z",
     "last_plan_result": "2026-11-23: main clone checks pass (check-guides.js 2696/2696, test.js 768/768, checklist PDF test 0 failed; check-mobile-nav skipped, no websockets). Live crawl 36 sitemap URLs all 200, robots/sitemap consistent, 170 unique links: all 200 except Google Fonts preconnect roots (expected) and 15 ilga…"
