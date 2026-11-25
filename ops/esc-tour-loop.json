@@ -120,23 +120,24 @@
    "not_before": "Timing, not data: 2027 figures are already on medicare.gov (read 2026-11-23). Prepare the PR in December so it is fresh when Joseph merges it for 1 Jan 2027."
   },
   {
-   "id": "ACQ-075",
-   "task": "Accuracy audit of the live guide va-aid-and-attendance-benefit under the review rules (quotation checker, scope rule, figures and dates against sources as they read today); packet at ops/reviews/live/va-aid-and-attendance-benefit.md",
+   "id": "ACQ-076",
+   "task": "When VA.gov posts the Veterans and Survivors Pension rates effective 1 December 2026: prepare a review pull request against main (claude/va-pension-dec2026-rates) moving the 12 MAPR figures, the net worth limit and its period, and the derived monthly comparison in va-aid-and-attendance-benefit (and any other live page holding those generator figures) to the new table, each with its VA.gov source sentence; check-guides.js requires twelve VA rate figures in the generator.",
    "workstream": "technical",
    "lane": "technical",
-   "source": "plan",
-   "key": "audit:va-aid-and-attendance-benefit",
-   "evidence": "Live guide on main 4dc2468, reviewed 2026-10-29, cites VA pension rate tables (va_rates, va_survivors_rates) that VA resets each 1 December with the COLA; no packet in ops/reviews/live (checked 2026-11-25).",
-   "expected_tour_acquisition_value": "A wrong eligibility figure or rule on a live decision-stage guide misleads families paying for long-term care and costs trust; a verified page keeps search visitors who reach it.",
+   "source": "followup",
+   "key": "technical:va-pension-dec2026-rates",
+   "evidence": "Audit ACQ-075 (ops/reviews/live/va-aid-and-attendance-benefit.md, 2026-11-25): VA.gov rate pages state the net worth limit for 1 Dec 2025 to 30 Nov 2026; current table effective 1 Dec 2025; VA resets rates each 1 December with the COLA.",
+   "expected_tour_acquisition_value": "Keeps the VA benefit figures on a decision-stage guide correct for families weighing how to pay for assisted living; stale rates cost trust.",
    "impact": 3,
    "confidence": 4,
    "effort": 2,
    "executor": "worker (research and preparation only)",
-   "done_when": "packet at ops/reviews/live/va-aid-and-attendance-benefit.md ending 'Verdict: holds' or listing each correction with its source sentence; corrections, if any, go into the rolling accuracy PR (#89 branch)",
-   "score": 6.0,
-   "status": "ready",
+   "done_when": "a tested review PR against main with the new figures and their VA.gov sentences, or a verdict that VA.gov has not posted the new table yet (postpone)",
+   "status": "waiting_on_data",
+   "not_before_utc": "2026-12-03T15:00Z",
+   "not_before": "VA.gov rate pages show the table effective 1 December 2026",
    "priority": 2,
-   "found_utc": "2026-11-25T01:11Z"
+   "found_utc": "2026-11-25T01:14Z"
   }
  ],
  "completed": [
@@ -2471,6 +2472,39 @@
    "lesson": "Check check-guides.js for content-pinning assertions before drafting a correction to a live guide; an owner gate turns the correction into an owner decision.",
    "done_utc": "2026-11-25T01:13Z",
    "minutes": 3
+  },
+  {
+   "id": "ACQ-075",
+   "task": "Accuracy audit of the live guide va-aid-and-attendance-benefit under the review rules (quotation checker, scope rule, figures and dates against sources as they read today); packet at ops/reviews/live/va-aid-and-attendance-benefit.md",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:va-aid-and-attendance-benefit",
+   "evidence": "Live guide on main 4dc2468, reviewed 2026-10-29, cites VA pension rate tables (va_rates, va_survivors_rates) that VA resets each 1 December with the COLA; no packet in ops/reviews/live (checked 2026-11-25).",
+   "expected_tour_acquisition_value": "A wrong eligibility figure or rule on a live decision-stage guide misleads families paying for long-term care and costs trust; a verified page keeps search visitors who reach it.",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet at ops/reviews/live/va-aid-and-attendance-benefit.md ending 'Verdict: holds' or listing each correction with its source sentence; corrections, if any, go into the rolling accuracy PR (#89 branch)",
+   "score": 6.0,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-25T01:11Z",
+   "result": "Audited live va-aid-and-attendance-benefit (main 4dc2468) against its 7 VA.gov sources fetched 2026-11-25. Quotecheck 9/9 FOUND. All 12 MAPR figures, the $163,699 net worth limit (1 Dec 2025 to 30 Nov 2026), the 5% medical-expense rule and the $90 Medicaid nursing facility rate match VA.gov today; scope of each claim matches (veteran vs survivor, dependents, period). Verdict: holds. Figures are period-labelled but go out of date when VA posts rates effective 1 Dec 2026; queued a follow-up to prepare the update PR once VA.gov shows them.",
+   "verdicts": [
+    "holds"
+   ],
+   "deliverable": {
+    "type": "audit",
+    "ref": "ops/reviews/live/va-aid-and-attendance-benefit.md"
+   },
+   "sources": [
+    "https://www.va.gov/pension/veterans-pension-rates/",
+    "https://www.va.gov/pension/survivors-pension-rates/"
+   ],
+   "done_utc": "2026-11-25T01:14Z",
+   "minutes": 2
   }
  ],
  "blocked": [],
@@ -2481,7 +2515,7 @@
   "picked": "ACQ-057 done, ACQ-058 done, ACQ-059 done, ACQ-060 done, ACQ-061 done, ACQ-062 done, ACQ-063 done, ACQ-068 done, ACQ-069 done, ACQ-070 done, ACQ-071 done, ACQ-072 done; queued for a later session: ACQ-064..067 (verify), not_run this RUN",
   "why": "Worked: 7 drafts re-reviewed under the scope rule (4 corrected on drafts, 3 publish-ready), 5 live guides audited (3 corrected in review PR #89); stopped: no-worthwhile-work; resume: next session verifies 4 corrections, then the publish batch"
  },
- "last_verified_action": "ACQ-074 done 2026-11-25T01:13Z: Audited live illinois-medicaid-long-term-care (main 4dc2468) against its 5 HFS sources fetched 2026-11-25. Quotecheck 3/3 FOUND. Spousal 2026 figures ($143,172…",
+ "last_verified_action": "ACQ-075 done 2026-11-25T01:14Z: Audited live va-aid-and-attendance-benefit (main 4dc2468) against its 7 VA.gov sources fetched 2026-11-25. Quotecheck 9/9 FOUND. All 12 MAPR figures, the $163,…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -3142,16 +3176,17 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSaeYoez1bK3E9MFwz4",
-   "utc": "2026-11-25T01:13Z",
+   "utc": "2026-11-25T01:14Z",
    "since_utc": "2026-11-25T01:02Z",
-   "productive_min": 14,
+   "productive_min": 16,
    "deliverables": [
     "verification:ops/reviews/illinois-nursing-home-responsible-party.md (drafts 2c46e74)",
     "verification:ops/reviews/illinois-assisted-living-involuntary-move-out.md (drafts babc23c)",
     "verification:ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md (drafts 2dfe3dc)",
     "verification:ops/reviews/va-home-based-primary-care-and-aide.md (drafts 38ba709)",
     "publish_pr:PR #90",
-    "audit:ops/reviews/live/illinois-medicaid-long-term-care.md; PR #89 commit d396ad4"
+    "audit:ops/reviews/live/illinois-medicaid-long-term-care.md; PR #89 commit d396ad4",
+    "audit:ops/reviews/live/va-aid-and-attendance-benefit.md"
    ]
   },
   "monitor": {
