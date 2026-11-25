@@ -3209,9 +3209,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSaeYoez1bK3E9MFwz4",
-   "utc": "2026-11-25T01:16Z",
+   "utc": "2026-11-25T01:17Z",
    "since_utc": "2026-11-25T01:02Z",
-   "productive_min": 19,
+   "productive_min": 20,
    "deliverables": [
     "verification:ops/reviews/illinois-nursing-home-responsible-party.md (drafts 2c46e74)",
     "verification:ops/reviews/illinois-assisted-living-involuntary-move-out.md (drafts babc23c)",
@@ -3871,6 +3871,16 @@
    "exhausted_until_utc": "",
    "empty_streak": 0,
    "log": [
+    {
+     "utc": "2026-11-25T01:17Z",
+     "run": "cse_014eaiSaeYoez1bK3E9MFwz4",
+     "key": "quality-audit-live-cost-guide",
+     "avenue": "quality",
+     "lane": "technical",
+     "candidates": 1,
+     "added": 0,
+     "result": "assisted-living-cost-illinois (main 4dc2468, 2026-11-25): quotecheck 0 quotations, 4 of 10 cited pages unreadable (ilga.gov 210 ILCS 9/15, 9/85, 9/90 and PA 104-0589: connection fails from this environment; WebFetch 503), so the contract-content claims cannot be checked here; not queued as a ready task. Noted for the …"
+    },
     {
      "utc": "2026-11-25T01:16Z",
      "run": "cse_014eaiSaeYoez1bK3E9MFwz4",
