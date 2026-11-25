@@ -6,7 +6,9 @@ state files: it prints compact JSON and makes the routine edits itself.
 Standard library only. It never touches the network and never runs git.
 
 Read commands
-  status   [--monitor-hours N]      what is due now and when the next thing is due
+  status   [--monitor-hours N] [--run RUN]
+                                    what is due now and when the next thing is due; with --run, ready tasks
+                                    that this session may not work (not_run) are listed under ready_next_session
   show ID                           one queue task, completed task, map item or scout
   dupes                             one line per known task and map item, for duplicate checks
   validate                          parse and sanity-check the state files
@@ -30,8 +32,20 @@ Write commands (edit the working copy only; committing and pushing is the caller
   set PATH JSON [--file F]          set one value, e.g. opportunity_map/items[id=D13]/status '"watch"'
   append PATH JSON [--file F] [--front] [--keep N]   add to a list
   monitor-done                      record that the monitoring pass ran now
+  explore KEY --avenue needs|search|channels|quality --added N --result TEXT [--candidates N] [--lane L]
+              [--new-evidence TEXT]
+                                    record one avenue of independent backlog discovery (procedure step 7).
+                                    Exit 5 if the same KEY was explored inside its recheck window (14 days)
+                                    and nothing new is named: pick a different question, source or segment
   close RUN --done N --changed M --outcome TEXT [--launch TEXT] [--tasks TEXT] [--monitor-hours N]
-                                    write the session record, release the lock, print next/wake
+            [--stop-reason R --considered TEXT --resume-when TEXT] [--fallback-skipped TEXT]
+                                    write the session record, release the lock, print next/wake.
+                                    Exit 6 (nothing written) when the stop reason is no-worthwhile-work while
+                                    backlog discovery is due and this session recorded fewer than three avenue
+                                    classes with explore; explore more, or say with --fallback-skipped why not
+
+Due times have a grace (30 minutes): what falls due within it counts as due now, and wake times are set
+that much earlier, because Make's timer only looks every 3 hours.
 
 Common options: --loop PATH (default ops/esc-tour-loop.json), --now ISO (tests only).
 """
@@ -51,6 +65,11 @@ WORKSTREAM_LANE = {"build": "build", "assets": "build", "content": "build", "pub
                    "demand": "demand", "technical": "technical", "measurement": "measurement",
                    "discovery": "discovery", "system_test": "system"}
 WAKE_MIN, WAKE_MAX, WAKE_DEFAULT, WAKE_RETRY = 30, 2880, 720, 120
+DUE_GRACE_MIN = 30
+FB_AVENUES = ("needs", "search", "channels", "quality")
+FB_MIN_AVENUES, FB_RECHECK_DAYS, FB_BASE_H, FB_MAX_H, FB_LOG_KEEP = 3, 14, 12, 96, 150
+HANDOFF_SESSIONS_24H = 4
+NO_WORK_REASONS = ("no-worthwhile-work", "approval-pending")
 TS = re.compile(r"^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::(\d{2})(?:\.\d+)?)?Z$")
 DATE_KEYS = ("not_before_utc", "recheck_utc")
 WAIT_KEYS = ("not_before", "waiting_for", "why_blocked", "depends_on", "done_when")
@@ -145,7 +164,8 @@ def plan_view(d, now, pipeline):
         cool = parse_ts(ln.get("cooldown_until_utc"))
         cooling = cool is not None and cool > now
         live = sum(1 for t in queue if t.get("status") in (READY, WAIT_DATA) and lane_of(t) == lid)
-        lanes.append({"id": lid, "order": ln.get("order"), "owner_wip": wip, "wip_limit": limit,
+        lanes.append({"id": lid, "order": ln.get("order"), "enabled": bool(ln.get("enabled", True)),
+                      "owner_wip": wip, "wip_limit": limit,
                       "saturated": wip >= limit, "cooling_until": fmt(cool) if cooling else None,
                       "live_tasks": live, "last_planned_utc": ln.get("last_planned_utc") or None,
                       "plannable": bool(ln.get("enabled", True)) and wip < limit and not cooling,
@@ -184,6 +204,37 @@ def sweep_view(d, now, lanes_info):
     return {"due": due, "waiting_on_owner": waiting, "_later": later}
 
 
+def grace(d):
+    v = (d.get("planner") or {}).get("due_grace_minutes", DUE_GRACE_MIN)
+    ok = isinstance(v, (int, float)) and not isinstance(v, bool) and 0 <= v <= 120
+    return dt.timedelta(minutes=v if ok else DUE_GRACE_MIN)
+
+
+def fallback_view(d, now, soon, pipeline, plan):
+    """Independent backlog discovery (procedure step 7). It is due while the pipeline is below the low-water
+    mark, some enabled lane can still take work, and no session has just concluded that the avenues are
+    exhausted (planner/fallback/exhausted_until_utc). Read only."""
+    pl = d.get("planner") or {}
+    fb = pl.get("fallback") or {}
+    enabled = bool(fb.get("enabled")) and bool(pl.get("enabled", True))
+    open_lanes = [x["id"] for x in plan["lanes"] if x.get("enabled", True) and not x["saturated"]]
+    until = parse_ts(fb.get("exhausted_until_utc"))
+    resting = until is not None and until > soon
+    wanted = enabled and pipeline < plan["low_water"] and bool(open_lanes)
+    days = fb.get("explore_recheck_days", FB_RECHECK_DAYS)
+    days = days if isinstance(days, (int, float)) and not isinstance(days, bool) and days > 0 else FB_RECHECK_DAYS
+    since = now - dt.timedelta(days=days)
+    recent = [e for e in (fb.get("log") or []) if isinstance(e, dict) and (parse_ts(e.get("utc")) or since) > since]
+    need = fb.get("min_avenues", FB_MIN_AVENUES)
+    need = need if isinstance(need, int) and not isinstance(need, bool) and 1 <= need <= len(FB_AVENUES) else FB_MIN_AVENUES
+    return {"enabled": enabled, "due": wanted and not resting, "wanted": wanted,
+            "resting_until": fmt(until) if resting else None, "open_lanes": open_lanes,
+            "min_avenues": need, "recheck_days": days,
+            "recent": [{"key": e.get("key"), "avenue": e.get("avenue"), "utc": e.get("utc"), "added": e.get("added")}
+                       for e in recent[:40]],
+            "_until": until if (wanted and resting) else None}
+
+
 def end_current(c, what, now, deliverable=None):
     """Close the item marked by start: add its minutes to the session's productive time."""
     lk = c.get("lock") or {}
@@ -207,6 +258,8 @@ def compute(d, now, monitor_hours):
     lock_age = None if not lock_t else int((now - lock_t).total_seconds() // 60)
     lock_live = bool(lock.get("holder")) and lock_age is not None and lock_age < LOCK_STALE_MIN
 
+    g = grace(d)
+    soon = now + g
     queue = d.get("queue") or []
     ready, recheck, events, future = [], [], [], []
     for t in queue:
@@ -217,7 +270,7 @@ def compute(d, now, monitor_hours):
             when = task_date(t)
             if when is None:
                 events.append(t)
-            elif when <= now:
+            elif when <= soon:
                 recheck.append(t)
             else:
                 future.append((when, t.get("id")))
@@ -239,7 +292,7 @@ def compute(d, now, monitor_hours):
         when = parse_ts(s.get("next_due_utc"))
         if when is None:
             continue
-        if when <= now:
+        if when <= soon:
             if s.get("id") not in queued_scouts:
                 scouts_due.append(s)
         else:
@@ -248,26 +301,37 @@ def compute(d, now, monitor_hours):
 
     mon_t = parse_ts((c.get("monitor") or {}).get("last_utc"))
     mon_age = None if not mon_t else round((now - mon_t).total_seconds() / 3600, 1)
-    mon_due = mon_t is None or (now - mon_t) >= dt.timedelta(hours=monitor_hours)
+    mon_due = mon_t is None or (soon - mon_t) >= dt.timedelta(hours=monitor_hours)
     if mon_t is not None and not mon_due:
         future.append((mon_t + dt.timedelta(hours=monitor_hours), "monitor"))
 
     pipeline = len(ready) + len(recheck) + len(open_items) + len(scouts_due)
-    plan = plan_view(d, now, pipeline)
+    plan = plan_view(d, soon, pipeline)
     if plan["_wake"] is not None:
         future.append((plan["_wake"], "planner cooldown ends"))
     plan.pop("_wake", None)
-    sweep = sweep_view(d, now, plan["lanes"])
+    sweep = sweep_view(d, soon, plan["lanes"])
     future.extend(sweep.pop("_later"))
+    fbv = fallback_view(d, now, soon, pipeline, plan)
+    if fbv["_until"] is not None:
+        future.append((fbv["_until"], "backlog discovery"))
+    fbv.pop("_until", None)
 
-    future.sort()
+    future.sort(key=lambda x: x[0])
     next_due = future[0][0] if future else None
-    eligible = pipeline + (1 if plan["due"] else 0) + len(sweep["due"])
+    eligible = pipeline + (1 if plan["due"] else 0) + len(sweep["due"]) + (1 if fbv["due"] else 0)
+
+    def ready_row(t):
+        row = {"id": t.get("id"), "priority": t.get("priority"), "workstream": t.get("workstream"),
+               "map_item": t.get("map_item"), "scout": t.get("scout"), "title": title_of(t)}
+        if t.get("not_run"):
+            row["not_run"] = t.get("not_run")
+        return row
+
     return {
         "now": fmt(now),
         "lock": {"holder": lock.get("holder", ""), "utc": lock.get("utc", ""), "age_min": lock_age, "live": lock_live},
-        "ready": [{"id": t.get("id"), "priority": t.get("priority"), "workstream": t.get("workstream"),
-                   "map_item": t.get("map_item"), "scout": t.get("scout"), "title": title_of(t)} for t in ready],
+        "ready": [ready_row(t) for t in ready],
         "recheck_due": [{"id": t.get("id"), "not_before_utc": fmt(task_date(t)), "title": title_of(t)} for t in recheck],
         "open_items": [{"id": i.get("id"), "lane": i.get("lane"), "class": short(i.get("class", ""), 80)} for i in open_items],
         "scouts_due": [{"id": s.get("id"), "name": s.get("name"), "next_due_utc": s.get("next_due_utc")} for s in scouts_due],
@@ -276,11 +340,13 @@ def compute(d, now, monitor_hours):
         "monitor": {"last_utc": (c.get("monitor") or {}).get("last_utc", ""), "age_hours": mon_age, "due": mon_due},
         "plan": {k: plan[k] for k in ("due", "pipeline", "low_water", "plannable", "saturated")},
         "sweep": sweep,
+        "fallback": fbv,
         "budget": budget_view(d, now),
         "eligible": eligible,
         "work_now": eligible > 0 or mon_due,
+        "grace_minutes": int(g.total_seconds() // 60),
         "next_due_utc": fmt(next_due) if next_due else None,
-        "wake_minutes": wake_minutes(fmt(next_due) if next_due else None, now),
+        "wake_minutes": wake_minutes(fmt(next_due - g) if next_due else None, now),
         "next_due": [{"utc": fmt(w), "what": i} for w, i in future[:6]],
         "counts": {"queue": len(queue), "completed": len(d.get("completed") or []),
                    "map_items": len(om.get("items") or []), "owner_review_needed": len(d.get("owner_review_needed") or [])},
@@ -473,6 +539,12 @@ def main():
     p.add_argument("--stop-reason", default="")
     p.add_argument("--considered", default="")
     p.add_argument("--resume-when", default="")
+    p.add_argument("--run", default="")
+    p.add_argument("--avenue", default="")
+    p.add_argument("--lane", default="")
+    p.add_argument("--candidates", type=int, default=0)
+    p.add_argument("--new-evidence", default="")
+    p.add_argument("--fallback-skipped", default="")
     a = p.parse_args()
 
     now = parse_ts(a.now) if a.now else dt.datetime.now(dt.timezone.utc).replace(microsecond=0)
@@ -483,11 +555,15 @@ def main():
     cmd, args = a.cmd, a.args
 
     if cmd == "status":
-        out(compute(d, now, a.monitor_hours))
+        st = compute(d, now, a.monitor_hours)
+        if a.run:
+            st["ready_next_session"] = [r for r in st["ready"] if a.run in (r.get("not_run") or [])]
+            st["ready"] = [r for r in st["ready"] if a.run not in (r.get("not_run") or [])]
+        out(st)
 
     if cmd == "plan":
         st = compute(d, now, a.monitor_hours)
-        pv = plan_view(d, now, st["plan"]["pipeline"])
+        pv = plan_view(d, now + grace(d), st["plan"]["pipeline"])
         pv.pop("_wake", None)
         pl = d.get("planner") or {}
         pv["min_score"] = float(pl.get("min_score", PLAN_MIN_SCORE))
@@ -599,7 +675,26 @@ def main():
                     problems.append("sweep angle %s names unknown lane %s" % (x.get("id"), x.get("lane")))
                 if x.get("next_check_utc") and parse_ts(x["next_check_utc"]) is None:
                     problems.append("sweep angle %s has an unreadable next_check_utc" % x.get("id"))
-        out({"ok": not problems, "problems": problems,
+        warnings = []
+        if pl is not None:
+            fbk = pl.get("fallback")
+            if fbk is not None:
+                if not isinstance(fbk, dict):
+                    problems.append("planner/fallback is not an object")
+                else:
+                    if fbk.get("exhausted_until_utc") and parse_ts(fbk["exhausted_until_utc"]) is None:
+                        problems.append("planner/fallback/exhausted_until_utc is unreadable")
+                    for e in fbk.get("log") or []:
+                        if not isinstance(e, dict) or e.get("avenue") not in FB_AVENUES or parse_ts(e.get("utc")) is None:
+                            problems.append("planner/fallback/log has a malformed entry: " + short(e, 60))
+                            break
+        for t in d.get("queue") or []:
+            if t.get("not_run") is not None and not (isinstance(t["not_run"], list) and all(isinstance(x, str) for x in t["not_run"])):
+                problems.append("task %s: not_run must be a list of run ids" % t.get("id"))
+        n_owner = len(d.get("owner_review_needed") or [])
+        if n_owner > 8:
+            warnings.append("owner_review_needed has %d lines; keep at most 8, one line per decision, most valuable first" % n_owner)
+        out({"ok": not problems, "problems": problems, "warnings": warnings,
              "counts": compute(d, now, a.monitor_hours)["counts"], "scouts": len(scouts)}, 0 if not problems else 4)
 
     if cmd == "lock":
@@ -741,9 +836,61 @@ def main():
         save(target, d)
         out({"monitor_last_utc": fmt(now)})
 
+    if cmd == "explore":
+        if not args:
+            fail("usage: explore KEY --avenue needs|search|channels|quality --added N --result TEXT "
+                 "[--candidates N] [--lane L] [--new-evidence TEXT]")
+        pl = d.get("planner")
+        if not isinstance(pl, dict):
+            fail("no planner block in " + target)
+        c = controller(d)
+        run = c["lock"].get("holder")
+        if not run:
+            fail("no session holds the lock")
+        avenue = a.avenue.strip().lower()
+        if avenue not in FB_AVENUES:
+            fail("--avenue must be one of: " + ", ".join(FB_AVENUES))
+        key = norm_key(args[0])
+        if not key:
+            fail("KEY names the question or segment explored, e.g. needs:paying-for-memory-care")
+        if not a.result.strip():
+            fail("--result is required: the sources read with their dates, what qualified, what did not and why")
+        fb = pl.setdefault("fallback", {})
+        log = fb.setdefault("log", [])
+        days = fb.get("explore_recheck_days", FB_RECHECK_DAYS)
+        days = days if isinstance(days, (int, float)) and not isinstance(days, bool) and days > 0 else FB_RECHECK_DAYS
+        if not a.new_evidence.strip():
+            for e in log:
+                t = parse_ts(e.get("utc")) if isinstance(e, dict) else None
+                if t is not None and e.get("key") == key and (now - t) < dt.timedelta(days=days):
+                    out({"rejected": True, "reason": "%s was explored at %s (%s). Pick a different question, source or "
+                         "segment, or pass --new-evidence saying what changed since then"
+                         % (key, e.get("utc"), short(e.get("result") or "", 110))}, 5)
+        entry = {"utc": fmt(now), "run": run, "key": key, "avenue": avenue, "lane": a.lane or None,
+                 "candidates": max(0, a.candidates), "added": max(0, a.added), "result": short(a.result, 320)}
+        if a.new_evidence.strip():
+            entry["new_evidence"] = short(a.new_evidence, 160)
+        log.insert(0, entry)
+        del log[FB_LOG_KEEP:]
+        if a.added > 0:
+            fb["empty_streak"] = 0
+            fb["exhausted_until_utc"] = ""
+        mins = end_current(c, "explore:" + args[0], now)
+        if mins is None:
+            mins = end_current(c, "explore:" + key, now)
+        save(target, d)
+        mine = [e for e in log if isinstance(e, dict) and e.get("run") == run]
+        classes = sorted({e.get("avenue") for e in mine})
+        need = fb.get("min_avenues", FB_MIN_AVENUES)
+        need = need if isinstance(need, int) and not isinstance(need, bool) else FB_MIN_AVENUES
+        out({"explored": key, "avenue": avenue, "added": max(0, a.added), "minutes": mins,
+             "this_session": {"explorations": len(mine), "avenue_classes": classes,
+                              "tasks_added": sum(int(e.get("added") or 0) for e in mine)},
+             "classes_still_needed_before_no_worthwhile_work": max(0, need - len(classes))})
+
     if cmd == "start":
         if not args:
-            fail("usage: start WHAT (a task id, angle:ID or plan:LANE)")
+            fail("usage: start WHAT (a task id, angle:ID, plan:LANE or explore:KEY)")
         c = controller(d)
         if not c["lock"].get("holder"):
             fail("no session holds the lock")
@@ -798,6 +945,11 @@ def main():
         view = {"days": days, "sessions": len(rows), "launches": dict(launches), "active_hours": round(active / 60, 2),
                 "productive_hours": round(productive / 60, 2), "tasks_completed": len(done),
                 "deliverables": dict(deliverables), "stop_reasons": dict(stops)}
+        fbl = [e for e in (((d.get("planner") or {}).get("fallback") or {}).get("log") or [])
+               if isinstance(e, dict) and (parse_ts(e.get("utc")) or since) > since]
+        view["backlog_discovery"] = {"explorations": len(fbl), "tasks_added": sum(int(e.get("added") or 0) for e in fbl),
+                                     "by_avenue": dict(Counter(str(e.get("avenue")) for e in fbl))}
+        view["chain_sessions"] = launches.get("controller chain", 0)
         try:
             view["outcomes"] = outcomes_view(load(a.cloud), now, days)
         except (OSError, ValueError):
@@ -808,18 +960,65 @@ def main():
         run = args[0]
         c = controller(d)
         st = compute(d, now, a.monitor_hours)
+        pl = d.get("planner") if isinstance(d.get("planner"), dict) else {}
+        fb = pl.get("fallback") if isinstance(pl.get("fallback"), dict) else {}
+        mine = [e for e in (fb.get("log") or []) if isinstance(e, dict) and e.get("run") == run]
+        classes = sorted({str(e.get("avenue")) for e in mine})
+        fb_note = None
+        if a.stop_reason in NO_WORK_REASONS and st["fallback"]["due"]:
+            need = st["fallback"]["min_avenues"]
+            skipped = a.fallback_skipped.strip()
+            if len(classes) < need and not skipped:
+                out({"refused": True, "wrote": "nothing",
+                     "reason": "backlog discovery is due and this session recorded %d of %d avenue classes (%s). "
+                               "Before closing with %s: explore more avenues (start explore:KEY, then explore KEY "
+                               "--avenue ... --added N --result TEXT) and work what they add; or, if time, budget, "
+                               "permissions or a real lack of applicable avenues prevents it, repeat close with "
+                               "--fallback-skipped \"<the reason>\". If the session is out of time, close with "
+                               "--stop-reason time instead."
+                               % (len(classes), need, ", ".join(classes) or "none", a.stop_reason),
+                     "open_lanes": st["fallback"]["open_lanes"],
+                     "explored_recently": [r["key"] for r in st["fallback"]["recent"]][:20]}, 6)
+            streak = fb.get("empty_streak", 0)
+            streak = streak if isinstance(streak, int) and not isinstance(streak, bool) and streak >= 0 else 0
+            added = sum(int(e.get("added") or 0) for e in mine)
+            base = fb.get("exhausted_base_hours", FB_BASE_H)
+            base = base if isinstance(base, (int, float)) and not isinstance(base, bool) and base >= 1 else FB_BASE_H
+            top = fb.get("exhausted_max_hours", FB_MAX_H)
+            top = top if isinstance(top, (int, float)) and not isinstance(top, bool) and top >= base else FB_MAX_H
+            hours = base if added > 0 else min(top, base * (2 ** min(streak, 6)))
+            fb = pl.setdefault("fallback", fb)
+            fb["exhausted_until_utc"] = fmt(now + dt.timedelta(hours=hours))
+            fb["empty_streak"] = 0 if added > 0 else streak + 1
+            fb["last_conclusion"] = {"utc": fmt(now), "run": run, "explorations": len(mine), "avenue_classes": classes,
+                                     "tasks_added": added, "skipped": short(skipped, 200) if skipped else None,
+                                     "rest_hours": hours}
+            fb_note = fb["last_conclusion"]
+            st = compute(d, now, a.monitor_hours)
         progress = (a.done + a.changed) > 0
         start = (c["lock"].get("since_utc") or c["lock"].get("utc")) if c["lock"].get("holder") == run else None
         bud = budget_view(d, now, parse_ts(start) if start else None)
-        nxt = "yes" if (st["eligible"] > 0 and progress and not bud["over"]) else "no"
+        # work that only a different session may do (not_run names this run): chain on, but not beyond a few
+        # sessions a day, because every start spends Make operations; it then waits for the next due session
+        blocked_here = [t for t in (d.get("queue") or []) if t.get("status") == READY and run in (t.get("not_run") or [])]
+        handoff_only = st["eligible"] > 0 and st["eligible"] == len(blocked_here)
+        day_ago = now - dt.timedelta(hours=24)
+        sessions_24h = 1 + sum(1 for s_ in c["sessions"] if isinstance(s_, dict) and s_.get("run") != run
+                               and (parse_ts(s_.get("end_utc")) or parse_ts(s_.get("start_utc")) or day_ago) > day_ago)
+        cap = pl.get("handoff_sessions_24h", HANDOFF_SESSIONS_24H)
+        cap = cap if isinstance(cap, int) and not isinstance(cap, bool) and cap >= 1 else HANDOFF_SESSIONS_24H
+        handoff_wait = handoff_only and sessions_24h >= cap
+        nxt = "yes" if (st["eligible"] > 0 and progress and not bud["over"] and not handoff_wait) else "no"
         if nxt == "yes":
             wake = None
         elif bud["over"] and st["eligible"] > 0:
             wake = wake_minutes(bud["resume_utc"], now)
+        elif handoff_wait:
+            wake = st["wake_minutes"]
         elif st["eligible"] > 0:
             wake = WAKE_RETRY
         else:
-            wake = wake_minutes(st["next_due_utc"], now)
+            wake = st["wake_minutes"]
         c["sessions"].insert(0, {"run": run, "start_utc": start, "end_utc": fmt(now), "launch": a.launch,
                                  "outcome": a.outcome, "done": a.done, "changed": a.changed, "tasks": a.tasks,
                                  "next": nxt, "wake_minutes": wake, "next_due_utc": st["next_due_utc"],
@@ -829,7 +1028,13 @@ def main():
                                  "deliverables": (c["lock"].get("deliverables") or [])[:25] if c["lock"].get("holder") == run else [],
                                  "stop_reason": a.stop_reason or ("continuing" if nxt == "yes" else "not recorded"),
                                  "considered": short(a.considered, 700), "resume_when": short(a.resume_when, 240),
-                                 "sweep_due_left": [x["id"] for x in st["sweep"]["due"]]})
+                                 "sweep_due_left": [x["id"] for x in st["sweep"]["due"]],
+                                 "sessions_24h": sessions_24h,
+                                 "handoff": {"tasks_for_next_session": [t.get("id") for t in blocked_here],
+                                             "waits_for_next_due_session": handoff_wait} if blocked_here else None,
+                                 "backlog_discovery": {"explorations": len(mine), "avenue_classes": classes,
+                                                       "tasks_added": sum(int(e.get("added") or 0) for e in mine),
+                                                       "concluded": fb_note}})
         del c["sessions"][80:]
         if c["lock"].get("holder") in ("", run):
             c["lock"] = {"holder": "", "utc": ""}
@@ -838,7 +1043,9 @@ def main():
                          "picked": a.tasks or "none", "why": a.outcome}
         save(target, d)
         out({"next": nxt, "wake_minutes": wake, "done": a.done, "eligible_left": st["eligible"],
-             "next_due_utc": st["next_due_utc"], "budget": bud,
+             "next_due_utc": st["next_due_utc"], "budget": bud, "sessions_24h": sessions_24h,
+             "handoff_tasks_for_next_session": [t.get("id") for t in blocked_here],
+             "handoff_waits_for_next_due_session": handoff_wait, "backlog_discovery": fb_note,
              "warning": None if (nxt == "yes" or a.stop_reason) else "stopping without --stop-reason, --considered and --resume-when"})
 
     fail("unknown command: " + cmd)
