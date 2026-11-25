@@ -138,27 +138,6 @@
    "not_before": "VA.gov rate pages show the table effective 1 December 2026",
    "priority": 2,
    "found_utc": "2026-11-25T01:14Z"
-  },
-  {
-   "id": "ACQ-082",
-   "task": "Verify the additions to medicare-fast-appeal-hospital-rehab-discharge (drafts 5025764), then port them to the open publish batch",
-   "workstream": "build",
-   "lane": "build",
-   "source": "followup",
-   "key": "verify:medicare-fast-appeal-hospital-rehab-discharge:5025764",
-   "not_run": [
-    "cse_014eaiSbgoXSGhv7gxJtBvna"
-   ],
-   "priority": 1,
-   "evidence": "drafts commit 5025764; packet ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md ('Additions applied' line). A2 describes rather than quotes the source's 'urgently needed care' because check-guides.js pattern 8 bars the word.",
-   "expected_tour_acquisition_value": "quality gate before publication",
-   "impact": 2,
-   "confidence": 5,
-   "effort": 1,
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against Medicare.gov Fast appeals (git show 5025764 in /tmp/drafts); quotecheck all FOUND; 'Corrections verified: <date>, <RUN>' added to the packet; then, if #90 is still open, an 'Update guide: Discharged Too Soon? How a Medicare Fast Appeal Works (per ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md)' commit on its branch with build, checks and quotecheck, and the #90 body line updated",
-   "status": "ready",
-   "found_utc": "2026-11-25T01:43Z"
   }
  ],
  "completed": [
@@ -2686,6 +2665,42 @@
     "ref": "ops/reviews/live/va-veteran-directed-care-program.md; PR #89 commit 3cd72d7"
    },
    "done_utc": "2026-11-25T01:47Z"
+  },
+  {
+   "id": "ACQ-082",
+   "task": "Verify the additions to medicare-fast-appeal-hospital-rehab-discharge (drafts 5025764), then port them to the open publish batch",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "verify:medicare-fast-appeal-hospital-rehab-discharge:5025764",
+   "not_run": [
+    "cse_014eaiSbgoXSGhv7gxJtBvna"
+   ],
+   "priority": 1,
+   "evidence": "drafts commit 5025764; packet ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md ('Additions applied' line). A2 describes rather than quotes the source's 'urgently needed care' because check-guides.js pattern 8 bars the word.",
+   "expected_tour_acquisition_value": "quality gate before publication",
+   "impact": 2,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against Medicare.gov Fast appeals (git show 5025764 in /tmp/drafts); quotecheck all FOUND; 'Corrections verified: <date>, <RUN>' added to the packet; then, if #90 is still open, an 'Update guide: Discharged Too Soon? How a Medicare Fast Appeal Works (per ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md)' commit on its branch with build, checks and quotecheck, and the #90 body line updated",
+   "status": "done",
+   "found_utc": "2026-11-25T01:43Z",
+   "result": "Verified drafts 5025764 (A1 late hospital request, A2 Medicare health plan condition on a favourable hospital decision) against Medicare.gov Fast appeals: quotecheck 32/32 FOUND; both additions keep the source's scope (hospital; Medicare health plan). The description standing in for 'urgently needed care' keeps both categories. Packet line 'Corrections verified' added. Ported to publish batch #90 (claude/publish-batch-20261125-1) as 4f77740: build changes only that page's HTML; test.js 768/768, check-guides 3186/0, citations 15 dead all ilga.gov/truleeevanston on other pages, mobile-nav not run here, quotecheck 32/32. #90 body line updated. Package #91 (cut 03:33Z) does not hold 4f77740; tomorrow's package cut merges #90's new head.",
+   "verdicts": [
+    "A1 same scope",
+    "A2 same scope"
+   ],
+   "sources": [
+    "https://www.medicare.gov/providers-services/claims-appeals-complaints/appeals/fast-appeals (fetched 2026-11-25)"
+   ],
+   "lesson": "A correction that lands in a batch after the day's package cut waits for the next cut; say so in the batch body.",
+   "deliverable": {
+    "type": "verification",
+    "ref": "PR #90 commit 4f77740"
+   },
+   "done_utc": "2026-11-25T06:29Z",
+   "minutes": 3
   }
  ],
  "blocked": [],
@@ -2696,7 +2711,7 @@
   "picked": "ACQ-078 done, ACQ-079 done, ACQ-080 done, ACQ-081 queued for next session, ACQ-082 queued for next session",
   "why": "Worked: #89 commits verified, VA Veteran-Directed Care audit (3 corrections in #89), fast-appeal additions on drafts; stopped: no-worthwhile-work; resume: next session verifies ACQ-081/082"
  },
- "last_verified_action": "ACQ-081 done 2026-11-25T01:47Z: Verified by the main chat as second reader (a different party than the session that wrote 3cd72d7): the three corrections read against VA.gov's community care …",
+ "last_verified_action": "ACQ-082 done 2026-11-25T06:29Z: Verified drafts 5025764 (A1 late hospital request, A2 Medicare health plan condition on a favourable hospital decision) against Medicare.gov Fast appeals: quot…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -3356,8 +3371,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeZV5K4aUnZndensii",
-   "utc": "2026-11-25T06:25Z",
-   "since_utc": "2026-11-25T06:24Z"
+   "utc": "2026-11-25T06:29Z",
+   "since_utc": "2026-11-25T06:24Z",
+   "productive_min": 3,
+   "deliverables": [
+    "verification:PR #90 commit 4f77740"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-25T06:25Z"
