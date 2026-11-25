@@ -417,6 +417,63 @@ SRC = {
                          'https://hfs.illinois.gov/medicalprograms/slf/residentfactsheet.html'),
     "idph_dementia_2025": ('Illinois Department of Public Health — Dementia Annual Report: Dementia Capability in Illinois 2025',
                            'https://dph.illinois.gov/content/dam/soi/en/web/idph/publications/idph/topics-and-services/diseases-and-conditions/alzheimers/dementia-capability-report-2025.pdf'),
+    "idph_al_itr_form": ('Illinois Department of Public Health — Assisted Living and '
+                         'Shared Housing Involuntary Termination of Residency, Appeal '
+                         'and Facility Representative Disclosure forms',
+                         'https://dph.illinois.gov/content/dam/soi/en/web/idph/files/'
+                         'forms/itrformwithhearingrequestrevised20200221.pdf'),
+    "idoa_ltc_rights_page": ('Illinois Department on Aging — Residents’ Rights in '
+                             'Long-Term Care Facilities',
+                             'https://ilaging.illinois.gov/programs/ltcombudsman/'
+                             'residents-rights-in-long-term-care-facilities1.html'),
+    "cms_qso2514_nh": ('CMS — QSO-25-14-NH, Revised Long-Term Care Surveyor Guidance '
+                       '(Admission Agreements, §483.15(a)(3))',
+                       'https://www.cms.gov/files/document/qso-25-14-nh.pdf'),
+    "medicare_nh_guide": ('Medicare.gov — Your Guide to Living in a Nursing Home '
+                          '(publication 12217)',
+                          'https://www.medicare.gov/publications/'
+                          '12217-your-guide-to-living-in-a-nursing-home'),
+    "hfs_3191": ('Illinois HFS — HFS 3191, Long Term Services & Information for Couples (brochure)',
+                 'https://hfs.illinois.gov/info/brochures-and-forms/brochures/hfs3191.html'),
+    "hfs_abe_ltc_faq": ('Illinois HFS — Frequently Asked Questions About Medicaid Eligibility '
+                        'for Long Term Supports and Services',
+                        'https://hfs.illinois.gov/content/dam/soi/en/web/hfs/sitecollectiondocuments/'
+                        'ltc_faq.pdf'),
+    "hfs_pe_faq": ('Illinois HFS — Provisional Eligibility Process, Questions and Answers',
+                   'https://hfs.illinois.gov/content/dam/soi/en/web/hfs/sitecollectiondocuments/'
+                   'provisionaleligibilityfaq9122018.pdf'),
+    "hfs_pe_notice_2023": ('Illinois HFS Provider Notice, 27 November 2023 — Long Term Care '
+                           'facilities: Provisional Eligibility reimplemented',
+                           'https://hfs.illinois.gov/medicalproviders/notices/notice.prn231127a.html'),
+    "oag_ltc_2025": ('Illinois Auditor General — Performance Audit of Medicaid Eligibility '
+                     'Determinations for Long-Term Care (July 2025)',
+                     'https://www.auditor.illinois.gov/Audit-Reports/Performance-Special-Multi/'
+                     'Performance-Audits/2025_Releases/25-Medicaid-LTC-Eligibility-Perf-Full.pdf'),
+    "idoa_money_mgmt": ('Illinois Department on Aging — Money Management (Volunteer Money Management Program)',
+                        'https://ilaging.illinois.gov/programs/money-mgmt.html'),
+    "idoa_money_mgmt_sites": ('Illinois Department on Aging — Volunteer Money Management Program Site/Agency List (FY27, 22 October 2026)',
+                              'https://ilaging.illinois.gov/content/dam/soi/en/web/aging/programs/documents/ivmmp-programsitelist.pdf'),
+    "gac_fact_sheet": ('Illinois Guardianship and Advocacy Commission — Office of State Guardian, '
+                       'Guardianship fact sheet',
+                       'https://gac.illinois.gov/osg/guardianship-fact-sheet.html'),
+    "gac_faq": ('Illinois Guardianship and Advocacy Commission — Frequently Asked Questions '
+                'About Guardianship',
+                'https://gac.illinois.gov/aboutus/guard-faq.html'),
+    "medicare_discharge_checklist": ('Medicare.gov — Your discharge planning checklist '
+                                     '(publication 11376)',
+                                     'https://www.medicare.gov/publications/'
+                                     '11376-your-discharge-planning-checklist.pdf'),
+    "medicare_fast_appeals": ('Medicare.gov — Fast appeals',
+                              'https://www.medicare.gov/providers-services/'
+                              'claims-appeals-complaints/appeals/fast-appeals'),
+    "va_caregiver_compare": ('VA.gov — How are the 2 VA caregiver support programs different?',
+                'https://www.va.gov/resources/how-are-the-2-va-caregiver-support-programs-different/'),
+    "va_hbpc": ('VA.gov — Home Based Primary Care',
+               'https://www.va.gov/geriatrics/pages/Home_Based_Primary_Care.asp'),
+    "va_hhha": ('VA.gov — Homemaker and Home Health Aide Care',
+               'https://www.va.gov/geriatrics/pages/Homemaker_and_Home_Health_Aide_Care.asp'),
+    "va_phcbs_notice": ('VA.gov — VHA Notice 2024-01, Purchased Home and Community-Based Services Programs',
+                        'https://www.va.gov/vhapublications/ViewPublication.asp?pub_ID=11687'),
 }
 
 
@@ -5058,6 +5115,1103 @@ GUIDES = [
             ]),
         ],
     },
+
+    {
+        "slug": "illinois-assisted-living-involuntary-move-out",
+        "bridge": ("Knowing the notice and appeal process is a different question "
+               "from knowing whether your parent actually needs a higher level of "
+               "care than this community can give."),
+        "reviewed": "2026-11-23",
+        "title": "Can an Illinois Assisted Living Make Your Parent Move Out?",
+        "h1": "Can an Illinois assisted living make your parent move out, and how much notice must it give?",
+        "desc": ("IDPH's form requires 30 days' written notice and a right to "
+                 "appeal before an Illinois assisted living can end a stay. The "
+                 "process, from the state's paperwork."),
+        "intent": "worry / resident rights",
+        "answer": ("<strong>Only through a formal process &mdash; not simply by "
+                   "being asked to leave.</strong> The Illinois Department of "
+                   "Public Health's own Involuntary Termination of Residency form "
+                   "states that a <strong>30-day prior written notice</strong> "
+                   "must go to the resident, the resident&rsquo;s representative, "
+                   "or both, and to the long-term care ombudsman, and that a "
+                   "resident who appeals the termination &ldquo;has the right to "
+                   "continue to reside in the "
+                   "establishment until a decision is rendered.&rdquo; The Illinois "
+                   "Department on Aging&rsquo;s residents&rsquo; rights brochure, "
+                   "which it says is &ldquo;appropriate for nursing homes and "
+                   "assisted living&rdquo;, lists four reasons a facility can make "
+                   "a resident leave &mdash; see below."),
+        "sources": srcs("idph_al_itr_form", "idoa_ltc_rights_page", "idoa_resident_rights_brochure", "idph_al_div", "idoa_ombudsman", "idoa_ombudsman_contact"),
+        "body": [
+            ("What IDPH's own form requires before a move-out", [
+                "<p>When a family searches for whether an Illinois assisted "
+                "living or shared housing establishment can make a resident "
+                "leave, the most direct answer is the state's own paperwork for "
+                "it. The Illinois Department of Public Health (IDPH) publishes "
+                "an <em>Assisted Living and Shared Housing Involuntary "
+                "Termination of Residency</em> form, and the form itself states "
+                "the rule in one sentence: &ldquo;A 30-day prior written notice "
+                "must be provided to the resident, resident&rsquo;s "
+                "representative, or both, and to the long-term care "
+                "ombudsman.&rdquo; The same form adds: &ldquo;The establishment "
+                "must notify the Illinois Department of Public Health when it "
+                "initiates the termination process.&rdquo; So a termination is "
+                "not a private matter between the resident "
+                "and the establishment; the state is notified too.</p>",
+                "<p>The form itself has a line the establishment must fill in, "
+                "labelled &ldquo;Reason for Residency Termination&rdquo;. "
+                "The Department on Aging&rsquo;s residents&rsquo; rights brochure "
+                "adds that the written notice must include why the resident is "
+                "being asked to move.</p>",
+            ]),
+            ("The right to appeal, and what happens while you wait", [
+                "<p>The same IDPH form sets out exactly how a resident "
+                "contests a termination: by calling IDPH's Division of "
+                "Assisted Living at <strong>217-782-2448</strong>, or by "
+                "sending a signed Appeal Hearing Request form to IDPH. The "
+                "accompanying "
+                "Hearing Request form gives the deadline in capital letters: "
+                "&ldquo;Please submit completed forms within 10 DAYS after "
+                "receiving the Involuntary Termination of Residency form from "
+                "the facility.&rdquo;</p>",
+                "<p>Filing on time matters, because of what the form says "
+                "happens next: &ldquo;The resident has the right to continue to "
+                "reside in the establishment until a decision is rendered.&rdquo; "
+                "The Hearing Request form can be mailed or faxed to "
+                "217-557-2432, to the Illinois Department of Public Health, "
+                "Division of Assisted Living, 525 West Jefferson Street, 5th "
+                "Floor, Springfield, Illinois 62761. The termination form also "
+                "has a line naming the person at the establishment who will "
+                "assist with relocation.</p>",
+            ]),
+            ("What reasons can be given", [
+                "<p>The question families actually ask is broader than notice "
+                "periods: can an establishment end a stay because a parent's "
+                "care needs have grown? The Illinois Department on Aging's "
+                "brochure <em>Residents&rsquo; Rights for People in Long-Term "
+                "Care Facilities</em>, which the Department's residents' rights "
+                "page describes as &ldquo;appropriate for nursing homes and "
+                "assisted living&rdquo;, says a facility can make a resident "
+                "leave because the bill has not been paid, the resident is "
+                "dangerous to themselves or others, their medical needs cannot "
+                "be met, or the facility closes.</p>",
+                "<p>The full assisted living rules are in Part 295 of the "
+                "Illinois Administrative Code, which IDPH's Assisted Living "
+                "page links to as &ldquo;Assisted Living and Shared Housing - "
+                "295 Administrative Code&rdquo;.</p>",
+                "<p>Practically, that means: ask the establishment to point to "
+                "the specific reason it wrote on your parent's notice, and call "
+                "IDPH's Division of Assisted Living (217-782-2448) or the "
+                "Long-Term Care Ombudsman Program to ask whether that reason "
+                "matches a recognised ground for termination before deciding "
+                "whether to appeal.</p>",
+            ]),
+            ("Your parent's broader rights as a resident", [
+                "<p>The Illinois Department on Aging's page on residents' "
+                "rights in long-term care facilities states that care facility "
+                "residents keep certain rights, protections and privileges "
+                "under both Illinois and federal law. The Long-Term Care "
+                "Ombudsman Program &mdash; which "
+                "the involuntary termination notice must also be sent to "
+                "&mdash; is reached by calling the Department on Aging&rsquo;s "
+                "<strong>Senior HelpLine at 1-800-252-8966 (711 TRS)</strong>, "
+                "and the Department lists involuntary transfers or discharges "
+                "among the reasons to contact an ombudsman.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>This page covers assisted living and shared housing "
+                "establishments specifically, which IDPH&rsquo;s Division of "
+                "Assisted Living licenses, and whose notice and appeal forms are "
+                "the ones described above. For the wider set of residents&rsquo; "
+                "rights Illinois publishes for nursing homes and other care "
+                "facilities, see "
+                '<a href="/guides/illinois-nursing-home-resident-rights/">What '
+                "rights does your parent have in an Illinois nursing home or "
+                "care facility?</a> To report a live concern rather than "
+                "appeal a termination notice, see "
+                '<a href="/guides/illinois-care-facility-complaint/">How to '
+                "report a problem at an Illinois care facility</a>.</p>",
+                "<p>If a termination notice cites care needs your parent's "
+                "current setting cannot meet, the "
+                '<a href="/">free six-question assessment</a> on this site can '
+                "help you think through what level of care fits now. It asks "
+                "for no name, no email and no phone number, and your answers "
+                "never leave your device.</p>",
+            ]),
+        ],
+    },
+
+    {
+        "slug": "illinois-nursing-home-responsible-party",
+        "bridge": ("Signing paperwork at admission is a different moment from "
+               "knowing whether a nursing home is even the right level of care "
+               "for your parent in the first place."),
+        "reviewed": "2026-11-23",
+        "title": "Should You Sign a Nursing Home Contract as Responsible Party?",
+        "h1": "Should I sign my parent's nursing home admission contract as the responsible party?",
+        "desc": ("Federal law bars a certified nursing home from making you "
+                 "personally pay your parent's bill. What responsible-party "
+                 "language can and cannot ask of you."),
+        "intent": "worry / legal",
+        "answer": ("<strong>Not as a personal guarantee of payment &mdash; and "
+                   "a Medicare- or Medicaid-certified nursing home is not "
+                   "allowed to make you.</strong> Federal "
+                   "regulation 42 CFR 483.15(a)(3), which binds every Medicare- "
+                   "or Medicaid-certified nursing facility, states the facility "
+                   '&ldquo;must not request or require a third party guarantee '
+                   "of payment to the facility as a condition of admission or "
+                   "expedited admission, or continued stay in the "
+                   "facility.&rdquo; Medicare's own consumer guide lists, among "
+                   "things a nursing home isn&rsquo;t allowed to do: "
+                   "&ldquo;Make a third party (like your family) pay your "
+                   "nursing home bill.&rdquo; It may only ask a representative "
+                   "with legal access to your parent&rsquo;s own money to use "
+                   "that money to pay, and the Illinois Department on Aging&rsquo;s "
+                   "residents&rsquo; rights brochure states a similar limit in "
+                   "its own words."),
+        "sources": srcs("cms_qso2514_nh", "medicare_nh_guide", "idoa_resident_rights_brochure"),
+        "body": [
+            ("The federal rule, in the regulation's own words", [
+                "<p>The requirement sits in the Medicare and Medicaid "
+                "requirements for participation every certified nursing facility "
+                "must meet. CMS's current surveyor guidance (QSO-25-14-NH) "
+                "quotes the regulation directly: &ldquo;The facility must not "
+                "request or require a third party guarantee of payment to the "
+                "facility as a condition of admission or expedited admission, "
+                "or continued stay in the facility.&rdquo; The same guidance "
+                "states plainly who that protects: &ldquo;The prohibition "
+                "against third-party guarantees applies to all residents and "
+                "prospective residents in all certified long term care "
+                "facilities, regardless of payment source.&rdquo; Your "
+                "parent's ability to private-pay does not remove this "
+                "protection.</p>",
+                "<p>What is still allowed is narrow and specific. CMS's "
+                "guidance continues: &ldquo;the facility may request and "
+                "require a resident representative with legal access to the "
+                "resident&rsquo;s funds available to pay for facility care to "
+                "access and use the resident&rsquo;s money or other assets to "
+                "pay for care, as authorized by law. The facility may request "
+                "and require this representative to sign a contract, without "
+                "incurring personal liability, to provide the facility with "
+                "payment from the resident&rsquo;s income or assets.&rdquo; "
+                "That is a promise to pay from <em>your parent's</em> money if "
+                "you control it &mdash; not a promise to pay from "
+                "<em>yours</em>.</p>",
+            ]),
+            ("Language that counts as noncompliant, even without the word &ldquo;guarantee&rdquo;", [
+                "<p>CMS's guidance is explicit that a facility cannot get "
+                "around the rule by avoiding the word &ldquo;guarantee.&rdquo; "
+                "It states: &ldquo;language can be noncompliant even if it does "
+                "not specifically reference a &lsquo;guarantee&rsquo; by a "
+                "third party. Any language contained in an agreement that "
+                "seeks to hold a third party personally responsible for paying "
+                "the facility would violate this requirement.&rdquo; The "
+                "guidance lists examples of what that covers, including:</p>",
+                "<ul class=\"res__list\">"
+                "<li>Language that holds both the resident and a "
+                "representative or other individual jointly responsible for "
+                "sums due to the facility (naming the resident alone is "
+                "allowed).</li>"
+                "<li>Language that holds a representative personally liable "
+                "for &ldquo;breach of an obligation in the agreement,&rdquo; "
+                "such as not applying for Medicaid in time.</li>"
+                "<li>Language that does not mention a guarantee but "
+                "&ldquo;implies the resident could be discharged if the "
+                "representative does not voluntarily agree to personally pay "
+                "to prevent the discharge.&rdquo;</li>"
+                "<li>Language that holds a representative personally liable "
+                "for unpaid amounts because they did not supply accurate "
+                "financial information or report a change in the "
+                "resident&rsquo;s finances.</li></ul>",
+                "<p>CMS's guidance also states this is not limited to the "
+                "main admission agreement: noncompliant language is a problem "
+                "&ldquo;if it appears in the main document that a facility "
+                "uses as its admission agreement or in other documents that "
+                "are signed at admission,&rdquo; and a facility &ldquo;cannot "
+                "use such language in agreements regarding a resident&rsquo;s "
+                "continued stay&rdquo; after admission either.</p>",
+            ]),
+            ("What Medicare tells families directly", [
+                "<p>Medicare's own consumer guide, <em>Your Guide to Living in "
+                "a Nursing Home</em>, puts the same rule in plain language "
+                "under the heading &ldquo;Read your admission agreement "
+                "carefully&rdquo;: &ldquo;You aren&rsquo;t required to agree "
+                "to everything. For example, a nursing home isn&rsquo;t "
+                "allowed to: Make a third party (like your family) pay your "
+                "nursing home bill. It may only ask your family to use your "
+                "money to pay the bills (if your family has legal access to "
+                "your funds).&rdquo; The same guide also flags a separate "
+                "clause worth watching for: a nursing home &ldquo;isn&rsquo;t "
+                "allowed to&rdquo; require you to sign a binding-arbitration "
+                "agreement, resolving disputes outside court, as a condition "
+                "of admission or care.</p>",
+                "<p>Medicare's practical advice if something in the agreement "
+                "concerns you: &ldquo;cross out the item with a pen or marker "
+                "before signing to show you don&rsquo;t agree.&rdquo; It also "
+                "suggests asking a lawyer to review the agreement first, if "
+                "you have one.</p>",
+            ]),
+            ("How Illinois's residents' rights brochure puts it", [
+                "<p>Illinois&rsquo;s Department on Aging publishes a residents&rsquo; "
+                "rights brochure for long-term care facilities that states "
+                "the same protection in its own words, with a differently "
+                "worded exception from the federal rule: &ldquo;Your facility must "
+                "not require anyone else to sign an agreement stating they "
+                "will pay for your bill unless they are your court appointed "
+                "guardian.&rdquo; Notice the difference from the federal "
+                "exception above: Illinois&rsquo;s brochure names a <strong>court "
+                "appointed guardian</strong>, while the federal rule speaks "
+                "more broadly of a representative with &ldquo;legal access&rdquo; "
+                "to a resident's funds. This guide read both documents as "
+                "written and is reporting that difference rather than "
+                "resolving it &mdash; which one applies to a specific "
+                "representative (an agent under a power of attorney, for "
+                "example, versus a court-appointed guardian) is a question for "
+                "the facility, the Long-Term Care Ombudsman, or an elder law "
+                "attorney, not something this guide will guess at.</p>",
+            ]),
+            ("A gap this guide could not close: assisted living", [
+                "<p>CMS&rsquo;s guidance says the federal rule above, 42 CFR "
+                "483.15(a)(3), applies to &ldquo;all certified long term care "
+                "facilities&rdquo;; none of the three sources this guide read "
+                "addresses assisted living or shared housing contracts. This guide "
+                "searched for an equivalent Illinois government page "
+                "addressing responsible-party or guarantor language "
+                "specifically in assisted living contracts and did not find "
+                "one on an allowed host. If your parent is moving into "
+                "assisted living rather than a nursing home, do not assume "
+                "the same federal protection applies &mdash; read carefully any "
+                "signature line that would make you a responsible party or "
+                "guarantor, and ask the establishment "
+                "in writing what liability it creates before signing.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>This page is about one clause in an admission agreement, "
+                "not the rest of a resident's rights once admitted. For the "
+                "fuller list &mdash; money, privacy, discharge and grievances "
+                "&mdash; see "
+                '<a href="/guides/illinois-nursing-home-resident-rights/">What '
+                "rights does your parent have in an Illinois nursing home or "
+                "care facility?</a> For a decision about health care "
+                "authority rather than payment, see "
+                '<a href="/guides/illinois-advance-directive-power-of-attorney/">'
+                "Does your parent need a power of attorney for health "
+                "care?</a>, which covers a different kind of document "
+                "entirely.</p>",
+                "<p>If you are still weighing whether a nursing home is the "
+                "right setting at all, the "
+                '<a href="/">free six-question assessment</a> on this site '
+                "walks through that separately. It asks for no name, no "
+                "email and no phone number, and your answers never leave "
+                "your device.</p>",
+            ]),
+        ],
+    },
+    {
+        "slug": "illinois-medicaid-pending-nursing-home",
+        "bridge": ("Getting the application decided is a different question from "
+                   "knowing whether a nursing home is the right level of care for "
+                   "your parent in the first place."),
+        "reviewed": "2026-11-24",
+        "title": "Medicaid Pending in an Illinois Nursing Home: Who Pays, How Long",
+        "h1": "My parent is in an Illinois nursing home and Medicaid is still pending. What happens now?",
+        "desc": ("How long Illinois has to decide a long-term care Medicaid "
+                 "application, what Provisional Eligibility is, and what your "
+                 "parent may owe while it is pending."),
+        "intent": "admission / Medicaid",
+        "answer": ("<strong>Illinois is meant to decide most long-term care "
+                   "Medicaid applications within 45 days, and when the state "
+                   "runs late, HFS can let the nursing home bill Medicaid before "
+                   "the final decision.</strong> HFS calls this Provisional "
+                   "Eligibility; its November 2023 notice states that "
+                   "&ldquo;The Provisional Eligibility process will occur monthly "
+                   "as long as eligibility determinations exceed the 45 day "
+                   "threshold.&rdquo; Meanwhile, the HFS brochure for nursing "
+                   "home applicants says eligibility &ldquo;usually begins with "
+                   "the month you apply&rdquo; and can reach back up to three "
+                   "months before it, and that your parent &ldquo;may also be "
+                   "responsible to pay for some of your long term care "
+                   "services.&rdquo;"),
+        "sources": srcs("oag_ltc_2025", "hfs_pe_notice_2023", "hfs_pe_faq",
+                        "hfs_3191", "hfs_abe_ltc_faq", "hfs_ltc_clients",
+                        "idoa_resident_rights_brochure"),
+        "body": [
+            ("How long Illinois has to decide, and how long it really takes", [
+                "<p>A parent who moves into a nursing home before Medicaid has "
+                "approved them is often described as <em>Medicaid "
+                "pending</em>. HFS&rsquo;s page for long-term care clients "
+                "says that if you want the state to pay for nursing home care, "
+                "you must apply for medical benefits through the Department of "
+                "Human Services (DHS) and obtain a needs screening through the "
+                "Department on Aging or DHS.</p>",
+                "<p>The Illinois Auditor General&rsquo;s July 2025 audit of "
+                "long-term care Medicaid decisions sets out the deadlines: "
+                "under the federal rules and the Illinois Administrative Code, "
+                "a decision is due within <strong>45 days</strong> for "
+                "applicants who are not applying on the basis of a disability; "
+                "for applicants who are, the federal limit is 90 days and "
+                "Illinois sets 60. The audit also records that "
+                "&ldquo;The applicant, his or her spouse, an approved "
+                "representative, or the facility in which the applicant lives "
+                "may request a 30-day extension to provide verification of "
+                "current resources or resources transferred during the "
+                "look-back period,&rdquo; and that a second 30-day extension "
+                "may be allowed on request.</p>",
+                "<p>In practice, the auditors tested a sample of 50 "
+                "applications submitted in 2023 and found that 11 of them "
+                "(22%) were pending past the required number of days. The "
+                "report states: &ldquo;For the 50 applications "
+                "sampled, it took on average 41 days from receipt of "
+                "application to decision.&rdquo; Applications sent to the HFS "
+                "Office of Inspector General for an asset investigation took "
+                "longer: &ldquo;The applications that were referred to HFS OIG "
+                "spent on average 58 days at the OIG.&rdquo;</p>",
+            ]),
+            ("Provisional Eligibility: what happens when the state is late", [
+                "<p>HFS first set up Provisional Eligibility in 2018. Its "
+                "provider notice of 27 November 2023 explains that delays grew "
+                "again after the COVID-19 emergency ended, and that &ldquo;HFS "
+                "has reimplemented the assignment of Provisional Eligibility "
+                "for LTC applications which meet the criteria "
+                "requirements.&rdquo; Citing the Public Aid Code, the notice "
+                "states that &ldquo;individuals given Provisional Eligibility "
+                "are entitled to receive the same services as individuals with "
+                "regular Medicaid eligibility regardless of fee-for-service or "
+                "Managed Care Organization (MCO) plan enrollment.&rdquo;</p>",
+                "<p>HFS&rsquo;s questions-and-answers document on the process "
+                "makes four points a family should know:</p>",
+                "<ul class=\"res__list\">"
+                "<li><strong>Nobody has to ask for it.</strong> &ldquo;Provisional "
+                "Eligibility is not requested.&rdquo; HFS reviews applications "
+                "and nursing home admissions pending more than 45 days each "
+                "month.</li>"
+                "<li><strong>Delays the family causes do not count.</strong> "
+                "&ldquo;State delays in excess of 45 days in processing "
+                "submission of a complete application do not include delays "
+                "caused by incomplete applications or applicant requests for "
+                "extensions in timeframes to submit required "
+                "verifications.&rdquo;</li>"
+                "<li><strong>A spend-down is not &lsquo;pending&rsquo;.</strong> "
+                "&ldquo;Cases in resource spenddown status are not considered "
+                "pending and will not be eligible for Provisional "
+                "Eligibility.&rdquo;</li>"
+                "<li><strong>It is not the final decision.</strong> DHS "
+                "caseworkers continue to process the application, and the "
+                "document states that &ldquo;Questions regarding the status of "
+                "a pending Medicaid application should be sent to the "
+                "appropriate DHS office.&rdquo;</li></ul>",
+            ]),
+            ("What your parent may owe while the application is pending", [
+                "<p>The HFS brochure for people applying for nursing home "
+                "coverage (HFS 3191, revised February 2015 and still linked "
+                "from HFS&rsquo;s long-term care page) states that if the "
+                "application is approved, &ldquo;your eligibility for medical "
+                "benefits usually begins with the month you apply, as long as "
+                "you meet all the eligibility requirements,&rdquo; and that "
+                "&ldquo;you may be eligible for medical benefits for up to "
+                "three months before the month you apply.&rdquo;</p>",
+                "<p>The same brochure advises: &ldquo;If possible, do not pay "
+                "your medical bills until you learn whether or not you are "
+                "eligible for medical benefits from the state.&rdquo; It "
+                "immediately adds that, depending on income and resources, it "
+                "may be necessary to pay part of those bills, and that "
+                "&ldquo;You may also be responsible to pay for some of your long "
+                "term care services.&rdquo; Once a case is decided, "
+                "&ldquo;Your local FCRC will tell you how much of your own money "
+                "you will have to pay to the nursing home or SLF each "
+                "month.&rdquo; (An FCRC is a DHS Family Community Resource "
+                "Center.)</p>",
+                "<p>None of the HFS pages read for this guide sets out what a "
+                "nursing home may bill a resident while an application is "
+                "pending. Ask the facility&rsquo;s business office to put in "
+                "writing what it will charge each month until the decision, "
+                "and what happens to any payment if Medicaid is later approved "
+                "for those months. If the application is refused or a penalty "
+                "period is imposed for gifts made in the five-year look-back, "
+                "Medicaid will not pay for those months; "
+                "<a href=\"/guides/illinois-medicaid-look-back-period/\">the "
+                "look-back guide</a> explains how a penalty is worked out, and "
+                "<a href=\"/guides/illinois-medicaid-long-term-care/\">the "
+                "long-term care Medicaid guide</a> explains spend-down.</p>",
+            ]),
+            ("Contracts, guarantees and being asked to leave", [
+                "<p>The Department on Aging&rsquo;s residents&rsquo; rights "
+                "brochure states that a facility &ldquo;must not require anyone "
+                "else to sign an agreement stating they will pay for your bill "
+                "unless they are your court appointed guardian.&rdquo; Read any "
+                "admission agreement before a family member signs it.</p>",
+                "<p>The brochure lists an unpaid bill as one of four reasons a "
+                "facility can make a resident leave, alongside danger to "
+                "themselves or others, medical needs the facility cannot meet, "
+                "and the facility closing. A written notice is required, and "
+                "it must say why, explain how to appeal and include a "
+                "self-addressed envelope to the Illinois Department of Public "
+                "Health. A resident has the right to appeal within "
+                "<strong>10 days</strong>, and the brochure says to call the "
+                "Department on Aging at <strong>1-800-252-8966</strong> for help "
+                "with an involuntary discharge notice. HFS&rsquo;s brochure adds "
+                "that &ldquo;If you receive medical benefits, the nursing home "
+                "cannot make you leave even if it decides to stop taking care of "
+                "patients who receive medical benefits.&rdquo; "
+                "<a href=\"/guides/illinois-nursing-home-resident-rights/\">The "
+                "residents&rsquo; rights guide</a> covers the rest of the "
+                "brochure.</p>",
+            ]),
+            ("Keeping the application moving", [
+                "<p>Most of the delay a family can control is paperwork. HFS&rsquo;s "
+                "long-term care application FAQ, written for facilities that file "
+                "online, states: &ldquo;Yes, the application may be submitted "
+                "without verifications. DHS caseworkers will attempt to verify "
+                "income information electronically. If that is not possible, the "
+                "caseworker will send a request for the information. An "
+                "application cannot be processed without all necessary "
+                "verifications.&rdquo;</p>",
+                "<ul class=\"res__list\">"
+                "<li>Find out who filed the application &mdash; the family or the "
+                "nursing home &mdash; and the date it was entered, since HFS "
+                "counts the 45 days for Provisional Eligibility from the date "
+                "an application is entered online.</li>"
+                "<li>Answer every caseworker request by its due date, and if "
+                "bank or transfer records will take longer, ask for the 30-day "
+                "extension in writing rather than letting the request lapse. "
+                "Remember that an extension you ask for is not counted as a "
+                "state delay.</li>"
+                "<li>Make sure the needs screening has been done; "
+                "<a href=\"/guides/illinois-nursing-home-preadmission-screening/\">the "
+                "pre-admission screening guide</a> explains it.</li>"
+                "<li>Ask the facility whether a pending application has passed "
+                "45 days and been picked up for Provisional Eligibility.</li>"
+                "</ul>",
+            ]),
+            ("Before your parent moves in", [
+                "<p>If a move is still being planned, it is worth asking each "
+                "nursing home how it handles a resident whose Medicaid "
+                "application is pending, and asking for its answer in writing, "
+                "before choosing. And if you are not yet sure a nursing home is "
+                "the right level of care, the "
+                "<a href=\"/\">free six-question assessment</a> on the home "
+                "page can help you think it through before you apply.</p>",
+            ]),
+        ],
+    },
+    {
+        "slug": "illinois-money-management-program",
+        "bridge": ("Knowing a volunteer bookkeeper exists is a different question "
+               "from knowing whether your parent can still manage living at home "
+               "at all."),
+        "reviewed": "2026-11-10",
+        "title": "Who Can Help My Parent Pay Bills and Manage Money in Illinois?",
+        "h1": "Who can help my parent pay bills and manage money in Illinois?",
+        "desc": ("Volunteers trained by Illinois-contracted agencies help "
+                 "older adults budget and pay bills, but only on two "
+                 "eligibility paths and where a Program Site reaches."),
+        "intent": "benefits question",
+        "answer": ("<strong>Yes, through a specific state programme</strong> "
+                   "&mdash; but only for two groups: a parent already approved "
+                   "for the Community Care Program, or one with a "
+                   "<strong>substantiated Adult Protective Services case</strong>, "
+                   "and only in the parts of Illinois a local Program Site "
+                   "actually covers. The Illinois Department on Aging's "
+                   "Volunteer Money Management Program trains, matches and "
+                   "monitors volunteers who budget, pay bills, and can be named "
+                   "a parent's <strong>Social Security representative "
+                   "payee</strong>. Its own current site list does not show a "
+                   "Program Site reaching Evanston Township &mdash; call the "
+                   "Senior HelpLine to check before assuming it is out of "
+                   "reach."),
+        "sources": srcs("idoa_money_mgmt", "idoa_money_mgmt_sites", "idoa_resident_rights_brochure"),
+        "body": [
+            ("What the Volunteer Money Management Program actually does", [
+                "<p>The Illinois Department on Aging describes its Volunteer "
+                "Money Management Program as &ldquo;a protective service that "
+                "assists low-income older persons who have difficulty managing "
+                "their personal household budgets, paying bills&rdquo;. Its own "
+                "page lists what that covers in practice: &ldquo;keeping track "
+                "of banking records, intervening with creditors, completing "
+                "medical forms&rdquo;, &ldquo;setting up a budget, writing "
+                "checks, balancing a checkbook&rdquo;, and &ldquo;assisting with "
+                "large purchases&rdquo;.</p>",
+                "<p>The department's page describes a service, not a legal "
+                "arrangement, and says nothing about how it relates to "
+                "<a href=\"/guides/illinois-advance-directive-power-of-attorney/\">"
+                "a power of attorney</a> or a guardianship. Local Program Sites "
+                "recruit, select, train, match and monitor the volunteers; the "
+                "department administers the programme and monitors the Program "
+                "Sites.</p>",
+            ]),
+            ("Who qualifies &mdash; and where", [
+                "<p>The department's page gives exactly two eligibility paths. "
+                "The programme is &ldquo;available to Community Care Program "
+                "(CCP) participants&rdquo; &mdash; see "
+                '<a href="/guides/illinois-community-care-program/">Can my '
+                "parent get paid help at home in Illinois?</a> for what CCP "
+                "itself requires &mdash; or to &ldquo;individuals who have a "
+                "substantiated Adult Protective Services (APS) case in certain "
+                "areas of the State&rdquo;. For what Adult Protective Services investigates and how to report, see "
+                '<a href="/guides/illinois-elder-abuse-reporting/">What to do '
+                "about suspected elder abuse or neglect at home in "
+                "Illinois</a>.</p>",
+                "<p>Both paths carry the same catch: &ldquo;in certain areas of "
+                "the State&rdquo; is doing real work in that sentence. This is "
+                "not a programme every Illinois county runs &mdash; it operates through contracted local Program Sites, and whether "
+                "one serves your parent's township decides whether any of this "
+                "is actually available to them.</p>",
+            ]),
+            ("Volunteers, training, and acting as a Social Security "
+             "representative payee", [
+                "<p>The department's page states that &ldquo;Local Program "
+                "Sites, contracted by the Illinois Department on Aging, "
+                "recruit, select, train, match and monitor the "
+                "volunteers&rdquo;, and that the department itself "
+                "&ldquo;administers the program and monitors the local Program "
+                "Sites&rdquo;. Volunteers are matched to an older adult who "
+                "needs help &ldquo;organizing, reviewing, and paying "
+                "bills&rdquo;.</p>",
+                "<p>One sentence on the page matters more than the rest for a "
+                "family wondering how a parent's Social Security benefit gets managed: &ldquo;Volunteers also "
+                "serve as Representative Payees, persons designated by the "
+                "Social Security Administration to manage the monthly benefits "
+                "of certain beneficiaries.&rdquo; That is the same role the "
+                "Illinois Department on Aging's own resident-rights brochure "
+                "warns a care facility may not take on &ldquo;without your "
+                "permission&rdquo; &mdash; this programme is one way to have that role filled by a trained volunteer from a Program Site the department monitors.</p>",
+            ]),
+            ("What this guide could not verify, and will not guess at", [
+                "<p>The department's page does not state what the programme "
+                "costs a family, does not describe how a volunteer is screened beyond saying Program Sites &ldquo;recruit, select, train, match and monitor the volunteers&rdquo;, and does not explain what "
+                "happens if a volunteer mishandles money beyond saying the "
+                "department &ldquo;monitors&rdquo; Program Sites. This guide "
+                "will not guess at a fee, a background-check standard, or a "
+                "complaint process the page itself does not spell out. Ask the "
+                "Program Site named for your area, or the Senior HelpLine, "
+                "directly.</p>",
+            ]),
+            ("Is a Program Site actually near Evanston?", [
+                "<p>The department publishes the current roster as a PDF, "
+                "&ldquo;Find Your Local Program Site/Agency&rdquo;, organised by numbered PSA. The copy this "
+                "guide read, dated 22 October 2026, lists two Program Sites under PSA 13: Kenneth W. Young Centers "
+                "for Elk Grove and Schaumburg Townships, and Oak Park Township "
+                "Senior Services for Oak Park and River Forest Townships. "
+                "Neither covers Evanston Township, and this guide found no "
+                "separate listing for the City of Chicago or the rest of Cook "
+                "County on that document.</p>",
+                "<p>That is a fact about one dated PDF, not a permanent answer. "
+                "Program Site lists change, and the department's page itself tells families to contact their local Care Coordination Unit, found with its map tool, to find out if they are eligible. Call the Senior HelpLine at <strong>1-800-252-8966 "
+                "(711 TRS)</strong> and ask directly whether a Program Site "
+                "currently serves Evanston Township, rather than relying on "
+                "either this guide or an out-of-date list found elsewhere.</p>",
+            ]),
+            ("How to find out, for your specific parent", [
+                "<p>Start with your parent's local Care Coordination Unit, "
+                "found through the department's map tool: the department's page "
+                "says to contact it to learn more about this programme and find "
+                "out if you are eligible. Ask there whether your parent's "
+                "situation &mdash; already on CCP, or with a substantiated APS "
+                "case &mdash; qualifies, and whether a Program Site reaches "
+                "where your parent lives. The department's Senior HelpLine is "
+                "<strong>1-800-252-8966 (711 TRS)</strong>.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>This is a narrow tool for a narrow problem: bills going unpaid or a benefit cheque with nobody to manage it. If the honest picture "
+                "is bigger than that &mdash; your parent can no longer manage "
+                "daily life safely on their own &mdash; see "
+                '<a href="/guides/levels-of-senior-care-explained/">Assisted '
+                "living, memory care, skilled nursing and rehabilitation "
+                "&mdash; what is the difference?</a> And if the real question "
+                "is who should be allowed to make decisions at all, rather "
+                "than who can help with this month's bills, see "
+                '<a href="/guides/illinois-advance-directive-power-of-attorney/">'
+                "Does my parent need a power of attorney for health care in "
+                "Illinois?</a></p>",
+                "<p>If you are not sure which of those describes your parent, "
+                'the <a href="/">free six-question assessment</a> on this site '
+                "walks through the specifics. It asks for no name, no email and "
+                "no phone number to see your results, and your answers never "
+                "leave your device.</p>",
+            ]),
+        ],
+    },
+    {
+        "slug": "illinois-parent-refuses-to-move-guardianship",
+        "bridge": ("Whether the law lets you decide for your parent is a separate "
+                   "question from what level of care your parent actually needs."),
+        "reviewed": "2026-11-24",
+        "title": "Parent Refuses to Move? Illinois Options and Guardianship",
+        "h1": "My parent isn't safe at home but refuses to move. What can we do in Illinois?",
+        "desc": ("Illinois presumes an adult can make their own decisions. What "
+                 "the state's Guardianship and Advocacy Commission says to try "
+                 "first, and when guardianship applies."),
+        "intent": "decision / legal",
+        "answer": ("<strong>In Illinois, an adult parent decides where they live "
+                   "unless a court appoints a guardian.</strong> The state&rsquo;s "
+                   "Guardianship and Advocacy Commission states that &ldquo;The "
+                   "law presumes that an adult eighteen years of age or older is "
+                   "capable of handling his/her own affairs,&rdquo; and that "
+                   "&ldquo;In Illinois, the only way someone can be a guardian for "
+                   "a person who is eighteen years old or older is to be appointed "
+                   "by the circuit court.&rdquo; A guardian of the person can make "
+                   "decisions about residential placement, but the Commission "
+                   "calls guardianship a last resort and says that where possible, "
+                   "alternatives should be pursued first."),
+        "sources": srcs("gac_fact_sheet", "gac_faq", "idoa_aps_program"),
+        "body": [
+            ("Where Illinois law starts", [
+                "<p>The Commission&rsquo;s Office of State Guardian is plain that "
+                "age or illness alone is not enough: &ldquo;Without more, a "
+                "mental, physical or developmental disability is not sufficient "
+                "for the appointment of a guardian.&rdquo; Guardianship, its fact "
+                "sheet says, &ldquo;is needed when a person is unable to make and "
+                "communicate responsible decisions regarding his personal care or "
+                "finances due to a mental, physical or developmental "
+                "disability.&rdquo;</p>",
+                "<p>A parent who makes a choice the family thinks is unwise has not "
+                "met that test. The Commission&rsquo;s questions-and-answers page "
+                "states: &ldquo;Making incorrect or ill-advised decisions on a "
+                "periodic basis is not the test. Rather, it is an inability to "
+                "engage in the decision making in the first place which is "
+                "important.&rdquo; It suggests four practical questions:</p>",
+                "<ul class=\"res__list\">"
+                "<li>&ldquo;Does the person understand that a particular decision "
+                "needs to be made?&rdquo;</li>"
+                "<li>&ldquo;Does the person understand the options available in "
+                "any decision?&rdquo;</li>"
+                "<li>&ldquo;Does the person understand the consequences of each "
+                "option?&rdquo;</li>"
+                "<li>&ldquo;Is the person able to properly inform appropriate "
+                "parties once the decision has been made?&rdquo;</li></ul>",
+                "<p>The same page says that an inability to make sound decisions "
+                "about matters including where to live and when to seek medical "
+                "care is an indication that a person may need some guardianship "
+                "services.</p>",
+            ]),
+            ("What the state says to try first", [
+                "<p>The Commission states: &ldquo;All possible alternatives "
+                "should be explored before instituting guardianship "
+                "proceedings.&rdquo; It names representative or protective payees, "
+                "financial counselling and bill-paying assistance programmes, "
+                "living trusts, and homemaker and other in-home support programmes "
+                "as ways that may avoid the need for guardianship.</p>",
+                "<p>It also points to arrangements a parent can make while they "
+                "still can. Under the Illinois Power of Attorney Act, the page "
+                "says, a person can appoint an agent to make property or personal "
+                "and health care decisions, and &ldquo;The execution of the form "
+                "requires no court involvement, and forms are readily "
+                "available.&rdquo; Under the Health Care Surrogate Act, a relative "
+                "or friend can make some medical decisions for a person who lacks "
+                "capacity without a court appointment. "
+                "<a href=\"/guides/illinois-advance-directive-power-of-attorney/\">The "
+                "power of attorney guide</a> covers those documents.</p>",
+            ]),
+            ("If you are worried about self-neglect", [
+                "<p>When a parent living at home is not managing food, medicine or "
+                "safety, the Illinois Department on Aging&rsquo;s Adult Protective "
+                "Services programme is another route. Its page states that it "
+                "&ldquo;investigates reports of abuse, neglect, exploitation, and "
+                "self-neglect of adults age 60 or older, and adults age 18-59 with "
+                "disabilities living in the community,&rdquo; and gives a "
+                "statewide, 24-hour hotline: <strong>1-866-800-1409</strong>. "
+                "<a href=\"/guides/illinois-elder-abuse-reporting/\">The elder "
+                "abuse and neglect guide</a> explains what happens after a "
+                "report.</p>",
+            ]),
+            ("What guardianship involves", [
+                "<p>The fact sheet describes two kinds. A &ldquo;guardian of the "
+                "person&rdquo; is appointed when someone cannot make or "
+                "communicate responsible decisions about personal care, and "
+                "&ldquo;This guardian will make decisions about medical treatment, "
+                "residential placement, social services and other needs.&rdquo; A "
+                "&ldquo;guardian of the estate&rdquo; handles money and property. "
+                "Either can be <strong>limited</strong>, covering only the "
+                "decisions the court specifies, or <strong>plenary</strong>, "
+                "covering all of them.</p>",
+                "<ul class=\"res__list\">"
+                "<li><strong>The report.</strong> Before going to court, the "
+                "Commission says, one must obtain a report certifying that the "
+                "person is disabled and needs a guardian, signed by a licensed "
+                "physician, based on evaluations performed within 3 months of "
+                "filing and including a recommendation on the most suitable "
+                "living arrangement.</li>"
+                "<li><strong>The petition and hearing.</strong> An "
+                "&ldquo;interested person&rdquo; files a petition in the circuit "
+                "court of the county where your parent lives, and the fact sheet "
+                "states: &ldquo;Guardianship hearings are set within 30 days of a "
+                "petition being filed with the court.&rdquo;</li>"
+                "<li><strong>Your parent&rsquo;s rights.</strong> &ldquo;A person "
+                "facing a guardianship adjudication has the right to a court "
+                "appointed attorney and a trial by a jury of six persons.&rdquo; "
+                "Most counties also appoint a guardian ad litem to advise the "
+                "court independently.</li>"
+                "<li><strong>Emergencies.</strong> A temporary guardian can be "
+                "appointed while the case is pending, and the fact sheet says "
+                "temporary guardianship &ldquo;lasts no longer than 60 "
+                "days&rdquo; and is used &ldquo;only where a demonstrated harm or "
+                "emergency exists.&rdquo;</li>"
+                "<li><strong>Time and cost.</strong> &ldquo;Once the case is "
+                "filed, it usually takes from 14 days to two months for a decision "
+                "to be reached by the court.&rdquo; The petitioner usually pays "
+                "filing fees, sheriff&rsquo;s fees for serving the summons, and "
+                "attorney&rsquo;s fees; the fact sheet adds that "
+                "&ldquo;Guardianship can be costly and complicated.&rdquo;</li>"
+                "<li><strong>Who serves.</strong> &ldquo;Family members are not "
+                "automatically named the legal guardian for their disabled "
+                "relative.&rdquo; The judge decides. The Office of State Guardian "
+                "serves only when no other suitable person is willing.</li></ul>",
+                "<p>For Cook County, the Commission notes that the rules are in "
+                "Part 12 of the general rules of practice for the Circuit Court of "
+                "Cook County, and that the Probate Court Clerk can usually supply the "
+                "physician&rsquo;s report form. The Office of State Guardian&rsquo;s "
+                "toll-free intake number is <strong>1-866-274-8023</strong>.</p>",
+            ]),
+            ("Before you file", [
+                "<p>The fact sheet ends with a warning worth reading twice: "
+                "guardianship &ldquo;should never be used in a retaliatory manner "
+                "or as a convenience for a health care provider or a family "
+                "member.&rdquo; The Commission also says that once established, a "
+                "guardianship can be extremely difficult to revoke. Talking to an "
+                "attorney before filing is sensible; the Commission says an Office "
+                "of State Guardian attorney or a legal assistance agency can be "
+                "consulted by a family filing without one.</p>",
+                "<p>Often the more useful first step is a calm conversation about "
+                "what kind of help would actually make home safe, or which kind of "
+                "setting would. If you are trying to work that out, the "
+                "<a href=\"/\">free six-question assessment</a> on the home page "
+                "is a private place to start.</p>",
+            ]),
+        ],
+    },
+    {
+        "slug": "medicare-fast-appeal-hospital-rehab-discharge",
+        "bridge": ("Winning a few more covered days is a different question from "
+               "knowing what level of care your parent will need once those days "
+               "run out."),
+        "reviewed": "2026-11-23",
+        "title": "Discharged Too Soon? How a Medicare Fast Appeal Works",
+        "h1": "My parent is being discharged from the hospital or from rehab too soon. Can we appeal?",
+        "desc": ("Medicare gives patients leaving a hospital or a skilled nursing "
+                 "(rehab) stay the right to a fast appeal: the two notices, the "
+                 "deadlines and who pays."),
+        "intent": "deadline / Medicare",
+        "answer": ("<strong>Yes, if Medicare is paying for the stay, you can ask "
+                   "for a fast appeal &mdash; but the deadline is short.</strong> "
+                   "Medicare.gov states you &ldquo;may have the right to ask for a "
+                   "fast appeal if you think your services are ending too soon (or "
+                   "that you&rsquo;re being discharged too soon)&rdquo; from a "
+                   "hospital, a skilled nursing facility and three other kinds of "
+                   "provider. An independent reviewer, the Beneficiary and Family "
+                   "Centered Care-Quality Improvement Organization (BFCC-QIO), "
+                   "decides. In a hospital the request is due &ldquo;no later than "
+                   "the day you&rsquo;re scheduled to be discharged from the "
+                   "hospital&rdquo;; in a skilled nursing facility, &ldquo;no later "
+                   "than noon the day before the termination date listed on the "
+                   "notice.&rdquo; The notice your parent is given tells you how to "
+                   "ask."),
+        "sources": srcs("medicare_fast_appeals", "medicare_discharge_checklist"),
+        "body": [
+            ("Two settings, two notices", [
+                "<p>Everything turns on a written notice, and which one your "
+                "parent should receive depends on where they are.</p>",
+                "<ul class=\"res__list\">"
+                "<li><strong>In a hospital:</strong> Medicare.gov states that "
+                "within 2 days of admission and before discharge, a patient "
+                "should get a notice called &ldquo;An Important Message from "
+                "Medicare about Your Rights,&rdquo; which it says &ldquo;is "
+                "sometimes called the Important Message from Medicare or the "
+                "IM.&rdquo; If the hospital gave it more than 2 days before the "
+                "discharge day, the page states the hospital &ldquo;must give you "
+                "a copy of your original, signed IM or give you a new one (that "
+                "you must sign) before you&rsquo;re discharged.&rdquo;</li>"
+                "<li><strong>In a skilled nursing facility (and with home health, "
+                "hospice or a comprehensive outpatient rehabilitation "
+                "facility):</strong> the notice is called the &ldquo;Notice of "
+                "Medicare Non-Coverage,&rdquo; and Medicare.gov states you should "
+                "get it &ldquo;at least 2 days before covered services "
+                "end.&rdquo;</li></ul>",
+                "<p>For both, Medicare.gov's instruction is the same: &ldquo;If "
+                "you don&rsquo;t get this notice, ask for it.&rdquo; Medicare's "
+                "discharge planning checklist adds: &ldquo;Read the notice "
+                "carefully because it contains information about your fast appeal "
+                "rights.&rdquo; Both notices include, where it applies, the date "
+                "your parent's covered services will end; in a skilled nursing "
+                "facility the deadline below is counted from that date, and in a "
+                "hospital from the day your parent is scheduled to be "
+                "discharged.</p>",
+            ]),
+            ("The deadlines, in Medicare's own words", [
+                "<p><strong>Hospital.</strong> Follow the directions on the "
+                "Important Message from Medicare &ldquo;no later than the day "
+                "you&rsquo;re scheduled to be discharged from the hospital.&rdquo; "
+                "Medicare.gov then states: &ldquo;If you ask for your appeal "
+                "within this time frame, you can stay in the hospital while you "
+                "wait to get the BFCC-QIO&rsquo;s decision. You won&rsquo;t have "
+                "to pay for your stay (except for applicable coinsurance or "
+                "deductibles).&rdquo; Miss it, and the page warns that different "
+                "rules and time frames apply and &ldquo;you might be responsible "
+                "for the cost of the hospital stay past the original day the "
+                "hospital tries to discharge you.&rdquo;</p>",
+                "<p><strong>Skilled nursing facility (rehab).</strong> Follow the "
+                "instructions on the Notice of Medicare Non-Coverage &ldquo;no "
+                "later than noon the day before the termination date listed on "
+                "the notice.&rdquo; If that deadline is missed and your parent "
+                "is in a Medicare health plan, such as a Medicare Advantage Plan, "
+                "Medicare.gov states &ldquo;you can request "
+                "a fast reconsideration from your plan, but services will only be "
+                "covered if there&rsquo;s a decision issued in your favor.&rdquo; "
+                "The page does not say what applies after a missed deadline with "
+                "Original Medicare: ask the BFCC-QIO named on the notice, or "
+                "1-800-MEDICARE, straight away.</p>",
+                "<p>Right after its warning about a missed hospital deadline, "
+                "Medicare.gov adds, for a parent in a Medicare Advantage Plan: "
+                "&ldquo;you can ask your plan for an "
+                "appeal, but different rules apply.&rdquo; Read the notice your "
+                "parent was given, and ask the plan which route applies before "
+                "the deadline passes.</p>",
+            ]),
+            ("Who to call", [
+                "<p>The appeal goes to the BFCC-QIO, which Medicare's checklist "
+                "describes as &ldquo;an independent reviewer under contract with "
+                "Medicare.&rdquo; The notice itself carries the contact details. "
+                "Medicare.gov states the BFCC-QIO &ldquo;is administered for "
+                "Medicare by Commence or Acentra, depending on what state you live "
+                "in,&rdquo; and the checklist adds: &ldquo;You can also call "
+                "1-800-MEDICARE to get the phone number for your BFCC-QIO.&rdquo; "
+                "This guide does not print a number for Illinois: use the one on "
+                "your parent's notice, or the one 1-800-MEDICARE gives you.</p>",
+            ]),
+            ("What happens after you call", [
+                "<p>Medicare.gov describes the same sequence in both settings, "
+                "with different timing:</p>",
+                "<ul class=\"res__list\">"
+                "<li>The BFCC-QIO notifies the hospital (and your parent's plan, if "
+                "they have a Medicare health plan) or the facility.</li>"
+                "<li>The provider gives your parent a detailed written "
+                "explanation: in a hospital a &ldquo;Detailed Notice of "
+                "Discharge,&rdquo; by noon the day after the hospital is "
+                "notified; elsewhere a &ldquo;Detailed Explanation of "
+                "Non-Coverage,&rdquo; by the end of the day the provider is "
+                "notified. Both state why the services are no longer covered and "
+                "the coverage rule being applied.</li>"
+                "<li>The BFCC-QIO asks why you believe coverage should continue "
+                "and looks at the medical records.</li>"
+                "<li>It decides: in a hospital &ldquo;Within one day of getting "
+                "the requested information&rdquo;; elsewhere &ldquo;By close of "
+                "business the day after it gets the information it needs to make "
+                "a decision.&rdquo;</li></ul>",
+                "<p>Medicare.gov also states: &ldquo;You can also ask for copies of "
+                "any of the materials that were sent to the BFCC-QIO.&rdquo;</p>",
+            ]),
+            ("What the decision means for the bill", [
+                "<p><strong>If the reviewer agrees services are ending too "
+                "soon:</strong> in a hospital, for a parent with Original "
+                "Medicare, Medicare.gov states Medicare &ldquo;will continue to "
+                "cover your hospital stay as long as medically necessary (except "
+                "for applicable coinsurance or deductibles).&rdquo; In a skilled "
+                "nursing facility, the page is more guarded: &ldquo;Depending on "
+                "your care needs, Medicare may continue to cover&rdquo; the "
+                "care.</p>",
+                "<p><strong>If the reviewer agrees services should end:</strong> "
+                "in a hospital, provided the deadline was met, Medicare.gov "
+                "states &ldquo;you won&rsquo;t be responsible for paying the "
+                "hospital charges (except for applicable coinsurance or "
+                "deductibles) incurred through noon of the day after the BFCC-QIO "
+                "gives you its decision.&rdquo; In a skilled nursing facility: "
+                "&ldquo;You won&rsquo;t be responsible for paying for any SNF, "
+                "HHA, CORF, or hospice services provided before the coverage end "
+                "date on the &lsquo;Notice of Medicare Non-Coverage.&rsquo; If you "
+                "continue to get services after the coverage end date, you may "
+                "have to pay for those services.&rdquo;</p>",
+                "<p>Read that before deciding whether your parent stays on while "
+                "the appeal is decided: in a skilled nursing facility, a lost "
+                "appeal leaves the days after the end date on the notice "
+                "potentially your parent's to pay.</p>",
+            ]),
+            ("A different problem: inpatient changed to observation", [
+                "<p>Medicare.gov describes a separate case: &ldquo;You can ask for "
+                "a fast appeal while you&rsquo;re still in the hospital if you "
+                "were admitted to the hospital as an inpatient and the hospital "
+                "changed your status to &lsquo;outpatient getting observation "
+                "services.&rsquo;&rdquo; It points to a separate appeal process "
+                "for that. See "
+                '<a href="/guides/does-medicare-pay-for-senior-care/">Does '
+                "Medicare pay for assisted living or nursing home care?</a> for "
+                "what Medicare covers after a hospital stay, and what it never "
+                "covers.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>A fast appeal can buy time; it does not answer where your "
+                "parent will live and get care afterwards. Medicare's discharge "
+                "checklist suggests asking &ldquo;where you&rsquo;ll get care "
+                "after you&rsquo;re discharged&rdquo; and whether you have options "
+                "&ldquo;(like home health care)&rdquo; &mdash; see "
+                '<a href="/guides/medicare-home-health-care/">Medicare home health '
+                "care</a> for that route, and "
+                '<a href="/guides/levels-of-senior-care-explained/">the levels of '
+                "senior care</a> for the others. For free, unbiased help with "
+                "Medicare questions, see "
+                '<a href="/guides/illinois-senior-health-insurance-program/">'
+                "Illinois&rsquo;s Senior Health Insurance Program</a>.</p>",
+                "<p>If you are deciding what comes after the discharge, the "
+                '<a href="/">free six-question assessment</a> on this site '
+                "looks at that question directly. It asks for no name, no email "
+                "and no phone number, and your answers never leave your "
+                "device.</p>",
+            ]),
+        ],
+    },
+    {
+        "slug": "va-home-based-primary-care-and-aide",
+        "bridge": ("Knowing which VA programme sends help to the house is a "
+               "different question from knowing whether a house, even with "
+               "help, is still the safest place for your veteran parent."),
+        "reviewed": "2026-11-23",
+        "title": "VA Home-Based Primary Care and Home Health Aide Care, Explained",
+        "h1": "Can the VA send a doctor or a home health aide to your veteran&rsquo;s house?",
+        "desc": ("VA.gov names two separate home programmes for an eligible "
+                 "veteran: a medical team that visits for ongoing care, and "
+                 "a trained aide for daily activities."),
+        "intent": "benefits question",
+        "answer": ("<strong>Yes &mdash; VA runs two separate home programmes, "
+                   "and they are not the same thing.</strong> <strong>Home "
+                   "Based Primary Care</strong> sends a VA team of health care professionals to the veteran's own home, including primary care visits by a physician, nurse practitioner or physician assistant. "
+                   "<strong>Homemaker and Home Health Aide Care</strong> "
+                   "sends a trained aide, supervised by a registered nurse, "
+                   "to help with daily activities such as bathing, dressing "
+                   "and grocery shopping. For both, the veteran must be enrolled in VA health care, meet the clinical need or criteria for the service, and the service must be available. The aide programme adds one more condition: the veteran must also be eligible for community care."),
+        "sources": srcs("va_hbpc", "va_hhha", "va_ltc_overview", "va_phcbs_notice", "va_vdc", "va_caregiver_compare"),
+        "body": [
+            ("Two different kinds of help, not one", [
+                "<p>VA.gov's own overview of its long-term care services "
+                "lists five things under &ldquo;Services at Home and in the "
+                "Community&rdquo;, available to &ldquo;all enrolled "
+                "Veterans&rdquo; who have a clinical need and local "
+                "availability: Geriatric Evaluation, Adult Day Health Care, "
+                "Homemaker and Home Health Aide Care, Respite Care, and "
+                "Skilled Home Health Care. That overview page names Homemaker and Home Health Aide Care without describing it, and does not list Home Based Primary Care at all. This guide read VA's own dedicated pages for each "
+                "one instead of guessing.</p>",
+                "<p>The two are easy to confuse because both send someone to "
+                "the house, but they are different services with different "
+                "staff. One is <strong>medical care from a VA clinical "
+                "team</strong>. The other is <strong>personal-care help from "
+                "a trained aide</strong>. A veteran parent could plausibly "
+                "need either, both, or neither &mdash; this guide covers "
+                "each on its own terms below.</p>",
+            ]),
+            ("Home Based Primary Care, in VA.gov's own words", [
+                "<p>VA.gov describes Home Based Primary Care (HBPC) as "
+                "&ldquo;health care services provided to Veterans in their "
+                "home&rdquo;, aimed at veterans who need team-based in-home support for &ldquo;ongoing diseases and illnesses that affect their health and daily activities&rdquo;. The "
+                "page is explicit that a veteran does not have to be "
+                "homebound to qualify &mdash; it also names veterans who are "
+                "isolated, or whose caregiver is under strain, as people the "
+                "programme is meant to serve.</p>",
+                "<p>A team reviews the veteran's needs and provides care for "
+                "the veteran and the caregiver together. The page lists "
+                "in-home primary care visits from a physician, nurse "
+                "practitioner or physician assistant, plus care management, "
+                "social work, rehabilitation, psychology, nutrition and "
+                "pharmacy support.</p>",
+                "<p>On cost, the page says a basic copay may apply each time a VA staff team member comes to the home for a medical visit, &ldquo;the same as if you went to a VA clinic&rdquo;, "
+                "based on the veteran's service-connected disability status "
+                "and financial information &mdash; it gives no dollar "
+                "figure. It points families toward a VA social worker or "
+                "case manager and the Application for Extended Care "
+                "Benefits, VA Form 10-10EC, to learn the amount of the copay, rather than describing a separate HBPC application of its own.</p>",
+            ]),
+            ("Homemaker and Home Health Aide Care, in VA.gov's own words", [
+                "<p>VA.gov's page states the eligibility rule in one line: "
+                "&ldquo;All enrolled Veterans are eligible for Homemaker "
+                "Home Health Aide Care&rdquo; if they are also eligible for "
+                "community care, meet the clinical criteria, and the "
+                "service is available where they live. It serves veterans "
+                "&ldquo;of any age&rdquo;, including those who are isolated "
+                "or whose caregiver is under strain &mdash; the same framing "
+                "HBPC uses.</p>",
+                "<p>The aide is not a nurse. VA.gov is specific that a "
+                "registered nurse supervises the aide, who comes to help the veteran &ldquo;take care of themselves and their daily activities&rdquo;: eating, "
+                "dressing, grooming, bathing, toileting, moving between "
+                "places, and grocery shopping. &ldquo;Services are based on "
+                "your assessed needs&rdquo;, the page says, and a visit "
+                "schedule can run from several times a week to "
+                "occasionally, continuing &ldquo;for as long as you need extra help with your daily activities&rdquo;.</p>",
+                "<p>A copay &ldquo;may be charged based on your VA "
+                "service-connected disability status&rdquo;, again with no "
+                "dollar figure published. The page does not compare this "
+                "programme with hiring a caregiver privately; it only says "
+                "the aide works for an organisation that holds a contract "
+                "with VA, which is the one fact this guide found distinguishing "
+                "it from a family hiring someone itself.</p>",
+            ]),
+            ("Similar gates, with one real difference", [
+                "<p>Both pages require enrollment in VA health care, a clinical need for the specific service, and local availability; the aide page adds a fourth condition. Neither page "
+                "promises the service exists at every VA medical centre "
+                "&mdash; both say availability depends on where the veteran "
+                "lives, and point to a VA social worker or physician to "
+                "confirm it locally rather than assuming a name found on a "
+                "website applies everywhere.</p>",
+                "<p>One wording difference is worth noticing rather than "
+                "flattening: the Homemaker and Home Health Aide page adds "
+                "that the veteran must be &ldquo;eligible for community "
+                "care&rdquo;, a phrase the Home Based Primary Care page does "
+                "not use. VA&rsquo;s own policy notice on purchased home and community-based services (VHA Notice 2024-01), linked from the aide page, explains it: homemaker and home health aide care is one of the purchased home and community-based services (PHCBS) it covers, and &ldquo;To receive PHCBS care, Veterans must satisfy one of the eligibility criteria for the Veterans Community Care Program established by the VA MISSION Act of 2018&rdquo;. Home Based Primary Care visits are made by VA&rsquo;s own staff team. Ask the VA social worker handling the case whether the veteran meets the community care criteria.</p>",
+            ]),
+            ("Not Veteran Directed Care, and not the caregiver stipend", [
+                "<p>Two other VA programmes, covered separately on this site, also involve help at home, and "
+                "it is worth being precise about how all four differ. "
+                '<a href="/guides/va-veteran-directed-care-program/">Veteran '
+                "Directed Care</a> hands the veteran a budget and lets them "
+                "hire their own worker, including a family member. Home "
+                "Based Primary Care and Homemaker and Home Health Aide Care, "
+                "by contrast, are both VA-arranged: a VA team or a "
+                "VA-contracted aide comes to the veteran, rather than the "
+                "veteran directing their own hire.</p>",
+                "<p>Separately again, "
+                '<a href="/guides/va-caregiver-support-program/">the VA '
+                "caregiver programmes</a> support the family member doing the caring, and one of them, the Program of Comprehensive Assistance for Family Caregivers, pays an eligible primary family caregiver a monthly stipend. Neither involves an outside aide or clinician visiting the veteran. Both VA pages say their service &ldquo;can be used in combination with other Home and Community Based Services&rdquo;. Ask the VA social worker which combination fits the veteran's assessed needs.</p>",
+            ]),
+            ("What this guide could not verify", [
+                "<p>Neither VA.gov page this guide read gives a dollar "
+                "copay figure, a typical visit frequency, or a maximum "
+                "number of aide hours. Both describe "
+                "the amount and shape of help as set by an individual "
+                "clinical assessment, not a published rate. This guide will "
+                "not invent a number neither page states &mdash; ask the VA "
+                "social worker handling the case what the assessed plan "
+                "would actually look like.</p>",
+            ]),
+            ("How to start", [
+                "<p>Both pages point to the same first step: talk to a VA "
+                "social worker or case manager. For Home Based Primary Care, the page says to contact a VA social worker or case manager to complete the Application for Extended Care Benefits, VA Form 10-10EC, to learn the amount of the copay, and that a VA physician or social worker can say whether the programme is available locally. For Homemaker and "
+                "Home Health Aide Care, VA.gov simply says: &ldquo;Talk "
+                "with a VA social worker to find out what specific help you "
+                "may be able to receive&rdquo;, and mentions a Veteran "
+                "Decision Aid and a Caregiver Self-Assessment as tools that "
+                "can help weigh the options first.</p>",
+                "<p>A veteran who is not yet enrolled in VA health care has "
+                "to clear that step before either programme applies. "
+                '<a href="/guides/va-veteran-directed-care-program/">This '
+                "site's guide to Veteran Directed Care</a> sets out the ways "
+                "to apply for VA health care itself, since the enrollment "
+                "step is identical across all of VA's home programmes.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>If the open question is money rather than who shows up "
+                "at the house, see "
+                '<a href="/guides/va-aid-and-attendance-benefit/">Does the '
+                "VA pay for senior care? Aid and Attendance, explained</a>, "
+                "a cash pension benefit that is separate from everything on "
+                "this page. If a facility, rather than help at home, has "
+                "become the real question, see "
+                '<a href="/guides/va-nursing-home-and-respite-care/">Can the '
+                "VA provide nursing home care, or give a family caregiver a "
+                "break?</a></p>",
+                "<p>If the real question is whether home, even with "
+                "clinical or aide support, is still the right setting for "
+                'your veteran parent, the <a href="/">free six-question '
+                "assessment</a> on this site walks through that separately. "
+                "It asks for no name, no email and no phone number, and "
+                "your answers never leave your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -5254,27 +6408,27 @@ RELATED = {
     "does-medicare-pay-for-senior-care": [
         "medicare-home-health-care",
         "medicare-durable-medical-equipment-coverage",
-        "assisted-living-cost-illinois"],
+        "medicare-fast-appeal-hospital-rehab-discharge"],
     "illinois-supportive-living-program": [
         "illinois-pace-program",
         "illinois-medicaid-estate-recovery",
         "illinois-medicaid-look-back-period"],
     "check-illinois-inspection-records": [
         "illinois-care-facility-complaint",
-        "levels-of-senior-care-explained",
+        "illinois-assisted-living-involuntary-move-out",
         "illinois-nursing-home-resident-rights"],
     "levels-of-senior-care-explained": [
         "independent-living-evanston",
         "assisted-living-cost-illinois",
-        "does-medicare-pay-for-senior-care"],
+        "illinois-parent-refuses-to-move-guardianship"],
     "illinois-community-care-program": [
-        "illinois-home-care-ombudsman-program",
+        "illinois-money-management-program",
         "va-veteran-directed-care-program",
         "illinois-nursing-home-preadmission-screening"],
     "illinois-medicaid-long-term-care": [
         "illinois-medicaid-estate-recovery",
-        "illinois-supportive-living-program",
-        "illinois-nursing-home-preadmission-screening"],
+        "illinois-nursing-home-responsible-party",
+        "illinois-medicaid-pending-nursing-home"],
     "illinois-care-facility-complaint": [
         "check-illinois-inspection-records",
         "illinois-elder-abuse-reporting",
@@ -5296,7 +6450,7 @@ RELATED = {
         "assisted-living-cost-illinois",
         "va-nursing-home-and-respite-care"],
     "va-veteran-directed-care-program": [
-        "va-aid-and-attendance-benefit",
+        "va-home-based-primary-care-and-aide",
         "va-nursing-home-and-respite-care",
         "va-caregiver-support-program"],
     "illinois-family-caregiver-support-program": [
@@ -5309,7 +6463,7 @@ RELATED = {
         "illinois-medicare-savings-program"],
     "illinois-nursing-home-resident-rights": [
         "illinois-care-facility-complaint",
-        "check-illinois-inspection-records",
+        "illinois-assisted-living-involuntary-move-out",
         "illinois-advance-directive-power-of-attorney"],
     "illinois-nursing-home-preadmission-screening": [
         "levels-of-senior-care-explained",
@@ -5324,9 +6478,9 @@ RELATED = {
         "illinois-care-facility-complaint",
         "medicare-home-health-care"],
     "illinois-advance-directive-power-of-attorney": [
-        "illinois-nursing-home-resident-rights",
+        "illinois-money-management-program",
         "medicare-hospice-benefit-explained",
-        "levels-of-senior-care-explained"],
+        "illinois-nursing-home-responsible-party"],
     "illinois-medicare-savings-program": [
         "illinois-senior-health-insurance-program",
         "illinois-fide-snp-explained",
@@ -5336,7 +6490,7 @@ RELATED = {
         "illinois-supportive-living-program",
         "illinois-home-delivered-meals"],
     "medicare-home-health-care": [
-        "does-medicare-pay-for-senior-care",
+        "medicare-fast-appeal-hospital-rehab-discharge",
         "medicare-durable-medical-equipment-coverage",
         "illinois-home-caregiver-background-check"],
     "medicare-extra-help-prescription-drug-costs": [
@@ -5348,7 +6502,7 @@ RELATED = {
         "illinois-family-caregiver-support-program",
         "illinois-home-care-ombudsman-program"],
     "illinois-elder-abuse-reporting": [
-        "illinois-care-facility-complaint",
+        "illinois-parent-refuses-to-move-guardianship",
         "illinois-home-care-ombudsman-program",
         "illinois-family-caregiver-support-program"],
     "illinois-benefit-access-program": [
@@ -5370,11 +6524,39 @@ RELATED = {
     "va-caregiver-support-program": [
         "va-aid-and-attendance-benefit",
         "va-nursing-home-and-respite-care",
-        "illinois-family-caregiver-support-program"],
+        "va-home-based-primary-care-and-aide"],
     "illinois-fide-snp-explained": [
         "illinois-medicare-savings-program",
         "illinois-senior-health-insurance-program",
         "illinois-medicaid-long-term-care"],
+    "illinois-assisted-living-involuntary-move-out": [
+        "illinois-nursing-home-resident-rights",
+        "illinois-care-facility-complaint",
+        "levels-of-senior-care-explained"],
+    "illinois-nursing-home-responsible-party": [
+        "illinois-nursing-home-resident-rights",
+        "illinois-advance-directive-power-of-attorney",
+        "illinois-medicaid-pending-nursing-home"],
+    "illinois-medicaid-pending-nursing-home": [
+        "illinois-medicaid-long-term-care",
+        "illinois-medicaid-look-back-period",
+        "illinois-nursing-home-preadmission-screening"],
+    "illinois-money-management-program": [
+        "illinois-advance-directive-power-of-attorney",
+        "illinois-community-care-program",
+        "illinois-elder-abuse-reporting"],
+    "illinois-parent-refuses-to-move-guardianship": [
+        "illinois-advance-directive-power-of-attorney",
+        "illinois-elder-abuse-reporting",
+        "illinois-money-management-program"],
+    "medicare-fast-appeal-hospital-rehab-discharge": [
+        "does-medicare-pay-for-senior-care",
+        "medicare-home-health-care",
+        "illinois-senior-health-insurance-program"],
+    "va-home-based-primary-care-and-aide": [
+        "va-aid-and-attendance-benefit",
+        "va-caregiver-support-program",
+        "va-veteran-directed-care-program"],
 }
 
 RELATED_MIN_INBOUND = 2
@@ -5777,6 +6959,48 @@ CARDS = {
         'Medicare',
         'What replaced MMAI for parents with Medicare and Medicaid?',
         'Illinois ended MMAI on 31 December 2025. What a FIDE SNP is, who can join one, and when a dually eligible parent can switch plans.'),
+    "illinois-assisted-living-involuntary-move-out": (
+        "Checking a community",
+        "Can an assisted living make your parent move out?",
+        "IDPH's own form requires 30 days' written notice and a right to "
+        "appeal before a stay can be ended — the process, read off the "
+        "state's own paperwork."),
+    "illinois-nursing-home-responsible-party": (
+        "Legal and planning",
+        "Should you sign as a nursing home's “responsible party”?",
+        "Federal law bars a certified nursing home from making you "
+        "personally pay your parent's bill — what “responsible "
+        "party” language can and cannot legally ask of you."),
+    "illinois-medicaid-pending-nursing-home": (
+        "Paying with Medicaid",
+        "Medicaid pending in an Illinois nursing home?",
+        "How long the state has to decide, what Provisional Eligibility is, "
+        "and what your parent may owe while you wait, read off HFS and the "
+        "Auditor General."),
+    "illinois-money-management-program": (
+        "Legal and planning",
+        "Who can help my parent pay bills in Illinois?",
+        "A state-run volunteer can budget, pay bills and even act as "
+        "Social Security representative payee — but only through two "
+        "eligibility paths, and only where a Program Site actually "
+        "reaches."),
+    "illinois-parent-refuses-to-move-guardianship": (
+        "Legal and planning",
+        "Parent refuses to move? Illinois options and guardianship",
+        "Illinois presumes an adult decides where they live. What the state "
+        "says to try first, when guardianship applies and how the court "
+        "process works, read off the Guardianship and Advocacy Commission."),
+    "medicare-fast-appeal-hospital-rehab-discharge": (
+        "Medicare",
+        "Discharged too soon? How a Medicare fast appeal works",
+        "The two notices, the deadlines and who pays while you wait when a "
+        "hospital or rehab stay is ending, read off Medicare.gov."),
+    "va-home-based-primary-care-and-aide": (
+        "Veterans' benefits",
+        "Can the VA send a doctor or an aide to your veteran's house?",
+        "Two separate VA home programmes, in VA.gov's own words — a "
+        "medical team, and a trained aide — and how each differs from "
+        "Veteran Directed Care and the caregiver stipend."),
 }
 
 
