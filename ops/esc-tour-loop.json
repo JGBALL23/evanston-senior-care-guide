@@ -2817,10 +2817,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-25T01:44Z",
+  "utc": "2026-11-25T06:46Z",
   "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
-  "picked": "ACQ-078 done, ACQ-079 done, ACQ-080 done, ACQ-081 queued for next session, ACQ-082 queued for next session",
-  "why": "Worked: #89 commits verified, VA Veteran-Directed Care audit (3 corrections in #89), fast-appeal additions on drafts; stopped: no-worthwhile-work; resume: next session verifies ACQ-081/082"
+  "picked": "ACQ-082 done, ACQ-083 done, ACQ-085 done, ACQ-084 ready (next session), ACQ-086 ready (next session)",
+  "why": "Worked: verified fast-appeal additions (ported to #90); built LTC-insurance guide on drafts; audited complaint guide (3 fixes in #89). stopped: no-worthwhile-work; resume: next session reviews ACQ-084, verifies ACQ-086"
  },
  "last_verified_action": "ACQ-085 done 2026-11-25T06:42Z: Audited live illinois-care-facility-complaint (the guide that drew the one Google visit of 24-25 Nov). Ombudsman, anonymity, APS and contact details hold. Two …",
  "last_stop": {
@@ -2904,7 +2904,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Next due 06:26Z (monitor), with ACQ-082 (verify the fast-appeal additions on drafts 5025764, then add an 'Update guide' commit to #90's own branch) and the first daily package cut (task package:20261125: merge #90's new head into #91's branch claude/package-20261125, rebuild, run every suite, rewrite the pull request body and the owner list); sweeps demand-questions, asset-gaps and draft-review about 06:35Z; live-accuracy 12:50Z; backlog discovery rests until 13:17Z. Waiting on Joseph: the daily package #91 and decisions A, B and C in owner_review_needed.",
+ "next_discovery": "Next: ACQ-084 (review of the LTC insurance guide, drafts 83fc8f3) and ACQ-086 (verify #89 commits 1cc1b98 and 5bf3b46) for a different session; 12:50Z live-accuracy, 13:43Z publish-ready, 15:00Z ACQ-005/ACQ-012. Waiting on Joseph: package #91 merge and deploy (decision A), decision B (Search Console), conversion PRs.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -3481,20 +3481,72 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiSeZV5K4aUnZndensii",
-   "utc": "2026-11-25T06:45Z",
-   "since_utc": "2026-11-25T06:24Z",
-   "productive_min": 18,
-   "deliverables": [
-    "verification:PR #90 commit 4f77740",
-    "guide:drafts 83fc8f3",
-    "correction:PR #89 commit 1cc1b98"
-   ]
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-25T06:25Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSeZV5K4aUnZndensii",
+    "start_utc": "2026-11-25T06:24Z",
+    "end_utc": "2026-11-25T06:46Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: verified fast-appeal additions (ported to #90); built LTC-insurance guide on drafts; audited complaint guide (3 fixes in #89). stopped: no-worthwhile-work; resume: next session reviews ACQ-084, verifies ACQ-086",
+    "done": 3,
+    "changed": 10,
+    "tasks": "ACQ-082 done, ACQ-083 done, ACQ-085 done, ACQ-084 ready (next session), ACQ-086 ready (next session)",
+    "next": "no",
+    "wake_minutes": 334,
+    "next_due_utc": "2026-11-25T12:50Z",
+    "plan_due": false,
+    "saturated": [
+     "conversion"
+    ],
+    "budget_used_hours_24h": 1.5,
+    "budget_used_hours_7d": 2.3,
+    "productive_min": 18,
+    "deliverables": [
+     "verification:PR #90 commit 4f77740",
+     "guide:drafts 83fc8f3",
+     "correction:PR #89 commit 1cc1b98"
+    ],
+    "stop_reason": "no-worthwhile-work",
+    "considered": "monitor: site OK, 1 probable Google visitor, 0 tour requests, 0 replies, no merges (#78-#91 open, clean). plan distribution +0 (no pending operator post, no new venue evidence); search +0 (crawl: gaps tracked by ACQ-005/ACQ-012/#85); demand +0 and build +0 beyond sweeps. sweeps: asset-gaps +1 (ACQ-083 LTC insurance guide; memory-care rules failed on sources, overlaps ACQ-030), demand-questions +0, draft-review +0 (all 7 drafts have packets). fallback: quality audit of illinois-care-facility-complaint +1 (ACQ-085, prompted by the Google visit); needs moving-parent-from-another-state 0 (Medicaid half unsourced on allowed hosts); search complaint results: SLP hotline gap fixed in #89. Skipped:…",
+    "resume_when": "now: ACQ-084 (review of new LTC guide) and ACQ-086 (verify #89 commits 1cc1b98, 5bf3b46) need a different session; then 12:50Z live-accuracy angle, 13:43Z publish-ready angle, 15:00Z ACQ-005/ACQ-012 and the operator's Search Console read",
+    "sweep_due_left": [],
+    "sessions_24h": 5,
+    "handoff": {
+     "tasks_for_next_session": [
+      "ACQ-084",
+      "ACQ-086"
+     ],
+     "waits_for_next_due_session": true
+    },
+    "backlog_discovery": {
+     "explorations": 3,
+     "avenue_classes": [
+      "needs",
+      "quality",
+      "search"
+     ],
+     "tasks_added": 1,
+     "concluded": {
+      "utc": "2026-11-25T06:46Z",
+      "run": "cse_014eaiSeZV5K4aUnZndensii",
+      "explorations": 3,
+      "avenue_classes": [
+       "needs",
+       "quality",
+       "search"
+      ],
+      "tasks_added": 1,
+      "skipped": null,
+      "rest_hours": 12
+     }
+    }
+   },
    {
     "run": "cse_014eaiSbgoXSGhv7gxJtBvna",
     "start_utc": "2026-11-25T01:35Z",
@@ -3806,32 +3858,32 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-25T01:44Z",
+   "written_utc": "2026-11-25T06:46Z",
    "eligible_now": 2,
    "next_due": [
     {
-     "utc": "2026-11-25T06:26Z",
-     "what": "monitor"
+     "utc": "2026-11-25T12:50Z",
+     "what": "sweep angle live-accuracy"
     },
     {
-     "utc": "2026-11-25T06:26Z",
+     "utc": "2026-11-25T13:43Z",
      "what": "planner cooldown ends"
     },
     {
-     "utc": "2026-11-25T06:34Z",
-     "what": "sweep angle demand-questions"
+     "utc": "2026-11-25T13:43Z",
+     "what": "sweep angle publish-ready"
     },
     {
-     "utc": "2026-11-25T06:37Z",
-     "what": "sweep angle asset-gaps"
+     "utc": "2026-11-25T15:00Z",
+     "what": "ACQ-005"
     },
     {
-     "utc": "2026-11-25T06:37Z",
-     "what": "sweep angle draft-review"
+     "utc": "2026-11-25T15:00Z",
+     "what": "ACQ-012"
     },
     {
-     "utc": "2026-11-25T12:50Z",
-     "what": "sweep angle live-accuracy"
+     "utc": "2026-11-25T16:00Z",
+     "what": "SC3"
     }
    ]
   },
@@ -4272,7 +4324,7 @@
    "explore_recheck_days": 14,
    "exhausted_base_hours": 12,
    "exhausted_max_hours": 96,
-   "exhausted_until_utc": "",
+   "exhausted_until_utc": "2026-11-25T18:46Z",
    "empty_streak": 0,
    "log": [
     {
@@ -4369,15 +4421,15 @@
    "why": "Joseph, 24 Nov 2026: \"Maintain a replenishing backlog instead of relying exclusively on scheduled discovery windows.\" \"Do not manufacture meaningless work to consume usage.\"",
    "how": "Procedure step 7, INDEPENDENT BACKLOG FALLBACK and RECORDING IT. One explore record per avenue; a key is not explored twice in 14 days without new evidence; close refuses no-worthwhile-work until three avenue classes are recorded or --fallback-skipped says why; after an empty conclusion discovery rests 12 hours, doubling to 96.",
    "last_conclusion": {
-    "utc": "2026-11-25T01:17Z",
-    "run": "cse_014eaiSaeYoez1bK3E9MFwz4",
-    "explorations": 5,
+    "utc": "2026-11-25T06:46Z",
+    "run": "cse_014eaiSeZV5K4aUnZndensii",
+    "explorations": 3,
     "avenue_classes": [
      "needs",
      "quality",
      "search"
     ],
-    "tasks_added": 3,
+    "tasks_added": 1,
     "skipped": null,
     "rest_hours": 12
    }
