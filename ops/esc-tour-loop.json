@@ -3356,11 +3356,11 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeZV5K4aUnZndensii",
-   "utc": "2026-11-25T06:24Z",
+   "utc": "2026-11-25T06:25Z",
    "since_utc": "2026-11-25T06:24Z"
   },
   "monitor": {
-   "last_utc": "2026-11-24T18:26Z"
+   "last_utc": "2026-11-25T06:25Z"
   },
   "sessions": [
    {

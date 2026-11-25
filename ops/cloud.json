@@ -6,8 +6,8 @@
   "note": "tour-request alerts: sha256(message id) and time only"
  },
  "metrics": {
-  "last_utc": "2026-11-24T18:25Z",
-  "window_utc": "2026-11-24T06:24Z/2026-11-24T18:25Z",
+  "last_utc": "2026-11-25T06:24Z",
+  "window_utc": "2026-11-24T18:25Z/2026-11-25T06:24Z",
   "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs",
   "per_tag": {
    "fb-wil-1118": {
@@ -76,7 +76,7 @@
   "assessment_completions": null,
   "tour_form_views": null,
   "tour_requests": 0,
-  "genuine_detail": "06:24Z-18:25Z: ~2 genuine by landed beacons: s=fb-glv-1124 (1, Glenview group post P-1124-01, which the operator recorded as declined by admins at 17:25Z, so this may be an admin review click) and s=direct (1). Beacons: viewed-tour-questions x2 (1 fb-glv-1124, 1 direct), viewed-costs x2. 1 browser checklist PDF fetch, not separable. 0 tour requests (Gmail). Automated: page-preview x353 (fb og-card/link previews of ?ref=fb-glv-1124), ai-agents x36, tooling x19, crawlers x13, wp scanners (404). No 5xx."
+  "genuine_detail": "18:25Z-06:24Z: 1 probable search visitor (Google referrer to /guides/illinois-care-facility-complaint/ at 03:00Z, with a Chrome prefetch-proxy traffic-advice request); browser-category home hits are http->https redirect chains without assets (monitors); no ref-tagged visits; 1 ?tour=form view (worker check); checklist PDF 2 (checks); no tour POSTs"
  },
  "summary": {
   "last_utc": "2026-11-19T01:24Z",
@@ -85,8 +85,8 @@
  "site": {
   "fail_count": 0,
   "down_since_utc": null,
-  "last_check_utc": "2026-11-24T18:25Z",
-  "last_check_method": "curl (loop worker): home 200, ?tour=form 200, /assisted-living-evanston/ 200, checklist PDF 200 application/pdf, #assessment present; Netlify 06:24Z-18:25Z: 549 req (353 page-preview, 124 browser, 36 ai-agent, 22 other, 19 tooling, 13 crawler), 471x200, 38x301, 30x404 (wp scanners), 27x206, 1x499, no 5xx"
+  "last_check_utc": "2026-11-25T06:26Z",
+  "last_check_method": "curl (loop worker): home 200, ?tour=form 200, /assisted-living-evanston/ 200, checklist PDF 200 application/pdf, #assessment present; Netlify 18:25Z-06:24Z: 371 req (172 page-preview, 101 other, 45 browser, 31 crawler, 11 ai-agent, 11 tooling), 311x200, 43x301, 12x404 (wp scanners, apple-touch-icon), 4x206, no 5xx"
  },
  "recovery": {
   "last_attempt_utc": "2026-11-18T01:39Z",
@@ -182,6 +182,7 @@
  },
  "demand_candidates": [],
  "log": [
+  "2026-11-25T06:26Z worker monitor: site OK (no 5xx); 1 probable genuine visitor (Google search, complaint guide); 0 tour requests; 0 org replies; no merges (#78-#91 open, all clean); operator last run 03:40Z",
   "2026-11-20T05:24Z run: 0 tour requests (no POSTs); outreach watch: no org replies; site OK (no 5xx); session operator still idle since 16:22Z 19 Nov (interruption recorded, watchdog owns alert); metrics 04:24Z-05:24Z: 0 genuine (checks, previews, scanners, crawlers); acquisition loop idle gate holds (PR #78 open, ACQ-007 awaiting owner, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task",
   "2026-11-20T06:24Z run: 0 tour requests (no POSTs); outreach watch: no org replies; site OK (no 5xx); session operator still idle since 16:22Z 19 Nov (interruption recorded, watchdog owns alert); metrics 05:24Z-06:24Z: 0 genuine (checks, previews, scanner); acquisition loop idle gate holds (PR #78 open, ACQ-007 awaiting owner, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task",
   "2026-11-20T07:24Z run: 0 tour requests (no POSTs); outreach watch: no org replies; site OK (no 5xx); session operator still idle since 16:22Z 19 Nov (interruption recorded, watchdog owns alert); metrics 06:24Z-07:24Z: 0 genuine (checks, contact-path scanner); acquisition loop idle gate holds (PR #78 open, ACQ-007 awaiting owner, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task",
@@ -240,8 +241,7 @@
   "2026-11-22T22:25Z run: site OK; 0 genuine (59 automated req incl. loop worker HeadlessChrome test of fb-hol-test); no org replies/inquiries; no merges (PR #86 open); loop idle by design after ACQ-034 (no ready, no open map item, no scout due until SC3 25 Nov 16:00Z), no loop write",
   "2026-11-23T00:25Z worker monitor: site OK; 0 genuine (87 automated req 22:25Z-00:25Z); 0 tour requests; 0 org replies; no merges (#78-81, #84-86 open); operator ran 23:30Z; SC row seeded from operator 18 Nov read",
   "2026-11-23T15:25Z worker monitor: site OK (no 5xx); ~5 genuine (fb-rp-1122 Facebook clicks 15:04-15:08Z); 0 tour requests; 0 org replies; no merges (#78-81, #84-86 open); operator ran 2026-11-23T15:40Z",
-  "2026-11-24T06:26Z worker monitor: site OK (no 5xx); ~6 genuine (4 direct, 2 fb-rp-1122 late clicks) 15:25Z-06:24Z; 0 tour requests; 0 org replies; no merges (#78-81, #84-88 open); operator ran 03:58Z",
-  "2026-11-24T18:25Z worker monitor: site OK (no 5xx); ~2 genuine (1 fb-glv-1124, 1 direct) 06:24Z-18:25Z; 0 tour requests; 0 org replies; no merges (#78-81, #84-88 open); operator ran 17:25Z (Glenview post declined by admins)"
+  "2026-11-24T06:26Z worker monitor: site OK (no 5xx); ~6 genuine (4 direct, 2 fb-rp-1122 late clicks) 15:25Z-06:24Z; 0 tour requests; 0 org replies; no merges (#78-81, #84-88 open); operator ran 03:58Z"
  ],
  "facebook_interruptions_past": [
   {
@@ -268,8 +268,8 @@
  "outreach_watch": {
   "alerted": [],
   "replies_alerted": [],
-  "last_utc": "2026-11-24T18:25Z",
-  "note": "no org replies (inbox 3d, 26 threads vs 11 sent outreach threads: no overlap)"
+  "last_utc": "2026-11-25T06:26Z",
+  "note": "no org replies (inbox 3d, 21 threads vs 11 sent outreach threads: no overlap)"
  },
  "facebook_interruption": {
   "since_utc": "2026-11-19T16:22Z",
@@ -285,18 +285,18 @@
   "daily": [
    {
     "date_chicago": "2026-11-24",
-    "genuine_visitors": 2,
+    "genuine_visitors": 3,
     "by_source": {
      "facebook": 1,
      "referral": 0,
-     "search": 0,
+     "search": 1,
      "other": 1
     },
     "checklist_opens": null,
     "assessment_starts": null,
     "tour_form_views": null,
     "tour_requests": 0,
-    "note": "00:24-12:25 Chicago; 1 fb-glv-1124 (Glenview post, declined by admins) + 1 direct; 2 tour-questions views; checklist/assessment/tour-form not separable (null)"
+    "note": "00:24 24 Nov-00:24 25 Nov Chicago; 1 fb-glv-1124 (Glenview post, declined by admins) + 1 direct; 2 tour-questions views; checklist/assessment/tour-form not separable (null); +1 probable Google search visit 21:00 Chicago to illinois-care-facility-complaint"
    },
    {
     "date_chicago": "2026-11-23",
