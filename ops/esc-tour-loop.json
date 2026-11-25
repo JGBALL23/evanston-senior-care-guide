@@ -4162,7 +4162,7 @@
    "out": [],
    "excluded": [],
    "superseded": [],
-   "after_merge": "After the merge the site is not live yet: Netlify is not connected to GitHub, so nothing deploys by itself. Say \"deploy\" in the Claude chat where you asked for the daily package and it is deployed and checked page by page, or run python tools/publish.py on your PC. Decision A (link Netlify to GitHub once) removes this step for good.",
+   "after_merge": "After the merge the site is not live yet: Netlify is not connected to GitHub yet (you approved connecting it on 25 Nov; it waits for your Netlify sign-in), so nothing deploys by itself. Say \"deploy\" in the Claude chat where you asked for the daily package and it is deployed and checked page by page, or run python tools/publish.py on your PC.",
    "about": "The daily approval package (procedure step 7, DAILY PACKAGE). One pull request for Joseph to merge; the worker re-cuts it once a day. after_merge is changed only by a session that heard Joseph say how the site gets deployed.",
    "note": "Cut twice on 25 Nov by the supervising chat (03:33Z and 07:08Z, the second with #90 at 4f77740 and #89 at 5bf3b46); from 26 Nov the worker cuts it (status package.due).",
    "owner_actions": [
