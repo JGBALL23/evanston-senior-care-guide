@@ -159,27 +159,6 @@
    "done_when": "packet at ops/reviews/long-term-care-insurance-assisted-living-illinois.md with its counts and verdict",
    "status": "ready",
    "found_utc": "2026-11-25T06:36Z"
-  },
-  {
-   "id": "ACQ-086",
-   "task": "Verify the corrections to illinois-care-facility-complaint in PR #89 (commits 1cc1b98 and 5bf3b46 on claude/accuracy-20261125)",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "followup",
-   "key": "verify-live:illinois-care-facility-complaint:1cc1b98",
-   "not_run": [
-    "cse_014eaiSeZV5K4aUnZndensii"
-   ],
-   "priority": 1,
-   "evidence": "packet ops/reviews/live/illinois-care-facility-complaint.md (C1, C2, A1); commits 1cc1b98 and 5bf3b46",
-   "expected_tour_acquisition_value": "quality gate before the accuracy pull request can enter the daily package",
-   "impact": 3,
-   "confidence": 5,
-   "effort": 1,
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence of both commits re-read against IDPH's complaints page and complaint form and the HFS SLP resident fact sheet; quotecheck all FOUND; 'Corrections verified: <date>, <RUN>' added to the packet and to that guide's lines in the #89 body",
-   "status": "ready",
-   "found_utc": "2026-11-25T06:42Z"
   }
  ],
  "completed": [
@@ -2812,6 +2791,59 @@
    },
    "done_utc": "2026-11-25T06:42Z",
    "minutes": 5
+  },
+  {
+   "id": "ACQ-086",
+   "task": "Verify the corrections to illinois-care-facility-complaint in PR #89 (commits 1cc1b98 and 5bf3b46 on claude/accuracy-20261125)",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:illinois-care-facility-complaint:1cc1b98",
+   "not_run": [
+    "cse_014eaiSeZV5K4aUnZndensii"
+   ],
+   "priority": 1,
+   "evidence": "packet ops/reviews/live/illinois-care-facility-complaint.md (C1, C2, A1); commits 1cc1b98 and 5bf3b46",
+   "expected_tour_acquisition_value": "quality gate before the accuracy pull request can enter the daily package",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence of both commits re-read against IDPH's complaints page and complaint form and the HFS SLP resident fact sheet; quotecheck all FOUND; 'Corrections verified: <date>, <RUN>' added to the packet and to that guide's lines in the #89 body",
+   "status": "done",
+   "found_utc": "2026-11-25T06:42Z",
+   "result": "Verified by the main chat as second reader (a different party than the session that wrote 1cc1b98 and 5bf3b46). Each changed sentence read on 25 Nov 2026 against IDPH's File a Health Care Complaint page (the 800-252-4343 hotline with weekday hours; 'To check the status of a long-term care complaint, contact the Department's Bureau of Long-Term Care at 800-252-4343'; the list of providers for complaints submitted to the site, which names neither nursing homes nor assisted living), IDPH's Health Care Facility Complaint Form (coverage sentence naming nursing homes and assisted living facilities; fax, e-mail and mail routes; the 24-hour line printed under the hotline and TTY numbers; the after-4:30 p.m. and immediate-risk sentences) and the HFS Supportive Living Program resident fact sheet (SLP complaint hotline 1-844-528-8444). Quotation checker 5/5 found; every claim keeps its source's scope; library date kept (reviewed 2026-11-25, listed 2026-10-23). In package #91 at 0b0cdf3: rebuild clean, all eleven suites pass.",
+   "sources": [
+    "https://dph.illinois.gov/topics-services/health-care-regulation/complaints.html",
+    "https://dph.illinois.gov/content/dam/soi/en/web/idph/forms/topics-services/health-care-regulation/complaints/healthcarefacilitycomplaintform20210625.pdf",
+    "https://hfs.illinois.gov/medicalprograms/slf/residentfactsheet.html"
+   ],
+   "deliverable": {
+    "type": "verification",
+    "ref": "PR #89 commits 1cc1b98, 5bf3b46"
+   },
+   "done_utc": "2026-11-25T07:09Z"
+  },
+  {
+   "id": "ACQ-087",
+   "task": "Cut the daily package",
+   "workstream": "publish",
+   "lane": "publish",
+   "source": "followup",
+   "key": "package:20261125",
+   "priority": 1,
+   "evidence": "daily package rule",
+   "expected_tour_acquisition_value": "one approval a day puts finished work in front of families",
+   "executor": "supervising chat (25 Nov only; the worker from 26 Nov)",
+   "done_when": "controller/package and owner_review_needed rewritten; the pull request opened, updated or not needed",
+   "status": "done",
+   "found_utc": "2026-11-25T07:09Z",
+   "result": "Package #91 cut by the supervising chat: first at 03:33Z (ec2b3af), again at 07:08Z (0b0cdf3) after the 06:24Z session added a verified commit to #90 (4f77740, fast-appeal additions) and two corrections to #89 (1cc1b98, 5bf3b46; read against IDPH and HFS by a second reader, ACQ-086). It contains #90 (with #87, #88), #89, #84 (with #80), #79, #85, #81, #86 and #78: 7 new guides, corrections to 6 live guides, 5 tracking, search and tour-path changes; 43 files against main. python build-guides.py leaves git status empty; test.js 768/768; check-guides 3227/0; test_paying_nav 338/338; test_guide_ref_carry 25/0; test_tour_source 30/0; test_start_source 21/21; test_checklist_click 30/30; test_inquiry_validation 36/36; direct_inquiry_consistency 29/29; test_checklist_pdf 0 failed; test_publish 32/32; quotation checker 124/124 on the new guides and 5/5 on the complaint guide.",
+   "deliverable": {
+    "type": "publish_pr",
+    "ref": "PR #91 at 0b0cdf3"
+   },
+   "done_utc": "2026-11-25T07:09Z"
   }
  ],
  "blocked": [],
@@ -2822,7 +2854,7 @@
   "picked": "ACQ-082 done, ACQ-083 done, ACQ-085 done, ACQ-084 ready (next session), ACQ-086 ready (next session)",
   "why": "Worked: verified fast-appeal additions (ported to #90); built LTC-insurance guide on drafts; audited complaint guide (3 fixes in #89). stopped: no-worthwhile-work; resume: next session reviews ACQ-084, verifies ACQ-086"
  },
- "last_verified_action": "ACQ-085 done 2026-11-25T06:42Z: Audited live illinois-care-facility-complaint (the guide that drew the one Google visit of 24-25 Nov). Ombudsman, anonymity, APS and contact details hold. Two …",
+ "last_verified_action": "ACQ-087 done 2026-11-25T07:09Z: Package #91 cut by the supervising chat: first at 03:33Z (ec2b3af), again at 07:08Z (0b0cdf3) after the 06:24Z session added a verified commit to #90 (4f77740,…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -2857,7 +2889,7 @@
   "confirmation": "Claude Scheduled Tasks screenshot: ESCG Tour Acquisition Loop active, Pull request: Commits pushed on matching repository. Previous setup screenshot: head branch automation/esc-tour-loop."
  },
  "owner_review_needed": [
-  "PACKAGE 25 Nov (one merge, about 15 minutes to skim): merge #91. It holds 7 new guides, corrections to 5 live guides and 5 tracking, search and tour-path changes (#90, #89, #84, #79, #85, #81, #86, #78), tested together: the rebuild changes nothing and all eleven test suites pass. Two items touch things you reserved and are quoted at the top of the pull request: #86 adds the tour line you asked for on 22 Nov to the checklist PDF ('Want a tour of Westminster Place, where the author works? Ask online.'), and #84 with #79 keep a visitor's arrival channel through the tour click (no new data). After the merge the site still has to be deployed: say 'deploy' in the Claude chat where you asked for the daily package, or run python tools/publish.py on your PC (decision A removes that step). To leave something out: 'package without #<n>'.",
+  "PACKAGE 25 Nov (one merge, about 15 minutes to skim): merge #91. It holds 7 new guides, corrections to 6 live guides and 5 tracking, search and tour-path changes (#90, #89, #84, #79, #85, #81, #86, #78), tested together: the rebuild changes nothing and all eleven test suites pass. Two items touch things you reserved and are quoted at the top of the pull request: #86 adds the tour line you asked for on 22 Nov to the checklist PDF ('Want a tour of Westminster Place, where the author works? Ask online.'), and #84 with #79 keep a visitor's arrival channel through the tour click (no new data). After the merge the site still has to be deployed: say 'deploy' in the Claude chat where you asked for the daily package, or run python tools/publish.py on your PC (decision A removes that step). To leave something out: 'package without #<n>'.",
   "A. AUTO-DEPLOY (you, once, about 5 minutes in Netlify; $0): merging does not publish today, because Netlify is not connected to GitHub; every release waits for a manual deploy. In Netlify open the project evanston-senior-care-guide, Project configuration, Build & deploy, Continuous deployment, Link repository, GitHub, JGBALL23/evanston-senior-care-guide, branch main, build command empty; then under Branches and deploy contexts turn Deploy Previews off. From then on a merge is live about a minute later. Say 'A done' when it is linked, or 'A no' to keep deploying by hand.",
   "B. SEARCH CONSOLE WITHOUT YOUR PC ('B yes' or 'B no'; then about 2 minutes, once; $0): the weekly Search Console read happens only when your PC's Chrome is on (last read 18 Nov), and the search and demand work waits for it. Your own Make account can read it instead, about 3 operations a week, after one Google sign-in through a Make link. It gives Make's Search Console app access to your property; on 17 Nov you ruled out third-party access, so this one is yours to decide.",
   "C. ONE FREE PUBLIC TALK? ('C yes' or 'C no') For example 'What to ask on a senior-living tour' at a library or senior center. A yes opens the Evanston Now calendar, the Daily Herald, Patch calendars and Rotary at once; Wilmette, Niles-Maine and Morton Grove libraries run such programs.",
@@ -2904,7 +2936,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Next: ACQ-084 (review of the LTC insurance guide, drafts 83fc8f3) and ACQ-086 (verify #89 commits 1cc1b98 and 5bf3b46) for a different session; 12:50Z live-accuracy, 13:43Z publish-ready, 15:00Z ACQ-005/ACQ-012. Waiting on Joseph: package #91 merge and deploy (decision A), decision B (Search Console), conversion PRs.",
+ "next_discovery": "Next: ACQ-084 (review of the long-term-care insurance guide, drafts 83fc8f3) for a different session, due with the 12:24Z start; 12:50Z live-accuracy, 13:43Z publish-ready, 15:00Z ACQ-005/ACQ-012. The next package cut is due 26 Nov from 05:00Z (status package.due). Waiting on Joseph: package #91 (merge, then deploy; decision A removes the deploy step), decisions B and C.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -3482,7 +3514,11 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "",
-   "utc": ""
+   "utc": "",
+   "deliverables": [
+    "verification:PR #89 commits 1cc1b98, 5bf3b46",
+    "publish_pr:PR #91 at 0b0cdf3"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-25T06:25Z"
@@ -3887,12 +3923,12 @@
     }
    ]
   },
-  "procedure": "v4.3.3 with the daily package (25 Nov 2026 03:50Z: Joseph approves once a day, one pull request and lettered decisions in owner_review_needed; the worker cuts the package in the first session after 05:00 UTC and no longer pushes about approvals; before that, v4.3.3 of 01:35Z: hand-off tasks are not a session's own backlog, live corrections are verified and keep the library date, pinned tests are re-pinned inside the review pull request, an open batch is updated in place, pull requests are kept mergeable)",
+  "procedure": "v4.3.3 with the daily package, helper-enforced (25 Nov 2026, second revision: status shows package.due inside 05:00-10:30 UTC and close refuses until the cut is done or skipped with a reason; after a merged package, pull requests it contained are refreshed against main and finished only when nothing is left; the accuracy pull request enters a package up to its newest verified commit)",
   "package": {
    "pr": 91,
    "branch": "claude/package-20261125",
-   "head": "ec2b3af",
-   "cut_utc": "2026-11-25T03:33Z",
+   "head": "0b0cdf3",
+   "cut_utc": "2026-11-25T07:08Z",
    "contains": [
     90,
     89,
@@ -3912,7 +3948,8 @@
    "excluded": [],
    "superseded": [],
    "after_merge": "After the merge the site is not live yet: Netlify is not connected to GitHub, so nothing deploys by itself. Say \"deploy\" in the Claude chat where you asked for the daily package and it is deployed and checked page by page, or run python tools/publish.py on your PC. Decision A (link Netlify to GitHub once) removes this step for good.",
-   "about": "The daily approval package (procedure step 7, DAILY PACKAGE). One pull request for Joseph to merge; the worker re-cuts it once a day. after_merge is changed only by a session that heard Joseph say how the site gets deployed."
+   "about": "The daily approval package (procedure step 7, DAILY PACKAGE). One pull request for Joseph to merge; the worker re-cuts it once a day. after_merge is changed only by a session that heard Joseph say how the site gets deployed.",
+   "note": "Cut twice on 25 Nov by the supervising chat (03:33Z and 07:08Z, the second with #90 at 4f77740 and #89 at 5bf3b46); from 26 Nov the worker cuts it (status package.due)."
   }
  },
  "planner": {
@@ -4433,6 +4470,14 @@
     "skipped": null,
     "rest_hours": 12
    }
+  },
+  "package": {
+   "enabled": true,
+   "window_utc": [
+    "05:00",
+    "10:30"
+   ],
+   "about": "The daily approval package (procedure step 7, DAILY PACKAGE). status shows package.due inside this UTC window while no task keyed package:YYYYMMDD is finished for the date; close refuses (exit 6) until the cut is done or --package-skipped gives the reason. Outside the window nothing is cut, so the package Joseph's 11:44 UTC report shows is the one he merges."
   }
  },
  "owner_decisions": []

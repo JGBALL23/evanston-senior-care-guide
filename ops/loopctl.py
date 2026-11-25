@@ -39,7 +39,11 @@ Write commands (edit the working copy only; committing and pushing is the caller
                                     and nothing new is named: pick a different question, source or segment
   close RUN --done N --changed M --outcome TEXT [--launch TEXT] [--tasks TEXT] [--monitor-hours N]
             [--stop-reason R --considered TEXT --resume-when TEXT] [--fallback-skipped TEXT]
+            [--package-skipped TEXT]
                                     write the session record, release the lock, print next/wake.
+                                    Exit 6 (nothing written) while status shows package.due (the daily approval
+                                    package has not been cut inside its window): cut it, or say with
+                                    --package-skipped why not.
                                     Exit 6 (nothing written) when the stop reason is no-worthwhile-work while
                                     backlog discovery is due and this session recorded fewer than three avenue
                                     classes with explore; explore more, or say with --fallback-skipped why not
@@ -69,6 +73,7 @@ DUE_GRACE_MIN = 30
 FB_AVENUES = ("needs", "search", "channels", "quality")
 FB_MIN_AVENUES, FB_RECHECK_DAYS, FB_BASE_H, FB_MAX_H, FB_LOG_KEEP = 3, 14, 12, 96, 150
 HANDOFF_SESSIONS_24H = 4
+PKG_WINDOW = ("05:00", "10:30")
 NO_WORK_REASONS = ("no-worthwhile-work", "approval-pending")
 TS = re.compile(r"^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::(\d{2})(?:\.\d+)?)?Z$")
 DATE_KEYS = ("not_before_utc", "recheck_utc")
@@ -235,6 +240,55 @@ def fallback_view(d, now, soon, pipeline, plan):
             "_until": until if (wanted and resting) else None}
 
 
+def package_view(d, now):
+    """The daily approval package (procedure step 7, DAILY PACKAGE). One cut per UTC date, inside a window that
+    ends before Joseph's morning report, recorded as a task keyed package:YYYYMMDD. Due while the window is
+    open and no such task is finished. Outside the window nothing is cut: the package stays as the report
+    showed it. Read only. (25 Nov 2026: the first unattended session after the rule was written closed
+    without cutting, because nothing in the status asked for it.)"""
+    pl = d.get("planner") or {}
+    pk = pl.get("package") if isinstance(pl.get("package"), dict) else {}
+    enabled = bool(pk.get("enabled")) and bool(pl.get("enabled", True))
+
+    def hm(v, default):
+        try:
+            h, m = str(v).split(":")
+            h, m = int(h), int(m)
+            if 0 <= h < 24 and 0 <= m < 60:
+                return h, m
+        except (ValueError, AttributeError):
+            pass
+        return default
+
+    win = pk.get("window_utc")
+    win = win if isinstance(win, list) and len(win) == 2 else list(PKG_WINDOW)
+    h0, m0 = hm(win[0], (5, 0))
+    h1, m1 = hm(win[1], (10, 30))
+    day = now.replace(hour=0, minute=0, second=0, microsecond=0)
+    start = day + dt.timedelta(hours=h0, minutes=m0)
+    end = day + dt.timedelta(hours=h1, minutes=m1)
+    if end <= start:
+        start, end = day + dt.timedelta(hours=5), day + dt.timedelta(hours=10, minutes=30)
+    key = "package:" + now.strftime("%Y%m%d")
+    want = norm_key(key)
+    settled = [t for t in (d.get("completed") or []) if isinstance(t, dict) and norm_key(t.get("key") or "") == want]
+    queued = [t for t in (d.get("queue") or []) if isinstance(t, dict) and norm_key(t.get("key") or "") == want]
+    in_window = start <= now <= end
+    due = enabled and in_window and not settled
+    stale = [t.get("id") for t in (d.get("queue") or []) if isinstance(t, dict)
+             and re.match(r"^package-\d{8}$", norm_key(t.get("key") or ""))
+             and (norm_key(t.get("key") or "") != want or now > end)]
+    if not enabled:
+        nxt = None
+    elif now < start and not settled:
+        nxt = start
+    else:
+        nxt = start + dt.timedelta(days=1)
+    return {"enabled": enabled, "due": due, "key": key, "task": queued[0].get("id") if queued else None,
+            "done_today": bool(settled), "window_utc": ["%02d:%02d" % (h0, m0), "%02d:%02d" % (h1, m1)],
+            "stale_tasks": stale, "next_due_utc": fmt(nxt) if nxt else None, "_next": nxt}
+
+
 def end_current(c, what, now, deliverable=None):
     """Close the item marked by start: add its minutes to the session's productive time."""
     lk = c.get("lock") or {}
@@ -321,10 +375,15 @@ def compute(d, now, monitor_hours, run=None):
     if fbv["_until"] is not None:
         future.append((fbv["_until"], "backlog discovery"))
     fbv.pop("_until", None)
+    pkv = package_view(d, now)
+    if pkv["_next"] is not None:
+        future.append((pkv["_next"], "daily package cut"))
+    pkv.pop("_next", None)
 
     future.sort(key=lambda x: x[0])
     next_due = future[0][0] if future else None
-    eligible = pipeline + len(handoff) + (1 if plan["due"] else 0) + len(sweep["due"]) + (1 if fbv["due"] else 0)
+    eligible = (pipeline + len(handoff) + (1 if plan["due"] else 0) + len(sweep["due"]) + (1 if fbv["due"] else 0)
+                + (1 if pkv["due"] else 0))
 
     def ready_row(t):
         row = {"id": t.get("id"), "priority": t.get("priority"), "workstream": t.get("workstream"),
@@ -347,6 +406,7 @@ def compute(d, now, monitor_hours, run=None):
         "handoff_waiting": len(handoff),
         "sweep": sweep,
         "fallback": fbv,
+        "package": pkv,
         "budget": budget_view(d, now),
         "eligible": eligible,
         "work_now": eligible > 0 or mon_due,
@@ -551,6 +611,7 @@ def main():
     p.add_argument("--candidates", type=int, default=0)
     p.add_argument("--new-evidence", default="")
     p.add_argument("--fallback-skipped", default="")
+    p.add_argument("--package-skipped", default="")
     a = p.parse_args()
 
     now = parse_ts(a.now) if a.now else dt.datetime.now(dt.timezone.utc).replace(microsecond=0)
@@ -971,6 +1032,16 @@ def main():
         mine = [e for e in (fb.get("log") or []) if isinstance(e, dict) and e.get("run") == run]
         classes = sorted({str(e.get("avenue")) for e in mine})
         fb_note = None
+        pkg_skipped = a.package_skipped.strip()
+        pkg_due_at_close = bool(st["package"]["due"])
+        if pkg_due_at_close and not pkg_skipped:
+            out({"refused": True, "wrote": "nothing",
+                 "reason": "the daily package cut is due (procedure step 7, DAILY PACKAGE): no task keyed %s is "
+                           "finished. Add it if the queue does not hold it yet (add --from), do the cut, finish "
+                           "the task, then close again. If the session is out of time, or a usage limit, a store "
+                           "error or a refused permission prevents the cut, repeat close with --package-skipped "
+                           "\"<the reason>\"." % st["package"]["key"],
+                 "package": st["package"]}, 6)
         if a.stop_reason in NO_WORK_REASONS and st["fallback"]["due"]:
             need = st["fallback"]["min_avenues"]
             skipped = a.fallback_skipped.strip()
@@ -1038,6 +1109,8 @@ def main():
                                  "sessions_24h": sessions_24h,
                                  "handoff": {"tasks_for_next_session": [t.get("id") for t in blocked_here],
                                              "waits_for_next_due_session": handoff_wait} if blocked_here else None,
+                                 "package": {"due_at_close": pkg_due_at_close, "skipped": short(pkg_skipped, 200) or None,
+                                             "done_today": st["package"]["done_today"]} if st["package"]["enabled"] else None,
                                  "backlog_discovery": {"explorations": len(mine), "avenue_classes": classes,
                                                        "tasks_added": sum(int(e.get("added") or 0) for e in mine),
                                                        "concluded": fb_note}})
