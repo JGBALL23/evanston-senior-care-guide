@@ -120,22 +120,6 @@
    "not_before": "Timing, not data: 2027 figures are already on medicare.gov (read 2026-11-23). Prepare the PR in December so it is fresh when Joseph merges it for 1 Jan 2027."
   },
   {
-   "id": "ACQ-057",
-   "task": "Review illinois-nursing-home-responsible-party again under the review rules of procedure v4.3.2 (quotation checker, then the scope rule): its packet ops/reviews/illinois-nursing-home-responsible-party.md was written before the scope rule and has no scope table or counts line",
-   "workstream": "build",
-   "lane": "build",
-   "source": "operator",
-   "seeded_by": "main chat for Joseph, 24 Nov 2026 18:05 Chicago: \"Correct the known content accuracy problems and strengthen the review process.\"",
-   "key": "rereview:illinois-nursing-home-responsible-party",
-   "priority": 1,
-   "evidence": "A scope defect passed the 24 Nov review of medicare-fast-appeal-hospital-rehab-discharge: a Medicare.gov sentence about what \"your plan\" does was presented as the rule for everyone in a skilled nursing facility. quotecheck on drafts cf6aaf8, 25 Nov 2026 00:25Z: 15 of 15 quotations of this page are found word for word in its 3 cited pages, so the wording holds and scope is the open question. It is in open publish pull request #88.",
-   "expected_tour_acquisition_value": "Nothing reaches families until Joseph merges a publish pull request, and he should only be asked to merge pages whose every claim applies to the reader the page addresses.",
-   "executor": "worker (research and preparation only)",
-   "done_when": "ops/reviews/illinois-nursing-home-responsible-party.md rewritten under the review rules with its table, counts line and verdict; each required correction applied on drafts and its verify task queued for a later session; or the verdict publish-ready with zero scope defects",
-   "status": "ready",
-   "found_utc": "2026-11-25T00:27Z"
-  },
-  {
    "id": "ACQ-058",
    "task": "Review illinois-assisted-living-involuntary-move-out again under the review rules of procedure v4.3.2 (quotation checker, then the scope rule): its packet ops/reviews/illinois-assisted-living-involuntary-move-out.md was written before the scope rule and has no scope table or counts line",
    "workstream": "build",
@@ -230,6 +214,24 @@
    "done_when": "ops/reviews/illinois-money-management-program.md rewritten under the review rules with its table, counts line and verdict; each required correction applied on drafts and its verify task queued for a later session; or the verdict publish-ready with zero scope defects",
    "status": "ready",
    "found_utc": "2026-11-25T00:27Z"
+  },
+  {
+   "id": "ACQ-064",
+   "task": "Verify the corrections to illinois-nursing-home-responsible-party",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "verify:illinois-nursing-home-responsible-party:2c46e74",
+   "not_run": [
+    "cse_014eaiSarrUfj6PScmQNGxys"
+   ],
+   "priority": 1,
+   "evidence": "drafts 2c46e74 applied C1 and C2 of ops/reviews/illinois-nursing-home-responsible-party.md (ACQ-057)",
+   "expected_tour_acquisition_value": "quality gate before publication",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "ready",
+   "found_utc": "2026-11-25T00:40Z"
   }
  ],
  "completed": [
@@ -2002,6 +2004,38 @@
    },
    "done_utc": "2026-11-24T18:37Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-057",
+   "task": "Review illinois-nursing-home-responsible-party again under the review rules of procedure v4.3.2 (quotation checker, then the scope rule): its packet ops/reviews/illinois-nursing-home-responsible-party.md was written before the scope rule and has no scope table or counts line",
+   "workstream": "build",
+   "lane": "build",
+   "source": "operator",
+   "seeded_by": "main chat for Joseph, 24 Nov 2026 18:05 Chicago: \"Correct the known content accuracy problems and strengthen the review process.\"",
+   "key": "rereview:illinois-nursing-home-responsible-party",
+   "priority": 1,
+   "evidence": "A scope defect passed the 24 Nov review of medicare-fast-appeal-hospital-rehab-discharge: a Medicare.gov sentence about what \"your plan\" does was presented as the rule for everyone in a skilled nursing facility. quotecheck on drafts cf6aaf8, 25 Nov 2026 00:25Z: 15 of 15 quotations of this page are found word for word in its 3 cited pages, so the wording holds and scope is the open question. It is in open publish pull request #88.",
+   "expected_tour_acquisition_value": "Nothing reaches families until Joseph merges a publish pull request, and he should only be asked to merge pages whose every claim applies to the reader the page addresses.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/illinois-nursing-home-responsible-party.md rewritten under the review rules with its table, counts line and verdict; each required correction applied on drafts and its verify task queued for a later session; or the verdict publish-ready with zero scope defects",
+   "status": "done",
+   "found_utc": "2026-11-25T00:27Z",
+   "result": "Re-reviewed under v4.3.2 rules. quotecheck 15/15 FOUND. 13 claims scope-checked against CMS QSO-25-14-NH, Medicare pub 12217 and the IDoA brochure. 1 scope defect: the answer's first sentence said any nursing home may not require a personal guarantee; the rule covers certified facilities only. 1 attribution fix: 'all certified long term care facilities' is CMS guidance wording, not the regulation's own terms. Both corrected on drafts 2c46e74 (checks pass). Verdict publish-ready after corrections; verify task queued for a later session. Page is in open publish PR #88, so its drafts text now differs from the ported copy.",
+   "verdicts": [
+    "publish-ready after corrections"
+   ],
+   "sources": [
+    "https://www.cms.gov/files/document/qso-25-14-nh.pdf",
+    "https://www.medicare.gov/publications/12217-your-guide-to-living-in-a-nursing-home",
+    "https://ilaging.illinois.gov/content/dam/soi/en/web/aging/resources/newsandpublications/publications/documents/ltc-resrights.pdf"
+   ],
+   "lesson": "A qualifier in the following sentence does not scope a short-answer sentence; put the payer or certification limit in the same sentence.",
+   "deliverable": {
+    "type": "review_packet",
+    "ref": "ops/reviews/illinois-nursing-home-responsible-party.md; drafts 2c46e74"
+   },
+   "done_utc": "2026-11-25T00:40Z",
+   "minutes": 4
   }
  ],
  "blocked": [],
@@ -2012,7 +2046,7 @@
   "picked": "ACQ-055 done, ACQ-056 done",
   "why": "Worked: monitor (site OK, ~2 genuine, 0 tour requests) and 2 publish-ready review packets (Medicaid-pending, guardianship); stopped: no-worthwhile-work; resume: monitor 25 Nov 06:26Z"
  },
- "last_verified_action": "ACQ-056 done 2026-11-24T18:37Z: Packet ops/reviews/illinois-parent-refuses-to-move-guardianship.md: all 3 cited sources fetched (200); 24 of 24 quotations matched word for word with correct f…",
+ "last_verified_action": "ACQ-057 done 2026-11-25T00:40Z: Re-reviewed under v4.3.2 rules. quotecheck 15/15 FOUND. 13 claims scope-checked against CMS QSO-25-14-NH, Medicare pub 12217 and the IDoA brochure. 1 scope def…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -2673,8 +2707,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSarrUfj6PScmQNGxys",
-   "utc": "2026-11-25T00:36Z",
-   "since_utc": "2026-11-25T00:36Z"
+   "utc": "2026-11-25T00:40Z",
+   "since_utc": "2026-11-25T00:36Z",
+   "productive_min": 4,
+   "deliverables": [
+    "review_packet:ops/reviews/illinois-nursing-home-responsible-party.md; drafts 2c46e74"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-24T18:26Z"
