@@ -3778,7 +3778,8 @@ GUIDES = [
         "bridge": ("Paying less for a parent's prescriptions says nothing "
                    "about whether assisted living, home care or a nursing "
                    "home is the level of care they actually need."),
-        "reviewed": "2026-11-17",
+        "reviewed": "2026-11-25",
+        "listed": "2026-11-17",
         "title": "Medicare Extra Help: Lowering a Parent's Prescription Drug Costs",
         "h1": "Does your parent qualify for Extra Help with Medicare drug costs?",
         "desc": ("Extra Help lowers Medicare Part D costs for people with limited "
@@ -3873,13 +3874,19 @@ GUIDES = [
                 "go to, not a page this guide can describe first-hand. "
                 "Illinois's own "
                 '<a href="/guides/illinois-senior-health-insurance-program/">'
-                "Senior Health Insurance Program counselors</a> can point you to the state&rsquo;s Extra Help chart and answer questions before you apply.</p>",
+                "Senior Health Insurance Program</a> is that program here: Medicare.gov says you can also contact your local State Health Insurance Assistance Program (SHIP) to get free help applying.</p>",
                 "<p>Applying for Extra Help and a Medicare Savings Program "
                 "can happen at the same time: the page states that Social "
                 "Security &ldquo;will send information to your state to "
                 "initiate an MSP application&rdquo; unless the applicant says "
                 "not to on the Extra Help form itself. Once approved, Extra Help runs through 31 December even if income changes mid-year, and someone who still meets the limits keeps it into the next year; if no notice comes from Medicare or Social Security, Extra Help and the same plan simply continue. Anyone can reapply at any time if "
                 "income or resources change.</p>",
+                "<p>If a parent who qualifies has no Medicare drug plan yet, "
+                "Medicare.gov says it will enroll them in one automatically, "
+                "and they can pick a different plan if they want. It also "
+                "says that while most people can switch plans only at certain "
+                "times of the year, someone who has Medicaid or gets Extra "
+                "Help may be able to change drug coverage once per month.</p>",
             ]),
             ("If a pharmacy charges the wrong amount, or there is a gap before coverage starts", [
                 "<p>Medicare.gov's advice if a pharmacy charges more than the "
@@ -3893,9 +3900,10 @@ GUIDES = [
                 "Limited Income Newly Eligible Transition (LI NET) Program as "
                 "giving &ldquo;temporary Medicare Part D drug coverage to "
                 "people who qualify for Extra Help or Medicaid but who "
-                "aren't enrolled in a Medicare drug plan yet,&rdquo; with "
-                "money back available for covered drugs bought after the "
-                "qualifying date if receipts are kept. The number given for "
+                "aren't enrolled in a Medicare drug plan yet,&rdquo; and says "
+                "a person may be able to get some money back for covered "
+                "Part D drugs paid for after qualifying for LI NET, if the "
+                "receipts are kept. The number given for "
                 "LI NET is <strong>1-800-783-1307</strong> (TTY 711), "
                 "8 a.m. to 7 p.m. Eastern.</p>",
             ]),
