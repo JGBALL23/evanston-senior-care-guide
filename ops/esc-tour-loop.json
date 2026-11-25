@@ -2223,7 +2223,7 @@
   "confirmation": "Claude Scheduled Tasks screenshot: ESCG Tour Acquisition Loop active, Pull request: Commits pushed on matching repository. Previous setup screenshot: head branch automation/esc-tour-loop."
  },
  "owner_review_needed": [
-  "PUBLISH (the most valuable thing you can do; about 15 minutes when it is ready): the pull request to merge will be named in this line. The seven unpublished guides are being reviewed again under the scope rule of 24 Nov (wording already checked by machine: 122 of 122 quotations match their sources); one batch pull request with every guide that passes follows, and it will include #87 and #88. Merging it publishes them; then run tools/publish.py.",
+  "PUBLISH (the most valuable thing you can do; about 15 minutes when it is ready): do not merge #87 or #88 yet. The 25 Nov re-review under the scope rule passed 3 of the 7 unpublished guides as they stand and found small scope defects in the other 4 (each corrected on drafts; 2 of them are the pages in #87 and #88). A later session checks those corrections, then one batch pull request with all 7 follows and replaces #87 and #88; this line will name it. Merging it publishes them; then run tools/publish.py.",
   "TRACKING AND SEARCH pull requests (about 10 minutes; merge any you accept, then redeploy): #84 with #79 (a tour inquiry keeps its arrival channel; #84 contains #80), #85 (four choosing-stage guides link to the Evanston assisted-living page), #81 (homepage title names assisted living and memory care in Evanston), #86 (the checklist PDF gets one disclosed tour-request line), #78 (estate-recovery guide: tour checklist and tour link). Optional with it: request indexing for /assisted-living-evanston/ in Search Console.",
   "EVANSTON NOW ESSAY (yours; the draft is in your Claude chat): rewrite it and submit it through their contact form. A 'what to notice on a holiday visit, and what to ask next' angle submitted by about 10 Dec lands in the early-January inquiry peak. Decide on Patch after that.",
   "ONE FREE PUBLIC TALK? Yes or no is enough (for example 'What to ask on a senior-living tour' at a library or senior center). It would open the Evanston Now calendar, the Daily Herald, Patch calendars and Rotary at once; Wilmette, Niles-Maine and Morton Grove libraries run such programs.",
@@ -2851,7 +2851,7 @@
    "holder": "cse_014eaiSarrUfj6PScmQNGxys",
    "utc": "2026-11-25T00:49Z",
    "since_utc": "2026-11-25T00:36Z",
-   "productive_min": 16,
+   "productive_min": 17,
    "deliverables": [
     "review_packet:ops/reviews/illinois-nursing-home-responsible-party.md; drafts 2c46e74",
     "review_packet:ops/reviews/illinois-assisted-living-involuntary-move-out.md; drafts babc23c",
@@ -3281,9 +3281,10 @@
     "evidence": "ops/reviews/ packets; open pull requests; the asset on drafts and its absence from main.",
     "output": "One publish-batch task for this session (key publish-batch:<YYYYMMDD>-<n>) covering all of them: procedure step 7, Publish package.",
     "why": "Publishing is the step that turns drafts into visitors.",
-    "last_checked_utc": "",
-    "next_check_utc": "",
-    "last_result": ""
+    "last_checked_utc": "2026-11-25T00:49Z",
+    "next_check_utc": "2026-11-25T01:49Z",
+    "last_result": "Read all 7 packets after this session's re-review. Qualify now: illinois-medicaid-pending-nursing-home, illinois-parent-refuses-to-move-guardianship, illinois-money-management-program (publish-ready, counts line). Not yet: responsible-party, AL move-out (both in #87/#88), medicare-fast-appeal, va-h…",
+    "last_added": 0
    },
    {
     "id": "draft-review",
@@ -3420,6 +3421,7 @@
    }
   ],
   "sweep_log": [
+   "2026-11-25T00:49Z publish-ready +0: Read all 7 packets after this session's re-review. Qualify now: illinois-medicaid-pending-nursing-home, illinois-parent-refuses-to-move-guardianship, illinois-…",
    "2026-11-24T18:37Z draft-review +2: 2 drafts on drafts not on main without a packet: illinois-medicaid-pending-nursing-home (drafts 4b5dca4) and illinois-parent-refuses-to-move-guardianship (cf6a…",
    "2026-11-24T18:37Z asset-gaps +0: Guide index on main+drafts (39 slugs), DEMAND Open (2, the drafts routine's) and Done read 24 Nov 18:3xZ. Memory care is the one uncovered decision-stage need …",
    "2026-11-24T18:26Z search-console +0: Newest Search Console read in state.json is still 2026-11-18T16:33Z (16 Nov: 38 impressions, 0 clicks, avg pos 47.4), already the newest scoreboard row; no new…",
