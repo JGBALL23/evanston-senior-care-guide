@@ -192,25 +192,6 @@
    "found_utc": "2026-11-25T00:48Z"
   },
   {
-   "id": "ACQ-069",
-   "task": "Accuracy audit of the live guide va-caregiver-support-program under the review rules (quotation checker, scope rule), packet at ops/reviews/live/va-caregiver-support-program.md; corrections into the rolling review PR claude/accuracy-20261125",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "plan",
-   "key": "audit:va-caregiver-support-program",
-   "evidence": "quotecheck --all 2026-11-25: 29/29 found, but the scope check in ACQ-062 (this session) found VA.gov 'How are the 2 VA caregiver support programs different?' limits the PCAFC monthly stipend to 'Eligible primary family caregivers'; the live guide's desc says the programme pays a stipend 'to a qualifying family member' and its answer 'directly to a family member' (drafts copy lines 3515, 3523, 6416). Also flagged NOT FOUND by the main chat's 00:25Z run.",
-   "expected_tour_acquisition_value": "Families act on live deadlines, figures and eligibility rules; a wrong one costs trust and the inquiry that would follow from it.",
-   "impact": 4,
-   "confidence": 4,
-   "effort": 2,
-   "executor": "worker (research and preparation only)",
-   "done_when": "ops/reviews/live/va-caregiver-support-program.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to the rolling accuracy PR against main",
-   "score": 8.0,
-   "status": "ready",
-   "priority": 2,
-   "found_utc": "2026-11-25T00:50Z"
-  },
-  {
    "id": "ACQ-070",
    "task": "Accuracy audit of the live guide illinois-nursing-home-preadmission-screening under the review rules (quotation checker, scope rule), packet at ops/reviews/live/illinois-nursing-home-preadmission-screening.md; corrections into the rolling review PR claude/accuracy-20261125",
    "workstream": "technical",
@@ -2250,6 +2231,40 @@
    },
    "done_utc": "2026-11-25T00:55Z",
    "minutes": 4
+  },
+  {
+   "id": "ACQ-069",
+   "task": "Accuracy audit of the live guide va-caregiver-support-program under the review rules (quotation checker, scope rule), packet at ops/reviews/live/va-caregiver-support-program.md; corrections into the rolling review PR claude/accuracy-20261125",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:va-caregiver-support-program",
+   "evidence": "quotecheck --all 2026-11-25: 29/29 found, but the scope check in ACQ-062 (this session) found VA.gov 'How are the 2 VA caregiver support programs different?' limits the PCAFC monthly stipend to 'Eligible primary family caregivers'; the live guide's desc says the programme pays a stipend 'to a qualifying family member' and its answer 'directly to a family member' (drafts copy lines 3515, 3523, 6416). Also flagged NOT FOUND by the main chat's 00:25Z run.",
+   "expected_tour_acquisition_value": "Families act on live deadlines, figures and eligibility rules; a wrong one costs trust and the inquiry that would follow from it.",
+   "impact": 4,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/live/va-caregiver-support-program.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to the rolling accuracy PR against main",
+   "score": 8.0,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-25T00:50Z",
+   "result": "Audited live va-caregiver-support-program on main. quotecheck 29/29 FOUND; 11 claims scope-checked against the VA.gov PCAFC page (last updated 10 Nov 2026), the stipend fact sheet (5 Nov 2024) and both PGCSS pages; primary vs secondary caregiver benefits split as the source splits them. Verdict holds, no correction. The 'to a family member' wording that prompted the audit exists only in drafts' stale copy, not on main; ACQ-062's packet note corrected.",
+   "verdicts": [
+    "holds"
+   ],
+   "sources": [
+    "https://www.va.gov/family-and-caregiver-benefits/health-and-disability/comprehensive-assistance-for-family-caregivers/",
+    "https://www.caregiver.va.gov/pdfs/FactSheets/Monthly-Caregiver-Stipend-Factsheet.pdf"
+   ],
+   "lesson": "Check a live page's wording on main, not in drafts, before queueing a live audit from it.",
+   "deliverable": {
+    "type": "audit",
+    "ref": "ops/reviews/live/va-caregiver-support-program.md"
+   },
+   "done_utc": "2026-11-25T00:55Z",
+   "minutes": 1
   }
  ],
  "blocked": [],
@@ -2260,7 +2275,7 @@
   "picked": "ACQ-055 done, ACQ-056 done",
   "why": "Worked: monitor (site OK, ~2 genuine, 0 tour requests) and 2 publish-ready review packets (Medicaid-pending, guardianship); stopped: no-worthwhile-work; resume: monitor 25 Nov 06:26Z"
  },
- "last_verified_action": "ACQ-068 done 2026-11-25T00:55Z: Audited live illinois-pace-program on main 4dc2468. quotecheck 5/6 FOUND; the NOT FOUND 'scheduled to begin in June 2024' is gone from HFS's Designated PACE Or…",
+ "last_verified_action": "ACQ-069 done 2026-11-25T00:55Z: Audited live va-caregiver-support-program on main. quotecheck 29/29 FOUND; 11 claims scope-checked against the VA.gov PCAFC page (last updated 10 Nov 2026), th…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -2923,7 +2938,7 @@
    "holder": "cse_014eaiSarrUfj6PScmQNGxys",
    "utc": "2026-11-25T00:55Z",
    "since_utc": "2026-11-25T00:36Z",
-   "productive_min": 23,
+   "productive_min": 24,
    "deliverables": [
     "review_packet:ops/reviews/illinois-nursing-home-responsible-party.md; drafts 2c46e74",
     "review_packet:ops/reviews/illinois-assisted-living-involuntary-move-out.md; drafts babc23c",
@@ -2932,7 +2947,8 @@
     "review_packet:ops/reviews/illinois-parent-refuses-to-move-guardianship.md",
     "review_packet:ops/reviews/va-home-based-primary-care-and-aide.md; drafts 38ba709",
     "review_packet:ops/reviews/illinois-money-management-program.md",
-    "pr:#89; ops/reviews/live/illinois-pace-program.md"
+    "pr:#89; ops/reviews/live/illinois-pace-program.md",
+    "audit:ops/reviews/live/va-caregiver-support-program.md"
    ]
   },
   "monitor": {

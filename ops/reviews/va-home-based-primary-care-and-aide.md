@@ -34,7 +34,7 @@
 | 13 | Neither page gives a dollar copay, a visit frequency or maximum aide hours | n/a | Src 1, Src 2 | holds |
 | 14 | First step: VA social worker or case manager; Decision Aid and Caregiver Self-Assessment | veterans | Src 1, Src 2 | same |
 
-Links: assisted-living-cost-illinois, does-medicare-pay-for-senior-care, illinois-supportive-living-program, va-aid-and-attendance-benefit, va-caregiver-support-program, va-nursing-home-and-respite-care, va-veteran-directed-care-program are live on main. Advice: talk to the VA social worker, confirm enrollment and community care eligibility; right for a veteran's family. No community ranking, no Westminster Place claim. Note for the live-accuracy angle: the live guide va-caregiver-support-program (desc and answer) also says the stipend goes "to a family member"; Src 6 limits it to eligible primary family caregivers. Worth its own audit (key audit:va-caregiver-support-program).
+Links: assisted-living-cost-illinois, does-medicare-pay-for-senior-care, illinois-supportive-living-program, va-aid-and-attendance-benefit, va-caregiver-support-program, va-nursing-home-and-respite-care, va-veteran-directed-care-program are live on main. Advice: talk to the VA social worker, confirm enrollment and community care eligibility; right for a veteran's family. No community ranking, no Westminster Place claim. Note: the "to a family member" stipend wording seen in va-caregiver-support-program is only in the drafts branch's older copy; main already says "primary family caregiver" (confirmed by audit ACQ-069, ops/reviews/live/va-caregiver-support-program.md).
 
 ## Required corrections
 
