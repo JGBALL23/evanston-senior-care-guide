@@ -159,25 +159,6 @@
    "found_utc": "2026-11-25T12:26Z"
   },
   {
-   "id": "ACQ-090",
-   "task": "Accuracy audit of live guide medicare-extra-help-prescription-drug-costs under step 7 Improve, ACCURACY AUDIT (quotation checker, scope rule, figures as sources read today); packet at ops/reviews/live/medicare-extra-help-prescription-drug-costs.md",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "plan",
-   "key": "audit:medicare-extra-help-prescription-drug-costs",
-   "priority": 2,
-   "evidence": "live-accuracy sweep 2026-11-25 on main 4dc2468: quotecheck --all shows medicare-extra-help-prescription-drug-costs all quotations FOUND, but the guide has no packet in ops/reviews/live/ and states yearly dollar figures and income/resource limits that Medicare and SSA change each year (9 quotations, no packet yet); chosen by risk as the angle's output allows (at most two per check).",
-   "expected_tour_acquisition_value": "Families act on these rules and figures; a wrong one on a live page costs trust and inquiries. Corrections go into the rolling accuracy pull request for Joseph's daily package.",
-   "impact": 3,
-   "confidence": 4,
-   "effort": 2,
-   "executor": "worker (research and preparation only)",
-   "done_when": "ops/reviews/live/medicare-extra-help-prescription-drug-costs.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections (if any) committed to the rolling accuracy pull request and verify-live queued for a later session.",
-   "score": 6.0,
-   "status": "ready",
-   "found_utc": "2026-11-25T12:27Z"
-  },
-  {
    "id": "ACQ-091",
    "task": "Verify the correction to illinois-medicaid-look-back-period on the accuracy pull request #89 (commit d27ae01): re-read each changed sentence against HFS 3191 and the HFS provider notice of 22 Jan 2026, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <RUN>' to ops/reviews/live/illinois-medicaid-look-back-period.md and to that guide's lines in the #89 body, or reopen the correction",
    "workstream": "technical",
@@ -197,6 +178,27 @@
    "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
    "found_utc": "2026-11-25T12:33Z"
+  },
+  {
+   "id": "ACQ-092",
+   "task": "Verify the update to medicare-extra-help-prescription-drug-costs on the accuracy pull request #89 (commit 7a12f29): re-read each changed sentence against Medicare.gov's Extra Help page, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <RUN>' to ops/reviews/live/medicare-extra-help-prescription-drug-costs.md and to that guide's lines in the #89 body, or reopen it",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:medicare-extra-help-prescription-drug-costs:7a12f29",
+   "not_run": [
+    "cse_014eaiScJVcYfw9RjXT6F5Km"
+   ],
+   "priority": 1,
+   "evidence": "claude/accuracy-20261125 commit 7a12f29 (ACQ-090)",
+   "expected_tour_acquisition_value": "quality gate before the change enters the daily package",
+   "impact": 2,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "ready",
+   "found_utc": "2026-11-25T12:36Z"
   }
  ],
  "completed": [
@@ -2954,6 +2956,38 @@
    },
    "done_utc": "2026-11-25T12:33Z",
    "minutes": 6
+  },
+  {
+   "id": "ACQ-090",
+   "task": "Accuracy audit of live guide medicare-extra-help-prescription-drug-costs under step 7 Improve, ACCURACY AUDIT (quotation checker, scope rule, figures as sources read today); packet at ops/reviews/live/medicare-extra-help-prescription-drug-costs.md",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:medicare-extra-help-prescription-drug-costs",
+   "priority": 2,
+   "evidence": "live-accuracy sweep 2026-11-25 on main 4dc2468: quotecheck --all shows medicare-extra-help-prescription-drug-costs all quotations FOUND, but the guide has no packet in ops/reviews/live/ and states yearly dollar figures and income/resource limits that Medicare and SSA change each year (9 quotations, no packet yet); chosen by risk as the angle's output allows (at most two per check).",
+   "expected_tour_acquisition_value": "Families act on these rules and figures; a wrong one on a live page costs trust and inquiries. Corrections go into the rolling accuracy pull request for Joseph's daily package.",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/live/medicare-extra-help-prescription-drug-costs.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections (if any) committed to the rolling accuracy pull request and verify-live queued for a later session.",
+   "score": 6.0,
+   "status": "done",
+   "found_utc": "2026-11-25T12:27Z",
+   "result": "Audited live medicare-extra-help-prescription-drug-costs (main 4dc2468): 9/9 quotations found; every figure (2026 limits $23,940/$18,090 and $32,460/$36,100; 2027 costs $0/$0/$5.80/$14.40; $2,400; $4.90; phone numbers) holds on Medicare.gov today. 18 claims scope-checked, 0 scope defects. Verdict: holds. Three recommended additions applied as commit 7a12f29 on rolling accuracy PR #89: plan auto-enrolment and monthly plan switching, LI NET refunds as 'may be able', SHIP sentence from the cited page instead of an uncited 'Extra Help chart'. All suites pass; library dates kept; verification queued for a later session.",
+   "verdicts": [
+    "holds"
+   ],
+   "sources": [
+    "https://www.medicare.gov/basics/costs/help/drug-costs (2026-11-25)"
+   ],
+   "deliverable": {
+    "type": "correction",
+    "ref": "PR #89 commit 7a12f29; ops/reviews/live/medicare-extra-help-prescription-drug-costs.md"
+   },
+   "done_utc": "2026-11-25T12:36Z",
+   "minutes": 3
   }
  ],
  "blocked": [],
@@ -2964,7 +2998,7 @@
   "picked": "ACQ-082 done, ACQ-083 done, ACQ-085 done, ACQ-084 ready (next session), ACQ-086 ready (next session)",
   "why": "Worked: verified fast-appeal additions (ported to #90); built LTC-insurance guide on drafts; audited complaint guide (3 fixes in #89). stopped: no-worthwhile-work; resume: next session reviews ACQ-084, verifies ACQ-086"
  },
- "last_verified_action": "ACQ-089 done 2026-11-25T12:33Z: Audited live illinois-medicaid-look-back-period (main 4dc2468): 13/13 quotations found, 20 claims scope-checked. 2 scope defects + 1 wrong statement: the page …",
+ "last_verified_action": "ACQ-090 done 2026-11-25T12:36Z: Audited live medicare-extra-help-prescription-drug-costs (main 4dc2468): 9/9 quotations found; every figure (2026 limits $23,940/$18,090 and $32,460/$36,100; 2…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -3624,12 +3658,13 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiScJVcYfw9RjXT6F5Km",
-   "utc": "2026-11-25T12:33Z",
+   "utc": "2026-11-25T12:36Z",
    "since_utc": "2026-11-25T12:24Z",
-   "productive_min": 11,
+   "productive_min": 14,
    "deliverables": [
     "review_packet:ops/reviews/long-term-care-insurance-assisted-living-illinois.md",
-    "correction:PR #89 commit d27ae01; ops/reviews/live/illinois-medicaid-look-back-period.md"
+    "correction:PR #89 commit d27ae01; ops/reviews/live/illinois-medicaid-look-back-period.md",
+    "correction:PR #89 commit 7a12f29; ops/reviews/live/medicare-extra-help-prescription-drug-costs.md"
    ]
   },
   "monitor": {
