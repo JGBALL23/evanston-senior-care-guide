@@ -120,22 +120,6 @@
    "not_before": "Timing, not data: 2027 figures are already on medicare.gov (read 2026-11-23). Prepare the PR in December so it is fresh when Joseph merges it for 1 Jan 2027."
   },
   {
-   "id": "ACQ-063",
-   "task": "Review illinois-money-management-program again under the review rules of procedure v4.3.2 (quotation checker, then the scope rule): its packet ops/reviews/illinois-money-management-program.md was written before the scope rule and has no scope table or counts line",
-   "workstream": "build",
-   "lane": "build",
-   "source": "operator",
-   "seeded_by": "main chat for Joseph, 24 Nov 2026 18:05 Chicago: \"Correct the known content accuracy problems and strengthen the review process.\"",
-   "key": "rereview:illinois-money-management-program",
-   "priority": 1,
-   "evidence": "A scope defect passed the 24 Nov review of medicare-fast-appeal-hospital-rehab-discharge: a Medicare.gov sentence about what \"your plan\" does was presented as the rule for everyone in a skilled nursing facility. quotecheck on drafts cf6aaf8, 25 Nov 2026 00:25Z: 13 of 13 quotations of this page are found word for word in its 3 cited pages, so the wording holds and scope is the open question.",
-   "expected_tour_acquisition_value": "Nothing reaches families until Joseph merges a publish pull request, and he should only be asked to merge pages whose every claim applies to the reader the page addresses.",
-   "executor": "worker (research and preparation only)",
-   "done_when": "ops/reviews/illinois-money-management-program.md rewritten under the review rules with its table, counts line and verdict; each required correction applied on drafts and its verify task queued for a later session; or the verdict publish-ready with zero scope defects",
-   "status": "ready",
-   "found_utc": "2026-11-25T00:27Z"
-  },
-  {
    "id": "ACQ-064",
    "task": "Verify the corrections to illinois-nursing-home-responsible-party",
    "workstream": "build",
@@ -2164,6 +2148,36 @@
    },
    "done_utc": "2026-11-25T00:48Z",
    "minutes": 3
+  },
+  {
+   "id": "ACQ-063",
+   "task": "Review illinois-money-management-program again under the review rules of procedure v4.3.2 (quotation checker, then the scope rule): its packet ops/reviews/illinois-money-management-program.md was written before the scope rule and has no scope table or counts line",
+   "workstream": "build",
+   "lane": "build",
+   "source": "operator",
+   "seeded_by": "main chat for Joseph, 24 Nov 2026 18:05 Chicago: \"Correct the known content accuracy problems and strengthen the review process.\"",
+   "key": "rereview:illinois-money-management-program",
+   "priority": 1,
+   "evidence": "A scope defect passed the 24 Nov review of medicare-fast-appeal-hospital-rehab-discharge: a Medicare.gov sentence about what \"your plan\" does was presented as the rule for everyone in a skilled nursing facility. quotecheck on drafts cf6aaf8, 25 Nov 2026 00:25Z: 13 of 13 quotations of this page are found word for word in its 3 cited pages, so the wording holds and scope is the open question.",
+   "expected_tour_acquisition_value": "Nothing reaches families until Joseph merges a publish pull request, and he should only be asked to merge pages whose every claim applies to the reader the page addresses.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/illinois-money-management-program.md rewritten under the review rules with its table, counts line and verdict; each required correction applied on drafts and its verify task queued for a later session; or the verdict publish-ready with zero scope defects",
+   "status": "done",
+   "found_utc": "2026-11-25T00:27Z",
+   "result": "Re-reviewed under v4.3.2 rules. quotecheck 13/13 FOUND. 10 claims scope-checked. The one ambiguity (does 'in certain areas of the State' limit the CCP path too?) is settled by the page's own Program Counties & Townships list; the FY27 site list (22 Oct 2026) still shows no Program Site for Evanston Township. 0 scope defects, 0 corrections. Verdict publish-ready; not in any publish PR, qualifies for the next batch.",
+   "verdicts": [
+    "publish-ready"
+   ],
+   "sources": [
+    "https://ilaging.illinois.gov/programs/money-mgmt.html",
+    "https://ilaging.illinois.gov/content/dam/soi/en/web/aging/programs/documents/ivmmp-programsitelist.pdf"
+   ],
+   "deliverable": {
+    "type": "review_packet",
+    "ref": "ops/reviews/illinois-money-management-program.md"
+   },
+   "done_utc": "2026-11-25T00:49Z",
+   "minutes": 1
   }
  ],
  "blocked": [],
@@ -2174,7 +2188,7 @@
   "picked": "ACQ-055 done, ACQ-056 done",
   "why": "Worked: monitor (site OK, ~2 genuine, 0 tour requests) and 2 publish-ready review packets (Medicaid-pending, guardianship); stopped: no-worthwhile-work; resume: monitor 25 Nov 06:26Z"
  },
- "last_verified_action": "ACQ-062 done 2026-11-25T00:48Z: Re-reviewed under v4.3.2 rules. quotecheck 13/13 FOUND on 6 VA pages. 14 claims scope-checked (eligibility wording of each page, VHA Notice 2024-01, VDC, careg…",
+ "last_verified_action": "ACQ-063 done 2026-11-25T00:49Z: Re-reviewed under v4.3.2 rules. quotecheck 13/13 FOUND. 10 claims scope-checked. The one ambiguity (does 'in certain areas of the State' limit the CCP path too…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -2835,16 +2849,17 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSarrUfj6PScmQNGxys",
-   "utc": "2026-11-25T00:48Z",
+   "utc": "2026-11-25T00:49Z",
    "since_utc": "2026-11-25T00:36Z",
-   "productive_min": 15,
+   "productive_min": 16,
    "deliverables": [
     "review_packet:ops/reviews/illinois-nursing-home-responsible-party.md; drafts 2c46e74",
     "review_packet:ops/reviews/illinois-assisted-living-involuntary-move-out.md; drafts babc23c",
     "review_packet:ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md; drafts 2dfe3dc",
     "review_packet:ops/reviews/illinois-medicaid-pending-nursing-home.md",
     "review_packet:ops/reviews/illinois-parent-refuses-to-move-guardianship.md",
-    "review_packet:ops/reviews/va-home-based-primary-care-and-aide.md; drafts 38ba709"
+    "review_packet:ops/reviews/va-home-based-primary-care-and-aide.md; drafts 38ba709",
+    "review_packet:ops/reviews/illinois-money-management-program.md"
    ]
   },
   "monitor": {
