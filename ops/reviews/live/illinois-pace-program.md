@@ -32,3 +32,5 @@ Applied: branch claude/accuracy-20261125 commit ab58cc6, review pull request #89
 Quotations checked: 6. Claims scope-checked: 11. Scope defects: 0. Corrections required: 1.
 
 Verdict: corrections listed above (one stale date; no wrong deadline, figure or eligibility rule)
+
+Corrections verified: 2026-11-25, main chat for Joseph (second reader): commit ab58cc6 read; HFS's Designated PACE Organizations page fetched the same day holds no 'June 2024' and still describes Kinship as 'a new entrant into the Illinois health care delivery system'; quotecheck 5/5 found. Library date kept by 50fa120 ("listed": 2026-11-17).

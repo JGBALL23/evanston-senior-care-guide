@@ -36,3 +36,5 @@ Applied: branch claude/accuracy-20261125 commit ad00940, rolling review pull req
 Quotations checked: 11. Claims scope-checked: 11. Scope defects: 1. Corrections required: 1.
 
 Verdict: corrections listed above (eligibility route missing from the short answer)
+
+Corrections verified: 2026-11-25, main chat for Joseph (second reader): commit ad00940 read; the Department's page reads 'To qualify as disabled, you must be at least 16 years of age prior to January 1 of the current year and be determined totally and permanently disabled (as defined by program requirements) prior to January 1 of the current year'; quotecheck 11/11 found. Library date kept by 50fa120 ("listed": 2026-11-17).

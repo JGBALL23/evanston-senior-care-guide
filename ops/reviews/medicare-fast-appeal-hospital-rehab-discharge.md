@@ -48,3 +48,11 @@ Quotations checked: 30. Claims scope-checked: 17. Scope defects: 2. Corrections 
 Verdict: publish-ready after corrections (two payer-scope fixes; packaging waits for "Corrections verified")
 
 Corrections verified: 2026-11-25, cse_014eaiSaeYoez1bK3E9MFwz4 (drafts 2dfe3dc re-read against its source; quotecheck 30/30 found; scope of each changed sentence matches its source).
+
+## Recommended additions (second reader, main chat for Joseph, 2026-11-25)
+
+Not errors: the page is accurate as corrected and its batch (#90) stands. Two places where Medicare.gov gives a reader of this page a further answer that the page leaves out. Apply under Improve (task ACQ-080), then verify in a later session.
+
+A1. Hospital paragraph, after the missed-deadline warning. Medicare.gov (How do I ask for a fast appeal?, In a hospital): "If you miss the deadline for a fast appeal, you can still ask the BFCC-QIO to review your case, but different rules and time frames apply, and you might be responsible for the cost of the hospital stay past the original day the hospital tries to discharge you." The page gives the warning without saying that a late request is still possible. Scope: hospital.
+
+A2. "What the decision means for the bill", favourable hospital decision. Medicare.gov (What does the BFCC-QIO's decision mean for my appeal?, In a hospital): "And you have a Medicare health plan: Medicare will continue to cover your hospital stay as long as medically necessary (except for applicable coinsurance or deductibles) if your plan previously authorized coverage of the inpatient admission, or the inpatient admission was for emergency or urgently needed care. You may need to appeal the denial of coverage for your plan to pay if your plan never authorized the inpatient admission, or the inpatient admission wasn't for emergency or urgently needed care." The page gives the Original Medicare sentence only. Scope: hospital, Medicare health plan.

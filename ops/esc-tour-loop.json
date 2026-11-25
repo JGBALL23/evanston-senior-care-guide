@@ -138,6 +138,57 @@
    "not_before": "VA.gov rate pages show the table effective 1 December 2026",
    "priority": 2,
    "found_utc": "2026-11-25T01:14Z"
+  },
+  {
+   "id": "ACQ-078",
+   "task": "Verify the two commits the main chat added to pull request #89 (branch claude/accuracy-20261125): d4bed8b (illinois-medicaid-long-term-care: the personal needs allowance paragraph quoting HFS's notice of 25 January 2024, the notice added to the sources, the review date set to 2026-11-25, and two assertions in check-guides.js re-pinned) and 50fa120 (a \"listed\" date on the four audited guides so the library-level dates stay where they were)",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "operator",
+   "seeded_by": "main chat for Joseph, 25 Nov 2026: corrections are checked by a different session than the one that wrote them",
+   "key": "verify-live:accuracy-20261125:d4bed8b-50fa120",
+   "priority": 1,
+   "evidence": "Packet ops/reviews/live/illinois-medicaid-long-term-care.md, correction C3. The worker's audit (ACQ-074) left C3 unapplied because check-guides.js required the old refusal sentence; the main chat applied it inside the review pull request with the changed assertions listed at the top of #89. HFS notice: https://hfs.illinois.gov/medicalproviders/notices/notice.prn240125a.html",
+   "expected_tour_acquisition_value": "Quality gate before Joseph merges corrections to live pages families act on.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "In a clone of the branch: git show d4bed8b and 50fa120 read; the new paragraph compared word for word and for scope with the notice as it reads today; quotecheck on the page all FOUND; git diff main -- sitemap.xml shows only the four guides' own lastmod lines and _dist/guides/index.html is unchanged from main; test.js and check-guides.js pass. Then add 'Corrections verified: <date>, <RUN> (d4bed8b, 50fa120)' to the packet, or reopen with what is wrong and a line at the top of owner_review_needed.",
+   "status": "ready",
+   "found_utc": "2026-11-25T01:29Z"
+  },
+  {
+   "id": "ACQ-079",
+   "task": "Accuracy audit of the live guide va-veteran-directed-care-program",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "operator",
+   "seeded_by": "main chat for Joseph, 25 Nov 2026",
+   "key": "audit:va-veteran-directed-care-program",
+   "priority": 2,
+   "evidence": "quotecheck on main, 25 Nov 2026: 10 of 11 quotations FOUND and 1 NEAR MATCH: the guide quotes VA as writing 'If Veteran Directed Care seems right for you, talk with your VA social worker and find out if it is available'; va.gov/geriatrics/pages/veteran-directed_care.asp reads 'If Veteran-Directed Care seems right for you, ...' (a hyphen dropped inside quotation marks). The page has no packet in ops/reviews/live/ and holds eligibility rules.",
+   "expected_tour_acquisition_value": "Accuracy of a live page families act on; a quotation that differs from its source costs trust.",
+   "impact": 2,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "Packet at ops/reviews/live/va-veteran-directed-care-program.md with its scope table, counts and verdict; the quotation corrected to the source's characters and any other correction committed to the rolling accuracy pull request (#89 while it is open), each with its verification queued for a later session.",
+   "status": "ready",
+   "found_utc": "2026-11-25T01:29Z"
+  },
+  {
+   "id": "ACQ-080",
+   "task": "Apply the two additions the second reader listed in ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md (section 'Recommended additions'), on drafts: what Medicare.gov says a family can still do after a missed hospital deadline, and the condition it attaches to a favourable hospital decision for a parent in a Medicare health plan",
+   "workstream": "build",
+   "lane": "build",
+   "source": "operator",
+   "seeded_by": "main chat for Joseph, 25 Nov 2026 (second reading of the page against Medicare.gov's Fast appeals page)",
+   "key": "improve:medicare-fast-appeal-hospital-rehab-discharge:late-request-and-plan-condition",
+   "priority": 2,
+   "evidence": "Medicare.gov, Fast appeals, read 25 Nov 2026. Under 'How do I ask for a fast appeal?', In a hospital: 'If you miss the deadline for a fast appeal, you can still ask the BFCC-QIO to review your case, but different rules and time frames apply, and you might be responsible for the cost of the hospital stay past the original day the hospital tries to discharge you.' The guide gives the warning but not that a late request is still possible. Under 'What does the BFCC-QIO's decision mean for my appeal?', In a hospital: 'And you have a Medicare health plan: Medicare will continue to cover your hospital stay as long as medically necessary (except for applicable coinsurance or deductibles) if your plan previously authorized coverage of the inpatient admission, or the inpatient admission was for emergency or urgently needed care.' The guide gives the Original Medicare rule only, so a reader whose parent has a Medicare Advantage plan is told nothing.",
+   "expected_tour_acquisition_value": "The page answers a discharge-day question; a family that missed the deadline or has a plan should not be left without the page's own answer.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "Both additions made on drafts in the page's own style, each quoting Medicare.gov with its scope (hospital; Medicare health plan), under Improve's checks and push rules; 'Additions applied' line in the packet; verification queued for a later session; after verification the open publish batch (#90) gets an 'Update guide' commit on its own branch if #90 is still open, or the change goes to the accuracy pull request if the page is already live.",
+   "status": "ready",
+   "found_utc": "2026-11-25T01:29Z"
   }
  ],
  "completed": [
@@ -2584,11 +2635,12 @@
  },
  "owner_review_needed": [
   "PUBLISH (the most valuable thing you can do; about 15 minutes): merge #90 'Publish batch: 7 guides' and nothing else of the publish pull requests. It contains #87 and #88 (close those after), and publishes all seven unpublished guides: nursing home responsible-party signing, assisted-living move-out notice, Medicare fast appeal from hospital or rehab, Medicaid pending in a nursing home, VA home care and aide, Illinois money management program, parent refusing to move and guardianship. Every page passed review under the scope rule (corrections verified 25 Nov); 122 of 122 quotations found. Then run tools/publish.py.",
-  "TRACKING AND SEARCH pull requests (about 10 minutes; merge any you accept, then redeploy): #84 with #79 (a tour inquiry keeps its arrival channel; #84 contains #80), #85 (four choosing-stage guides link to the Evanston assisted-living page), #81 (homepage title names assisted living and memory care in Evanston), #86 (the checklist PDF gets one disclosed tour-request line), #78 (estate-recovery guide: tour checklist and tour link), #89 (rolling accuracy corrections to live guides: a stale PACE launch date removed; the nursing home screening answer limits the PASRR screen to Medicaid-certified homes; the Benefit Access answer names the disability route; the Medicaid long-term care guide drops an unsupported claim that spenddown is the usual route for nursing home stays and notes the CSRA is set once). One decision with it (2 minutes): HFS's notice of 25 Jan 2024 states the nursing home personal needs allowance is $60 a month, but the Medicaid guide still says it could not find a figure because check-guides.js requires that refusal; say yes and the next session adds the sourced figure and changes that one check in #89. Optional with it: request indexing for /assisted-living-evanston/ in Search Console.",
+  "ACCURACY (2 minutes): merge #89, corrections to four live guides found by auditing eight of them: a stale PACE launch date removed; the nursing home screening answer limits the PASRR screen to Medicaid-certified homes; the Benefit Access answer names the disability route; the Medicaid long-term care guide drops an unsupported claim about spenddown, says the spousal resource allowance is set only once, and now states the $60 personal needs allowance from HFS's notice of 25 January 2024. That last change re-pins two tests that required the old sentence and the old review date (listed at the top of #89); to keep the old wording instead, say 'drop the allowance commit'. Every correction was read against its source twice. Merges cleanly before or after #90.",
+  "TRACKING AND SEARCH pull requests (about 10 minutes; merge any you accept, in any order after #90): #84 with #79 (a tour inquiry keeps its arrival channel; #84 contains #80), #85 (four choosing-stage guides link to the Evanston assisted-living page; since 25 Nov it contains #90, so merge #90 first), #81 (homepage title names assisted living and memory care in Evanston), #86 (the checklist PDF gets one disclosed tour-request line), #78 (estate-recovery guide: tour checklist and tour link). All eight open pull requests on this list were test-merged together on 25 Nov in three orders: no conflicts, the rebuild changes nothing, all tests pass. Optional with it: request indexing for /assisted-living-evanston/ in Search Console.",
   "EVANSTON NOW ESSAY (yours; the draft is in your Claude chat): rewrite it and submit it through their contact form. A 'what to notice on a holiday visit, and what to ask next' angle submitted by about 10 Dec lands in the early-January inquiry peak. Decide on Patch after that.",
   "ONE FREE PUBLIC TALK? Yes or no is enough (for example 'What to ask on a senior-living tour' at a library or senior center). It would open the Evanston Now calendar, the Daily Herald, Patch calendars and Rotary at once; Wilmette, Niles-Maine and Morton Grove libraries run such programs.",
   "OPTIONAL CALLS (these publish no email address): New Trier Township social services 847-446-8202; Village of Northbrook 847-272-5050 about its Senior Housing Resources directory; Skokie Human Services.",
-  "HOUSEKEEPING (2 minutes): close #80 once #84 is merged; the stray branch claude/estate-recovery-tour-path (same commit as #78) can be deleted.",
+  "HOUSEKEEPING (2 minutes): after #90 is merged, close #87 and #88 if GitHub has not already marked them merged; close #80 once #84 is merged; the stray branch claude/estate-recovery-tour-path (same commit as #78) can be deleted.",
   "For the outreach operator, nothing for you to do: one referral proposal is ready (Open Communities' Older Adult Housing Resources list; Gmail draft, ref em-1122a)."
  ],
  "hourly_backlog_policy": {
@@ -3553,15 +3605,14 @@
     "owner_wip_limit": 3,
     "plan_cooldown_hours": 12,
     "open_prs": [
-     87,
-     88,
      90
     ],
-    "owner_open": 3,
+    "owner_open": 1,
     "cooldown_until_utc": "",
     "last_planned_utc": "2026-11-25T01:04Z",
     "last_plan_result": "Read ops/reviews/ (7 packets with counts lines): 3 publish-ready, 4 publish-ready after corrections now verified (ACQ-064..067). One batch task passed the gate (score 4x4/3); no other publish candidate (live audits go to #89).",
-    "wip_note": "Limit 3 open publish pull requests since 24 Nov 2026 (was 2): batches are stacked, so the newest one publishes all of them with a single merge."
+    "wip_note": "Limit 3 open publish pull requests since 24 Nov 2026 (was 2): batches are stacked, so the newest one publishes all of them with a single merge.",
+    "note_open_prs": "#90 contains #87 and #88 (one decision for Joseph); when a batch is open, changed pages are added to its branch, not to a new pull request"
    },
    {
     "id": "demand",
@@ -3776,7 +3827,7 @@
     "recheck_hours": 12,
     "enabled": true,
     "question": "Which live guides state something their cited sources do not say today, or say for a narrower case than the guide does?",
-    "evidence": "python3 ops/quotecheck.py --site <clone of main> --all: every guide with a NOT FOUND quotation (the source changed, or the wording was never exact); then, among guides without a packet in ops/reviews/live/, those with deadlines, dollar figures or eligibility rules. First run by the main chat, 25 Nov 2026 00:25Z: 32 live guides, 252 quotations, 247 found, 5 not found (one each in illinois-nursing-home-preadmission-screening, illinois-pace-program, medicare-durable-medical-equipment-coverage, va-caregiver-support-program, va-veteran-directed-care-program); ilga.gov pages could not be read from that workspace.",
+    "evidence": "python3 ops/quotecheck.py --site <clone of main> --all: every guide with a NOT FOUND or NEAR MATCH quotation; then, among guides without a packet in ops/reviews/live/, those with deadlines, dollar figures or eligibility rules. State on 25 Nov 2026 after two sessions: 32 live guides; 8 audited (packets in ops/reviews/live/: 4 hold, 4 corrected in pull request #89); the checker (corrected the same day: a link or a PDF line break inside a source sentence no longer reads as NOT FOUND) reports 249 of 252 quotations FOUND, 1 NOT FOUND (illinois-pace-program, corrected in #89) and 2 NEAR MATCH (illinois-nursing-home-preadmission-screening, corrected in #89; va-veteran-directed-care-program, a dropped hyphen inside quotation marks, audit queued). assisted-living-cost-illinois and check-illinois-inspection-records cite ilga.gov pages that neither the worker's environment nor the main chat's could read: audit them with a web fetch tool for those pages.",
     "output": "One audit task per live guide with a NOT FOUND quotation (all of them, key audit:<slug>), plus at most two more guides per check chosen by risk; each audit under procedure step 7 Improve, ACCURACY AUDIT. Corrections go into one rolling review pull request. When every live guide has a packet, record that and pass --recheck-hours 720.",
     "why": "Joseph, 24 Nov 2026: \"Correct the known content accuracy problems and strengthen the review process.\" Families act on these deadlines and figures.",
     "last_checked_utc": "2026-11-25T00:50Z",

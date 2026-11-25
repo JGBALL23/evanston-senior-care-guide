@@ -41,3 +41,5 @@ Applied: branch claude/accuracy-20261125 commit 7c76548, rolling review pull req
 Quotations checked: 8. Claims scope-checked: 12. Scope defects: 1. Corrections required: 2.
 
 Verdict: corrections listed above (scope of the PASRR Level I screen; punctuation inside one quotation)
+
+Corrections verified: 2026-11-25, main chat for Joseph (second reader): commit 7c76548 read; HFS notice prn170404a reads 'The PASRR process requires that all applicants to Medicaid-certified nursing facilities be given a preliminary assessment' and 'regardless of income, assets or funding source'; quotecheck 8/8 found. Library date kept by 50fa120 ("listed": 2026-11-17).
