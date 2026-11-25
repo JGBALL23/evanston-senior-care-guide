@@ -3005,7 +3005,8 @@ GUIDES = [
         "bridge": ("Whether a past gift still counts against your parent today is "
                "a different question from whether assisted living, memory care "
                "or skilled nursing is the right fit for them now."),
-        "reviewed": "2026-11-17",
+        "reviewed": "2026-11-25",
+        "listed": "2026-11-17",
         "title": "Illinois Medicaid's Five-Year Look-Back and Transfer Penalties",
         "h1": "Will giving money away affect my parent&rsquo;s Illinois Medicaid eligibility?",
         "desc": ("Illinois Medicaid looks back five years for gifts and below-value "
@@ -3019,10 +3020,11 @@ GUIDES = [
                    "than something was worth during that window can trigger a "
                    "<strong>penalty period</strong> &mdash; a stretch of time "
                    "Medicaid will not pay toward long-term care. Not every transfer "
-                   "counts: HFS says a transfer to a spouse, or a small gift "
-                   "consistent with your parent&rsquo;s past giving, will not "
-                   "trigger one."),
-        "sources": srcs("hfs_ltc_brochure", "hfs_ltc_clients"),
+                   "counts: HFS says a small gift consistent with your parent&rsquo;s "
+                   "past giving will not trigger one, and a parent going into a "
+                   "nursing home may transfer property to a spouse up to a yearly "
+                   "limit that the caseworker works out."),
+        "sources": srcs("hfs_ltc_brochure", "hfs_ltc_clients", "hfs_spousal2026"),
         "body": [
             ("The 60-month look-back, and what it looks back at", [
                 "<p>Illinois HFS's own brochure for long-term care applicants, "
@@ -3065,12 +3067,12 @@ GUIDES = [
                 "behavior.&rdquo; A pattern of modest giving kept up over years "
                 "reads differently from a gift that appears only once, near an "
                 "application.</li>"
-                "<li><strong>Transfers to a spouse.</strong> HFS states: &ldquo;You may transfer this other property to your spouse or to someone else for the sole benefit of your spouse,&rdquo; and that when a person goes into a nursing home, the spouse may keep the home, the car and the household furnishings.</li>"
+                "<li><strong>Transfers to a spouse, up to a limit.</strong> When a parent goes into a nursing home, HFS states the spouse may keep the home, the car and the household furnishings, and that &ldquo;You may transfer this other property to your spouse or to someone else for the sole benefit of your spouse.&rdquo; The same paragraph limits it: &ldquo;Depending on how much property your spouse already has (not counting things like the house and the car), you may give your spouse property&rdquo; up to a yearly amount, and &ldquo;Your FCRC caseworker will tell you the actual amount you may give to your spouse.&rdquo;</li>"
                 "<li><strong>Returning the property.</strong> HFS states a "
                 "penalty can be eliminated by getting the transferred property "
                 "back.</li></ul>",
-                "<p>This guide is not going to put a current dollar ceiling on "
-                "the spousal exception &mdash; see below for why.</p>",
+                "<p>The brochure&rsquo;s own figure for that limit is out of date; "
+                "where to find the current one is below.</p>",
             ]),
             ("When the penalty starts, and how long it lasts", [
                 "<p>HFS sets the start date as &ldquo;the month of application "
@@ -3113,10 +3115,12 @@ GUIDES = [
                 "Maintenance Needs Allowance figures in "
                 '<a href="/guides/illinois-medicaid-long-term-care/">How Illinois '
                 "Medicaid pays for long-term care</a>, which this library "
-                "verified against HFS's current 2026 notice &mdash; that is a "
-                "related but legally separate rule from the transfer exception "
-                "on this page, so ask the FCRC which one applies to a specific "
-                "transfer.</p>",
+                "verified against HFS's current 2026 notice. That notice describes "
+                "the resource allowance as the maximum amount of resources a "
+                "resident may transfer to a community spouse, less what the "
+                "spouse already holds, so it is the current ceiling on the "
+                "spousal transfer above; the FCRC confirms the amount for a "
+                "specific couple.</p>",
             ]),
             ("Where this fits with the rest of this site", [
                 "<p>This page only covers whether a past transfer can delay "
