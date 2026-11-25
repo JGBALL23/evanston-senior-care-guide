@@ -2680,10 +2680,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-25T01:17Z",
-  "event": "Make controller: completion of cse_014eaiSarrUfj6PScmQNGxys",
-  "picked": "ACQ-064 done, ACQ-065 done, ACQ-066 done, ACQ-067 done, ACQ-073 done, ACQ-074 done, ACQ-075 done, ACQ-077 done, ACQ-076 waiting_on_data",
-  "why": "Worked: 4 corrections verified, publish batch PR #90 (7 guides), 3 live audits (1 with corrections in #89); stopped: no-worthwhile-work; resume: monitor and sweeps from 06:26Z, or a merge of #90/#89"
+  "utc": "2026-11-25T01:44Z",
+  "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
+  "picked": "ACQ-078 done, ACQ-079 done, ACQ-080 done, ACQ-081 queued for next session, ACQ-082 queued for next session",
+  "why": "Worked: #89 commits verified, VA Veteran-Directed Care audit (3 corrections in #89), fast-appeal additions on drafts; stopped: no-worthwhile-work; resume: next session verifies ACQ-081/082"
  },
  "last_verified_action": "ACQ-080 done 2026-11-25T01:43Z: Applied both recommended additions to medicare-fast-appeal-hospital-rehab-discharge on drafts (commit 5025764), each re-read on Medicare.gov Fast appeals 25 No…",
  "last_stop": {
@@ -2769,7 +2769,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Next due: monitor and planner cooldown at 06:26Z, then demand-questions, asset-gaps and draft-review sweeps from 06:34Z, live-accuracy 12:50Z; ACQ-076 (VA Dec 2026 rates) from 3 Dec. Waiting on Joseph: merge PR #90 (7 guides, contains #87 and #88), the #89 accuracy PR, and a yes/no on replacing the Medicaid guide's personal-needs-allowance refusal with HFS's $60 figure.",
+ "next_discovery": "Next due 06:26Z (monitor), with ACQ-081 (verify VA Veteran-Directed Care commit 3cd72d7 in #89) and ACQ-082 (verify fast-appeal additions drafts 5025764, then port to #90) for that session; sweeps demand-questions, asset-gaps and draft-review ~06:35Z. Waiting on Joseph: merge #90, then #89 once ACQ-081 verifies 3cd72d7; tracking/search PRs.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -3346,20 +3346,56 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiSbgoXSGhv7gxJtBvna",
-   "utc": "2026-11-25T01:43Z",
-   "since_utc": "2026-11-25T01:35Z",
-   "productive_min": 10,
-   "deliverables": [
-    "verification:ops/reviews/live/illinois-medicaid-long-term-care.md; PR #89",
-    "audit:ops/reviews/live/va-veteran-directed-care-program.md; PR #89 commit 3cd72d7",
-    "correction:drafts 5025764"
-   ]
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-24T18:26Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSbgoXSGhv7gxJtBvna",
+    "start_utc": "2026-11-25T01:35Z",
+    "end_utc": "2026-11-25T01:44Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: #89 commits verified, VA Veteran-Directed Care audit (3 corrections in #89), fast-appeal additions on drafts; stopped: no-worthwhile-work; resume: next session verifies ACQ-081/082",
+    "done": 3,
+    "changed": 6,
+    "tasks": "ACQ-078 done, ACQ-079 done, ACQ-080 done, ACQ-081 queued for next session, ACQ-082 queued for next session",
+    "next": "no",
+    "wake_minutes": 252,
+    "next_due_utc": "2026-11-25T06:26Z",
+    "plan_due": false,
+    "saturated": [
+     "conversion"
+    ],
+    "budget_used_hours_24h": 1.4,
+    "budget_used_hours_7d": 1.9,
+    "productive_min": 10,
+    "deliverables": [
+     "verification:ops/reviews/live/illinois-medicaid-long-term-care.md; PR #89",
+     "audit:ops/reviews/live/va-veteran-directed-care-program.md; PR #89 commit 3cd72d7",
+     "correction:drafts 5025764"
+    ],
+    "stop_reason": "no-worthwhile-work",
+    "considered": "Ready: ACQ-078/079/080 all done. Plan: publish lane planned +0 (all 7 qualifying pages in #90; only change is fast-appeal additions awaiting ACQ-082). Sweep publish-ready +0. Other lanes cooling: build, demand until 06:40Z, search until 06:26Z; conversion saturated (waiting on Joseph). Backlog fallback resting until 13:17Z after the previous session's six explorations (01:11-01:17Z). Monitor not due until 06:26Z. Outreach prep: no reply, no post due, the only ACT target already has a ready draft. ACQ-081 and ACQ-082 must be done by a different session.",
+    "resume_when": "Now: ACQ-081 (verify VA commit 3cd72d7 in #89) and ACQ-082 (verify drafts 5025764 and port to #90) are ready for a different session; then monitor 06:26Z, sweeps demand-questions/asset-gaps/draft-review ~06:35Z",
+    "sweep_due_left": [],
+    "sessions_24h": 5,
+    "handoff": {
+     "tasks_for_next_session": [
+      "ACQ-081",
+      "ACQ-082"
+     ],
+     "waits_for_next_due_session": true
+    },
+    "backlog_discovery": {
+     "explorations": 0,
+     "avenue_classes": [],
+     "tasks_added": 0,
+     "concluded": null
+    }
+   },
    {
     "run": "cse_014eaiSaeYoez1bK3E9MFwz4",
     "start_utc": "2026-11-25T01:02Z",
@@ -3628,8 +3664,8 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-25T01:17Z",
-   "eligible_now": 0,
+   "written_utc": "2026-11-25T01:44Z",
+   "eligible_now": 2,
    "next_due": [
     {
      "utc": "2026-11-25T06:26Z",
