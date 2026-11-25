@@ -1305,12 +1305,11 @@ GUIDES = [
                 "instead of submitting bills; HFS describes this option as available to "
                 "people enrolled in spenddown who are aged, blind, or have a disability "
                 "and live in the community.</p>",
-                "<p>This is the detail families miss: nursing home care is expensive "
-                "enough that the monthly spend-down amount for someone in a facility is "
-                "often met immediately by the facility's own bill. Spenddown is "
-                "frequently the route by which a long nursing home stay ends up "
-                "Medicaid-covered even when the same person would not have qualified for "
-                "Medicaid the month before they were admitted.</p>",
+                "<p>HFS lists bills for nursing home services among the medical "
+                "expenses that count toward spenddown. How spenddown and your "
+                "parent's own income apply to a nursing home stay is worked out by "
+                "the DHS caseworker; ask before assuming the facility's bill settles "
+                "it.</p>",
             ]),
             ("Protecting a spouse who stays at home", [
                 "<p>Federal and state rules exist specifically so that one spouse "
@@ -1345,7 +1344,10 @@ GUIDES = [
                 "<p>Both standards change every year, and HFS reissues the notice each "
                 "time. Do not rely on a figure copied from any article, including this "
                 "one, once a year has passed &mdash; check the current HFS notice or ask "
-                "the DHS caseworker handling the case.</p>",
+                "the DHS caseworker handling the case. One exception, in HFS's "
+                "words: &ldquo;The CSRA determination only occurs once.&rdquo; If it "
+                "was already determined at application, the amount is not updated "
+                "when the standard rises.</p>",
             ]),
             ("A figure this guide will not publish", [
                 "<p>Illinois law sets a monthly personal needs allowance for Medicaid "
