@@ -4089,7 +4089,7 @@ GUIDES = [
         "bridge": ("A cheaper license plate and free transit rides are a "
                "different question from whether your parent can still get "
                "around safely enough to use either one."),
-        "reviewed": "2026-11-17",
+        "reviewed": "2026-11-25",
         "title": "Illinois Benefit Access: Free Transit and a Cheaper License Plate",
         "h1": "Illinois Benefit Access Program: free transit and a cheaper license plate",
         "desc": ("Illinois seniors and people with disabilities under an income limit "
@@ -4103,7 +4103,9 @@ GUIDES = [
                    "discounted license plate sticker through the Secretary "
                    "of State. To qualify, a person must be 65 or older "
                    "before January 1 of the current year (or turning 65 "
-                   "this year), live in Illinois, and have had gross "
+                   "this year) or be at least 16 and totally and "
+                   "permanently disabled before January 1, live in "
+                   "Illinois, and have had gross "
                    "household income below a published limit for the last "
                    "closed tax year &mdash; <strong>$33,562</strong> for one "
                    "person, <strong>$44,533</strong> for two, or "
