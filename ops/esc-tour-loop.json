@@ -2731,14 +2731,12 @@
   "confirmation": "Claude Scheduled Tasks screenshot: ESCG Tour Acquisition Loop active, Pull request: Commits pushed on matching repository. Previous setup screenshot: head branch automation/esc-tour-loop."
  },
  "owner_review_needed": [
-  "PUBLISH (the most valuable thing you can do; about 15 minutes): merge #90 'Publish batch: 7 guides' and nothing else of the publish pull requests. It contains #87 and #88 (close those after), and publishes all seven unpublished guides: nursing home responsible-party signing, assisted-living move-out notice, Medicare fast appeal from hospital or rehab, Medicaid pending in a nursing home, VA home care and aide, Illinois money management program, parent refusing to move and guardianship. Every page passed review under the scope rule (corrections verified 25 Nov); 122 of 122 quotations found. Then run tools/publish.py.",
-  "ACCURACY (2 minutes): merge #89, corrections to five live guides found by auditing nine of them: a stale PACE launch date removed; the nursing home screening answer limits the PASRR screen to Medicaid-certified homes; the Benefit Access answer names the disability route; the Medicaid long-term care guide drops an unsupported spenddown claim, says the spousal resource allowance is set only once, and states the $60 personal needs allowance from HFS's notice of 25 January 2024 (this re-pins two tests listed at the top of #89; to keep the old wording say 'drop the allowance commit'); and the VA Veteran-Directed Care guide no longer lets living far from a VA facility count as qualifying for community care. Every commit was read against its source by a second reader. Merges cleanly before or after #90.",
-  "TRACKING AND SEARCH pull requests (about 10 minutes; merge any you accept, in any order after #90): #84 with #79 (a tour inquiry keeps its arrival channel; #84 contains #80), #85 (four choosing-stage guides link to the Evanston assisted-living page; since 25 Nov it contains #90, so merge #90 first), #81 (homepage title names assisted living and memory care in Evanston), #86 (the checklist PDF gets one disclosed tour-request line), #78 (estate-recovery guide: tour checklist and tour link). All eight open pull requests on this list were test-merged together on 25 Nov in three orders: no conflicts, the rebuild changes nothing, all tests pass. Optional with it: request indexing for /assisted-living-evanston/ in Search Console.",
-  "EVANSTON NOW ESSAY (yours; the draft is in your Claude chat): rewrite it and submit it through their contact form. A 'what to notice on a holiday visit, and what to ask next' angle submitted by about 10 Dec lands in the early-January inquiry peak. Decide on Patch after that.",
-  "ONE FREE PUBLIC TALK? Yes or no is enough (for example 'What to ask on a senior-living tour' at a library or senior center). It would open the Evanston Now calendar, the Daily Herald, Patch calendars and Rotary at once; Wilmette, Niles-Maine and Morton Grove libraries run such programs.",
-  "OPTIONAL CALLS (these publish no email address): New Trier Township social services 847-446-8202; Village of Northbrook 847-272-5050 about its Senior Housing Resources directory; Skokie Human Services.",
-  "HOUSEKEEPING (2 minutes): after #90 is merged, close #87 and #88 if GitHub has not already marked them merged; close #80 once #84 is merged; the stray branch claude/estate-recovery-tour-path (same commit as #78) can be deleted.",
-  "For the outreach operator, nothing for you to do: one referral proposal is ready (Open Communities' Older Adult Housing Resources list; Gmail draft, ref em-1122a)."
+  "PACKAGE 25 Nov (one merge, about 15 minutes to skim): merge #91. It holds 7 new guides, corrections to 5 live guides and 5 tracking, search and tour-path changes (#90, #89, #84, #79, #85, #81, #86, #78), tested together: the rebuild changes nothing and all eleven test suites pass. Two items touch things you reserved and are quoted at the top of the pull request: #86 adds the tour line you asked for on 22 Nov to the checklist PDF ('Want a tour of Westminster Place, where the author works? Ask online.'), and #84 with #79 keep a visitor's arrival channel through the tour click (no new data). After the merge the site still has to be deployed: say 'deploy' in the Claude chat where you asked for the daily package, or run python tools/publish.py on your PC (decision A removes that step). To leave something out: 'package without #<n>'.",
+  "A. AUTO-DEPLOY (you, once, about 5 minutes in Netlify; $0): merging does not publish today, because Netlify is not connected to GitHub; every release waits for a manual deploy. In Netlify open the project evanston-senior-care-guide, Project configuration, Build & deploy, Continuous deployment, Link repository, GitHub, JGBALL23/evanston-senior-care-guide, branch main, build command empty; then under Branches and deploy contexts turn Deploy Previews off. From then on a merge is live about a minute later. Say 'A done' when it is linked, or 'A no' to keep deploying by hand.",
+  "B. SEARCH CONSOLE WITHOUT YOUR PC ('B yes' or 'B no'; then about 2 minutes, once; $0): the weekly Search Console read happens only when your PC's Chrome is on (last read 18 Nov), and the search and demand work waits for it. Your own Make account can read it instead, about 3 operations a week, after one Google sign-in through a Make link. It gives Make's Search Console app access to your property; on 17 Nov you ruled out third-party access, so this one is yours to decide.",
+  "C. ONE FREE PUBLIC TALK? ('C yes' or 'C no') For example 'What to ask on a senior-living tour' at a library or senior center. A yes opens the Evanston Now calendar, the Daily Herald, Patch calendars and Rotary at once; Wilmette, Niles-Maine and Morton Grove libraries run such programs.",
+  "ONLY YOU (when you have time): the Evanston Now essay (the draft is in your Claude chat; a 'what to notice on a holiday visit, and what to ask next' angle submitted through their contact form by about 10 Dec lands in the early-January inquiry peak); two optional calls to offices that publish no email address: New Trier Township social services 847-446-8202 and Village of Northbrook 847-272-5050 about its Senior Housing Resources directory.",
+  "FOR THE OPERATOR (nothing for you to do): one referral proposal is ready (Open Communities' Older Adult Housing Resources list; Gmail draft, ref em-1122a); the weekly Search Console read is due, with an indexing request for /assisted-living-evanston/ once #91 is live."
  ],
  "hourly_backlog_policy": {
   "enabled": true,
@@ -2780,7 +2778,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Next due 06:26Z (monitor), with ACQ-082 (verify the fast-appeal additions on drafts 5025764, then add an 'Update guide' commit to #90's own branch) for that session; sweeps demand-questions, asset-gaps and draft-review about 06:35Z; live-accuracy 12:50Z; backlog discovery rests until 13:17Z. Waiting on Joseph: merge #90, #89 and the tracking and search pull requests.",
+ "next_discovery": "Next due 06:26Z (monitor), with ACQ-082 (verify the fast-appeal additions on drafts 5025764, then add an 'Update guide' commit to #90's own branch) and the first daily package cut (task package:20261125: merge #90's new head into #91's branch claude/package-20261125, rebuild, run every suite, rewrite the pull request body and the owner list); sweeps demand-questions, asset-gaps and draft-review about 06:35Z; live-accuracy 12:50Z; backlog discovery rests until 13:17Z. Waiting on Joseph: the daily package #91 and decisions A, B and C in owner_review_needed.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -3707,7 +3705,33 @@
     }
    ]
   },
-  "procedure": "v4.3.3 (25 Nov 2026 01:35Z: v4.3.2 after its first production chain; hand-off tasks are not a session's own backlog, live corrections are verified and keep the library date, pinned tests are re-pinned inside the review pull request, an open batch is updated in place, pull requests are kept mergeable)"
+  "procedure": "v4.3.3 with the daily package (25 Nov 2026 03:50Z: Joseph approves once a day, one pull request and lettered decisions in owner_review_needed; the worker cuts the package in the first session after 05:00 UTC and no longer pushes about approvals; before that, v4.3.3 of 01:35Z: hand-off tasks are not a session's own backlog, live corrections are verified and keep the library date, pinned tests are re-pinned inside the review pull request, an open batch is updated in place, pull requests are kept mergeable)",
+  "package": {
+   "pr": 91,
+   "branch": "claude/package-20261125",
+   "head": "ec2b3af",
+   "cut_utc": "2026-11-25T03:33Z",
+   "contains": [
+    90,
+    89,
+    84,
+    79,
+    85,
+    81,
+    86,
+    78,
+    87,
+    88,
+    80
+   ],
+   "batch": 90,
+   "accuracy": 89,
+   "out": [],
+   "excluded": [],
+   "superseded": [],
+   "after_merge": "After the merge the site is not live yet: Netlify is not connected to GitHub, so nothing deploys by itself. Say \"deploy\" in the Claude chat where you asked for the daily package and it is deployed and checked page by page, or run python tools/publish.py on your PC. Decision A (link Netlify to GitHub once) removes this step for good.",
+   "about": "The daily approval package (procedure step 7, DAILY PACKAGE). One pull request for Joseph to merge; the worker re-cuts it once a day. after_merge is changed only by a session that heard Joseph say how the site gets deployed."
+  }
  },
  "planner": {
   "version": "4.3.3",
@@ -3748,7 +3772,7 @@
     "owner_wip_limit": 3,
     "plan_cooldown_hours": 12,
     "open_prs": [
-     90
+     91
     ],
     "owner_open": 1,
     "cooldown_until_utc": "2026-11-25T13:43Z",
@@ -4191,5 +4215,6 @@
     "rest_hours": 12
    }
   }
- }
+ },
+ "owner_decisions": []
 }
