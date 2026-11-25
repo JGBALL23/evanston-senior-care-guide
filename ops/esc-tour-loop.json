@@ -190,25 +190,6 @@
    "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
    "found_utc": "2026-11-25T00:48Z"
-  },
-  {
-   "id": "ACQ-070",
-   "task": "Accuracy audit of the live guide illinois-nursing-home-preadmission-screening under the review rules (quotation checker, scope rule), packet at ops/reviews/live/illinois-nursing-home-preadmission-screening.md; corrections into the rolling review PR claude/accuracy-20261125",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "plan",
-   "key": "audit:illinois-nursing-home-preadmission-screening",
-   "evidence": "quotecheck --all 2026-11-25: 1 NEAR MATCH on an eligibility phrase 'regardless of income, assets, or funding source' (punctuation differs from the source; flagged NOT FOUND by the main chat's 00:25Z run); the guide states who must be screened before nursing home admission, an eligibility rule families act on.",
-   "expected_tour_acquisition_value": "Families act on live deadlines, figures and eligibility rules; a wrong one costs trust and the inquiry that would follow from it.",
-   "impact": 3,
-   "confidence": 3,
-   "effort": 2,
-   "executor": "worker (research and preparation only)",
-   "done_when": "ops/reviews/live/illinois-nursing-home-preadmission-screening.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to the rolling accuracy PR against main",
-   "score": 4.5,
-   "status": "ready",
-   "priority": 2,
-   "found_utc": "2026-11-25T00:50Z"
   }
  ],
  "completed": [
@@ -2265,6 +2246,39 @@
    },
    "done_utc": "2026-11-25T00:55Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-070",
+   "task": "Accuracy audit of the live guide illinois-nursing-home-preadmission-screening under the review rules (quotation checker, scope rule), packet at ops/reviews/live/illinois-nursing-home-preadmission-screening.md; corrections into the rolling review PR claude/accuracy-20261125",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:illinois-nursing-home-preadmission-screening",
+   "evidence": "quotecheck --all 2026-11-25: 1 NEAR MATCH on an eligibility phrase 'regardless of income, assets, or funding source' (punctuation differs from the source; flagged NOT FOUND by the main chat's 00:25Z run); the guide states who must be screened before nursing home admission, an eligibility rule families act on.",
+   "expected_tour_acquisition_value": "Families act on live deadlines, figures and eligibility rules; a wrong one costs trust and the inquiry that would follow from it.",
+   "impact": 3,
+   "confidence": 3,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/live/illinois-nursing-home-preadmission-screening.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to the rolling accuracy PR against main",
+   "score": 4.5,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-25T00:50Z",
+   "result": "Audited live illinois-nursing-home-preadmission-screening on main. quotecheck 7 FOUND + 1 NEAR MATCH (comma added inside quotation marks). 12 claims scope-checked against the 2017 HFS notice, HFS 3191 and IDoA CCP. 1 scope defect: the answer required a PASRR Level I screen before every admission; HFS scopes it to Medicaid-certified nursing facilities. Both fixed as commit 7c76548 on the rolling accuracy PR #89 (body updated); checks pass except the same 15 pre-existing citation failures on unreachable hosts.",
+   "verdicts": [
+    "corrections"
+   ],
+   "sources": [
+    "https://hfs.illinois.gov/medicalproviders/notices/notice.prn170404a.html",
+    "https://hfs.illinois.gov/info/brochures-and-forms/brochures/hfs3191.html"
+   ],
+   "deliverable": {
+    "type": "pr",
+    "ref": "#89 commit 7c76548; ops/reviews/live/illinois-nursing-home-preadmission-screening.md"
+   },
+   "done_utc": "2026-11-25T00:58Z",
+   "minutes": 3
   }
  ],
  "blocked": [],
@@ -2275,7 +2289,7 @@
   "picked": "ACQ-055 done, ACQ-056 done",
   "why": "Worked: monitor (site OK, ~2 genuine, 0 tour requests) and 2 publish-ready review packets (Medicaid-pending, guardianship); stopped: no-worthwhile-work; resume: monitor 25 Nov 06:26Z"
  },
- "last_verified_action": "ACQ-069 done 2026-11-25T00:55Z: Audited live va-caregiver-support-program on main. quotecheck 29/29 FOUND; 11 claims scope-checked against the VA.gov PCAFC page (last updated 10 Nov 2026), th…",
+ "last_verified_action": "ACQ-070 done 2026-11-25T00:58Z: Audited live illinois-nursing-home-preadmission-screening on main. quotecheck 7 FOUND + 1 NEAR MATCH (comma added inside quotation marks). 12 claims scope-chec…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -2311,7 +2325,7 @@
  },
  "owner_review_needed": [
   "PUBLISH (the most valuable thing you can do; about 15 minutes when it is ready): do not merge #87 or #88 yet. The 25 Nov re-review under the scope rule passed 3 of the 7 unpublished guides as they stand and found small scope defects in the other 4 (each corrected on drafts; 2 of them are the pages in #87 and #88). A later session checks those corrections, then one batch pull request with all 7 follows and replaces #87 and #88; this line will name it. Merging it publishes them; then run tools/publish.py.",
-  "TRACKING AND SEARCH pull requests (about 10 minutes; merge any you accept, then redeploy): #84 with #79 (a tour inquiry keeps its arrival channel; #84 contains #80), #85 (four choosing-stage guides link to the Evanston assisted-living page), #81 (homepage title names assisted living and memory care in Evanston), #86 (the checklist PDF gets one disclosed tour-request line), #78 (estate-recovery guide: tour checklist and tour link), #89 (rolling accuracy corrections to live guides; today one stale PACE launch date removed). Optional with it: request indexing for /assisted-living-evanston/ in Search Console.",
+  "TRACKING AND SEARCH pull requests (about 10 minutes; merge any you accept, then redeploy): #84 with #79 (a tour inquiry keeps its arrival channel; #84 contains #80), #85 (four choosing-stage guides link to the Evanston assisted-living page), #81 (homepage title names assisted living and memory care in Evanston), #86 (the checklist PDF gets one disclosed tour-request line), #78 (estate-recovery guide: tour checklist and tour link), #89 (rolling accuracy corrections to live guides: a stale PACE launch date removed; the nursing home screening answer now limits the PASRR screen to Medicaid-certified homes). Optional with it: request indexing for /assisted-living-evanston/ in Search Console.",
   "EVANSTON NOW ESSAY (yours; the draft is in your Claude chat): rewrite it and submit it through their contact form. A 'what to notice on a holiday visit, and what to ask next' angle submitted by about 10 Dec lands in the early-January inquiry peak. Decide on Patch after that.",
   "ONE FREE PUBLIC TALK? Yes or no is enough (for example 'What to ask on a senior-living tour' at a library or senior center). It would open the Evanston Now calendar, the Daily Herald, Patch calendars and Rotary at once; Wilmette, Niles-Maine and Morton Grove libraries run such programs.",
   "OPTIONAL CALLS (these publish no email address): New Trier Township social services 847-446-8202; Village of Northbrook 847-272-5050 about its Senior Housing Resources directory; Skokie Human Services.",
@@ -2936,9 +2950,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSarrUfj6PScmQNGxys",
-   "utc": "2026-11-25T00:55Z",
+   "utc": "2026-11-25T00:58Z",
    "since_utc": "2026-11-25T00:36Z",
-   "productive_min": 24,
+   "productive_min": 27,
    "deliverables": [
     "review_packet:ops/reviews/illinois-nursing-home-responsible-party.md; drafts 2c46e74",
     "review_packet:ops/reviews/illinois-assisted-living-involuntary-move-out.md; drafts babc23c",
@@ -2948,7 +2962,8 @@
     "review_packet:ops/reviews/va-home-based-primary-care-and-aide.md; drafts 38ba709",
     "review_packet:ops/reviews/illinois-money-management-program.md",
     "pr:#89; ops/reviews/live/illinois-pace-program.md",
-    "audit:ops/reviews/live/va-caregiver-support-program.md"
+    "audit:ops/reviews/live/va-caregiver-support-program.md",
+    "pr:#89 commit 7c76548; ops/reviews/live/illinois-nursing-home-preadmission-screening.md"
    ]
   },
   "monitor": {
