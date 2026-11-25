@@ -2795,7 +2795,7 @@ GUIDES = [
         "bridge": ("Knowing that a screening is required is a different "
                "question from knowing whether a nursing home is even the "
                "setting your parent actually needs."),
-        "reviewed": "2026-11-17",
+        "reviewed": "2026-11-25",
         "title": "Pre-Admission Screening for an Illinois Nursing Home, Explained",
         "h1": "Does my parent need to be screened before moving into an Illinois nursing home?",
         "desc": ("Illinois screens everyone before a nursing home admission, even "
@@ -2809,7 +2809,8 @@ GUIDES = [
                    "&mdash; a private-pay admission is not exempt. Two separate checks "
                    "are involved: a <strong>Determination of Need (DON)</strong> "
                    "assessment of the functional need for nursing-facility-level care, "
-                   "and a <strong>PASRR Level I screen</strong> for serious mental "
+                   "and, at a Medicaid-certified nursing facility, a <strong>PASRR "
+                   "Level I screen</strong> for serious mental "
                    "illness or an intellectual/developmental disability. Both must be "
                    "completed before admission."),
         "sources": srcs("hfs_preadmission_notice", "hfs_ltc_brochure", "idoa_ccp"),
@@ -2856,7 +2857,7 @@ GUIDES = [
                 "privately and assume Medicaid rules do not apply to them. The "
                 "screening requirement is a state statute covering <strong>every</strong> "
                 "nursing facility admission &mdash; the HFS notice is explicit that it "
-                "applies &ldquo;regardless of income, assets, or funding source&rdquo;. "
+                "applies &ldquo;regardless of income, assets or funding source&rdquo;. "
                 "Paying the full bill out of pocket does not remove the requirement to "
                 "be screened before moving in.</p>",
                 "<p>HFS's own consumer brochure on long-term care frames the same rule "
