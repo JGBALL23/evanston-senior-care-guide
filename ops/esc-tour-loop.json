@@ -138,27 +138,6 @@
    "not_before": "VA.gov rate pages show the table effective 1 December 2026",
    "priority": 2,
    "found_utc": "2026-11-25T01:14Z"
-  },
-  {
-   "id": "ACQ-084",
-   "task": "Review long-term-care-insurance-assisted-living-illinois under the review rules",
-   "workstream": "build",
-   "lane": "build",
-   "source": "followup",
-   "key": "review:long-term-care-insurance-assisted-living-illinois",
-   "not_run": [
-    "cse_014eaiSeZV5K4aUnZndensii"
-   ],
-   "priority": 1,
-   "evidence": "drafts commit 83fc8f3 (ACQ-083). Builder's note: the Shopper's Guide is a 2019 NAIC buying guide posted by the Illinois Department on Aging; check that every rule taken from it is presented as how policies are commonly written, not as Illinois law or the parent's policy.",
-   "expected_tour_acquisition_value": "quality gate before publication",
-   "impact": 3,
-   "confidence": 5,
-   "effort": 2,
-   "executor": "worker (research and preparation only)",
-   "done_when": "packet at ops/reviews/long-term-care-insurance-assisted-living-illinois.md with its counts and verdict",
-   "status": "ready",
-   "found_utc": "2026-11-25T06:36Z"
   }
  ],
  "completed": [
@@ -2844,6 +2823,44 @@
     "ref": "PR #91 at 0b0cdf3"
    },
    "done_utc": "2026-11-25T07:09Z"
+  },
+  {
+   "id": "ACQ-084",
+   "task": "Review long-term-care-insurance-assisted-living-illinois under the review rules",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "review:long-term-care-insurance-assisted-living-illinois",
+   "not_run": [
+    "cse_014eaiSeZV5K4aUnZndensii"
+   ],
+   "priority": 1,
+   "evidence": "drafts commit 83fc8f3 (ACQ-083). Builder's note: the Shopper's Guide is a 2019 NAIC buying guide posted by the Illinois Department on Aging; check that every rule taken from it is presented as how policies are commonly written, not as Illinois law or the parent's policy.",
+   "expected_tour_acquisition_value": "quality gate before publication",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet at ops/reviews/long-term-care-insurance-assisted-living-illinois.md with its counts and verdict",
+   "status": "done",
+   "found_utc": "2026-11-25T06:36Z",
+   "result": "Review packet written for long-term-care-insurance-assisted-living-illinois (drafts 83fc8f3). Quotation checker: 21/21 FOUND, 5 pages readable. Every Shopper's Guide rule is framed as common policy practice, not Illinois law (builder's concern holds). 31 claims scope-checked. 1 scope defect: the closing sentence implies Illinois Medicaid takes over an assisted living bill; HFS's SLP page shows Medicaid pays only for SLP waiver services there and the resident pays room and board. 1 overstatement: 'Most policies' where the source says 'many'. Verdict: publish-ready after corrections.",
+   "verdicts": [
+    "publish-ready after corrections"
+   ],
+   "sources": [
+    "https://ilaging.illinois.gov/content/dam/soi/en/web/aging/ship/documents/shoppers-guide-ltc-insur.pdf (read 2026-11-25)",
+    "https://idoi.illinois.gov/consumers/understanding-complaint-process.html (2026-11-25)",
+    "https://idoi.illinois.gov/consumers/consumerinsurance/lifeannuities/long-term-care.html (2026-11-25)",
+    "https://hfs.illinois.gov/medicalprograms/slf.html (2026-11-25)"
+   ],
+   "lesson": "A closing 'bigger picture' sentence that links a Medicaid guide can carry an unsourced payer claim; check bridge sentences for scope, not only quotations.",
+   "deliverable": {
+    "type": "review_packet",
+    "ref": "ops/reviews/long-term-care-insurance-assisted-living-illinois.md"
+   },
+   "done_utc": "2026-11-25T12:26Z",
+   "minutes": 3
   }
  ],
  "blocked": [],
@@ -2854,7 +2871,7 @@
   "picked": "ACQ-082 done, ACQ-083 done, ACQ-085 done, ACQ-084 ready (next session), ACQ-086 ready (next session)",
   "why": "Worked: verified fast-appeal additions (ported to #90); built LTC-insurance guide on drafts; audited complaint guide (3 fixes in #89). stopped: no-worthwhile-work; resume: next session reviews ACQ-084, verifies ACQ-086"
  },
- "last_verified_action": "ACQ-087 done 2026-11-25T07:09Z: Package #91 cut by the supervising chat: first at 03:33Z (ec2b3af), again at 07:08Z (0b0cdf3) after the 06:24Z session added a verified commit to #90 (4f77740,…",
+ "last_verified_action": "ACQ-084 done 2026-11-25T12:26Z: Review packet written for long-term-care-insurance-assisted-living-illinois (drafts 83fc8f3). Quotation checker: 21/21 FOUND, 5 pages readable. Every Shopper's…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -3514,8 +3531,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiScJVcYfw9RjXT6F5Km",
-   "utc": "2026-11-25T12:24Z",
-   "since_utc": "2026-11-25T12:24Z"
+   "utc": "2026-11-25T12:26Z",
+   "since_utc": "2026-11-25T12:24Z",
+   "productive_min": 3,
+   "deliverables": [
+    "review_packet:ops/reviews/long-term-care-insurance-assisted-living-illinois.md"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-25T06:25Z"
