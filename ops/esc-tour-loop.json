@@ -118,25 +118,6 @@
    "found_utc": "2026-11-23T17:43Z",
    "not_before_utc": "2026-12-08T15:00Z",
    "not_before": "Timing, not data: 2027 figures are already on medicare.gov (read 2026-11-23). Prepare the PR in December so it is fresh when Joseph merges it for 1 Jan 2027."
-  },
-  {
-   "id": "ACQ-073",
-   "task": "Publish batch: port the 7 publish-ready guides (illinois-assisted-living-involuntary-move-out, illinois-nursing-home-responsible-party, medicare-fast-appeal-hospital-rehab-discharge, va-home-based-primary-care-and-aide, illinois-medicaid-pending-nursing-home, illinois-money-management-program, illinois-parent-refuses-to-move-guardianship) from drafts into one review pull request against main that supersedes #87 and #88",
-   "workstream": "publish",
-   "lane": "publish",
-   "source": "plan",
-   "key": "publish:batch-20261125",
-   "evidence": "ops/reviews/ packets dated 2026-11-25: 3 say 'Verdict: publish-ready' with counts line; 4 say 'publish-ready after corrections' and carry 'Corrections verified: 2026-11-25' (ACQ-064..067, this session). #87 and #88 hold older text of two of these pages.",
-   "expected_tour_acquisition_value": "Seven decision-stage guides (nursing home admission papers, assisted-living move-out, Medicare rehab appeals, Medicaid pending, VA home care, money management, parent refusing to move) go live with one merge, each with the tour path; more qualified search entry points for families at the decision stage.",
-   "impact": 4,
-   "confidence": 4,
-   "effort": 3,
-   "executor": "worker (research and preparation only)",
-   "done_when": "branch claude/publish-batch-20261125-1 pushed with one commit per page, build and five checks and quotecheck on every page, one review PR opened against main, its number in planner/lanes[id=publish]/open_prs, owner_review_needed publish line updated",
-   "score": 5.33,
-   "status": "ready",
-   "priority": 2,
-   "found_utc": "2026-11-25T01:04Z"
   }
  ],
  "completed": [
@@ -2409,6 +2390,33 @@
    "lesson": "A scope correction that names the payer or person in the same sentence as the quotation re-reads cleanly against the checker context.",
    "done_utc": "2026-11-25T01:03Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-073",
+   "task": "Publish batch: port the 7 publish-ready guides (illinois-assisted-living-involuntary-move-out, illinois-nursing-home-responsible-party, medicare-fast-appeal-hospital-rehab-discharge, va-home-based-primary-care-and-aide, illinois-medicaid-pending-nursing-home, illinois-money-management-program, illinois-parent-refuses-to-move-guardianship) from drafts into one review pull request against main that supersedes #87 and #88",
+   "workstream": "publish",
+   "lane": "publish",
+   "source": "plan",
+   "key": "publish:batch-20261125",
+   "evidence": "ops/reviews/ packets dated 2026-11-25: 3 say 'Verdict: publish-ready' with counts line; 4 say 'publish-ready after corrections' and carry 'Corrections verified: 2026-11-25' (ACQ-064..067, this session). #87 and #88 hold older text of two of these pages.",
+   "expected_tour_acquisition_value": "Seven decision-stage guides (nursing home admission papers, assisted-living move-out, Medicare rehab appeals, Medicaid pending, VA home care, money management, parent refusing to move) go live with one merge, each with the tour path; more qualified search entry points for families at the decision stage.",
+   "impact": 4,
+   "confidence": 4,
+   "effort": 3,
+   "executor": "worker (research and preparation only)",
+   "done_when": "branch claude/publish-batch-20261125-1 pushed with one commit per page, build and five checks and quotecheck on every page, one review PR opened against main, its number in planner/lanes[id=publish]/open_prs, owner_review_needed publish line updated",
+   "score": 5.33,
+   "status": "done",
+   "priority": 2,
+   "found_utc": "2026-11-25T01:04Z",
+   "result": "Opened review PR #90 'Publish batch: 7 guides' from claude/publish-batch-20261125-1, cut from #88 (which contains #87). Two 'Update guide' commits port the verified scope corrections (babc23c, 2c46e74) to the move-out and responsible-party pages; five 'Publish guide' commits port medicaid-pending, money-management, parent-refuses-to-move, medicare-fast-appeal and va-home-based-care (GUIDES, CARDS, new SRC, RELATED; each named from two related live guides; desc shortened to main's 160-char gate, no other text changed). Checks: build 43 URLs; test.js 768/768; check-guides 3186/0; citations 15 dead, all pre-existing main URLs (13 ilga.gov unreachable from here, 2 trulee 403); mobile-nav skipped (no websockets); quotecheck 122/122 FOUND. Not merged; publish.py left to Joseph. owner_review_needed publish line now names #90.",
+   "deliverable": {
+    "type": "publish_pr",
+    "ref": "PR #90"
+   },
+   "lesson": "When porting a GUIDES block, take the closing '    },' line with its newline; a missing newline leaves '},]' which parses but breaks the next insertion point.",
+   "done_utc": "2026-11-25T01:10Z",
+   "minutes": 6
   }
  ],
  "blocked": [],
@@ -2419,7 +2427,7 @@
   "picked": "ACQ-057 done, ACQ-058 done, ACQ-059 done, ACQ-060 done, ACQ-061 done, ACQ-062 done, ACQ-063 done, ACQ-068 done, ACQ-069 done, ACQ-070 done, ACQ-071 done, ACQ-072 done; queued for a later session: ACQ-064..067 (verify), not_run this RUN",
   "why": "Worked: 7 drafts re-reviewed under the scope rule (4 corrected on drafts, 3 publish-ready), 5 live guides audited (3 corrected in review PR #89); stopped: no-worthwhile-work; resume: next session verifies 4 corrections, then the publish batch"
  },
- "last_verified_action": "ACQ-067 done 2026-11-25T01:03Z: Re-read the changed sentence of drafts 38ba709: PCAFC 'pays an eligible primary family caregiver a monthly stipend'. VA.gov 'How are the 2 VA caregiver support…",
+ "last_verified_action": "ACQ-073 done 2026-11-25T01:10Z: Opened review PR #90 'Publish batch: 7 guides' from claude/publish-batch-20261125-1, cut from #88 (which contains #87). Two 'Update guide' commits port the ver…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -2454,7 +2462,7 @@
   "confirmation": "Claude Scheduled Tasks screenshot: ESCG Tour Acquisition Loop active, Pull request: Commits pushed on matching repository. Previous setup screenshot: head branch automation/esc-tour-loop."
  },
  "owner_review_needed": [
-  "PUBLISH (the most valuable thing you can do; about 15 minutes when it is ready): do not merge #87 or #88 yet. The 25 Nov re-review under the scope rule passed 3 of the 7 unpublished guides as they stand and found small scope defects in the other 4 (each corrected on drafts; 2 of them are the pages in #87 and #88). A later session checks those corrections, then one batch pull request with all 7 follows and replaces #87 and #88; this line will name it. Merging it publishes them; then run tools/publish.py.",
+  "PUBLISH (the most valuable thing you can do; about 15 minutes): merge #90 'Publish batch: 7 guides' and nothing else of the publish pull requests. It contains #87 and #88 (close those after), and publishes all seven unpublished guides: nursing home responsible-party signing, assisted-living move-out notice, Medicare fast appeal from hospital or rehab, Medicaid pending in a nursing home, VA home care and aide, Illinois money management program, parent refusing to move and guardianship. Every page passed review under the scope rule (corrections verified 25 Nov); 122 of 122 quotations found. Then run tools/publish.py.",
   "TRACKING AND SEARCH pull requests (about 10 minutes; merge any you accept, then redeploy): #84 with #79 (a tour inquiry keeps its arrival channel; #84 contains #80), #85 (four choosing-stage guides link to the Evanston assisted-living page), #81 (homepage title names assisted living and memory care in Evanston), #86 (the checklist PDF gets one disclosed tour-request line), #78 (estate-recovery guide: tour checklist and tour link), #89 (rolling accuracy corrections to live guides: a stale PACE launch date removed; the nursing home screening answer limits the PASRR screen to Medicaid-certified homes; the Benefit Access answer names the disability route). Optional with it: request indexing for /assisted-living-evanston/ in Search Console.",
   "EVANSTON NOW ESSAY (yours; the draft is in your Claude chat): rewrite it and submit it through their contact form. A 'what to notice on a holiday visit, and what to ask next' angle submitted by about 10 Dec lands in the early-January inquiry peak. Decide on Patch after that.",
   "ONE FREE PUBLIC TALK? Yes or no is enough (for example 'What to ask on a senior-living tour' at a library or senior center). It would open the Evanston Now calendar, the Daily Herald, Patch calendars and Rotary at once; Wilmette, Niles-Maine and Morton Grove libraries run such programs.",
@@ -3080,19 +3088,16 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSaeYoez1bK3E9MFwz4",
-   "utc": "2026-11-25T01:04Z",
+   "utc": "2026-11-25T01:10Z",
    "since_utc": "2026-11-25T01:02Z",
-   "productive_min": 4,
+   "productive_min": 10,
    "deliverables": [
     "verification:ops/reviews/illinois-nursing-home-responsible-party.md (drafts 2c46e74)",
     "verification:ops/reviews/illinois-assisted-living-involuntary-move-out.md (drafts babc23c)",
     "verification:ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md (drafts 2dfe3dc)",
-    "verification:ops/reviews/va-home-based-primary-care-and-aide.md (drafts 38ba709)"
-   ],
-   "current": {
-    "what": "plan:publish",
-    "since_utc": "2026-11-25T01:04Z"
-   }
+    "verification:ops/reviews/va-home-based-primary-care-and-aide.md (drafts 38ba709)",
+    "publish_pr:PR #90"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-24T18:26Z"
@@ -3378,9 +3383,10 @@
     "plan_cooldown_hours": 12,
     "open_prs": [
      87,
-     88
+     88,
+     90
     ],
-    "owner_open": 2,
+    "owner_open": 3,
     "cooldown_until_utc": "",
     "last_planned_utc": "2026-11-25T01:04Z",
     "last_plan_result": "Read ops/reviews/ (7 packets with counts lines): 3 publish-ready, 4 publish-ready after corrections now verified (ACQ-064..067). One batch task passed the gate (score 4x4/3); no other publish candidate (live audits go to #89).",
