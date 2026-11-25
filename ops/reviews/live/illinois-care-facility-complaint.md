@@ -29,4 +29,8 @@ Quotations checked: 4. Claims scope-checked: 10. Scope defects: 2. Corrections r
 
 Corrections applied: claude/accuracy-20261125 (PR #89) commit 1cc1b98, 2026-11-25, cse_014eaiSeZV5K4aUnZndensii (reviewed 2026-11-25, listed 2026-10-23 kept; /guides/ index unchanged vs main; sitemap differs from main only in lastmod of corrected guides). Checks: test.js 768/768; check-guides 2696/0; test_paying_nav 331/331; direct_inquiry_consistency 29/29; test_*.mjs and test_*.py pass; citations 15 dead, all ilga.gov (unreachable here) or truleeevanston.com 403, none in this guide; quotecheck 4/4 FOUND. Verification queued for a later session.
 
+## Recommended additions
+
+A1. Supportive living facilities (found 25 Nov in a search-results check: other pages that rank for this question give a separate complaint line for supportive living). The guide covers nursing homes and assisted living but not Supportive Living Program facilities, which HFS runs. Source (HFS Supportive Living Program Resident Fact Sheet, already a source on main): "Complaints concerning a Supportive Living Program provider may be directed to the SLP complaint hotline: 1-844-528-8444". Scope: SLP providers only. Applied as a short section with a link to the live illinois-supportive-living-program guide: PR #89 commit 5bf3b46 (only this page changes; test.js 768/768; check-guides 2696/0; all tools suites pass; quotecheck 5/5).
+
 Verdict: corrections required (2 scope defects; C1 and C2 applied in PR #89, awaiting verification)

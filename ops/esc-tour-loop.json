@@ -162,7 +162,7 @@
   },
   {
    "id": "ACQ-086",
-   "task": "Verify the corrections to illinois-care-facility-complaint in PR #89 (commit 1cc1b98 on claude/accuracy-20261125)",
+   "task": "Verify the corrections to illinois-care-facility-complaint in PR #89 (commits 1cc1b98 and 5bf3b46 on claude/accuracy-20261125)",
    "workstream": "technical",
    "lane": "technical",
    "source": "followup",
@@ -171,13 +171,13 @@
     "cse_014eaiSeZV5K4aUnZndensii"
    ],
    "priority": 1,
-   "evidence": "packet ops/reviews/live/illinois-care-facility-complaint.md (C1, C2); commit 1cc1b98",
+   "evidence": "packet ops/reviews/live/illinois-care-facility-complaint.md (C1, C2, A1); commits 1cc1b98 and 5bf3b46",
    "expected_tour_acquisition_value": "quality gate before the accuracy pull request can enter the daily package",
    "impact": 3,
    "confidence": 5,
    "effort": 1,
    "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against IDPH's complaints page and complaint form; quotecheck all FOUND; 'Corrections verified: <date>, <RUN>' added to the packet and to that guide's lines in the #89 body",
+   "done_when": "each changed sentence of both commits re-read against IDPH's complaints page and complaint form and the HFS SLP resident fact sheet; quotecheck all FOUND; 'Corrections verified: <date>, <RUN>' added to the packet and to that guide's lines in the #89 body",
    "status": "ready",
    "found_utc": "2026-11-25T06:42Z"
   }
@@ -3482,9 +3482,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeZV5K4aUnZndensii",
-   "utc": "2026-11-25T06:42Z",
+   "utc": "2026-11-25T06:45Z",
    "since_utc": "2026-11-25T06:24Z",
-   "productive_min": 14,
+   "productive_min": 18,
    "deliverables": [
     "verification:PR #90 commit 4f77740",
     "guide:drafts 83fc8f3",
@@ -4275,6 +4275,26 @@
    "exhausted_until_utc": "",
    "empty_streak": 0,
    "log": [
+    {
+     "utc": "2026-11-25T06:45Z",
+     "run": "cse_014eaiSeZV5K4aUnZndensii",
+     "key": "search-illinois-nursing-home-complaint-results",
+     "avenue": "search",
+     "lane": null,
+     "candidates": 1,
+     "added": 0,
+     "result": "2026-11-25: web results for 'how to file a complaint against a nursing home or assisted living in Illinois' (IDPH forms, IDoA ombudsman reporting page, legal aid, a law firm) name a separate HFS complaint line for supportive living facilities that the live complaint guide lacked. Verified on HFS's SLP resident fact sh…"
+    },
+    {
+     "utc": "2026-11-25T06:44Z",
+     "run": "cse_014eaiSeZV5K4aUnZndensii",
+     "key": "needs-moving-parent-from-another-state",
+     "avenue": "needs",
+     "lane": null,
+     "candidates": 1,
+     "added": 0,
+     "result": "2026-11-25: 4 dated public family questions on a national caregiver Q&A forum (2018-02, 2017-02, 2016-08, 2015-04: moving a parent on Medicaid to Illinois, to a Chicago-area nursing home). No guide covers it. Allowed-host sources read: Medicare.gov Special Enrollment Periods (moving: 2 full months, plan dropped to Ori…"
+    },
     {
      "utc": "2026-11-25T06:42Z",
      "run": "cse_014eaiSeZV5K4aUnZndensii",
