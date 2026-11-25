@@ -3688,7 +3688,7 @@
    "holder": "cse_014eaiScJVcYfw9RjXT6F5Km",
    "utc": "2026-11-25T13:16Z",
    "since_utc": "2026-11-25T12:24Z",
-   "productive_min": 14,
+   "productive_min": 15,
    "deliverables": [
     "review_packet:ops/reviews/long-term-care-insurance-assisted-living-illinois.md",
     "correction:PR #89 commit d27ae01; ops/reviews/live/illinois-medicaid-look-back-period.md",
@@ -4170,9 +4170,9 @@
      91
     ],
     "owner_open": 1,
-    "cooldown_until_utc": "2026-11-25T13:43Z",
-    "last_planned_utc": "2026-11-25T01:43Z",
-    "last_plan_result": "Read 7 packets in ops/reviews/ and compared each page's GUIDES dict on drafts with #90's branch (claude/publish-batch-20261125-1): all 7 are in #90; differences are #90's deliberate shortened title/desc except medicare-fast-appeal (drafts 5025764, unverified additions) whose port is already queued …",
+    "cooldown_until_utc": "2026-11-26T01:16Z",
+    "last_planned_utc": "2026-11-25T13:16Z",
+    "last_plan_result": "Read 8 packets in ops/reviews/: 7 qualify (publish-ready, or after corrections with Corrections verified) and all 7 are in open batch #90 at 4f77740; drafts has no change to those pages since (newest drafts commits are 83fc8f3 and 2c15ef1, both the new LTC-insurance guide). long-term-care-insurance…",
     "wip_note": "Limit 3 open publish pull requests since 24 Nov 2026 (was 2): batches are stacked, so the newest one publishes all of them with a single merge.",
     "note_open_prs": "#90 contains #87 and #88 (one decision for Joseph); when a batch is open, changed pages are added to its branch, not to a new pull request"
    },
@@ -4318,6 +4318,7 @@
    }
   ],
   "log": [
+   "2026-11-25T13:16Z publish +0: Read 8 packets in ops/reviews/: 7 qualify (publish-ready, or after corrections with Corrections verified) and all 7 are in open batch #90 at 4f77740; drafts ha…",
    "2026-11-25T06:37Z build +0: Same evidence pass as sweep asset-gaps 2026-11-25 (which added and completed ACQ-083, LTC insurance guide). Remaining candidates failed: Illinois memory-care r…",
    "2026-11-25T06:37Z demand +0: Same evidence pass as sweep demand-questions 2026-11-25: the one qualifying question (LTC insurance and assisted living) was built directly (ACQ-083); assisted…",
    "2026-11-25T06:30Z search +0: 2026-11-25 06:3xZ crawl of the live sitemap (36 URLs): all 200, canonical self, one h1 each, descriptions 145-172 chars; only the home page and /assisted-livin…",
@@ -4367,9 +4368,9 @@
     "evidence": "ops/reviews/ packets; open pull requests; the asset on drafts and its absence from main.",
     "output": "One publish-batch task for this session (key publish-batch:<YYYYMMDD>-<n>) covering all of them: procedure step 7, Publish package.",
     "why": "Publishing is the step that turns drafts into visitors.",
-    "last_checked_utc": "2026-11-25T01:43Z",
-    "next_check_utc": "2026-11-25T13:43Z",
-    "last_result": "Same read as the publish plan pass at 01:45Z: 7 of 7 qualifying pages are in open #90; the only content change on drafts since porting (fast-appeal additions 5025764) waits for verification in ACQ-082, which also ports it to #90. Nothing to package now.",
+    "last_checked_utc": "2026-11-25T13:16Z",
+    "next_check_utc": "2026-11-26T01:16Z",
+    "last_result": "Same read as the publish plan pass at 13:2xZ: 7 qualifying pages all in #90, unchanged on drafts since porting; the LTC-insurance page waits for verification of drafts 2c15ef1 (ACQ-093). Nothing to package.",
     "last_added": 0
    },
    {
@@ -4508,6 +4509,7 @@
    }
   ],
   "sweep_log": [
+   "2026-11-25T13:16Z publish-ready +0: Same read as the publish plan pass at 13:2xZ: 7 qualifying pages all in #90, unchanged on drafts since porting; the LTC-insurance page waits for verification o…",
    "2026-11-25T12:28Z live-accuracy +2: quotecheck --all on main 4dc2468 (unchanged since last check): 32 live guides, same 1 NOT FOUND (pace, in #89) and 2 NEAR MATCH (preadmission in #89; VDC audit…",
    "2026-11-25T06:37Z demand-questions +0: 2026-11-25: DEMAND.md Open holds 2 (unsafe discharge; AL rate rise after reassessment, both added 24 Nov 06:34Z, not yet 30 h old). Searched public caregiver Q…",
    "2026-11-25T06:33Z asset-gaps +1: 2026-11-25: guide index (32 main, 39 drafts), DEMAND Open/Done read. Candidates: (1) long-term care insurance claims for assisted living: 4 dated public family…",
