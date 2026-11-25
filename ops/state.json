@@ -482,7 +482,6 @@
     ]
   },
   "log": [
-    "2026-11-18T22:53Z Joseph asked for a nonstop plan-execute-review loop: next wake is always 2 minutes after a session ends, day and night",
     "2026-11-18T23:16Z Medicare guide tour path live (PR #75); live page 200 with checklist + tour links. Next tour-path candidate: estate-recovery guide.",
     "2026-11-18T23:15Z loop: no outreach replies (inbox 2d: only notifications); no ready items; posting cap met today; estate-recovery tour path skipped (readers are past the move; page already links the assessment); tour-path work done for every page with search evidence; next real task: lead scan at 23:40Z",
     "2026-11-18T23:20Z loop: Chrome connected; nothing actionable until the lead scan opens at 23:40Z, so the next wake is set to that time (waking every 2 min until then would only re-poll unchanged data)",
@@ -521,7 +520,8 @@
     "2026-11-24T19:45Z afternoon lead scan 11 groups, 217 posts, 0 new leads; no org replies or tour requests",
     "2026-11-24T22:45Z check: Rogers Park post live, 0 comments; no org replies or tour requests; evening scan next at 23:56Z",
     "2026-11-25T00:05Z evening lead scan 11 groups, 204 posts, 0 new leads; no org replies or tour requests",
-    "2026-11-25T03:40Z late lead scan 11 groups, 193 posts, 0 new leads; no org replies or tour requests"
+    "2026-11-25T03:40Z late lead scan 11 groups, 193 posts, 0 new leads; no org replies or tour requests",
+    "2026-11-25T15:12Z email E-1125-01 sent (fair-housing nonprofit, em-1125a) after preflight; no org replies; Search Console: 5 Google clicks in 28 days"
   ],
   "next_actions": [
     "Wed 15:00Z: post if an eligible venue remains (Highland Park group, Edgewater once participant review clears); avoid What's Happening network",
@@ -1131,6 +1131,19 @@
       "kind": "template A (Glenview first line)",
       "result": "declined by admins (seen 17:25Z, no reason shown)",
       "by": "operator"
+    },
+    {
+      "id": "E-1125-01",
+      "type": "email",
+      "status": "completed",
+      "utc": "2026-11-25T15:12Z",
+      "tag": "em-1125a",
+      "kind": "fair-housing nonprofit (older adult resources list; published general address re-verified 25 Nov)",
+      "domain_sha256": "46c6229032def55c",
+      "msg_sha256": "7b8ecc53e7dfeaaa",
+      "by": "operator",
+      "disclosure": true,
+      "note": "sent fresh (older draft had Google redirect links and an unverifiable claim; draft left untouched)"
     }
   ],
   "measurement_notes": [
