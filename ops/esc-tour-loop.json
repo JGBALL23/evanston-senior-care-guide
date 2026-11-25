@@ -3176,9 +3176,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSaeYoez1bK3E9MFwz4",
-   "utc": "2026-11-25T01:14Z",
+   "utc": "2026-11-25T01:16Z",
    "since_utc": "2026-11-25T01:02Z",
-   "productive_min": 16,
+   "productive_min": 17,
    "deliverables": [
     "verification:ops/reviews/illinois-nursing-home-responsible-party.md (drafts 2c46e74)",
     "verification:ops/reviews/illinois-assisted-living-involuntary-move-out.md (drafts babc23c)",
@@ -3837,6 +3837,26 @@
    "exhausted_until_utc": "",
    "empty_streak": 0,
    "log": [
+    {
+     "utc": "2026-11-25T01:16Z",
+     "run": "cse_014eaiSaeYoez1bK3E9MFwz4",
+     "key": "search-production-crawl-indexability",
+     "avenue": "search",
+     "lane": "technical",
+     "candidates": 1,
+     "added": 0,
+     "result": "Crawled production 2026-11-25: sitemap 36 URLs all 200 with self canonicals, no noindex, title and description present; 40 internal links all 200; 33 guides all on /guides/ index; robots allows all; http and www 301 to https apex; unknown path 404. Only finding: privacy.html has no meta description (not reached by fam…"
+    },
+    {
+     "utc": "2026-11-25T01:15Z",
+     "run": "cse_014eaiSaeYoez1bK3E9MFwz4",
+     "key": "needs-tax-deduction-and-bed-hold",
+     "avenue": "needs",
+     "lane": "build",
+     "candidates": 2,
+     "added": 0,
+     "result": "Checked 2026-11-25: (1) tax deductibility of a parent's assisted living / nursing home costs: public family questions exist (tax-software community forum, AARP community), no guide covers it, but the authoritative source is IRS Publication 502 and irs.gov is not an allowed citation host in check-guides.js PRIMARY_HOST…"
+    },
     {
      "utc": "2026-11-25T01:11Z",
      "run": "cse_014eaiSaeYoez1bK3E9MFwz4",
