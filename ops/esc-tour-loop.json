@@ -159,6 +159,27 @@
    "done_when": "packet at ops/reviews/long-term-care-insurance-assisted-living-illinois.md with its counts and verdict",
    "status": "ready",
    "found_utc": "2026-11-25T06:36Z"
+  },
+  {
+   "id": "ACQ-086",
+   "task": "Verify the corrections to illinois-care-facility-complaint in PR #89 (commit 1cc1b98 on claude/accuracy-20261125)",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:illinois-care-facility-complaint:1cc1b98",
+   "not_run": [
+    "cse_014eaiSeZV5K4aUnZndensii"
+   ],
+   "priority": 1,
+   "evidence": "packet ops/reviews/live/illinois-care-facility-complaint.md (C1, C2); commit 1cc1b98",
+   "expected_tour_acquisition_value": "quality gate before the accuracy pull request can enter the daily package",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against IDPH's complaints page and complaint form; quotecheck all FOUND; 'Corrections verified: <date>, <RUN>' added to the packet and to that guide's lines in the #89 body",
+   "status": "ready",
+   "found_utc": "2026-11-25T06:42Z"
   }
  ],
  "completed": [
@@ -2755,6 +2776,42 @@
    },
    "done_utc": "2026-11-25T06:36Z",
    "minutes": 4
+  },
+  {
+   "id": "ACQ-085",
+   "task": "Accuracy audit of the live guide illinois-care-facility-complaint under the review rules (quotation checker, scope rule, figures, links, advice); packet ops/reviews/live/illinois-care-facility-complaint.md; corrections, if any, into the rolling accuracy pull request",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:illinois-care-facility-complaint",
+   "priority": 1,
+   "evidence": "Netlify request logs 2026-11-25 03:00Z: a browser visit to /guides/illinois-care-facility-complaint/ with a www.google.com referrer, the only search-referred visit in the 18:25Z-06:24Z window; the guide is not among the 9 live guides audited (ops/reviews/live/).",
+   "expected_tour_acquisition_value": "Keeps the one guide now drawing search visitors accurate; a wrong phone number or deadline on it would cost trust at the decision stage.",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet at ops/reviews/live/illinois-care-facility-complaint.md ending 'Verdict: holds' or listing each correction with its source sentence; corrections committed to the accuracy pull request with a verify-live task queued",
+   "score": 6.0,
+   "status": "done",
+   "found_utc": "2026-11-25T06:37Z",
+   "result": "Audited live illinois-care-facility-complaint (the guide that drew the one Google visit of 24-25 Nov). Ombudsman, anonymity, APS and contact details hold. Two scope defects corrected in PR #89 as 1cc1b98: (C1) the 800-252-4343 Bureau of Long-Term Care line is for checking a complaint's status, per IDPH's FAQ; (C2) the complaints page's online filing scope excludes nursing homes and assisted living, so the written route is now IDPH's Health Care Facility Complaint Form, which covers them, with its 24/7 hotline and urgent-risk line stated beside the page's weekday hours. Library date kept (listed 2026-10-23). Checks: test.js 768/768, check-guides 2696/0, all tools suites pass, quotecheck 4/4. #89 body updated; verification queued (ACQ-086).",
+   "verdicts": [
+    "C1 scope defect corrected",
+    "C2 scope defect corrected"
+   ],
+   "sources": [
+    "https://dph.illinois.gov/topics-services/health-care-regulation/complaints.html",
+    "https://dph.illinois.gov/content/dam/soi/en/web/idph/forms/topics-services/health-care-regulation/complaints/healthcarefacilitycomplaintform20210625.pdf",
+    "https://ilaging.illinois.gov/programs/ltcombudsman.html"
+   ],
+   "lesson": "A regulator's complaints page can state a narrower scope than the form it links; check both before telling a family where to file.",
+   "deliverable": {
+    "type": "correction",
+    "ref": "PR #89 commit 1cc1b98"
+   },
+   "done_utc": "2026-11-25T06:42Z",
+   "minutes": 5
   }
  ],
  "blocked": [],
@@ -2765,7 +2822,7 @@
   "picked": "ACQ-078 done, ACQ-079 done, ACQ-080 done, ACQ-081 queued for next session, ACQ-082 queued for next session",
   "why": "Worked: #89 commits verified, VA Veteran-Directed Care audit (3 corrections in #89), fast-appeal additions on drafts; stopped: no-worthwhile-work; resume: next session verifies ACQ-081/082"
  },
- "last_verified_action": "ACQ-083 done 2026-11-25T06:36Z: Built long-term-care-insurance-assisted-living-illinois on drafts (83fc8f3): whether a parent's long-term care policy pays for assisted living: facility defini…",
+ "last_verified_action": "ACQ-085 done 2026-11-25T06:42Z: Audited live illinois-care-facility-complaint (the guide that drew the one Google visit of 24-25 Nov). Ombudsman, anonymity, APS and contact details hold. Two …",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -3425,17 +3482,14 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeZV5K4aUnZndensii",
-   "utc": "2026-11-25T06:37Z",
+   "utc": "2026-11-25T06:42Z",
    "since_utc": "2026-11-25T06:24Z",
-   "productive_min": 9,
+   "productive_min": 14,
    "deliverables": [
     "verification:PR #90 commit 4f77740",
-    "guide:drafts 83fc8f3"
-   ],
-   "current": {
-    "what": "plan:build",
-    "since_utc": "2026-11-25T06:37Z"
-   }
+    "guide:drafts 83fc8f3",
+    "correction:PR #89 commit 1cc1b98"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-25T06:25Z"
@@ -4218,9 +4272,19 @@
    "explore_recheck_days": 14,
    "exhausted_base_hours": 12,
    "exhausted_max_hours": 96,
-   "exhausted_until_utc": "2026-11-25T13:17Z",
+   "exhausted_until_utc": "",
    "empty_streak": 0,
    "log": [
+    {
+     "utc": "2026-11-25T06:42Z",
+     "run": "cse_014eaiSeZV5K4aUnZndensii",
+     "key": "quality-audit-live-care-facility-complaint",
+     "avenue": "quality",
+     "lane": null,
+     "candidates": 1,
+     "added": 1,
+     "result": "2026-11-25: Netlify logs showed the only Google-referred visit (03:00Z) on illinois-care-facility-complaint, an unaudited live guide; audit added and done (ACQ-085): 2 scope defects corrected in #89 (1cc1b98), verification queued."
+    },
     {
      "utc": "2026-11-25T01:17Z",
      "run": "cse_014eaiSaeYoez1bK3E9MFwz4",
