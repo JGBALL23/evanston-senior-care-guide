@@ -266,6 +266,8 @@ SRC = {
                       'https://hfs.illinois.gov/info/brochures-and-forms/brochures/hfs591sp.html'),
     "hfs_spousal2026": ('Illinois HFS Provider Notice, 22 January 2026 — 2026 spousal impoverishment standards',
                         'https://hfs.illinois.gov/medicalproviders/notices/notice.prn260122a.html'),
+    "hfs_pna2024": ('Illinois HFS Provider Notice, 25 January 2024 — Personal Needs Allowance increase in nursing facilities',
+                    'https://hfs.illinois.gov/medicalproviders/notices/notice.prn240125a.html'),
     "idoa_ombudsman": ('Illinois Department on Aging — Long-Term Care Ombudsman Program',
                        'https://ilaging.illinois.gov/programs/ltcombudsman.html'),
     "idoa_ombudsman_contact": ('Illinois Department on Aging — Office of the State Long-Term Care Ombudsman, contact information',
@@ -1236,9 +1238,12 @@ GUIDES = [
         "bridge": ("Working out who pays is a separate problem from working out what "
                "your parent needs paying for. Most families end up doing both, and "
                "the second one usually comes first."),
-        # Researched and verified in the cloud routine's own run on this date,
-        # not on the library's original 2026-10-18 review date.
-        "reviewed": "2026-10-23",
+        # Researched and verified in the cloud routine's own run on 2026-10-23,
+        # not on the library's original 2026-10-18 review date. Re-read in full
+        # against its sources on 2026-11-25 (accuracy audit, packet
+        # ops/reviews/live/illinois-medicaid-long-term-care.md on branch
+        # ops/operator-state), when the personal needs allowance was added.
+        "reviewed": "2026-11-25",
         "title": "How Illinois Medicaid Pays for Long-Term Care and Spend-Down",
         "h1": "How Illinois Medicaid pays for long-term care, and what spend-down means",
         "desc": ("Illinois Medicaid can pay for nursing home and other long-term care. "
@@ -1256,7 +1261,7 @@ GUIDES = [
                    "&ldquo;a little like an insurance deductible,&rdquo; where medical "
                    "bills above a set monthly amount count toward eligibility."),
         "sources": srcs("hfs_ltc_clients", "hfs_ltc_providers", "hfs_spenddown",
-                        "hfs_spousal2026", "hfs_elderly"),
+                        "hfs_spousal2026", "hfs_pna2024", "hfs_elderly"),
         "body": [
             ("What Illinois Medicaid actually pays for", [
                 "<p>Medicaid is not one single long-term-care benefit. The Illinois "
@@ -1349,16 +1354,17 @@ GUIDES = [
                 "was already determined at application, the amount is not updated "
                 "when the standard rises.</p>",
             ]),
-            ("A figure this guide will not publish", [
+            ("The personal needs allowance", [
                 "<p>Illinois law sets a monthly personal needs allowance for Medicaid "
                 "nursing facility residents &mdash; a small amount of their own income "
                 "protected for personal spending rather than put toward the cost of "
-                "care. This guide went looking for the current figure on the HFS public "
-                "notice that sets it, and could not read a verifiable number off that "
-                "document. Rather than repeat a figure picked up secondhand, this guide "
-                "leaves it out. Ask the nursing facility's business office or the DHS "
-                "caseworker what the current personal needs allowance is before "
-                "assuming any number you have seen elsewhere.</p>",
+                "care. An HFS provider notice of 25 January 2024 states that, effective "
+                "1 January 2024, the Personal Needs Allowance increased &ldquo;from $30 "
+                "per month to $60 per month for nursing home residents who reside in a "
+                "nursing facility licensed under the Nursing Home Care Act and who are "
+                "determined to be eligible for Medical Assistance.&rdquo; Ask the "
+                "nursing facility's business office or the DHS caseworker whether a "
+                "later change applies before relying on that figure.</p>",
             ]),
             ("Where to go from here", [
                 "<p>If the person you are helping is not yet in a facility and the "

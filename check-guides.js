@@ -1026,8 +1026,22 @@ check("the CSMNA deduction rule is quoted from HFS",
     + "from the standard") !== -1);
 check("the guide refuses to do the spousal subtraction itself",
   lc(mcd).indexOf("does not do that subtraction for you") !== -1);
-check("the personal needs allowance is still refused",
-  lc(mcd).indexOf("could not read a verifiable number") !== -1);
+/* 2026-11-25: the refusal is replaced by the figure. The accuracy audit of
+   this page found the HFS provider notice of 25 January 2024, which states
+   the nursing facility personal needs allowance in so many words, so "could
+   not read a verifiable number" was no longer true. The gate now holds the
+   page to that notice's own sentence, its scope (a nursing facility licensed
+   under the Nursing Home Care Act, a resident eligible for Medical
+   Assistance), its link, and the advice to ask whether a later change
+   applies. A figure without all four fails. */
+check("the personal needs allowance is quoted from the HFS notice, with its scope",
+  lc(mcd).indexOf("from $30 per month to $60 per month for nursing home "
+    + "residents who reside in a nursing facility licensed under the nursing "
+    + "home care act and who are determined to be eligible for medical "
+    + "assistance") !== -1 &&
+  mcd.indexOf("notices/notice.prn240125a.html") !== -1 &&
+  lc(mcd).indexOf("whether a later change applies") !== -1 &&
+  lc(mcd).indexOf("could not read a verifiable number") === -1);
 
 /* ---- OWNER FINDING, 2026-10-29: a pension ceiling is not an add-on ----
    The Aid and Attendance guide's description said the benefit "can add up
@@ -1092,11 +1106,15 @@ const dates = SLUGS.map((s) =>
 check("every guide prints a review date", dates.every(Boolean), String(dates));
 check("review dates are per-guide, not one global stamp",
   new Set(dates).size > 1, dates.join(" | "));
-check("the Medicaid guide is dated the day it was researched",
-  dates[SLUGS.indexOf("illinois-medicaid-long-term-care")] === "23 October 2026",
+/* 2026-11-25: the Medicaid guide was re-read in full against its sources in
+   the accuracy audit of that day (three corrections), so it carries that
+   date. Before then this gate pinned 23 October 2026, the day it was first
+   researched. */
+check("the Medicaid guide is dated the day it was last re-verified",
+  dates[SLUGS.indexOf("illinois-medicaid-long-term-care")] === "25 November 2026",
   String(dates[SLUGS.indexOf("illinois-medicaid-long-term-care")]));
 check("its JSON-LD dateModified agrees with its printed date",
-  mcd.indexOf('"dateModified": "2026-10-23"') !== -1);
+  mcd.indexOf('"dateModified": "2026-11-25"') !== -1);
 /* 2026-11-04: the cost guide was re-verified when its Evanston section was
    rewritten (Experiment 1), so it now carries its own date. The other four
    of the original five were not re-read and must keep 2026-10-18. */
