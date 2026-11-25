@@ -2243,7 +2243,12 @@ GUIDES = [
         "bridge": ("Knowing that the VA will fund help at home answers how your "
                "veteran parent might pay for it. It does not answer whether help "
                "at home, rather than a higher level of care, is actually enough."),
-        "reviewed": "2026-10-27",
+        # Re-read in full against its sources on 2026-11-25 (accuracy audit,
+        # packet ops/reviews/live/va-veteran-directed-care-program.md on branch
+        # ops/operator-state).
+        "reviewed": "2026-11-25",
+        # Joined the library on this date; keeps the library-level dates where they were.
+        "listed": "2026-10-27",
         "title": "Can a Veteran Get Paid In-Home Care Through the VA?",
         "h1": "Can a veteran get paid in-home care through the VA?",
         "desc": ("Veteran Directed Care lets an eligible veteran set a spending plan "
@@ -2302,8 +2307,11 @@ GUIDES = [
                 "care&rdquo; and &ldquo;you have approval from your VA health "
                 "care team before you get care from a community provider&rdquo; "
                 "&mdash; plus at least one of several further conditions, such as "
-                "needing a service VA does not provide at any facility or living "
-                "somewhere without a full-service VA facility nearby.</p>",
+                "needing a service VA does not provide at any VA health facility, "
+                "living in a state or territory that has no full-service VA health "
+                "facility at all, or VA being unable to provide the care within its "
+                "own standards for drive and wait times. Living some distance from "
+                "a VA facility is not, by itself, one of the conditions.</p>",
                 "<p>This guide has not confirmed, on any VA.gov page, that the "
                 "general community-care eligibility rules apply to Veteran "
                 "Directed Care exactly as written for an outside specialist "
@@ -2338,17 +2346,19 @@ GUIDES = [
                 "the Veteran Decision Aid for Care at Home or in the Community "
                 "&ldquo;to help you figure out what home care services or long "
                 "term care services may best meet your needs&rdquo; now or in "
-                "the future, and then: &ldquo;If Veteran Directed Care seems "
+                "the future, and then: &ldquo;If Veteran-Directed Care seems "
                 "right for you, talk with your VA social worker and find out if "
                 "it is available&rdquo; in your location.</p>",
                 "<p>A veteran who is not yet enrolled in VA health care has to "
                 "clear that step first, since enrollment is one of the stated "
-                "gates above. VA.gov lists four ways to apply for VA health "
-                "care: online, by phone at <strong>877-222-8387</strong> "
-                "(Monday&ndash;Friday, 8:00 a.m. to 8:00 p.m. ET), by mailing a "
-                "signed VA Form 10-10EZ to the Health Eligibility Center, PO Box "
-                "5207, Janesville, WI 53547-5207, or in person at the nearest VA "
-                "medical centre or clinic with the same signed form in hand.</p>",
+                "gates above. VA.gov says a veteran can apply for VA health care "
+                "online, or in four other ways: by phone at <strong>877-222-8387"
+                "</strong> (Monday&ndash;Friday, 8:00 a.m. to 8:00 p.m. ET), by "
+                "mailing a signed VA Form 10-10EZ to the Health Eligibility Center, "
+                "PO Box 5207, Janesville, WI 53547-5207, in person at the nearest "
+                "VA medical centre or clinic with the same signed form in hand, or "
+                "with the help of an accredited attorney, claims agent or Veterans "
+                "Service Organization representative.</p>",
             ]),
             ("A figure this guide will not guess at", [
                 "<p>Families will want to know the size of the budget a veteran "
