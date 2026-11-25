@@ -120,22 +120,6 @@
    "not_before": "Timing, not data: 2027 figures are already on medicare.gov (read 2026-11-23). Prepare the PR in December so it is fresh when Joseph merges it for 1 Jan 2027."
   },
   {
-   "id": "ACQ-060",
-   "task": "Review illinois-medicaid-pending-nursing-home again under the review rules of procedure v4.3.2 (quotation checker, then the scope rule): its packet ops/reviews/illinois-medicaid-pending-nursing-home.md was written before the scope rule and has no scope table or counts line",
-   "workstream": "build",
-   "lane": "build",
-   "source": "operator",
-   "seeded_by": "main chat for Joseph, 24 Nov 2026 18:05 Chicago: \"Correct the known content accuracy problems and strengthen the review process.\"",
-   "key": "rereview:illinois-medicaid-pending-nursing-home",
-   "priority": 1,
-   "evidence": "A scope defect passed the 24 Nov review of medicare-fast-appeal-hospital-rehab-discharge: a Medicare.gov sentence about what \"your plan\" does was presented as the rule for everyone in a skilled nursing facility. quotecheck on drafts cf6aaf8, 25 Nov 2026 00:25Z: 20 of 20 quotations of this page are found word for word in its 7 cited pages, so the wording holds and scope is the open question.",
-   "expected_tour_acquisition_value": "Nothing reaches families until Joseph merges a publish pull request, and he should only be asked to merge pages whose every claim applies to the reader the page addresses.",
-   "executor": "worker (research and preparation only)",
-   "done_when": "ops/reviews/illinois-medicaid-pending-nursing-home.md rewritten under the review rules with its table, counts line and verdict; each required correction applied on drafts and its verify task queued for a later session; or the verdict publish-ready with zero scope defects",
-   "status": "ready",
-   "found_utc": "2026-11-25T00:27Z"
-  },
-  {
    "id": "ACQ-061",
    "task": "Review illinois-parent-refuses-to-move-guardianship again under the review rules of procedure v4.3.2 (quotation checker, then the scope rule): its packet ops/reviews/illinois-parent-refuses-to-move-guardianship.md was written before the scope rule and has no scope table or counts line",
    "workstream": "build",
@@ -2102,6 +2086,36 @@
    },
    "done_utc": "2026-11-25T00:44Z",
    "minutes": 2
+  },
+  {
+   "id": "ACQ-060",
+   "task": "Review illinois-medicaid-pending-nursing-home again under the review rules of procedure v4.3.2 (quotation checker, then the scope rule): its packet ops/reviews/illinois-medicaid-pending-nursing-home.md was written before the scope rule and has no scope table or counts line",
+   "workstream": "build",
+   "lane": "build",
+   "source": "operator",
+   "seeded_by": "main chat for Joseph, 24 Nov 2026 18:05 Chicago: \"Correct the known content accuracy problems and strengthen the review process.\"",
+   "key": "rereview:illinois-medicaid-pending-nursing-home",
+   "priority": 1,
+   "evidence": "A scope defect passed the 24 Nov review of medicare-fast-appeal-hospital-rehab-discharge: a Medicare.gov sentence about what \"your plan\" does was presented as the rule for everyone in a skilled nursing facility. quotecheck on drafts cf6aaf8, 25 Nov 2026 00:25Z: 20 of 20 quotations of this page are found word for word in its 7 cited pages, so the wording holds and scope is the open question.",
+   "expected_tour_acquisition_value": "Nothing reaches families until Joseph merges a publish pull request, and he should only be asked to merge pages whose every claim applies to the reader the page addresses.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/illinois-medicaid-pending-nursing-home.md rewritten under the review rules with its table, counts line and verdict; each required correction applied on drafts and its verify task queued for a later session; or the verdict publish-ready with zero scope defects",
+   "status": "done",
+   "found_utc": "2026-11-25T00:27Z",
+   "result": "Re-reviewed under v4.3.2 rules. quotecheck 20/20 FOUND across 7 Illinois sources. 14 claims scope-checked (audit deadlines and sample figures re-read in the July 2025 audit; PE rules against the 2023 notice and the 2018 Q&A it links as current; HFS 3191 statements kept with their 'if approved' and 'if you receive medical benefits' conditions). 0 scope defects, 0 corrections. Verdict publish-ready. Page has never been in a publish PR and qualifies for the next publish batch.",
+   "verdicts": [
+    "publish-ready"
+   ],
+   "sources": [
+    "https://www.auditor.illinois.gov/Audit-Reports/Performance-Special-Multi/Performance-Audits/2025_Releases/25-Medicaid-LTC-Eligibility-Perf-Full.pdf",
+    "https://hfs.illinois.gov/medicalproviders/notices/notice.prn231127a.html"
+   ],
+   "deliverable": {
+    "type": "review_packet",
+    "ref": "ops/reviews/illinois-medicaid-pending-nursing-home.md"
+   },
+   "done_utc": "2026-11-25T00:45Z",
+   "minutes": 2
   }
  ],
  "blocked": [],
@@ -2112,7 +2126,7 @@
   "picked": "ACQ-055 done, ACQ-056 done",
   "why": "Worked: monitor (site OK, ~2 genuine, 0 tour requests) and 2 publish-ready review packets (Medicaid-pending, guardianship); stopped: no-worthwhile-work; resume: monitor 25 Nov 06:26Z"
  },
- "last_verified_action": "ACQ-059 done 2026-11-25T00:44Z: Re-reviewed under v4.3.2 rules. quotecheck 30/30 FOUND on Medicare.gov Fast appeals and pub 11376. 17 claims scope-checked by section (hospital vs other settin…",
+ "last_verified_action": "ACQ-060 done 2026-11-25T00:45Z: Re-reviewed under v4.3.2 rules. quotecheck 20/20 FOUND across 7 Illinois sources. 14 claims scope-checked (audit deadlines and sample figures re-read in the Ju…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -2773,13 +2787,14 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSarrUfj6PScmQNGxys",
-   "utc": "2026-11-25T00:44Z",
+   "utc": "2026-11-25T00:45Z",
    "since_utc": "2026-11-25T00:36Z",
-   "productive_min": 8,
+   "productive_min": 10,
    "deliverables": [
     "review_packet:ops/reviews/illinois-nursing-home-responsible-party.md; drafts 2c46e74",
     "review_packet:ops/reviews/illinois-assisted-living-involuntary-move-out.md; drafts babc23c",
-    "review_packet:ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md; drafts 2dfe3dc"
+    "review_packet:ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md; drafts 2dfe3dc",
+    "review_packet:ops/reviews/illinois-medicaid-pending-nursing-home.md"
    ]
   },
   "monitor": {
