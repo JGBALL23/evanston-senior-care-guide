@@ -5280,7 +5280,8 @@ GUIDES = [
                  "legally ask of you, read off CMS's own current guidance."),
         "intent": "worry / legal",
         "answer": ("<strong>Not as a personal guarantee of payment &mdash; and "
-                   "a nursing home is not allowed to make you.</strong> Federal "
+                   "a Medicare- or Medicaid-certified nursing home is not "
+                   "allowed to make you.</strong> Federal "
                    "regulation 42 CFR 483.15(a)(3), which binds every Medicare- "
                    "or Medicaid-certified nursing facility, states the facility "
                    '&ldquo;must not request or require a third party guarantee '
@@ -5396,8 +5397,8 @@ GUIDES = [
                 "attorney, not something this guide will guess at.</p>",
             ]),
             ("A gap this guide could not close: assisted living", [
-                "<p>The federal rule above, 42 CFR 483.15(a)(3), applies by "
-                "its own terms to &ldquo;all certified long term care "
+                "<p>CMS&rsquo;s guidance says the federal rule above, 42 CFR "
+                "483.15(a)(3), applies to &ldquo;all certified long term care "
                 "facilities&rdquo;; none of the three sources this guide read "
                 "addresses assisted living or shared housing contracts. This guide "
                 "searched for an equivalent Illinois government page "
