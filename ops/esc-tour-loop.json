@@ -138,6 +138,63 @@
    "not_before": "VA.gov rate pages show the table effective 1 December 2026",
    "priority": 2,
    "found_utc": "2026-11-25T01:14Z"
+  },
+  {
+   "id": "ACQ-088",
+   "task": "Apply the two required corrections in ops/reviews/long-term-care-insurance-assisted-living-illinois.md on drafts (Improve): 'Most' to 'Many' policies for the elimination period, and replace the Medicaid 'take over' sentence with the SLP-scoped sentence and HFS source",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "improve:long-term-care-insurance-assisted-living-illinois:review-corrections",
+   "priority": 1,
+   "status": "waiting_on_data",
+   "not_before_utc": "2026-11-25T13:16Z",
+   "evidence": "Review packet ACQ-084 (2026-11-25): Shopper's Guide p.19 says 'With many policies'; HFS SLP page says Medicaid pays SLP waiver services 'not routinely covered by Medicaid' and 'The resident is responsible for paying the cost of room and board at the facility.' Waits only for the drafts quiet window (10:45-13:15 UTC) to end.",
+   "expected_tour_acquisition_value": "Removes a payer claim a family could act on wrongly before the page is packaged; unblocks publication of an assisted-living payment guide.",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "One 'Correct <slug>' commit on drafts under Build's checks; 'Corrections applied' line in the packet; verify:<slug>:<commit> queued for a later session.",
+   "found_utc": "2026-11-25T12:26Z"
+  },
+  {
+   "id": "ACQ-089",
+   "task": "Accuracy audit of live guide illinois-medicaid-look-back-period under step 7 Improve, ACCURACY AUDIT (quotation checker, scope rule, figures as sources read today); packet at ops/reviews/live/illinois-medicaid-look-back-period.md",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:illinois-medicaid-look-back-period",
+   "priority": 2,
+   "evidence": "live-accuracy sweep 2026-11-25 on main 4dc2468: quotecheck --all shows illinois-medicaid-look-back-period all quotations FOUND, but the guide has no packet in ops/reviews/live/ and states the 60-month look-back, transfer penalties and the rules a family acts on before a Medicaid application (13 quotations, no packet yet); chosen by risk as the angle's output allows (at most two per check).",
+   "expected_tour_acquisition_value": "Families act on these rules and figures; a wrong one on a live page costs trust and inquiries. Corrections go into the rolling accuracy pull request for Joseph's daily package.",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/live/illinois-medicaid-look-back-period.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections (if any) committed to the rolling accuracy pull request and verify-live queued for a later session.",
+   "score": 6.0,
+   "status": "ready",
+   "found_utc": "2026-11-25T12:27Z"
+  },
+  {
+   "id": "ACQ-090",
+   "task": "Accuracy audit of live guide medicare-extra-help-prescription-drug-costs under step 7 Improve, ACCURACY AUDIT (quotation checker, scope rule, figures as sources read today); packet at ops/reviews/live/medicare-extra-help-prescription-drug-costs.md",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:medicare-extra-help-prescription-drug-costs",
+   "priority": 2,
+   "evidence": "live-accuracy sweep 2026-11-25 on main 4dc2468: quotecheck --all shows medicare-extra-help-prescription-drug-costs all quotations FOUND, but the guide has no packet in ops/reviews/live/ and states yearly dollar figures and income/resource limits that Medicare and SSA change each year (9 quotations, no packet yet); chosen by risk as the angle's output allows (at most two per check).",
+   "expected_tour_acquisition_value": "Families act on these rules and figures; a wrong one on a live page costs trust and inquiries. Corrections go into the rolling accuracy pull request for Joseph's daily package.",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/live/medicare-extra-help-prescription-drug-costs.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections (if any) committed to the rolling accuracy pull request and verify-live queued for a later session.",
+   "score": 6.0,
+   "status": "ready",
+   "found_utc": "2026-11-25T12:27Z"
   }
  ],
  "completed": [
@@ -3531,9 +3588,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiScJVcYfw9RjXT6F5Km",
-   "utc": "2026-11-25T12:26Z",
+   "utc": "2026-11-25T12:28Z",
    "since_utc": "2026-11-25T12:24Z",
-   "productive_min": 3,
+   "productive_min": 5,
    "deliverables": [
     "review_packet:ops/reviews/long-term-care-insurance-assisted-living-illinois.md"
    ]
@@ -4239,10 +4296,10 @@
     "evidence": "python3 ops/quotecheck.py --site <clone of main> --all: every guide with a NOT FOUND or NEAR MATCH quotation; then, among guides without a packet in ops/reviews/live/, those with deadlines, dollar figures or eligibility rules. State on 25 Nov 2026 after two sessions: 32 live guides; 8 audited (packets in ops/reviews/live/: 4 hold, 4 corrected in pull request #89); the checker (corrected the same day: a link or a PDF line break inside a source sentence no longer reads as NOT FOUND) reports 249 of 252 quotations FOUND, 1 NOT FOUND (illinois-pace-program, corrected in #89) and 2 NEAR MATCH (illinois-nursing-home-preadmission-screening, corrected in #89; va-veteran-directed-care-program, a dropped hyphen inside quotation marks, audit queued). assisted-living-cost-illinois and check-illinois-inspection-records cite ilga.gov pages that neither the worker's environment nor the main chat's could read: audit them with a web fetch tool for those pages.",
     "output": "One audit task per live guide with a NOT FOUND quotation (all of them, key audit:<slug>), plus at most two more guides per check chosen by risk; each audit under procedure step 7 Improve, ACCURACY AUDIT. Corrections go into one rolling review pull request. When every live guide has a packet, record that and pass --recheck-hours 720.",
     "why": "Joseph, 24 Nov 2026: \"Correct the known content accuracy problems and strengthen the review process.\" Families act on these deadlines and figures.",
-    "last_checked_utc": "2026-11-25T00:50Z",
-    "next_check_utc": "2026-11-25T12:50Z",
-    "last_result": "quotecheck --all on main 4dc2468: 32 live guides; 1 NOT FOUND (illinois-pace-program, 'scheduled to begin in June 2024'), 2 NEAR MATCH (preadmission-screening, VDC: punctuation only, VDC wording-only so not queued); va-caregiver-support-program 29/29 found but a primary-caregiver scope defect seen …",
-    "last_added": 3
+    "last_checked_utc": "2026-11-25T12:28Z",
+    "next_check_utc": "2026-11-26T00:28Z",
+    "last_result": "quotecheck --all on main 4dc2468 (unchanged since last check): 32 live guides, same 1 NOT FOUND (pace, in #89) and 2 NEAR MATCH (preadmission in #89; VDC audited). 11 guides have packets. Added audits by risk for 2 unaudited guides with rules/figures: illinois-medicaid-look-back-period, medicare-ex…",
+    "last_added": 2
    },
    {
     "id": "demand-questions",
@@ -4350,6 +4407,7 @@
    }
   ],
   "sweep_log": [
+   "2026-11-25T12:28Z live-accuracy +2: quotecheck --all on main 4dc2468 (unchanged since last check): 32 live guides, same 1 NOT FOUND (pace, in #89) and 2 NEAR MATCH (preadmission in #89; VDC audit…",
    "2026-11-25T06:37Z demand-questions +0: 2026-11-25: DEMAND.md Open holds 2 (unsafe discharge; AL rate rise after reassessment, both added 24 Nov 06:34Z, not yet 30 h old). Searched public caregiver Q…",
    "2026-11-25T06:33Z asset-gaps +1: 2026-11-25: guide index (32 main, 39 drafts), DEMAND Open/Done read. Candidates: (1) long-term care insurance claims for assisted living: 4 dated public family…",
    "2026-11-25T06:30Z draft-review +0: 2026-11-25: main...drafts has 7 guide slugs not on main; all 7 have packets in ops/reviews/ (all in publish batch #90). No unreviewed draft.",
