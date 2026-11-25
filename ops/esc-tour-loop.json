@@ -140,25 +140,6 @@
    "found_utc": "2026-11-25T01:14Z"
   },
   {
-   "id": "ACQ-079",
-   "task": "Accuracy audit of the live guide va-veteran-directed-care-program",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "operator",
-   "seeded_by": "main chat for Joseph, 25 Nov 2026",
-   "key": "audit:va-veteran-directed-care-program",
-   "priority": 2,
-   "evidence": "quotecheck on main, 25 Nov 2026: 10 of 11 quotations FOUND and 1 NEAR MATCH: the guide quotes VA as writing 'If Veteran Directed Care seems right for you, talk with your VA social worker and find out if it is available'; va.gov/geriatrics/pages/veteran-directed_care.asp reads 'If Veteran-Directed Care seems right for you, ...' (a hyphen dropped inside quotation marks). The page has no packet in ops/reviews/live/ and holds eligibility rules.",
-   "expected_tour_acquisition_value": "Accuracy of a live page families act on; a quotation that differs from its source costs trust.",
-   "impact": 2,
-   "confidence": 5,
-   "effort": 1,
-   "executor": "worker (research and preparation only)",
-   "done_when": "Packet at ops/reviews/live/va-veteran-directed-care-program.md with its scope table, counts and verdict; the quotation corrected to the source's characters and any other correction committed to the rolling accuracy pull request (#89 while it is open), each with its verification queued for a later session.",
-   "status": "ready",
-   "found_utc": "2026-11-25T01:29Z"
-  },
-  {
    "id": "ACQ-080",
    "task": "Apply the two additions the second reader listed in ops/reviews/medicare-fast-appeal-hospital-rehab-discharge.md (section 'Recommended additions'), on drafts: what Medicare.gov says a family can still do after a missed hospital deadline, and the condition it attaches to a favourable hospital decision for a parent in a Medicare health plan",
    "workstream": "build",
@@ -173,6 +154,27 @@
    "done_when": "Both additions made on drafts in the page's own style, each quoting Medicare.gov with its scope (hospital; Medicare health plan), under Improve's checks and push rules; 'Additions applied' line in the packet; verification queued for a later session; after verification the open publish batch (#90) gets an 'Update guide' commit on its own branch if #90 is still open, or the change goes to the accuracy pull request if the page is already live.",
    "status": "ready",
    "found_utc": "2026-11-25T01:29Z"
+  },
+  {
+   "id": "ACQ-081",
+   "task": "Verify the corrections to va-veteran-directed-care-program in PR #89 (commit 3cd72d7 on claude/accuracy-20261125)",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:va-veteran-directed-care-program:3cd72d7",
+   "not_run": [
+    "cse_014eaiSbgoXSGhv7gxJtBvna"
+   ],
+   "priority": 1,
+   "evidence": "Build commit 3cd72d7 on claude/accuracy-20261125; packet ops/reviews/live/va-veteran-directed-care-program.md (C1-C3).",
+   "expected_tour_acquisition_value": "quality gate before Joseph merges corrections to a live page families act on",
+   "impact": 2,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source (git show 3cd72d7); quotecheck all FOUND; 'Corrections verified: <date>, <RUN>' added to the packet and to the guide's section in the #89 body; the ACCURACY line in owner_review_needed then asks for the merge again",
+   "status": "ready",
+   "found_utc": "2026-11-25T01:40Z"
   }
  ],
  "completed": [
@@ -2603,6 +2605,44 @@
    },
    "done_utc": "2026-11-25T01:35Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-079",
+   "task": "Accuracy audit of the live guide va-veteran-directed-care-program",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "operator",
+   "seeded_by": "main chat for Joseph, 25 Nov 2026",
+   "key": "audit:va-veteran-directed-care-program",
+   "priority": 2,
+   "evidence": "quotecheck on main, 25 Nov 2026: 10 of 11 quotations FOUND and 1 NEAR MATCH: the guide quotes VA as writing 'If Veteran Directed Care seems right for you, talk with your VA social worker and find out if it is available'; va.gov/geriatrics/pages/veteran-directed_care.asp reads 'If Veteran-Directed Care seems right for you, ...' (a hyphen dropped inside quotation marks). The page has no packet in ops/reviews/live/ and holds eligibility rules.",
+   "expected_tour_acquisition_value": "Accuracy of a live page families act on; a quotation that differs from its source costs trust.",
+   "impact": 2,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "Packet at ops/reviews/live/va-veteran-directed-care-program.md with its scope table, counts and verdict; the quotation corrected to the source's characters and any other correction committed to the rolling accuracy pull request (#89 while it is open), each with its verification queued for a later session.",
+   "status": "done",
+   "found_utc": "2026-11-25T01:29Z",
+   "result": "Audited va-veteran-directed-care-program on main against its 4 VA.gov sources as read 25 Nov 2026: 11 quotations, 15 claims scope-checked. 3 corrections committed to the rolling accuracy PR #89 (commit 3cd72d7): C1 quotation hyphen 'Veteran-Directed Care' (was NEAR MATCH); C2 scope defect: 'living somewhere without a full-service VA facility nearby' overstated VA's state-level condition, now names it and the drive/wait standard; C3 VA.gov lists online plus four other ways to apply (added accredited representative). Reviewed 2026-11-25, listed 2026-10-27. Build/test/check-guides pass; quotecheck 11/11; #89 and #90 test-merged in both orders clean. PR body and ACCURACY owner line updated; verification queued as ACQ-081 for a later session.",
+   "verdicts": [
+    "C1 wording",
+    "C2 SCOPE DEFECT",
+    "C3 figure"
+   ],
+   "sources": [
+    "https://www.va.gov/geriatrics/pages/veteran-directed_care.asp",
+    "https://www.va.gov/resources/eligibility-for-community-care-outside-va/",
+    "https://www.va.gov/health-care/how-to-apply/",
+    "https://www.va.gov/pension/aid-attendance-housebound/"
+   ],
+   "lesson": "Paraphrased eligibility conditions need the same scope check as quotations: 'nearby' vs 'in a state or territory'.",
+   "deliverable": {
+    "type": "audit",
+    "ref": "ops/reviews/live/va-veteran-directed-care-program.md; PR #89 commit 3cd72d7"
+   },
+   "done_utc": "2026-11-25T01:40Z",
+   "minutes": 5
   }
  ],
  "blocked": [],
@@ -2613,7 +2653,7 @@
   "picked": "ACQ-064 done, ACQ-065 done, ACQ-066 done, ACQ-067 done, ACQ-073 done, ACQ-074 done, ACQ-075 done, ACQ-077 done, ACQ-076 waiting_on_data",
   "why": "Worked: 4 corrections verified, publish batch PR #90 (7 guides), 3 live audits (1 with corrections in #89); stopped: no-worthwhile-work; resume: monitor and sweeps from 06:26Z, or a merge of #90/#89"
  },
- "last_verified_action": "ACQ-078 done 2026-11-25T01:35Z: Verified d4bed8b and 50fa120 on claude/accuracy-20261125 (PR #89). PNA paragraph quotes HFS notice of 25 Jan 2024 word for word with its scope (NHCA-licensed n…",
+ "last_verified_action": "ACQ-079 done 2026-11-25T01:40Z: Audited va-veteran-directed-care-program on main against its 4 VA.gov sources as read 25 Nov 2026: 11 quotations, 15 claims scope-checked. 3 corrections commit…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -2649,7 +2689,7 @@
  },
  "owner_review_needed": [
   "PUBLISH (the most valuable thing you can do; about 15 minutes): merge #90 'Publish batch: 7 guides' and nothing else of the publish pull requests. It contains #87 and #88 (close those after), and publishes all seven unpublished guides: nursing home responsible-party signing, assisted-living move-out notice, Medicare fast appeal from hospital or rehab, Medicaid pending in a nursing home, VA home care and aide, Illinois money management program, parent refusing to move and guardianship. Every page passed review under the scope rule (corrections verified 25 Nov); 122 of 122 quotations found. Then run tools/publish.py.",
-  "ACCURACY (2 minutes): merge #89, corrections to four live guides found by auditing eight of them: a stale PACE launch date removed; the nursing home screening answer limits the PASRR screen to Medicaid-certified homes; the Benefit Access answer names the disability route; the Medicaid long-term care guide drops an unsupported claim about spenddown, says the spousal resource allowance is set only once, and now states the $60 personal needs allowance from HFS's notice of 25 January 2024. That last change re-pins two tests that required the old sentence and the old review date (listed at the top of #89); to keep the old wording instead, say 'drop the allowance commit'. Every correction was read against its source twice. Merges cleanly before or after #90.",
+  "ACCURACY (2 minutes, after one more check): #89 now corrects five live guides (nine audited): a stale PACE launch date removed; the nursing home screening answer limits the PASRR screen to Medicaid-certified homes; the Benefit Access answer names the disability route; the Medicaid long-term care guide drops an unsupported spenddown claim, says the spousal resource allowance is set only once, and states the $60 personal needs allowance from HFS's notice of 25 January 2024 (this re-pins two tests listed at the top of #89; to keep the old wording say 'drop the allowance commit'); and the VA Veteran-Directed Care guide no longer implies that living far from a VA facility qualifies a veteran for community care. Wait to merge until the worker has verified the VA commit 3cd72d7 (queued for the next session; the #89 body will say verified). Every other commit is verified. Test-merged with #90 in both orders: clean, tests pass.",
   "TRACKING AND SEARCH pull requests (about 10 minutes; merge any you accept, in any order after #90): #84 with #79 (a tour inquiry keeps its arrival channel; #84 contains #80), #85 (four choosing-stage guides link to the Evanston assisted-living page; since 25 Nov it contains #90, so merge #90 first), #81 (homepage title names assisted living and memory care in Evanston), #86 (the checklist PDF gets one disclosed tour-request line), #78 (estate-recovery guide: tour checklist and tour link). All eight open pull requests on this list were test-merged together on 25 Nov in three orders: no conflicts, the rebuild changes nothing, all tests pass. Optional with it: request indexing for /assisted-living-evanston/ in Search Console.",
   "EVANSTON NOW ESSAY (yours; the draft is in your Claude chat): rewrite it and submit it through their contact form. A 'what to notice on a holiday visit, and what to ask next' angle submitted by about 10 Dec lands in the early-January inquiry peak. Decide on Patch after that.",
   "ONE FREE PUBLIC TALK? Yes or no is enough (for example 'What to ask on a senior-living tour' at a library or senior center). It would open the Evanston Now calendar, the Daily Herald, Patch calendars and Rotary at once; Wilmette, Niles-Maine and Morton Grove libraries run such programs.",
@@ -3275,11 +3315,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSbgoXSGhv7gxJtBvna",
-   "utc": "2026-11-25T01:35Z",
+   "utc": "2026-11-25T01:40Z",
    "since_utc": "2026-11-25T01:35Z",
-   "productive_min": 1,
+   "productive_min": 6,
    "deliverables": [
-    "verification:ops/reviews/live/illinois-medicaid-long-term-care.md; PR #89"
+    "verification:ops/reviews/live/illinois-medicaid-long-term-care.md; PR #89",
+    "audit:ops/reviews/live/va-veteran-directed-care-program.md; PR #89 commit 3cd72d7"
    ]
   },
   "monitor": {
