@@ -1524,6 +1524,14 @@ check("local assisted living landing page is canonical and disclosed", (() => {
     sitemap.includes("https://evanstonseniorcareguide.com/assisted-living-evanston/") &&
     read(path.join(DIST, "index.html")).includes('/assisted-living-evanston/');
 })());
+/* 22 Nov 2026: the four choosing-stage guides link to the local assisted
+   living page; no other guide does. */
+const LOCAL_AL = ["assisted-living-cost-illinois", "levels-of-senior-care-explained",
+  "check-illinois-inspection-records", "independent-living-evanston"];
+SLUGS.forEach((s) => {
+  const n = (page[s].match(/href="\/assisted-living-evanston\/"/g) || []).length;
+  check("local assisted living link: " + s, n === (LOCAL_AL.includes(s) ? 1 : 0), n + " links");
+});
 check("guides index links every guide",
   SLUGS.every((s) => indexPage.indexOf("/guides/" + s + "/") !== -1));
 check("Guides is in the main nav",
