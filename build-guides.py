@@ -3024,7 +3024,8 @@ GUIDES = [
                    "past giving will not trigger one, and a parent going into a "
                    "nursing home may transfer property to a spouse up to a limit, "
                    "which HFS raises each year and the caseworker works out once, "
-                   "at application."),
+                   "when your parent applies or when long-term care eligibility "
+                   "is decided."),
         "sources": srcs("hfs_ltc_brochure", "hfs_ltc_clients", "hfs_spousal2026"),
         "body": [
             ("The 60-month look-back, and what it looks back at", [
@@ -3123,7 +3124,8 @@ GUIDES = [
                 "the ceiling on the spousal transfer above for a couple whose "
                 "allowance is worked out in 2026. HFS adds that the "
                 "determination &ldquo;only occurs once&rdquo;: an amount already "
-                "set at an earlier application is not updated. The FCRC confirms "
+                "set at an earlier application or long-term care determination is "
+                "not updated. The FCRC confirms "
                 "the amount for a specific couple.</p>",
             ]),
             ("Where this fits with the rest of this site", [
