@@ -1625,10 +1625,12 @@ GUIDES = [
                 "only and live in a long-term care facility can face a lien, equal to "
                 "all medical assistance paid before and during the stay, but only after "
                 "<strong>120 consecutive calendar days</strong> in a medical institution. "
-                "No lien is filed if the home is occupied by a spouse, a child under 21, "
-                "a child over 21 who is blind or disabled, or in some cases a sibling, "
-                "and a lien is released if "
-                "the resident is discharged home.</p>",
+                "For that long-term care lien, no lien is filed if the home is occupied "
+                "by a spouse, a child under 21, a child over 21 who is blind or disabled, "
+                "or in some cases a sibling, and a lien is released if the resident is "
+                "discharged home. For any lien, HFS says no action will be taken to "
+                "enforce it when the person dies while one of those relatives lives in "
+                "the home.</p>",
                 "<p>This tool has also been narrowed by law. HFS states that "
                 "<strong>Public Act 102-1037</strong>, effective <strong>2 June "
                 "2022</strong>, restricts the filing of <em>new</em> liens on real "
