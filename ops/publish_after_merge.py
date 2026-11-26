@@ -13,6 +13,7 @@ the task runs the Netlify connector's command between `check` and `verify`.
   hold     record a commit that was not published and why (so it is reported once).
   selftest run check against the previous merge (as if the newest one were not
            live yet) and verify against the live site; changes nothing.
+  status   the cheap hourly look: is main what is live, is a selftest waiting?
 
 Rules it enforces: only main; only commits that are pull requests merged by
 OWNER (or a commit that touches nothing that is published); never anything on a
@@ -401,6 +402,31 @@ def cmd_hold(a):
     out({"held": True, "commit": sha})
 
 
+def cmd_status(a):
+    """The cheap hourly look: is main what is live, and is a selftest waiting?"""
+    head = main_head()
+    live = read_live()
+    st = live.get("selftest") or {}
+    out({"main": head, "live": live.get("main"), "same": head == live.get("main"),
+         "selftest_requested": bool(st.get("requested_utc") and not st.get("done_utc")),
+         "held_and_reported": (live.get("held") or {}).get("main") == head})
+
+
+def cmd_selftest_record(a):
+    st = json.load(open(os.path.join(WORK, "selftest.json")))
+
+    def change(live):
+        s = live.get("selftest") or {}
+        s.update({"done_utc": now(), "by": a.by, "check_action": st["action"], "reason": st.get("reason"),
+                  "merge_seen": [{"pr": m["pr"], "merged_by": m["merged_by"]} for m in (st.get("merges") or [])],
+                  "suites": st.get("suites"), "deploy_files": st.get("deploy_files"),
+                  "live_matches_main": st.get("live_matches_main"), "pages_compared": st.get("pages_compared"),
+                  "netlify_tool": (a.netlify_tool or "")[:300], "deploy_cli": (a.deploy_cli or "")[:300]})
+        live["selftest"] = s
+    sha = write_live(change, "Publish selftest recorded")
+    out({"recorded": True, "commit": sha})
+
+
 def cmd_selftest(a):
     """As if the newest merge were not live: the whole check, then the comparison with the live site."""
     head = main_head()
@@ -424,13 +450,16 @@ def cmd_selftest(a):
 
 
 if __name__ == "__main__":
+    BY = ("ESCG publish after merge " + os.environ.get("CLAUDE_CODE_REMOTE_SESSION_ID", "")).strip()
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
     s = sub.add_parser("check"); s.add_argument("--live"); s.set_defaults(f=cmd_check)
     s = sub.add_parser("verify"); s.add_argument("--tries", type=int, default=12); s.set_defaults(f=cmd_verify)
-    s = sub.add_parser("record"); s.add_argument("--deploy-id", default=""); s.add_argument("--by", default="ESCG publish after merge"); s.set_defaults(f=cmd_record)
-    s = sub.add_parser("hold"); s.add_argument("--reason", default=""); s.add_argument("--by", default="ESCG publish after merge"); s.set_defaults(f=cmd_hold)
+    s = sub.add_parser("record"); s.add_argument("--deploy-id", default=""); s.add_argument("--by", default=BY); s.set_defaults(f=cmd_record)
+    s = sub.add_parser("hold"); s.add_argument("--reason", default=""); s.add_argument("--by", default=BY); s.set_defaults(f=cmd_hold)
     s = sub.add_parser("selftest"); s.set_defaults(f=cmd_selftest)
+    s = sub.add_parser("status"); s.set_defaults(f=cmd_status)
+    s = sub.add_parser("selftest-record"); s.add_argument("--netlify-tool", default=""); s.add_argument("--deploy-cli", default=""); s.add_argument("--by", default=BY); s.set_defaults(f=cmd_selftest_record)
     a = ap.parse_args()
     try:
         a.f(a)
