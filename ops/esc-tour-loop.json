@@ -3953,7 +3953,7 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSdvHByATtNdterRhh7",
-   "utc": "2026-11-26T00:49Z",
+   "utc": "2026-11-26T00:50Z",
    "since_utc": "2026-11-26T00:24Z",
    "productive_min": 15,
    "deliverables": [
@@ -3967,11 +3967,7 @@
     "audit:ops/reviews/live/does-medicare-pay-for-senior-care.md; #89 28073a0",
     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md; #89 403f6da",
     "audit:ops/reviews/live/illinois-medicaid-estate-recovery.md; #89 5f5260d"
-   ],
-   "current": {
-    "what": "ACQ-100",
-    "since_utc": "2026-11-26T00:49Z"
-   }
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-26T00:26Z"
@@ -4700,10 +4696,10 @@
     "evidence": "Public family questions, Search Console queries, search presence and competitor gaps already recorded in the sweep log, plus fresh searches; the guide index on main and drafts; DEMAND.md open and done.",
     "output": "Up to three BUILD tasks (lane build), each one asset with its evidence, never a topic in DEMAND.md's Open list. Deliverable of each task: guide, faq, checklist, resource or research_report on drafts.",
     "why": "Joseph wants assets built, not only opportunities reported.",
-    "last_checked_utc": "2026-11-25T06:33Z",
-    "next_check_utc": "2026-11-25T18:33Z",
-    "last_result": "2026-11-25: guide index (32 main, 39 drafts), DEMAND Open/Done read. Candidates: (1) long-term care insurance claims for assisted living: 4 dated public family questions (national caregiver Q&A forum 2023-11, 2020-09, 2020-07, 2017-04), no guide, official sources on idoi.illinois.gov and ilaging.il…",
-    "last_added": 1
+    "last_checked_utc": "2026-11-26T00:50Z",
+    "next_check_utc": "2026-11-26T12:50Z",
+    "last_result": "Guide index: main 32, drafts 40 (+ LTC insurance now in batch #90). DEMAND Open has 2 worker topics added 24 Nov 06:34Z (over 30h; the 6 AM routine did not write them), so Build (1)'s exception applied. (a) Assisted living rate increase after a level-of-care reassessment: the notice rule lives in t…",
+    "last_added": 0
    },
    {
     "id": "publish-ready",
@@ -4856,6 +4852,7 @@
    }
   ],
   "sweep_log": [
+   "2026-11-26T00:50Z asset-gaps +0: Guide index: main 32, drafts 40 (+ LTC insurance now in batch #90). DEMAND Open has 2 worker topics added 24 Nov 06:34Z (over 30h; the 6 AM routine did not wri…",
    "2026-11-26T00:41Z live-accuracy +2: quotecheck --all on main 4dc2468 unchanged: 32 live guides, 1 NOT FOUND (pace, corrected in #89), 2 NEAR MATCH (preadmission in #89; VDC audited). 13 packets n…",
    "2026-11-26T00:32Z draft-review +0: main 4dc2468 has 32 guide slugs, drafts 2c15ef1 has 40: the 8 not on main all have packets in ops/reviews/ (7 in publish batch #90; long-term-care-insurance-as…",
    "2026-11-26T00:32Z channel-yield +0: Last 7 days (cloud.json per_tag, scoreboard to 25 Nov): Facebook is the only channel with genuine visitors: fb-rp-1122 7, fb-evsk-1125 3 (25 Nov, Evanston/Skok…",
