@@ -1,0 +1,28 @@
+# Accuracy audit: medicare-home-health-care (live, main 4dc2468)
+
+Audited 2026-11-26 by the ESCG worker (ACQ-111, cse_014eaiSdvHByATtNdterRhh7). Sources read today: Medicare.gov Home health services (https://www.medicare.gov/coverage/home-health-services, 200) and Medicare.gov Medicare costs. Search Console read 25 Nov: 44 impressions, position 47.6.
+
+quotecheck: 5 quotations, 5 FOUND; "no longer improving" is a phrase in another guide's sentence, not a quotation here.
+
+| Guide's claim | Guide's scope | Source's scope (heading) | Result |
+|---|---|---|---|
+| "medically necessary part-time or intermittent skilled nursing care," with examples | Medicare | Coverage details | same |
+| Aide care "only if you're also getting skilled nursing care." (quoted with a full stop) | Medicare | Coverage details: "(only if you're also getting skilled nursing care, physical therapy, speech-language pathology services, or occupational therapy at the same time)" | SCOPE DEFECT: the quotation stops mid-sentence and drops the therapies, so it reads as nursing only: C1 |
+| Not covered: 24-hour care, meal delivery, homemaker services, custodial care when it is the only care | Medicare | Coverage details | same |
+| Homebound: both conditions; leaving for treatment or short infrequent absences; adult day care | Medicare | Who's eligible | same |
+| In-person visit and order by a doctor or provider; Medicare-certified agency; OT may continue on its own | Medicare | Provider requirements | same |
+| "You pay nothing for covered home health services."; 20% for DME after the Part B deductible ($283 in 2026) | stated for everyone | Costs; Medicare costs page: Part B deductible "$283 ($292 in 2027)". The Costs section adds: "If you get your Medicare benefits through a Medicare Advantage Plan (Part C) or another Medicare health plan, check with your plan for more information about your home health benefits." | SCOPE: the guide never says these are Original Medicare terms and that a plan member checks with the plan: C2 |
+| ABN before non-covered services | Medicare | Costs | same |
+| Unlimited visits; up to 8 hours a day and 28 a week combined; short-term under 8 a day and up to 35 a week | Medicare | How often | same |
+| Links: does-medicare-pay-for-senior-care, medicare-hospice-benefit-explained, illinois-community-care-program, / | | on main | same |
+
+Required corrections
+- C1. The aide quotation becomes the source's full condition: "only if you're also getting skilled nursing care, physical therapy, speech-language pathology services, or occupational therapy at the same time". Source (Coverage details), as above.
+- C2. Add to "What it costs": "If your parent gets Medicare through a Medicare Advantage plan or another Medicare health plan, Medicare.gov says to check with the plan about its home health benefits." Source (Costs), as above.
+
+Watch: Medicare.gov's page carries a note for home health agencies in Florida, Illinois, Ohio, North Carolina and Texas whose text sits in a collapsed panel this audit could not read; a later audit should open it (Illinois families are directly concerned). The 2027 Part B deductible ($292) is due on 1 January 2027.
+
+Quotations checked: 5. Claims scope-checked: 12. Scope defects: 2. Corrections required: 2.
+Verdict: corrections required (C1, C2); figures hold.
+
+Corrections applied: claude/accuracy-20261125 f91038b, 2026-11-26, cse_014eaiSdvHByATtNdterRhh7 (C1, C2; reviewed date unchanged)

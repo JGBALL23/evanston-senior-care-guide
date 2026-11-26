@@ -151,23 +151,22 @@
    "found_utc": "2026-11-26T00:49Z"
   },
   {
-   "id": "ACQ-111",
-   "task": "Accuracy audit of the live guide medicare-home-health-care under the review rules (scope rule included), packet at ops/reviews/live/medicare-home-health-care.md; corrections into the rolling accuracy PR #89",
+   "id": "ACQ-112",
+   "task": "Verify the corrections to medicare-home-health-care on the accuracy pull request #89 (commit f91038b): re-read each changed sentence against Medicare.gov Home health services, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <reader>' to ops/reviews/live/medicare-home-health-care.md and to that guide's lines in the #89 body, or reopen it",
    "workstream": "technical",
    "lane": "technical",
-   "source": "plan",
-   "key": "audit:medicare-home-health-care",
-   "priority": 2,
-   "evidence": "Make Search Console read 25 Nov 20:35Z: 44 impressions at pos 47.6, the next most-shown unaudited live guide; queries 'does medicare pay for home health aides' (5), 'medicare home health aide' (3); no packet in ops/reviews/live/",
-   "expected_tour_acquisition_value": "correct Medicare home-care rules on a page families find in search keep trust at the decision stage",
+   "source": "followup",
+   "key": "verify-live:medicare-home-health-care:f91038b",
+   "priority": 1,
+   "evidence": "claude/accuracy-20261125 commit f91038b (ACQ-111 audit)",
+   "expected_tour_acquisition_value": "quality gate before the correction enters the daily package",
    "impact": 3,
-   "confidence": 4,
-   "effort": 2,
+   "confidence": 5,
+   "effort": 1,
    "executor": "worker (research and preparation only)",
-   "done_when": "packet ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
-   "score": 6.0,
+   "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
-   "found_utc": "2026-11-26T01:08Z"
+   "found_utc": "2026-11-26T01:11Z"
   }
  ],
  "completed": [
@@ -3518,6 +3517,35 @@
    },
    "done_utc": "2026-11-26T01:08Z",
    "minutes": 3
+  },
+  {
+   "id": "ACQ-111",
+   "task": "Accuracy audit of the live guide medicare-home-health-care under the review rules (scope rule included), packet at ops/reviews/live/medicare-home-health-care.md; corrections into the rolling accuracy PR #89",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:medicare-home-health-care",
+   "priority": 2,
+   "evidence": "Make Search Console read 25 Nov 20:35Z: 44 impressions at pos 47.6, the next most-shown unaudited live guide; queries 'does medicare pay for home health aides' (5), 'medicare home health aide' (3); no packet in ops/reviews/live/",
+   "expected_tour_acquisition_value": "correct Medicare home-care rules on a page families find in search keep trust at the decision stage",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
+   "score": 6.0,
+   "status": "done",
+   "found_utc": "2026-11-26T01:08Z",
+   "result": "Audited medicare-home-health-care against Medicare.gov Home health services and Medicare costs today: 5/5 quotations found; figures hold ($283 Part B deductible 2026, 8/28 and 35 hours, $0). Two scope defects corrected in #89 (f91038b): the aide quotation stopped mid-sentence and dropped the therapies; the page gave Original Medicare terms without the plan caveat Medicare.gov states. Watch: Medicare.gov's collapsed note for agencies in Illinois and four other states; 2027 deductible $292. Reader queued (ACQ-112).",
+   "verdicts": {
+    "medicare-home-health-care": "corrections required (applied f91038b)"
+   },
+   "deliverable": {
+    "type": "audit",
+    "ref": "ops/reviews/live/medicare-home-health-care.md; #89 f91038b"
+   },
+   "done_utc": "2026-11-26T01:11Z",
+   "minutes": 2
   }
  ],
  "blocked": [],
@@ -3528,7 +3556,7 @@
   "picked": "ACQ-084 done, ACQ-088 done, ACQ-089 done, ACQ-090 done; added ACQ-091, ACQ-092, ACQ-093 (next session); ACQ-017 still waiting (live guides do not yet link /assisted-living-evanston/)",
   "why": "Worked: LTC-insurance draft reviewed and corrected; look-back and Extra Help live audits, 2 commits on #89; stopped: no-worthwhile-work; resume: verifications ACQ-091/092/093 next session"
  },
- "last_verified_action": "ACQ-110 done 2026-11-26T01:08Z: Ported illinois-memory-care-assisted-living to publish batch #90 as 686967c: GUIDES dict, CARDS, SRC idph_alz_plan, RELATED entry; named from levels-of-senior-…",
+ "last_verified_action": "ACQ-111 done 2026-11-26T01:11Z: Audited medicare-home-health-care against Medicare.gov Home health services and Medicare costs today: 5/5 quotations found; figures hold ($283 Part B deductibl…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -4194,9 +4222,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSdvHByATtNdterRhh7",
-   "utc": "2026-11-26T01:08Z",
+   "utc": "2026-11-26T01:11Z",
    "since_utc": "2026-11-26T00:24Z",
-   "productive_min": 39,
+   "productive_min": 41,
    "deliverables": [
     "pr:#92",
     "verification:ops/reviews/live/illinois-medicaid-look-back-period.md; #89 54139d5",
@@ -4217,8 +4245,13 @@
     "guide:drafts 80e9595",
     "review_packet:ops/reviews/illinois-memory-care-assisted-living.md",
     "verification:ops/reviews/illinois-memory-care-assisted-living.md",
-    "publish_pr:#90 686967c"
-   ]
+    "publish_pr:#90 686967c",
+    "audit:ops/reviews/live/medicare-home-health-care.md; #89 f91038b"
+   ],
+   "current": {
+    "what": "ACQ-112",
+    "since_utc": "2026-11-26T01:11Z"
+   }
   },
   "monitor": {
    "last_utc": "2026-11-26T00:26Z"
