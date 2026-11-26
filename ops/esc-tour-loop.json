@@ -151,23 +151,22 @@
    "found_utc": "2026-11-26T00:49Z"
   },
   {
-   "id": "ACQ-114",
-   "task": "Accuracy audit of the live guide medicare-durable-medical-equipment-coverage under the review rules (scope rule included), packet at ops/reviews/live/medicare-durable-medical-equipment-coverage.md; corrections into the rolling accuracy PR #89",
+   "id": "ACQ-116",
+   "task": "Verify the corrections to medicare-durable-medical-equipment-coverage (live, accuracy PR #89 commit 63284d5)",
    "workstream": "technical",
    "lane": "technical",
-   "source": "plan",
-   "key": "audit:medicare-durable-medical-equipment-coverage",
-   "priority": 2,
-   "evidence": "Make Search Console read 25 Nov 20:35Z: 25 impressions, pos 40.5; no packet in ops/reviews/live/ (next by exposure after medicare-home-health-care, audited 26 Nov)",
-   "expected_tour_acquisition_value": "correct rules on pages families find in search keep trust at the decision stage",
+   "source": "followup",
+   "key": "verify-live:medicare-durable-medical-equipment-coverage:63284d5",
+   "priority": 1,
+   "evidence": "commit 63284d5 on claude/accuracy-20261125; packet ops/reviews/live/medicare-durable-medical-equipment-coverage.md C1-C3",
+   "expected_tour_acquisition_value": "quality gate before the correction reaches the daily package",
    "impact": 3,
    "confidence": 4,
-   "effort": 2,
+   "effort": 1,
    "executor": "worker (research and preparation only)",
-   "done_when": "packet ops/reviews/live/medicare-durable-medical-equipment-coverage.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
-   "score": 6.0,
+   "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
-   "found_utc": "2026-11-26T01:12Z"
+   "found_utc": "2026-11-26T01:18Z"
   }
  ],
  "completed": [
@@ -3639,6 +3638,44 @@
     "ref": "d7724d0"
    },
    "done_utc": "2026-11-26T01:17Z"
+  },
+  {
+   "id": "ACQ-114",
+   "task": "Accuracy audit of the live guide medicare-durable-medical-equipment-coverage under the review rules (scope rule included), packet at ops/reviews/live/medicare-durable-medical-equipment-coverage.md; corrections into the rolling accuracy PR #89",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:medicare-durable-medical-equipment-coverage",
+   "priority": 2,
+   "evidence": "Make Search Console read 25 Nov 20:35Z: 25 impressions, pos 40.5; no packet in ops/reviews/live/ (next by exposure after medicare-home-health-care, audited 26 Nov)",
+   "expected_tour_acquisition_value": "correct rules on pages families find in search keep trust at the decision stage",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet ops/reviews/live/medicare-durable-medical-equipment-coverage.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
+   "score": 6.0,
+   "status": "done",
+   "found_utc": "2026-11-26T01:12Z",
+   "result": "Audited live guide medicare-durable-medical-equipment-coverage against the five cited Medicare.gov equipment pages (all 200 today). quotecheck 24/24 FOUND. 16 claims scope-checked; 3 corrections: C1 the short answer extended prior approval to scooters, Medicare.gov names it for certain power wheelchairs only; C2 an unsourced reason for the white-cane exclusion removed; C3 the rental-assignment quotation was cut with a full stop before 'otherwise you'll have to pay the full cost of your DME upfront', now quoted through it. Applied as 63284d5 on claude/accuracy-20261125 (PR #89), reviewed date unchanged; test.js 768/768, check-guides.js 2697/0, test_paying_nav 331/331, quotecheck 24/24. Verify-live task added for an independent reader.",
+   "verdicts": [
+    "C1 scope defect corrected",
+    "C2 unsourced reason removed",
+    "C3 truncated quotation completed"
+   ],
+   "sources": [
+    "https://www.medicare.gov/coverage/wheelchairs-scooters",
+    "https://www.medicare.gov/coverage/hospital-beds",
+    "https://www.medicare.gov/coverage/walkers",
+    "https://www.medicare.gov/coverage/canes",
+    "https://www.medicare.gov/coverage/commode-chairs"
+   ],
+   "deliverable": {
+    "type": "correction",
+    "ref": "63284d5"
+   },
+   "done_utc": "2026-11-26T01:18Z",
+   "minutes": 1
   }
  ],
  "blocked": [],
@@ -3649,7 +3686,7 @@
   "picked": "ACQ-005 done, ACQ-091..101 done, ACQ-102 waiting, ACQ-103..112 done, ACQ-113 ready, ACQ-114 ready",
   "why": "Worked: 22 tasks; 4 live-guide audits (Medicare guide, estate recovery, home health, look-back) corrected and reader-verified in #89; new memory care guide built, reviewed and with LTC insurance ported to batch #90; title PR #92; stopped: time; resume: ACQ-113/114 ready"
  },
- "last_verified_action": "ACQ-115 done 2026-11-26T01:17Z: Independent reader (fresh-context agent in this session) checked the sentences d7724d0 changed in illinois-advance-directive-power-of-attorney on claude/accura…",
+ "last_verified_action": "ACQ-114 done 2026-11-26T01:18Z: Audited live guide medicare-durable-medical-equipment-coverage against the five cited Medicare.gov equipment pages (all 200 today). quotecheck 24/24 FOUND. 16 …",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -4315,17 +4352,14 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSdDK6VjczHrPrWrgM1",
-   "utc": "2026-11-26T01:17Z",
+   "utc": "2026-11-26T01:18Z",
    "since_utc": "2026-11-26T01:13Z",
-   "productive_min": 3,
+   "productive_min": 4,
    "deliverables": [
     "correction:d7724d0",
-    "verification:d7724d0"
-   ],
-   "current": {
-    "what": "ACQ-114",
-    "since_utc": "2026-11-26T01:16Z"
-   }
+    "verification:d7724d0",
+    "correction:63284d5"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-26T00:26Z"
