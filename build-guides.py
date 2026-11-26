@@ -821,7 +821,9 @@ GUIDES = [
                 "<p>HFS&rsquo;s resident fact sheet says the programme "
                 "&ldquo;offers older persons (65 +) or persons with physical "
                 "disabilities (ages 22-64) services to remain in a community "
-                "setting.&rdquo;</p>",
+                "setting.&rdquo; It adds that the aim is to serve &ldquo;persons "
+                "who would otherwise need nursing facility care.&rdquo; Age "
+                "alone does not make a parent a fit.</p>",
                 "<p>Not every assisted living community in Illinois participates. A "
                 "community can be excellent and still not be a Supportive Living "
                 "facility. Ask directly, early, because it decides whether a place is "
@@ -841,8 +843,11 @@ GUIDES = [
                 "insurance premiums, certain medical expenses, the room and board "
                 "portion, and the " + F["pna"] + " personal needs allowance. Whatever "
                 "remains is paid monthly toward the cost of care, and Medicaid covers "
-                "the rest. Savings count too: the fact sheet says &ldquo;all excess "
-                "resources will be counted towards the cost of care.&rdquo;</p>",
+                "the rest. Savings can count too: for a resident covered by "
+                "Medicaid, the fact sheet says &ldquo;all excess resources will be "
+                "counted towards the cost of care.&rdquo; It does not say which "
+                "savings count as excess, so ask HFS before you assume your "
+                "parent&rsquo;s savings are safe or spent.</p>",
                 "<p>So there is no sum on this page that produces your parent's figure, "
                 "and any site that offers you one is guessing. The amount owed is "
                 "determined by the state for that individual, from documents you have "
