@@ -151,24 +151,6 @@
    "found_utc": "2026-11-26T00:49Z"
   },
   {
-   "id": "ACQ-116",
-   "task": "Verify the corrections to medicare-durable-medical-equipment-coverage (live, accuracy PR #89 commit 63284d5)",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "followup",
-   "key": "verify-live:medicare-durable-medical-equipment-coverage:63284d5",
-   "priority": 1,
-   "evidence": "commit 63284d5 on claude/accuracy-20261125; packet ops/reviews/live/medicare-durable-medical-equipment-coverage.md C1-C3",
-   "expected_tour_acquisition_value": "quality gate before the correction reaches the daily package",
-   "impact": 3,
-   "confidence": 4,
-   "effort": 1,
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
-   "status": "ready",
-   "found_utc": "2026-11-26T01:18Z"
-  },
-  {
    "id": "ACQ-117",
    "task": "Build a guide on drafts: the hospital wants to discharge my parent but they cannot safely go home; do we have to take them home, and how does a move to rehab or a nursing home get arranged? (DEMAND.md Open topic added by the ESCG worker 2026-11-24, open over 30 hours; Build exception (1))",
    "workstream": "build",
@@ -205,6 +187,24 @@
    "score": 3.0,
    "status": "ready",
    "found_utc": "2026-11-26T01:19Z"
+  },
+  {
+   "id": "ACQ-119",
+   "task": "Apply to the live guide medicare-durable-medical-equipment-coverage, in accuracy PR #89: (A1) the reader's recommended addition, walkers page Costs: 'If this happens, Medicare will pay you later for the amount it covers after your claims have been submitted and processed by Medicare.'; (A2) scope the deductible, 20%, assignment and prior-approval terms to Original Medicare and tell a parent in a Medicare Advantage plan what to do, only from an official Medicare.gov or CMS sentence found and fetched (else write plainly that the cited pages do not say)",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "improve:medicare-dme-reader-additions",
+   "priority": 2,
+   "evidence": "ops/reviews/live/medicare-durable-medical-equipment-coverage.md reader check 2026-11-26 (63284d5): recommended addition and open scope note; same fix applied to medicare-home-health-care in f91038b",
+   "expected_tour_acquisition_value": "correct cost rules for Medicare Advantage members on a page families find in search (25 impressions, 25 Nov read)",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "commit on claude/accuracy-20261125 with checks and quotecheck passing, packet line added, verify-live task added",
+   "status": "ready",
+   "found_utc": "2026-11-26T01:20Z"
   }
  ],
  "completed": [
@@ -3714,6 +3714,37 @@
    },
    "done_utc": "2026-11-26T01:18Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-116",
+   "task": "Verify the corrections to medicare-durable-medical-equipment-coverage (live, accuracy PR #89 commit 63284d5)",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:medicare-durable-medical-equipment-coverage:63284d5",
+   "priority": 1,
+   "evidence": "commit 63284d5 on claude/accuracy-20261125; packet ops/reviews/live/medicare-durable-medical-equipment-coverage.md C1-C3",
+   "expected_tour_acquisition_value": "quality gate before the correction reaches the daily package",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-26T01:18Z",
+   "result": "Independent reader (fresh-context agent in this session) checked the sentences 63284d5 changed in medicare-durable-medical-equipment-coverage: quotecheck 24/24 FOUND, all five Medicare.gov pages re-read, no link changes. C1 (prior approval for certain power wheelchairs only), C2 (no unsourced reason for the white-cane exclusion) and C3 (rental sentence through 'pay the full cost of your DME upfront') hold in scope. Corrections verified. The reader recommended an addition (Medicare pays the family back later, walkers page Costs) and flagged that the guide never says its terms are Original Medicare's nor what a Medicare Advantage member should do; follow-up task ACQ-119 queued.",
+   "verdicts": [
+    "Corrections verified"
+   ],
+   "sources": [
+    "https://www.medicare.gov/coverage/walkers",
+    "https://www.medicare.gov/coverage/wheelchairs-scooters"
+   ],
+   "deliverable": {
+    "type": "verification",
+    "ref": "63284d5"
+   },
+   "done_utc": "2026-11-26T01:20Z"
   }
  ],
  "blocked": [],
@@ -3724,7 +3755,7 @@
   "picked": "ACQ-005 done, ACQ-091..101 done, ACQ-102 waiting, ACQ-103..112 done, ACQ-113 ready, ACQ-114 ready",
   "why": "Worked: 22 tasks; 4 live-guide audits (Medicare guide, estate recovery, home health, look-back) corrected and reader-verified in #89; new memory care guide built, reviewed and with LTC insurance ported to batch #90; title PR #92; stopped: time; resume: ACQ-113/114 ready"
  },
- "last_verified_action": "ACQ-114 done 2026-11-26T01:18Z: Audited live guide medicare-durable-medical-equipment-coverage against the five cited Medicare.gov equipment pages (all 200 today). quotecheck 24/24 FOUND. 16 …",
+ "last_verified_action": "ACQ-116 done 2026-11-26T01:20Z: Independent reader (fresh-context agent in this session) checked the sentences 63284d5 changed in medicare-durable-medical-equipment-coverage: quotecheck 24/24…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -4390,16 +4421,17 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSdDK6VjczHrPrWrgM1",
-   "utc": "2026-11-26T01:19Z",
+   "utc": "2026-11-26T01:20Z",
    "since_utc": "2026-11-26T01:13Z",
    "productive_min": 4,
    "deliverables": [
     "correction:d7724d0",
     "verification:d7724d0",
-    "correction:63284d5"
+    "correction:63284d5",
+    "verification:63284d5"
    ],
    "current": {
-    "what": "plan:build",
+    "what": "ACQ-117",
     "since_utc": "2026-11-26T01:19Z"
    }
   },
