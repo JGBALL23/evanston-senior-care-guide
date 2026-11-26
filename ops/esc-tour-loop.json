@@ -172,22 +172,42 @@
    "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in the Assisted Living and Shared Housing Act (210 ILCS 9/90, already a SRC on main as ilcs_al_90) and 77 Ill. Adm. Code 295 on ilga.gov, an approved host per check-guides.js. ilga.gov could not be read this session: curl through the proxy fails TLS (000) and WebFetch returns 503. Searched illinois.gov (IDPH, IDoA, HFS): the IDPH ITR form covers terminations only; the IDoA residents' rights brochure says a contract must state services and costs but is not scoped to assisted living and says nothing on rate-change notice; HFS Part 146 is supportive living. No guide written: the core rule cannot be read off a fetched page. Retry by WebFetch of ilga.gov after not_before."
   },
   {
-   "id": "ACQ-132",
-   "task": "Verify the corrections to hospital-discharge-not-safe-to-go-home (drafts commit 2b3b34e)",
-   "workstream": "build",
-   "lane": "build",
-   "source": "followup",
-   "key": "verify:hospital-discharge-not-safe-to-go-home:2b3b34e",
-   "priority": 1,
-   "evidence": "drafts 2b3b34e; packet ops/reviews/hospital-discharge-not-safe-to-go-home.md",
-   "expected_tour_acquisition_value": "quality gate before the guide enters the publish batch",
+   "id": "ACQ-133",
+   "task": "Accuracy audit of the live guide illinois-supportive-living-program under the review rules (scope rule included), packet at ops/reviews/live/illinois-supportive-living-program.md; corrections into the rolling accuracy PR #89",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:illinois-supportive-living-program",
+   "priority": 2,
+   "evidence": "Make Search Console read 25 Nov 20:35Z: 12 impressions, pos 8.0; no packet in ops/reviews/live/ (next by exposure after va-nursing-home-and-respite-care, audited 26 Nov)",
+   "expected_tour_acquisition_value": "correct rules on pages families find in search keep trust at the decision stage",
    "impact": 3,
    "confidence": 4,
-   "effort": 1,
+   "effort": 2,
    "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
+   "done_when": "packet ops/reviews/live/illinois-supportive-living-program.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
+   "score": 6.0,
    "status": "ready",
-   "found_utc": "2026-11-26T01:34Z"
+   "found_utc": "2026-11-26T01:35Z"
+  },
+  {
+   "id": "ACQ-134",
+   "task": "Accuracy audit of the live guide illinois-fide-snp-explained under the review rules (scope rule included), packet at ops/reviews/live/illinois-fide-snp-explained.md; corrections into the rolling accuracy PR #89",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:illinois-fide-snp-explained",
+   "priority": 2,
+   "evidence": "Make Search Console read 25 Nov 20:35Z: 8 impressions, pos 32.4; no packet in ops/reviews/live/ (next by exposure after va-nursing-home-and-respite-care, audited 26 Nov)",
+   "expected_tour_acquisition_value": "correct rules on pages families find in search keep trust at the decision stage",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet ops/reviews/live/illinois-fide-snp-explained.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
+   "score": 6.0,
+   "status": "ready",
+   "found_utc": "2026-11-26T01:35Z"
   }
  ],
  "completed": [
@@ -4122,6 +4142,33 @@
    },
    "done_utc": "2026-11-26T01:34Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-132",
+   "task": "Verify the corrections to hospital-discharge-not-safe-to-go-home (drafts commit 2b3b34e)",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "verify:hospital-discharge-not-safe-to-go-home:2b3b34e",
+   "priority": 1,
+   "evidence": "drafts 2b3b34e; packet ops/reviews/hospital-discharge-not-safe-to-go-home.md",
+   "expected_tour_acquisition_value": "quality gate before the guide enters the publish batch",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-26T01:34Z",
+   "result": "Independent reader checked drafts 2b3b34e on hospital-discharge-not-safe-to-go-home: quotecheck 32/32, SNF and fast-appeal pages re-fetched; SNF cost-sharing per benefit period with the 100-day limit, the Medicare Advantage condition paraphrase and the removal of the observation sentence hold. Corrections verified. The packet now carries the counts line, 'Verdict: publish-ready after corrections' and 'Corrections verified', so the page qualifies for the next publish batch (daily package cut 05:00-10:30 UTC).",
+   "verdicts": [
+    "Corrections verified"
+   ],
+   "deliverable": {
+    "type": "verification",
+    "ref": "2b3b34e"
+   },
+   "done_utc": "2026-11-26T01:35Z"
   }
  ],
  "blocked": [],
@@ -4132,7 +4179,7 @@
   "picked": "ACQ-005 done, ACQ-091..101 done, ACQ-102 waiting, ACQ-103..112 done, ACQ-113 ready, ACQ-114 ready",
   "why": "Worked: 22 tasks; 4 live-guide audits (Medicare guide, estate recovery, home health, look-back) corrected and reader-verified in #89; new memory care guide built, reviewed and with LTC insurance ported to batch #90; title PR #92; stopped: time; resume: ACQ-113/114 ready"
  },
- "last_verified_action": "ACQ-131 done 2026-11-26T01:34Z: Applied the reader check of 9b44298 to drafts guide hospital-discharge-not-safe-to-go-home as 2b3b34e: SNF cost-sharing per benefit period with 'Part A limits …",
+ "last_verified_action": "ACQ-132 done 2026-11-26T01:35Z: Independent reader checked drafts 2b3b34e on hospital-discharge-not-safe-to-go-home: quotecheck 32/32, SNF and fast-appeal pages re-fetched; SNF cost-sharing p…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -4798,9 +4845,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSdDK6VjczHrPrWrgM1",
-   "utc": "2026-11-26T01:34Z",
+   "utc": "2026-11-26T01:35Z",
    "since_utc": "2026-11-26T01:13Z",
-   "productive_min": 18,
+   "productive_min": 21,
    "deliverables": [
     "correction:d7724d0",
     "verification:d7724d0",
@@ -4819,7 +4866,8 @@
     "correction:95e9903",
     "verification:9b44298",
     "verification:95e9903",
-    "correction:2b3b34e"
+    "correction:2b3b34e",
+    "verification:2b3b34e"
    ]
   },
   "monitor": {
@@ -5394,9 +5442,9 @@
     "plan_cooldown_hours": 12,
     "open_prs": [],
     "owner_open": 6,
-    "cooldown_until_utc": "",
-    "last_planned_utc": "2026-11-26T01:19Z",
-    "last_plan_result": "Evidence: DEMAND.md Open on drafts (2 worker-added topics from 24 Nov, open >30h, not written by the 6 AM routine), Search Console read 25 Nov (Medicare/assisted-living queries already served by does-medicare-pay-for-senior-care; 'what is a uai screening' served by the CCP guide), slugs on main (32…",
+    "cooldown_until_utc": "2026-11-26T13:35Z",
+    "last_planned_utc": "2026-11-26T01:35Z",
+    "last_plan_result": "Second build pass 26 Nov: DEMAND Open holds one topic (ACQ-118, waiting on ilga.gov); Search Console read 25 Nov has no uncovered query; no new public-question evidence gathered this pass. Nothing added.",
     "wip_note": "owner_open counts worker-built assets on drafts that are not on main yet; at 10 the lane waits for Joseph to publish"
    },
    {
@@ -5580,6 +5628,7 @@
    }
   ],
   "log": [
+   "2026-11-26T01:35Z build +0: Second build pass 26 Nov: DEMAND Open holds one topic (ACQ-118, waiting on ilga.gov); Search Console read 25 Nov has no uncovered query; no new public-question…",
    "2026-11-26T01:19Z build +2: Evidence: DEMAND.md Open on drafts (2 worker-added topics from 24 Nov, open >30h, not written by the 6 AM routine), Search Console read 25 Nov (Medicare/assist…",
    "2026-11-26T00:59Z publish +0: All 8 drafts not on main are in publish batch #90 (LTC insurance ported this session as d00713b); no packet-qualified page outside a batch.",
    "2026-11-26T00:59Z build +1: Evidence: guide index on main (32) and drafts (40), DEMAND Open/Done, Search Console read 25 Nov, dated public questions. Passed: Illinois memory care in assis…",
@@ -5815,6 +5864,37 @@
    "exhausted_until_utc": "",
    "empty_streak": 0,
    "log": [
+    {
+     "utc": "2026-11-26T01:35Z",
+     "run": "cse_014eaiSdDK6VjczHrPrWrgM1",
+     "key": "quality-audit-live-slp-fidesnp",
+     "avenue": "quality",
+     "lane": null,
+     "candidates": 2,
+     "added": 2,
+     "result": "Search Console pages 25 Nov vs ops/reviews/live: next unaudited by exposure are illinois-supportive-living-program (12 impr, pos 8.0, page 1 of results) and illinois-fide-snp-explained (8, pos 32.4); both queued as audits for #89.",
+     "new_evidence": "26 Nov audits of elder-abuse (3 rounds of corrections) and VA nursing (holds) moved the next two most-seen unaudited live guides up"
+    },
+    {
+     "utc": "2026-11-26T01:35Z",
+     "run": "cse_014eaiSdDK6VjczHrPrWrgM1",
+     "key": "needs-assisted-living-rate-increase-rules",
+     "avenue": "needs",
+     "lane": null,
+     "candidates": 1,
+     "added": 0,
+     "result": "DEMAND Open topic (AL rate increase after reassessment, 3 forum questions 2018-2025) researched 26 Nov on illinois.gov: IDPH ITR form covers terminations only; IDoA residents' rights brochure (contract states services and costs, not scoped to AL); HFS Part 146 is supportive living; the rule is in 210 ILCS 9/90 and 77 …"
+    },
+    {
+     "utc": "2026-11-26T01:35Z",
+     "run": "cse_014eaiSdDK6VjczHrPrWrgM1",
+     "key": "search-console-uncovered-queries-26nov",
+     "avenue": "search",
+     "lane": null,
+     "candidates": 3,
+     "added": 0,
+     "result": "Make Search Console read 25 Nov 20:35Z, 40 queries: 33 Medicare/assisted-living/nursing-home cost queries land on does-medicare-pay-for-senior-care (audited and corrected 26 Nov, in #89); 'what is a uai screening' (6 impr, pos 10.5) is another state's form (rejected earlier, no new evidence); 'home delivered meals pro…"
+    },
     {
      "utc": "2026-11-26T01:25Z",
      "run": "cse_014eaiSdDK6VjczHrPrWrgM1",
