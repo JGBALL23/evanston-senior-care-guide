@@ -3308,12 +3308,13 @@ GUIDES = [
                 "treatments in advance (Mental Health Treatment Preference "
                 "Declaration Act)</li>"
                 "<li><strong>Practitioner Orders for Life-Sustaining Treatment "
-                "(POLST)</strong> &mdash; a medical order, signed by a doctor as "
-                "well as your parent, setting out which life-sustaining "
+                "(POLST)</strong> &mdash; a medical order, signed by your parent "
+                "(or an authorised representative) and by their attending "
+                "practitioner, setting out which life-sustaining "
                 "treatments to use or withhold</li>"
                 "</ul>",
                 "<p>None of the four is required. The Illinois Department of "
-                "Public Health states plainly that &ldquo;no health care facility, health care professional or insurer can make you execute an advance directive.&rdquo; In its words: &ldquo;It is entirely your decision.&rdquo;</p>",
+                "Public Health states plainly that &ldquo;no health care facility, health care professional or insurer can make you execute an advance directive as a condition of providing treatment or insurance.&rdquo; In its words: &ldquo;It is entirely your decision.&rdquo;</p>",
             ]),
             ("What a Power of Attorney for Health Care actually does", [
                 "<p>Your parent (the <strong>principal</strong>) names an "
@@ -3384,9 +3385,9 @@ GUIDES = [
                 "attempted if your parent&rsquo;s heart or breathing stops.</p>",
             ]),
             ("What a nursing home or hospital must do — and must never do", [
-                "<p>The Illinois Department of Public Health says information about the right to make an advance directive is given &ldquo;upon admission to a facility or when provision of care begins.&rdquo; No health care facility can make your parent sign one.</p>",
+                "<p>The Illinois Department of Public Health says information about the right to make an advance directive is given &ldquo;upon admission to a facility or when provision of care begins.&rdquo; No health care facility can make signing one a condition of treating your parent.</p>",
                 "<p>If a facility objects to following your parent&rsquo;s "
-                "directive on moral or religious grounds, the Illinois "
+                "directive, the Illinois "
                 "Department of Public Health states it must say so and must "
                 "keep providing care until your parent can be transferred to a "
                 "provider who will follow it. It cannot simply stop caring for "
