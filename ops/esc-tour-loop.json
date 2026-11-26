@@ -170,21 +170,6 @@
    "found_utc": "2026-11-26T01:19Z",
    "not_before_utc": "2026-11-27T01:30Z",
    "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in the Assisted Living and Shared Housing Act (210 ILCS 9/90, already a SRC on main as ilcs_al_90) and 77 Ill. Adm. Code 295 on ilga.gov, an approved host per check-guides.js. ilga.gov could not be read this session: curl through the proxy fails TLS (000) and WebFetch returns 503. Searched illinois.gov (IDPH, IDoA, HFS): the IDPH ITR form covers terminations only; the IDoA residents' rights brochure says a contract must state services and costs but is not scoped to assisted living and says nothing on rate-change notice; HFS Part 146 is supportive living. No guide written: the core rule cannot be read off a fetched page. Retry by WebFetch of ilga.gov after not_before."
-  },
-  {
-   "id": "ACQ-143",
-   "task": "Cut the daily package",
-   "workstream": "publish",
-   "lane": "publish",
-   "source": "followup",
-   "key": "package:20261126",
-   "priority": 1,
-   "evidence": "daily package rule",
-   "expected_tour_acquisition_value": "one approval a day puts finished work in front of families",
-   "executor": "worker (research and preparation only)",
-   "done_when": "controller/package and owner_review_needed rewritten; the pull request opened, updated or not needed",
-   "status": "ready",
-   "found_utc": "2026-11-26T06:24Z"
   }
  ],
  "completed": [
@@ -4476,6 +4461,37 @@
    },
    "done_utc": "2026-11-26T01:55Z",
    "minutes": 2
+  },
+  {
+   "id": "ACQ-143",
+   "task": "Cut the daily package",
+   "workstream": "publish",
+   "lane": "publish",
+   "source": "followup",
+   "key": "package:20261126",
+   "priority": 1,
+   "evidence": "daily package rule",
+   "expected_tour_acquisition_value": "one approval a day puts finished work in front of families",
+   "executor": "worker (research and preparation only)",
+   "done_when": "controller/package and owner_review_needed rewritten; the pull request opened, updated or not needed",
+   "status": "done",
+   "found_utc": "2026-11-26T06:24Z",
+   "result": "Daily package for 26 Nov cut inside the window. Ported the newly verified guide hospital-discharge-not-safe-to-go-home (drafts 2b3b34e, packet publish-ready after corrections, corrections verified) into open batch #90 as 40e9da0 (named from the fast-appeal and pre-admission screening guides' Related lists); batch retitled 'Publish batch: 10 guides'. Re-cut package #91 on its own branch: merged origin/main, #90 (40e9da0), #89 to its head ab43cab (every commit verified by independent readers) and #92 (estate-recovery search title); conflicts only in built _dist files, resolved by rebuilding. Build leaves status clean, all eleven suites pass, check-mobile-nav not run here (websockets). #91 title and body rewritten (number kept); #89 body line 1 updated. controller/package and owner_review_needed line 1 rewritten; A, ONLY YOU and FOR THE OPERATOR lines kept.",
+   "verdicts": [
+    "#91 head 4d047b4 contains #90,#89,#92,#84,#80,#79,#85,#81,#86,#78,#87,#88; OUT none"
+   ],
+   "sources": [
+    "gh api pulls/89-92",
+    "node test.js 768/768",
+    "node check-guides.js 3441/0",
+    "quotecheck hospital-discharge 32/32"
+   ],
+   "deliverable": {
+    "type": "publish_pr",
+    "ref": "PR #91 at 4d047b4; batch #90 at 40e9da0"
+   },
+   "done_utc": "2026-11-26T06:32Z",
+   "minutes": 8
   }
  ],
  "blocked": [],
@@ -4486,7 +4502,7 @@
   "picked": "ACQ-142 done",
   "why": "Worked: SC3 scout (own numbers) ran, 0 new map items; stopped: no-worthwhile-work; resume: package cut 05:00Z"
  },
- "last_verified_action": "ACQ-142 done 2026-11-26T01:55Z: SC3 first run. Read cloud.json scoreboard (daily 22-25 Nov), metrics.per_tag, Make Search Console read 25 Nov 20:35Z (1,242 impressions, 2 clicks, 40 queries, …",
+ "last_verified_action": "ACQ-143 done 2026-11-26T06:32Z: Daily package for 26 Nov cut inside the window. Ported the newly verified guide hospital-discharge-not-safe-to-go-home (drafts 2b3b34e, packet publish-ready af…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -4521,7 +4537,7 @@
   "confirmation": "Claude Scheduled Tasks screenshot: ESCG Tour Acquisition Loop active, Pull request: Commits pushed on matching repository. Previous setup screenshot: head branch automation/esc-tour-loop."
  },
  "owner_review_needed": [
-  "PACKAGE 25 Nov (one merge, about 15 minutes to skim): merge #91. It holds 7 new guides, corrections to 6 live guides and 5 tracking, search and tour-path changes (#90, #89, #84, #79, #85, #81, #86, #78), tested together: the rebuild changes nothing and all eleven test suites pass. Two items touch things you reserved and are quoted at the top of the pull request: #86 adds the tour line you asked for on 22 Nov to the checklist PDF ('Want a tour of Westminster Place, where the author works? Ask online.'), and #84 with #79 keep a visitor's arrival channel through the tour click (no new data). After the merge, say 'deploy' in the Claude chat where you asked for the daily package: it publishes exactly what you merged and checks every changed page. To leave something out: 'package without #<n>'.",
+  "PACKAGE 26 Nov (one merge, about 20 minutes to skim): merge #91. It holds 10 new guides (three new since yesterday: long-term care insurance, memory care rules, hospital discharge when home is not safe), corrections to 17 live guides (11 new since yesterday, among them the Medicare guide that draws 781 of the site's 1,242 search impressions) and search-title, link and tour-path changes (#90, #89, #92, #85, #81, #78, #84, #79, #86), tested together: the rebuild changes nothing and all eleven test suites pass. Two items touch things you reserved and are quoted at the top of the pull request: #86 adds the tour line you asked for on 22 Nov to the checklist PDF ('Want a tour of Westminster Place, where the author works? Ask online.'), and #84 with #79 keep a visitor's arrival channel through the tour click (no new data). Offered since 25 Nov; every day it waits, the new guides and the corrections stay off the live site. After the merge, say 'deploy' in the Claude chat where you asked for the daily package. To leave something out: 'package without #<n>'.",
   "A. Publish automatically after your merge, without the word 'deploy'? Everything around it is built and tested: it checks that the commit is your merge, runs the tests, publishes through Netlify as before and compares every changed page. Tried 26 Nov; stopped by: the platform's safety check, which refused to let Claude run this unattended ('Undermining Oversight') and needs that order from you. Yes = say 'publish automatically after I merge' in the Claude automation chat (nothing to do afterwards); no = keep saying 'deploy' after a merge. Linking Netlify to GitHub is not needed for either.",
   "ONLY YOU: When you have time: the Evanston Now essay (the draft is in your Claude chat; submit through their contact form by about 10 Dec); two optional calls to offices that publish no email address: New Trier Township social services 847-446-8202 and Village of Northbrook 847-272-5050 about its Senior Housing Resources directory.",
   "FOR THE OPERATOR (nothing for you to do): an indexing request for /assisted-living-evanston/ in Search Console once #91 is live."
@@ -5153,8 +5169,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSe8SBqppdHD1M3fw41",
-   "utc": "2026-11-26T06:24Z",
-   "since_utc": "2026-11-26T06:24Z"
+   "utc": "2026-11-26T06:32Z",
+   "since_utc": "2026-11-26T06:24Z",
+   "productive_min": 8,
+   "deliverables": [
+    "publish_pr:PR #91 at 4d047b4; batch #90 at 40e9da0"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-26T00:26Z"
@@ -5846,20 +5866,21 @@
   "package": {
    "pr": 91,
    "branch": "claude/package-20261125",
-   "head": "0b0cdf3",
-   "cut_utc": "2026-11-25T07:08Z",
+   "head": "4d047b4",
+   "cut_utc": "2026-11-26T06:31Z",
    "contains": [
     90,
     89,
+    92,
     84,
+    80,
     79,
     85,
     81,
     86,
     78,
     87,
-    88,
-    80
+    88
    ],
    "batch": 90,
    "accuracy": 89,
@@ -5868,7 +5889,7 @@
    "superseded": [],
    "after_merge": "After the merge, say \"deploy\" in the Claude chat where you asked for the daily package: it publishes exactly the commit you merged (tests first, through Netlify as before) and checks every changed page against it.",
    "about": "The daily approval package (procedure step 7, DAILY PACKAGE). One pull request for Joseph to merge; the worker re-cuts it once a day. after_merge is changed only by a session that heard Joseph say how the site gets deployed.",
-   "note": "Cut twice on 25 Nov by the supervising chat (03:33Z and 07:08Z, the second with #90 at 4f77740 and #89 at 5bf3b46); from 26 Nov the worker cuts it (status package.due).",
+   "note": "Cut twice on 25 Nov by the supervising chat; re-cut 26 Nov 06:31Z by the ESCG worker (cse_014eaiSe8SBqppdHD1M3fw41): #90 now 10 guides (40e9da0), #89 through ab43cab (all verified), #92 added.",
    "owner_actions": []
   },
   "next_discovery": "Daily package cut due 05:00Z (#89 now holds verified corrections through ab43cab: SLP, FIDE SNP, ombudsman added today). Sweeps site-health and demand-questions 06:28-06:37Z, live-accuracy 12:41Z (remaining unaudited live guides have no impressions). Waiting on Joseph: search and conversion lanes (#81, #85, #92; #86, #84, #80, #79, #78) and package #91."
