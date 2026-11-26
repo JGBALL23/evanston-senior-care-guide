@@ -172,25 +172,6 @@
    "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in the Assisted Living and Shared Housing Act (210 ILCS 9/90, already a SRC on main as ilcs_al_90) and 77 Ill. Adm. Code 295 on ilga.gov, an approved host per check-guides.js. ilga.gov could not be read this session: curl through the proxy fails TLS (000) and WebFetch returns 503. Searched illinois.gov (IDPH, IDoA, HFS): the IDPH ITR form covers terminations only; the IDoA residents' rights brochure says a contract must state services and costs but is not scoped to assisted living and says nothing on rate-change notice; HFS Part 146 is supportive living. No guide written: the core rule cannot be read off a fetched page. Retry by WebFetch of ilga.gov after not_before."
   },
   {
-   "id": "ACQ-150",
-   "task": "Accuracy audit of the live guide medicare-hospice-benefit-explained under the review rules (scope rule included), packet at ops/reviews/live/medicare-hospice-benefit-explained.md; corrections into the rolling accuracy PR #89",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "plan",
-   "key": "audit:medicare-hospice-benefit-explained",
-   "priority": 2,
-   "evidence": "No packet in ops/reviews/live/ (checked 26 Nov 17:50Z); quotecheck on main 26 Nov: 1/1 quotation FOUND, so the risk is scope (Medicare eligibility, election, respite and room-and-board rules) not wording; the Medicare cluster draws 33 of 40 Search Console queries (Make read 25 Nov 20:35Z)",
-   "expected_tour_acquisition_value": "correct rules on pages families find in search keep trust at the decision stage",
-   "impact": 3,
-   "confidence": 4,
-   "effort": 2,
-   "executor": "worker (research and preparation only)",
-   "done_when": "packet ops/reviews/live/medicare-hospice-benefit-explained.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
-   "score": 6.0,
-   "status": "ready",
-   "found_utc": "2026-11-26T17:34Z"
-  },
-  {
    "id": "ACQ-151",
    "task": "Accuracy audit of the live guide illinois-nursing-home-resident-rights under the review rules (scope rule included), packet at ops/reviews/live/illinois-nursing-home-resident-rights.md; corrections into the rolling accuracy PR #89",
    "workstream": "technical",
@@ -208,6 +189,24 @@
    "score": 6.0,
    "status": "ready",
    "found_utc": "2026-11-26T17:34Z"
+  },
+  {
+   "id": "ACQ-152",
+   "task": "Verify the corrections to medicare-hospice-benefit-explained on the accuracy pull request #89 (commit 99cc346): re-read each changed sentence against its source; packet line added",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:medicare-hospice-benefit-explained:99cc346",
+   "priority": 1,
+   "evidence": "accuracy PR #89 commit 99cc346 (ACQ-150 audit corrections)",
+   "expected_tour_acquisition_value": "quality gate before the corrections reach the live guide",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "ready",
+   "found_utc": "2026-11-26T17:39Z"
   }
  ],
  "completed": [
@@ -4683,6 +4682,40 @@
    },
    "done_utc": "2026-11-26T06:46Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-150",
+   "task": "Accuracy audit of the live guide medicare-hospice-benefit-explained under the review rules (scope rule included), packet at ops/reviews/live/medicare-hospice-benefit-explained.md; corrections into the rolling accuracy PR #89",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:medicare-hospice-benefit-explained",
+   "priority": 2,
+   "evidence": "No packet in ops/reviews/live/ (checked 26 Nov 17:50Z); quotecheck on main 26 Nov: 1/1 quotation FOUND, so the risk is scope (Medicare eligibility, election, respite and room-and-board rules) not wording; the Medicare cluster draws 33 of 40 Search Console queries (Make read 25 Nov 20:35Z)",
+   "expected_tour_acquisition_value": "correct rules on pages families find in search keep trust at the decision stage",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet ops/reviews/live/medicare-hospice-benefit-explained.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
+   "score": 6.0,
+   "status": "done",
+   "found_utc": "2026-11-26T17:34Z",
+   "result": "Audit of live medicare-hospice-benefit-explained against Medicare.gov Hospice care and Medicare costs (read 26 Nov): 1/1 quotation FOUND, 11 claims scope-checked, 3 defects: the guide said 'Medicare pays $0' where Medicare.gov says the person pays nothing; recertification attributed to an NP (the NP holds the face-to-face meeting, the medical director or hospice doctor recertifies); the arranged inpatient/respite stay exception to room and board was dropped. Plus a Medicare Advantage paragraph (recommended addition). Applied as #89 commit 99cc346 with listed date kept; all suites pass. 2027 deductible left to ACQ-043. Reader check queued (verify-live).",
+   "verdicts": [
+    "corrections"
+   ],
+   "sources": [
+    "medicare.gov/coverage/hospice-care",
+    "medicare.gov/basics/costs/medicare-costs"
+   ],
+   "lesson": "A $0 figure can be attached to the wrong payer: check who pays, not only the number.",
+   "deliverable": {
+    "type": "correction",
+    "ref": "#89 99cc346; ops/reviews/live/medicare-hospice-benefit-explained.md"
+   },
+   "done_utc": "2026-11-26T17:39Z",
+   "minutes": 5
   }
  ],
  "blocked": [],
@@ -4693,7 +4726,7 @@
   "picked": "ACQ-143 done, ACQ-144 done, ACQ-145 done, ACQ-146 done, ACQ-147 done (reopened), ACQ-148 done, ACQ-149 done",
   "why": "Worked: package #91 re-cut for 26 Nov (10 guides, 17 live-guide corrections, #92), 2 verified additions to top search pages; stopped: no-worthwhile-work; resume: monitor 12:26Z, sweeps 12:32Z"
  },
- "last_verified_action": "ACQ-149 done 2026-11-26T06:46Z: Independent reader (fresh-context agent in cse_014eaiSe8SBqppdHD1M3fw41) checked c964f99: 'No one will be asked to leave the property.' now sits only with HFS'…",
+ "last_verified_action": "ACQ-150 done 2026-11-26T17:39Z: Audit of live medicare-hospice-benefit-explained against Medicare.gov Hospice care and Medicare costs (read 26 Nov): 1/1 quotation FOUND, 11 claims scope-check…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -5359,9 +5392,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSan3kSKEb4rtUHknYk",
-   "utc": "2026-11-26T17:34Z",
+   "utc": "2026-11-26T17:39Z",
    "since_utc": "2026-11-26T17:32Z",
-   "productive_min": 3
+   "productive_min": 8,
+   "deliverables": [
+    "correction:#89 99cc346; ops/reviews/live/medicare-hospice-benefit-explained.md"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-26T17:33Z"
