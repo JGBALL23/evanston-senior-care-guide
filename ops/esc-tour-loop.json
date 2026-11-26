@@ -170,21 +170,6 @@
    "found_utc": "2026-11-26T01:19Z",
    "not_before_utc": "2026-11-27T01:30Z",
    "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in the Assisted Living and Shared Housing Act (210 ILCS 9/90, already a SRC on main as ilcs_al_90) and 77 Ill. Adm. Code 295 on ilga.gov, an approved host per check-guides.js. ilga.gov could not be read this session: curl through the proxy fails TLS (000) and WebFetch returns 503. Searched illinois.gov (IDPH, IDoA, HFS): the IDPH ITR form covers terminations only; the IDoA residents' rights brochure says a contract must state services and costs but is not scoped to assisted living and says nothing on rate-change notice; HFS Part 146 is supportive living. No guide written: the core rule cannot be read off a fetched page. Retry by WebFetch of ilga.gov after not_before."
-  },
-  {
-   "id": "ACQ-145",
-   "task": "Verify the addition to does-medicare-pay-for-senior-care on the accuracy pull request #89 (commit 6876bfd): re-read the changed sentences against Medicare.gov 'Appeal when a hospital changes your status'",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "followup",
-   "key": "verify-live:does-medicare-pay-for-senior-care:6876bfd",
-   "priority": 1,
-   "evidence": "commit 6876bfd on claude/accuracy-20261125 (ACQ-144)",
-   "expected_tour_acquisition_value": "quality gate before the addition enters the daily package",
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
-   "status": "ready",
-   "found_utc": "2026-11-26T06:36Z"
   }
  ],
  "completed": [
@@ -4535,6 +4520,31 @@
    },
    "done_utc": "2026-11-26T06:36Z",
    "minutes": 3
+  },
+  {
+   "id": "ACQ-145",
+   "task": "Verify the addition to does-medicare-pay-for-senior-care on the accuracy pull request #89 (commit 6876bfd): re-read the changed sentences against Medicare.gov 'Appeal when a hospital changes your status'",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:does-medicare-pay-for-senior-care:6876bfd",
+   "priority": 1,
+   "evidence": "commit 6876bfd on claude/accuracy-20261125 (ACQ-144)",
+   "expected_tour_acquisition_value": "quality gate before the addition enters the daily package",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-26T06:36Z",
+   "result": "Independent reader (fresh-context agent in cse_014eaiSe8SBqppdHD1M3fw41) checked 6876bfd on #89: both added sentences match Medicare.gov 'Appeal when a hospital changes your status' ('If you don't get this notice, ask for it.'; 'best to file an appeal while you're still in the hospital ... can ask for an appeal after you leave the hospital ... contact your local BFCC-QIO') in the same scope (Original Medicare, inpatient changed to observation, the parent as patient); new source 200; no link changed. Quotations 0, claims scope-checked 3, scope defects 0. Corrections verified; #89 verified through 6876bfd.",
+   "verdicts": [
+    "Corrections verified"
+   ],
+   "deliverable": {
+    "type": "verification",
+    "ref": "claude/accuracy-20261125 6876bfd; ops/reviews/live/does-medicare-pay-for-senior-care.md"
+   },
+   "done_utc": "2026-11-26T06:38Z",
+   "minutes": 2
   }
  ],
  "blocked": [],
@@ -4545,7 +4555,7 @@
   "picked": "ACQ-142 done",
   "why": "Worked: SC3 scout (own numbers) ran, 0 new map items; stopped: no-worthwhile-work; resume: package cut 05:00Z"
  },
- "last_verified_action": "ACQ-144 done 2026-11-26T06:36Z: Applied the open recommended addition from the reader checks of 8457ed1/d9d1fc3 to the live Medicare guide (781 of 1,242 search impressions) on the accuracy PR…",
+ "last_verified_action": "ACQ-145 done 2026-11-26T06:38Z: Independent reader (fresh-context agent in cse_014eaiSe8SBqppdHD1M3fw41) checked 6876bfd on #89: both added sentences match Medicare.gov 'Appeal when a hospita…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -5212,12 +5222,13 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSe8SBqppdHD1M3fw41",
-   "utc": "2026-11-26T06:36Z",
+   "utc": "2026-11-26T06:38Z",
    "since_utc": "2026-11-26T06:24Z",
-   "productive_min": 12,
+   "productive_min": 14,
    "deliverables": [
     "publish_pr:PR #91 at 4d047b4; batch #90 at 40e9da0",
-    "correction:claude/accuracy-20261125 6876bfd (PR #89)"
+    "correction:claude/accuracy-20261125 6876bfd (PR #89)",
+    "verification:claude/accuracy-20261125 6876bfd; ops/reviews/live/does-medicare-pay-for-senior-care.md"
    ]
   },
   "monitor": {
