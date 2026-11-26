@@ -172,26 +172,8 @@
    "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in the Assisted Living and Shared Housing Act (210 ILCS 9/90, already a SRC on main as ilcs_al_90) and 77 Ill. Adm. Code 295 on ilga.gov, an approved host per check-guides.js. ilga.gov could not be read this session: curl through the proxy fails TLS (000) and WebFetch returns 503. Searched illinois.gov (IDPH, IDoA, HFS): the IDPH ITR form covers terminations only; the IDoA residents' rights brochure says a contract must state services and costs but is not scoped to assisted living and says nothing on rate-change notice; HFS Part 146 is supportive living. No guide written: the core rule cannot be read off a fetched page. Retry by WebFetch of ilga.gov after not_before."
   },
   {
-   "id": "ACQ-163",
-   "task": "Verify the corrections to medicare-home-health-care on the accuracy pull request #89 (commit 7cfef07): re-read each changed sentence against its source; packet line added",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "followup",
-   "key": "verify-live:medicare-home-health-care:7cfef07",
-   "priority": 1,
-   "evidence": "accuracy PR #89 commit 7cfef07 (ACQ-162)",
-   "expected_tour_acquisition_value": "quality gate before the corrections reach the live guide",
-   "impact": 3,
-   "confidence": 4,
-   "effort": 1,
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
-   "status": "ready",
-   "found_utc": "2026-11-26T17:55Z"
-  },
-  {
    "id": "ACQ-164",
-   "task": "After package #91 merges: correct the CARDS entry of medicare-home-health-care ('Medicare pays $0 for a covered home health visit' -> 'Your parent pays $0 ...', Medicare.gov: 'You pay nothing for covered home health services.') in a review pull request from main (or the open accuracy PR if still open and not superseded), rebuild, all suites, reader check",
+   "task": "After package #91 merges: correct the CARDS entry of medicare-home-health-care (Medicare pays $0 -> With Original Medicare, your parent pays $0; Medicare.gov: You pay nothing for covered home health services, and Medicare Advantage members check with their plan) in a review pull request, rebuild, all suites, reader check",
    "workstream": "technical",
    "lane": "technical",
    "source": "followup",
@@ -208,6 +190,24 @@
    "found_utc": "2026-11-26T17:55Z",
    "waiting_for": "PR #91 (or #90) merged, so that a card change no longer collides with the open publish batch in the built /guides/ index",
    "not_before_utc": "2026-11-27T05:00Z"
+  },
+  {
+   "id": "ACQ-166",
+   "task": "Verify the corrections to medicare-home-health-care on the accuracy pull request #89 (commit 7a71f92): re-read each changed sentence against its source; packet line added",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:medicare-home-health-care:7a71f92",
+   "priority": 1,
+   "evidence": "accuracy PR #89 commit 7a71f92 (ACQ-165)",
+   "expected_tour_acquisition_value": "quality gate before the corrections reach the live guide",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "ready",
+   "found_utc": "2026-11-26T17:57Z"
   }
  ],
  "completed": [
@@ -5065,6 +5065,59 @@
    },
    "done_utc": "2026-11-26T17:55Z",
    "minutes": 2
+  },
+  {
+   "id": "ACQ-163",
+   "task": "Verify the corrections to medicare-home-health-care on the accuracy pull request #89 (commit 7cfef07): re-read each changed sentence against its source; packet line added",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:medicare-home-health-care:7cfef07",
+   "priority": 1,
+   "evidence": "accuracy PR #89 commit 7cfef07 (ACQ-162)",
+   "expected_tour_acquisition_value": "quality gate before the corrections reach the live guide",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-26T17:55Z",
+   "result": "Independent reader (agent in this session) checked #89 7cfef07: payer now right; reopened: the $0 is stated for every parent although Medicare.gov Costs limits it to Original Medicare and sends Medicare Advantage members to their plan; the short answer it lost its antecedent. Re-correction queued.",
+   "verdicts": [
+    "reopened"
+   ],
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/live/medicare-home-health-care.md"
+   },
+   "done_utc": "2026-11-26T17:56Z",
+   "minutes": 1
+  },
+  {
+   "id": "ACQ-165",
+   "task": "Re-correct medicare-home-health-care per the reader check of 7cfef07: $0 limited to Original Medicare with the Medicare Advantage pointer in desc and short answer; restore Medicare as the subject of will only start one",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "recorrect:medicare-home-health-care:7cfef07",
+   "priority": 1,
+   "evidence": "reader check 2026-11-26 of #89 7cfef07",
+   "expected_tour_acquisition_value": "correct cost statement on a Medicare page",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "commit on #89 applying each reader point; verify-live task added",
+   "status": "done",
+   "found_utc": "2026-11-26T17:56Z",
+   "result": "Applied the reader check of 7cfef07 to medicare-home-health-care as #89 7a71f92: $0 limited to Original Medicare with the Medicare Advantage pointer (desc and short answer), Medicare restored as subject. All suites pass, quotecheck 5/5. Reader check queued.",
+   "deliverable": {
+    "type": "correction",
+    "ref": "#89 7a71f92"
+   },
+   "done_utc": "2026-11-26T17:57Z",
+   "minutes": 2
   }
  ],
  "blocked": [],
@@ -5075,7 +5128,7 @@
   "picked": "ACQ-143 done, ACQ-144 done, ACQ-145 done, ACQ-146 done, ACQ-147 done (reopened), ACQ-148 done, ACQ-149 done",
   "why": "Worked: package #91 re-cut for 26 Nov (10 guides, 17 live-guide corrections, #92), 2 verified additions to top search pages; stopped: no-worthwhile-work; resume: monitor 12:26Z, sweeps 12:32Z"
  },
- "last_verified_action": "ACQ-162 done 2026-11-26T17:55Z: Searched main, drafts and batch #90 for the payer error found in the hospice guide: medicare-home-health-care desc and short answer said Medicare pays $0; Medi…",
+ "last_verified_action": "ACQ-165 done 2026-11-26T17:57Z: Applied the reader check of 7cfef07 to medicare-home-health-care as #89 7a71f92: $0 limited to Original Medicare with the Medicare Advantage pointer (desc and …",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -5741,9 +5794,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSan3kSKEb4rtUHknYk",
-   "utc": "2026-11-26T17:55Z",
+   "utc": "2026-11-26T17:57Z",
    "since_utc": "2026-11-26T17:32Z",
-   "productive_min": 25,
+   "productive_min": 28,
    "deliverables": [
     "correction:#89 99cc346; ops/reviews/live/medicare-hospice-benefit-explained.md",
     "correction:#89 e587023; ops/reviews/live/illinois-nursing-home-resident-rights.md",
@@ -5757,7 +5810,9 @@
     "correction:#89 8b2b0cd; ops/reviews/live/independent-living-evanston.md",
     "audit:ops/reviews/live/levels-of-senior-care-explained.md",
     "verification:ops/reviews/live/independent-living-evanston.md",
-    "correction:#89 7cfef07; ops/reviews/live/medicare-home-health-care.md"
+    "correction:#89 7cfef07; ops/reviews/live/medicare-home-health-care.md",
+    "verification:ops/reviews/live/medicare-home-health-care.md",
+    "correction:#89 7a71f92"
    ]
   },
   "monitor": {
