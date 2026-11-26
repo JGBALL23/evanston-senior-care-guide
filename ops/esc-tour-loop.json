@@ -170,25 +170,6 @@
    "found_utc": "2026-11-26T01:19Z",
    "not_before_utc": "2026-11-27T01:30Z",
    "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in the Assisted Living and Shared Housing Act (210 ILCS 9/90, already a SRC on main as ilcs_al_90) and 77 Ill. Adm. Code 295 on ilga.gov, an approved host per check-guides.js. ilga.gov could not be read this session: curl through the proxy fails TLS (000) and WebFetch returns 503. Searched illinois.gov (IDPH, IDoA, HFS): the IDPH ITR form covers terminations only; the IDoA residents' rights brochure says a contract must state services and costs but is not scoped to assisted living and says nothing on rate-change notice; HFS Part 146 is supportive living. No guide written: the core rule cannot be read off a fetched page. Retry by WebFetch of ilga.gov after not_before."
-  },
-  {
-   "id": "ACQ-141",
-   "task": "Accuracy audit of the live guide illinois-home-caregiver-background-check under the review rules (scope rule included), packet at ops/reviews/live/illinois-home-caregiver-background-check.md; corrections into the rolling accuracy PR #89",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "plan",
-   "key": "audit:illinois-home-caregiver-background-check",
-   "priority": 2,
-   "evidence": "Make Search Console read 25 Nov 20:35Z: 3 impressions, pos 97.7; no packet in ops/reviews/live/ (next by exposure among unaudited live guides, checked 26 Nov)",
-   "expected_tour_acquisition_value": "correct rules on pages families find in search keep trust at the decision stage",
-   "impact": 3,
-   "confidence": 4,
-   "effort": 2,
-   "executor": "worker (research and preparation only)",
-   "done_when": "packet ops/reviews/live/illinois-home-caregiver-background-check.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
-   "score": 6.0,
-   "status": "ready",
-   "found_utc": "2026-11-26T01:52Z"
   }
  ],
  "completed": [
@@ -4397,6 +4378,39 @@
    },
    "done_utc": "2026-11-26T01:51Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-141",
+   "task": "Accuracy audit of the live guide illinois-home-caregiver-background-check under the review rules (scope rule included), packet at ops/reviews/live/illinois-home-caregiver-background-check.md; corrections into the rolling accuracy PR #89",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:illinois-home-caregiver-background-check",
+   "priority": 2,
+   "evidence": "Make Search Console read 25 Nov 20:35Z: 3 impressions, pos 97.7; no packet in ops/reviews/live/ (next by exposure among unaudited live guides, checked 26 Nov)",
+   "expected_tour_acquisition_value": "correct rules on pages families find in search keep trust at the decision stage",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet ops/reviews/live/illinois-home-caregiver-background-check.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
+   "score": 6.0,
+   "status": "done",
+   "found_utc": "2026-11-26T01:52Z",
+   "result": "Audit of live illinois-home-caregiver-background-check against 5 IDoA/IDPH pages read 26 Nov: 14/14 quotations FOUND, 12 claims scope-checked, 0 scope defects (registry duty attributed correctly to employers, family check to IDoA advice; CCP 24-hour training under its own heading; hotline and hours hold). Verdict holds; watch note on the complaint hotline not covering direct hires.",
+   "verdicts": [
+    "holds"
+   ],
+   "sources": [
+    "ilaging.illinois.gov/programs/caregiver/in-home-care.html",
+    "dph.illinois.gov/.../health-care-worker-registry.html"
+   ],
+   "deliverable": {
+    "type": "audit",
+    "ref": "ops/reviews/live/illinois-home-caregiver-background-check.md"
+   },
+   "done_utc": "2026-11-26T01:53Z",
+   "minutes": 1
   }
  ],
  "blocked": [],
@@ -4407,7 +4421,7 @@
   "picked": "ACQ-113..117,119..132 done; ACQ-118 waiting_on_data; ACQ-133,134 ready",
   "why": "Worked: 5 live guides audited (4 corrected and verified in #89), 1 new drafts guide built, reviewed and verified publish-ready"
  },
- "last_verified_action": "ACQ-140 done 2026-11-26T01:51Z: Independent reader (agent) checked ab43cab: the short answer now names the D-SNP route as IDoA states it (enrolled in a D-SNP and receiving MCO services); 3/3 …",
+ "last_verified_action": "ACQ-141 done 2026-11-26T01:53Z: Audit of live illinois-home-caregiver-background-check against 5 IDoA/IDPH pages read 26 Nov: 14/14 quotations FOUND, 12 claims scope-checked, 0 scope defects …",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -5073,9 +5087,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSf2v59RahpHN2G6JvZ",
-   "utc": "2026-11-26T01:52Z",
+   "utc": "2026-11-26T01:53Z",
    "since_utc": "2026-11-26T01:36Z",
-   "productive_min": 18,
+   "productive_min": 19,
    "deliverables": [
     "audit:ops/reviews/live/illinois-supportive-living-program.md; #89 b95d5b2",
     "correction:ops/reviews/live/illinois-fide-snp-explained.md; #89 004938c",
@@ -5084,7 +5098,8 @@
     "verification:ops/reviews/live/illinois-supportive-living-program.md; #89 c2bac4b",
     "audit:ops/reviews/live/illinois-home-delivered-meals.md",
     "correction:ops/reviews/live/illinois-home-care-ombudsman-program.md; #89 ab43cab",
-    "verification:ops/reviews/live/illinois-home-care-ombudsman-program.md; #89 ab43cab"
+    "verification:ops/reviews/live/illinois-home-care-ombudsman-program.md; #89 ab43cab",
+    "audit:ops/reviews/live/illinois-home-caregiver-background-check.md"
    ]
   },
   "monitor": {
