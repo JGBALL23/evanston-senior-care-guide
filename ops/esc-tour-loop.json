@@ -188,6 +188,44 @@
    "done_when": "packet at ops/reviews/hospital-discharge-not-safe-to-go-home.md with its counts and verdict",
    "status": "ready",
    "found_utc": "2026-11-26T01:23Z"
+  },
+  {
+   "id": "ACQ-122",
+   "task": "Accuracy audit of the live guide illinois-elder-abuse-reporting under the review rules (scope rule included), packet at ops/reviews/live/illinois-elder-abuse-reporting.md; corrections into the rolling accuracy PR #89",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:illinois-elder-abuse-reporting",
+   "priority": 2,
+   "evidence": "Make Search Console read 25 Nov 20:35Z: 24 impressions, pos 41.1; no packet in ops/reviews/live/ (next by exposure after medicare-durable-medical-equipment-coverage, audited 26 Nov)",
+   "expected_tour_acquisition_value": "correct rules on pages families find in search keep trust at the decision stage",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet ops/reviews/live/illinois-elder-abuse-reporting.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
+   "score": 6.0,
+   "status": "ready",
+   "found_utc": "2026-11-26T01:25Z"
+  },
+  {
+   "id": "ACQ-123",
+   "task": "Accuracy audit of the live guide va-nursing-home-and-respite-care under the review rules (scope rule included), packet at ops/reviews/live/va-nursing-home-and-respite-care.md; corrections into the rolling accuracy PR #89",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:va-nursing-home-and-respite-care",
+   "priority": 2,
+   "evidence": "Make Search Console read 25 Nov 20:35Z: 20 impressions, pos 45.0; no packet in ops/reviews/live/ (next by exposure after medicare-durable-medical-equipment-coverage, audited 26 Nov)",
+   "expected_tour_acquisition_value": "correct rules on pages families find in search keep trust at the decision stage",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet ops/reviews/live/va-nursing-home-and-respite-care.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
+   "score": 6.0,
+   "status": "ready",
+   "found_utc": "2026-11-26T01:25Z"
   }
  ],
  "completed": [
@@ -4498,7 +4536,7 @@
    "holder": "cse_014eaiSdDK6VjczHrPrWrgM1",
    "utc": "2026-11-26T01:25Z",
    "since_utc": "2026-11-26T01:13Z",
-   "productive_min": 8,
+   "productive_min": 9,
    "deliverables": [
     "correction:d7724d0",
     "verification:d7724d0",
@@ -4507,11 +4545,7 @@
     "guide:317f6fb",
     "correction:c160353",
     "verification:c160353"
-   ],
-   "current": {
-    "what": "ACQ-118",
-    "since_utc": "2026-11-26T01:24Z"
-   }
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-26T00:26Z"
@@ -5506,6 +5540,16 @@
    "exhausted_until_utc": "",
    "empty_streak": 0,
    "log": [
+    {
+     "utc": "2026-11-26T01:25Z",
+     "run": "cse_014eaiSdDK6VjczHrPrWrgM1",
+     "key": "quality-audit-live-elder-abuse-va-nursing",
+     "avenue": "quality",
+     "lane": null,
+     "candidates": 2,
+     "added": 2,
+     "result": "Search Console pages read 25 Nov 20:35Z against ops/reviews/live: the two most-seen live guides without a packet are illinois-elder-abuse-reporting (24 impr, pos 41.1) and va-nursing-home-and-respite-care (20, pos 45.0); both queued as audits (live accuracy audits found 1-3 corrections in each of the last six guides)."
+    },
     {
      "utc": "2026-11-26T01:08Z",
      "run": "cse_014eaiSdvHByATtNdterRhh7",
