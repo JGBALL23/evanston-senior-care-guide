@@ -1531,11 +1531,10 @@ GUIDES = [
 
     {
         "slug": "illinois-medicaid-estate-recovery",
-        "listed": "2026-10-24",
-        "reviewed": "2026-11-26",
         "bridge": ("Estate recovery is a question about money after the fact. It sits "
                "downstream of a more immediate one: what level of care your parent "
                "needs now."),
+        "reviewed": "2026-10-24",
         "title": "Illinois Medicaid Estate Recovery: Will the State Take the House?",
         "h1": "Will Illinois take my parent&rsquo;s house after Medicaid pays for care?",
         "desc": ("Illinois can claim against a Medicaid recipient's estate after death, "
