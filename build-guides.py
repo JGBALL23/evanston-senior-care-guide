@@ -3022,8 +3022,9 @@ GUIDES = [
                    "Medicaid will not pay toward long-term care. Not every transfer "
                    "counts: HFS says a small gift consistent with your parent&rsquo;s "
                    "past giving will not trigger one, and a parent going into a "
-                   "nursing home may transfer property to a spouse up to a yearly "
-                   "limit that the caseworker works out."),
+                   "nursing home may transfer property to a spouse up to a limit, "
+                   "which HFS raises each year and the caseworker works out once, "
+                   "at application."),
         "sources": srcs("hfs_ltc_brochure", "hfs_ltc_clients", "hfs_spousal2026"),
         "body": [
             ("The 60-month look-back, and what it looks back at", [
@@ -3067,7 +3068,7 @@ GUIDES = [
                 "behavior.&rdquo; A pattern of modest giving kept up over years "
                 "reads differently from a gift that appears only once, near an "
                 "application.</li>"
-                "<li><strong>Transfers to a spouse, up to a limit.</strong> When a parent goes into a nursing home, HFS states the spouse may keep the home, the car and the household furnishings, and that &ldquo;You may transfer this other property to your spouse or to someone else for the sole benefit of your spouse.&rdquo; The same paragraph limits it: &ldquo;Depending on how much property your spouse already has (not counting things like the house and the car), you may give your spouse property&rdquo; up to a yearly amount, and &ldquo;Your FCRC caseworker will tell you the actual amount you may give to your spouse.&rdquo;</li>"
+                "<li><strong>Transfers to a spouse, up to a limit.</strong> When a parent goes into a nursing home, HFS states the spouse may keep the home, the car and the household furnishings, and that &ldquo;You may transfer this other property to your spouse or to someone else for the sole benefit of your spouse.&rdquo; The same paragraph limits it: &ldquo;Depending on how much property your spouse already has (not counting things like the house and the car), you may give your spouse property&rdquo; up to an amount HFS raises each year, and &ldquo;Your FCRC caseworker will tell you the actual amount you may give to your spouse.&rdquo;</li>"
                 "<li><strong>Returning the property.</strong> HFS states a "
                 "penalty can be eliminated by getting the transferred property "
                 "back.</li></ul>",
@@ -3117,10 +3118,13 @@ GUIDES = [
                 "Medicaid pays for long-term care</a>, which this library "
                 "verified against HFS's current 2026 notice. That notice describes "
                 "the resource allowance as the maximum amount of resources a "
-                "resident may transfer to a community spouse, less what the "
-                "spouse already holds, so it is the current ceiling on the "
-                "spousal transfer above; the FCRC confirms the amount for a "
-                "specific couple.</p>",
+                "resident may transfer to a community spouse, less the "
+                "spouse&rsquo;s own nonexempt resources, so the 2026 figure is "
+                "the ceiling on the spousal transfer above for a couple whose "
+                "allowance is worked out in 2026. HFS adds that the "
+                "determination &ldquo;only occurs once&rdquo;: an amount already "
+                "set at an earlier application is not updated. The FCRC confirms "
+                "the amount for a specific couple.</p>",
             ]),
             ("Where this fits with the rest of this site", [
                 "<p>This page only covers whether a past transfer can delay "
