@@ -130,24 +130,6 @@
    "not_before": "VA.gov rate pages show the table effective 1 December 2026",
    "priority": 2,
    "found_utc": "2026-11-25T01:14Z"
-  },
-  {
-   "id": "ACQ-096",
-   "task": "Verify the correction to illinois-medicaid-look-back-period on the accuracy pull request #89 (commit 9cff2fb): re-read each changed sentence against HFS 3191 and the HFS provider notice of 22 Jan 2026, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <reader>' to ops/reviews/live/illinois-medicaid-look-back-period.md and to that guide's lines in the #89 body, or reopen the correction",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "followup",
-   "key": "verify-live:illinois-medicaid-look-back-period:9cff2fb",
-   "priority": 1,
-   "evidence": "claude/accuracy-20261125 commit 9cff2fb (ACQ-094 reader reopened 54139d5)",
-   "expected_tour_acquisition_value": "quality gate before the correction enters the daily package",
-   "impact": 3,
-   "confidence": 5,
-   "effort": 1,
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
-   "status": "ready",
-   "found_utc": "2026-11-26T00:38Z"
   }
  ],
  "completed": [
@@ -3134,6 +3116,31 @@
     "ref": "ops/reviews/live/illinois-medicaid-look-back-period.md; #89 9cff2fb"
    },
    "done_utc": "2026-11-26T00:38Z"
+  },
+  {
+   "id": "ACQ-096",
+   "task": "Verify the correction to illinois-medicaid-look-back-period on the accuracy pull request #89 (commit 9cff2fb): re-read each changed sentence against HFS 3191 and the HFS provider notice of 22 Jan 2026, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <reader>' to ops/reviews/live/illinois-medicaid-look-back-period.md and to that guide's lines in the #89 body, or reopen the correction",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:illinois-medicaid-look-back-period:9cff2fb",
+   "priority": 1,
+   "evidence": "claude/accuracy-20261125 commit 9cff2fb (ACQ-094 reader reopened 54139d5)",
+   "expected_tour_acquisition_value": "quality gate before the correction enters the daily package",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-26T00:38Z",
+   "result": "Independent reader (agent in cse_014eaiSdvHByATtNdterRhh7) checked 9cff2fb: 15/15 quotations found, both changed sentences match HFS 3191 and the 22 Jan 2026 notice in wording and scope (allowance set once, at application or long-term care determination). Corrections verified; the look-back page's commits on #89 (d27ae01, 54139d5, 9cff2fb) are now all verified, so #89 is verified through 9cff2fb.",
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/live/illinois-medicaid-look-back-period.md"
+   },
+   "done_utc": "2026-11-26T00:39Z",
+   "minutes": 2
   }
  ],
  "blocked": [],
@@ -3144,7 +3151,7 @@
   "picked": "ACQ-084 done, ACQ-088 done, ACQ-089 done, ACQ-090 done; added ACQ-091, ACQ-092, ACQ-093 (next session); ACQ-017 still waiting (live guides do not yet link /assisted-living-evanston/)",
   "why": "Worked: LTC-insurance draft reviewed and corrected; look-back and Extra Help live audits, 2 commits on #89; stopped: no-worthwhile-work; resume: verifications ACQ-091/092/093 next session"
  },
- "last_verified_action": "ACQ-094 done 2026-11-26T00:38Z: Independent reader (agent in cse_014eaiSdvHByATtNdterRhh7) checked 54139d5: 15/15 quotations; 'raised each year', 'nonexempt' and the 2026 scope now match HFS'…",
+ "last_verified_action": "ACQ-096 done 2026-11-26T00:39Z: Independent reader (agent in cse_014eaiSdvHByATtNdterRhh7) checked 9cff2fb: 15/15 quotations found, both changed sentences match HFS 3191 and the 22 Jan 2026 n…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -3802,21 +3809,18 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSdvHByATtNdterRhh7",
-   "utc": "2026-11-26T00:38Z",
+   "utc": "2026-11-26T00:39Z",
    "since_utc": "2026-11-26T00:24Z",
-   "productive_min": 4,
+   "productive_min": 6,
    "deliverables": [
     "pr:#92",
     "verification:ops/reviews/live/illinois-medicaid-look-back-period.md; #89 54139d5",
     "verification:ops/reviews/live/medicare-extra-help-prescription-drug-costs.md",
     "verification:ops/reviews/long-term-care-insurance-assisted-living-illinois.md",
     "publish_pr:#90 d00713b",
-    "verification:ops/reviews/live/illinois-medicaid-look-back-period.md; #89 9cff2fb"
-   ],
-   "current": {
-    "what": "ACQ-096",
-    "since_utc": "2026-11-26T00:38Z"
-   }
+    "verification:ops/reviews/live/illinois-medicaid-look-back-period.md; #89 9cff2fb",
+    "verification:ops/reviews/live/illinois-medicaid-look-back-period.md"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-26T00:26Z"

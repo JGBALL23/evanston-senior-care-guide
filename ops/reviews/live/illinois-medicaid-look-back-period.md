@@ -75,3 +75,15 @@ Reopened: "at application" (short answer) and "set at an earlier application" (F
 Reader: agent in cse_014eaiSdvHByATtNdterRhh7
 
 Corrections applied: claude/accuracy-20261125 9cff2fb, 2026-11-26, cse_014eaiSdvHByATtNdterRhh7 ("or long-term care determination" restored in the short answer and the Figures paragraph)
+
+## Reader check 2026-11-26 (9cff2fb)
+
+Branch claude/accuracy-20261125, commit 9cff2fb, cloned fresh to /tmp/reader3-illinois-medicaid-look-back-period. quotecheck: 15 quotations, 15 FOUND, 0 NEAR MATCH, 0 NOT FOUND; 3 cited pages, 0 unreadable; whole output read ("spend-down" is a guide title, not a quotation). HFS 3191 and Provider Notice prn260122a HTTP 200 on 2026-11-26; notice re-read in full. Link /guides/illinois-medicaid-long-term-care/ present on main and states the $143,172 CSRA. Commit changes only the two sentences below (build-guides.py and _dist agree).
+
+- Short answer: "...a parent going into a nursing home may transfer property to a spouse up to a limit, which HFS raises each year and the caseworker works out once, when your parent applies or when long-term care eligibility is decided." Source: HFS 3191, Protecting Property for Your Community Spouse: "When you go into a nursing home ... you may give your spouse property valued up to $109,560 for 2015.* The amount may increase each year. Your FCRC caseworker will tell you the actual amount you may give to your spouse."; Provider Notice 22 Jan 2026, Prevention of Spousal Impoverishment Standards for 2026: "The CSMNA and CSRA will increase every year ..." and "Reminder: The CSRA determination only occurs once. If the CSRA was already determined at application or long term care determination, then the previously determined amount will not be updated." Same scope (nursing home, spouse, Illinois; both determination points now named).
+- Figures this guide will not publish: "HFS adds that the determination 'only occurs once': an amount already set at an earlier application or long-term care determination is not updated." Source: same notice, same heading, sentences as above; quotation "only occurs once" word-perfect. Same scope.
+
+Corrections verified
+
+Corrections verified: 2026-11-26, agent in cse_014eaiSdvHByATtNdterRhh7 (d27ae01, 54139d5 and 9cff2fb together)
+Reader: agent in cse_014eaiSdvHByATtNdterRhh7
