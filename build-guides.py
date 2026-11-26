@@ -1735,14 +1735,15 @@ GUIDES = [
         "bridge": ("Hospice rules say what is covered once a doctor certifies six months "
                "or less to live. They say nothing about which kind of care your parent "
                "needs before that point is reached."),
-        "reviewed": "2026-10-25",
+        "reviewed": "2026-11-26",
+        "listed": "2026-10-25",
         "title": "Does Medicare Pay for Hospice Care at Home?",
         "h1": "Does Medicare pay for hospice care at home?",
-        "desc": ("Medicare pays " + F["hospice_zero"] + " for covered hospice care once a "
+        "desc": ("You pay " + F["hospice_zero"] + " for covered hospice care once a "
                  "doctor certifies six months or less to live and comfort care is chosen "
                  "over a cure. What is and is not covered."),
         "intent": "coverage question",
-        "answer": ("<strong>Yes, for the hospice benefit itself.</strong> Medicare pays "
+        "answer": ("<strong>Yes, for the hospice benefit itself.</strong> Your parent pays "
                    "<strong>" + F["hospice_zero"] + "</strong> for covered hospice care "
                    "once a hospice doctor and your parent&rsquo;s own doctor (if they have "
                    "one) certify a life expectancy of six months or less, and your parent "
@@ -1750,8 +1751,10 @@ GUIDES = [
                    "still pay <strong>up to " + F["hospice_rx_copay"] + "</strong> per "
                    "prescription for pain and symptom drugs, and <strong>" +
                    F["hospice_respite_coins"] + "</strong> coinsurance for a short inpatient "
-                   "respite stay. What it does not pay is room and board if your parent "
-                   "lives in a facility, or anything meant to cure the terminal illness."),
+                   "respite stay. What Medicare does not pay is room and board if your parent "
+                   "lives in a facility (a short inpatient or respite stay the hospice team "
+                   "arranges is the exception), or anything meant to cure the terminal "
+                   "illness."),
         "sources": srcs("mhospice", "mcosts"),
         "body": [
             ("What the hospice benefit actually pays for", [
@@ -1762,7 +1765,7 @@ GUIDES = [
                 "curing the terminal illness to managing pain and symptoms and being "
                 "comfortable.</p>",
                 "<p>For <strong>covered</strong> hospice care from a Medicare-approved "
-                "hospice provider, Medicare pays <strong>" + F["hospice_zero"] +
+                "hospice provider, your parent pays <strong>" + F["hospice_zero"] +
                 "</strong>. That is the headline figure, and it is real &mdash; but "
                 "&ldquo;covered hospice care&rdquo; is a narrower category than most "
                 "families assume, and the next two sections set out exactly where its "
@@ -1782,9 +1785,10 @@ GUIDES = [
                 "<li>Your parent <strong>signs a Hospice Election Statement</strong>, "
                 "which must be completed before any hospice services begin</li></ul>",
                 "<p>Six months is not a deadline on the care itself. If your parent is "
-                "still alive after six months, hospice continues as long as a hospice "
-                "doctor or nurse practitioner recertifies eligibility after a face-to-face "
-                "visit. People do come off hospice &mdash; because they improve, or "
+                "still alive after six months, hospice continues as long as the hospice "
+                "medical director or hospice doctor recertifies that your parent is still "
+                "terminally ill, after a face-to-face meeting with the hospice doctor or "
+                "hospice nurse practitioner. People do come off hospice &mdash; because they improve, or "
                 "because they or their family decide to go back to curative treatment "
                 "&mdash; and electing hospice does not forfeit that choice.</p>",
             ]),
@@ -1810,6 +1814,12 @@ GUIDES = [
                 "for everything else. Before any service outside what the hospice team has "
                 "arranged, ask the hospice team first &mdash; Medicare is explicit that it "
                 "will not pay for it otherwise.</p>",
+                "<p><strong>If your parent is in a Medicare Advantage Plan</strong> or "
+                "another Medicare health plan, Medicare says Original Medicare will cover "
+                "everything related to the terminal illness once the hospice benefit "
+                "starts, even if your parent stays in the plan. The plan must help you find "
+                "a Medicare-approved hospice, and it can still cover services that are not "
+                "part of the terminal illness.</p>",
             ]),
             ("What it costs", [
                 "<p>Four cost lines, all from Medicare&rsquo;s own cost pages for the "
@@ -1824,7 +1834,8 @@ GUIDES = [
                 F["hospice_respite_coins"] + "</strong> of the Medicare-approved amount"
                 "</li>"
                 "<li><strong>Room and board</strong> in a facility: not paid by the "
-                "hospice benefit at all</li></ul>",
+                "hospice benefit, except that Medicare covers the stay when the hospice "
+                "team arranges short-term inpatient or respite care</li></ul>",
                 "<p><strong>There is a ceiling on the respite copayment.</strong> "
                 "Medicare states that for inpatient respite care, <q>your copayment "
                 "can&rsquo;t be more than the inpatient deductible amount</q>. The Part A "
