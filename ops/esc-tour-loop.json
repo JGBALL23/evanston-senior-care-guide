@@ -172,25 +172,6 @@
    "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in the Assisted Living and Shared Housing Act (210 ILCS 9/90, already a SRC on main as ilcs_al_90) and 77 Ill. Adm. Code 295 on ilga.gov, an approved host per check-guides.js. ilga.gov could not be read this session: curl through the proxy fails TLS (000) and WebFetch returns 503. Searched illinois.gov (IDPH, IDoA, HFS): the IDPH ITR form covers terminations only; the IDoA residents' rights brochure says a contract must state services and costs but is not scoped to assisted living and says nothing on rate-change notice; HFS Part 146 is supportive living. No guide written: the core rule cannot be read off a fetched page. Retry by WebFetch of ilga.gov after not_before."
   },
   {
-   "id": "ACQ-159",
-   "task": "Accuracy audit of the live guide independent-living-evanston under the review rules (scope rule included), packet at ops/reviews/live/independent-living-evanston.md; corrections into the rolling accuracy PR #89",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "plan",
-   "key": "audit:independent-living-evanston",
-   "priority": 2,
-   "evidence": "No packet in ops/reviews/live/ (26 Nov); the only Evanston-specific guide besides /assisted-living-evanston/; quotecheck 1/1 FOUND with 7 cited pages (IDPH, transport and housing help, listing-site figures read 6 Nov) whose figures and contact details a local family acts on; 1 genuine browser view 26 Nov (Netlify)",
-   "expected_tour_acquisition_value": "correct facts on the decision-stage and Evanston pages that sit closest to a tour inquiry",
-   "impact": 3,
-   "confidence": 4,
-   "effort": 2,
-   "executor": "worker (research and preparation only)",
-   "done_when": "packet ops/reviews/live/independent-living-evanston.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
-   "score": 6.0,
-   "status": "ready",
-   "found_utc": "2026-11-26T17:49Z"
-  },
-  {
    "id": "ACQ-160",
    "task": "Accuracy audit of the live guide levels-of-senior-care-explained under the review rules (scope rule included), packet at ops/reviews/live/levels-of-senior-care-explained.md; corrections into the rolling accuracy PR #89",
    "workstream": "technical",
@@ -208,6 +189,24 @@
    "score": 6.0,
    "status": "ready",
    "found_utc": "2026-11-26T17:49Z"
+  },
+  {
+   "id": "ACQ-161",
+   "task": "Verify the corrections to independent-living-evanston on the accuracy pull request #89 (commit 8b2b0cd): re-read each changed sentence against its source; packet line added",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:independent-living-evanston:8b2b0cd",
+   "priority": 1,
+   "evidence": "accuracy PR #89 commit 8b2b0cd (ACQ-159)",
+   "expected_tour_acquisition_value": "quality gate before the corrections reach the live guide",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "ready",
+   "found_utc": "2026-11-26T17:51Z"
   }
  ],
  "completed": [
@@ -4951,6 +4950,35 @@
     "ref": "ops/reviews/live/illinois-family-caregiver-support-program.md"
    },
    "done_utc": "2026-11-26T17:49Z"
+  },
+  {
+   "id": "ACQ-159",
+   "task": "Accuracy audit of the live guide independent-living-evanston under the review rules (scope rule included), packet at ops/reviews/live/independent-living-evanston.md; corrections into the rolling accuracy PR #89",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:independent-living-evanston",
+   "priority": 2,
+   "evidence": "No packet in ops/reviews/live/ (26 Nov); the only Evanston-specific guide besides /assisted-living-evanston/; quotecheck 1/1 FOUND with 7 cited pages (IDPH, transport and housing help, listing-site figures read 6 Nov) whose figures and contact details a local family acts on; 1 genuine browser view 26 Nov (Netlify)",
+   "expected_tour_acquisition_value": "correct facts on the decision-stage and Evanston pages that sit closest to a tour inquiry",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet ops/reviews/live/independent-living-evanston.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
+   "score": 6.0,
+   "status": "done",
+   "found_utc": "2026-11-26T17:49Z",
+   "result": "Audit of live independent-living-evanston against IDPH, Medicare.gov, CareScout, NITA, City of Evanston Access Evanston and two HACC documents (read 26 Nov): 1/1 quotation FOUND, 9 claims scope-checked, 1 scope defect: the page gave Access Evanston's transportation income limit as $35,000 for one or $60,000 for two, but $60,000 is the wheel-tax discount's two-person limit, and the program is for zip codes 60201 and 60202 only. Corrected as #89 8b2b0cd with two check-guides.js assertions re-pinned (dated comments); all suites pass. Reader check queued.",
+   "verdicts": [
+    "corrections"
+   ],
+   "deliverable": {
+    "type": "correction",
+    "ref": "#89 8b2b0cd; ops/reviews/live/independent-living-evanston.md"
+   },
+   "done_utc": "2026-11-26T17:51Z",
+   "minutes": 3
   }
  ],
  "blocked": [],
@@ -4961,7 +4989,7 @@
   "picked": "ACQ-143 done, ACQ-144 done, ACQ-145 done, ACQ-146 done, ACQ-147 done (reopened), ACQ-148 done, ACQ-149 done",
   "why": "Worked: package #91 re-cut for 26 Nov (10 guides, 17 live-guide corrections, #92), 2 verified additions to top search pages; stopped: no-worthwhile-work; resume: monitor 12:26Z, sweeps 12:32Z"
  },
- "last_verified_action": "ACQ-158 done 2026-11-26T17:49Z: Independent reader (agent in this session) re-read every sentence #89 e9d405f changed in illinois-family-caregiver-support-program against IDoA program.html an…",
+ "last_verified_action": "ACQ-159 done 2026-11-26T17:51Z: Audit of live independent-living-evanston against IDPH, Medicare.gov, CareScout, NITA, City of Evanston Access Evanston and two HACC documents (read 26 Nov): 1…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -5627,9 +5655,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSan3kSKEb4rtUHknYk",
-   "utc": "2026-11-26T17:49Z",
+   "utc": "2026-11-26T17:51Z",
    "since_utc": "2026-11-26T17:32Z",
-   "productive_min": 19,
+   "productive_min": 22,
    "deliverables": [
     "correction:#89 99cc346; ops/reviews/live/medicare-hospice-benefit-explained.md",
     "correction:#89 e587023; ops/reviews/live/illinois-nursing-home-resident-rights.md",
@@ -5639,7 +5667,8 @@
     "verification:ops/reviews/live/medicare-hospice-benefit-explained.md",
     "audit:ops/reviews/live/illinois-senior-health-insurance-program.md",
     "correction:#89 e9d405f; ops/reviews/live/illinois-family-caregiver-support-program.md",
-    "verification:ops/reviews/live/illinois-family-caregiver-support-program.md"
+    "verification:ops/reviews/live/illinois-family-caregiver-support-program.md",
+    "correction:#89 8b2b0cd; ops/reviews/live/independent-living-evanston.md"
    ]
   },
   "monitor": {
