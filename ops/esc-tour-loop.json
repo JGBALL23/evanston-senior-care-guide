@@ -3963,7 +3963,7 @@
    "holder": "cse_014eaiSdvHByATtNdterRhh7",
    "utc": "2026-11-26T00:50Z",
    "since_utc": "2026-11-26T00:24Z",
-   "productive_min": 16,
+   "productive_min": 17,
    "deliverables": [
     "pr:#92",
     "verification:ops/reviews/live/illinois-medicaid-look-back-period.md; #89 54139d5",
@@ -4719,9 +4719,9 @@
     "evidence": "ops/reviews/ packets; open pull requests; the asset on drafts and its absence from main.",
     "output": "One publish-batch task for this session (key publish-batch:<YYYYMMDD>-<n>) covering all of them: procedure step 7, Publish package.",
     "why": "Publishing is the step that turns drafts into visitors.",
-    "last_checked_utc": "2026-11-25T13:16Z",
-    "next_check_utc": "2026-11-26T01:16Z",
-    "last_result": "Same read as the publish plan pass at 13:2xZ: 7 qualifying pages all in #90, unchanged on drafts since porting; the LTC-insurance page waits for verification of drafts 2c15ef1 (ACQ-093). Nothing to package.",
+    "last_checked_utc": "2026-11-26T00:50Z",
+    "next_check_utc": "2026-11-26T12:50Z",
+    "last_result": "8 drafts not on main, all with packets: 7 already in publish batch #90 at the drafts text they were ported from (latest drafts commits for them predate the 25 Nov ports: 2c46e74, babc23c, 2dfe3dc, 38ba709, 5025764 all ported), and long-term-care-insurance-assisted-living-illinois (publish-ready aft…",
     "last_added": 0
    },
    {
@@ -4860,6 +4860,7 @@
    }
   ],
   "sweep_log": [
+   "2026-11-26T00:50Z publish-ready +0: 8 drafts not on main, all with packets: 7 already in publish batch #90 at the drafts text they were ported from (latest drafts commits for them predate the 25 …",
    "2026-11-26T00:50Z search-presence +0: Answered from Google data this time (Make Search Console read 25 Nov) instead of the research index: the site appears in Google for national program questions …",
    "2026-11-26T00:50Z asset-gaps +0: Guide index: main 32, drafts 40 (+ LTC insurance now in batch #90). DEMAND Open has 2 worker topics added 24 Nov 06:34Z (over 30h; the 6 AM routine did not wri…",
    "2026-11-26T00:41Z live-accuracy +2: quotecheck --all on main 4dc2468 unchanged: 32 live guides, 1 NOT FOUND (pace, corrected in #89), 2 NEAR MATCH (preadmission in #89; VDC audited). 13 packets n…",
