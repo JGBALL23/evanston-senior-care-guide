@@ -172,42 +172,40 @@
    "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in the Assisted Living and Shared Housing Act (210 ILCS 9/90, already a SRC on main as ilcs_al_90) and 77 Ill. Adm. Code 295 on ilga.gov, an approved host per check-guides.js. ilga.gov could not be read this session: curl through the proxy fails TLS (000) and WebFetch returns 503. Searched illinois.gov (IDPH, IDoA, HFS): the IDPH ITR form covers terminations only; the IDoA residents' rights brochure says a contract must state services and costs but is not scoped to assisted living and says nothing on rate-change notice; HFS Part 146 is supportive living. No guide written: the core rule cannot be read off a fetched page. Retry by WebFetch of ilga.gov after not_before."
   },
   {
-   "id": "ACQ-133",
-   "task": "Accuracy audit of the live guide illinois-supportive-living-program under the review rules (scope rule included), packet at ops/reviews/live/illinois-supportive-living-program.md; corrections into the rolling accuracy PR #89",
+   "id": "ACQ-135",
+   "task": "Verify the corrections to illinois-supportive-living-program on the accuracy pull request #89 (commit b95d5b2): re-read each changed sentence against the HFS SLP Resident Fact Sheet, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <reader>' to ops/reviews/live/illinois-supportive-living-program.md and to that guide's lines in the #89 body, or reopen the correction",
    "workstream": "technical",
    "lane": "technical",
-   "source": "plan",
-   "key": "audit:illinois-supportive-living-program",
-   "priority": 2,
-   "evidence": "Make Search Console read 25 Nov 20:35Z: 12 impressions, pos 8.0; no packet in ops/reviews/live/ (next by exposure after va-nursing-home-and-respite-care, audited 26 Nov)",
-   "expected_tour_acquisition_value": "correct rules on pages families find in search keep trust at the decision stage",
+   "source": "followup",
+   "key": "verify-live:illinois-supportive-living-program:b95d5b2",
+   "priority": 1,
+   "evidence": "claude/accuracy-20261125 commit b95d5b2 (ACQ-133)",
+   "expected_tour_acquisition_value": "quality gate before the correction enters the daily package",
    "impact": 3,
-   "confidence": 4,
-   "effort": 2,
+   "confidence": 5,
+   "effort": 1,
    "executor": "worker (research and preparation only)",
-   "done_when": "packet ops/reviews/live/illinois-supportive-living-program.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
-   "score": 6.0,
+   "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
-   "found_utc": "2026-11-26T01:35Z"
+   "found_utc": "2026-11-26T01:42Z"
   },
   {
-   "id": "ACQ-134",
-   "task": "Accuracy audit of the live guide illinois-fide-snp-explained under the review rules (scope rule included), packet at ops/reviews/live/illinois-fide-snp-explained.md; corrections into the rolling accuracy PR #89",
+   "id": "ACQ-136",
+   "task": "Verify the corrections to illinois-fide-snp-explained on the accuracy pull request #89 (commit 004938c): re-read each changed sentence against the HFS FIDE SNP page and How To Enroll in a FIDE SNP page, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <reader>' to ops/reviews/live/illinois-fide-snp-explained.md and to that guide's lines in the #89 body, or reopen the correction",
    "workstream": "technical",
    "lane": "technical",
-   "source": "plan",
-   "key": "audit:illinois-fide-snp-explained",
-   "priority": 2,
-   "evidence": "Make Search Console read 25 Nov 20:35Z: 8 impressions, pos 32.4; no packet in ops/reviews/live/ (next by exposure after va-nursing-home-and-respite-care, audited 26 Nov)",
-   "expected_tour_acquisition_value": "correct rules on pages families find in search keep trust at the decision stage",
+   "source": "followup",
+   "key": "verify-live:illinois-fide-snp-explained:004938c",
+   "priority": 1,
+   "evidence": "claude/accuracy-20261125 commit 004938c (ACQ-134)",
+   "expected_tour_acquisition_value": "quality gate before the correction enters the daily package",
    "impact": 3,
-   "confidence": 4,
-   "effort": 2,
+   "confidence": 5,
+   "effort": 1,
    "executor": "worker (research and preparation only)",
-   "done_when": "packet ops/reviews/live/illinois-fide-snp-explained.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
-   "score": 6.0,
+   "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
-   "found_utc": "2026-11-26T01:35Z"
+   "found_utc": "2026-11-26T01:42Z"
   }
  ],
  "completed": [
@@ -4169,6 +4167,75 @@
     "ref": "2b3b34e"
    },
    "done_utc": "2026-11-26T01:35Z"
+  },
+  {
+   "id": "ACQ-133",
+   "task": "Accuracy audit of the live guide illinois-supportive-living-program under the review rules (scope rule included), packet at ops/reviews/live/illinois-supportive-living-program.md; corrections into the rolling accuracy PR #89",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:illinois-supportive-living-program",
+   "priority": 2,
+   "evidence": "Make Search Console read 25 Nov 20:35Z: 12 impressions, pos 8.0; no packet in ops/reviews/live/ (next by exposure after va-nursing-home-and-respite-care, audited 26 Nov)",
+   "expected_tour_acquisition_value": "correct rules on pages families find in search keep trust at the decision stage",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet ops/reviews/live/illinois-supportive-living-program.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
+   "score": 6.0,
+   "status": "done",
+   "found_utc": "2026-11-26T01:35Z",
+   "result": "Audit of live illinois-supportive-living-program against 6 sources read 26 Nov: 2/2 quotations FOUND, 11 claims scope-checked, 0 scope defects, figures hold (74/25.50 for 2026, 20 PNA, phones, Cook County DCS list). Three recommended additions from the HFS fact sheet (who it serves; excess resources count; income floor = SSI) applied to PR #89 as b95d5b2, all suites pass, quotecheck 5/5; verify-live task added. Watch: 2027 room and board notice not yet published.",
+   "verdicts": [
+    "holds; A1-A3 applied"
+   ],
+   "sources": [
+    "hfs.illinois.gov/medicalprograms/slf/residentfactsheet.html",
+    "hfs.illinois.gov/medicalproviders/notices/notice.prn251126a.html",
+    "hfs.illinois.gov/medicalprograms/slf/cook.html"
+   ],
+   "lesson": "A fact sheet's eligibility floor (income at least SSI) is advice a family acts on; check that each money section states both the ceiling and the floor.",
+   "deliverable": {
+    "type": "audit",
+    "ref": "ops/reviews/live/illinois-supportive-living-program.md; #89 b95d5b2"
+   },
+   "done_utc": "2026-11-26T01:42Z",
+   "minutes": 7
+  },
+  {
+   "id": "ACQ-134",
+   "task": "Accuracy audit of the live guide illinois-fide-snp-explained under the review rules (scope rule included), packet at ops/reviews/live/illinois-fide-snp-explained.md; corrections into the rolling accuracy PR #89",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:illinois-fide-snp-explained",
+   "priority": 2,
+   "evidence": "Make Search Console read 25 Nov 20:35Z: 8 impressions, pos 32.4; no packet in ops/reviews/live/ (next by exposure after va-nursing-home-and-respite-care, audited 26 Nov)",
+   "expected_tour_acquisition_value": "correct rules on pages families find in search keep trust at the decision stage",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet ops/reviews/live/illinois-fide-snp-explained.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
+   "score": 6.0,
+   "status": "done",
+   "found_utc": "2026-11-26T01:35Z",
+   "result": "Audit of live illinois-fide-snp-explained against 4 HFS pages read 26 Nov: 18/18 quotations FOUND, 13 claims scope-checked, 1 scope defect: the MLTSS enrolment rule sits under HFS's heading 'Dual Members Who Do Not Choose a FIDE SNP' but the guide applied it to every dual parent receiving LTSS. C1 rescoped (FIDE SNP members get LTSS through the one plan), C2 quotes the 'wraps around' sentence through its LTSS clause. Applied to PR #89 as 004938c, all suites pass, quotecheck 18/18; verify-live task added.",
+   "verdicts": [
+    "corrections required: C1 scope, C2 wording; applied"
+   ],
+   "sources": [
+    "hfs.illinois.gov/medicalproviders/cc/mmai/howtoenrollinafidesnp",
+    "hfs.illinois.gov/medicalproviders/cc/mmai/fullyintegdesnpii.html"
+   ],
+   "lesson": "On HFS pages with stacked headings, a rule's who is set by the heading two levels up; read the full heading chain, not just the nearest one.",
+   "deliverable": {
+    "type": "correction",
+    "ref": "ops/reviews/live/illinois-fide-snp-explained.md; #89 004938c"
+   },
+   "done_utc": "2026-11-26T01:42Z",
+   "minutes": 1
   }
  ],
  "blocked": [],
@@ -4179,7 +4246,7 @@
   "picked": "ACQ-113..117,119..132 done; ACQ-118 waiting_on_data; ACQ-133,134 ready",
   "why": "Worked: 5 live guides audited (4 corrected and verified in #89), 1 new drafts guide built, reviewed and verified publish-ready"
  },
- "last_verified_action": "ACQ-132 done 2026-11-26T01:35Z: Independent reader checked drafts 2b3b34e on hospital-discharge-not-safe-to-go-home: quotecheck 32/32, SNF and fast-appeal pages re-fetched; SNF cost-sharing p…",
+ "last_verified_action": "ACQ-134 done 2026-11-26T01:42Z: Audit of live illinois-fide-snp-explained against 4 HFS pages read 26 Nov: 18/18 quotations FOUND, 13 claims scope-checked, 1 scope defect: the MLTSS enrolment…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -4845,8 +4912,13 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSf2v59RahpHN2G6JvZ",
-   "utc": "2026-11-26T01:36Z",
-   "since_utc": "2026-11-26T01:36Z"
+   "utc": "2026-11-26T01:42Z",
+   "since_utc": "2026-11-26T01:36Z",
+   "productive_min": 8,
+   "deliverables": [
+    "audit:ops/reviews/live/illinois-supportive-living-program.md; #89 b95d5b2",
+    "correction:ops/reviews/live/illinois-fide-snp-explained.md; #89 004938c"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-26T00:26Z"
