@@ -45,3 +45,5 @@ Independent reader, commit 09af0cb on claude/accuracy-20261125 (clone /tmp/reade
 - Sources list: new entry "Illinois Department on Aging — Adult Protective Services and Ombudsman Program (#Engage2Change brochure, printed 1/21)" with the PDF URL. Same; link live.
 
 Reopened: two scope defects in changed sentences: (1) the adult's-rights sentence drops the source's limits ("as long as those decisions don't hurt themselves or others"; protective measures for an adult "incapable of protecting himself or herself") and concludes "not a decision made for them" for every parent; (2) the mandated-reporter sentence inserts a comma that makes the duty cover all adults 60+, while IDoA says it applies only when the reporter believes the adult is not capable of reporting it themselves. Corrected sentences above.
+
+Corrections applied: claude/accuracy-20261125 99ef6ed, 2026-11-26, cse_014eaiSdDK6VjczHrPrWrgM1 (reader check items 1 and 2, the body exception and the brochure's APS and/or Ombudsman sentence; new SRC idoa_abuse_reporting; reviewed date unchanged)

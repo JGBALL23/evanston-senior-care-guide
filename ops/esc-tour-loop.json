@@ -209,22 +209,22 @@
    "found_utc": "2026-11-26T01:30Z"
   },
   {
-   "id": "ACQ-127",
-   "task": "Re-correct illinois-elder-abuse-reporting per the reader check of 09af0cb (packet ops/reviews/live/illinois-elder-abuse-reporting.md): the adult's-rights sentence with its limits, the mandated-reporter sentence scoped as IDoA's Report Abuse page states it, the facility exception in the body, the resident's choice of APS and/or Ombudsman; then a verify-live task",
+   "id": "ACQ-128",
+   "task": "Verify the corrections to illinois-elder-abuse-reporting (live, accuracy PR #89 commit 99ef6ed)",
    "workstream": "technical",
    "lane": "technical",
    "source": "followup",
-   "key": "recorrect:illinois-elder-abuse-reporting:09af0cb",
+   "key": "verify-live:illinois-elder-abuse-reporting:99ef6ed",
    "priority": 1,
-   "evidence": "reader check 2026-11-26 of 09af0cb: Reopened, two scope defects",
-   "expected_tour_acquisition_value": "correct reporting rules on a live safety guide",
+   "evidence": "commit 99ef6ed on claude/accuracy-20261125; packet ops/reviews/live/illinois-elder-abuse-reporting.md reader check of 09af0cb",
+   "expected_tour_acquisition_value": "quality gate before the correction reaches the daily package",
    "impact": 3,
    "confidence": 4,
    "effort": 1,
    "executor": "worker (research and preparation only)",
-   "done_when": "commit on claude/accuracy-20261125 with checks; packet line; verify-live task added",
+   "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
-   "found_utc": "2026-11-26T01:30Z"
+   "found_utc": "2026-11-26T01:31Z"
   }
  ],
  "completed": [
@@ -3969,6 +3969,31 @@
     "ref": "09af0cb"
    },
    "done_utc": "2026-11-26T01:30Z"
+  },
+  {
+   "id": "ACQ-127",
+   "task": "Re-correct illinois-elder-abuse-reporting per the reader check of 09af0cb (packet ops/reviews/live/illinois-elder-abuse-reporting.md): the adult's-rights sentence with its limits, the mandated-reporter sentence scoped as IDoA's Report Abuse page states it, the facility exception in the body, the resident's choice of APS and/or Ombudsman; then a verify-live task",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "recorrect:illinois-elder-abuse-reporting:09af0cb",
+   "priority": 1,
+   "evidence": "reader check 2026-11-26 of 09af0cb: Reopened, two scope defects",
+   "expected_tour_acquisition_value": "correct reporting rules on a live safety guide",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "commit on claude/accuracy-20261125 with checks; packet line; verify-live task added",
+   "status": "done",
+   "found_utc": "2026-11-26T01:30Z",
+   "result": "Re-corrected illinois-elder-abuse-reporting as 99ef6ed on claude/accuracy-20261125 per the reader check of 09af0cb: the adult's rights now carry their limits ('as long as those decisions don't hurt themselves or others'; protective measures for an adult 'incapable of protecting himself or herself'); the mandated-reporter sentence without the widening comma plus IDoA Report Abuse page's 'Mandatory reporting requirements only apply when the reporter believes ...' (new SRC idoa_abuse_reporting); the body now carries the facility exception and the brochure's 'The resident may choose to work with the APS Program and/or the Ombudsman Program in this situation.' test.js 768/768, check-guides 2697/0, test_paying_nav 331/331, quotecheck 21/21. Verify-live task added.",
+   "deliverable": {
+    "type": "correction",
+    "ref": "99ef6ed"
+   },
+   "done_utc": "2026-11-26T01:31Z",
+   "minutes": 1
   }
  ],
  "blocked": [],
@@ -3979,7 +4004,7 @@
   "picked": "ACQ-005 done, ACQ-091..101 done, ACQ-102 waiting, ACQ-103..112 done, ACQ-113 ready, ACQ-114 ready",
   "why": "Worked: 22 tasks; 4 live-guide audits (Medicare guide, estate recovery, home health, look-back) corrected and reader-verified in #89; new memory care guide built, reviewed and with LTC insurance ported to batch #90; title PR #92; stopped: time; resume: ACQ-113/114 ready"
  },
- "last_verified_action": "ACQ-125 done 2026-11-26T01:30Z: Independent reader (fresh-context agent) checked 09af0cb on illinois-elder-abuse-reporting: quotecheck 17/17 FOUND; facility exception, care-inside-facility ro…",
+ "last_verified_action": "ACQ-127 done 2026-11-26T01:31Z: Re-corrected illinois-elder-abuse-reporting as 99ef6ed on claude/accuracy-20261125 per the reader check of 09af0cb: the adult's rights now carry their limits (…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -4645,9 +4670,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSdDK6VjczHrPrWrgM1",
-   "utc": "2026-11-26T01:30Z",
+   "utc": "2026-11-26T01:31Z",
    "since_utc": "2026-11-26T01:13Z",
-   "productive_min": 14,
+   "productive_min": 15,
    "deliverables": [
     "correction:d7724d0",
     "verification:d7724d0",
@@ -4659,7 +4684,8 @@
     "review_packet:ops/reviews/hospital-discharge-not-safe-to-go-home.md",
     "correction:09af0cb",
     "correction:9b44298",
-    "verification:09af0cb"
+    "verification:09af0cb",
+    "correction:99ef6ed"
    ]
   },
   "monitor": {
