@@ -192,14 +192,14 @@
    "not_before_utc": "2026-11-27T05:00Z"
   },
   {
-   "id": "ACQ-166",
-   "task": "Verify the corrections to medicare-home-health-care on the accuracy pull request #89 (commit 7a71f92): re-read each changed sentence against its source; packet line added",
+   "id": "ACQ-168",
+   "task": "Verify the corrections to medicare-home-health-care on the accuracy pull request #89 (commit 9d57bf0): re-read each changed sentence against its source; packet line added",
    "workstream": "technical",
    "lane": "technical",
    "source": "followup",
-   "key": "verify-live:medicare-home-health-care:7a71f92",
+   "key": "verify-live:medicare-home-health-care:9d57bf0",
    "priority": 1,
-   "evidence": "accuracy PR #89 commit 7a71f92 (ACQ-165)",
+   "evidence": "accuracy PR #89 commit 9d57bf0 (ACQ-167)",
    "expected_tour_acquisition_value": "quality gate before the corrections reach the live guide",
    "impact": 3,
    "confidence": 4,
@@ -207,7 +207,7 @@
    "executor": "worker (research and preparation only)",
    "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
-   "found_utc": "2026-11-26T17:57Z"
+   "found_utc": "2026-11-26T18:00Z"
   }
  ],
  "completed": [
@@ -5118,6 +5118,59 @@
    },
    "done_utc": "2026-11-26T17:57Z",
    "minutes": 2
+  },
+  {
+   "id": "ACQ-166",
+   "task": "Verify the corrections to medicare-home-health-care on the accuracy pull request #89 (commit 7a71f92): re-read each changed sentence against its source; packet line added",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:medicare-home-health-care:7a71f92",
+   "priority": 1,
+   "evidence": "accuracy PR #89 commit 7a71f92 (ACQ-165)",
+   "expected_tour_acquisition_value": "quality gate before the corrections reach the live guide",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-26T17:57Z",
+   "result": "Independent reader checked #89 7a71f92: description and the Original Medicare limit hold; reopened: the short answer says only a doctor who examined the parent orders and confirms care, Medicare.gov Provider requirements says a doctor or health care provider (like a nurse practitioner). Re-correction queued.",
+   "verdicts": [
+    "reopened"
+   ],
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/live/medicare-home-health-care.md"
+   },
+   "done_utc": "2026-11-26T17:59Z",
+   "minutes": 2
+  },
+  {
+   "id": "ACQ-167",
+   "task": "Re-correct medicare-home-health-care per the reader check of 7a71f92: short answer: a doctor or other health care provider (like a nurse practitioner) who has seen your parent in person; Medicare covers one only when",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "recorrect:medicare-home-health-care:7a71f92",
+   "priority": 1,
+   "evidence": "reader check 2026-11-26 of #89 7a71f92",
+   "expected_tour_acquisition_value": "correct cost statement on a Medicare page",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "commit on #89 applying each reader point; verify-live task added",
+   "status": "done",
+   "found_utc": "2026-11-26T17:59Z",
+   "result": "Applied the reader check of 7a71f92 as #89 9d57bf0: short answer names a doctor or other health care provider (like a nurse practitioner) who has seen your parent in person, and Medicare covers the visit. Suites pass, quotecheck 5/5. Reader check queued.",
+   "deliverable": {
+    "type": "correction",
+    "ref": "#89 9d57bf0"
+   },
+   "done_utc": "2026-11-26T18:00Z",
+   "minutes": 1
   }
  ],
  "blocked": [],
@@ -5128,7 +5181,7 @@
   "picked": "ACQ-143 done, ACQ-144 done, ACQ-145 done, ACQ-146 done, ACQ-147 done (reopened), ACQ-148 done, ACQ-149 done",
   "why": "Worked: package #91 re-cut for 26 Nov (10 guides, 17 live-guide corrections, #92), 2 verified additions to top search pages; stopped: no-worthwhile-work; resume: monitor 12:26Z, sweeps 12:32Z"
  },
- "last_verified_action": "ACQ-165 done 2026-11-26T17:57Z: Applied the reader check of 7cfef07 to medicare-home-health-care as #89 7a71f92: $0 limited to Original Medicare with the Medicare Advantage pointer (desc and …",
+ "last_verified_action": "ACQ-167 done 2026-11-26T18:00Z: Applied the reader check of 7a71f92 as #89 9d57bf0: short answer names a doctor or other health care provider (like a nurse practitioner) who has seen your par…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -5794,9 +5847,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSan3kSKEb4rtUHknYk",
-   "utc": "2026-11-26T17:57Z",
+   "utc": "2026-11-26T18:00Z",
    "since_utc": "2026-11-26T17:32Z",
-   "productive_min": 28,
+   "productive_min": 31,
    "deliverables": [
     "correction:#89 99cc346; ops/reviews/live/medicare-hospice-benefit-explained.md",
     "correction:#89 e587023; ops/reviews/live/illinois-nursing-home-resident-rights.md",
@@ -5812,7 +5865,9 @@
     "verification:ops/reviews/live/independent-living-evanston.md",
     "correction:#89 7cfef07; ops/reviews/live/medicare-home-health-care.md",
     "verification:ops/reviews/live/medicare-home-health-care.md",
-    "correction:#89 7a71f92"
+    "correction:#89 7a71f92",
+    "verification:ops/reviews/live/medicare-home-health-care.md",
+    "correction:#89 9d57bf0"
    ]
   },
   "monitor": {
