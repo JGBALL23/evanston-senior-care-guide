@@ -1,5 +1,5 @@
 {
- "about": "Which commit of main is live on evanstonseniorcareguide.com. Written by ops/publish_after_merge.py (branch claude/escg-loop-tools) whenever main is published.",
+ "about": "Which commit of main is live on evanstonseniorcareguide.com. Written by ops/publish_after_merge.py (branch claude/escg-loop-tools, run by the scheduled Claude task 'ESCG publish after merge' since 26 Nov 2026) whenever main is published.",
  "main": "4dc2468daa09e2547cbc59d912717ece93450da7",
  "deploy_id": "6b0238b35ad180acef1ba13f",
  "published_utc": "2026-11-22T00:38Z",
@@ -12,5 +12,10 @@
   }
  ],
  "pages_checked": 82,
- "history": []
+ "history": [],
+ "selftest": {
+  "requested_utc": "2026-11-26T14:28Z",
+  "requested_by": "supervising chat",
+  "why": "first run of the task ESCG publish after merge: prove the check, the Netlify tool and the recording in the task's own session, without publishing"
+ }
 }
