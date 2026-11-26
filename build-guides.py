@@ -2504,7 +2504,8 @@ GUIDES = [
         "bridge": ("Finding help for yourself as the caregiver is a different "
                "question from knowing whether your parent's needs have moved "
                "past what any amount of help at home can cover."),
-        "reviewed": "2026-10-29",
+        "reviewed": "2026-11-26",
+        "listed": "2026-10-29",
         "title": "Illinois Family Caregiver Support Program, Explained",
         "h1": "Is there help for the caregiver, not just the parent, in Illinois?",
         "desc": ("Illinois&rsquo;s Family Caregiver Support Program serves the person "
@@ -2588,11 +2589,14 @@ GUIDES = [
                 "cost to the caregiver, a cap on respite hours, or a formal "
                 "application form. The Resource Centers page lists services "
                 "and regional contacts and nothing about eligibility or fees "
-                "at all. The Department&rsquo;s own answer to &ldquo;Where can "
-                "I find out about services nearest to me?&rdquo; is to "
-                "&ldquo;inquire at your local Caregiver Resource Center or "
-                "your local Area Agency on Aging,&rdquo; or to call the "
-                "Senior HelpLine.</p>",
+                "at all. The Department&rsquo;s caregiver questions and answers "
+                "send families, again and again, to the local Caregiver "
+                "Resource Center or Area Agency on Aging; for help with "
+                "assistive or home modification devices, for example, the "
+                "answer is to &ldquo;Inquire at your local Caregiver Resource "
+                "Center or your local Area Agency on Aging&rdquo;, and for help "
+                "paying for services it points to the Community Care Program "
+                "and the local Caregiver Resource Center.</p>",
                 "<p>This guide will not guess at any of those figures on the "
                 "Department's behalf. If a cost, an income test or a waiting "
                 "list applies in your case, that answer lives with your local "
@@ -2607,16 +2611,19 @@ GUIDES = [
                 "Center or Area Agency on Aging that covers your parent's "
                 "address, since services are organised locally rather than "
                 "from one statewide office.</p>",
-                "<p>If your parent lives outside Illinois, the Department's "
-                "own guidance is to contact the Caregiver Resource Center "
-                "nearest to <em>your parent</em>, not to you &mdash; the "
-                "service follows the older adult's location.</p>",
+                "<p>If <em>you</em> live outside Illinois and your parent lives "
+                "here, the Department's own guidance is to contact a "
+                "Caregiver Resource Center near your parent's home, or the "
+                "Senior HelpLine &mdash; the service follows the older "
+                "adult's location.</p>",
             ]),
             ("Where this fits with the rest of this site", [
                 "<p>This programme supports the person doing the caring. It "
                 "is not the same thing as Illinois paying for help at home "
-                "for the older adult, which is a separate Medicaid-funded "
-                'programme covered in <a '
+                "for the older adult through the Community Care Program, which "
+                "the Department describes as helping frail older people who "
+                "might otherwise need nursing home care to remain in their "
+                'own homes, covered in <a '
                 'href="/guides/illinois-community-care-program/">Can my '
                 "parent get paid help at home in Illinois?</a> A family can "
                 "in principle use both at once; this guide found no "
