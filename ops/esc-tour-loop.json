@@ -172,25 +172,6 @@
    "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in the Assisted Living and Shared Housing Act (210 ILCS 9/90, already a SRC on main as ilcs_al_90) and 77 Ill. Adm. Code 295 on ilga.gov, an approved host per check-guides.js. ilga.gov could not be read this session: curl through the proxy fails TLS (000) and WebFetch returns 503. Searched illinois.gov (IDPH, IDoA, HFS): the IDPH ITR form covers terminations only; the IDoA residents' rights brochure says a contract must state services and costs but is not scoped to assisted living and says nothing on rate-change notice; HFS Part 146 is supportive living. No guide written: the core rule cannot be read off a fetched page. Retry by WebFetch of ilga.gov after not_before."
   },
   {
-   "id": "ACQ-123",
-   "task": "Accuracy audit of the live guide va-nursing-home-and-respite-care under the review rules (scope rule included), packet at ops/reviews/live/va-nursing-home-and-respite-care.md; corrections into the rolling accuracy PR #89",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "plan",
-   "key": "audit:va-nursing-home-and-respite-care",
-   "priority": 2,
-   "evidence": "Make Search Console read 25 Nov 20:35Z: 20 impressions, pos 45.0; no packet in ops/reviews/live/ (next by exposure after medicare-durable-medical-equipment-coverage, audited 26 Nov)",
-   "expected_tour_acquisition_value": "correct rules on pages families find in search keep trust at the decision stage",
-   "impact": 3,
-   "confidence": 4,
-   "effort": 2,
-   "executor": "worker (research and preparation only)",
-   "done_when": "packet ops/reviews/live/va-nursing-home-and-respite-care.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
-   "score": 6.0,
-   "status": "ready",
-   "found_utc": "2026-11-26T01:25Z"
-  },
-  {
    "id": "ACQ-126",
    "task": "Verify the corrections to hospital-discharge-not-safe-to-go-home (drafts commit 9b44298)",
    "workstream": "build",
@@ -3994,6 +3975,40 @@
    },
    "done_utc": "2026-11-26T01:31Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-123",
+   "task": "Accuracy audit of the live guide va-nursing-home-and-respite-care under the review rules (scope rule included), packet at ops/reviews/live/va-nursing-home-and-respite-care.md; corrections into the rolling accuracy PR #89",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:va-nursing-home-and-respite-care",
+   "priority": 2,
+   "evidence": "Make Search Console read 25 Nov 20:35Z: 20 impressions, pos 45.0; no packet in ops/reviews/live/ (next by exposure after medicare-durable-medical-equipment-coverage, audited 26 Nov)",
+   "expected_tour_acquisition_value": "correct rules on pages families find in search keep trust at the decision stage",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet ops/reviews/live/va-nursing-home-and-respite-care.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
+   "score": 6.0,
+   "status": "done",
+   "found_utc": "2026-11-26T01:25Z",
+   "result": "Audited live guide va-nursing-home-and-respite-care against its six sources (four VA.gov pages, IDVA Veterans' Homes, IDPH Veterans' Homes; all 200 today). quotecheck 23/23 FOUND; 17 claims scope-checked; no scope defect, no correction. Verdict: holds. Watch: IDVA's page is internally inconsistent on which homes take spouses (the guide quotes both statements).",
+   "sources": [
+    "https://www.va.gov/health-care/about-va-health-benefits/long-term-care/",
+    "https://www.va.gov/geriatrics/pages/VA_Community_Living_Centers.asp",
+    "https://www.va.gov/geriatrics/pages/Respite_Care.asp",
+    "https://www.va.gov/geriatrics/pages/VA_Long_Term_Care_Services.asp",
+    "https://veterans.illinois.gov/services-benefits/homes/homes.html",
+    "https://dph.illinois.gov/topics-services/health-care-regulation/nursing-homes/veterans-homes.html"
+   ],
+   "deliverable": {
+    "type": "audit",
+    "ref": "ops/reviews/live/va-nursing-home-and-respite-care.md"
+   },
+   "done_utc": "2026-11-26T01:32Z",
+   "minutes": 1
   }
  ],
  "blocked": [],
@@ -4004,7 +4019,7 @@
   "picked": "ACQ-005 done, ACQ-091..101 done, ACQ-102 waiting, ACQ-103..112 done, ACQ-113 ready, ACQ-114 ready",
   "why": "Worked: 22 tasks; 4 live-guide audits (Medicare guide, estate recovery, home health, look-back) corrected and reader-verified in #89; new memory care guide built, reviewed and with LTC insurance ported to batch #90; title PR #92; stopped: time; resume: ACQ-113/114 ready"
  },
- "last_verified_action": "ACQ-127 done 2026-11-26T01:31Z: Re-corrected illinois-elder-abuse-reporting as 99ef6ed on claude/accuracy-20261125 per the reader check of 09af0cb: the adult's rights now carry their limits (…",
+ "last_verified_action": "ACQ-123 done 2026-11-26T01:32Z: Audited live guide va-nursing-home-and-respite-care against its six sources (four VA.gov pages, IDVA Veterans' Homes, IDPH Veterans' Homes; all 200 today). quo…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -4670,9 +4685,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSdDK6VjczHrPrWrgM1",
-   "utc": "2026-11-26T01:31Z",
+   "utc": "2026-11-26T01:32Z",
    "since_utc": "2026-11-26T01:13Z",
-   "productive_min": 15,
+   "productive_min": 16,
    "deliverables": [
     "correction:d7724d0",
     "verification:d7724d0",
@@ -4685,7 +4700,8 @@
     "correction:09af0cb",
     "correction:9b44298",
     "verification:09af0cb",
-    "correction:99ef6ed"
+    "correction:99ef6ed",
+    "audit:ops/reviews/live/va-nursing-home-and-respite-care.md"
    ]
   },
   "monitor": {
