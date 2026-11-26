@@ -35,12 +35,13 @@
   {
    "id": "ACQ-005",
    "priority": 1,
-   "status": "waiting_on_data",
+   "status": "ready",
    "workstream": "search_acquisition",
    "hypothesis": "Page-one Illinois guides get impressions but 0 clicks; their titles are 94-99 characters (estate recovery 94, complaint 99) and Google truncates near 60, so the query-matching words may be cut. A shorter, query-first title could lift CTR without new claims.",
    "evidence_needed": "Search Console Performance (queries, pages, CTR, position) for 17-24 Nov from the operator's 25 Nov check; PR #78 merge status.",
    "done_when": "If those pages show >=20 impressions at position <=10 with CTR <3%, open one small tested review PR rewriting only their <title>/meta description; otherwise record no-change with numbers.",
-   "not_before_utc": "2026-11-25T15:00Z"
+   "not_before_utc": "2026-11-25T15:00Z",
+   "note_2026_11_26": "Make Search Console read 25 Nov 20:35Z (period 26 Oct-22 Nov) is in cloud.json scoreboard; ready."
   },
   {
    "id": "ACQ-007",
@@ -70,8 +71,10 @@
    "expected_tour_acquisition_value": "Tells whether local tour-intent search is a reachable channel before investing in any local page (owner rule: no new guides without demand).",
    "executor": "this loop with the operator's Search Console export (bundle with ACQ-005)",
    "done_when": "With >=14 days of post-merge data: record numbers; if local queries appear at position <=20, propose the next on-page step; if none, record no-change and do not build local pages.",
-   "not_before_utc": "2026-11-25T15:00Z",
-   "note_2026_11_22": "PR #83 adds /assisted-living-evanston/ (merged 21 Nov, not deployed at 22 Nov). Read Search Console per page (homepage vs /assisted-living-evanston/), not as one before/after; baseline for the new page starts at its deploy date."
+   "not_before_utc": null,
+   "note_2026_11_22": "PR #83 adds /assisted-living-evanston/ (merged 21 Nov, not deployed at 22 Nov). Read Search Console per page (homepage vs /assisted-living-evanston/), not as one before/after; baseline for the new page starts at its deploy date.",
+   "not_before": "PR #81 merged and deployed, then 14 days of Search Console data after that deploy",
+   "note_2026_11_26": "Search Console read 25 Nov 20:35Z is here but #81 is still open (clean, in package #91); the task measures after the merge, so it waits on that event instead of a date (avoids empty postponements)."
   },
   {
    "id": "ACQ-017",
@@ -3684,7 +3687,7 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSdvHByATtNdterRhh7",
-   "utc": "2026-11-26T00:26Z",
+   "utc": "2026-11-26T00:27Z",
    "since_utc": "2026-11-26T00:24Z"
   },
   "monitor": {
