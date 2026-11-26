@@ -188,6 +188,44 @@
    "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
    "found_utc": "2026-11-26T17:48Z"
+  },
+  {
+   "id": "ACQ-159",
+   "task": "Accuracy audit of the live guide independent-living-evanston under the review rules (scope rule included), packet at ops/reviews/live/independent-living-evanston.md; corrections into the rolling accuracy PR #89",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:independent-living-evanston",
+   "priority": 2,
+   "evidence": "No packet in ops/reviews/live/ (26 Nov); the only Evanston-specific guide besides /assisted-living-evanston/; quotecheck 1/1 FOUND with 7 cited pages (IDPH, transport and housing help, listing-site figures read 6 Nov) whose figures and contact details a local family acts on; 1 genuine browser view 26 Nov (Netlify)",
+   "expected_tour_acquisition_value": "correct facts on the decision-stage and Evanston pages that sit closest to a tour inquiry",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet ops/reviews/live/independent-living-evanston.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
+   "score": 6.0,
+   "status": "ready",
+   "found_utc": "2026-11-26T17:49Z"
+  },
+  {
+   "id": "ACQ-160",
+   "task": "Accuracy audit of the live guide levels-of-senior-care-explained under the review rules (scope rule included), packet at ops/reviews/live/levels-of-senior-care-explained.md; corrections into the rolling accuracy PR #89",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:levels-of-senior-care-explained",
+   "priority": 2,
+   "evidence": "No packet in ops/reviews/live/ (26 Nov); decision-stage page that the assessment and many guides link to; 0 quotations but 3 cited pages whose care-type definitions and Medicare coverage lines families act on; 1 genuine browser view 26 Nov (Netlify)",
+   "expected_tour_acquisition_value": "correct facts on the decision-stage and Evanston pages that sit closest to a tour inquiry",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet ops/reviews/live/levels-of-senior-care-explained.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
+   "score": 6.0,
+   "status": "ready",
+   "found_utc": "2026-11-26T17:49Z"
   }
  ],
  "completed": [
@@ -5580,9 +5618,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSan3kSKEb4rtUHknYk",
-   "utc": "2026-11-26T17:48Z",
+   "utc": "2026-11-26T17:49Z",
    "since_utc": "2026-11-26T17:32Z",
-   "productive_min": 17,
+   "productive_min": 19,
    "deliverables": [
     "correction:#89 99cc346; ops/reviews/live/medicare-hospice-benefit-explained.md",
     "correction:#89 e587023; ops/reviews/live/illinois-nursing-home-resident-rights.md",
@@ -6834,6 +6872,36 @@
    "exhausted_until_utc": "",
    "empty_streak": 0,
    "log": [
+    {
+     "utc": "2026-11-26T17:49Z",
+     "run": "cse_014eaiSan3kSKEb4rtUHknYk",
+     "key": "quality-audit-live-local-levels",
+     "avenue": "quality",
+     "lane": null,
+     "candidates": 2,
+     "added": 2,
+     "result": "26 Nov: after today's four audits, three live guides lack a packet: independent-living-evanston (Evanston page, figures and local contacts read 6 Nov), levels-of-senior-care-explained (decision-stage definitions the assessment links to) and check-illinois-inspection-records (9 ilga.gov pages unreadable here; left). Ad…"
+    },
+    {
+     "utc": "2026-11-26T17:48Z",
+     "run": "cse_014eaiSan3kSKEb4rtUHknYk",
+     "key": "needs-respite-short-stay-assisted-living",
+     "avenue": "needs",
+     "lane": "build",
+     "candidates": 1,
+     "added": 0,
+     "result": "26 Nov web search for public family questions on a short respite/trial stay in Illinois assisted living (cost, Medicare): results were listing sites, agency blogs and national explainers (caring.com, seniorliving.org, NCOA, assistinghands), no family-question venue with a dated question; the need is answered on live g…"
+    },
+    {
+     "utc": "2026-11-26T17:48Z",
+     "run": "cse_014eaiSan3kSKEb4rtUHknYk",
+     "key": "search-va-caregiver-cluster-26nov",
+     "avenue": "search",
+     "lane": "search",
+     "candidates": 1,
+     "added": 0,
+     "result": "Make Search Console read 25 Nov 20:35Z (only read available): 11 VA caregiver queries (va caregiver program, comprehensive assistance for family caregivers, va home caregiver, ~45 impressions, 0 clicks) land on va-caregiver-support-program (84 impressions, pos 51.3, 0 clicks); content audited 25 Nov (ACQ-069, correcte…"
+    },
     {
      "utc": "2026-11-26T17:45Z",
      "run": "cse_014eaiSan3kSKEb4rtUHknYk",
