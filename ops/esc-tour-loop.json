@@ -166,8 +166,10 @@
    "executor": "worker (research and preparation only)",
    "done_when": "guide built with build-guides.py on drafts under ROUTINE.md, five checks and quotecheck pass, DEMAND line moved to Done in the build commit, review:<slug> task added",
    "score": 3.0,
-   "status": "ready",
-   "found_utc": "2026-11-26T01:19Z"
+   "status": "waiting_on_data",
+   "found_utc": "2026-11-26T01:19Z",
+   "not_before_utc": "2026-11-27T01:30Z",
+   "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in the Assisted Living and Shared Housing Act (210 ILCS 9/90, already a SRC on main as ilcs_al_90) and 77 Ill. Adm. Code 295 on ilga.gov, an approved host per check-guides.js. ilga.gov could not be read this session: curl through the proxy fails TLS (000) and WebFetch returns 503. Searched illinois.gov (IDPH, IDoA, HFS): the IDPH ITR form covers terminations only; the IDoA residents' rights brochure says a contract must state services and costs but is not scoped to assisted living and says nothing on rate-change notice; HFS Part 146 is supportive living. No guide written: the core rule cannot be read off a fetched page. Retry by WebFetch of ilga.gov after not_before."
   },
   {
    "id": "ACQ-120",
@@ -186,24 +188,6 @@
    "done_when": "packet at ops/reviews/hospital-discharge-not-safe-to-go-home.md with its counts and verdict",
    "status": "ready",
    "found_utc": "2026-11-26T01:23Z"
-  },
-  {
-   "id": "ACQ-121",
-   "task": "Verify the corrections to medicare-durable-medical-equipment-coverage (live, accuracy PR #89 commit c160353)",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "followup",
-   "key": "verify-live:medicare-durable-medical-equipment-coverage:c160353",
-   "priority": 1,
-   "evidence": "commit c160353 on claude/accuracy-20261125; packet ops/reviews/live/medicare-durable-medical-equipment-coverage.md A1-A2",
-   "expected_tour_acquisition_value": "quality gate before the correction reaches the daily package",
-   "impact": 3,
-   "confidence": 4,
-   "effort": 1,
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
-   "status": "ready",
-   "found_utc": "2026-11-26T01:24Z"
   }
  ],
  "completed": [
@@ -3805,6 +3789,37 @@
     "ref": "c160353"
    },
    "done_utc": "2026-11-26T01:24Z"
+  },
+  {
+   "id": "ACQ-121",
+   "task": "Verify the corrections to medicare-durable-medical-equipment-coverage (live, accuracy PR #89 commit c160353)",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:medicare-durable-medical-equipment-coverage:c160353",
+   "priority": 1,
+   "evidence": "commit c160353 on claude/accuracy-20261125; packet ops/reviews/live/medicare-durable-medical-equipment-coverage.md A1-A2",
+   "expected_tour_acquisition_value": "quality gate before the correction reaches the daily package",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-26T01:24Z",
+   "result": "Independent reader (fresh-context agent) checked c160353 on claude/accuracy-20261125: quotecheck 27/27 FOUND, 6 cited pages read, Walkers page and Medicare publication 11045 (2/2025) re-fetched. The Original Medicare scope sentence, the two booklet quotations for Medicare Advantage members, the contact/appeal paraphrase and the pay-back sentence all hold in scope; new source link works. Corrections verified. Optional later addition noted by the reader: plan cost-sharing is in the plan's Evidence of Coverage (booklet, same section).",
+   "verdicts": [
+    "Corrections verified"
+   ],
+   "sources": [
+    "https://www.medicare.gov/publications/11045-medicare-coverage-of-dme-and-other-devices.pdf",
+    "https://www.medicare.gov/coverage/walkers"
+   ],
+   "deliverable": {
+    "type": "verification",
+    "ref": "c160353"
+   },
+   "done_utc": "2026-11-26T01:25Z"
   }
  ],
  "blocked": [],
@@ -3815,7 +3830,7 @@
   "picked": "ACQ-005 done, ACQ-091..101 done, ACQ-102 waiting, ACQ-103..112 done, ACQ-113 ready, ACQ-114 ready",
   "why": "Worked: 22 tasks; 4 live-guide audits (Medicare guide, estate recovery, home health, look-back) corrected and reader-verified in #89; new memory care guide built, reviewed and with LTC insurance ported to batch #90; title PR #92; stopped: time; resume: ACQ-113/114 ready"
  },
- "last_verified_action": "ACQ-119 done 2026-11-26T01:24Z: Applied the reader's recommended additions to live guide medicare-durable-medical-equipment-coverage as c160353 on claude/accuracy-20261125 (PR #89): A1 the wa…",
+ "last_verified_action": "ACQ-121 done 2026-11-26T01:25Z: Independent reader (fresh-context agent) checked c160353 on claude/accuracy-20261125: quotecheck 27/27 FOUND, 6 cited pages read, Walkers page and Medicare pub…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -4481,7 +4496,7 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSdDK6VjczHrPrWrgM1",
-   "utc": "2026-11-26T01:24Z",
+   "utc": "2026-11-26T01:25Z",
    "since_utc": "2026-11-26T01:13Z",
    "productive_min": 8,
    "deliverables": [
@@ -4490,11 +4505,12 @@
     "correction:63284d5",
     "verification:63284d5",
     "guide:317f6fb",
-    "correction:c160353"
+    "correction:c160353",
+    "verification:c160353"
    ],
    "current": {
-    "what": "ACQ-120",
-    "since_utc": "2026-11-26T01:23Z"
+    "what": "ACQ-118",
+    "since_utc": "2026-11-26T01:24Z"
    }
   },
   "monitor": {
