@@ -474,6 +474,18 @@ SRC = {
                'https://www.va.gov/geriatrics/pages/Homemaker_and_Home_Health_Aide_Care.asp'),
     "va_phcbs_notice": ('VA.gov — VHA Notice 2024-01, Purchased Home and Community-Based Services Programs',
                         'https://www.va.gov/vhapublications/ViewPublication.asp?pub_ID=11687'),
+    "idoi_ltc": ('Illinois Department of Insurance — Long-Term Care Insurance',
+                 'https://idoi.illinois.gov/consumers/consumerinsurance/lifeannuities/long-term-care.html'),
+    "idoi_complaints": ('Illinois Department of Insurance — Understanding the Consumer Complaint Process',
+                        'https://idoi.illinois.gov/consumers/understanding-complaint-process.html'),
+    "ship_ltc_shoppers_guide": ('NAIC, A Shopper\u2019s Guide to Long-Term Care Insurance (revised 2019), '
+                                'posted by the Illinois Department on Aging (SHIP)',
+                                'https://ilaging.illinois.gov/content/dam/soi/en/web/aging/ship/documents/'
+                                'shoppers-guide-ltc-insur.pdf'),
+    "ship_ltc": ('Illinois Department on Aging — SHIP, Long-Term Care Insurance',
+                 'https://ilaging.illinois.gov/ship/long-term-care-insurance.html'),
+    "hfs_slp": ('Illinois HFS — Supportive Living Program',
+                'https://hfs.illinois.gov/medicalprograms/slf.html'),
 }
 
 
@@ -6224,6 +6236,178 @@ GUIDES = [
             ]),
         ],
     },
+    {
+        "slug": "long-term-care-insurance-assisted-living-illinois",
+        "bridge": ("Whether a policy will pay is a separate question from which "
+                   "level of care your parent actually needs now."),
+        "reviewed": "2026-11-25",
+        "title": "Long-Term Care Insurance and Assisted Living in Illinois",
+        "h1": "My parent has long-term care insurance. Will it pay for assisted living?",
+        "desc": ("Benefit triggers, the elimination period, facility rules and "
+                 "what to do if a claim stalls, read off the Illinois Department "
+                 "of Insurance."),
+        "intent": "paying / insurance",
+        "answer": ("<strong>It can, if the policy covers assisted living, your "
+                   "parent meets its benefit triggers and the elimination period "
+                   "has run.</strong> The Illinois Department of Insurance lists "
+                   "&ldquo;care in an assisted living facility&rdquo; among "
+                   "long-term care services, and states that &ldquo;Long-term care "
+                   "insurance will pay for some or all of your long-term care.&rdquo; "
+                   "Whether it pays for your parent depends on the words of "
+                   "their own policy, so the first step is to find it and read "
+                   "three parts: who qualifies, where care is covered and when "
+                   "payments start."),
+        "sources": srcs("idoi_ltc", "ship_ltc_shoppers_guide", "idoi_complaints", "ship_ltc", "hfs_slp"),
+        "body": [
+            ("Start with the policy, not the sales brochure", [
+                "<p>The Department of Insurance tells policyholders to read the "
+                "policy and make certain they understand it, and adds: &ldquo;If "
+                "you have questions about your insurance policy, contact your "
+                "insurance agent for clarification. If you still have questions, "
+                "turn to your state insurance department or insurance counseling "
+                "program.&rdquo; It also states that &ldquo;Medicare, Medicare "
+                "supplement insurance and health insurance you may have at work "
+                "usually will not pay for long-term care,&rdquo; so a long-term "
+                "care policy is a separate document from your parent&rsquo;s "
+                "Medicare card or supplement.</p>",
+                "<p>The rest of this guide draws on the National Association of "
+                "Insurance Commissioners&rsquo; <em>Shopper&rsquo;s Guide to "
+                "Long-Term Care Insurance</em> (revised 2019), which the Illinois "
+                "Department on Aging posts on its SHIP pages. It describes how "
+                "policies are commonly written, not what your parent&rsquo;s "
+                "policy says. Where the two differ, the policy decides.</p>",
+            ]),
+            ("Does the policy cover assisted living at all?", [
+                "<p>Policies differ on where care is covered. The Shopper&rsquo;s "
+                "Guide warns: &ldquo;If you&rsquo;re not in the right type of "
+                "facility (described in your policy), the insurance company can "
+                "refuse to pay for your care.&rdquo; Some policies pay in any "
+                "state-licensed facility, some only in certain ones, and some list "
+                "facilities they exclude. It adds that &ldquo;many states, "
+                "companies and policies define assisted living facilities "
+                "differently,&rdquo; and that if a policy lists kinds of facilities "
+                "you should check whether it requires the facility to have a "
+                "license or certification from a government agency.</p>",
+                "<p>Before a move, ask the insurer in writing whether the "
+                "community you are considering meets the policy&rsquo;s "
+                "definition, and ask the community for its Illinois licence "
+                "details to send with the question. The guide advises checking "
+                "with the insurance company before making plans for care.</p>",
+            ]),
+            ("Does your parent meet the benefit triggers?", [
+                "<p>&ldquo;Benefit triggers&rdquo; are how the insurer decides "
+                "your parent is eligible. The guide says to look for the section "
+                "the policy calls &ldquo;Eligibility for the Payment of "
+                "Benefits&rdquo; or &ldquo;Eligibility for Benefits.&rdquo; It "
+                "describes three kinds:</p>",
+                "<ul class=\"res__list\">"
+                "<li><strong>Help with daily activities.</strong> The most common "
+                "test, the guide says, is that &ldquo;you are expected to be unable "
+                "to do two ADLs without human assistance for 90 days. Most "
+                "policies use six ADLs: bathing; continence; dressing; eating; "
+                "toileting; and transferring.&rdquo; Some policies require "
+                "hands-on help with the activity; others count stand-by help from "
+                "someone nearby. Which one your parent&rsquo;s policy uses "
+                "matters when you describe their needs.</li>"
+                "<li><strong>Cognitive impairment.</strong> &ldquo;Coverage of "
+                "cognitive impairment is especially important if you develop "
+                "Alzheimer&rsquo;s disease or other dementia.&rdquo;</li>"
+                "<li><strong>A doctor&rsquo;s certification.</strong> Some "
+                "policies require a doctor to order or certify that care is "
+                "medically necessary; the guide notes that tax-qualified policies "
+                "cannot use this trigger.</li></ul>",
+                "<p>Keep copies of the doctor&rsquo;s notes, any assessment a "
+                "community has done and a plain record of the help your parent "
+                "needs each day: they are the evidence you can offer against "
+                "whichever test the policy uses.</p>",
+            ]),
+            ("When payments start: the elimination period", [
+                "<p>Many policies do not pay from the first day. The Shopper&rsquo;s "
+                "Guide states that the elimination period &ldquo;can be 20, 30, 60, "
+                "90 or 100 days before benefits begin,&rdquo; and that &ldquo;you "
+                "must pay for your own care during the elimination period before "
+                "benefits can begin. Companies don&rsquo;t pay for care provided by "
+                "family members during or after the elimination period.&rdquo;</p>",
+                "<p>How the days are counted matters. Under a calendar-day method, "
+                "every day your parent meets the triggers counts, though the guide "
+                "notes that &ldquo;many coverages will not start counting those "
+                "days until you incur costs.&rdquo; Under the other method, "
+                "&ldquo;only the days that you pay for professional care services "
+                "covered by the policy count toward the elimination period.&rdquo; "
+                "Ask the insurer which method applies, whether days already spent "
+                "with paid help at home count, and, in the guide&rsquo;s words, "
+                "&ldquo;if the insurance company requires another elimination "
+                "period for a second stay.&rdquo;</p>",
+                "<p>Budget for the elimination period as a private-pay stretch. "
+                "<a href=\"/guides/assisted-living-cost-illinois/\">The assisted "
+                "living cost guide</a> gives the published monthly figures for "
+                "Illinois.</p>",
+            ]),
+            ("Two policy features to check on day one", [
+                "<ul class=\"res__list\">"
+                "<li><strong>Waiver of premium.</strong> &ldquo;Premium waiver "
+                "lets you stop paying the premium once you&rsquo;re eligible and "
+                "the insurance company starts to pay benefits.&rdquo; The guide "
+                "adds: &ldquo;Some companies waive the premium as soon as they make "
+                "the first benefit payment. Others wait until you&rsquo;ve received "
+                "benefits for 60 to 90 days.&rdquo; Keep paying until the insurer "
+                "confirms in writing that the premium is waived.</li>"
+                "<li><strong>Third-party notice.</strong> A policyholder can name "
+                "someone the insurer must contact before coverage ends for unpaid "
+                "premiums. The guide explains why: &ldquo;Without this notice, "
+                "people with cognitive impairments who forget to pay the premium "
+                "might lose their coverage when they need it the most.&rdquo; If "
+                "your parent has not named you, ask the insurer how to add a "
+                "contact.</li></ul>",
+            ]),
+            ("If the claim stalls or is refused", [
+                "<p>The Department of Insurance&rsquo;s complaint page sets out "
+                "the order. First: &ldquo;Contact the insurance company or agent "
+                "and bring the problem to their attention. Document your phone "
+                "calls by noting the name of the person you speak to, the date of "
+                "the call and a brief summary of the conversation. Keep copies of "
+                "all written communications.&rdquo;</p>",
+                "<p>If that does not resolve it, the Department handles complaints "
+                "that &ldquo;may include coverage issues, claim disputes, premiums, "
+                "policy cancellations, refunds, and sales "
+                "misrepresentations.&rdquo; Its Consumer Assistance line is "
+                "<strong>(866) 445-5364</strong>, but complaints must be made in "
+                "writing: online through the "
+                "<a href=\"https://idoihelpcenter.illinois.gov/s/\">IDOI Help "
+                "Center</a>, by email to DOI.complaints@illinois.gov, or by post. "
+                "The page states that &ldquo;Illinois law allows 21 days for an "
+                "insurer or agent to respond to a complaint.&rdquo;</p>",
+                "<p>Know its limits before you write. Among the things the page "
+                "says the Department cannot do are &ldquo;Make medical "
+                "judgments&rdquo; and &ldquo;Act as your lawyer or give you legal "
+                "advice.&rdquo; A dispute about whether the insurer followed the "
+                "policy is its business; a dispute about how impaired your parent "
+                "is may need the doctor&rsquo;s evidence, or a lawyer.</p>",
+            ]),
+            ("Where the policy fits in the bigger picture", [
+                "<p>A policy pays only up to the limits written in it, so it may "
+                "not settle the whole question of paying for care. If savings "
+                "may run out later, Medicaid does not simply pick up an assisted "
+                "living bill. One Illinois Medicaid route into this kind of "
+                "residence is the Supportive Living Program, which HFS describes "
+                "as &ldquo;an alternative to nursing home care for low-income older "
+                "persons and persons with physical disabilities under "
+                "Medicaid&rdquo;; there, HFS says, &ldquo;The resident is "
+                "responsible for paying the cost of room and board at the "
+                "facility.&rdquo; "
+                "<a href=\"/guides/illinois-supportive-living-program/\">The "
+                "Supportive Living Program guide</a> explains it, and "
+                "<a href=\"/guides/illinois-medicaid-long-term-care/\">the Illinois "
+                "Medicaid long-term care guide</a> covers nursing home care and "
+                "care at home. The Illinois Department on Aging&rsquo;s SHIP page on "
+                "long-term care insurance lists its Senior HelpLine, "
+                "<strong>1-800-252-8966</strong>.</p>",
+                "<p>If you are still working out whether assisted living is the "
+                "right level of care, the <a href=\"/\">free six-question "
+                "assessment</a> on the home page is a private place to start.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -6416,14 +6600,14 @@ RELATED = {
     "assisted-living-cost-illinois": [
         "does-medicare-pay-for-senior-care",
         "independent-living-evanston",
-        "va-aid-and-attendance-benefit"],
+        "long-term-care-insurance-assisted-living-illinois"],
     "does-medicare-pay-for-senior-care": [
         "medicare-home-health-care",
         "medicare-durable-medical-equipment-coverage",
         "medicare-fast-appeal-hospital-rehab-discharge"],
     "illinois-supportive-living-program": [
         "illinois-pace-program",
-        "illinois-medicaid-estate-recovery",
+        "long-term-care-insurance-assisted-living-illinois",
         "illinois-medicaid-look-back-period"],
     "check-illinois-inspection-records": [
         "illinois-care-facility-complaint",
@@ -6569,6 +6753,10 @@ RELATED = {
         "va-aid-and-attendance-benefit",
         "va-caregiver-support-program",
         "va-veteran-directed-care-program"],
+    "long-term-care-insurance-assisted-living-illinois": [
+        "assisted-living-cost-illinois",
+        "illinois-supportive-living-program",
+        "illinois-senior-health-insurance-program"],
 }
 
 RELATED_MIN_INBOUND = 2
@@ -7013,6 +7201,12 @@ CARDS = {
         "Two separate VA home programmes, in VA.gov's own words — a "
         "medical team, and a trained aide — and how each differs from "
         "Veteran Directed Care and the caregiver stipend."),
+    "long-term-care-insurance-assisted-living-illinois": (
+        "Costs",
+        "Long-term care insurance and assisted living",
+        "Benefit triggers, the elimination period, which facilities a policy "
+        "covers and what to do if a claim stalls, read off the Illinois "
+        "Department of Insurance."),
 }
 
 
