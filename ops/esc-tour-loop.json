@@ -172,23 +172,22 @@
    "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in the Assisted Living and Shared Housing Act (210 ILCS 9/90, already a SRC on main as ilcs_al_90) and 77 Ill. Adm. Code 295 on ilga.gov, an approved host per check-guides.js. ilga.gov could not be read this session: curl through the proxy fails TLS (000) and WebFetch returns 503. Searched illinois.gov (IDPH, IDoA, HFS): the IDPH ITR form covers terminations only; the IDoA residents' rights brochure says a contract must state services and costs but is not scoped to assisted living and says nothing on rate-change notice; HFS Part 146 is supportive living. No guide written: the core rule cannot be read off a fetched page. Retry by WebFetch of ilga.gov after not_before."
   },
   {
-   "id": "ACQ-139",
-   "task": "Accuracy audit of the live guide illinois-home-care-ombudsman-program under the review rules (scope rule included), packet at ops/reviews/live/illinois-home-care-ombudsman-program.md; corrections into the rolling accuracy PR #89",
+   "id": "ACQ-140",
+   "task": "Verify the corrections to illinois-home-care-ombudsman-program on the accuracy pull request #89 (commit ab43cab): re-read each changed sentence against the IDoA Home Care Ombudsman Program page, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <reader>' to ops/reviews/live/illinois-home-care-ombudsman-program.md and to that guide's lines in the #89 body, or reopen the correction",
    "workstream": "technical",
    "lane": "technical",
-   "source": "plan",
-   "key": "audit:illinois-home-care-ombudsman-program",
-   "priority": 2,
-   "evidence": "Make Search Console read 25 Nov 20:35Z: 4 impressions, pos 23.3; no packet in ops/reviews/live/ (next by exposure among unaudited live guides, checked 26 Nov)",
-   "expected_tour_acquisition_value": "correct rules on pages families find in search keep trust at the decision stage",
+   "source": "followup",
+   "key": "verify-live:illinois-home-care-ombudsman-program:ab43cab",
+   "priority": 1,
+   "evidence": "claude/accuracy-20261125 commit ab43cab (ACQ-139)",
+   "expected_tour_acquisition_value": "quality gate before the correction enters the daily package",
    "impact": 3,
-   "confidence": 4,
-   "effort": 2,
+   "confidence": 5,
+   "effort": 1,
    "executor": "worker (research and preparation only)",
-   "done_when": "packet ops/reviews/live/illinois-home-care-ombudsman-program.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
-   "score": 6.0,
+   "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
-   "found_utc": "2026-11-26T01:47Z"
+   "found_utc": "2026-11-26T01:50Z"
   }
  ],
  "completed": [
@@ -4337,6 +4336,38 @@
    },
    "done_utc": "2026-11-26T01:48Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-139",
+   "task": "Accuracy audit of the live guide illinois-home-care-ombudsman-program under the review rules (scope rule included), packet at ops/reviews/live/illinois-home-care-ombudsman-program.md; corrections into the rolling accuracy PR #89",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:illinois-home-care-ombudsman-program",
+   "priority": 2,
+   "evidence": "Make Search Console read 25 Nov 20:35Z: 4 impressions, pos 23.3; no packet in ops/reviews/live/ (next by exposure among unaudited live guides, checked 26 Nov)",
+   "expected_tour_acquisition_value": "correct rules on pages families find in search keep trust at the decision stage",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet ops/reviews/live/illinois-home-care-ombudsman-program.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
+   "score": 6.0,
+   "status": "done",
+   "found_utc": "2026-11-26T01:47Z",
+   "result": "Audit of live illinois-home-care-ombudsman-program against two IDoA pages read 26 Nov: 3/3 quotations FOUND, 9 claims scope-checked, 1 scope defect: the short answer equated 'an Illinois Medicaid managed care plan' with a D-SNP, wider than IDoA's route (enrolled in a D-SNP and receiving MCO services). Corrected in PR #89 ab43cab; all suites pass; verify-live task added.",
+   "verdicts": [
+    "corrections required: C1 scope; applied"
+   ],
+   "sources": [
+    "ilaging.illinois.gov/programs/ltcombudsman/the-home-care-ombudsman-program.html"
+   ],
+   "deliverable": {
+    "type": "correction",
+    "ref": "ops/reviews/live/illinois-home-care-ombudsman-program.md; #89 ab43cab"
+   },
+   "done_utc": "2026-11-26T01:50Z",
+   "minutes": 2
   }
  ],
  "blocked": [],
@@ -4347,7 +4378,7 @@
   "picked": "ACQ-113..117,119..132 done; ACQ-118 waiting_on_data; ACQ-133,134 ready",
   "why": "Worked: 5 live guides audited (4 corrected and verified in #89), 1 new drafts guide built, reviewed and verified publish-ready"
  },
- "last_verified_action": "ACQ-138 done 2026-11-26T01:48Z: Audit of live illinois-home-delivered-meals against the two IDoA pages read 26 Nov: no quotations; 10 paraphrased claims scope-checked (60+ for home-delivered …",
+ "last_verified_action": "ACQ-139 done 2026-11-26T01:50Z: Audit of live illinois-home-care-ombudsman-program against two IDoA pages read 26 Nov: 3/3 quotations FOUND, 9 claims scope-checked, 1 scope defect: the short …",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -5013,16 +5044,17 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSf2v59RahpHN2G6JvZ",
-   "utc": "2026-11-26T01:48Z",
+   "utc": "2026-11-26T01:50Z",
    "since_utc": "2026-11-26T01:36Z",
-   "productive_min": 14,
+   "productive_min": 16,
    "deliverables": [
     "audit:ops/reviews/live/illinois-supportive-living-program.md; #89 b95d5b2",
     "correction:ops/reviews/live/illinois-fide-snp-explained.md; #89 004938c",
     "verification:ops/reviews/live/illinois-supportive-living-program.md; #89 c2bac4b",
     "verification:ops/reviews/live/illinois-fide-snp-explained.md; #89 004938c",
     "verification:ops/reviews/live/illinois-supportive-living-program.md; #89 c2bac4b",
-    "audit:ops/reviews/live/illinois-home-delivered-meals.md"
+    "audit:ops/reviews/live/illinois-home-delivered-meals.md",
+    "correction:ops/reviews/live/illinois-home-care-ombudsman-program.md; #89 ab43cab"
    ]
   },
   "monitor": {
