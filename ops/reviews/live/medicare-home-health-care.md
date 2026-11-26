@@ -37,3 +37,17 @@ Corrections verified
 
 Corrections verified: 2026-11-26, agent in cse_014eaiSdvHByATtNdterRhh7
 Reader: agent in cse_014eaiSdvHByATtNdterRhh7
+
+## Addendum 2026-11-26 (ACQ-162, cse_014eaiSan3kSKEb4rtUHknYk): payer of the $0
+
+Found while checking the site for the payer error the hospice audit found (ops/reviews/live/medicare-hospice-benefit-explained.md). Medicare.gov "Home health services", Costs, read 2026-11-26: "You pay nothing for covered home health services." The page's description and short answer said "Medicare pays $0", which tells a family that Medicare pays nothing.
+
+| Guide's claim | Guide's scope | Source's scope (heading) | Result |
+|---|---|---|---|
+| "Medicare pays $0 for covered home health visits" (desc, short answer) | the family's cost | Costs: "You pay nothing for covered home health services." | DEFECT: wrong payer. Corrected to "Your parent pays $0". |
+
+Open, not applied here: the guide's card text in CARDS ("Medicare pays $0 for a covered home health visit ...") has the same error. Changing it rebuilds /guides/ and every related-guide card, which the library-date rule keeps out of this pull request while publish batch #90 is open; it is applied after package #91 merges (task in the queue).
+
+Review date left at 2026-11-17 (only this sentence was re-read).
+
+Quotations checked: 5. Claims scope-checked: 1. Scope defects: 1. Corrections required: 1 (applied) + 1 (card, after #91).

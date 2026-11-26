@@ -170,6 +170,44 @@
    "found_utc": "2026-11-26T01:19Z",
    "not_before_utc": "2026-11-27T01:30Z",
    "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in the Assisted Living and Shared Housing Act (210 ILCS 9/90, already a SRC on main as ilcs_al_90) and 77 Ill. Adm. Code 295 on ilga.gov, an approved host per check-guides.js. ilga.gov could not be read this session: curl through the proxy fails TLS (000) and WebFetch returns 503. Searched illinois.gov (IDPH, IDoA, HFS): the IDPH ITR form covers terminations only; the IDoA residents' rights brochure says a contract must state services and costs but is not scoped to assisted living and says nothing on rate-change notice; HFS Part 146 is supportive living. No guide written: the core rule cannot be read off a fetched page. Retry by WebFetch of ilga.gov after not_before."
+  },
+  {
+   "id": "ACQ-163",
+   "task": "Verify the corrections to medicare-home-health-care on the accuracy pull request #89 (commit 7cfef07): re-read each changed sentence against its source; packet line added",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:medicare-home-health-care:7cfef07",
+   "priority": 1,
+   "evidence": "accuracy PR #89 commit 7cfef07 (ACQ-162)",
+   "expected_tour_acquisition_value": "quality gate before the corrections reach the live guide",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "ready",
+   "found_utc": "2026-11-26T17:55Z"
+  },
+  {
+   "id": "ACQ-164",
+   "task": "After package #91 merges: correct the CARDS entry of medicare-home-health-care ('Medicare pays $0 for a covered home health visit' -> 'Your parent pays $0 ...', Medicare.gov: 'You pay nothing for covered home health services.') in a review pull request from main (or the open accuracy PR if still open and not superseded), rebuild, all suites, reader check",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "correct:medicare-home-health-care:card-payer",
+   "priority": 2,
+   "evidence": "ops/reviews/live/medicare-home-health-care.md addendum 2026-11-26; the card rebuilds /guides/ and every related-guide card, which the library-date rule keeps out of #89 while batch #90 is open",
+   "expected_tour_acquisition_value": "the same cost statement corrected wherever the guide is listed",
+   "impact": 2,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "card corrected in a review pull request with checks passing and a verify-live task",
+   "status": "waiting_on_data",
+   "found_utc": "2026-11-26T17:55Z",
+   "waiting_for": "PR #91 (or #90) merged, so that a card change no longer collides with the open publish batch in the built /guides/ index",
+   "not_before_utc": "2026-11-27T05:00Z"
   }
  ],
  "completed": [
@@ -4998,6 +5036,35 @@
     "ref": "ops/reviews/live/independent-living-evanston.md"
    },
    "done_utc": "2026-11-26T17:52Z"
+  },
+  {
+   "id": "ACQ-162",
+   "task": "Correct the payer in live medicare-home-health-care on #89: 'Medicare pays $0' (desc and short answer) is what the person pays; Medicare.gov: 'You pay nothing for covered home health services.' Card text (CARDS) noted for after #91 merges, since it rebuilds /guides/ and every related-guide card",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "correct:medicare-home-health-care:payer-zero",
+   "priority": 1,
+   "evidence": "26 Nov: the hospice audit's payer error (ACQ-150, verified) searched for across main, drafts and batch #90: medicare-home-health-care desc and answer say 'Medicare pays $0'; Medicare.gov Home health services (read 26 Nov) says 'You pay nothing for covered home health services.'",
+   "expected_tour_acquisition_value": "correct cost statement on a Medicare page (44 Search Console impressions, Make read 25 Nov)",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "commit on #89 correcting desc and answer with the source sentence; packet addendum; verify-live task added",
+   "status": "done",
+   "found_utc": "2026-11-26T17:53Z",
+   "result": "Searched main, drafts and batch #90 for the payer error found in the hospice guide: medicare-home-health-care desc and short answer said Medicare pays $0; Medicare.gov Home health services says You pay nothing for covered home health services. Corrected as #89 7cfef07 (review date unchanged); all suites pass. The same words in its CARDS entry wait until #91 merges (library-date rule); queued.",
+   "verdicts": [
+    "corrections"
+   ],
+   "lesson": "When an audit finds a wording error, search every guide for the same wording.",
+   "deliverable": {
+    "type": "correction",
+    "ref": "#89 7cfef07; ops/reviews/live/medicare-home-health-care.md"
+   },
+   "done_utc": "2026-11-26T17:55Z",
+   "minutes": 2
   }
  ],
  "blocked": [],
@@ -5008,7 +5075,7 @@
   "picked": "ACQ-143 done, ACQ-144 done, ACQ-145 done, ACQ-146 done, ACQ-147 done (reopened), ACQ-148 done, ACQ-149 done",
   "why": "Worked: package #91 re-cut for 26 Nov (10 guides, 17 live-guide corrections, #92), 2 verified additions to top search pages; stopped: no-worthwhile-work; resume: monitor 12:26Z, sweeps 12:32Z"
  },
- "last_verified_action": "ACQ-161 done 2026-11-26T17:52Z: Independent reader (agent in this session) re-read both sentences #89 8b2b0cd changed in independent-living-evanston against the City of Evanston Access Evanst…",
+ "last_verified_action": "ACQ-162 done 2026-11-26T17:55Z: Searched main, drafts and batch #90 for the payer error found in the hospice guide: medicare-home-health-care desc and short answer said Medicare pays $0; Medi…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -5674,9 +5741,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSan3kSKEb4rtUHknYk",
-   "utc": "2026-11-26T17:52Z",
+   "utc": "2026-11-26T17:55Z",
    "since_utc": "2026-11-26T17:32Z",
-   "productive_min": 23,
+   "productive_min": 25,
    "deliverables": [
     "correction:#89 99cc346; ops/reviews/live/medicare-hospice-benefit-explained.md",
     "correction:#89 e587023; ops/reviews/live/illinois-nursing-home-resident-rights.md",
@@ -5689,7 +5756,8 @@
     "verification:ops/reviews/live/illinois-family-caregiver-support-program.md",
     "correction:#89 8b2b0cd; ops/reviews/live/independent-living-evanston.md",
     "audit:ops/reviews/live/levels-of-senior-care-explained.md",
-    "verification:ops/reviews/live/independent-living-evanston.md"
+    "verification:ops/reviews/live/independent-living-evanston.md",
+    "correction:#89 7cfef07; ops/reviews/live/medicare-home-health-care.md"
    ]
   },
   "monitor": {
