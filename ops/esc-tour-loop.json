@@ -149,6 +149,24 @@
    "executor": "worker (research and preparation only)",
    "done_when": "review PR opened with the checks passing (also re-date illinois-medicaid-estate-recovery to the day its b73f29c corrections were verified, with listed 2026-10-24, once #89 and #92 are both merged), or a no-change verdict with the newest Search Console numbers",
    "found_utc": "2026-11-26T00:49Z"
+  },
+  {
+   "id": "ACQ-105",
+   "task": "Verify the addition to does-medicare-pay-for-senior-care on the accuracy pull request #89 (commit 8457ed1): re-read each changed sentence against Medicare.gov 'Appealing a change in status during a hospital stay', run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <reader>' to ops/reviews/live/does-medicare-pay-for-senior-care.md and to that guide's lines in the #89 body, or reopen it",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:does-medicare-pay-for-senior-care:8457ed1",
+   "priority": 1,
+   "evidence": "claude/accuracy-20261125 commit 8457ed1 (ACQ-104 addition)",
+   "expected_tour_acquisition_value": "quality gate before the addition enters the daily package",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "ready",
+   "found_utc": "2026-11-26T00:54Z"
   }
  ],
  "completed": [
