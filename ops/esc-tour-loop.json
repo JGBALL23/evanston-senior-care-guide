@@ -5921,7 +5921,7 @@
   "package": {
    "pr": 91,
    "branch": "claude/package-20261125",
-   "head": "4d047b4",
+   "head": "dd87bf5",
    "cut_utc": "2026-11-26T06:31Z",
    "contains": [
     90,
@@ -5944,7 +5944,7 @@
    "superseded": [],
    "after_merge": "After the merge, say \"deploy\" in the Claude chat where you asked for the daily package: it publishes exactly the commit you merged (tests first, through Netlify as before) and checks every changed page against it.",
    "about": "The daily approval package (procedure step 7, DAILY PACKAGE). One pull request for Joseph to merge; the worker re-cuts it once a day. after_merge is changed only by a session that heard Joseph say how the site gets deployed.",
-   "note": "Cut twice on 25 Nov by the supervising chat; re-cut 26 Nov 06:31Z by the ESCG worker (cse_014eaiSe8SBqppdHD1M3fw41): #90 now 10 guides (40e9da0), #89 through ab43cab (all verified), #92 added.",
+   "note": "Cut twice on 25 Nov by the supervising chat; re-cut 26 Nov 06:31Z by the ESCG worker (cse_014eaiSe8SBqppdHD1M3fw41): #90 now 10 guides (40e9da0), #89 through ab43cab, #92 added; 06:39Z #89 through 6876bfd (verified by an independent reader in the same session).",
    "owner_actions": []
   },
   "next_discovery": "Daily package cut due 05:00Z (#89 now holds verified corrections through ab43cab: SLP, FIDE SNP, ombudsman added today). Sweeps site-health and demand-questions 06:28-06:37Z, live-accuracy 12:41Z (remaining unaudited live guides have no impressions). Waiting on Joseph: search and conversion lanes (#81, #85, #92; #86, #84, #80, #79, #78) and package #91."
