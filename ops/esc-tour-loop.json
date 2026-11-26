@@ -170,6 +170,44 @@
    "found_utc": "2026-11-26T01:19Z",
    "not_before_utc": "2026-11-27T01:30Z",
    "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in the Assisted Living and Shared Housing Act (210 ILCS 9/90, already a SRC on main as ilcs_al_90) and 77 Ill. Adm. Code 295 on ilga.gov, an approved host per check-guides.js. ilga.gov could not be read this session: curl through the proxy fails TLS (000) and WebFetch returns 503. Searched illinois.gov (IDPH, IDoA, HFS): the IDPH ITR form covers terminations only; the IDoA residents' rights brochure says a contract must state services and costs but is not scoped to assisted living and says nothing on rate-change notice; HFS Part 146 is supportive living. No guide written: the core rule cannot be read off a fetched page. Retry by WebFetch of ilga.gov after not_before."
+  },
+  {
+   "id": "ACQ-138",
+   "task": "Accuracy audit of the live guide illinois-home-delivered-meals under the review rules (scope rule included), packet at ops/reviews/live/illinois-home-delivered-meals.md; corrections into the rolling accuracy PR #89",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:illinois-home-delivered-meals",
+   "priority": 2,
+   "evidence": "Make Search Console read 25 Nov 20:35Z: 8 impressions, pos 44.4; no packet in ops/reviews/live/ (next by exposure among unaudited live guides, checked 26 Nov)",
+   "expected_tour_acquisition_value": "correct rules on pages families find in search keep trust at the decision stage",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet ops/reviews/live/illinois-home-delivered-meals.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
+   "score": 6.0,
+   "status": "ready",
+   "found_utc": "2026-11-26T01:47Z"
+  },
+  {
+   "id": "ACQ-139",
+   "task": "Accuracy audit of the live guide illinois-home-care-ombudsman-program under the review rules (scope rule included), packet at ops/reviews/live/illinois-home-care-ombudsman-program.md; corrections into the rolling accuracy PR #89",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:illinois-home-care-ombudsman-program",
+   "priority": 2,
+   "evidence": "Make Search Console read 25 Nov 20:35Z: 4 impressions, pos 23.3; no packet in ops/reviews/live/ (next by exposure among unaudited live guides, checked 26 Nov)",
+   "expected_tour_acquisition_value": "correct rules on pages families find in search keep trust at the decision stage",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet ops/reviews/live/illinois-home-care-ombudsman-program.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
+   "score": 6.0,
+   "status": "ready",
+   "found_utc": "2026-11-26T01:47Z"
   }
  ],
  "completed": [
@@ -4963,7 +5001,7 @@
    "holder": "cse_014eaiSf2v59RahpHN2G6JvZ",
    "utc": "2026-11-26T01:47Z",
    "since_utc": "2026-11-26T01:36Z",
-   "productive_min": 12,
+   "productive_min": 13,
    "deliverables": [
     "audit:ops/reviews/live/illinois-supportive-living-program.md; #89 b95d5b2",
     "correction:ops/reviews/live/illinois-fide-snp-explained.md; #89 004938c",
@@ -6029,6 +6067,16 @@
    "exhausted_until_utc": "",
    "empty_streak": 0,
    "log": [
+    {
+     "utc": "2026-11-26T01:47Z",
+     "run": "cse_014eaiSf2v59RahpHN2G6JvZ",
+     "key": "quality-audit-live-meals-ombudsman",
+     "avenue": "quality",
+     "lane": null,
+     "candidates": 3,
+     "added": 2,
+     "result": "Compared live slugs on main 4dc2468 with ops/reviews/live/ (26 Nov) and the Make Search Console pages read of 25 Nov 20:35Z: unaudited live guides with impressions are illinois-home-delivered-meals (8, pos 44.4), illinois-home-care-ombudsman-program (4, pos 23.3) and illinois-home-caregiver-background-check (3, pos 97…"
+    },
     {
      "utc": "2026-11-26T01:35Z",
      "run": "cse_014eaiSdDK6VjczHrPrWrgM1",
