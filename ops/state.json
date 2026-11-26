@@ -2,7 +2,7 @@
   "schema": 1,
   "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
   "updated_utc": "2026-11-18T23:05Z",
-  "last_run_utc": "2026-11-26T03:36Z",
+  "last_run_utc": "2026-11-26T15:08Z",
   "facebook": {
     "access": {
       "value": "yes",
@@ -134,6 +134,14 @@
       "utc": "2026-11-25T15:05Z",
       "template": "C (assessment)",
       "preview": "site card"
+    },
+    {
+      "tag": "fb-nsh-1126",
+      "venue": "group:311248470375848",
+      "status": "pending",
+      "utc": "2026-11-26T15:08Z",
+      "template": "C (assessment)",
+      "preview": "site card"
     }
   ],
   "venues": [
@@ -144,8 +152,9 @@
       "eligible": true,
       "rules": "public; promotion allowed (rule 3: promote your business or someone else's); no day limit",
       "min_gap_days": 7,
-      "next_ok_utc": "2026-11-23T04:42Z",
-      "checked_utc": "2026-11-15T17:00Z"
+      "next_ok_utc": "2026-12-03T15:08Z",
+      "checked_utc": "2026-11-15T17:00Z",
+      "last_post_utc": "2026-11-26T15:08Z"
     },
     {
       "id": "group:535636991652468",
@@ -490,7 +499,6 @@
     ]
   },
   "log": [
-    "2026-11-19T03:50Z loop: Chrome not connected, so the 21:45 lead scan was skipped; no org replies except one automatic reply (E-1118-03: HR desk answers in 2-3 business days and names a separate general-HR inbox for caregiving questions; not re-sending to the same organization, wait for their reply); tour engine ready list empty. Next wake 7:30 Chicago for business-hours outreach",
     "2026-11-19T13:45Z loop 7:30 Chicago: no org replies; Chrome offline; engine queue empty; no post today (5 posts in 7 days, cap); outreach research: Meals on Wheels NE Illinois, Wilmette Park District, Levy foundation have no published email reachable; phone-only list given to Joseph; Search Console note 'alternate page with proper canonical' = ?ref= URLs folding into canonical, expected",
     "2026-11-19T15:02Z loop 9:00 Chicago: Chrome offline, no org replies, nothing else actionable; next check 16:20Z",
     "2026-11-19T16:22Z loop 10:20 Chicago: Chrome offline, no replies; next wake 18:00Z after the E1 +24h measurement (17:44Z)",
@@ -529,7 +537,8 @@
     "2026-11-25T19:15Z afternoon lead scan 11 groups, 215 posts, 0 new leads; fb-evsk-1125 still 0 comments; no org replies",
     "2026-11-25T22:20Z engagement check: Rogers Park, Winnetka and Evanston/Skokie (25 Nov) posts all live, 0 reactions, 0 comments; no org replies",
     "2026-11-25T23:37Z evening lead scan 11 groups, 227 posts, 0 new leads; no org replies or tour requests",
-    "2026-11-26T03:36Z late lead scan 11 groups, 173 posts, 0 new leads; no org replies or tour requests; sleep until Thu 9:00 Chicago"
+    "2026-11-26T03:36Z late lead scan 11 groups, 173 posts, 0 new leads; no org replies or tour requests; sleep until Thu 9:00 Chicago",
+    "2026-11-26T15:08Z posted template C to Chicago North Shore What's Happening (fb-nsh-1126), pending admin approval; 5 posts in trailing 7 days (cap reached until 22 Nov post ages out 29 Nov 15:08Z); no org replies"
   ],
   "next_actions": [
     "17:05Z: check fb-evsk-1125 engagement + Rogers Park/Winnetka comments",
@@ -655,8 +664,8 @@
     "last_scan_utc": "2026-11-23T15:30Z"
   },
   "due": {
-    "post_next": "2026-11-26T15:00Z",
-    "fb_checks": "2026-11-26T15:00Z",
+    "post_next": "2026-11-27T15:00Z",
+    "fb_checks": "2026-11-26T17:05Z",
     "lead_scan": "2026-11-26T15:00Z",
     "metrics": "2026-11-19T00:05Z",
     "venues": "2026-11-25T15:00Z",
@@ -1175,6 +1184,17 @@
       "msg_sha256": "7dc15b6311acc711",
       "by": "operator",
       "disclosure": true
+    },
+    {
+      "id": "F-1126-01",
+      "type": "facebook_post",
+      "status": "completed",
+      "utc": "2026-11-26T15:08Z",
+      "venue": "group:311248470375848",
+      "tag": "fb-nsh-1126",
+      "kind": "template C (assessment, North Shore first line); new content for this venue (earlier posts: tour questions, checklist)",
+      "result": "pending admin approval",
+      "by": "operator"
     }
   ],
   "measurement_notes": [
