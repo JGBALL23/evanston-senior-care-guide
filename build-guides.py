@@ -2760,7 +2760,8 @@ GUIDES = [
         "bridge": ("Knowing what rights your parent has on paper is a "
                "different question from knowing whether the facility "
                "they are in is still the right level of care for them."),
-        "reviewed": "2026-11-17",
+        "reviewed": "2026-11-26",
+        "listed": "2026-11-17",
         "title": "What Rights Does Your Parent Have in an Illinois Care Facility?",
         "h1": "What rights does your parent have in an Illinois nursing home or care facility?",
         "desc": ("What an Illinois nursing home cannot take away: your parent&rsquo;s "
@@ -2770,13 +2771,15 @@ GUIDES = [
         "answer": ("Illinois residents of nursing homes and other long-term "
                    "care facilities keep legal rights that the facility cannot "
                    "override: a say in their own care, privacy, control of "
-                   "their own money, a written contract, and protection from "
-                   "being discharged except for one of four stated reasons. "
+                   "their own money, a written contract, and a written notice "
+                   "and a right to appeal if the facility asks them to leave. "
                    "The Illinois Department on Aging sets these out in a "
                    "brochure called <em>Residents&rsquo; Rights for People in "
                    "Long-Term Care Facilities</em>. It is a summary, not the "
                    "full statute &mdash; the brochure itself says to ask your "
-                   "ombudsman for the complete list."),
+                   "ombudsman for the complete list. It speaks of long-term care "
+                   "facilities and does not say which of these rights apply in "
+                   "assisted living, so ask the ombudsman about that too."),
         "sources": srcs("idoa_resident_rights_brochure", "idoa_ombudsman"),
         "body": [
             ("Where this list comes from", [
@@ -2841,12 +2844,16 @@ GUIDES = [
                 "receive Medicaid, the facility cannot make you pay for "
                 "anything for which Medicaid pays.&rdquo;</p>",
             ]),
-            ("Being asked to leave: the only four reasons, and the right to appeal", [
+            ("Being asked to leave: the reasons the brochure lists, and the right to appeal", [
                 "<p>The brochure states a resident has the right to keep "
                 "living in their facility, and that it &ldquo;can force you "
-                "to leave&rdquo; only because the bill has not been paid, "
+                "to leave&rdquo; because the bill has not been paid, "
                 "the resident is dangerous to themselves or others, their "
                 "medical needs cannot be met there, or the facility closes. "
+                "The brochure is a summary and does not say that these are "
+                "the only reasons the law allows; if a notice gives a "
+                "reason, ask the ombudsman whether it is one the law "
+                "allows. "
                 "A written notice is required, and it must state why the "
                 "resident is being asked to move, how to appeal, and include "
                 "a self-addressed envelope to the Illinois Department of "
@@ -2888,7 +2895,10 @@ GUIDES = [
                 "Aging describes elsewhere as a free, confidential, "
                 "<strong>resident-directed</strong> advocate &mdash; reach it "
                 "through the Senior HelpLine at <strong>1-800-252-8966 (711 "
-                "TRS)</strong>. The brochure separately names the Central "
+                "TRS)</strong>. If the problem concerns a person with a "
+                "developmental disability or mental illness, the brochure "
+                "adds that you may ask Equip for Equality for help at "
+                "<strong>800-537-2632</strong>. The brochure separately names the Central "
                 "Complaint Registry, <strong>800-252-4343</strong>, as the "
                 "Illinois Department of Public Health's channel for a formal "
                 "complaint. A full walk-through of both channels, including "
