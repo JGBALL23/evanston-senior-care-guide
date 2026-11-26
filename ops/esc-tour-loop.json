@@ -6755,8 +6755,8 @@
    ],
    "about": "The daily approval package (procedure step 7, DAILY PACKAGE). status shows package.due inside this UTC window while no task keyed package:YYYYMMDD is finished for the date; close refuses (exit 6) until the cut is done or --package-skipped gives the reason. Outside the window nothing is cut, so the package Joseph's 11:44 UTC report shows is the one he merges."
   },
-  "make_ops_per_day": 16,
-  "make_ops_about": "Mirror of Make's daily allowance for session starts and reports (record V3, ops_per_day; 3 per start, 2 per closing report). The helper uses it to decide whether work handed to another session is started at once. Measured 25 Nov 2026: Make Free gives 1,000 operations a month, 266 were used in the first 4.6 days (tests included), the idle timer costs 12 a day, so about 16 a day are left for sessions."
+  "make_ops_per_day": 13,
+  "make_ops_about": "Daily budget of Make operations for the worker's sessions (3 per session start, 2 per closing report that does not chain), counted by the helper from 05:00 UTC, the start of the package window. 13 allows the session that cuts the daily package, one chained session, and a last session kept for the next monitoring pass; after that the next session opens the next day at 05:00 UTC. It must stay below Make's own hard allowance (record V3, ops_per_day, 16 a day), which is not raised in this billing period. Why (26 Nov 2026): a night chain of four sessions used the day's allowance and left one operation for the session that cut the package. Measured 26 Nov 09:40Z: 311 of the month's 1,000 operations used on day 5.3 (tests included); the idle timer costs 12 a day; with this budget the month ends near 900, with Make's allowance alone near 960."
  },
  "owner_decisions": [
   {
