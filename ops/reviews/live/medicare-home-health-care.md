@@ -26,3 +26,14 @@ Quotations checked: 5. Claims scope-checked: 12. Scope defects: 2. Corrections r
 Verdict: corrections required (C1, C2); figures hold.
 
 Corrections applied: claude/accuracy-20261125 f91038b, 2026-11-26, cse_014eaiSdvHByATtNdterRhh7 (C1, C2; reviewed date unchanged)
+
+## Reader check 2026-11-26
+
+Independent reader, clone of claude/accuracy-20261125 at f91038b (/tmp/reader-medicare-home-health-care). quotecheck: 5 quotations, 5 FOUND, 0 NEAR MATCH, 0 NOT FOUND, 0 unreadable cited pages; Medicare.gov Home health services re-read today (200). The commit adds no links.
+
+- C1, "What the home health benefit actually covers": Home health aide services, part-time or intermittent, in Medicare.gov's words "only if you're also getting skilled nursing care, physical therapy, speech-language pathology services, or occupational therapy at the same time". Source (Coverage details): "Part-time or intermittent home health aide care (only if you're also getting skilled nursing care, physical therapy, speech-language pathology services, or occupational therapy at the same time), like: Help with walking Bathing or grooming ...". FOUND character for character; same scope (Medicare's home health benefit, all four qualifying services now listed); the full stop now sits outside the quotation marks.
+- C2, "What it costs": "These are the terms of Original Medicare. If your parent gets Medicare through a Medicare Advantage plan or another Medicare health plan, Medicare.gov says to check with the plan about its home health benefits." Source (Costs): "If you get your Medicare benefits through a Medicare Advantage Plan (Part C) or another Medicare health plan, check with your plan for more information about your home health benefits." Same scope: the cost terms above ($0 for covered services, 20% for equipment after the Part B deductible, the ABN) are now limited to Original Medicare, and plan members are sent to their plan, as the source does. Paraphrase, not quoted, so no wording issue.
+Corrections verified
+
+Corrections verified: 2026-11-26, agent in cse_014eaiSdvHByATtNdterRhh7
+Reader: agent in cse_014eaiSdvHByATtNdterRhh7
