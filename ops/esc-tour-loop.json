@@ -172,32 +172,14 @@
    "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in the Assisted Living and Shared Housing Act (210 ILCS 9/90, already a SRC on main as ilcs_al_90) and 77 Ill. Adm. Code 295 on ilga.gov, an approved host per check-guides.js. ilga.gov could not be read this session: curl through the proxy fails TLS (000) and WebFetch returns 503. Searched illinois.gov (IDPH, IDoA, HFS): the IDPH ITR form covers terminations only; the IDoA residents' rights brochure says a contract must state services and costs but is not scoped to assisted living and says nothing on rate-change notice; HFS Part 146 is supportive living. No guide written: the core rule cannot be read off a fetched page. Retry by WebFetch of ilga.gov after not_before."
   },
   {
-   "id": "ACQ-126",
-   "task": "Verify the corrections to hospital-discharge-not-safe-to-go-home (drafts commit 9b44298)",
-   "workstream": "build",
-   "lane": "build",
-   "source": "followup",
-   "key": "verify:hospital-discharge-not-safe-to-go-home:9b44298",
-   "priority": 1,
-   "evidence": "drafts 9b44298; packet ops/reviews/hospital-discharge-not-safe-to-go-home.md",
-   "expected_tour_acquisition_value": "quality gate before the guide enters the publish batch",
-   "impact": 3,
-   "confidence": 4,
-   "effort": 1,
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
-   "status": "ready",
-   "found_utc": "2026-11-26T01:30Z"
-  },
-  {
-   "id": "ACQ-128",
-   "task": "Verify the corrections to illinois-elder-abuse-reporting (live, accuracy PR #89 commit 99ef6ed)",
+   "id": "ACQ-130",
+   "task": "Verify the corrections to illinois-elder-abuse-reporting (live, accuracy PR #89 commit 95e9903)",
    "workstream": "technical",
    "lane": "technical",
    "source": "followup",
-   "key": "verify-live:illinois-elder-abuse-reporting:99ef6ed",
+   "key": "verify-live:illinois-elder-abuse-reporting:95e9903",
    "priority": 1,
-   "evidence": "commit 99ef6ed on claude/accuracy-20261125; packet ops/reviews/live/illinois-elder-abuse-reporting.md reader check of 09af0cb",
+   "evidence": "commit 95e9903 on claude/accuracy-20261125; packet ops/reviews/live/illinois-elder-abuse-reporting.md reader check of 99ef6ed",
    "expected_tour_acquisition_value": "quality gate before the correction reaches the daily package",
    "impact": 3,
    "confidence": 4,
@@ -205,7 +187,25 @@
    "executor": "worker (research and preparation only)",
    "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
-   "found_utc": "2026-11-26T01:31Z"
+   "found_utc": "2026-11-26T01:32Z"
+  },
+  {
+   "id": "ACQ-131",
+   "task": "Apply the reader check of 9b44298 in the review packet ops/reviews/hospital-discharge-not-safe-to-go-home.md to the drafts guide: the two required scope corrections in the fast-appeal section and the recommended additions it lists that the cited sources support, under Improve (one commit, checks and quotecheck), then a verify task for an independent reader",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "recorrect:hospital-discharge-not-safe-to-go-home:9b44298",
+   "priority": 1,
+   "evidence": "review packet 2026-11-26 (reader agent in cse_014eaiSdDK6VjczHrPrWrgM1): publish-ready after corrections, 2 scope defects",
+   "expected_tour_acquisition_value": "brings a new decision-stage guide to publish-ready for the daily package",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "correction commit on drafts with checks; packet line 'Corrections applied'; verify task added",
+   "status": "ready",
+   "found_utc": "2026-11-26T01:32Z"
   }
  ],
  "completed": [
@@ -4009,6 +4009,85 @@
    },
    "done_utc": "2026-11-26T01:32Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-128",
+   "task": "Verify the corrections to illinois-elder-abuse-reporting (live, accuracy PR #89 commit 99ef6ed)",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:illinois-elder-abuse-reporting:99ef6ed",
+   "priority": 1,
+   "evidence": "commit 99ef6ed on claude/accuracy-20261125; packet ops/reviews/live/illinois-elder-abuse-reporting.md reader check of 09af0cb",
+   "expected_tour_acquisition_value": "quality gate before the correction reaches the daily package",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-26T01:31Z",
+   "result": "Independent reader checked 99ef6ed on illinois-elder-abuse-reporting: quotecheck 21/21; adult's-rights limits, mandated-reporter scope and new source hold. Reopened two items: the body's 'harmed by a family member, caregiver ...' drops the brochure's limits (abused outside the facility, or financially exploited); 'the same page says \"Report it, even if you are not sure.\"' now points to the Report Abuse page, the words are on the Engage page. Re-correction task added.",
+   "verdicts": [
+    "Reopened: 2 items"
+   ],
+   "deliverable": {
+    "type": "verification",
+    "ref": "99ef6ed"
+   },
+   "done_utc": "2026-11-26T01:32Z"
+  },
+  {
+   "id": "ACQ-129",
+   "task": "Re-correct illinois-elder-abuse-reporting per the reader check of 99ef6ed (packet ops/reviews/live/illinois-elder-abuse-reporting.md): the adult's-rights sentence with its limits, the mandated-reporter sentence scoped as IDoA's Report Abuse page states it, the facility exception in the body, the resident's choice of APS and/or Ombudsman; then a verify-live task",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "recorrect:illinois-elder-abuse-reporting:99ef6ed",
+   "priority": 1,
+   "evidence": "reader check 2026-11-26 of 99ef6ed: Reopened, two items",
+   "expected_tour_acquisition_value": "correct reporting rules on a live safety guide",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "commit on claude/accuracy-20261125 with checks; packet line; verify-live task added",
+   "status": "done",
+   "found_utc": "2026-11-26T01:32Z",
+   "result": "Applied the reader check of 99ef6ed to illinois-elder-abuse-reporting as 95e9903: body exception now 'abused outside the facility, or financially exploited' as the brochure states; 'Report it, even if you are not sure.' attributed to the Engage page. test.js 768/768, check-guides 2697/0, test_paying_nav 331/331, quotecheck 21/21. Verify-live task added.",
+   "deliverable": {
+    "type": "correction",
+    "ref": "95e9903"
+   },
+   "done_utc": "2026-11-26T01:32Z",
+   "minutes": 1
+  },
+  {
+   "id": "ACQ-126",
+   "task": "Verify the corrections to hospital-discharge-not-safe-to-go-home (drafts commit 9b44298)",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "verify:hospital-discharge-not-safe-to-go-home:9b44298",
+   "priority": 1,
+   "evidence": "drafts 9b44298; packet ops/reviews/hospital-discharge-not-safe-to-go-home.md",
+   "expected_tour_acquisition_value": "quality gate before the guide enters the publish batch",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-26T01:30Z",
+   "result": "Independent reader checked drafts 9b44298 on hospital-discharge-not-safe-to-go-home: quotecheck 32/32; corrections C1, C2 and additions R1, R2, R6, R7 hold, R3 figures right. Reopened: the observation-status fast appeal sat in the Medicare Advantage paragraph with no payer (Medicare files it under Original Medicare appeals); SNF cost-sharing stated per stay where the source counts per benefit period (add the 100-day limit, drop a stray semicolon). Suggestion: name 'urgently needed care' outside quotation marks. Re-correction task added.",
+   "verdicts": [
+    "Reopened: 2 items"
+   ],
+   "deliverable": {
+    "type": "verification",
+    "ref": "9b44298"
+   },
+   "done_utc": "2026-11-26T01:32Z"
   }
  ],
  "blocked": [],
@@ -4019,7 +4098,7 @@
   "picked": "ACQ-005 done, ACQ-091..101 done, ACQ-102 waiting, ACQ-103..112 done, ACQ-113 ready, ACQ-114 ready",
   "why": "Worked: 22 tasks; 4 live-guide audits (Medicare guide, estate recovery, home health, look-back) corrected and reader-verified in #89; new memory care guide built, reviewed and with LTC insurance ported to batch #90; title PR #92; stopped: time; resume: ACQ-113/114 ready"
  },
- "last_verified_action": "ACQ-123 done 2026-11-26T01:32Z: Audited live guide va-nursing-home-and-respite-care against its six sources (four VA.gov pages, IDVA Veterans' Homes, IDPH Veterans' Homes; all 200 today). quo…",
+ "last_verified_action": "ACQ-126 done 2026-11-26T01:32Z: Independent reader checked drafts 9b44298 on hospital-discharge-not-safe-to-go-home: quotecheck 32/32; corrections C1, C2 and additions R1, R2, R6, R7 hold, R3…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -4687,7 +4766,7 @@
    "holder": "cse_014eaiSdDK6VjczHrPrWrgM1",
    "utc": "2026-11-26T01:32Z",
    "since_utc": "2026-11-26T01:13Z",
-   "productive_min": 16,
+   "productive_min": 17,
    "deliverables": [
     "correction:d7724d0",
     "verification:d7724d0",
@@ -4701,7 +4780,10 @@
     "correction:9b44298",
     "verification:09af0cb",
     "correction:99ef6ed",
-    "audit:ops/reviews/live/va-nursing-home-and-respite-care.md"
+    "audit:ops/reviews/live/va-nursing-home-and-respite-care.md",
+    "verification:99ef6ed",
+    "correction:95e9903",
+    "verification:9b44298"
    ]
   },
   "monitor": {
