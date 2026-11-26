@@ -1487,10 +1487,10 @@ GUIDES = [
                "downstream of a more immediate one: what level of care your parent "
                "needs now."),
         "reviewed": "2026-10-24",
-        "title": "Illinois Medicaid Estate Recovery: Will the State Take the House?",
+        "title": "Illinois Medicaid Estate Recovery: Is the House Safe?",
         "h1": "Will Illinois take my parent&rsquo;s house after Medicaid pays for care?",
-        "desc": ("Illinois can claim against a Medicaid recipient's estate after death, "
-                 "never against heirs personally, and the first $25,000 is protected. "
+        "desc": ("After a Medicaid recipient dies, Illinois can claim only against the "
+                 "estate, never heirs' own money, and the first $25,000 is protected. "
                  "What it can reach."),
         "intent": "worry / paying for care",
         "answer": ("Not automatically, and never from your own pocket. Illinois HFS can "
@@ -2796,11 +2796,11 @@ GUIDES = [
                "question from knowing whether a nursing home is even the "
                "setting your parent actually needs."),
         "reviewed": "2026-11-17",
-        "title": "Pre-Admission Screening for an Illinois Nursing Home, Explained",
+        "title": "Illinois Nursing Home Pre-Admission Screening (DON, PASRR)",
         "h1": "Does my parent need to be screened before moving into an Illinois nursing home?",
-        "desc": ("Illinois screens everyone before a nursing home admission, even "
-                 "private pay. The two checks (DON and PASRR), who does them, and "
-                 "what happens if one is skipped."),
+        "desc": ("Yes: Illinois screens adults before any nursing home admission, "
+                 "private pay included. The DON and PASRR checks, who does them, and "
+                 "what if one is skipped."),
         "intent": "how-to / process",
         "answer": ("<strong>Yes.</strong> An Illinois HFS provider notice states that "
                    "&ldquo;state statutes require that all persons age 18 or older "
