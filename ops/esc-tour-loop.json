@@ -172,24 +172,6 @@
    "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in the Assisted Living and Shared Housing Act (210 ILCS 9/90, already a SRC on main as ilcs_al_90) and 77 Ill. Adm. Code 295 on ilga.gov, an approved host per check-guides.js. ilga.gov could not be read this session: curl through the proxy fails TLS (000) and WebFetch returns 503. Searched illinois.gov (IDPH, IDoA, HFS): the IDPH ITR form covers terminations only; the IDoA residents' rights brochure says a contract must state services and costs but is not scoped to assisted living and says nothing on rate-change notice; HFS Part 146 is supportive living. No guide written: the core rule cannot be read off a fetched page. Retry by WebFetch of ilga.gov after not_before."
   },
   {
-   "id": "ACQ-158",
-   "task": "Verify the corrections to illinois-family-caregiver-support-program on the accuracy pull request #89 (commit e9d405f): re-read each changed sentence against its source; packet line added",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "followup",
-   "key": "verify-live:illinois-family-caregiver-support-program:e9d405f",
-   "priority": 1,
-   "evidence": "accuracy PR #89 commit e9d405f (ACQ-157)",
-   "expected_tour_acquisition_value": "quality gate before the corrections reach the live guide",
-   "impact": 3,
-   "confidence": 4,
-   "effort": 1,
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
-   "status": "ready",
-   "found_utc": "2026-11-26T17:48Z"
-  },
-  {
    "id": "ACQ-159",
    "task": "Accuracy audit of the live guide independent-living-evanston under the review rules (scope rule included), packet at ops/reviews/live/independent-living-evanston.md; corrections into the rolling accuracy PR #89",
    "workstream": "technical",
@@ -4942,6 +4924,33 @@
    },
    "done_utc": "2026-11-26T17:48Z",
    "minutes": 2
+  },
+  {
+   "id": "ACQ-158",
+   "task": "Verify the corrections to illinois-family-caregiver-support-program on the accuracy pull request #89 (commit e9d405f): re-read each changed sentence against its source; packet line added",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:illinois-family-caregiver-support-program:e9d405f",
+   "priority": 1,
+   "evidence": "accuracy PR #89 commit e9d405f (ACQ-157)",
+   "expected_tour_acquisition_value": "quality gate before the corrections reach the live guide",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-26T17:48Z",
+   "result": "Independent reader (agent in this session) re-read every sentence #89 e9d405f changed in illinois-family-caregiver-support-program against IDoA program.html and caregiver-links.html: all three corrections same scope; quotecheck 7/7; links hold. Corrections verified.",
+   "verdicts": [
+    "verified"
+   ],
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/live/illinois-family-caregiver-support-program.md"
+   },
+   "done_utc": "2026-11-26T17:49Z"
   }
  ],
  "blocked": [],
@@ -4952,7 +4961,7 @@
   "picked": "ACQ-143 done, ACQ-144 done, ACQ-145 done, ACQ-146 done, ACQ-147 done (reopened), ACQ-148 done, ACQ-149 done",
   "why": "Worked: package #91 re-cut for 26 Nov (10 guides, 17 live-guide corrections, #92), 2 verified additions to top search pages; stopped: no-worthwhile-work; resume: monitor 12:26Z, sweeps 12:32Z"
  },
- "last_verified_action": "ACQ-157 done 2026-11-26T17:48Z: Audit of live illinois-family-caregiver-support-program against three IDoA caregiver pages (read 26 Nov): 8/8 quotations FOUND, 10 claims scope-checked, 2 scop…",
+ "last_verified_action": "ACQ-158 done 2026-11-26T17:49Z: Independent reader (agent in this session) re-read every sentence #89 e9d405f changed in illinois-family-caregiver-support-program against IDoA program.html an…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -5629,7 +5638,8 @@
     "correction:#89 aebfca9",
     "verification:ops/reviews/live/medicare-hospice-benefit-explained.md",
     "audit:ops/reviews/live/illinois-senior-health-insurance-program.md",
-    "correction:#89 e9d405f; ops/reviews/live/illinois-family-caregiver-support-program.md"
+    "correction:#89 e9d405f; ops/reviews/live/illinois-family-caregiver-support-program.md",
+    "verification:ops/reviews/live/illinois-family-caregiver-support-program.md"
    ]
   },
   "monitor": {

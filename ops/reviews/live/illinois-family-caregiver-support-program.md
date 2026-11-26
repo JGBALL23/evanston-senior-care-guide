@@ -35,3 +35,6 @@ Independent reader, branch claude/accuracy-20261125 at e9d405f; quotecheck 7/7 F
 - "Every figure on this page was read from the source listed above on 26 November 2026." / "Last reviewed 26 November 2026." The three sources read today support every figure on the page (the 13 AAAs, $4.7 million historical, HelpLine 1-800-252-8966). Same.
 
 Corrections verified
+
+Reader: agent in cse_014eaiSan3kSKEb4rtUHknYk
+Corrections verified: 2026-11-26, agent in cse_014eaiSan3kSKEb4rtUHknYk (#89 e9d405f)
