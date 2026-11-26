@@ -818,6 +818,10 @@ GUIDES = [
                 "assisted living community, and it is not a nursing home. It is a "
                 "separate category of setting, approved by the state, where Medicaid pays "
                 "for the care a resident receives.</p>",
+                "<p>HFS&rsquo;s resident fact sheet says the programme "
+                "&ldquo;offers older persons (65 +) or persons with physical "
+                "disabilities (ages 22-64) services to remain in a community "
+                "setting.&rdquo;</p>",
                 "<p>Not every assisted living community in Illinois participates. A "
                 "community can be excellent and still not be a Supportive Living "
                 "facility. Ask directly, early, because it decides whether a place is "
@@ -837,7 +841,8 @@ GUIDES = [
                 "insurance premiums, certain medical expenses, the room and board "
                 "portion, and the " + F["pna"] + " personal needs allowance. Whatever "
                 "remains is paid monthly toward the cost of care, and Medicaid covers "
-                "the rest.</p>",
+                "the rest. Savings count too: the fact sheet says &ldquo;all excess "
+                "resources will be counted towards the cost of care.&rdquo;</p>",
                 "<p>So there is no sum on this page that produces your parent's figure, "
                 "and any site that offers you one is guessing. The amount owed is "
                 "determined by the state for that individual, from documents you have "
@@ -847,6 +852,12 @@ GUIDES = [
                 "personal — clothing, haircuts, a phone, gifts for grandchildren. Most "
                 "residents owe both charges; a resident avoids the group care credit "
                 "only when their income equals the SSI amount.</p>",
+                "<p>That amount is also the floor. HFS says &ldquo;The minimum "
+                "income that a SLP participant can have should be equal to the SSI "
+                "amount. This is to ensure they can pay for the room and board "
+                "amount and receive their PNA.&rdquo; Ask the facility or HFS how "
+                "your parent&rsquo;s income compares before you count on this "
+                "setting.</p>",
             ]),
             ("If your parent has dementia: dementia care settings", [
                 "<p>Some Supportive Living facilities are certified as "
