@@ -6,8 +6,8 @@
   "note": "tour-request alerts: sha256(message id) and time only"
  },
  "metrics": {
-  "last_utc": "2026-11-25T06:24Z",
-  "window_utc": "2026-11-24T18:25Z/2026-11-25T06:24Z",
+  "last_utc": "2026-11-26T00:25Z",
+  "window_utc": "2026-11-25T06:24Z/2026-11-26T00:25Z",
   "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs",
   "per_tag": {
    "fb-wil-1118": {
@@ -69,6 +69,25 @@
     "tour_questions_views": 1,
     "tour_form_views": null,
     "tour_requests": 0
+   },
+   "fb-evsk-1125": {
+    "genuine_visitors": 3,
+    "checklist_opens": null,
+    "assessment_starts": null,
+    "assessment_completions": null,
+    "tour_form_views": null,
+    "tour_requests": 0,
+    "note": "3 landed beacons 15:03Z within 15 min of the operator's post (4 distinct fbclids, m.facebook.com referrer); counted as genuine by the fb-rp-1122 convention"
+   },
+   "em-1125a": {
+    "genuine_visitors": 0,
+    "tour_requests": 0,
+    "note": "1 landed beacon 15:02Z, before the send at 15:03Z: operator link check"
+   },
+   "em-1125b": {
+    "genuine_visitors": 0,
+    "tour_requests": 0,
+    "note": "landed + tour-questions beacon 15:10Z, one minute after the send: treated as operator check (unverifiable)"
    }
   },
   "checklist_opens": null,
@@ -76,7 +95,7 @@
   "assessment_completions": null,
   "tour_form_views": null,
   "tour_requests": 0,
-  "genuine_detail": "18:25Z-06:24Z: 1 probable search visitor (Google referrer to /guides/illinois-care-facility-complaint/ at 03:00Z, with a Chrome prefetch-proxy traffic-advice request); browser-category home hits are http->https redirect chains without assets (monitors); no ref-tagged visits; 1 ?tour=form view (worker check); checklist PDF 2 (checks); no tour POSTs"
+  "genuine_detail": "25 Nov 06:24Z-26 Nov 00:25Z: fb-evsk-1125 3 landed (15:03Z); 1 direct landed 19:11Z; 1 Google-referred visit to illinois-nursing-home-preadmission-screening; em- beacons 15:02-15:10Z coincide with operator sends (not counted); 00:13Z burst of every /t/ beacon = supervisor live-file comparison (excluded); 0 tour POSTs (8 POSTs: 1 retention function, 7 scanner 404s)"
  },
  "summary": {
   "last_utc": "2026-11-19T01:24Z",
@@ -85,8 +104,8 @@
  "site": {
   "fail_count": 0,
   "down_since_utc": null,
-  "last_check_utc": "2026-11-25T06:26Z",
-  "last_check_method": "curl (loop worker): home 200, ?tour=form 200, /assisted-living-evanston/ 200, checklist PDF 200 application/pdf, #assessment present; Netlify 18:25Z-06:24Z: 371 req (172 page-preview, 101 other, 45 browser, 31 crawler, 11 ai-agent, 11 tooling), 311x200, 43x301, 12x404 (wp scanners, apple-touch-icon), 4x206, no 5xx"
+  "last_check_utc": "2026-11-26T00:26Z",
+  "last_check_method": "curl (loop worker): home 200, ?tour=form 200, /assisted-living-evanston/ 200, checklist PDF 200 application/pdf, #assessment present; Netlify 06:24Z-00:25Z: 1823 req (789 other, 450 page-preview, 448 browser, 66 tooling, 44 crawler, 26 ai-agent), 752x200, 619x404 (.env/phpinfo scanners), 385x301, no 5xx"
  },
  "recovery": {
   "last_attempt_utc": "2026-11-18T01:39Z",
@@ -182,6 +201,7 @@
  },
  "demand_candidates": [],
  "log": [
+  "2026-11-26T00:28Z worker monitor: site OK (no 5xx); 5 genuine visitors 25 Nov (3 fb-evsk-1125, 1 search, 1 direct); 0 tour requests; 0 org replies; no merges (#78-#91 open, all clean); Search Console read 20:35Z recorded (1242 impressions, 2 clicks, 28-day); operator last run 23:37Z",
   "2026-11-25T06:26Z worker monitor: site OK (no 5xx); 1 probable genuine visitor (Google search, complaint guide); 0 tour requests; 0 org replies; no merges (#78-#91 open, all clean); operator last run 03:40Z",
   "2026-11-20T05:24Z run: 0 tour requests (no POSTs); outreach watch: no org replies; site OK (no 5xx); session operator still idle since 16:22Z 19 Nov (interruption recorded, watchdog owns alert); metrics 04:24Z-05:24Z: 0 genuine (checks, previews, scanners, crawlers); acquisition loop idle gate holds (PR #78 open, ACQ-007 awaiting owner, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task",
   "2026-11-20T06:24Z run: 0 tour requests (no POSTs); outreach watch: no org replies; site OK (no 5xx); session operator still idle since 16:22Z 19 Nov (interruption recorded, watchdog owns alert); metrics 05:24Z-06:24Z: 0 genuine (checks, previews, scanner); acquisition loop idle gate holds (PR #78 open, ACQ-007 awaiting owner, no send/reply, E1 +48h 20 Nov 17:44Z, ACQ-005 25 Nov), no new task",
@@ -240,8 +260,7 @@
   "2026-11-22T21:23Z run: site OK; 0 genuine (31 automated req); no org replies/inquiries; no merges (PR #86 open); loop idle with no ready item -> one loop commit 186b7ba: discovery scouts created, ACQ-031 SC1 / ACQ-032 SC2 / ACQ-033 SC4 ready, Joseph's 22 Nov answers recorded (ACQ-007 -> PR #86; D7 essay draft with him), 22 Nov worker timestamps corrected from commit times",
   "2026-11-22T22:25Z run: site OK; 0 genuine (59 automated req incl. loop worker HeadlessChrome test of fb-hol-test); no org replies/inquiries; no merges (PR #86 open); loop idle by design after ACQ-034 (no ready, no open map item, no scout due until SC3 25 Nov 16:00Z), no loop write",
   "2026-11-23T00:25Z worker monitor: site OK; 0 genuine (87 automated req 22:25Z-00:25Z); 0 tour requests; 0 org replies; no merges (#78-81, #84-86 open); operator ran 23:30Z; SC row seeded from operator 18 Nov read",
-  "2026-11-23T15:25Z worker monitor: site OK (no 5xx); ~5 genuine (fb-rp-1122 Facebook clicks 15:04-15:08Z); 0 tour requests; 0 org replies; no merges (#78-81, #84-86 open); operator ran 2026-11-23T15:40Z",
-  "2026-11-24T06:26Z worker monitor: site OK (no 5xx); ~6 genuine (4 direct, 2 fb-rp-1122 late clicks) 15:25Z-06:24Z; 0 tour requests; 0 org replies; no merges (#78-81, #84-88 open); operator ran 03:58Z"
+  "2026-11-23T15:25Z worker monitor: site OK (no 5xx); ~5 genuine (fb-rp-1122 Facebook clicks 15:04-15:08Z); 0 tour requests; 0 org replies; no merges (#78-81, #84-86 open); operator ran 2026-11-23T15:40Z"
  ],
  "facebook_interruptions_past": [
   {
@@ -268,8 +287,8 @@
  "outreach_watch": {
   "alerted": [],
   "replies_alerted": [],
-  "last_utc": "2026-11-25T06:26Z",
-  "note": "no org replies (inbox 3d, 21 threads vs 11 sent outreach threads: no overlap)"
+  "last_utc": "2026-11-26T00:27Z",
+  "note": "no org replies (inbox 3d: 15 threads, none in the 13 sent outreach threads)"
  },
  "facebook_interruption": {
   "since_utc": "2026-11-19T16:22Z",
@@ -283,6 +302,21 @@
  "scoreboard": {
   "note": "one row per Chicago day; each hourly run adds its window; null = could not be read. 2026-11-22 row starts at the 16:25Z-17:25Z window (earlier windows that day logged 0 genuine).",
   "daily": [
+   {
+    "date_chicago": "2026-11-25",
+    "genuine_visitors": 5,
+    "by_source": {
+     "facebook": 3,
+     "referral": 0,
+     "search": 1,
+     "other": 1
+    },
+    "checklist_opens": null,
+    "assessment_starts": null,
+    "tour_form_views": null,
+    "tour_requests": 0,
+    "note": "00:24 25 Nov-18:25 Chicago; fb-evsk-1125 post 3; 1 direct 13:11 Chicago; 1 Google visit (preadmission screening guide); email-tag beacons at send time not counted; checklist/assessment/tour-form not separable (null)"
+   },
    {
     "date_chicago": "2026-11-24",
     "genuine_visitors": 3,
@@ -336,12 +370,421 @@
   },
   "search_console": [
    {
+    "read_utc": "2026-11-25T20:35Z",
+    "period": "2026-10-26..2026-11-22",
+    "impressions": 1242,
+    "clicks": 2,
+    "average_position": 32.8,
+    "source": "make",
+    "note": "Make read; only 2026-11-16..22 have rows (site new in Search Console)"
+   },
+   {
     "read_utc": "2026-11-18T16:33Z",
     "period": "16 Nov",
     "impressions": 38,
     "clicks": 0,
     "average_position": 47.4
    }
-  ]
+  ],
+  "search_console_queries": {
+   "read_utc": "2026-11-25T20:35Z",
+   "queries": [
+    {
+     "query": "does medicare cover assisted living",
+     "impressions": 87,
+     "clicks": 0,
+     "position": 36.7
+    },
+    {
+     "query": "medicare assisted living",
+     "impressions": 46,
+     "clicks": 0,
+     "position": 27.9
+    },
+    {
+     "query": "how much does medicare pay for assisted living",
+     "impressions": 44,
+     "clicks": 0,
+     "position": 45.7
+    },
+    {
+     "query": "does medicare cover assisted living costs",
+     "impressions": 43,
+     "clicks": 0,
+     "position": 25.8
+    },
+    {
+     "query": "does medicare pay for assisted living",
+     "impressions": 42,
+     "clicks": 0,
+     "position": 33.6
+    },
+    {
+     "query": "medicare and assisted living costs",
+     "impressions": 28,
+     "clicks": 0,
+     "position": 15.8
+    },
+    {
+     "query": "how to pay for assisted living with medicare",
+     "impressions": 26,
+     "clicks": 0,
+     "position": 35.4
+    },
+    {
+     "query": "medicare pay for assisted living",
+     "impressions": 24,
+     "clicks": 0,
+     "position": 24.1
+    },
+    {
+     "query": "does medicare cover assisted living facilities",
+     "impressions": 23,
+     "clicks": 0,
+     "position": 26.4
+    },
+    {
+     "query": "does medicare pay for nursing home care",
+     "impressions": 22,
+     "clicks": 0,
+     "position": 28.7
+    },
+    {
+     "query": "does medicare pay for nursing home care for the elderly",
+     "impressions": 21,
+     "clicks": 0,
+     "position": 27.9
+    },
+    {
+     "query": "how much does medicare pay for assisted living facility",
+     "impressions": 19,
+     "clicks": 0,
+     "position": 61.4
+    },
+    {
+     "query": "will medicare pay for assisted living",
+     "impressions": 18,
+     "clicks": 0,
+     "position": 28.1
+    },
+    {
+     "query": "assisted living medicare",
+     "impressions": 17,
+     "clicks": 0,
+     "position": 38.5
+    },
+    {
+     "query": "does medicare cover any assisted living costs",
+     "impressions": 17,
+     "clicks": 0,
+     "position": 26.5
+    },
+    {
+     "query": "nursing home costs medicare",
+     "impressions": 15,
+     "clicks": 0,
+     "position": 29.7
+    },
+    {
+     "query": "assisted living with medicare",
+     "impressions": 14,
+     "clicks": 0,
+     "position": 34.9
+    },
+    {
+     "query": "assisted living on medicare",
+     "impressions": 11,
+     "clicks": 0,
+     "position": 46.5
+    },
+    {
+     "query": "does medicare cover assisted living facility",
+     "impressions": 11,
+     "clicks": 0,
+     "position": 16.4
+    },
+    {
+     "query": "medicare senior living",
+     "impressions": 11,
+     "clicks": 0,
+     "position": 12.0
+    },
+    {
+     "query": "paying for assisted living with medicare",
+     "impressions": 11,
+     "clicks": 0,
+     "position": 65.0
+    },
+    {
+     "query": "assisted living covered by medicare",
+     "impressions": 10,
+     "clicks": 0,
+     "position": 26.3
+    },
+    {
+     "query": "does medicare assist with assisted living",
+     "impressions": 10,
+     "clicks": 0,
+     "position": 14.8
+    },
+    {
+     "query": "does medicare cover nursing home costs",
+     "impressions": 9,
+     "clicks": 0,
+     "position": 47.0
+    },
+    {
+     "query": "does medicare part b pay for assisted living",
+     "impressions": 9,
+     "clicks": 0,
+     "position": 25.7
+    },
+    {
+     "query": "how much does medicare cover for assisted living",
+     "impressions": 9,
+     "clicks": 0,
+     "position": 19.9
+    },
+    {
+     "query": "what does medicare pay for nursing home",
+     "impressions": 8,
+     "clicks": 0,
+     "position": 34.5
+    },
+    {
+     "query": "does medicare cover nursing home cost",
+     "impressions": 7,
+     "clicks": 0,
+     "position": 44.7
+    },
+    {
+     "query": "does medicare pay for assisted living in florida",
+     "impressions": 7,
+     "clicks": 0,
+     "position": 41.7
+    },
+    {
+     "query": "does medicare pay for assisted living in illinois",
+     "impressions": 7,
+     "clicks": 0,
+     "position": 52.6
+    },
+    {
+     "query": "medicare pays for nursing home",
+     "impressions": 7,
+     "clicks": 0,
+     "position": 29.7
+    },
+    {
+     "query": "what does medicare cover for assisted living",
+     "impressions": 7,
+     "clicks": 0,
+     "position": 23.1
+    },
+    {
+     "query": "does medicare pay assisted living",
+     "impressions": 6,
+     "clicks": 0,
+     "position": 43.3
+    },
+    {
+     "query": "home delivered meals program eligibility",
+     "impressions": 6,
+     "clicks": 0,
+     "position": 51.5
+    },
+    {
+     "query": "how much does medicare pay for long-term nursing home care",
+     "impressions": 6,
+     "clicks": 0,
+     "position": 27.3
+    },
+    {
+     "query": "va caregiver program",
+     "impressions": 6,
+     "clicks": 0,
+     "position": 69.0
+    },
+    {
+     "query": "va comprehensive assistance for family caregivers",
+     "impressions": 6,
+     "clicks": 0,
+     "position": 42.8
+    },
+    {
+     "query": "what is a uai screening",
+     "impressions": 6,
+     "clicks": 0,
+     "position": 10.5
+    },
+    {
+     "query": "assisted living cost evanston il",
+     "impressions": 5,
+     "clicks": 0,
+     "position": 78.2
+    },
+    {
+     "query": "does medicare pay for home health aides",
+     "impressions": 5,
+     "clicks": 0,
+     "position": 56.6
+    }
+   ]
+  },
+  "search_console_pages": {
+   "read_utc": "2026-11-25T20:35Z",
+   "pages": [
+    {
+     "page": "/",
+     "impressions": 11,
+     "clicks": 1,
+     "position": 36.4
+    },
+    {
+     "page": "/guides/illinois-medicaid-estate-recovery/",
+     "impressions": 51,
+     "clicks": 1,
+     "position": 7.2
+    },
+    {
+     "page": "/guides/",
+     "impressions": 5,
+     "clicks": 0,
+     "position": 3.2
+    },
+    {
+     "page": "/guides/does-medicare-pay-for-senior-care/",
+     "impressions": 781,
+     "clicks": 0,
+     "position": 32.5
+    },
+    {
+     "page": "/guides/illinois-advance-directive-power-of-attorney/",
+     "impressions": 26,
+     "clicks": 0,
+     "position": 53.3
+    },
+    {
+     "page": "/guides/illinois-benefit-access-program/",
+     "impressions": 31,
+     "clicks": 0,
+     "position": 13.8
+    },
+    {
+     "page": "/guides/illinois-care-facility-complaint/",
+     "impressions": 17,
+     "clicks": 0,
+     "position": 16.3
+    },
+    {
+     "page": "/guides/illinois-community-care-program/",
+     "impressions": 2,
+     "clicks": 0,
+     "position": 7.0
+    },
+    {
+     "page": "/guides/illinois-elder-abuse-reporting/",
+     "impressions": 24,
+     "clicks": 0,
+     "position": 41.1
+    },
+    {
+     "page": "/guides/illinois-fide-snp-explained/",
+     "impressions": 8,
+     "clicks": 0,
+     "position": 32.4
+    },
+    {
+     "page": "/guides/illinois-home-care-ombudsman-program/",
+     "impressions": 4,
+     "clicks": 0,
+     "position": 23.3
+    },
+    {
+     "page": "/guides/illinois-home-caregiver-background-check/",
+     "impressions": 3,
+     "clicks": 0,
+     "position": 97.7
+    },
+    {
+     "page": "/guides/illinois-home-delivered-meals/",
+     "impressions": 8,
+     "clicks": 0,
+     "position": 44.4
+    },
+    {
+     "page": "/guides/illinois-medicaid-long-term-care/",
+     "impressions": 9,
+     "clicks": 0,
+     "position": 4.4
+    },
+    {
+     "page": "/guides/illinois-medicaid-look-back-period/",
+     "impressions": 7,
+     "clicks": 0,
+     "position": 18.0
+    },
+    {
+     "page": "/guides/illinois-medicare-savings-program/",
+     "impressions": 25,
+     "clicks": 0,
+     "position": 49.7
+    },
+    {
+     "page": "/guides/illinois-nursing-home-preadmission-screening/",
+     "impressions": 42,
+     "clicks": 0,
+     "position": 8.5
+    },
+    {
+     "page": "/guides/illinois-nursing-home-resident-rights/",
+     "impressions": 1,
+     "clicks": 0,
+     "position": 69.0
+    },
+    {
+     "page": "/guides/illinois-pace-program/",
+     "impressions": 5,
+     "clicks": 0,
+     "position": 30.2
+    },
+    {
+     "page": "/guides/illinois-supportive-living-program/",
+     "impressions": 12,
+     "clicks": 0,
+     "position": 8.0
+    },
+    {
+     "page": "/guides/medicare-durable-medical-equipment-coverage/",
+     "impressions": 25,
+     "clicks": 0,
+     "position": 40.5
+    },
+    {
+     "page": "/guides/medicare-extra-help-prescription-drug-costs/",
+     "impressions": 2,
+     "clicks": 0,
+     "position": 64.5
+    },
+    {
+     "page": "/guides/medicare-home-health-care/",
+     "impressions": 44,
+     "clicks": 0,
+     "position": 47.6
+    },
+    {
+     "page": "/guides/va-caregiver-support-program/",
+     "impressions": 84,
+     "clicks": 0,
+     "position": 51.3
+    },
+    {
+     "page": "/guides/va-nursing-home-and-respite-care/",
+     "impressions": 20,
+     "clicks": 0,
+     "position": 45.0
+    }
+   ]
+  }
  }
 }
