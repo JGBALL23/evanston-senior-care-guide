@@ -1,5 +1,5 @@
 {
- "about": "Which commit of main is live on evanstonseniorcareguide.com. Written by the task 'ESCG publish after merge' (and by hand when someone else deployed).",
+ "about": "Which commit of main is live on evanstonseniorcareguide.com. Written by ops/publish_after_merge.py (branch claude/escg-loop-tools) whenever main is published.",
  "main": "4dc2468daa09e2547cbc59d912717ece93450da7",
  "deploy_id": "6b0238b35ad180acef1ba13f",
  "published_utc": "2026-11-22T00:38Z",
