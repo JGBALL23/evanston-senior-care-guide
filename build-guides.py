@@ -1487,10 +1487,10 @@ GUIDES = [
                "downstream of a more immediate one: what level of care your parent "
                "needs now."),
         "reviewed": "2026-10-24",
-        "title": "Illinois Medicaid Estate Recovery: Will the State Take the House?",
+        "title": "Illinois Medicaid Estate Recovery: Is the House Safe?",
         "h1": "Will Illinois take my parent&rsquo;s house after Medicaid pays for care?",
-        "desc": ("Illinois can claim against a Medicaid recipient's estate after death, "
-                 "never against heirs personally, and the first $25,000 is protected. "
+        "desc": ("After a Medicaid recipient dies, Illinois can claim only against the "
+                 "estate, never heirs' own money, and the first $25,000 is protected. "
                  "What it can reach."),
         "intent": "worry / paying for care",
         "answer": ("Not automatically, and never from your own pocket. Illinois HFS can "
