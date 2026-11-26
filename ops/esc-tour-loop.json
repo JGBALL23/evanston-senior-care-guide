@@ -149,6 +149,25 @@
    "executor": "worker (research and preparation only)",
    "done_when": "review PR opened with the checks passing (also re-date illinois-medicaid-estate-recovery to the day its b73f29c corrections were verified, with listed 2026-10-24, once #89 and #92 are both merged), or a no-change verdict with the newest Search Console numbers",
    "found_utc": "2026-11-26T00:49Z"
+  },
+  {
+   "id": "ACQ-107",
+   "task": "Build a guide on drafts: memory care in Illinois assisted living: what the state requires (dementia special care disclosure, staff dementia training hours), how to check a setting's license and record, and what to ask on a tour, sourced only from IDPH pages",
+   "workstream": "build",
+   "lane": "build",
+   "source": "plan",
+   "key": "build:illinois-memory-care-assisted-living",
+   "priority": 1,
+   "evidence": "Questions families asked in public, national caregiver Q&A forum: 2020-06-04 (what memory care specifically provides), 2020-03-25 (deciding between assisted living and assisted living with memory care), 2019-04-08 (anything between assisted living and memory care). No guide on main or drafts covers Illinois memory care rules (levels-of-senior-care-explained defines the care types only). IDPH State of Illinois Alzheimer's Disease Plan 2026-2029 states the training hours and the Special Care Disclosure Act; IDPH Assisted Living page.",
+   "expected_tour_acquisition_value": "memory care is a decision-stage choice families make while touring communities near Evanston; a sourced checklist of what Illinois requires and what to ask leads naturally to the assessment and a tour",
+   "impact": 4,
+   "confidence": 3,
+   "effort": 3,
+   "executor": "worker (research and preparation only)",
+   "done_when": "guide committed to drafts with all five ROUTINE.md checks passing and quotecheck all FOUND, DEMAND.md Done line added, review task queued; or a recorded verdict that the sources do not support it",
+   "score": 4.0,
+   "status": "ready",
+   "found_utc": "2026-11-26T00:59Z"
   }
  ],
  "completed": [
@@ -4080,7 +4099,7 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSdvHByATtNdterRhh7",
-   "utc": "2026-11-26T00:58Z",
+   "utc": "2026-11-26T00:59Z",
    "since_utc": "2026-11-26T00:24Z",
    "productive_min": 24,
    "deliverables": [
@@ -4100,7 +4119,11 @@
     "correction:#89 8457ed1",
     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md; #89 d9d1fc3",
     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md"
-   ]
+   ],
+   "current": {
+    "what": "plan:publish",
+    "since_utc": "2026-11-26T00:59Z"
+   }
   },
   "monitor": {
    "last_utc": "2026-11-26T00:26Z"
@@ -4608,9 +4631,9 @@
     "plan_cooldown_hours": 12,
     "open_prs": [],
     "owner_open": 4,
-    "cooldown_until_utc": "2026-11-25T18:37Z",
-    "last_planned_utc": "2026-11-25T06:37Z",
-    "last_plan_result": "Same evidence pass as sweep asset-gaps 2026-11-25 (which added and completed ACQ-083, LTC insurance guide). Remaining candidates failed: Illinois memory-care rules guide (only a 2019 proposed IDPH rule and a conditional IDPH page on allowed hosts; overlaps ACQ-030 until 6 Dec); assisted living cont…",
+    "cooldown_until_utc": "",
+    "last_planned_utc": "2026-11-26T00:59Z",
+    "last_plan_result": "Evidence: guide index on main (32) and drafts (40), DEMAND Open/Done, Search Console read 25 Nov, dated public questions. Passed: Illinois memory care in assisted living (3 dated forum questions 2019-2020; IDPH 2026-2029 Alzheimer's plan states training hours and the disclosure law). Failed: the 2 …",
     "wip_note": "owner_open counts worker-built assets on drafts that are not on main yet; at 10 the lane waits for Joseph to publish"
    },
    {
@@ -4627,9 +4650,9 @@
      91
     ],
     "owner_open": 1,
-    "cooldown_until_utc": "2026-11-26T01:16Z",
-    "last_planned_utc": "2026-11-25T13:16Z",
-    "last_plan_result": "Read 8 packets in ops/reviews/: 7 qualify (publish-ready, or after corrections with Corrections verified) and all 7 are in open batch #90 at 4f77740; drafts has no change to those pages since (newest drafts commits are 83fc8f3 and 2c15ef1, both the new LTC-insurance guide). long-term-care-insurance…",
+    "cooldown_until_utc": "2026-11-26T12:59Z",
+    "last_planned_utc": "2026-11-26T00:59Z",
+    "last_plan_result": "All 8 drafts not on main are in publish batch #90 (LTC insurance ported this session as d00713b); no packet-qualified page outside a batch.",
     "wip_note": "Limit 3 open publish pull requests since 24 Nov 2026 (was 2): batches are stacked, so the newest one publishes all of them with a single merge.",
     "note_open_prs": "#90 contains #87 and #88 (one decision for Joseph); when a batch is open, changed pages are added to its branch, not to a new pull request"
    },
@@ -4794,6 +4817,8 @@
    }
   ],
   "log": [
+   "2026-11-26T00:59Z publish +0: All 8 drafts not on main are in publish batch #90 (LTC insurance ported this session as d00713b); no packet-qualified page outside a batch.",
+   "2026-11-26T00:59Z build +1: Evidence: guide index on main (32) and drafts (40), DEMAND Open/Done, Search Console read 25 Nov, dated public questions. Passed: Illinois memory care in assis…",
    "2026-11-25T13:16Z publish +0: Read 8 packets in ops/reviews/: 7 qualify (publish-ready, or after corrections with Corrections verified) and all 7 are in open batch #90 at 4f77740; drafts ha…",
    "2026-11-25T06:37Z build +0: Same evidence pass as sweep asset-gaps 2026-11-25 (which added and completed ACQ-083, LTC insurance guide). Remaining candidates failed: Illinois memory-care r…",
    "2026-11-25T06:37Z demand +0: Same evidence pass as sweep demand-questions 2026-11-25: the one qualifying question (LTC insurance and assisted living) was built directly (ACQ-083); assisted…",
