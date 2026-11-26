@@ -149,6 +149,25 @@
    "executor": "worker (research and preparation only)",
    "done_when": "review PR opened with the checks passing (also re-date illinois-medicaid-estate-recovery to the day its b73f29c corrections were verified, with listed 2026-10-24, once #89 and #92 are both merged), or a no-change verdict with the newest Search Console numbers",
    "found_utc": "2026-11-26T00:49Z"
+  },
+  {
+   "id": "ACQ-111",
+   "task": "Accuracy audit of the live guide medicare-home-health-care under the review rules (scope rule included), packet at ops/reviews/live/medicare-home-health-care.md; corrections into the rolling accuracy PR #89",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:medicare-home-health-care",
+   "priority": 2,
+   "evidence": "Make Search Console read 25 Nov 20:35Z: 44 impressions at pos 47.6, the next most-shown unaudited live guide; queries 'does medicare pay for home health aides' (5), 'medicare home health aide' (3); no packet in ops/reviews/live/",
+   "expected_tour_acquisition_value": "correct Medicare home-care rules on a page families find in search keep trust at the decision stage",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
+   "score": 6.0,
+   "status": "ready",
+   "found_utc": "2026-11-26T01:08Z"
   }
  ],
  "completed": [
@@ -4177,7 +4196,7 @@
    "holder": "cse_014eaiSdvHByATtNdterRhh7",
    "utc": "2026-11-26T01:08Z",
    "since_utc": "2026-11-26T00:24Z",
-   "productive_min": 36,
+   "productive_min": 39,
    "deliverables": [
     "pr:#92",
     "verification:ops/reviews/live/illinois-medicaid-look-back-period.md; #89 54139d5",
@@ -5124,9 +5143,39 @@
    "explore_recheck_days": 14,
    "exhausted_base_hours": 12,
    "exhausted_max_hours": 96,
-   "exhausted_until_utc": "2026-11-25T18:46Z",
+   "exhausted_until_utc": "",
    "empty_streak": 0,
    "log": [
+    {
+     "utc": "2026-11-26T01:08Z",
+     "run": "cse_014eaiSdvHByATtNdterRhh7",
+     "key": "needs-memory-care-and-dementia",
+     "avenue": "needs",
+     "lane": "build",
+     "candidates": 3,
+     "added": 0,
+     "result": "Dated public questions (forum, 2019-04-08, 2020-03-25, 2020-06-04) on memory care: built this session as illinois-memory-care-assisted-living (ACQ-107) and ported to #90. Two other candidates rejected: assisted living rate notice after reassessment (rule only on ilga.gov, not an allowed host) and unsafe hospital disch…"
+    },
+    {
+     "utc": "2026-11-26T01:08Z",
+     "run": "cse_014eaiSdvHByATtNdterRhh7",
+     "key": "channels-facebook-template-yield",
+     "avenue": "channels",
+     "lane": "distribution",
+     "candidates": 1,
+     "added": 0,
+     "result": "cloud.json per_tag 18-25 Nov and state.json actions: Facebook group posts are the only source of genuine visitors (fb-rp-1122 7, fb-evsk-1125 3, fb-glv-1124 1 then declined); 0 tour-form views or requests from any. The operator already plans the next eligible venue (Thu 26 Nov, template C) and writes its own text; no …"
+    },
+    {
+     "utc": "2026-11-26T01:08Z",
+     "run": "cse_014eaiSdvHByATtNdterRhh7",
+     "key": "quality-audit-live-medicare-home-health",
+     "avenue": "quality",
+     "lane": "technical",
+     "candidates": 3,
+     "added": 1,
+     "result": "Read the 25 Nov Search Console pages list against ops/reviews/live/: unaudited live guides by impressions are medicare-home-health-care (44), advance directive (26, 5/5 quotes found), DME (25, 24/24 found), elder abuse (24, 13/13 found). Took the first: Medicare rules with figures and scope risk (Original Medicare vs …"
+    },
     {
      "utc": "2026-11-25T06:45Z",
      "run": "cse_014eaiSeZV5K4aUnZndensii",
