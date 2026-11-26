@@ -167,6 +167,44 @@
    "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
    "found_utc": "2026-11-26T01:18Z"
+  },
+  {
+   "id": "ACQ-117",
+   "task": "Build a guide on drafts: the hospital wants to discharge my parent but they cannot safely go home; do we have to take them home, and how does a move to rehab or a nursing home get arranged? (DEMAND.md Open topic added by the ESCG worker 2026-11-24, open over 30 hours; Build exception (1))",
+   "workstream": "build",
+   "lane": "build",
+   "source": "plan",
+   "key": "build:unsafe-hospital-discharge",
+   "priority": 2,
+   "evidence": "DEMAND.md ## Open on drafts: three public family questions (national caregiver Q&A forum, 2024-05-11, 2022-05-01, 2018-03-15), added 2026-11-24 (ACQ-051, drafts 3496888); the 6 AM routine has run since and not written it; no guide on main (32 slugs) or drafts (41) covers an unsafe discharge home (closest: medicare-fast-appeal-hospital-rehab-discharge, coverage ending)",
+   "expected_tour_acquisition_value": "families at the hospital-discharge moment are deciding on rehab, a nursing home or assisted living right now; a sourced guide with the tour path reaches them at the decision",
+   "impact": 4,
+   "confidence": 3,
+   "effort": 3,
+   "executor": "worker (research and preparation only)",
+   "done_when": "guide built with build-guides.py on drafts under ROUTINE.md, five checks and quotecheck pass, DEMAND line moved to Done in the build commit, review:<slug> task added",
+   "score": 4.0,
+   "status": "ready",
+   "found_utc": "2026-11-26T01:19Z"
+  },
+  {
+   "id": "ACQ-118",
+   "task": "Build a guide on drafts: our parent's assisted living raised the monthly charge after a level-of-care reassessment; how are care levels set and what notice must an Illinois assisted living give before raising the rate? (DEMAND.md Open topic added by the ESCG worker 2026-11-24, open over 30 hours; Build exception (1))",
+   "workstream": "build",
+   "lane": "build",
+   "source": "plan",
+   "key": "build:assisted-living-rate-increase-illinois",
+   "priority": 3,
+   "evidence": "DEMAND.md ## Open on drafts: three public family questions (national caregiver Q&A forum, 2025-04-20, 2020-08-18, 2018-08-28), added 2026-11-24 (ACQ-051); not written by the 6 AM routine since; not covered by assisted-living-cost-illinois or the drafts move-out guide",
+   "expected_tour_acquisition_value": "families already paying for assisted living who compare communities after a rate rise; a sourced Illinois rules page builds trust and leads to the tour path",
+   "impact": 3,
+   "confidence": 3,
+   "effort": 3,
+   "executor": "worker (research and preparation only)",
+   "done_when": "guide built with build-guides.py on drafts under ROUTINE.md, five checks and quotecheck pass, DEMAND line moved to Done in the build commit, review:<slug> task added",
+   "score": 3.0,
+   "status": "ready",
+   "found_utc": "2026-11-26T01:19Z"
   }
  ],
  "completed": [
@@ -4352,14 +4390,18 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSdDK6VjczHrPrWrgM1",
-   "utc": "2026-11-26T01:18Z",
+   "utc": "2026-11-26T01:19Z",
    "since_utc": "2026-11-26T01:13Z",
    "productive_min": 4,
    "deliverables": [
     "correction:d7724d0",
     "verification:d7724d0",
     "correction:63284d5"
-   ]
+   ],
+   "current": {
+    "what": "plan:build",
+    "since_utc": "2026-11-26T01:19Z"
+   }
   },
   "monitor": {
    "last_utc": "2026-11-26T00:26Z"
@@ -4934,8 +4976,8 @@
     "open_prs": [],
     "owner_open": 5,
     "cooldown_until_utc": "",
-    "last_planned_utc": "2026-11-26T00:59Z",
-    "last_plan_result": "Evidence: guide index on main (32) and drafts (40), DEMAND Open/Done, Search Console read 25 Nov, dated public questions. Passed: Illinois memory care in assisted living (3 dated forum questions 2019-2020; IDPH 2026-2029 Alzheimer's plan states training hours and the disclosure law). Failed: the 2 …",
+    "last_planned_utc": "2026-11-26T01:19Z",
+    "last_plan_result": "Evidence: DEMAND.md Open on drafts (2 worker-added topics from 24 Nov, open >30h, not written by the 6 AM routine), Search Console read 25 Nov (Medicare/assisted-living queries already served by does-medicare-pay-for-senior-care; 'what is a uai screening' served by the CCP guide), slugs on main (32…",
     "wip_note": "owner_open counts worker-built assets on drafts that are not on main yet; at 10 the lane waits for Joseph to publish"
    },
    {
@@ -5119,6 +5161,7 @@
    }
   ],
   "log": [
+   "2026-11-26T01:19Z build +2: Evidence: DEMAND.md Open on drafts (2 worker-added topics from 24 Nov, open >30h, not written by the 6 AM routine), Search Console read 25 Nov (Medicare/assist…",
    "2026-11-26T00:59Z publish +0: All 8 drafts not on main are in publish batch #90 (LTC insurance ported this session as d00713b); no packet-qualified page outside a batch.",
    "2026-11-26T00:59Z build +1: Evidence: guide index on main (32) and drafts (40), DEMAND Open/Done, Search Console read 25 Nov, dated public questions. Passed: Illinois memory care in assis…",
    "2026-11-25T13:16Z publish +0: Read 8 packets in ops/reviews/: 7 qualify (publish-ready, or after corrections with Corrections verified) and all 7 are in open batch #90 at 4f77740; drafts ha…",
