@@ -83,3 +83,15 @@ Reopened: sentence 1 gives the fast appeal to the reader ("you can ask ... while
 
 Reader: agent in cse_014eaiSdvHByATtNdterRhh7
 Corrections applied: claude/accuracy-20261125 d9d1fc3, 2026-11-26, cse_014eaiSdvHByATtNdterRhh7 ("your parent can ask for a fast appeal while still in the hospital")
+
+## Reader check 2026-11-26 (d9d1fc3)
+
+Independent reader (fourth), branch claude/accuracy-20261125 at d9d1fc3, read in /tmp/reader4-does-medicare-pay-for-senior-care. quotecheck: 0 quotations, 5 cited pages, 0 unreadable; 1 short term NOT FOUND ("$0 coinsurance", unchanged sentence, the guide's own term, not attributed; not touched by this commit). Sources read today: Medicare.gov Appealing a change in status during a hospital stay (/providers-services/claims-appeals-complaints/appeals/original-medicare/denial-part-a-hospital-status, 200) and Appeal when a hospital changes your status (.../original-medicare/appeal-part-a-hospital-status-change, 200). The commit changes one sentence (build-guides.py and the built page agree; the old "you can ask ... while your parent is still in the hospital" no longer appears); it adds or changes no link.
+
+- "If your parent is in Original Medicare and the hospital changes the status from inpatient to outpatient observation, Medicare.gov says your parent can ask for a fast appeal while still in the hospital; patients currently in the hospital get a Medicare Change of Status Notice (CMS-10868)." / Appealing a change in status during a hospital stay (page head, Appeals in Original Medicare): "You can ask for a fast appeal while you're still in the hospital if you were admitted to the hospital as an inpatient and the hospital changed your status to "outpatient getting observation services."" and, under "Important Notice: End of the Filing Period for Retrospective Patient Status Appeals": "This notice doesn't apply to fast appeals for patients currently in the hospital, who get the Medicare Change of Status Notice (CMS-10868), and are eligible for the prospective appeal process." / Same scope: payer (Original Medicare), setting (still in hospital), condition (inpatient changed to observation) and person (the patient, i.e. the parent) now all match the source; the linked fast-appeal page's limit (stays on or after February 14, 2025) is met by every current stay. No quotation marks; paraphrase faithful. The earlier Recommended addition (ask for the CMS-10868 if it does not come; appeal still possible after discharge through the BFCC-QIO) remains open as an Improve item, not a bar.
+
+Quotations checked: 0 (1 short term, unchanged sentence). Claims scope-checked: 1. Scope defects: 0. Corrections required: 0.
+Corrections verified
+
+Corrections verified: 2026-11-26, agent in cse_014eaiSdvHByATtNdterRhh7 (8457ed1 with d9d1fc3)
+Reader: agent in cse_014eaiSdvHByATtNdterRhh7

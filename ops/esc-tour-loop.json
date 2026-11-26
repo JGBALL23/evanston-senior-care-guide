@@ -149,24 +149,6 @@
    "executor": "worker (research and preparation only)",
    "done_when": "review PR opened with the checks passing (also re-date illinois-medicaid-estate-recovery to the day its b73f29c corrections were verified, with listed 2026-10-24, once #89 and #92 are both merged), or a no-change verdict with the newest Search Console numbers",
    "found_utc": "2026-11-26T00:49Z"
-  },
-  {
-   "id": "ACQ-106",
-   "task": "Verify the correction to does-medicare-pay-for-senior-care on the accuracy pull request #89 (commit d9d1fc3): re-read the changed sentence against Medicare.gov 'Appealing a change in status during a hospital stay', run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <reader>' to ops/reviews/live/does-medicare-pay-for-senior-care.md and to that guide's lines in the #89 body, or reopen it",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "followup",
-   "key": "verify-live:does-medicare-pay-for-senior-care:d9d1fc3",
-   "priority": 1,
-   "evidence": "claude/accuracy-20261125 commit d9d1fc3 (ACQ-105 reader reopened 8457ed1)",
-   "expected_tour_acquisition_value": "quality gate before the addition enters the daily package",
-   "impact": 3,
-   "confidence": 5,
-   "effort": 1,
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
-   "status": "ready",
-   "found_utc": "2026-11-26T00:57Z"
   }
  ],
  "completed": [
@@ -3397,6 +3379,31 @@
    },
    "done_utc": "2026-11-26T00:57Z",
    "minutes": 3
+  },
+  {
+   "id": "ACQ-106",
+   "task": "Verify the correction to does-medicare-pay-for-senior-care on the accuracy pull request #89 (commit d9d1fc3): re-read the changed sentence against Medicare.gov 'Appealing a change in status during a hospital stay', run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <reader>' to ops/reviews/live/does-medicare-pay-for-senior-care.md and to that guide's lines in the #89 body, or reopen it",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:does-medicare-pay-for-senior-care:d9d1fc3",
+   "priority": 1,
+   "evidence": "claude/accuracy-20261125 commit d9d1fc3 (ACQ-105 reader reopened 8457ed1)",
+   "expected_tour_acquisition_value": "quality gate before the addition enters the daily package",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-26T00:57Z",
+   "result": "Independent reader (agent in cse_014eaiSdvHByATtNdterRhh7) checked d9d1fc3: the fast-appeal sentence now gives the appeal to the patient, matching Medicare.gov's status-change pages on payer, setting, person and date (stays from 14 Feb 2025). Corrections verified; every commit on #89 through d9d1fc3 is verified. Open recommended addition (not a bar): ask for CMS-10868 if it does not arrive; appeal after leaving via the BFCC-QIO.",
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/live/does-medicare-pay-for-senior-care.md"
+   },
+   "done_utc": "2026-11-26T00:58Z",
+   "minutes": 1
   }
  ],
  "blocked": [],
@@ -3407,7 +3414,7 @@
   "picked": "ACQ-084 done, ACQ-088 done, ACQ-089 done, ACQ-090 done; added ACQ-091, ACQ-092, ACQ-093 (next session); ACQ-017 still waiting (live guides do not yet link /assisted-living-evanston/)",
   "why": "Worked: LTC-insurance draft reviewed and corrected; look-back and Extra Help live audits, 2 commits on #89; stopped: no-worthwhile-work; resume: verifications ACQ-091/092/093 next session"
  },
- "last_verified_action": "ACQ-105 done 2026-11-26T00:57Z: Independent reader (agent in cse_014eaiSdvHByATtNdterRhh7) checked 8457ed1: the CMS-10868 notice and the 30-day SNF consequence match Medicare.gov's status-cha…",
+ "last_verified_action": "ACQ-106 done 2026-11-26T00:58Z: Independent reader (agent in cse_014eaiSdvHByATtNdterRhh7) checked d9d1fc3: the fast-appeal sentence now gives the appeal to the patient, matching Medicare.gov…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -4073,9 +4080,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSdvHByATtNdterRhh7",
-   "utc": "2026-11-26T00:57Z",
+   "utc": "2026-11-26T00:58Z",
    "since_utc": "2026-11-26T00:24Z",
-   "productive_min": 23,
+   "productive_min": 24,
    "deliverables": [
     "pr:#92",
     "verification:ops/reviews/live/illinois-medicaid-look-back-period.md; #89 54139d5",
@@ -4091,12 +4098,9 @@
     "verification:ops/reviews/live/illinois-medicaid-estate-recovery.md; #89 b73f29c",
     "verification:ops/reviews/live/illinois-medicaid-estate-recovery.md",
     "correction:#89 8457ed1",
-    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md; #89 d9d1fc3"
-   ],
-   "current": {
-    "what": "ACQ-106",
-    "since_utc": "2026-11-26T00:57Z"
-   }
+    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md; #89 d9d1fc3",
+    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-26T00:26Z"
