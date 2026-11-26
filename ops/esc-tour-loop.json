@@ -130,6 +130,44 @@
    "not_before": "VA.gov rate pages show the table effective 1 December 2026",
    "priority": 2,
    "found_utc": "2026-11-25T01:14Z"
+  },
+  {
+   "id": "ACQ-097",
+   "task": "Accuracy audit of the live guide does-medicare-pay-for-senior-care under the review rules (scope rule included), packet at ops/reviews/live/does-medicare-pay-for-senior-care.md; corrections into the rolling accuracy PR #89",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:does-medicare-pay-for-senior-care",
+   "priority": 2,
+   "evidence": "Make Search Console read 25 Nov 20:35Z: 781 of the site's 1242 impressions (63%), pos 32.5; no packet in ops/reviews/live/; states 2026 SNF coinsurance and day-count rules (quotecheck: 0 quotations, figures unchecked by the checker)",
+   "expected_tour_acquisition_value": "a wrong figure on the site's most-shown pages costs trust with families comparing care; correct pages keep search exposure",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet ops/reviews/live/does-medicare-pay-for-senior-care.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
+   "score": 6.0,
+   "status": "ready",
+   "found_utc": "2026-11-26T00:40Z"
+  },
+  {
+   "id": "ACQ-098",
+   "task": "Accuracy audit of the live guide illinois-medicaid-estate-recovery under the review rules (scope rule included), packet at ops/reviews/live/illinois-medicaid-estate-recovery.md; corrections into the rolling accuracy PR #89",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:illinois-medicaid-estate-recovery",
+   "priority": 2,
+   "evidence": "Make Search Console read 25 Nov 20:35Z: 51 impressions at pos 7.2 (highest page-one exposure); no packet in ops/reviews/live/; states the $25,000 protection, the 1 July 2022 date and exemptions (title change in review PR #92)",
+   "expected_tour_acquisition_value": "a wrong figure on the site's most-shown pages costs trust with families comparing care; correct pages keep search exposure",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet ops/reviews/live/illinois-medicaid-estate-recovery.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
+   "score": 6.0,
+   "status": "ready",
+   "found_utc": "2026-11-26T00:40Z"
   }
  ],
  "completed": [
@@ -3809,9 +3847,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSdvHByATtNdterRhh7",
-   "utc": "2026-11-26T00:39Z",
+   "utc": "2026-11-26T00:41Z",
    "since_utc": "2026-11-26T00:24Z",
-   "productive_min": 6,
+   "productive_min": 7,
    "deliverables": [
     "pr:#92",
     "verification:ops/reviews/live/illinois-medicaid-look-back-period.md; #89 54139d5",
@@ -4594,9 +4632,9 @@
     "evidence": "python3 ops/quotecheck.py --site <clone of main> --all: every guide with a NOT FOUND or NEAR MATCH quotation; then, among guides without a packet in ops/reviews/live/, those with deadlines, dollar figures or eligibility rules. State on 25 Nov 2026 after two sessions: 32 live guides; 8 audited (packets in ops/reviews/live/: 4 hold, 4 corrected in pull request #89); the checker (corrected the same day: a link or a PDF line break inside a source sentence no longer reads as NOT FOUND) reports 249 of 252 quotations FOUND, 1 NOT FOUND (illinois-pace-program, corrected in #89) and 2 NEAR MATCH (illinois-nursing-home-preadmission-screening, corrected in #89; va-veteran-directed-care-program, a dropped hyphen inside quotation marks, audit queued). assisted-living-cost-illinois and check-illinois-inspection-records cite ilga.gov pages that neither the worker's environment nor the main chat's could read: audit them with a web fetch tool for those pages.",
     "output": "One audit task per live guide with a NOT FOUND quotation (all of them, key audit:<slug>), plus at most two more guides per check chosen by risk; each audit under procedure step 7 Improve, ACCURACY AUDIT. Corrections go into one rolling review pull request. When every live guide has a packet, record that and pass --recheck-hours 720.",
     "why": "Joseph, 24 Nov 2026: \"Correct the known content accuracy problems and strengthen the review process.\" Families act on these deadlines and figures.",
-    "last_checked_utc": "2026-11-25T12:28Z",
-    "next_check_utc": "2026-11-26T00:28Z",
-    "last_result": "quotecheck --all on main 4dc2468 (unchanged since last check): 32 live guides, same 1 NOT FOUND (pace, in #89) and 2 NEAR MATCH (preadmission in #89; VDC audited). 11 guides have packets. Added audits by risk for 2 unaudited guides with rules/figures: illinois-medicaid-look-back-period, medicare-ex…",
+    "last_checked_utc": "2026-11-26T00:41Z",
+    "next_check_utc": "2026-11-26T12:41Z",
+    "last_result": "quotecheck --all on main 4dc2468 unchanged: 32 live guides, 1 NOT FOUND (pace, corrected in #89), 2 NEAR MATCH (preadmission in #89; VDC audited). 13 packets now. Chose by the new Search Console exposure: does-medicare-pay-for-senior-care (781 impr, 63% of the site's; 2026 SNF figures, no quotation…",
     "last_added": 2
    },
    {
@@ -4705,6 +4743,7 @@
    }
   ],
   "sweep_log": [
+   "2026-11-26T00:41Z live-accuracy +2: quotecheck --all on main 4dc2468 unchanged: 32 live guides, 1 NOT FOUND (pace, corrected in #89), 2 NEAR MATCH (preadmission in #89; VDC audited). 13 packets n…",
    "2026-11-26T00:32Z draft-review +0: main 4dc2468 has 32 guide slugs, drafts 2c15ef1 has 40: the 8 not on main all have packets in ops/reviews/ (7 in publish batch #90; long-term-care-insurance-as…",
    "2026-11-26T00:32Z channel-yield +0: Last 7 days (cloud.json per_tag, scoreboard to 25 Nov): Facebook is the only channel with genuine visitors: fb-rp-1122 7, fb-evsk-1125 3 (25 Nov, Evanston/Skok…",
    "2026-11-26T00:31Z search-console +0: Make read 25 Nov 20:35Z (26 Oct-22 Nov, data only 16-22 Nov): 1242 impressions, 2 clicks, avg pos 32.8; 74 queries >=3 impr. 63% of impressions go to does-medi…",
