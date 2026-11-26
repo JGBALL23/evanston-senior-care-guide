@@ -3596,10 +3596,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-25T13:17Z",
+  "utc": "2026-11-26T01:12Z",
   "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
-  "picked": "ACQ-084 done, ACQ-088 done, ACQ-089 done, ACQ-090 done; added ACQ-091, ACQ-092, ACQ-093 (next session); ACQ-017 still waiting (live guides do not yet link /assisted-living-evanston/)",
-  "why": "Worked: LTC-insurance draft reviewed and corrected; look-back and Extra Help live audits, 2 commits on #89; stopped: no-worthwhile-work; resume: verifications ACQ-091/092/093 next session"
+  "picked": "ACQ-005 done, ACQ-091..101 done, ACQ-102 waiting, ACQ-103..112 done, ACQ-113 ready, ACQ-114 ready",
+  "why": "Worked: 22 tasks; 4 live-guide audits (Medicare guide, estate recovery, home health, look-back) corrected and reader-verified in #89; new memory care guide built, reviewed and with LTC insurance ported to batch #90; title PR #92; stopped: time; resume: ACQ-113/114 ready"
  },
  "last_verified_action": "ACQ-112 done 2026-11-26T01:12Z: Independent reader (agent in cse_014eaiSdvHByATtNdterRhh7) checked f91038b: the full aide quotation matches Medicare.gov under Coverage details and the Origina…",
  "last_stop": {
@@ -3681,7 +3681,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Next: ACQ-091, ACQ-092, ACQ-093 (checks of the look-back and Extra Help corrections on #89 and of the long-term-care insurance draft) for a session other than the one that wrote them; Make's operations for 25 Nov are used, so its timer starts that session when the allowance refills (00:24Z tick on 26 Nov). The package cut is due 26 Nov from 05:00Z. Waiting on Joseph: package #91 (merge, then deploy) and the two sign-ins in the ONLY YOU line.",
+ "next_discovery": "Next: ACQ-113 and ACQ-114 (audits of the advance-directive and DME guides, next by Search Console exposure) are ready; the 26 Nov package cut (05:00-10:30 UTC) should include #89 up to f91038b (all verified), batch #90 at 686967c (9 guides, LTC insurance and memory care new), and #92 (estate-recovery title). Waiting on Joseph: the merge of package #91; ACQ-102 and ACQ-012/017 wait on #89/#81/#85 merges.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -4266,39 +4266,79 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiSdvHByATtNdterRhh7",
-   "utc": "2026-11-26T01:12Z",
-   "since_utc": "2026-11-26T00:24Z",
-   "productive_min": 42,
-   "deliverables": [
-    "pr:#92",
-    "verification:ops/reviews/live/illinois-medicaid-look-back-period.md; #89 54139d5",
-    "verification:ops/reviews/live/medicare-extra-help-prescription-drug-costs.md",
-    "verification:ops/reviews/long-term-care-insurance-assisted-living-illinois.md",
-    "publish_pr:#90 d00713b",
-    "verification:ops/reviews/live/illinois-medicaid-look-back-period.md; #89 9cff2fb",
-    "verification:ops/reviews/live/illinois-medicaid-look-back-period.md",
-    "audit:ops/reviews/live/does-medicare-pay-for-senior-care.md; #89 28073a0",
-    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md; #89 403f6da",
-    "audit:ops/reviews/live/illinois-medicaid-estate-recovery.md; #89 5f5260d",
-    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
-    "verification:ops/reviews/live/illinois-medicaid-estate-recovery.md; #89 b73f29c",
-    "verification:ops/reviews/live/illinois-medicaid-estate-recovery.md",
-    "correction:#89 8457ed1",
-    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md; #89 d9d1fc3",
-    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
-    "guide:drafts 80e9595",
-    "review_packet:ops/reviews/illinois-memory-care-assisted-living.md",
-    "verification:ops/reviews/illinois-memory-care-assisted-living.md",
-    "publish_pr:#90 686967c",
-    "audit:ops/reviews/live/medicare-home-health-care.md; #89 f91038b",
-    "verification:ops/reviews/live/medicare-home-health-care.md"
-   ]
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-26T00:26Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSdvHByATtNdterRhh7",
+    "start_utc": "2026-11-26T00:24Z",
+    "end_utc": "2026-11-26T01:12Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: 22 tasks; 4 live-guide audits (Medicare guide, estate recovery, home health, look-back) corrected and reader-verified in #89; new memory care guide built, reviewed and with LTC insurance ported to batch #90; title PR #92; stopped: time; resume: ACQ-113/114 ready",
+    "done": 22,
+    "changed": 23,
+    "tasks": "ACQ-005 done, ACQ-091..101 done, ACQ-102 waiting, ACQ-103..112 done, ACQ-113 ready, ACQ-114 ready",
+    "next": "yes",
+    "wake_minutes": null,
+    "next_due_utc": "2026-11-26T05:00Z",
+    "plan_due": false,
+    "saturated": [
+     "search",
+     "conversion"
+    ],
+    "budget_used_hours_24h": 2.3,
+    "budget_used_hours_7d": 4.0,
+    "productive_min": 42,
+    "deliverables": [
+     "pr:#92",
+     "verification:ops/reviews/live/illinois-medicaid-look-back-period.md; #89 54139d5",
+     "verification:ops/reviews/live/medicare-extra-help-prescription-drug-costs.md",
+     "verification:ops/reviews/long-term-care-insurance-assisted-living-illinois.md",
+     "publish_pr:#90 d00713b",
+     "verification:ops/reviews/live/illinois-medicaid-look-back-period.md; #89 9cff2fb",
+     "verification:ops/reviews/live/illinois-medicaid-look-back-period.md",
+     "audit:ops/reviews/live/does-medicare-pay-for-senior-care.md; #89 28073a0",
+     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md; #89 403f6da",
+     "audit:ops/reviews/live/illinois-medicaid-estate-recovery.md; #89 5f5260d",
+     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
+     "verification:ops/reviews/live/illinois-medicaid-estate-recovery.md; #89 b73f29c",
+     "verification:ops/reviews/live/illinois-medicaid-estate-recovery.md",
+     "correction:#89 8457ed1",
+     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md; #89 d9d1fc3",
+     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
+     "guide:drafts 80e9595",
+     "review_packet:ops/reviews/illinois-memory-care-assisted-living.md",
+     "verification:ops/reviews/illinois-memory-care-assisted-living.md",
+     "publish_pr:#90 686967c",
+     "audit:ops/reviews/live/medicare-home-health-care.md; #89 f91038b",
+     "verification:ops/reviews/live/medicare-home-health-care.md"
+    ],
+    "stop_reason": "time",
+    "considered": "monitor (site OK, 5 genuine visitors 25 Nov, 0 tour requests, 0 replies, Search Console read recorded); sweeps search-console +0, channel-yield +0, draft-review +0, live-accuracy +2, asset-gaps +0, search-presence +0, publish-ready +0; plan build +1 (memory care), publish +0; fallback avenues quality +1, channels +0, needs +0; search and conversion lanes saturated (waiting on Joseph's merge of #91). Closed at about 50 minutes of productive time with two audits queued rather than started, so each audit and its independent-reader rounds (one to three per guide this session) run in a fresh session's context.",
+    "resume_when": "now: ACQ-113 and ACQ-114 are ready; then the 26 Nov package cut from 05:00 UTC",
+    "sweep_due_left": [],
+    "sessions_24h": 5,
+    "handoff": null,
+    "package": {
+     "due_at_close": false,
+     "skipped": null,
+     "done_today": false
+    },
+    "backlog_discovery": {
+     "explorations": 3,
+     "avenue_classes": [
+      "channels",
+      "needs",
+      "quality"
+     ],
+     "tasks_added": 1,
+     "concluded": null
+    }
+   },
    {
     "run": "cse_014eaiScJVcYfw9RjXT6F5Km",
     "start_utc": "2026-11-25T12:24Z",
@@ -4719,32 +4759,32 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-25T13:17Z",
+   "written_utc": "2026-11-26T01:12Z",
    "eligible_now": 3,
    "next_due": [
     {
-     "utc": "2026-11-25T15:00Z",
-     "what": "ACQ-005"
+     "utc": "2026-11-26T05:00Z",
+     "what": "daily package cut"
     },
     {
-     "utc": "2026-11-25T15:00Z",
-     "what": "ACQ-012"
+     "utc": "2026-11-26T06:28Z",
+     "what": "sweep angle site-health"
     },
     {
-     "utc": "2026-11-25T16:00Z",
-     "what": "SC3"
+     "utc": "2026-11-26T06:37Z",
+     "what": "sweep angle demand-questions"
     },
     {
-     "utc": "2026-11-25T17:43Z",
-     "what": "sweep angle channel-yield"
-    },
-    {
-     "utc": "2026-11-25T18:25Z",
+     "utc": "2026-11-26T12:26Z",
      "what": "monitor"
     },
     {
-     "utc": "2026-11-25T18:26Z",
-     "what": "sweep angle search-console"
+     "utc": "2026-11-26T12:32Z",
+     "what": "sweep angle draft-review"
+    },
+    {
+     "utc": "2026-11-26T12:41Z",
+     "what": "sweep angle live-accuracy"
     }
    ]
   },
