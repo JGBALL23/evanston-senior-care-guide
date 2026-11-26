@@ -5186,10 +5186,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-26T06:47Z",
+  "utc": "2026-11-26T18:01Z",
   "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
-  "picked": "ACQ-143 done, ACQ-144 done, ACQ-145 done, ACQ-146 done, ACQ-147 done (reopened), ACQ-148 done, ACQ-149 done",
-  "why": "Worked: package #91 re-cut for 26 Nov (10 guides, 17 live-guide corrections, #92), 2 verified additions to top search pages; stopped: no-worthwhile-work; resume: monitor 12:26Z, sweeps 12:32Z"
+  "picked": "ACQ-150 done, ACQ-151 done, ACQ-152 done(reopened), ACQ-153 done, ACQ-154 done, ACQ-155 done, ACQ-156 done, ACQ-157 done, ACQ-158 done, ACQ-159 done, ACQ-160 done, ACQ-161 done, ACQ-162 done, ACQ-163 done(reopened), ACQ-164 waiting_on_data, ACQ-165 done, ACQ-166 done(reopened), ACQ-167 done, ACQ-168 done",
+  "why": "Worked: 6 live-guide accuracy audits (4 corrected, incl. a wrong payer on hospice and home health; Access Evanston income limit), all reader-verified in #89; stopped: no-worthwhile-work; resume: package cut 27 Nov 05:00Z or #91 merge"
  },
  "last_verified_action": "ACQ-168 done 2026-11-26T18:01Z: Independent reader (agent in this session) checked #89 9d57bf0 on medicare-home-health-care: the short answer (doctor or other health care provider like an NP,…",
  "last_stop": {
@@ -5270,7 +5270,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Next: daily package cut 05:00-10:30Z (should carry #89 through its newest verified commit and the drafts guide hospital-discharge-not-safe-to-go-home in the publish batch), then planner cooldown ends and site-health/demand-questions angles at 06:28-06:37Z; SC3 next 3 Dec. Waiting on Joseph: merge of #91 (search and conversion lanes saturated), decision A. ACQ-118 retries ilga.gov after 27 Nov 01:30Z.",
+ "next_discovery": "Next: the daily package cut 27 Nov 05:00Z picks up #89 through 9d57bf0 (eight commits added 26 Nov, all reader-verified); ACQ-118 recheck 27 Nov 01:30Z; planner cooldowns end 27 Nov 05:34Z. Waiting on Joseph: merge of package #91 (search and conversion lanes saturated until then; ACQ-164 card fix and ACQ-012/017/102 follow it).",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -5856,35 +5856,94 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiSan3kSKEb4rtUHknYk",
-   "utc": "2026-11-26T18:01Z",
-   "since_utc": "2026-11-26T17:32Z",
-   "productive_min": 32,
-   "deliverables": [
-    "correction:#89 99cc346; ops/reviews/live/medicare-hospice-benefit-explained.md",
-    "correction:#89 e587023; ops/reviews/live/illinois-nursing-home-resident-rights.md",
-    "verification:ops/reviews/live/medicare-hospice-benefit-explained.md",
-    "verification:ops/reviews/live/illinois-nursing-home-resident-rights.md",
-    "correction:#89 aebfca9",
-    "verification:ops/reviews/live/medicare-hospice-benefit-explained.md",
-    "audit:ops/reviews/live/illinois-senior-health-insurance-program.md",
-    "correction:#89 e9d405f; ops/reviews/live/illinois-family-caregiver-support-program.md",
-    "verification:ops/reviews/live/illinois-family-caregiver-support-program.md",
-    "correction:#89 8b2b0cd; ops/reviews/live/independent-living-evanston.md",
-    "audit:ops/reviews/live/levels-of-senior-care-explained.md",
-    "verification:ops/reviews/live/independent-living-evanston.md",
-    "correction:#89 7cfef07; ops/reviews/live/medicare-home-health-care.md",
-    "verification:ops/reviews/live/medicare-home-health-care.md",
-    "correction:#89 7a71f92",
-    "verification:ops/reviews/live/medicare-home-health-care.md",
-    "correction:#89 9d57bf0",
-    "verification:ops/reviews/live/medicare-home-health-care.md"
-   ]
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-26T17:33Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSan3kSKEb4rtUHknYk",
+    "start_utc": "2026-11-26T17:32Z",
+    "end_utc": "2026-11-26T18:01Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: 6 live-guide accuracy audits (4 corrected, incl. a wrong payer on hospice and home health; Access Evanston income limit), all reader-verified in #89; stopped: no-worthwhile-work; resume: package cut 27 Nov 05:00Z or #91 merge",
+    "done": 18,
+    "changed": 24,
+    "tasks": "ACQ-150 done, ACQ-151 done, ACQ-152 done(reopened), ACQ-153 done, ACQ-154 done, ACQ-155 done, ACQ-156 done, ACQ-157 done, ACQ-158 done, ACQ-159 done, ACQ-160 done, ACQ-161 done, ACQ-162 done, ACQ-163 done(reopened), ACQ-164 waiting_on_data, ACQ-165 done, ACQ-166 done(reopened), ACQ-167 done, ACQ-168 done",
+    "next": "no",
+    "wake_minutes": 660,
+    "next_due_utc": "2026-11-27T01:30Z",
+    "plan_due": false,
+    "saturated": [
+     "search",
+     "conversion"
+    ],
+    "budget_used_hours_24h": 2.3,
+    "budget_used_hours_7d": 5.5,
+    "productive_min": 32,
+    "deliverables": [
+     "correction:#89 99cc346; ops/reviews/live/medicare-hospice-benefit-explained.md",
+     "correction:#89 e587023; ops/reviews/live/illinois-nursing-home-resident-rights.md",
+     "verification:ops/reviews/live/medicare-hospice-benefit-explained.md",
+     "verification:ops/reviews/live/illinois-nursing-home-resident-rights.md",
+     "correction:#89 aebfca9",
+     "verification:ops/reviews/live/medicare-hospice-benefit-explained.md",
+     "audit:ops/reviews/live/illinois-senior-health-insurance-program.md",
+     "correction:#89 e9d405f; ops/reviews/live/illinois-family-caregiver-support-program.md",
+     "verification:ops/reviews/live/illinois-family-caregiver-support-program.md",
+     "correction:#89 8b2b0cd; ops/reviews/live/independent-living-evanston.md",
+     "audit:ops/reviews/live/levels-of-senior-care-explained.md",
+     "verification:ops/reviews/live/independent-living-evanston.md",
+     "correction:#89 7cfef07; ops/reviews/live/medicare-home-health-care.md",
+     "verification:ops/reviews/live/medicare-home-health-care.md",
+     "correction:#89 7a71f92",
+     "verification:ops/reviews/live/medicare-home-health-care.md",
+     "correction:#89 9d57bf0",
+     "verification:ops/reviews/live/medicare-home-health-care.md"
+    ],
+    "stop_reason": "no-worthwhile-work",
+    "considered": "monitor (site OK, 6 genuine visitors, 0 tour requests, 0 replies, no merges); plan build +0 (no new Search Console read, DEMAND Open only ACQ-118 blocked on ilga.gov), plan publish +0 (all 10 drafts in batch #90); sweeps live-accuracy +2, publish-ready +0, draft-review +0, asset-gaps +0 (money-runs-out need already covered, notice rule on unreachable ilga.gov); explore quality +2, quality +2, search +0 (VA caregiver title: search lane waiting on Joseph), needs +0 (respite short stay: no family-question evidence, covered); payer-error sweep across main/drafts/batch +1 (home health); check-illinois-inspection-records left: its 9 ilga.gov sources unreachable (curl and WebFetch 503); search and…",
+    "resume_when": "daily package cut 27 Nov 05:00Z (adds #89 through 9d57bf0), ACQ-118 recheck 27 Nov 01:30Z, or Joseph merging package #91",
+    "sweep_due_left": [],
+    "sessions_24h": 6,
+    "handoff": null,
+    "make_ops": {
+     "day_from_utc": "2026-11-26T05:00Z",
+     "used_estimate": 10,
+     "per_day": 13,
+     "chain_held": false,
+     "why": "Make's operations for this day are used (about 10 of 13, counting this report); the next session opens the next day at 2026-11-27T05:00Z UTC"
+    },
+    "package": {
+     "due_at_close": false,
+     "skipped": null,
+     "done_today": true
+    },
+    "backlog_discovery": {
+     "explorations": 4,
+     "avenue_classes": [
+      "needs",
+      "quality",
+      "search"
+     ],
+     "tasks_added": 4,
+     "concluded": {
+      "utc": "2026-11-26T18:01Z",
+      "run": "cse_014eaiSan3kSKEb4rtUHknYk",
+      "explorations": 4,
+      "avenue_classes": [
+       "needs",
+       "quality",
+       "search"
+      ],
+      "tasks_added": 4,
+      "skipped": null,
+      "rest_hours": 12
+     }
+    }
+   },
    {
     "run": "cse_014eaiSe8SBqppdHD1M3fw41",
     "start_utc": "2026-11-26T06:24Z",
@@ -6585,32 +6644,32 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-26T06:47Z",
+   "written_utc": "2026-11-26T18:01Z",
    "eligible_now": 0,
    "next_due": [
     {
-     "utc": "2026-11-26T12:26Z",
+     "utc": "2026-11-27T01:30Z",
+     "what": "ACQ-118"
+    },
+    {
+     "utc": "2026-11-27T05:00Z",
+     "what": "ACQ-164"
+    },
+    {
+     "utc": "2026-11-27T05:00Z",
+     "what": "daily package cut"
+    },
+    {
+     "utc": "2026-11-27T05:33Z",
      "what": "monitor"
     },
     {
-     "utc": "2026-11-26T12:32Z",
-     "what": "sweep angle draft-review"
-    },
-    {
-     "utc": "2026-11-26T12:41Z",
-     "what": "sweep angle live-accuracy"
-    },
-    {
-     "utc": "2026-11-26T12:50Z",
-     "what": "sweep angle asset-gaps"
-    },
-    {
-     "utc": "2026-11-26T12:50Z",
-     "what": "sweep angle publish-ready"
-    },
-    {
-     "utc": "2026-11-26T12:59Z",
+     "utc": "2026-11-27T05:34Z",
      "what": "planner cooldown ends"
+    },
+    {
+     "utc": "2026-11-27T05:34Z",
+     "what": "sweep angle draft-review"
     }
    ]
   },
@@ -7118,7 +7177,7 @@
    "explore_recheck_days": 14,
    "exhausted_base_hours": 12,
    "exhausted_max_hours": 96,
-   "exhausted_until_utc": "",
+   "exhausted_until_utc": "2026-11-27T06:01Z",
    "empty_streak": 0,
    "log": [
     {
@@ -7356,15 +7415,16 @@
    "why": "Joseph, 24 Nov 2026: \"Maintain a replenishing backlog instead of relying exclusively on scheduled discovery windows.\" \"Do not manufacture meaningless work to consume usage.\"",
    "how": "Procedure step 7, INDEPENDENT BACKLOG FALLBACK and RECORDING IT. One explore record per avenue; a key is not explored twice in 14 days without new evidence; close refuses no-worthwhile-work until three avenue classes are recorded or --fallback-skipped says why; after an empty conclusion discovery rests 12 hours, doubling to 96.",
    "last_conclusion": {
-    "utc": "2026-11-26T01:53Z",
-    "run": "cse_014eaiSf2v59RahpHN2G6JvZ",
-    "explorations": 3,
+    "utc": "2026-11-26T18:01Z",
+    "run": "cse_014eaiSan3kSKEb4rtUHknYk",
+    "explorations": 4,
     "avenue_classes": [
      "needs",
-     "quality"
+     "quality",
+     "search"
     ],
-    "tasks_added": 3,
-    "skipped": "channels avenue: all channel classes are dropped, owner-held or waiting on dated reopen events not yet reached",
+    "tasks_added": 4,
+    "skipped": null,
     "rest_hours": 12
    }
   },
