@@ -172,32 +172,14 @@
    "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in the Assisted Living and Shared Housing Act (210 ILCS 9/90, already a SRC on main as ilcs_al_90) and 77 Ill. Adm. Code 295 on ilga.gov, an approved host per check-guides.js. ilga.gov could not be read this session: curl through the proxy fails TLS (000) and WebFetch returns 503. Searched illinois.gov (IDPH, IDoA, HFS): the IDPH ITR form covers terminations only; the IDoA residents' rights brochure says a contract must state services and costs but is not scoped to assisted living and says nothing on rate-change notice; HFS Part 146 is supportive living. No guide written: the core rule cannot be read off a fetched page. Retry by WebFetch of ilga.gov after not_before."
   },
   {
-   "id": "ACQ-153",
-   "task": "Re-correct medicare-hospice-benefit-explained per the reader check of 99cc346 (packet ops/reviews/live/medicare-hospice-benefit-explained.md): desc and short answer with 'from a Medicare-approved hospice provider' and 'your parent'; MA sentence with 'and related conditions' and the plan helping your parent; the two recommended MA additions; the comma moved outside the quotation",
+   "id": "ACQ-155",
+   "task": "Verify the corrections to medicare-hospice-benefit-explained on the accuracy pull request #89 (commit aebfca9): re-read each changed sentence against its source; packet line added",
    "workstream": "technical",
    "lane": "technical",
    "source": "followup",
-   "key": "recorrect:medicare-hospice-benefit-explained:99cc346",
+   "key": "verify-live:medicare-hospice-benefit-explained:aebfca9",
    "priority": 1,
-   "evidence": "reader check 2026-11-26 of #89 99cc346",
-   "expected_tour_acquisition_value": "correct Medicare hospice rules on a page in the site's largest search cluster",
-   "impact": 3,
-   "confidence": 5,
-   "effort": 1,
-   "executor": "worker (research and preparation only)",
-   "done_when": "commit on #89 applying each reader point with its source sentence; verify-live task added",
-   "status": "ready",
-   "found_utc": "2026-11-26T17:42Z"
-  },
-  {
-   "id": "ACQ-154",
-   "task": "Verify the corrections to illinois-nursing-home-resident-rights on the accuracy pull request #89 (commit e587023): re-read each changed sentence against its source; packet line added",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "followup",
-   "key": "verify-live:illinois-nursing-home-resident-rights:e587023",
-   "priority": 1,
-   "evidence": "accuracy PR #89 commit e587023 (ACQ-151)",
+   "evidence": "accuracy PR #89 commit aebfca9 (ACQ-153 re-correction)",
    "expected_tour_acquisition_value": "quality gate before the corrections reach the live guide",
    "impact": 3,
    "confidence": 4,
@@ -205,7 +187,7 @@
    "executor": "worker (research and preparation only)",
    "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
-   "found_utc": "2026-11-26T17:42Z"
+   "found_utc": "2026-11-26T17:44Z"
   }
  ],
  "completed": [
@@ -4775,6 +4757,58 @@
     "ref": "ops/reviews/live/medicare-hospice-benefit-explained.md"
    },
    "done_utc": "2026-11-26T17:42Z"
+  },
+  {
+   "id": "ACQ-154",
+   "task": "Verify the corrections to illinois-nursing-home-resident-rights on the accuracy pull request #89 (commit e587023): re-read each changed sentence against its source; packet line added",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:illinois-nursing-home-resident-rights:e587023",
+   "priority": 1,
+   "evidence": "accuracy PR #89 commit e587023 (ACQ-151)",
+   "expected_tour_acquisition_value": "quality gate before the corrections reach the live guide",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-26T17:42Z",
+   "result": "Independent reader (agent in this session) re-read every sentence #89 commit e587023 changed in illinois-nursing-home-resident-rights against the IDoA brochure (9/25) and ombudsman page: all same scope, quotecheck 10/10 FOUND, figures and links hold. Corrections verified.",
+   "verdicts": [
+    "verified"
+   ],
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/live/illinois-nursing-home-resident-rights.md"
+   },
+   "done_utc": "2026-11-26T17:44Z"
+  },
+  {
+   "id": "ACQ-153",
+   "task": "Re-correct medicare-hospice-benefit-explained per the reader check of 99cc346 (packet ops/reviews/live/medicare-hospice-benefit-explained.md): desc and short answer with 'from a Medicare-approved hospice provider' and 'your parent'; MA sentence with 'and related conditions' and the plan helping your parent; the two recommended MA additions; the comma moved outside the quotation",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "recorrect:medicare-hospice-benefit-explained:99cc346",
+   "priority": 1,
+   "evidence": "reader check 2026-11-26 of #89 99cc346",
+   "expected_tour_acquisition_value": "correct Medicare hospice rules on a page in the site's largest search cluster",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "commit on #89 applying each reader point with its source sentence; verify-live task added",
+   "status": "done",
+   "found_utc": "2026-11-26T17:42Z",
+   "result": "Applied the reader check of 99cc346 to medicare-hospice-benefit-explained as #89 commit aebfca9: $0 scoped to a Medicare-approved hospice and to your parent (desc and short answer; desc kept under 160 chars), MA sentence with and related conditions and the plan helping your parent, MA premiums and plan cost rules added, comma moved outside the quotation. All suites pass, quotecheck 1/1. Reader check queued.",
+   "deliverable": {
+    "type": "correction",
+    "ref": "#89 aebfca9"
+   },
+   "done_utc": "2026-11-26T17:44Z",
+   "minutes": 2
   }
  ],
  "blocked": [],
@@ -4785,7 +4819,7 @@
   "picked": "ACQ-143 done, ACQ-144 done, ACQ-145 done, ACQ-146 done, ACQ-147 done (reopened), ACQ-148 done, ACQ-149 done",
   "why": "Worked: package #91 re-cut for 26 Nov (10 guides, 17 live-guide corrections, #92), 2 verified additions to top search pages; stopped: no-worthwhile-work; resume: monitor 12:26Z, sweeps 12:32Z"
  },
- "last_verified_action": "ACQ-152 done 2026-11-26T17:42Z: Independent reader (agent in this session) checked #89 commit 99cc346: recertification, room-and-board exception and first Medicare Advantage sentence hold; re…",
+ "last_verified_action": "ACQ-153 done 2026-11-26T17:44Z: Applied the reader check of 99cc346 to medicare-hospice-benefit-explained as #89 commit aebfca9: $0 scoped to a Medicare-approved hospice and to your parent (d…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -5451,13 +5485,15 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSan3kSKEb4rtUHknYk",
-   "utc": "2026-11-26T17:42Z",
+   "utc": "2026-11-26T17:44Z",
    "since_utc": "2026-11-26T17:32Z",
-   "productive_min": 11,
+   "productive_min": 13,
    "deliverables": [
     "correction:#89 99cc346; ops/reviews/live/medicare-hospice-benefit-explained.md",
     "correction:#89 e587023; ops/reviews/live/illinois-nursing-home-resident-rights.md",
-    "verification:ops/reviews/live/medicare-hospice-benefit-explained.md"
+    "verification:ops/reviews/live/medicare-hospice-benefit-explained.md",
+    "verification:ops/reviews/live/illinois-nursing-home-resident-rights.md",
+    "correction:#89 aebfca9"
    ]
   },
   "monitor": {

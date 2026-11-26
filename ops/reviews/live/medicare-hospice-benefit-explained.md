@@ -47,3 +47,5 @@ Independent reader, commit 99cc346 on claude/accuracy-20261125 (clone /tmp/reade
 Reopened: desc "You pay $0" assigns the cost to the family and, like the short-answer $0 sentence, drops "from a Medicare-approved hospice provider"; the Medicare Advantage sentence drops "and related conditions" and says "help you" for the plan member
 
 Reader: agent in cse_014eaiSan3kSKEb4rtUHknYk
+
+Corrections applied: #89 aebfca9, 2026-11-26, cse_014eaiSan3kSKEb4rtUHknYk (per the reader check above; desc shortened to 148 characters for the search-result check)
