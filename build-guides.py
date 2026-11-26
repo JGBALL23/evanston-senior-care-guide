@@ -5096,7 +5096,9 @@ GUIDES = [
                 "FIDE SNPs are the most like MMAI plans because &ldquo;they "
                 "provide the same level of care coordination&rdquo;. It adds "
                 "that &ldquo;Medicaid wraps around Medicare by helping with "
-                "Medicare premiums and cost sharing.&rdquo;</p>",
+                "Medicare premiums and cost sharing, and by covering some "
+                "services that Medicare does not cover, such as long-term "
+                "services and supports (LTSS).&rdquo;</p>",
             ]),
             ("What happened to MMAI members", [
                 "<p>HFS&rsquo;s enrolment page says that for &ldquo;Members of "
@@ -5144,11 +5146,15 @@ GUIDES = [
                 "HFS calls long-term services and supports (LTSS); its managed "
                 "care page says dual-eligible adults receiving certain of these "
                 "services are &ldquo;referred to as the MLTSS population&rdquo;. "
-                "HFS&rsquo;s enrolment page says members receiving LTSS "
-                "&ldquo;must be enrolled in a HealthChoice IL Managed Long-Term "
-                "Services and Support (MLTSS) plan&rdquo; for those services, "
-                "and adds: &ldquo;Currently, to switch plans, members must call "
-                "the HFS Client Enrollment Broker at 1-877-912-8880.&rdquo;</p>",
+                "If your parent is in a FIDE SNP, those Medicaid services come "
+                "through that one plan, which HFS says provides both Medicare "
+                "and Medicaid benefits. For dually eligible members who do not "
+                "choose a FIDE SNP, HFS&rsquo;s enrolment page says members "
+                "receiving LTSS &ldquo;must be enrolled in a HealthChoice IL "
+                "Managed Long-Term Services and Support (MLTSS) plan&rdquo; for "
+                "those services, and adds: &ldquo;Currently, to switch plans, "
+                "members must call the HFS Client Enrollment Broker at "
+                "1-877-912-8880.&rdquo;</p>",
                 "<p>This guide has not researched HealthChoice Illinois MLTSS "
                 "plans themselves. Ask your parent&rsquo;s care coordinator, "
                 "or the HFS Client Enrollment Broker, which plan your parent is "
