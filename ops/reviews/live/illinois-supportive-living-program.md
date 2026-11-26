@@ -44,3 +44,15 @@ Reopened: A2 "Savings count too" widens the fact sheet's "all excess resources" 
 Reader: agent in cse_014eaiSf2v59RahpHN2G6JvZ
 
 Corrections applied: claude/accuracy-20261125 c2bac4b, 2026-11-26, cse_014eaiSf2v59RahpHN2G6JvZ (A2 rescoped as the reader wrote it; reader's addition on the programme's aim applied). Awaiting an independent reader (task verify-live:illinois-supportive-living-program:c2bac4b).
+
+## Reader check 2026-11-26 (c2bac4b)
+
+Independent reader, clone of claude/accuracy-20261125 at c2bac4b (commit changes only this page's paragraph text in build-guides.py and _dist). quotecheck: 6 quotations, 6 FOUND, 0 NEAR MATCH, 0 NOT FOUND, 6 cited pages, 0 unreadable. Fact sheet (https://hfs.illinois.gov/medicalprograms/slf/residentfactsheet.html) fetched today (200) and read in full. The changed sentences contain no links.
+
+- "What it is, and what it is not": "It adds that the aim is to serve "persons who would otherwise need nursing facility care." Age alone does not make a parent a fit." Source, "What:": "The aim of the Program is to preserve privacy and autonomy while emphasizing health and wellness for persons who would otherwise need nursing facility care." Quotation word for word, final period in the source. Same scope: the whole programme, Illinois, all SLP residents; "aim is to serve" fairly compresses "the aim ... for persons who"; "Age alone does not make a parent a fit" follows from the source naming the population as persons who would otherwise need nursing facility care in addition to the age groups. Same scope.
+- "How the money actually works": "Savings can count too: for a resident covered by Medicaid, the fact sheet says "all excess resources will be counted towards the cost of care." It does not say which savings count as excess, so ask HFS before you assume your parent's savings are safe or spent." Source, "Resident's Cost of Care Liability" (opens "An individual covered under Medicaid living in a Supportive Living Provider (SLP) will have a patient liability/group care credit (GCC)."): "Additionally, all excess resources will be counted towards the cost of care." Quotation word for word. Scope now matches: Medicaid-covered resident, "excess" resources only, "can count" rather than all savings. The "could not find" claim holds: the fact sheet nowhere defines excess resources. The instruction to ask HFS fits: the fact sheet's "Additional Information" directs readers to the HFS Bureau of Long-Term Care (217-782-0545 or 844-528-8444), which the guide already lists. Same scope; this is the corrected sentence the previous reader wrote, applied verbatim.
+
+Quotations checked: 2. Claims scope-checked: 4. Scope defects: 0. Corrections required: 0.
+Reader: independent agent, 2026-11-26
+Corrections verified
+Reader: agent in cse_014eaiSf2v59RahpHN2G6JvZ
