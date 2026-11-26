@@ -172,22 +172,42 @@
    "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in the Assisted Living and Shared Housing Act (210 ILCS 9/90, already a SRC on main as ilcs_al_90) and 77 Ill. Adm. Code 295 on ilga.gov, an approved host per check-guides.js. ilga.gov could not be read this session: curl through the proxy fails TLS (000) and WebFetch returns 503. Searched illinois.gov (IDPH, IDoA, HFS): the IDPH ITR form covers terminations only; the IDoA residents' rights brochure says a contract must state services and costs but is not scoped to assisted living and says nothing on rate-change notice; HFS Part 146 is supportive living. No guide written: the core rule cannot be read off a fetched page. Retry by WebFetch of ilga.gov after not_before."
   },
   {
-   "id": "ACQ-155",
-   "task": "Verify the corrections to medicare-hospice-benefit-explained on the accuracy pull request #89 (commit aebfca9): re-read each changed sentence against its source; packet line added",
+   "id": "ACQ-156",
+   "task": "Accuracy audit of the live guide illinois-senior-health-insurance-program under the review rules (scope rule included), packet at ops/reviews/live/illinois-senior-health-insurance-program.md; corrections into the rolling accuracy PR #89",
    "workstream": "technical",
    "lane": "technical",
-   "source": "followup",
-   "key": "verify-live:medicare-hospice-benefit-explained:aebfca9",
-   "priority": 1,
-   "evidence": "accuracy PR #89 commit aebfca9 (ACQ-153 re-correction)",
-   "expected_tour_acquisition_value": "quality gate before the corrections reach the live guide",
+   "source": "plan",
+   "key": "audit:illinois-senior-health-insurance-program",
+   "priority": 2,
+   "evidence": "No packet in ops/reviews/live/ (26 Nov); quotecheck 8/8 FOUND on main 26 Nov, so risk is scope (who SHIP serves, what counsellors do, how to reach one); 2 genuine browser views 26 Nov (Netlify) and Medicare plan questions dominate Search Console (Make read 25 Nov 20:35Z)",
+   "expected_tour_acquisition_value": "correct rules on pages families find in search keep trust at the decision stage",
    "impact": 3,
    "confidence": 4,
-   "effort": 1,
+   "effort": 2,
    "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
+   "done_when": "packet ops/reviews/live/illinois-senior-health-insurance-program.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
+   "score": 6.0,
    "status": "ready",
-   "found_utc": "2026-11-26T17:44Z"
+   "found_utc": "2026-11-26T17:45Z"
+  },
+  {
+   "id": "ACQ-157",
+   "task": "Accuracy audit of the live guide illinois-family-caregiver-support-program under the review rules (scope rule included), packet at ops/reviews/live/illinois-family-caregiver-support-program.md; corrections into the rolling accuracy PR #89",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:illinois-family-caregiver-support-program",
+   "priority": 2,
+   "evidence": "No packet in ops/reviews/live/ (26 Nov); quotecheck 8/8 FOUND on main 26 Nov; eligibility rules for respite and caregiver services a family acts on; 1 browser referral from this guide 26 Nov (Netlify)",
+   "expected_tour_acquisition_value": "correct rules on pages families find in search keep trust at the decision stage",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet ops/reviews/live/illinois-family-caregiver-support-program.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
+   "score": 6.0,
+   "status": "ready",
+   "found_utc": "2026-11-26T17:45Z"
   }
  ],
  "completed": [
@@ -4809,6 +4829,33 @@
    },
    "done_utc": "2026-11-26T17:44Z",
    "minutes": 2
+  },
+  {
+   "id": "ACQ-155",
+   "task": "Verify the corrections to medicare-hospice-benefit-explained on the accuracy pull request #89 (commit aebfca9): re-read each changed sentence against its source; packet line added",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:medicare-hospice-benefit-explained:aebfca9",
+   "priority": 1,
+   "evidence": "accuracy PR #89 commit aebfca9 (ACQ-153 re-correction)",
+   "expected_tour_acquisition_value": "quality gate before the corrections reach the live guide",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-26T17:44Z",
+   "result": "Independent reader (agent in this session) re-read every sentence #89 aebfca9 changed in medicare-hospice-benefit-explained against Medicare.gov Hospice care (incl. the Medicare Advantage drawer): desc, short answer, quotation punctuation and both MA sentences hold; quotecheck 1/1. Corrections verified; two optional MA sentences noted (not defects).",
+   "verdicts": [
+    "verified"
+   ],
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/live/medicare-hospice-benefit-explained.md"
+   },
+   "done_utc": "2026-11-26T17:45Z"
   }
  ],
  "blocked": [],
@@ -4819,7 +4866,7 @@
   "picked": "ACQ-143 done, ACQ-144 done, ACQ-145 done, ACQ-146 done, ACQ-147 done (reopened), ACQ-148 done, ACQ-149 done",
   "why": "Worked: package #91 re-cut for 26 Nov (10 guides, 17 live-guide corrections, #92), 2 verified additions to top search pages; stopped: no-worthwhile-work; resume: monitor 12:26Z, sweeps 12:32Z"
  },
- "last_verified_action": "ACQ-153 done 2026-11-26T17:44Z: Applied the reader check of 99cc346 to medicare-hospice-benefit-explained as #89 commit aebfca9: $0 scoped to a Medicare-approved hospice and to your parent (d…",
+ "last_verified_action": "ACQ-155 done 2026-11-26T17:45Z: Independent reader (agent in this session) re-read every sentence #89 aebfca9 changed in medicare-hospice-benefit-explained against Medicare.gov Hospice care (…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -5485,15 +5532,16 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSan3kSKEb4rtUHknYk",
-   "utc": "2026-11-26T17:44Z",
+   "utc": "2026-11-26T17:45Z",
    "since_utc": "2026-11-26T17:32Z",
-   "productive_min": 13,
+   "productive_min": 14,
    "deliverables": [
     "correction:#89 99cc346; ops/reviews/live/medicare-hospice-benefit-explained.md",
     "correction:#89 e587023; ops/reviews/live/illinois-nursing-home-resident-rights.md",
     "verification:ops/reviews/live/medicare-hospice-benefit-explained.md",
     "verification:ops/reviews/live/illinois-nursing-home-resident-rights.md",
-    "correction:#89 aebfca9"
+    "correction:#89 aebfca9",
+    "verification:ops/reviews/live/medicare-hospice-benefit-explained.md"
    ]
   },
   "monitor": {
@@ -6532,9 +6580,9 @@
     "evidence": "Public family questions, Search Console queries, search presence and competitor gaps already recorded in the sweep log, plus fresh searches; the guide index on main and drafts; DEMAND.md open and done.",
     "output": "Up to three BUILD tasks (lane build), each one asset with its evidence, never a topic in DEMAND.md's Open list. Deliverable of each task: guide, faq, checklist, resource or research_report on drafts.",
     "why": "Joseph wants assets built, not only opportunities reported.",
-    "last_checked_utc": "2026-11-26T00:50Z",
-    "next_check_utc": "2026-11-26T12:50Z",
-    "last_result": "Guide index: main 32, drafts 40 (+ LTC insurance now in batch #90). DEMAND Open has 2 worker topics added 24 Nov 06:34Z (over 30h; the 6 AM routine did not write them), so Build (1)'s exception applied. (a) Assisted living rate increase after a level-of-care reassessment: the notice rule lives in t…",
+    "last_checked_utc": "2026-11-26T17:45Z",
+    "next_check_utc": "2026-11-27T05:45Z",
+    "last_result": "26 Nov 17:50Z: guide index main 32 / drafts 42; DEMAND Open holds only ACQ-118. Fresh searches 26 Nov: listing sites only for Evanston/Skokie AL questions (no family-question venue indexed); one recurring public question 'parent in assisted living runs out of money' (early-retirement.org forum thre…",
     "last_added": 0
    },
    {
@@ -6689,6 +6737,7 @@
    }
   ],
   "sweep_log": [
+   "2026-11-26T17:45Z asset-gaps +0: 26 Nov 17:50Z: guide index main 32 / drafts 42; DEMAND Open holds only ACQ-118. Fresh searches 26 Nov: listing sites only for Evanston/Skokie AL questions (no …",
    "2026-11-26T17:34Z draft-review +0: 26 Nov 17:50Z: drafts 42 slugs vs main 32: the 10 not on main all have packets in ops/reviews/. No unreviewed draft.",
    "2026-11-26T17:34Z publish-ready +0: 26 Nov 17:50Z: 10 drafts guides not on main, all with packets, all in publish batch #90 (in package #91); no drafts change since their ports. Nothing to packag…",
    "2026-11-26T17:34Z live-accuracy +2: 26 Nov 17:50Z: quotecheck on main for the 7 live guides without a packet: hospice 1/1, resident rights 10/10, SHIP 8/8, family caregiver 8/8, independent livin…",
@@ -6732,9 +6781,19 @@
    "explore_recheck_days": 14,
    "exhausted_base_hours": 12,
    "exhausted_max_hours": 96,
-   "exhausted_until_utc": "2026-11-26T13:53Z",
+   "exhausted_until_utc": "",
    "empty_streak": 0,
    "log": [
+    {
+     "utc": "2026-11-26T17:45Z",
+     "run": "cse_014eaiSan3kSKEb4rtUHknYk",
+     "key": "quality-audit-live-ship-caregiver",
+     "avenue": "quality",
+     "lane": null,
+     "candidates": 2,
+     "added": 2,
+     "result": "26 Nov: of the 5 live guides still without a packet (after hospice and resident rights today), SHIP (8/8 FOUND) and family caregiver support (8/8 FOUND) carry eligibility and how-to-reach rules families act on; levels-of-care and independent-living have no quotations and few rules; inspection-records cites 9 ilga.gov …"
+    },
     {
      "utc": "2026-11-26T01:52Z",
      "run": "cse_014eaiSf2v59RahpHN2G6JvZ",
