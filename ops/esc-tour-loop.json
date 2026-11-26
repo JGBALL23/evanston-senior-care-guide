@@ -151,25 +151,6 @@
    "found_utc": "2026-11-26T00:49Z"
   },
   {
-   "id": "ACQ-117",
-   "task": "Build a guide on drafts: the hospital wants to discharge my parent but they cannot safely go home; do we have to take them home, and how does a move to rehab or a nursing home get arranged? (DEMAND.md Open topic added by the ESCG worker 2026-11-24, open over 30 hours; Build exception (1))",
-   "workstream": "build",
-   "lane": "build",
-   "source": "plan",
-   "key": "build:unsafe-hospital-discharge",
-   "priority": 2,
-   "evidence": "DEMAND.md ## Open on drafts: three public family questions (national caregiver Q&A forum, 2024-05-11, 2022-05-01, 2018-03-15), added 2026-11-24 (ACQ-051, drafts 3496888); the 6 AM routine has run since and not written it; no guide on main (32 slugs) or drafts (41) covers an unsafe discharge home (closest: medicare-fast-appeal-hospital-rehab-discharge, coverage ending)",
-   "expected_tour_acquisition_value": "families at the hospital-discharge moment are deciding on rehab, a nursing home or assisted living right now; a sourced guide with the tour path reaches them at the decision",
-   "impact": 4,
-   "confidence": 3,
-   "effort": 3,
-   "executor": "worker (research and preparation only)",
-   "done_when": "guide built with build-guides.py on drafts under ROUTINE.md, five checks and quotecheck pass, DEMAND line moved to Done in the build commit, review:<slug> task added",
-   "score": 4.0,
-   "status": "ready",
-   "found_utc": "2026-11-26T01:19Z"
-  },
-  {
    "id": "ACQ-118",
    "task": "Build a guide on drafts: our parent's assisted living raised the monthly charge after a level-of-care reassessment; how are care levels set and what notice must an Illinois assisted living give before raising the rate? (DEMAND.md Open topic added by the ESCG worker 2026-11-24, open over 30 hours; Build exception (1))",
    "workstream": "build",
@@ -205,6 +186,24 @@
    "done_when": "commit on claude/accuracy-20261125 with checks and quotecheck passing, packet line added, verify-live task added",
    "status": "ready",
    "found_utc": "2026-11-26T01:20Z"
+  },
+  {
+   "id": "ACQ-120",
+   "task": "Review hospital-discharge-not-safe-to-go-home under the review rules",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "review:hospital-discharge-not-safe-to-go-home",
+   "priority": 1,
+   "evidence": "build commit 317f6fb on drafts (ACQ-117, cse_014eaiSdDK6VjczHrPrWrgM1)",
+   "expected_tour_acquisition_value": "quality gate before publication",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet at ops/reviews/hospital-discharge-not-safe-to-go-home.md with its counts and verdict",
+   "status": "ready",
+   "found_utc": "2026-11-26T01:23Z"
   }
  ],
  "completed": [
@@ -3745,6 +3744,39 @@
     "ref": "63284d5"
    },
    "done_utc": "2026-11-26T01:20Z"
+  },
+  {
+   "id": "ACQ-117",
+   "task": "Build a guide on drafts: the hospital wants to discharge my parent but they cannot safely go home; do we have to take them home, and how does a move to rehab or a nursing home get arranged? (DEMAND.md Open topic added by the ESCG worker 2026-11-24, open over 30 hours; Build exception (1))",
+   "workstream": "build",
+   "lane": "build",
+   "source": "plan",
+   "key": "build:unsafe-hospital-discharge",
+   "priority": 2,
+   "evidence": "DEMAND.md ## Open on drafts: three public family questions (national caregiver Q&A forum, 2024-05-11, 2022-05-01, 2018-03-15), added 2026-11-24 (ACQ-051, drafts 3496888); the 6 AM routine has run since and not written it; no guide on main (32 slugs) or drafts (41) covers an unsafe discharge home (closest: medicare-fast-appeal-hospital-rehab-discharge, coverage ending)",
+   "expected_tour_acquisition_value": "families at the hospital-discharge moment are deciding on rehab, a nursing home or assisted living right now; a sourced guide with the tour path reaches them at the decision",
+   "impact": 4,
+   "confidence": 3,
+   "effort": 3,
+   "executor": "worker (research and preparation only)",
+   "done_when": "guide built with build-guides.py on drafts under ROUTINE.md, five checks and quotecheck pass, DEMAND line moved to Done in the build commit, review:<slug> task added",
+   "score": 4.0,
+   "status": "done",
+   "found_utc": "2026-11-26T01:19Z",
+   "result": "Built hospital-discharge-not-safe-to-go-home on drafts (317f6fb) for the DEMAND.md topic 'the hospital wants to discharge my parent but they cannot safely go home' (3 public family questions; worker-added 24 Nov, open >30h, not written by the 6 AM routine). Sources fetched today: Medicare.gov discharge planning checklist (11376), Medicare.gov Your Guide to Choosing a Nursing Home (02174, rev. Oct 2019), Medicare.gov SNF care, Medicare.gov Fast appeals. Sections: the planning team, telling staff what help is missing at home, nursing home/rehab placement and refusing a bed, the 3-day rule with its exceptions, the fast appeal scoped to Original Medicare with the Medicare Advantage line. Links only to live guides. Checks: test.js 669/669, check-guides.js 2744/0, citations all 110 resolve, mobile-nav skipped, quotecheck 22/22. DEMAND line moved to Done. Refused: no claim that a family must or need not take a parent home (no fetched source states it); the 2007 IM form on cms.gov not quoted (may be outdated). Review task added.",
+   "sources": [
+    "https://www.medicare.gov/publications/11376-your-discharge-planning-checklist.pdf",
+    "https://www.medicare.gov/care-compare/en/assets/resources/nursing-home/02174-nursing-home-other-long-term-services.pdf",
+    "https://www.medicare.gov/coverage/skilled-nursing-facility-snf-care",
+    "https://www.medicare.gov/providers-services/claims-appeals-complaints/appeals/fast-appeals"
+   ],
+   "lesson": "Medicare's 02174 nursing home guide answers the 'only bed is one we don't want' case directly; the IM form PDF on cms.gov is a 2007 version.",
+   "deliverable": {
+    "type": "guide",
+    "ref": "317f6fb"
+   },
+   "done_utc": "2026-11-26T01:23Z",
+   "minutes": 4
   }
  ],
  "blocked": [],
@@ -3755,7 +3787,7 @@
   "picked": "ACQ-005 done, ACQ-091..101 done, ACQ-102 waiting, ACQ-103..112 done, ACQ-113 ready, ACQ-114 ready",
   "why": "Worked: 22 tasks; 4 live-guide audits (Medicare guide, estate recovery, home health, look-back) corrected and reader-verified in #89; new memory care guide built, reviewed and with LTC insurance ported to batch #90; title PR #92; stopped: time; resume: ACQ-113/114 ready"
  },
- "last_verified_action": "ACQ-116 done 2026-11-26T01:20Z: Independent reader (fresh-context agent in this session) checked the sentences 63284d5 changed in medicare-durable-medical-equipment-coverage: quotecheck 24/24…",
+ "last_verified_action": "ACQ-117 done 2026-11-26T01:23Z: Built hospital-discharge-not-safe-to-go-home on drafts (317f6fb) for the DEMAND.md topic 'the hospital wants to discharge my parent but they cannot safely go h…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -4421,19 +4453,16 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSdDK6VjczHrPrWrgM1",
-   "utc": "2026-11-26T01:20Z",
+   "utc": "2026-11-26T01:23Z",
    "since_utc": "2026-11-26T01:13Z",
-   "productive_min": 4,
+   "productive_min": 8,
    "deliverables": [
     "correction:d7724d0",
     "verification:d7724d0",
     "correction:63284d5",
-    "verification:63284d5"
-   ],
-   "current": {
-    "what": "ACQ-117",
-    "since_utc": "2026-11-26T01:19Z"
-   }
+    "verification:63284d5",
+    "guide:317f6fb"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-26T00:26Z"
@@ -5006,7 +5035,7 @@
     "owner_wip_limit": 10,
     "plan_cooldown_hours": 12,
     "open_prs": [],
-    "owner_open": 5,
+    "owner_open": 6,
     "cooldown_until_utc": "",
     "last_planned_utc": "2026-11-26T01:19Z",
     "last_plan_result": "Evidence: DEMAND.md Open on drafts (2 worker-added topics from 24 Nov, open >30h, not written by the 6 AM routine), Search Console read 25 Nov (Medicare/assisted-living queries already served by does-medicare-pay-for-senior-care; 'what is a uai screening' served by the CCP guide), slugs on main (32…",
