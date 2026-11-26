@@ -139,6 +139,8 @@ SRC = {
                'https://www.medicare.gov/basics/costs/medicare-costs'),
     "msnf": ('Medicare.gov — Skilled nursing facility (SNF) care',
              'https://www.medicare.gov/coverage/skilled-nursing-facility-snf-care'),
+    "mstatus": ('Medicare.gov — Appealing a change in status during a hospital stay',
+                'https://www.medicare.gov/providers-services/claims-appeals-complaints/appeals/original-medicare/denial-part-a-hospital-status'),
     "mltc": ('Medicare.gov — Long-term care',
              'https://www.medicare.gov/coverage/long-term-care'),
     "jimmo": ('CMS — Jimmo v. Sebelius Settlement Agreement Fact Sheet',
@@ -658,7 +660,7 @@ GUIDES = [
                    "1&ndash;20 cost <strong>$0</strong>, days 21&ndash;100 cost "
                    "<strong>" + F["snf_coins"] + " each day</strong> in 2026, and from "
                    "day 101 you pay everything."),
-        "sources": srcs("mcosts", "msnf", "jimmo", "mltc"),
+        "sources": srcs("mcosts", "msnf", "jimmo", "mltc", "mstatus"),
         "body": [
             ("The distinction that decides everything", [
                 "<p>Medicare divides care into <em>skilled</em> and <em>custodial</em>, "
@@ -706,6 +708,13 @@ GUIDES = [
                 "loud, on the first day: <em>has my parent been admitted as an inpatient, "
                 "or are they under observation?</em> Then ask again, because the status "
                 "can be changed.</p>",
+                "<p>If your parent is in Original Medicare and the hospital changes the "
+                "status from inpatient to outpatient observation, Medicare.gov says you "
+                "can ask for a fast appeal while your parent is still in the hospital; "
+                "patients currently in the hospital get a Medicare Change of Status "
+                "Notice (CMS-10868). It also says why the change matters: Medicare will "
+                "not cover a skilled nursing facility stay within 30 days of leaving the "
+                "hospital after it.</p>",
                 "<p>Two exceptions exist. A doctor in an Accountable Care Organization "
                 "with a Skilled Nursing Facility 3-Day Rule Waiver may not need the three "
                 "days, and Medicare Advantage plans may waive it too. Medicare.gov's "
