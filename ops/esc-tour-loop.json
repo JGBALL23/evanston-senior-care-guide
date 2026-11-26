@@ -4411,6 +4411,56 @@
    },
    "done_utc": "2026-11-26T01:53Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-142",
+   "priority": 2,
+   "workstream": "discovery",
+   "scout": "SC3",
+   "key": "scout:SC3:20261126",
+   "task": "Scout SC3 (Our own numbers): What do the site's own records point to that is not on the map? Evidence to use: the scoreboard in ops/cloud.json, per-tag results, referring sites not seen before, the weekly Search Console read (Make, 25 Nov), replies and auto-replies.",
+   "evidence": "SC3 has never run (last_run_utc null) and is overdue since 2026-11-25T16:00Z; no open map items; ready queue empty (status 2026-11-26T01:54Z). The first Search Console read from Make (25 Nov 20:35Z) is now in cloud.json.",
+   "expected_tour_acquisition_value": "Turns the site's own measured visitors, referrers and search queries into new map items that reach Evanston and North Shore families near a senior-living decision.",
+   "executor": "worker (research and preparation only)",
+   "done_when": "Every candidate has a data row or source URL and a gate result; passing candidates are open map items; SC3 last_run_utc, next_due_utc, last_result and interval_days updated; one line in discovery.log.",
+   "lane": "discovery",
+   "status": "done",
+   "found_utc": "2026-11-26T01:54Z",
+   "result": "SC3 first run. Read cloud.json scoreboard (daily 22-25 Nov), metrics.per_tag, Make Search Console read 25 Nov 20:35Z (1,242 impressions, 2 clicks, 40 queries, 24 pages) and outreach_watch. Candidates and gate: (1) Medicare/assisted-living query cluster, 33 queries ~700 impressions, avg position ~30, on does-medicare-pay-for-senior-care: not new; live title and description already answer the query word for word and the page was audited and corrected (ACQ-097, #89); the gap is ranking, not snippet. (2) VA caregiver queries (84 impressions, pos 51): national, audited (packet exists), no decision-stage path. (3) 'assisted living cost evanston il' (5, pos 78): local and decision-stage but covered by S1/S5 (/assisted-living-evanston/ indexing request for the operator, #85 links). (4) Referring sites: only Facebook groups and Google, nothing new. (5) Per-tag: Facebook posts give all measured visitors (fb-rp-1122 7, fb-evsk-1125 3, fb-glv-1124 1), email tags 0: D1 active and R1 waiting already hold this. (6) Replies/auto-replies: 0 org replies in 13 sent threads. 0 passed, 0 reopened; scout interval stays 7, next due 2026-12-03.",
+   "verdicts": [
+    {
+     "target": "medicare-al-query-cluster",
+     "verdict": "DROP",
+     "why": "already answered by live title/desc and audited"
+    },
+    {
+     "target": "va-caregiver-queries",
+     "verdict": "DROP",
+     "why": "national, no decision-stage path"
+    },
+    {
+     "target": "assisted-living-cost-evanston-query",
+     "verdict": "WATCH",
+     "why": "covered by S1/S5; reopens if the query grows after #85/#91 deploy and indexing"
+    },
+    {
+     "target": "new-referrers",
+     "verdict": "DROP",
+     "why": "none observed"
+    }
+   ],
+   "sources": [
+    "ops/cloud.json scoreboard and metrics (26 Nov 00:26Z monitor)",
+    "Make Search Console read 2026-11-25T20:35Z",
+    "live title/description fetched 26 Nov for does-medicare-pay-for-senior-care, va-caregiver-support-program, illinois-benefit-access-program"
+   ],
+   "lesson": "The first Search Console read was already mined by the 26 Nov sessions; SC3 adds value again only after the next weekly read (about 2 Dec) or after #91 deploys.",
+   "deliverable": {
+    "type": "verdict",
+    "ref": "opportunity_map/discovery/scouts SC3"
+   },
+   "done_utc": "2026-11-26T01:55Z",
+   "minutes": 2
   }
  ],
  "blocked": [],
@@ -4421,7 +4471,7 @@
   "picked": "ACQ-133 done, ACQ-134 done, ACQ-135 done (reopened, fixed c2bac4b), ACQ-136 done, ACQ-137 done, ACQ-138 done, ACQ-139 done, ACQ-140 done, ACQ-141 done",
   "why": "Worked: 5 live-guide audits (2 hold, 3 corrected in #89), 4 corrections verified by independent readers; stopped: no-worthwhile-work; resume: package cut 05:00Z"
  },
- "last_verified_action": "ACQ-141 done 2026-11-26T01:53Z: Audit of live illinois-home-caregiver-background-check against 5 IDoA/IDPH pages read 26 Nov: 14/14 quotations FOUND, 12 claims scope-checked, 0 scope defects …",
+ "last_verified_action": "ACQ-142 done 2026-11-26T01:55Z: SC3 first run. Read cloud.json scoreboard (daily 22-25 Nov), metrics.per_tag, Make Search Console read 25 Nov 20:35Z (1,242 impressions, 2 clicks, 40 queries, …",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -4962,9 +5012,9 @@
      "question": "What do the site's own records point to that is not on the map?",
      "evidence": "The scoreboard in ops/cloud.json, per-tag results, referring sites not seen before, the weekly Search Console read once the session operator records it, replies and auto-replies.",
      "interval_days": 7,
-     "last_run_utc": null,
-     "next_due_utc": "2026-11-25T16:00Z",
-     "last_result": null
+     "last_run_utc": "2026-11-26T01:55Z",
+     "next_due_utc": "2026-12-03T02:10Z",
+     "last_result": "ACQ-142 (26 Nov): 6 candidates from cloud.json scoreboard, per-tag results, Make Search Console read 25 Nov 20:35Z and outreach_watch; 0 passed the gate (all already on the map or national/low decision-stage), 0 reopened."
     },
     {
      "id": "SC4",
@@ -5017,7 +5067,8 @@
     "2026-11-22T21:28Z SC1 peer listings (ACQ-031): 5 targets checked, 0 passed the gate, 0 reopened; next due 2026-12-22T21:28Z.",
     "2026-11-22T21:30Z SC2 what families find (ACQ-032): 18 queries, guide in 0 results, 6 candidate groups checked, 0 passed the gate, 0 reopened; next due 2026-12-06.",
     "2026-11-22T21:34Z SC4 calendar (ACQ-033): window to 21 Jan 2027; 6 candidate groups, 1 passed the gate (D13 post-holiday family-visit window), 0 reopened; interval 14->7, next due 2026-11-29.",
-    "2026-11-22T21:40Z SC6 new kinds of channel (ACQ-034): 6 routes from comparable guides elsewhere, 1 passed the gate (D14 public-access cable, WATCH on D8), 0 reopened; interval 30->15, next due 2026-12-07."
+    "2026-11-22T21:40Z SC6 new kinds of channel (ACQ-034): 6 routes from comparable guides elsewhere, 1 passed the gate (D14 public-access cable, WATCH on D8), 0 reopened; interval 30->15, next due 2026-12-07.",
+    "2026-11-26T01:55Z SC3 our own numbers (ACQ-142): 6 candidates (Medicare/assisted-living query cluster, VA caregiver queries, local 'assisted living cost evanston il', referrers, per-tag yield, replies); 0 passed the gate, 0 reopened; interval 7, next due 2026-12-03."
    ]
   }
  },
@@ -5087,8 +5138,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiScJj1AYsLEn22C16dY",
-   "utc": "2026-11-26T01:54Z",
-   "since_utc": "2026-11-26T01:54Z"
+   "utc": "2026-11-26T01:55Z",
+   "since_utc": "2026-11-26T01:54Z",
+   "productive_min": 2,
+   "deliverables": [
+    "verdict:opportunity_map/discovery/scouts SC3"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-26T00:26Z"
