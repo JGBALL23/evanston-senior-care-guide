@@ -172,23 +172,22 @@
    "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in the Assisted Living and Shared Housing Act (210 ILCS 9/90, already a SRC on main as ilcs_al_90) and 77 Ill. Adm. Code 295 on ilga.gov, an approved host per check-guides.js. ilga.gov could not be read this session: curl through the proxy fails TLS (000) and WebFetch returns 503. Searched illinois.gov (IDPH, IDoA, HFS): the IDPH ITR form covers terminations only; the IDoA residents' rights brochure says a contract must state services and costs but is not scoped to assisted living and says nothing on rate-change notice; HFS Part 146 is supportive living. No guide written: the core rule cannot be read off a fetched page. Retry by WebFetch of ilga.gov after not_before."
   },
   {
-   "id": "ACQ-157",
-   "task": "Accuracy audit of the live guide illinois-family-caregiver-support-program under the review rules (scope rule included), packet at ops/reviews/live/illinois-family-caregiver-support-program.md; corrections into the rolling accuracy PR #89",
+   "id": "ACQ-158",
+   "task": "Verify the corrections to illinois-family-caregiver-support-program on the accuracy pull request #89 (commit e9d405f): re-read each changed sentence against its source; packet line added",
    "workstream": "technical",
    "lane": "technical",
-   "source": "plan",
-   "key": "audit:illinois-family-caregiver-support-program",
-   "priority": 2,
-   "evidence": "No packet in ops/reviews/live/ (26 Nov); quotecheck 8/8 FOUND on main 26 Nov; eligibility rules for respite and caregiver services a family acts on; 1 browser referral from this guide 26 Nov (Netlify)",
-   "expected_tour_acquisition_value": "correct rules on pages families find in search keep trust at the decision stage",
+   "source": "followup",
+   "key": "verify-live:illinois-family-caregiver-support-program:e9d405f",
+   "priority": 1,
+   "evidence": "accuracy PR #89 commit e9d405f (ACQ-157)",
+   "expected_tour_acquisition_value": "quality gate before the corrections reach the live guide",
    "impact": 3,
    "confidence": 4,
-   "effort": 2,
+   "effort": 1,
    "executor": "worker (research and preparation only)",
-   "done_when": "packet ops/reviews/live/illinois-family-caregiver-support-program.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
-   "score": 6.0,
+   "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
-   "found_utc": "2026-11-26T17:45Z"
+   "found_utc": "2026-11-26T17:48Z"
   }
  ],
  "completed": [
@@ -4871,6 +4870,40 @@
    },
    "done_utc": "2026-11-26T17:46Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-157",
+   "task": "Accuracy audit of the live guide illinois-family-caregiver-support-program under the review rules (scope rule included), packet at ops/reviews/live/illinois-family-caregiver-support-program.md; corrections into the rolling accuracy PR #89",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:illinois-family-caregiver-support-program",
+   "priority": 2,
+   "evidence": "No packet in ops/reviews/live/ (26 Nov); quotecheck 8/8 FOUND on main 26 Nov; eligibility rules for respite and caregiver services a family acts on; 1 browser referral from this guide 26 Nov (Netlify)",
+   "expected_tour_acquisition_value": "correct rules on pages families find in search keep trust at the decision stage",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet ops/reviews/live/illinois-family-caregiver-support-program.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
+   "score": 6.0,
+   "status": "done",
+   "found_utc": "2026-11-26T17:45Z",
+   "result": "Audit of live illinois-family-caregiver-support-program against three IDoA caregiver pages (read 26 Nov): 8/8 quotations FOUND, 10 claims scope-checked, 2 scope defects (the out-of-state FAQ inverted: it is for a caregiver outside Illinois; a quotation attributed to the wrong FAQ question) and one unsourced label (CCP 'Medicaid-funded'). Applied as #89 e9d405f (listed date kept); all suites pass. Reader check queued.",
+   "verdicts": [
+    "corrections"
+   ],
+   "sources": [
+    "ilaging.illinois.gov/programs/caregiver/program.html",
+    "crc.html",
+    "caregiver-links.html"
+   ],
+   "deliverable": {
+    "type": "correction",
+    "ref": "#89 e9d405f; ops/reviews/live/illinois-family-caregiver-support-program.md"
+   },
+   "done_utc": "2026-11-26T17:48Z",
+   "minutes": 2
   }
  ],
  "blocked": [],
@@ -4881,7 +4914,7 @@
   "picked": "ACQ-143 done, ACQ-144 done, ACQ-145 done, ACQ-146 done, ACQ-147 done (reopened), ACQ-148 done, ACQ-149 done",
   "why": "Worked: package #91 re-cut for 26 Nov (10 guides, 17 live-guide corrections, #92), 2 verified additions to top search pages; stopped: no-worthwhile-work; resume: monitor 12:26Z, sweeps 12:32Z"
  },
- "last_verified_action": "ACQ-156 done 2026-11-26T17:46Z: Audit of live illinois-senior-health-insurance-program against IDoA SHIP, About SHIP and Medicare.gov Helpful tools (read 26 Nov): 8/8 quotations FOUND, 9 clai…",
+ "last_verified_action": "ACQ-157 done 2026-11-26T17:48Z: Audit of live illinois-family-caregiver-support-program against three IDoA caregiver pages (read 26 Nov): 8/8 quotations FOUND, 10 claims scope-checked, 2 scop…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -5547,9 +5580,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSan3kSKEb4rtUHknYk",
-   "utc": "2026-11-26T17:46Z",
+   "utc": "2026-11-26T17:48Z",
    "since_utc": "2026-11-26T17:32Z",
-   "productive_min": 15,
+   "productive_min": 17,
    "deliverables": [
     "correction:#89 99cc346; ops/reviews/live/medicare-hospice-benefit-explained.md",
     "correction:#89 e587023; ops/reviews/live/illinois-nursing-home-resident-rights.md",
@@ -5557,7 +5590,8 @@
     "verification:ops/reviews/live/illinois-nursing-home-resident-rights.md",
     "correction:#89 aebfca9",
     "verification:ops/reviews/live/medicare-hospice-benefit-explained.md",
-    "audit:ops/reviews/live/illinois-senior-health-insurance-program.md"
+    "audit:ops/reviews/live/illinois-senior-health-insurance-program.md",
+    "correction:#89 e9d405f; ops/reviews/live/illinois-family-caregiver-support-program.md"
    ]
   },
   "monitor": {
