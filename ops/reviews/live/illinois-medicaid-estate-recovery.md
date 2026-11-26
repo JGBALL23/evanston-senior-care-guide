@@ -56,3 +56,5 @@ Corrections verified
 
 Corrections verified: 2026-11-26, agent in cse_014eaiSdvHByATtNdterRhh7 (b73f29c; with 5f5260d C1 and the AABD/120-day rule)
 Reader: agent in cse_014eaiSdvHByATtNdterRhh7
+
+Corrections applied: claude/accuracy-20261125 64feb14, 2026-11-26, cse_014eaiSe8SBqppdHD1M3fw41 (recommended additions (1) no forced sale, no one asked to leave; (2) appeal of a lien decision)

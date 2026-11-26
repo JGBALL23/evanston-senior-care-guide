@@ -170,6 +170,21 @@
    "found_utc": "2026-11-26T01:19Z",
    "not_before_utc": "2026-11-27T01:30Z",
    "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in the Assisted Living and Shared Housing Act (210 ILCS 9/90, already a SRC on main as ilcs_al_90) and 77 Ill. Adm. Code 295 on ilga.gov, an approved host per check-guides.js. ilga.gov could not be read this session: curl through the proxy fails TLS (000) and WebFetch returns 503. Searched illinois.gov (IDPH, IDoA, HFS): the IDPH ITR form covers terminations only; the IDoA residents' rights brochure says a contract must state services and costs but is not scoped to assisted living and says nothing on rate-change notice; HFS Part 146 is supportive living. No guide written: the core rule cannot be read off a fetched page. Retry by WebFetch of ilga.gov after not_before."
+  },
+  {
+   "id": "ACQ-147",
+   "task": "Verify the additions to illinois-medicaid-estate-recovery on the accuracy pull request #89 (commit 64feb14): re-read the changed sentences against HFS Liens and Estate Recovery",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:illinois-medicaid-estate-recovery:__S__",
+   "priority": 1,
+   "evidence": "commit __S__ on claude/accuracy-20261125 (ACQ-146)",
+   "expected_tour_acquisition_value": "quality gate before the addition enters the daily package",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "ready",
+   "found_utc": "2026-11-26T06:41Z"
   }
  ],
  "completed": [
@@ -4545,6 +4560,34 @@
    },
    "done_utc": "2026-11-26T06:38Z",
    "minutes": 2
+  },
+  {
+   "id": "ACQ-146",
+   "task": "Recommended additions to illinois-medicaid-estate-recovery (live) on the accuracy pull request #89: HFS 'No action will be taken to force the sale' / 'No one will be asked to leave the property', and the appeal of a lien decision (letter or Appeal Request form, DHS Bureau of Administrative Hearings 1-800-435-0774)",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "improve:illinois-medicaid-estate-recovery:lien-sale-and-appeal",
+   "priority": 2,
+   "evidence": "ops/reviews/live/illinois-medicaid-estate-recovery.md reader check of 5f5260d (26 Nov 2026), recommended additions still open; Make Search Console read 25 Nov: the page is the site's best-ranked (51 impressions, position 7.2)",
+   "expected_tour_acquisition_value": "the best-ranked page answers the family's next worry (will we be forced to sell or move out; can we contest a lien) from HFS's own words, building trust on a page that already wins clicks",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "one sourced commit on claude/accuracy-20261125 with all suites and quotecheck passing, packet line added, verify-live task added",
+   "status": "done",
+   "found_utc": "2026-11-26T06:40Z",
+   "result": "Applied the two open recommended additions from the reader check of 5f5260d to the live estate-recovery guide (best-ranked page, 51 impressions at position 7.2) on #89 as 64feb14: HFS takes no action to force a sale, the lien is paid from sale proceeds if and when sold, and 'No one will be asked to leave the property.' (quoted, FOUND); and the appeal of a lien decision for a medical-assistance-only resident after 120 consecutive days in a medical institution (letter or Appeal Request form at a local DHS office, DHS Bureau of Administrative Hearings, 1-800-435-0774, hours as HFS gives them). HFS Liens and Estate Recovery re-read 26 Nov (200). Reviewed date kept (adjacent to #92's title line). Build changes only this page; all suites pass; quotecheck 7/7. Packet line added; verify-live ACQ-147 queued.",
+   "sources": [
+    "https://hfs.illinois.gov/medicalclients/medicaidestaterecovery/liensandestaterecovery.html (read 2026-11-26)"
+   ],
+   "deliverable": {
+    "type": "correction",
+    "ref": "claude/accuracy-20261125 64feb14 (PR #89)"
+   },
+   "done_utc": "2026-11-26T06:41Z",
+   "minutes": 1
   }
  ],
  "blocked": [],
@@ -4555,7 +4598,7 @@
   "picked": "ACQ-142 done",
   "why": "Worked: SC3 scout (own numbers) ran, 0 new map items; stopped: no-worthwhile-work; resume: package cut 05:00Z"
  },
- "last_verified_action": "ACQ-145 done 2026-11-26T06:38Z: Independent reader (fresh-context agent in cse_014eaiSe8SBqppdHD1M3fw41) checked 6876bfd on #89: both added sentences match Medicare.gov 'Appeal when a hospita…",
+ "last_verified_action": "ACQ-146 done 2026-11-26T06:41Z: Applied the two open recommended additions from the reader check of 5f5260d to the live estate-recovery guide (best-ranked page, 51 impressions at position 7.2…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -5222,13 +5265,14 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSe8SBqppdHD1M3fw41",
-   "utc": "2026-11-26T06:38Z",
+   "utc": "2026-11-26T06:41Z",
    "since_utc": "2026-11-26T06:24Z",
-   "productive_min": 14,
+   "productive_min": 15,
    "deliverables": [
     "publish_pr:PR #91 at 4d047b4; batch #90 at 40e9da0",
     "correction:claude/accuracy-20261125 6876bfd (PR #89)",
-    "verification:claude/accuracy-20261125 6876bfd; ops/reviews/live/does-medicare-pay-for-senior-care.md"
+    "verification:claude/accuracy-20261125 6876bfd; ops/reviews/live/does-medicare-pay-for-senior-care.md",
+    "correction:claude/accuracy-20261125 64feb14 (PR #89)"
    ]
   },
   "monitor": {
