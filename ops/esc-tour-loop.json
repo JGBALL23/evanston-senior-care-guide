@@ -5169,7 +5169,7 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSe8SBqppdHD1M3fw41",
-   "utc": "2026-11-26T06:32Z",
+   "utc": "2026-11-26T06:34Z",
    "since_utc": "2026-11-26T06:24Z",
    "productive_min": 8,
    "deliverables": [
@@ -5954,9 +5954,9 @@
     "plan_cooldown_hours": 24,
     "open_prs": [],
     "owner_open": 0,
-    "cooldown_until_utc": "2026-11-26T06:37Z",
-    "last_planned_utc": "2026-11-25T06:37Z",
-    "last_plan_result": "Same evidence pass as sweep demand-questions 2026-11-25: the one qualifying question (LTC insurance and assisted living) was built directly (ACQ-083); assisted living contract review rejected (no dated question, overlaps Open topic). 0 new topics."
+    "cooldown_until_utc": "2026-11-27T06:33Z",
+    "last_planned_utc": "2026-11-26T06:33Z",
+    "last_plan_result": "26 Nov: Make's Search Console read of 25 Nov (73 queries, 3+ impressions): every query maps to a live guide (Medicare/assisted-living cluster -> does-medicare-pay-for-senior-care; VA caregiver -> va-caregiver-support-program; advance directive, elder abuse, meals, QMB/MSP, VA nursing home covered);…"
    },
    {
     "id": "search",
@@ -5990,9 +5990,9 @@
      89
     ],
     "owner_open": 1,
-    "cooldown_until_utc": "2026-11-26T06:28Z",
-    "last_planned_utc": "2026-11-23T06:28Z",
-    "last_plan_result": "2026-11-23: main clone checks pass (check-guides.js 2696/2696, test.js 768/768, checklist PDF test 0 failed; check-mobile-nav skipped, no websockets). Live crawl 36 sitemap URLs all 200, robots/sitemap consistent, 170 unique links: all 200 except Google Fonts preconnect roots (expected) and 15 ilga…"
+    "cooldown_until_utc": "2026-11-29T06:34Z",
+    "last_planned_utc": "2026-11-26T06:34Z",
+    "last_plan_result": "26 Nov 06:3xZ crawl: all 36 sitemap URLs 200 under 3 s; robots.txt 200; 202 distinct hrefs, every internal path 200; outbound links 200 except truleeevanston.com and presbyterianliving.org (403 to scripts; WebFetch shows the Westminster Place contact page loads); ilga.gov unreachable from this envi…"
    },
    {
     "id": "conversion",
@@ -6103,6 +6103,8 @@
    }
   ],
   "log": [
+   "2026-11-26T06:34Z technical +0: 26 Nov 06:3xZ crawl: all 36 sitemap URLs 200 under 3 s; robots.txt 200; 202 distinct hrefs, every internal path 200; outbound links 200 except truleeevanston.c…",
+   "2026-11-26T06:33Z demand +0: 26 Nov: Make's Search Console read of 25 Nov (73 queries, 3+ impressions): every query maps to a live guide (Medicare/assisted-living cluster -> does-medicare-…",
    "2026-11-26T01:35Z build +0: Second build pass 26 Nov: DEMAND Open holds one topic (ACQ-118, waiting on ilga.gov); Search Console read 25 Nov has no uncovered query; no new public-question…",
    "2026-11-26T01:19Z build +2: Evidence: DEMAND.md Open on drafts (2 worker-added topics from 24 Nov, open >30h, not written by the 6 AM routine), Search Console read 25 Nov (Medicare/assist…",
    "2026-11-26T00:59Z publish +0: All 8 drafts not on main are in publish batch #90 (LTC insurance ported this session as d00713b); no packet-qualified page outside a batch.",
@@ -6292,12 +6294,14 @@
     "evidence": "A crawl of the live sitemap; check-guides.js, test.js and the checklist PDF test on a clone of main.",
     "output": "A review PR for a real defect on a page visitors reach, or a clean verdict.",
     "why": "Broken pages lose visitors and rankings.",
-    "last_checked_utc": "2026-11-23T06:28Z",
-    "next_check_utc": "2026-11-26T06:28Z",
-    "last_result": "Covered by the technical and search planning passes of 06:26Z and 06:28Z: 36 live URLs load, checks pass."
+    "last_checked_utc": "2026-11-26T06:34Z",
+    "next_check_utc": "2026-11-29T06:34Z",
+    "last_result": "Covered by this session's technical planning crawl (26 Nov): 36 live URLs 200, internal links all resolve, main's suites pass; only bot-blocked third-party pages (403) and ilga.gov (unreachable here). Clean.",
+    "last_added": 0
    }
   ],
   "sweep_log": [
+   "2026-11-26T06:34Z site-health +0: Covered by this session's technical planning crawl (26 Nov): 36 live URLs 200, internal links all resolve, main's suites pass; only bot-blocked third-party pag…",
    "2026-11-26T00:50Z publish-ready +0: 8 drafts not on main, all with packets: 7 already in publish batch #90 at the drafts text they were ported from (latest drafts commits for them predate the 25 …",
    "2026-11-26T00:50Z search-presence +0: Answered from Google data this time (Make Search Console read 25 Nov) instead of the research index: the site appears in Google for national program questions …",
    "2026-11-26T00:50Z asset-gaps +0: Guide index: main 32, drafts 40 (+ LTC insurance now in batch #90). DEMAND Open has 2 worker topics added 24 Nov 06:34Z (over 30h; the 6 AM routine did not wri…",
