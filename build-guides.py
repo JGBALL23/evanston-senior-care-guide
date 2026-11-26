@@ -1531,10 +1531,11 @@ GUIDES = [
 
     {
         "slug": "illinois-medicaid-estate-recovery",
+        "listed": "2026-10-24",
+        "reviewed": "2026-11-26",
         "bridge": ("Estate recovery is a question about money after the fact. It sits "
                "downstream of a more immediate one: what level of care your parent "
                "needs now."),
-        "reviewed": "2026-10-24",
         "title": "Illinois Medicaid Estate Recovery: Will the State Take the House?",
         "h1": "Will Illinois take my parent&rsquo;s house after Medicaid pays for care?",
         "desc": ("Illinois can claim against a Medicaid recipient's estate after death, "
@@ -1548,7 +1549,8 @@ GUIDES = [
                    "services,&rdquo; it cannot touch the "
                    "<strong>first $25,000</strong> of any estate with a death on or "
                    "after 1 July 2022, and it does not pursue a claim at all while a "
-                   "spouse, a child under 21, or a disabled child survives. Heirs are "
+                   "spouse, a child under 21, or a blind or disabled child of any age "
+                   "survives. Heirs are "
                    "never required to pay a claim from their own money."),
         "sources": srcs("hfs_estate_guide", "hfs_estate_faq", "hfs_estate_liens"),
         "body": [
@@ -1621,12 +1623,13 @@ GUIDES = [
                 "&mdash; while someone is still alive, rather than after death. HFS "
                 "describes two situations where one can be filed: cash assistance "
                 "combined with medical assistance produces a lien equal to the cash "
-                "assistance received, and medical-assistance-only recipients in a "
-                "long-term care facility can face a lien, equal to all medical "
-                "assistance paid before and during the stay, but only after "
-                "<strong>120 consecutive days</strong> in the facility. No lien is filed "
-                "if the home is occupied by a spouse, a child under 21, a disabled "
-                "child of any age, or in some cases a sibling, and a lien is released if "
+                "assistance received, and people who receive AABD medical assistance "
+                "only and live in a long-term care facility can face a lien, equal to "
+                "all medical assistance paid before and during the stay, but only after "
+                "<strong>120 consecutive calendar days</strong> in a medical institution. "
+                "No lien is filed if the home is occupied by a spouse, a child under 21, "
+                "a child over 21 who is blind or disabled, or in some cases a sibling, "
+                "and a lien is released if "
                 "the resident is discharged home.</p>",
                 "<p>This tool has also been narrowed by law. HFS states that "
                 "<strong>Public Act 102-1037</strong>, effective <strong>2 June "
