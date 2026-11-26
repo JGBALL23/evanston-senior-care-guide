@@ -77,3 +77,5 @@ Quotations checked: 23 (22 by the checker plus 1 short term). Claims scope-check
 Verdict: publish-ready after corrections (two scope defects in the fast-appeal section: a protection the source states for anyone in a hospital is limited to Original Medicare, and a Medicare Advantage sentence is presented as the MA route in place of the BFCC-QIO fast appeal; all 22 quotations are word-perfect and all links resolve on main).
 
 Reader: agent in cse_014eaiSdDK6VjczHrPrWrgM1
+
+Corrections applied: drafts 9b44298, 2026-11-26, cse_014eaiSdDK6VjczHrPrWrgM1 (C1, C2 with the plan condition paraphrased because check-guides.js "no manufactured urgency" rejects the source word "urgently" inside a quotation; R1, R2, R3, R4 (in-hospital status-change fast appeal only; the 2009 retrospective appeal left out), R6, R7; R5 not applied)
