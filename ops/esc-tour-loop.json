@@ -149,42 +149,6 @@
    "executor": "worker (research and preparation only)",
    "done_when": "review PR opened with the checks passing (also re-date illinois-medicaid-estate-recovery to the day its b73f29c corrections were verified, with listed 2026-10-24, once #89 and #92 are both merged), or a no-change verdict with the newest Search Console numbers",
    "found_utc": "2026-11-26T00:49Z"
-  },
-  {
-   "id": "ACQ-103",
-   "task": "Verify the corrections to illinois-medicaid-estate-recovery on the accuracy pull request #89 (commit b73f29c): re-read each changed sentence against the HFS liens page, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <reader>' to ops/reviews/live/illinois-medicaid-estate-recovery.md and to that guide's lines in the #89 body, or reopen the correction",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "followup",
-   "key": "verify-live:illinois-medicaid-estate-recovery:b73f29c",
-   "priority": 1,
-   "evidence": "claude/accuracy-20261125 commit b73f29c (ACQ-100 reader reopened 5f5260d)",
-   "expected_tour_acquisition_value": "quality gate before the correction enters the daily package",
-   "impact": 3,
-   "confidence": 5,
-   "effort": 1,
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
-   "status": "ready",
-   "found_utc": "2026-11-26T00:52Z"
-  },
-  {
-   "id": "ACQ-104",
-   "task": "Recommended addition to does-medicare-pay-for-senior-care (live): Medicare.gov's fast appeal for a hospital inpatient whose status was changed to outpatient observation on or after 14 Feb 2025 (Original Medicare), next to 'Then ask again, because the status can be changed'; fetch the Medicare.gov status-change appeal page, write it in its words and scope, commit to the accuracy PR with a verify-live task",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "followup",
-   "key": "addition:does-medicare-pay-for-senior-care:status-change-fast-appeal",
-   "priority": 2,
-   "evidence": "Reader check 2026-11-26 (403f6da) in ops/reviews/live/does-medicare-pay-for-senior-care.md quotes Medicare.gov: 'If you were hospitalized on or after February 14, 2025, you'll have the right to ask for a fast appeal ...'",
-   "expected_tour_acquisition_value": "the site's most-shown page (781 impressions) tells families in hospital now how to protect skilled-nursing coverage",
-   "impact": 3,
-   "confidence": 4,
-   "effort": 2,
-   "executor": "worker (research and preparation only)",
-   "done_when": "addition committed with checks passing and its reader check queued, or a verdict that the source does not support it",
-   "status": "ready",
-   "found_utc": "2026-11-26T00:52Z"
   }
  ],
  "completed": [
@@ -3337,6 +3301,55 @@
     "ref": "ops/reviews/live/illinois-medicaid-estate-recovery.md; #89 b73f29c"
    },
    "done_utc": "2026-11-26T00:52Z"
+  },
+  {
+   "id": "ACQ-103",
+   "task": "Verify the corrections to illinois-medicaid-estate-recovery on the accuracy pull request #89 (commit b73f29c): re-read each changed sentence against the HFS liens page, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <reader>' to ops/reviews/live/illinois-medicaid-estate-recovery.md and to that guide's lines in the #89 body, or reopen the correction",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:illinois-medicaid-estate-recovery:b73f29c",
+   "priority": 1,
+   "evidence": "claude/accuracy-20261125 commit b73f29c (ACQ-100 reader reopened 5f5260d)",
+   "expected_tour_acquisition_value": "quality gate before the correction enters the daily package",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-26T00:52Z",
+   "result": "Independent reader (agent in cse_014eaiSdvHByATtNdterRhh7) checked b73f29c: the long-term-care-lien occupancy exception and the any-lien no-enforcement-at-death rule match HFS's Liens page in scope. Corrections verified; the estate-recovery commits on #89 (5f5260d, f9ee414, b73f29c) are verified. Reader's recommended additions for a later audit: HFS 'No action will be taken to force the sale' / 'No one will be asked to leave', and the lien appeal route (in the packet). Re-date folded into ACQ-102.",
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/live/illinois-medicaid-estate-recovery.md"
+   },
+   "done_utc": "2026-11-26T00:54Z"
+  },
+  {
+   "id": "ACQ-104",
+   "task": "Recommended addition to does-medicare-pay-for-senior-care (live): Medicare.gov's fast appeal for a hospital inpatient whose status was changed to outpatient observation on or after 14 Feb 2025 (Original Medicare), next to 'Then ask again, because the status can be changed'; fetch the Medicare.gov status-change appeal page, write it in its words and scope, commit to the accuracy PR with a verify-live task",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "addition:does-medicare-pay-for-senior-care:status-change-fast-appeal",
+   "priority": 2,
+   "evidence": "Reader check 2026-11-26 (403f6da) in ops/reviews/live/does-medicare-pay-for-senior-care.md quotes Medicare.gov: 'If you were hospitalized on or after February 14, 2025, you'll have the right to ask for a fast appeal ...'",
+   "expected_tour_acquisition_value": "the site's most-shown page (781 impressions) tells families in hospital now how to protect skilled-nursing coverage",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "addition committed with checks passing and its reader check queued, or a verdict that the source does not support it",
+   "status": "done",
+   "found_utc": "2026-11-26T00:52Z",
+   "result": "Added to does-medicare-pay-for-senior-care on #89 as 8457ed1: for Original Medicare, a fast appeal while still in hospital when inpatient status is changed to observation, the Change of Status Notice (CMS-10868), and that the change means no SNF coverage within 30 days. Source fetched today: Medicare.gov 'Appealing a change in status during a hospital stay' (added to SRC as mstatus). The retrospective process (2009-13 Feb 2025, closed 2 Jan 2026) is not mentioned. All suites pass. Reader check queued (ACQ-105).",
+   "deliverable": {
+    "type": "correction",
+    "ref": "#89 8457ed1"
+   },
+   "done_utc": "2026-11-26T00:54Z",
+   "minutes": 3
   }
  ],
  "blocked": [],
@@ -3347,7 +3360,7 @@
   "picked": "ACQ-084 done, ACQ-088 done, ACQ-089 done, ACQ-090 done; added ACQ-091, ACQ-092, ACQ-093 (next session); ACQ-017 still waiting (live guides do not yet link /assisted-living-evanston/)",
   "why": "Worked: LTC-insurance draft reviewed and corrected; look-back and Extra Help live audits, 2 commits on #89; stopped: no-worthwhile-work; resume: verifications ACQ-091/092/093 next session"
  },
- "last_verified_action": "ACQ-100 done 2026-11-26T00:52Z: Independent reader (agent in cse_014eaiSdvHByATtNdterRhh7) checked 5f5260d: short answer (blind or disabled child) and the AABD/120 calendar days lien rule hol…",
+ "last_verified_action": "ACQ-104 done 2026-11-26T00:54Z: Added to does-medicare-pay-for-senior-care on #89 as 8457ed1: for Original Medicare, a fast appeal while still in hospital when inpatient status is changed to …",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -4013,9 +4026,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSdvHByATtNdterRhh7",
-   "utc": "2026-11-26T00:52Z",
+   "utc": "2026-11-26T00:54Z",
    "since_utc": "2026-11-26T00:24Z",
-   "productive_min": 17,
+   "productive_min": 20,
    "deliverables": [
     "pr:#92",
     "verification:ops/reviews/live/illinois-medicaid-look-back-period.md; #89 54139d5",
@@ -4028,11 +4041,13 @@
     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md; #89 403f6da",
     "audit:ops/reviews/live/illinois-medicaid-estate-recovery.md; #89 5f5260d",
     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
-    "verification:ops/reviews/live/illinois-medicaid-estate-recovery.md; #89 b73f29c"
+    "verification:ops/reviews/live/illinois-medicaid-estate-recovery.md; #89 b73f29c",
+    "verification:ops/reviews/live/illinois-medicaid-estate-recovery.md",
+    "correction:#89 8457ed1"
    ],
    "current": {
-    "what": "ACQ-103",
-    "since_utc": "2026-11-26T00:52Z"
+    "what": "ACQ-105",
+    "since_utc": "2026-11-26T00:54Z"
    }
   },
   "monitor": {

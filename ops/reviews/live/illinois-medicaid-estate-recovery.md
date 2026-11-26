@@ -42,3 +42,17 @@ Reopened: the lien occupancy exception ("No lien is filed if the home is occupie
 
 Reader: agent in cse_014eaiSdvHByATtNdterRhh7
 Corrections applied: claude/accuracy-20261125 b73f29c, 2026-11-26, cse_014eaiSdvHByATtNdterRhh7 (occupancy exception scoped to the long-term care lien; no-enforcement-at-death rule from "What is a lien?" for any lien). Reviewed date stays 24 Oct until #92 merges (adjacent lines); re-date then (ACQ-102 follow-up).
+
+## Reader check 2026-11-26 (b73f29c)
+
+Independent reader (second), clone of claude/accuracy-20261125 at b73f29c in /tmp/reader2-illinois-medicaid-estate-recovery. The commit changes one paragraph ("Liens are a separate, narrower tool"); build-guides.py and _dist match. quotecheck: 6 quotations, 6 FOUND, 0 NEAR MATCH, 0 NOT FOUND; 3 cited pages, 0 unreadable ("spend-down" is a guide title). Liens and Estate Recovery fetched again today (HTTP 200); the wording below is from it. The commit adds no quotations, figures or links.
+
+- "For that long-term care lien, no lien is filed if the home is occupied by a spouse, a child under 21, a child over 21 who is blind or disabled, or in some cases a sibling, and a lien is released if the resident is discharged home." Source (Liens and Estate Recovery, "How are liens calculated?"): "A lien will not be filed against your real property when you reside in a long-term care facility if your property is occupied by your spouse, your child under age 21, your child over age 21 who is blind or disabled or, in some cases your siblings. The lien will be released if you are discharged from the medical institution to return to your home." Same scope: the guide now limits both rules to the AABD medical-assistance-only, long-term-care lien named in the sentence before it, as HFS does. The people listed match the source.
+- "For any lien, HFS says no action will be taken to enforce it when the person dies while one of those relatives lives in the home." Source (Liens and Estate Recovery, "What is a lien?"): "No action will be taken to enforce the lien when you die, if your property is occupied by your spouse, your child under age 21, your child over age 21 who is blind or disabled, or in some cases, your brother or sister." Same scope: HFS states this under the general heading, before it describes the two lien situations, so it covers both the cash-assistance lien and the long-term care lien.
+- Recommended additions (not defects; from the same page, about liens on a home the family owns): (1) "What is a lien?": "No action will be taken to force the sale of your property. If and when the property is sold, the lien will be paid from the sale proceeds." and "No one will be asked to leave the property." (2) "How are liens calculated?": a recipient who gets notice of a lien may appeal: "If you want to appeal the decision, you can write a letter requesting a hearing or fill out an Appeal Request form," to the DHS Bureau of Administrative Hearings, 1-800-435-0774. Both apply to Illinois lien decisions. The guide does not mention either.
+- Carried note (not changed by this commit): the page still says its figures were read on 24 October 2026, but the corrected lien wording was read on 26 November 2026. This will be re-dated after PR #92 (ACQ-102).
+
+Corrections verified
+
+Corrections verified: 2026-11-26, agent in cse_014eaiSdvHByATtNdterRhh7 (b73f29c; with 5f5260d C1 and the AABD/120-day rule)
+Reader: agent in cse_014eaiSdvHByATtNdterRhh7

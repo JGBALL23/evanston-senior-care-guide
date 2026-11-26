@@ -64,3 +64,5 @@ Corrections verified
 
 Corrections verified: 2026-11-26, agent in cse_014eaiSdvHByATtNdterRhh7 (403f6da; with 28073a0 C1-C2)
 Reader: agent in cse_014eaiSdvHByATtNdterRhh7
+
+Addition applied: claude/accuracy-20261125 8457ed1, 2026-11-26, cse_014eaiSdvHByATtNdterRhh7 (fast appeal while in hospital after a status change, Original Medicare; source Medicare.gov status-change appeal page)
