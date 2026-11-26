@@ -368,6 +368,8 @@ SRC = {
                         'https://ilaging.illinois.gov/programs/adult-protective-services-aps-.html'),
     "idoa_engage": ('Illinois Department on Aging — Engage2Change (what happens after a report)',
                     'https://ilaging.illinois.gov/engage.html'),
+    "idoa_e2c_ombudsman": ('Illinois Department on Aging — Adult Protective Services and Ombudsman Program (#Engage2Change brochure, printed 1/21)',
+                           'https://ilaging.illinois.gov/content/dam/soi/en/web/aging/resources/newsandpublications/publications/documents/engage2change-ombudsman.pdf'),
     "idoa_benefit_access": ('Illinois Department on Aging — Benefit Access Program',
                             'https://ilaging.illinois.gov/benefitsaccess.html'),
     "idoa_benefit_access_faq": ('Illinois Department on Aging — Benefit Access, Eligibility and Frequently Asked Questions',
@@ -4078,12 +4080,16 @@ GUIDES = [
                    "&ldquo;investigates reports of abuse, neglect, exploitation, "
                    "and self-neglect of adults age 60 or older, and adults age "
                    "18-59 with disabilities living in the community.&rdquo; That "
-                   "last phrase matters: APS is for someone living at home or in "
-                   "the community, not in a nursing home or assisted living "
-                   "facility &mdash; a suspected problem there goes to the Long-"
-                   "Term Care Ombudsman or the Illinois Department of Public "
-                   "Health instead."),
-        "sources": srcs("idoa_aps_program", "idoa_aps_definitions", "idoa_engage"),
+                   "last phrase matters: a problem with the care inside a nursing home "
+                   "or assisted living facility goes to the Long-Term Care "
+                   "Ombudsman or the Illinois Department of Public Health "
+                   "instead. The exception, in the Department on Aging&rsquo;s "
+                   "words: if a facility resident is abused outside the "
+                   "facility, or financially exploited, by a family member, "
+                   "caregiver or another person with a relationship to them, "
+                   "&ldquo;the APS Program may respond.&rdquo;"),
+        "sources": srcs("idoa_aps_program", "idoa_aps_definitions", "idoa_engage",
+                        "idoa_e2c_ombudsman"),
         "body": [
             ("Two different hotlines, and this guide is about one of them", [
                 "<p>Illinois splits elder-safety reporting the same way it "
@@ -4096,8 +4102,8 @@ GUIDES = [
                 "of abuse, neglect, exploitation, and self-neglect of adults "
                 "age 60 or older, and adults age 18-59 with disabilities "
                 "living in the community.&rdquo;</p>",
-                "<p>A concern about a nursing home or assisted living "
-                "community is a different problem with a different number "
+                "<p>A concern about the care a nursing home or assisted living "
+                "community gives is a different problem with a different number "
                 "&mdash; the Long-Term Care Ombudsman Program or the Illinois "
                 "Department of Public Health's Central Complaint Registry, "
                 "both covered in "
@@ -4130,7 +4136,12 @@ GUIDES = [
                 "family worried that a parent living alone is no longer "
                 "managing &mdash; not eating, not taking medication, not "
                 "keeping the home safe &mdash; does not need a suspect to "
-                "call; self-neglect on its own is a reportable concern.</p>",
+                "call; self-neglect on its own is a reportable concern. The "
+                "Engage page also lists the older adult&rsquo;s own rights, "
+                "among them to &ldquo;Choose where and how they will live&rdquo; "
+                "and to &ldquo;Choose whether to accept social services or other "
+                "community assistance&rdquo;, so a report starts a conversation "
+                "with your parent, not a decision made for them.</p>",
             ]),
             ("How to report, and what the state says happens next", [
                 "<p>The hotline is <strong>1-866-800-1409</strong>, which the department&rsquo;s APS page calls &ldquo;the statewide, 24-hour Adult Protective Services Hotline&rdquo;; for deaf and speech-impaired callers, the same page says to dial Illinois Relay at <strong>711</strong>. The department's Engage page, aimed "
@@ -4153,12 +4164,15 @@ GUIDES = [
                 "<p>The department's own pages do not give a specific response "
                 "time &mdash; only that it varies with how serious the "
                 "caseworker judges the situation to be, so this guide will not "
-                "invent a number of hours or days. Nor do the pages this guide "
-                "read state who, by law, is required to report &mdash; a "
-                "<strong>mandated reporter</strong> page exists and is linked "
-                "from the department's site, but this guide did not fetch it, "
-                "so it will not describe mandated-reporter rules on the "
-                "strength of a link alone. And while the Engage page mentions, "
+                "invent a number of hours or days. On who must report, the Engage "
+                "page says Illinois law requires certain professionals to report "
+                "suspected abuse of adults age 60 or older, or people with "
+                "disabilities age 18-59 who are unable, due to dysfunction, to "
+                "report for themselves: people delivering professional services "
+                "to them in social services, adult care, law enforcement, "
+                "education, medicine, state service to seniors and social work. "
+                "A family member does not have to be sure: the same page says "
+                "&ldquo;Report it, even if you are not sure.&rdquo; And while the Engage page mentions, "
                 "in a single success story, that APS worked with a State&rsquo;s Attorney in one case, nothing on the pages read states a general "
                 "rule for when or whether law enforcement gets involved "
                 "&mdash; that single anecdote is not a stated procedure, and "
