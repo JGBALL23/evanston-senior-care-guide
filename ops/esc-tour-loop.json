@@ -170,6 +170,25 @@
    "found_utc": "2026-11-26T01:19Z",
    "not_before_utc": "2026-11-27T01:30Z",
    "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in the Assisted Living and Shared Housing Act (210 ILCS 9/90, already a SRC on main as ilcs_al_90) and 77 Ill. Adm. Code 295 on ilga.gov, an approved host per check-guides.js. ilga.gov could not be read this session: curl through the proxy fails TLS (000) and WebFetch returns 503. Searched illinois.gov (IDPH, IDoA, HFS): the IDPH ITR form covers terminations only; the IDoA residents' rights brochure says a contract must state services and costs but is not scoped to assisted living and says nothing on rate-change notice; HFS Part 146 is supportive living. No guide written: the core rule cannot be read off a fetched page. Retry by WebFetch of ilga.gov after not_before."
+  },
+  {
+   "id": "ACQ-141",
+   "task": "Accuracy audit of the live guide illinois-home-caregiver-background-check under the review rules (scope rule included), packet at ops/reviews/live/illinois-home-caregiver-background-check.md; corrections into the rolling accuracy PR #89",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:illinois-home-caregiver-background-check",
+   "priority": 2,
+   "evidence": "Make Search Console read 25 Nov 20:35Z: 3 impressions, pos 97.7; no packet in ops/reviews/live/ (next by exposure among unaudited live guides, checked 26 Nov)",
+   "expected_tour_acquisition_value": "correct rules on pages families find in search keep trust at the decision stage",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet ops/reviews/live/illinois-home-caregiver-background-check.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
+   "score": 6.0,
+   "status": "ready",
+   "found_utc": "2026-11-26T01:52Z"
   }
  ],
  "completed": [
@@ -5054,9 +5073,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSf2v59RahpHN2G6JvZ",
-   "utc": "2026-11-26T01:51Z",
+   "utc": "2026-11-26T01:52Z",
    "since_utc": "2026-11-26T01:36Z",
-   "productive_min": 17,
+   "productive_min": 18,
    "deliverables": [
     "audit:ops/reviews/live/illinois-supportive-living-program.md; #89 b95d5b2",
     "correction:ops/reviews/live/illinois-fide-snp-explained.md; #89 004938c",
@@ -6125,6 +6144,26 @@
    "exhausted_until_utc": "",
    "empty_streak": 0,
    "log": [
+    {
+     "utc": "2026-11-26T01:52Z",
+     "run": "cse_014eaiSf2v59RahpHN2G6JvZ",
+     "key": "quality-audit-live-background-check",
+     "avenue": "quality",
+     "lane": null,
+     "candidates": 1,
+     "added": 1,
+     "result": "Last unaudited live guide with impressions in the 25 Nov Make read (illinois-home-caregiver-background-check, 3, pos 97.7), left over from quality-audit-live-meals-ombudsman; queued now that time allows. Remaining unaudited live guides have no impressions."
+    },
+    {
+     "utc": "2026-11-26T01:51Z",
+     "run": "cse_014eaiSf2v59RahpHN2G6JvZ",
+     "key": "needs-cook-county-senior-exemption-after-move",
+     "avenue": "needs",
+     "lane": null,
+     "candidates": 1,
+     "added": 0,
+     "result": "Question: does a parent keep the Cook County senior/homestead exemption on the house after moving to assisted living or a nursing home (26 Nov). Official answers exist (35 ILCS 200/15-170 continuation for Nursing Home Care Act and Assisted Living and Shared Housing Act residents; Cook County Assessor senior exemption …"
+    },
     {
      "utc": "2026-11-26T01:47Z",
      "run": "cse_014eaiSf2v59RahpHN2G6JvZ",
