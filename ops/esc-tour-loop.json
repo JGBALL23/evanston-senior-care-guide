@@ -4650,10 +4650,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-26T01:55Z",
-  "event": "Make controller: completion of cse_014eaiSf2v59RahpHN2G6JvZ",
-  "picked": "ACQ-142 done",
-  "why": "Worked: SC3 scout (own numbers) ran, 0 new map items; stopped: no-worthwhile-work; resume: package cut 05:00Z"
+  "utc": "2026-11-26T06:47Z",
+  "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
+  "picked": "ACQ-143 done, ACQ-144 done, ACQ-145 done, ACQ-146 done, ACQ-147 done (reopened), ACQ-148 done, ACQ-149 done",
+  "why": "Worked: package #91 re-cut for 26 Nov (10 guides, 17 live-guide corrections, #92), 2 verified additions to top search pages; stopped: no-worthwhile-work; resume: monitor 12:26Z, sweeps 12:32Z"
  },
  "last_verified_action": "ACQ-149 done 2026-11-26T06:46Z: Independent reader (fresh-context agent in cse_014eaiSe8SBqppdHD1M3fw41) checked c964f99: 'No one will be asked to leave the property.' now sits only with HFS'…",
  "last_stop": {
@@ -5321,24 +5321,60 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiSe8SBqppdHD1M3fw41",
-   "utc": "2026-11-26T06:45Z",
-   "since_utc": "2026-11-26T06:24Z",
-   "productive_min": 21,
-   "deliverables": [
-    "publish_pr:PR #91 at 4d047b4; batch #90 at 40e9da0",
-    "correction:claude/accuracy-20261125 6876bfd (PR #89)",
-    "verification:claude/accuracy-20261125 6876bfd; ops/reviews/live/does-medicare-pay-for-senior-care.md",
-    "correction:claude/accuracy-20261125 64feb14 (PR #89)",
-    "verification:ops/reviews/live/illinois-medicaid-estate-recovery.md reader check of 64feb14",
-    "correction:claude/accuracy-20261125 c964f99 (PR #89)",
-    "verification:claude/accuracy-20261125 c964f99; ops/reviews/live/illinois-medicaid-estate-recovery.md"
-   ]
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-26T00:26Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSe8SBqppdHD1M3fw41",
+    "start_utc": "2026-11-26T06:24Z",
+    "end_utc": "2026-11-26T06:47Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: package #91 re-cut for 26 Nov (10 guides, 17 live-guide corrections, #92), 2 verified additions to top search pages; stopped: no-worthwhile-work; resume: monitor 12:26Z, sweeps 12:32Z",
+    "done": 7,
+    "changed": 12,
+    "tasks": "ACQ-143 done, ACQ-144 done, ACQ-145 done, ACQ-146 done, ACQ-147 done (reopened), ACQ-148 done, ACQ-149 done",
+    "next": "no",
+    "wake_minutes": 309,
+    "next_due_utc": "2026-11-26T12:26Z",
+    "plan_due": false,
+    "saturated": [
+     "search",
+     "conversion"
+    ],
+    "budget_used_hours_24h": 2.7,
+    "budget_used_hours_7d": 5.0,
+    "productive_min": 21,
+    "deliverables": [
+     "publish_pr:PR #91 at 4d047b4; batch #90 at 40e9da0",
+     "correction:claude/accuracy-20261125 6876bfd (PR #89)",
+     "verification:claude/accuracy-20261125 6876bfd; ops/reviews/live/does-medicare-pay-for-senior-care.md",
+     "correction:claude/accuracy-20261125 64feb14 (PR #89)",
+     "verification:ops/reviews/live/illinois-medicaid-estate-recovery.md reader check of 64feb14",
+     "correction:claude/accuracy-20261125 c964f99 (PR #89)",
+     "verification:claude/accuracy-20261125 c964f99; ops/reviews/live/illinois-medicaid-estate-recovery.md"
+    ],
+    "stop_reason": "no-worthwhile-work",
+    "considered": "package: cut and re-cut (#91 at a176f70); plan demand +0 (Search Console queries all covered; respite stays lack dated family questions), technical +0 (36 live URLs 200, links and suites clean), partnerships +0 (no unhandled ACT); sweeps site-health and demand-questions +0; follow-ups: reader-recommended additions on does-medicare-pay-for-senior-care and illinois-medicaid-estate-recovery applied and verified on #89; skipped: search and conversion lanes waiting on Joseph (#81, #85, #92; #78-#86); backlog discovery resting until 13:53Z; draft-review, live-accuracy, asset-gaps, publish-ready angles cooling until 12:32-12:50Z; build ACQ-118 waits for ilga.gov (27 Nov 01:30Z); step 8: no reply, …",
+    "resume_when": "monitor due 12:26Z and sweep angles from 12:32Z; or a merge of #91",
+    "sweep_due_left": [],
+    "sessions_24h": 6,
+    "handoff": null,
+    "package": {
+     "due_at_close": false,
+     "skipped": null,
+     "done_today": true
+    },
+    "backlog_discovery": {
+     "explorations": 0,
+     "avenue_classes": [],
+     "tasks_added": 0,
+     "concluded": null
+    }
+   },
    {
     "run": "cse_014eaiScJj1AYsLEn22C16dY",
     "start_utc": "2026-11-26T01:54Z",
@@ -5992,25 +6028,9 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-26T01:55Z",
+   "written_utc": "2026-11-26T06:47Z",
    "eligible_now": 0,
    "next_due": [
-    {
-     "utc": "2026-11-26T05:00Z",
-     "what": "daily package cut"
-    },
-    {
-     "utc": "2026-11-26T06:28Z",
-     "what": "planner cooldown ends"
-    },
-    {
-     "utc": "2026-11-26T06:28Z",
-     "what": "sweep angle site-health"
-    },
-    {
-     "utc": "2026-11-26T06:37Z",
-     "what": "sweep angle demand-questions"
-    },
     {
      "utc": "2026-11-26T12:26Z",
      "what": "monitor"
@@ -6018,6 +6038,22 @@
     {
      "utc": "2026-11-26T12:32Z",
      "what": "sweep angle draft-review"
+    },
+    {
+     "utc": "2026-11-26T12:41Z",
+     "what": "sweep angle live-accuracy"
+    },
+    {
+     "utc": "2026-11-26T12:50Z",
+     "what": "sweep angle asset-gaps"
+    },
+    {
+     "utc": "2026-11-26T12:50Z",
+     "what": "sweep angle publish-ready"
+    },
+    {
+     "utc": "2026-11-26T12:59Z",
+     "what": "planner cooldown ends"
     }
    ]
   },
@@ -6051,7 +6087,7 @@
    "note": "Cut twice on 25 Nov by the supervising chat; re-cut 26 Nov 06:31Z by the ESCG worker (cse_014eaiSe8SBqppdHD1M3fw41): #90 now 10 guides (40e9da0), #92 added; #89 through c964f99 by 06:47Z (6876bfd, 64feb14, c964f99 verified by independent readers in the same session).",
    "owner_actions": []
   },
-  "next_discovery": "Daily package cut due 05:00Z (#89 now holds verified corrections through ab43cab: SLP, FIDE SNP, ombudsman added today). Sweeps site-health and demand-questions 06:28-06:37Z, live-accuracy 12:41Z (remaining unaudited live guides have no impressions). Waiting on Joseph: search and conversion lanes (#81, #85, #92; #86, #84, #80, #79, #78) and package #91."
+  "next_discovery": "Next due: monitor 12:26Z, sweep angles draft-review, live-accuracy, asset-gaps, publish-ready from 12:32Z, backlog discovery 13:53Z, cut of the 27 Nov package from 05:00Z. Waiting on Joseph: merge of package #91 (10 guides, 17 live-guide corrections, #92, #86 and #84/#79 flagged), decision A (publish after merge)."
  },
  "planner": {
   "version": "4.3.3",
