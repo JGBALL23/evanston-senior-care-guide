@@ -170,6 +170,21 @@
    "found_utc": "2026-11-26T01:19Z",
    "not_before_utc": "2026-11-27T01:30Z",
    "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in the Assisted Living and Shared Housing Act (210 ILCS 9/90, already a SRC on main as ilcs_al_90) and 77 Ill. Adm. Code 295 on ilga.gov, an approved host per check-guides.js. ilga.gov could not be read this session: curl through the proxy fails TLS (000) and WebFetch returns 503. Searched illinois.gov (IDPH, IDoA, HFS): the IDPH ITR form covers terminations only; the IDoA residents' rights brochure says a contract must state services and costs but is not scoped to assisted living and says nothing on rate-change notice; HFS Part 146 is supportive living. No guide written: the core rule cannot be read off a fetched page. Retry by WebFetch of ilga.gov after not_before."
+  },
+  {
+   "id": "ACQ-143",
+   "task": "Cut the daily package",
+   "workstream": "publish",
+   "lane": "publish",
+   "source": "followup",
+   "key": "package:20261126",
+   "priority": 1,
+   "evidence": "daily package rule",
+   "expected_tour_acquisition_value": "one approval a day puts finished work in front of families",
+   "executor": "worker (research and preparation only)",
+   "done_when": "controller/package and owner_review_needed rewritten; the pull request opened, updated or not needed",
+   "status": "ready",
+   "found_utc": "2026-11-26T06:24Z"
   }
  ],
  "completed": [
