@@ -6,18 +6,29 @@ the task runs the Netlify connector's command between `check` and `verify`.
 
   check    is there a commit on main that Joseph merged and that is not live?
            If so: every new commit is a pull request merged by him, the build
-           reproduces _dist, the test suites pass, and the folder to deploy is
-           prepared. Prints a JSON plan with "action": none | record | publish | hold.
+           reproduces _dist, every test suite runs and passes, and the folder to
+           deploy is prepared. Prints a JSON plan with "action": none | record |
+           publish | hold | error (error: no verdict, the next run looks again).
+           --retry looks again at a commit the task has given up on (by hand).
   verify   compare the live site with the commit in the plan, page by page.
   record   write ops/live.json on branch ops/operator-state (what is live now).
-  hold     record a commit that was not published and why (so it is reported once).
+  hold     record a commit that was not published and why (so it is reported once);
+           --kind check | deploy | refused | mismatch (see below).
   selftest run check against the previous merge (as if the newest one were not
            live yet) and verify against the live site; changes nothing.
   status   the cheap hourly look: is main what is live, is a selftest waiting?
 
 Rules it enforces: only main; only commits that are pull requests merged by
 OWNER (or a commit that touches nothing that is published); never anything on a
-failed build or test.
+failed build or test, and never when a test suite could not run (Joseph, 26 Nov
+2026: "My merge is my explicit approval to deploy that exact approved version to
+production, provided all required checks pass.").
+
+A commit that was not published is recorded once under "held" in ops/live.json
+with a kind: check (the check itself said no; looked at again every run), deploy
+(the upload failed; tried again on the next runs, three times at most), refused
+(the platform would not let the session publish; never tried again by the task)
+or mismatch (published, but the live site differs; never tried again by the task).
 """
 import argparse
 import datetime as dt
@@ -138,18 +149,29 @@ def site_clone(head):
     return d
 
 
+class TryAgain(Exception):
+    """Something outside the commit failed (GitHub or the network): no verdict, the next run looks again."""
+
+
 def merged_by_owner(sha):
     """The pull request whose merge put this commit on main, if OWNER merged it."""
     try:
         prs = api("repos/%s/commits/%s/pulls" % (REPO, sha))
+    except urllib.error.HTTPError as e:
+        if e.code in (404, 422):  # GitHub answered: it has no such commit in this repository
+            return None, "GitHub does not know commit %s (HTTP %s)" % (sha[:7], e.code)
+        raise TryAgain("could not ask GitHub who merged %s: HTTP %s" % (sha[:7], e.code))
     except Exception as e:  # network or rate limit: never guess
-        return None, "could not ask GitHub about %s: %s" % (sha[:7], e)
+        raise TryAgain("could not ask GitHub who merged %s: %s" % (sha[:7], str(e)[:200]))
     for pr in prs:
         if not pr.get("merged_at") or (pr.get("base") or {}).get("ref") != "main":
             continue
         if pr.get("merge_commit_sha") != sha:
             continue
-        full = api("repos/%s/pulls/%s" % (REPO, pr["number"]))
+        try:
+            full = api("repos/%s/pulls/%s" % (REPO, pr["number"]))
+        except Exception as e:
+            raise TryAgain("could not ask GitHub who merged pull request #%s: %s" % (pr["number"], str(e)[:200]))
         who = (full.get("merged_by") or {}).get("login")
         if full.get("merged") and who == OWNER:
             return {"sha": sha, "pr": pr["number"], "merged_by": who, "merged_at": full.get("merged_at"),
@@ -267,10 +289,10 @@ def suites(site_dir):
         last = [l for l in o.strip().splitlines() if l.strip()][-1:] or [""]
         cannot_start = rc != 0 and re.search(
             r"Cannot find module|Cannot find package|Executable doesn't exist|browserType\.launch|ModuleNotFoundError|ERR_MODULE_NOT_FOUND", o)
-        state = "pass" if rc == 0 else ("not run here" if cannot_start else "FAIL")
+        state = "pass" if rc == 0 else ("could not run here" if cannot_start else "FAIL")
         res.append({"suite": " ".join(os.path.basename(x) if x == sys.executable else x for x in c),
                     "ok": rc == 0, "state": state, "last": last[0][:200]})
-        if state == "FAIL":
+        if rc != 0:  # a suite that could not run is not a suite that passed
             ok = False
     core = [r for r in res if r["suite"] in ("node test.js", "node check-guides.js")]
     if len(core) != 2 or not all(r["ok"] for r in core):
@@ -325,9 +347,10 @@ def build_plan(live_sha, head, record_holds=True):
     ok, res = suites(site)
     plan["suites"] = res
     if not ok:
-        bad = [r for r in res if not r["ok"] and r.get("state") != "not run here"]
+        bad = [r for r in res if not r["ok"]]
         plan.update(action="hold", reason="not published: %s" % "; ".join(
-            "%s: %s" % (r["suite"], (r["last"] if isinstance(r["last"], str) else " ".join(r["last"]))[:140]) for r in bad[:3]))
+            "%s%s: %s" % (r["suite"], " could not run in this session" if r.get("state") == "could not run here" else " failed",
+                          (r["last"] if isinstance(r["last"], str) else " ".join(r["last"]))[:140]) for r in bad[:3]))
         return plan
     dep = os.path.join(WORK, "deploy")
     shutil.rmtree(dep, ignore_errors=True)
@@ -342,18 +365,70 @@ def build_plan(live_sha, head, record_holds=True):
     return plan
 
 
+def serves_already(live_sha, head):
+    """Cheap look for a commit the task has given up on: did someone publish it by hand since?
+    True only when every published file that changed is served as main has it and no function or
+    settings file changed (those cannot be seen from outside)."""
+    try:
+        site = site_clone(head)
+        rc, o = run(["git", "diff", "--name-only", live_sha, head, "--"] + PUBLISHED, cwd=site)
+        paths = [l for l in o.split("\n") if l.strip()]
+        if rc != 0 or not paths or any(p.startswith("netlify") or p in NOT_SERVED for p in paths):
+            return False
+        pages = [p for p in paths if p.startswith("_dist/")][:MAX_PAGES]
+        ok, rows = compare(site, pages)
+        return bool(ok and rows)
+    except Exception:
+        return False
+
+
+NO_RETRY = ("refused", "mismatch")
+DEPLOY_TRIES = 3
+ERRORS_BEFORE_HOLD = 3
+
+
+def given_up(held, head):
+    """A held commit the task does not try again by itself (someone has to look)."""
+    if held.get("main") != head:
+        return False
+    return held.get("kind") in NO_RETRY or (held.get("kind") == "deploy" and int(held.get("tries") or 1) >= DEPLOY_TRIES)
+
+
 def cmd_check(a):
     head = main_head()
     live = read_live()
     live_sha = a.live or live.get("main")
+    os.makedirs(WORK, exist_ok=True)
     if not live_sha:
         out({"action": "hold", "main": head, "reason": "ops/live.json does not say which commit is live"}, 2)
     if head == live_sha:
         out({"action": "none", "main": head, "reason": "main is live"})
     held = live.get("held") or {}
-    plan = build_plan(live_sha, head)
-    plan["already_reported"] = bool(plan["action"] == "hold" and held.get("main") == head)
-    os.makedirs(WORK, exist_ok=True)
+    reported = held.get("main") == head
+    if given_up(held, head) and not a.retry and not serves_already(live_sha, head):
+        plan = {"action": "hold", "main": head, "live": live_sha, "already_reported": True, "no_retry": True,
+                "kind": held.get("kind"), "reason": held.get("reason")}
+        json.dump(plan, open(os.path.join(WORK, "plan.json"), "w"), indent=1)
+        out(plan)
+    try:
+        plan = build_plan(live_sha, head)
+    except TryAgain as e:
+        # no verdict this time. Counted, so that a check that never completes is reported once instead of
+        # leaving a merge unpublished in silence.
+        err = live.get("errors") or {}
+        n = (int(err.get("count") or 0) + 1) if err.get("main") == head else 1
+
+        def change(lv):
+            lv["errors"] = {"main": head, "count": n, "last": str(e)[:300], "utc": now()}
+        if not (reported and n > ERRORS_BEFORE_HOLD):  # once it is reported, stop writing every hour
+            write_live(change, "Publish check could not finish for main %s (%d)" % (head[:7], n))
+        if n < ERRORS_BEFORE_HOLD:
+            out({"action": "error", "error": str(e)[:600], "runs_without_a_verdict": n}, 3)
+        plan = {"action": "hold", "main": head, "live": live_sha,
+                "reason": "the check could not be completed in %d runs: %s" % (n, str(e)[:200])}
+    plan["already_reported"] = reported
+    if reported:
+        plan["held_kind"] = held.get("kind")
     json.dump(plan, open(os.path.join(WORK, "plan.json"), "w"), indent=1)
     out(plan)
 
@@ -389,17 +464,27 @@ def cmd_record(a):
                      "merges": [{"pr": m["pr"], "merged_at": m["merged_at"]} for m in plan.get("merges", [])],
                      "pages_checked": (ver or {}).get("pages"), "history": hist[:20]})
         live.pop("held", None)
+        live.pop("errors", None)
     sha = write_live(change, "Live: main %s (%s)" % (plan["main"][:7], a.deploy_id or plan["action"]))
     out({"recorded": True, "commit": sha, "main": plan["main"]})
 
 
 def cmd_hold(a):
     plan = json.load(open(os.path.join(WORK, "plan.json")))
+    res = {}
 
     def change(live):
-        live["held"] = {"main": plan["main"], "reason": a.reason or plan.get("reason"), "utc": now(), "by": a.by}
+        old = live.get("held") or {}
+        same = old.get("main") == plan["main"]
+        tries = (int(old.get("tries") or 1) + 1) if (same and old.get("kind") == a.kind == "deploy") else 1
+        live["held"] = {"main": plan["main"], "kind": a.kind, "reason": a.reason or plan.get("reason"),
+                        "first_utc": (old.get("first_utc") or old.get("utc") or now()) if same else now(),
+                        "utc": now(), "tries": tries, "by": a.by}
+        res.update(kind=a.kind, tries=tries,
+                   tried_again_by_the_task=not given_up(live["held"], plan["main"]))
     sha = write_live(change, "Not published: main %s (%s)" % (plan["main"][:7], (a.reason or plan.get("reason") or "")[:60]))
-    out({"held": True, "commit": sha})
+    res.update(held=True, commit=sha)
+    out(res)
 
 
 def cmd_status(a):
@@ -407,9 +492,14 @@ def cmd_status(a):
     head = main_head()
     live = read_live()
     st = live.get("selftest") or {}
-    out({"main": head, "live": live.get("main"), "same": head == live.get("main"),
-         "selftest_requested": bool(st.get("requested_utc") and not st.get("done_utc")),
-         "held_and_reported": (live.get("held") or {}).get("main") == head})
+    held = live.get("held") or {}
+    res = {"main": head, "live": live.get("main"), "same": head == live.get("main"),
+           "selftest_requested": bool(st.get("requested_utc") and not st.get("done_utc")),
+           "held_and_reported": held.get("main") == head}
+    if res["held_and_reported"]:
+        res["held"] = {k: held.get(k) for k in ("kind", "tries", "reason", "utc")}
+        res["given_up"] = given_up(held, head)
+    out(res)
 
 
 def cmd_selftest_record(a):
@@ -436,7 +526,10 @@ def cmd_selftest(a):
     global compare
     real_compare = compare
     compare = lambda *x, **k: (False, [])  # pretend the site still serves the previous commit
-    plan = build_plan(prev, head)
+    try:
+        plan = build_plan(prev, head)
+    except Exception as e:  # recorded like any other result: the selftest exists to show what does not work
+        plan = {"action": "error", "reason": str(e)[:400]}
     compare = real_compare
     ok, rows = real_compare(site, plan.get("check_paths", ["_dist/index.html", "_dist/sitemap.xml"]))
     res = {"selftest": True, "utc": now(), "main": head, "pretended_live": prev, "action": plan["action"],
@@ -453,10 +546,10 @@ if __name__ == "__main__":
     BY = ("ESCG publish after merge " + os.environ.get("CLAUDE_CODE_REMOTE_SESSION_ID", "")).strip()
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
-    s = sub.add_parser("check"); s.add_argument("--live"); s.set_defaults(f=cmd_check)
+    s = sub.add_parser("check"); s.add_argument("--live"); s.add_argument("--retry", action="store_true", help="look again at a commit the task has given up on (by hand)"); s.set_defaults(f=cmd_check)
     s = sub.add_parser("verify"); s.add_argument("--tries", type=int, default=12); s.set_defaults(f=cmd_verify)
     s = sub.add_parser("record"); s.add_argument("--deploy-id", default=""); s.add_argument("--by", default=BY); s.set_defaults(f=cmd_record)
-    s = sub.add_parser("hold"); s.add_argument("--reason", default=""); s.add_argument("--by", default=BY); s.set_defaults(f=cmd_hold)
+    s = sub.add_parser("hold"); s.add_argument("--reason", default=""); s.add_argument("--kind", default="check", choices=["check", "deploy", "refused", "mismatch"]); s.add_argument("--by", default=BY); s.set_defaults(f=cmd_hold)
     s = sub.add_parser("selftest"); s.set_defaults(f=cmd_selftest)
     s = sub.add_parser("status"); s.set_defaults(f=cmd_status)
     s = sub.add_parser("selftest-record"); s.add_argument("--netlify-tool", default=""); s.add_argument("--deploy-cli", default=""); s.add_argument("--by", default=BY); s.set_defaults(f=cmd_selftest_record)
