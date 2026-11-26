@@ -133,6 +133,10 @@ F["va_mapr_aa_single_month"] = "$%s" % format(
     int(F["va_mapr_aa_single"].lstrip("$").replace(",", "")) // 12, ",")
 
 SRC = {
+    "medicare_nh_choosing": ('Medicare.gov — Your Guide to Choosing a Nursing Home or Other '
+                             'Long-Term Services & Supports (publication 02174)',
+                             'https://www.medicare.gov/care-compare/en/assets/resources/'
+                             'nursing-home/02174-nursing-home-other-long-term-services.pdf'),
     "carescout": ('CareScout 2025 Cost of Care Survey, published 2026',
                   'https://assets.carescout.com/x/5c90319b6a/298701.pdf'),
     "mcosts": ('Medicare.gov — Medicare costs',
@@ -479,6 +483,20 @@ SRC = {
                'https://www.va.gov/geriatrics/pages/Homemaker_and_Home_Health_Aide_Care.asp'),
     "va_phcbs_notice": ('VA.gov — VHA Notice 2024-01, Purchased Home and Community-Based Services Programs',
                         'https://www.va.gov/vhapublications/ViewPublication.asp?pub_ID=11687'),
+    "idoi_ltc": ('Illinois Department of Insurance — Long-Term Care Insurance',
+                 'https://idoi.illinois.gov/consumers/consumerinsurance/lifeannuities/long-term-care.html'),
+    "idoi_complaints": ('Illinois Department of Insurance — Understanding the Consumer Complaint Process',
+                        'https://idoi.illinois.gov/consumers/understanding-complaint-process.html'),
+    "ship_ltc_shoppers_guide": ('NAIC, A Shopper\u2019s Guide to Long-Term Care Insurance (revised 2019), '
+                                'posted by the Illinois Department on Aging (SHIP)',
+                                'https://ilaging.illinois.gov/content/dam/soi/en/web/aging/ship/documents/'
+                                'shoppers-guide-ltc-insur.pdf'),
+    "ship_ltc": ('Illinois Department on Aging — SHIP, Long-Term Care Insurance',
+                 'https://ilaging.illinois.gov/ship/long-term-care-insurance.html'),
+    "hfs_slp": ('Illinois HFS — Supportive Living Program',
+                'https://hfs.illinois.gov/medicalprograms/slf.html'),
+    "idph_alz_plan": ('Illinois Department of Public Health \u2014 State of Illinois Alzheimer\u2019s Disease Plan 2026\u20132029',
+                      'https://dph.illinois.gov/content/dam/soi/en/web/idph/publications/idph/topics-and-services/diseases-and-conditions/alzheimers/alzheimers-state-plan-20262029.pdf'),
 }
 
 
@@ -6285,6 +6303,501 @@ GUIDES = [
             ]),
         ],
     },
+    {
+        "slug": "long-term-care-insurance-assisted-living-illinois",
+        "bridge": ("Whether a policy will pay is a separate question from which "
+                   "level of care your parent actually needs now."),
+        "reviewed": "2026-11-25",
+        "title": "Long-Term Care Insurance and Assisted Living in Illinois",
+        "h1": "My parent has long-term care insurance. Will it pay for assisted living?",
+        "desc": ("Benefit triggers, the elimination period, facility rules and "
+                 "what to do if a claim stalls, read off the Illinois Department "
+                 "of Insurance."),
+        "intent": "paying / insurance",
+        "answer": ("<strong>It can, if the policy covers assisted living, your "
+                   "parent meets its benefit triggers and the elimination period "
+                   "has run.</strong> The Illinois Department of Insurance lists "
+                   "&ldquo;care in an assisted living facility&rdquo; among "
+                   "long-term care services, and states that &ldquo;Long-term care "
+                   "insurance will pay for some or all of your long-term care.&rdquo; "
+                   "Whether it pays for your parent depends on the words of "
+                   "their own policy, so the first step is to find it and read "
+                   "three parts: who qualifies, where care is covered and when "
+                   "payments start."),
+        "sources": srcs("idoi_ltc", "ship_ltc_shoppers_guide", "idoi_complaints", "ship_ltc", "hfs_slp"),
+        "body": [
+            ("Start with the policy, not the sales brochure", [
+                "<p>The Department of Insurance tells policyholders to read the "
+                "policy and make certain they understand it, and adds: &ldquo;If "
+                "you have questions about your insurance policy, contact your "
+                "insurance agent for clarification. If you still have questions, "
+                "turn to your state insurance department or insurance counseling "
+                "program.&rdquo; It also states that &ldquo;Medicare, Medicare "
+                "supplement insurance and health insurance you may have at work "
+                "usually will not pay for long-term care,&rdquo; so a long-term "
+                "care policy is a separate document from your parent&rsquo;s "
+                "Medicare card or supplement.</p>",
+                "<p>The rest of this guide draws on the National Association of "
+                "Insurance Commissioners&rsquo; <em>Shopper&rsquo;s Guide to "
+                "Long-Term Care Insurance</em> (revised 2019), which the Illinois "
+                "Department on Aging posts on its SHIP pages. It describes how "
+                "policies are commonly written, not what your parent&rsquo;s "
+                "policy says. Where the two differ, the policy decides.</p>",
+            ]),
+            ("Does the policy cover assisted living at all?", [
+                "<p>Policies differ on where care is covered. The Shopper&rsquo;s "
+                "Guide warns: &ldquo;If you&rsquo;re not in the right type of "
+                "facility (described in your policy), the insurance company can "
+                "refuse to pay for your care.&rdquo; Some policies pay in any "
+                "state-licensed facility, some only in certain ones, and some list "
+                "facilities they exclude. It adds that &ldquo;many states, "
+                "companies and policies define assisted living facilities "
+                "differently,&rdquo; and that if a policy lists kinds of facilities "
+                "you should check whether it requires the facility to have a "
+                "license or certification from a government agency.</p>",
+                "<p>Before a move, ask the insurer in writing whether the "
+                "community you are considering meets the policy&rsquo;s "
+                "definition, and ask the community for its Illinois licence "
+                "details to send with the question. The guide advises checking "
+                "with the insurance company before making plans for care.</p>",
+            ]),
+            ("Does your parent meet the benefit triggers?", [
+                "<p>&ldquo;Benefit triggers&rdquo; are how the insurer decides "
+                "your parent is eligible. The guide says to look for the section "
+                "the policy calls &ldquo;Eligibility for the Payment of "
+                "Benefits&rdquo; or &ldquo;Eligibility for Benefits.&rdquo; It "
+                "describes three kinds:</p>",
+                "<ul class=\"res__list\">"
+                "<li><strong>Help with daily activities.</strong> The most common "
+                "test, the guide says, is that &ldquo;you are expected to be unable "
+                "to do two ADLs without human assistance for 90 days. Most "
+                "policies use six ADLs: bathing; continence; dressing; eating; "
+                "toileting; and transferring.&rdquo; Some policies require "
+                "hands-on help with the activity; others count stand-by help from "
+                "someone nearby. Which one your parent&rsquo;s policy uses "
+                "matters when you describe their needs.</li>"
+                "<li><strong>Cognitive impairment.</strong> &ldquo;Coverage of "
+                "cognitive impairment is especially important if you develop "
+                "Alzheimer&rsquo;s disease or other dementia.&rdquo;</li>"
+                "<li><strong>A doctor&rsquo;s certification.</strong> Some "
+                "policies require a doctor to order or certify that care is "
+                "medically necessary; the guide notes that tax-qualified policies "
+                "cannot use this trigger.</li></ul>",
+                "<p>Keep copies of the doctor&rsquo;s notes, any assessment a "
+                "community has done and a plain record of the help your parent "
+                "needs each day: they are the evidence you can offer against "
+                "whichever test the policy uses.</p>",
+            ]),
+            ("When payments start: the elimination period", [
+                "<p>Many policies do not pay from the first day. The Shopper&rsquo;s "
+                "Guide states that the elimination period &ldquo;can be 20, 30, 60, "
+                "90 or 100 days before benefits begin,&rdquo; and that &ldquo;you "
+                "must pay for your own care during the elimination period before "
+                "benefits can begin. Companies don&rsquo;t pay for care provided by "
+                "family members during or after the elimination period.&rdquo;</p>",
+                "<p>How the days are counted matters. Under a calendar-day method, "
+                "every day your parent meets the triggers counts, though the guide "
+                "notes that &ldquo;many coverages will not start counting those "
+                "days until you incur costs.&rdquo; Under the other method, "
+                "&ldquo;only the days that you pay for professional care services "
+                "covered by the policy count toward the elimination period.&rdquo; "
+                "Ask the insurer which method applies, whether days already spent "
+                "with paid help at home count, and, in the guide&rsquo;s words, "
+                "&ldquo;if the insurance company requires another elimination "
+                "period for a second stay.&rdquo;</p>",
+                "<p>Budget for the elimination period as a private-pay stretch. "
+                "<a href=\"/guides/assisted-living-cost-illinois/\">The assisted "
+                "living cost guide</a> gives the published monthly figures for "
+                "Illinois.</p>",
+            ]),
+            ("Two policy features to check on day one", [
+                "<ul class=\"res__list\">"
+                "<li><strong>Waiver of premium.</strong> &ldquo;Premium waiver "
+                "lets you stop paying the premium once you&rsquo;re eligible and "
+                "the insurance company starts to pay benefits.&rdquo; The guide "
+                "adds: &ldquo;Some companies waive the premium as soon as they make "
+                "the first benefit payment. Others wait until you&rsquo;ve received "
+                "benefits for 60 to 90 days.&rdquo; Keep paying until the insurer "
+                "confirms in writing that the premium is waived.</li>"
+                "<li><strong>Third-party notice.</strong> A policyholder can name "
+                "someone the insurer must contact before coverage ends for unpaid "
+                "premiums. The guide explains why: &ldquo;Without this notice, "
+                "people with cognitive impairments who forget to pay the premium "
+                "might lose their coverage when they need it the most.&rdquo; If "
+                "your parent has not named you, ask the insurer how to add a "
+                "contact.</li></ul>",
+            ]),
+            ("If the claim stalls or is refused", [
+                "<p>The Department of Insurance&rsquo;s complaint page sets out "
+                "the order. First: &ldquo;Contact the insurance company or agent "
+                "and bring the problem to their attention. Document your phone "
+                "calls by noting the name of the person you speak to, the date of "
+                "the call and a brief summary of the conversation. Keep copies of "
+                "all written communications.&rdquo;</p>",
+                "<p>If that does not resolve it, the Department handles complaints "
+                "that &ldquo;may include coverage issues, claim disputes, premiums, "
+                "policy cancellations, refunds, and sales "
+                "misrepresentations.&rdquo; Its Consumer Assistance line is "
+                "<strong>(866) 445-5364</strong>, but complaints must be made in "
+                "writing: online through the "
+                "<a href=\"https://idoihelpcenter.illinois.gov/s/\">IDOI Help "
+                "Center</a>, by email to DOI.complaints@illinois.gov, or by post. "
+                "The page states that &ldquo;Illinois law allows 21 days for an "
+                "insurer or agent to respond to a complaint.&rdquo;</p>",
+                "<p>Know its limits before you write. Among the things the page "
+                "says the Department cannot do are &ldquo;Make medical "
+                "judgments&rdquo; and &ldquo;Act as your lawyer or give you legal "
+                "advice.&rdquo; A dispute about whether the insurer followed the "
+                "policy is its business; a dispute about how impaired your parent "
+                "is may need the doctor&rsquo;s evidence, or a lawyer.</p>",
+            ]),
+            ("Where the policy fits in the bigger picture", [
+                "<p>A policy pays only up to the limits written in it, so it may "
+                "not settle the whole question of paying for care. If savings "
+                "may run out later, Medicaid does not simply pick up an assisted "
+                "living bill. One Illinois Medicaid route into this kind of "
+                "residence is the Supportive Living Program, which HFS describes "
+                "as &ldquo;an alternative to nursing home care for low-income older "
+                "persons and persons with physical disabilities under "
+                "Medicaid&rdquo;; there, HFS says, &ldquo;The resident is "
+                "responsible for paying the cost of room and board at the "
+                "facility.&rdquo; "
+                "<a href=\"/guides/illinois-supportive-living-program/\">The "
+                "Supportive Living Program guide</a> explains it, and "
+                "<a href=\"/guides/illinois-medicaid-long-term-care/\">the Illinois "
+                "Medicaid long-term care guide</a> covers nursing home care and "
+                "care at home. The Illinois Department on Aging&rsquo;s SHIP page on "
+                "long-term care insurance lists its Senior HelpLine, "
+                "<strong>1-800-252-8966</strong>.</p>",
+                "<p>If you are still working out whether assisted living is the "
+                "right level of care, the <a href=\"/\">free six-question "
+                "assessment</a> on the home page is a private place to start.</p>",
+            ]),
+        ],
+    },
+    {
+        "slug": "illinois-memory-care-assisted-living",
+        "bridge": ("Knowing what Illinois requires of a memory care setting is a "
+                   "different question from knowing whether your parent needs one yet."),
+        "reviewed": "2026-11-26",
+        "title": "Memory Care in Illinois Assisted Living: What the State Requires",
+        "h1": "What does Illinois require of memory care in an assisted living community?",
+        "desc": ("Who licenses memory care in Illinois assisted living, the dementia "
+                 "training staff must take, the program disclosure, and what to ask "
+                 "on a tour."),
+        "intent": "choosing a community",
+        "answer": ("<strong>Memory care in an Illinois assisted living community is "
+                   "licensed and surveyed by the state, not by Medicare.</strong> The "
+                   "Illinois Department of Public Health (IDPH) calls assisted living "
+                   "&ldquo;a state licensure program with no federal oversight&rdquo;. "
+                   "Its 2026&ndash;2029 Alzheimer&rsquo;s plan says staff serving people "
+                   "with dementia in an assisted living facility providing "
+                   "Alzheimer&rsquo;s or dementia services must take "
+                   "&ldquo;six hours of initial dementia training and three hours of "
+                   "annual dementia training thereafter&rdquo;, and that settings "
+                   "offering specialised dementia care must disclose information "
+                   "about their program to the agency that licenses them. Those are "
+                   "the facts you can check before a tour."),
+        "sources": srcs("idph_alz_plan", "idph_al_div"),
+        "body": [
+            ("Who licenses memory care in Illinois assisted living", [
+                "<p>IDPH&rsquo;s Division of Assisted Living is "
+                "&ldquo;responsible for all state licensure and survey processes for "
+                "Assisted Living and Shared Housing establishments.&rdquo; Every "
+                "establishment must send IDPH an annual renewal application with its "
+                "licence fee.</p>",
+                "<p>IDPH&rsquo;s Alzheimer&rsquo;s plan describes the same division as "
+                "conducting annual and complaint surveys, incident report "
+                "investigations and follow-up surveys, and adds why there is no "
+                "federal oversight: &ldquo;This is a state licensure program with no federal "
+                "oversight, as the residents in both assisted living and memory care "
+                "areas are private pay through an establishment contract.&rdquo;</p>",
+                "<p>The plan is also plain about the rules themselves: &ldquo;There are "
+                "basic dementia provisions in the regulations for ALFs&rdquo;. The "
+                "more detailed Special Care Unit regulations it names apply to "
+                "skilled nursing and intermediate care facilities, not to assisted "
+                "living. This guide does not summarise the assisted living dementia "
+                "provisions themselves, because their text is published outside the "
+                "state agency pages this library cites; IDPH&rsquo;s Assisted Living "
+                "page links to it under Laws &amp; Rules.</p>",
+            ]),
+            ("The training staff must have", [
+                "<p>According to IDPH&rsquo;s plan, staff serving people with "
+                "Alzheimer&rsquo;s disease or a related dementia in a skilled nursing "
+                "facility, assisted living facility, home health provider or hospice "
+                "program that provides Alzheimer&rsquo;s or dementia services are required "
+                "to take &ldquo;six hours of initial dementia training and three hours "
+                "of annual dementia training thereafter.&rdquo;</p>",
+                "<p>The person in charge of the dementia program has a higher bar: "
+                "&ldquo;Alzheimer&rsquo;s services supervisors in skilled nursing "
+                "facilities and assisted living facilities are required to take 12 "
+                "hours of annual dementia training&rdquo;. The plan adds that the "
+                "training topics are prescribed in statute and associated rules.</p>",
+            ]),
+            ("The program disclosure", [
+                "<p>IDPH&rsquo;s plan states that Illinois has an Alzheimer&rsquo;s "
+                "Disease and Related Dementias Special Care Disclosure Act that "
+                "&ldquo;requires licensed residential care settings that provide "
+                "specialized care to individuals with dementia to disclose information "
+                "about their program to the state agency responsible for licensing of "
+                "that setting&rdquo;. A licensed community that provides specialised "
+                "dementia care is, in other words, required to have disclosed "
+                "information about its program to the state.</p>",
+            ]),
+            ("Check the licence and the record before you visit", [
+                "<p>IDPH&rsquo;s Assisted Living page links to its list of licensed "
+                "Assisted Living and Shared Housing establishments "
+                "(<a href=\"https://llcs.dph.illinois.gov/s/?language=en_US\">IDPH "
+                "licensing search</a>). For how to read what the state has found at a "
+                "community, see "
+                '<a href="/guides/check-illinois-inspection-records/">How to check an '
+                "Illinois care community&rsquo;s inspection record</a>, and if "
+                "something goes wrong after a move, "
+                '<a href="/guides/illinois-care-facility-complaint/">How to report a '
+                "problem at an Illinois care facility</a>.</p>",
+            ]),
+            ("Questions to ask on a memory care tour", [
+                "<p>Each of these follows from a rule above, so a community should be "
+                "able to answer it plainly:</p>",
+                "<ul class=\"res__list\">"
+                "<li>Is this memory care area part of a licence from IDPH&rsquo;s "
+                "Division of Assisted Living, and under what name is it listed?</li>"
+                "<li>May we see the description of your dementia program that you "
+                "disclosed to the state?</li>"
+                "<li>How many hours of dementia training have the staff who would care "
+                "for my parent completed, and when was their last annual "
+                "training?</li>"
+                "<li>Who is your Alzheimer&rsquo;s services supervisor, and how is "
+                "their annual training kept up to date?</li>"
+                "<li>What does the establishment contract say my parent will pay, and "
+                "what changes the price?</li>"
+                "</ul>",
+            ]),
+            ("If private pay is not possible, and when to plan", [
+                "<p>Because assisted living memory care is private pay through an "
+                "establishment contract, one option for a family that cannot pay "
+                "privately is Illinois&rsquo; Supportive Living Program, which IDPH&rsquo;s "
+                "plan describes as an alternative to nursing home care for low-income "
+                "older people, paid through a Medicaid waiver obtained by the "
+                "Department of Healthcare and Family Services, with the resident still "
+                "paying room and board. IDPH&rsquo;s plan "
+                "says &ldquo;There are currently 20 SLP dementia care settings with "
+                "approximately 520 apartments.&rdquo; See "
+                '<a href="/guides/illinois-supportive-living-program/">Illinois '
+                "Supportive Living Program, explained</a> for how it works.</p>",
+                "<p>The same plan is candid that supply is short: &ldquo;the "
+                "availability of even costly assisted living facilities (ALFs) with "
+                "dementia care does not meet the demand.&rdquo; If memory care is "
+                "likely, it is worth visiting communities early.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>For how memory care differs from assisted living and skilled "
+                "nursing, see "
+                '<a href="/guides/levels-of-senior-care-explained/">Assisted living, '
+                "memory care, skilled nursing and rehabilitation &mdash; what is the "
+                "difference?</a>. If you are still working out which level of care "
+                'your parent actually needs, the free <a href="/">six-question '
+                "assessment</a> on this site walks through that question and shows "
+                "its reasoning. It asks for no name, no email and no phone number, "
+                "and your answers never leave your device.</p>",
+            ]),
+        ],
+    },
+    {
+        "slug": "hospital-discharge-not-safe-to-go-home",
+        "bridge": ("Getting through the discharge itself is a different question "
+                   "from knowing which level of care your parent needs once "
+                   "they leave the hospital."),
+        "reviewed": "2026-11-26",
+        "title": "Hospital Discharge When Your Parent Can't Safely Go Home",
+        "h1": "The hospital says my parent is ready to leave, but they can't safely go home. What now?",
+        "desc": ("What Medicare's own discharge materials tell a family to do when "
+                 "home is not safe: the planning team, rehab or a nursing home, "
+                 "and a fast appeal."),
+        "intent": "decision at hospital discharge",
+        "answer": ("<strong>Say so to the hospital staff before the discharge "
+                   "date, not on the day.</strong> Medicare&rsquo;s discharge "
+                   "planning checklist says the doctor and staff &ldquo;will work "
+                   "with you to plan for your discharge&rdquo; and that a family "
+                   "caregiver is one of the &ldquo;important members of the "
+                   "planning team.&rdquo; It tells a caregiver to make sure they can "
+                   "give the help needed and to talk to the staff about getting "
+                   "help before discharge. If the next step is a nursing home, "
+                   "Medicare&rsquo;s nursing home guide says the hospital&rsquo;s "
+                   "staff should be able to help find one and help with the "
+                   "transfer. If your parent has Medicare and you think the "
+                   "discharge is too soon, Medicare.gov describes a fast appeal "
+                   "that must be requested no later than the scheduled discharge "
+                   "day."),
+        "sources": srcs("medicare_discharge_checklist", "medicare_nh_choosing",
+                        "msnf", "medicare_fast_appeals"),
+        "body": [
+            ("You are part of the discharge planning team", [
+                "<p>Medicare&rsquo;s publication <em>Your discharge planning "
+                "checklist</em> is written for patients and their caregivers "
+                "preparing to leave a hospital, nursing home or other care "
+                "setting. It says: &ldquo;You and your caregiver (a family member "
+                "or friend who may be helping you) are important members of the "
+                "planning team.&rdquo; Its first instruction is to use the "
+                "checklist &ldquo;throughout your stay&rdquo;, and it names the "
+                "people to talk to: the doctor and staff &ldquo;like a discharge "
+                "planner, social worker, ombudsman, or nurse&rdquo;.</p>",
+                "<p>The checklist also says: &ldquo;Ask where you&rsquo;ll get "
+                "care after you&rsquo;re discharged. Do you have options (like "
+                "home health care)? Tell the staff what you prefer.&rdquo; If "
+                "home is not a safe option, that is the moment to say so, while "
+                "there is still time to arrange something else.</p>",
+            ]),
+            ("Tell the staff plainly what help is, and is not, there at home", [
+                "<p>The checklist asks the patient to circle the activities they "
+                "need help with and to &ldquo;discuss your concerns with the "
+                "staff&rdquo;: bathing, dressing, using the bathroom and climbing "
+                "stairs; cooking, food shopping, house cleaning and paying bills; "
+                "driving to doctors&rsquo; appointments and picking up "
+                "prescriptions.</p>",
+                "<p>It has a separate section for the family caregiver. It says: "
+                "&ldquo;Make sure you can give the person you&rsquo;re caring for "
+                "the help they need.&rdquo; It asks what tasks the caregiver "
+                "needs help with and whether they need education or training, "
+                "and it says to &ldquo;Talk to the staff about getting the help "
+                "you need before discharge.&rdquo; If you cannot provide the care "
+                "your parent will need at home, this checklist is the "
+                "hospital&rsquo;s own Medicare material telling you to raise it "
+                "with the staff before the discharge happens.</p>",
+                "<p>For questions about money, the checklist says to talk to a "
+                "social worker or your health plan &ldquo;if you have questions "
+                "about what your insurance will cover and how much you&rsquo;ll "
+                "have to pay.&rdquo;</p>",
+            ]),
+            ("If the next step is a nursing home or rehab", [
+                "<p>Medicare&rsquo;s <em>Your Guide to Choosing a Nursing Home or "
+                "Other Long-Term Services &amp; Supports</em> (revised October "
+                "2019) says: &ldquo;If you&rsquo;re in the hospital, ask your "
+                "social worker about discharge planning as early in your hospital "
+                "stay as possible. The hospital&rsquo;s staff should be able to "
+                "help you find a nursing home that meets your needs and help with "
+                "your transfer when you&rsquo;re ready to be discharged.&rdquo;</p>",
+                "<p>The same guide covers the case where the only nursing home "
+                "with a bed is one you do not want. The hospital discharge planner "
+                "or doctor &ldquo;may be able to help you find a more suitable "
+                "nursing home or arrange for other care, like short-term home "
+                "health care, until a bed is available at another nursing home "
+                "you choose.&rdquo; It adds a warning: &ldquo;But you may be "
+                "responsible for paying the bill for any additional days you stay "
+                "in the hospital.&rdquo;</p>",
+                "<p>To compare the quality of nursing homes, home health agencies "
+                "and inpatient rehabilitation facilities near you, the checklist "
+                "points to Medicare&rsquo;s Care Compare tool at "
+                "Medicare.gov/care-compare, or 1-800-MEDICARE "
+                "(1-800-633-4227; TTY 1-877-486-2048).</p>",
+            ]),
+            ("Whether Original Medicare will pay for a rehab stay in a nursing home", [
+                "<p>Medicare.gov&rsquo;s skilled nursing facility page says "
+                "Medicare will only cover care in a skilled nursing facility "
+                "(SNF) if your parent first has a qualifying inpatient hospital "
+                "stay: a medically necessary &ldquo;inpatient hospital stay of at "
+                "least 3 days in a row (starting the day you were admitted as an "
+                "inpatient, but not including the day you leave the "
+                "hospital).&rdquo; Time under observation or in the emergency "
+                "room before admission does not count, &ldquo;even if "
+                "you&rsquo;re there overnight.&rdquo; The page also requires that "
+                "a doctor or other health care provider has decided your parent "
+                "needs daily skilled care, given in a Medicare-certified SNF, "
+                "entered within a short time (generally 30 days) of leaving the "
+                "hospital. If the hospital has its own SNF, the page says: &ldquo;If "
+                "the hospital you&rsquo;re in has its own SNF, and a bed is "
+                "available, you may choose to stay there.&rdquo;</p>",
+                "<p>What Original Medicare&rsquo;s Part A charges for SNF care in "
+                "each benefit period in 2026, on the same page: days 1 to 20, &ldquo;You pay $0 each day "
+                "after you pay the $1,736&rdquo; deductible (none if it was already "
+                "paid for a hospital stay in the same benefit period); days 21 to "
+                "100, &ldquo;You pay $217 each day ($222 in 2027).&rdquo; From day "
+                "101, &ldquo;You pay all costs.&rdquo; The page adds: &ldquo;Part A "
+                "limits SNF coverage to 100 days in each benefit period.&rdquo; "
+                "So a parent who already used SNF days in the same benefit period "
+                "does not start again at day 1. In a Medicare Advantage "
+                "plan, the page says, &ldquo;you may be charged copayments during "
+                "the first 20 days.&rdquo;</p>",
+                "<p>The page names exceptions to the 3-day rule: a doctor in an "
+                "Accountable Care Organization approved for a &ldquo;Skilled "
+                "Nursing Facility 3-Day Rule Waiver&rdquo;, and Medicare Advantage "
+                "plans, which &ldquo;may also waive the 3-day minimum inpatient "
+                "hospital stay.&rdquo; Its advice is: &ldquo;Always ask your doctor "
+                "or hospital staff if Medicare will cover your SNF stay.&rdquo; "
+                "Without a qualifying stay, it says to ask about care in other "
+                "settings, like home health care, or whether other programs, like "
+                "Medicaid or Veterans&rsquo; benefits, can cover SNF care. For "
+                "what Medicare pays and never pays in a nursing home or assisted "
+                "living, see "
+                '<a href="/guides/does-medicare-pay-for-senior-care/">Does '
+                "Medicare pay for assisted living or nursing home care?</a>; for "
+                "care at home, see "
+                '<a href="/guides/medicare-home-health-care/">Medicare home health '
+                "care</a>. Before a move into an Illinois nursing home, the state "
+                "has its own screening step, explained in "
+                '<a href="/guides/illinois-nursing-home-preadmission-screening/">'
+                "Illinois nursing home pre-admission screening</a>.</p>",
+            ]),
+            ("If you think the discharge is too soon", [
+                "<p>Medicare.gov&rsquo;s fast appeals page says that in a "
+                "hospital, within 2 days of admission and before discharge, your "
+                "parent should get a notice called the Important Message from "
+                "Medicare, and &ldquo;If you don&rsquo;t get this notice, ask for "
+                "it.&rdquo; To appeal, follow its directions &ldquo;no later than "
+                "the day you&rsquo;re scheduled to be discharged from the "
+                "hospital.&rdquo; The appeal goes to an independent reviewer, the "
+                "Beneficiary and Family Centered Care Quality Improvement "
+                "Organization (BFCC-QIO); the checklist says 1-800-MEDICARE can "
+                "give you its phone number.</p>",
+                "<p>In a hospital, the page says that if your parent asks in time "
+                "&ldquo;you can stay in the hospital while you wait to get the "
+                "BFCC-QIO&rsquo;s decision. You won&rsquo;t have to pay for your "
+                "stay (except for applicable coinsurance or deductibles).&rdquo; "
+                "The page does not limit this to Original Medicare: it says that "
+                "in a hospital, &ldquo;If you have a Medicare health plan, the "
+                "BFCC-QIO will notify your plan and the hospital.&rdquo; If the "
+                "reviewer decides the stay should end and you met the deadline, "
+                "your parent won&rsquo;t pay hospital charges, other than "
+                "coinsurance or deductibles, &ldquo;incurred through noon of the "
+                "day after the BFCC-QIO gives you its decision.&rdquo; Miss the "
+                "deadline and &ldquo;you can still ask the BFCC-QIO to review your "
+                "case, but different rules and time frames apply&rdquo;, and your "
+                "parent &ldquo;might be responsible for the cost of the hospital "
+                "stay past the original day the hospital tries to discharge "
+                "you.&rdquo;</p>",
+                "<p>For a parent in a Medicare Advantage plan, the page says that "
+                "if the BFCC-QIO decides the stay should continue, Medicare keeps "
+                "covering it if the plan had previously authorised the inpatient "
+                "admission, or if the admission was for emergency care or for "
+                "other care needed right away; "
+                "otherwise, it says, you may need to appeal the plan&rsquo;s "
+                "denial of coverage. Right after the rule "
+                "for a missed deadline, it adds: &ldquo;If you&rsquo;re in a "
+                "Medicare Advantage Plan, you can ask your plan for an appeal, but "
+                "different rules apply.&rdquo; For free help with an appeal, Medicare&rsquo;s checklist lists "
+                "the State Health Insurance Assistance Programs, which "
+                "&ldquo;help with claims, billing, and appeals&rdquo;; "
+                "1-800-MEDICARE can give you the local number.</p>",
+                "<p>An appeal decides whether Medicare keeps covering "
+                "the hospital stay; it does not by itself arrange the care your "
+                "parent needs afterwards, so keep the planning conversation going "
+                "with the staff at the same time.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>A discharge that home cannot absorb is often the point where "
+                "a family has to decide on a different level of care for good, "
+                "not just for a few weeks. For the differences between those "
+                "levels, see "
+                '<a href="/guides/levels-of-senior-care-explained/">Assisted '
+                "living, memory care, skilled nursing and rehabilitation &mdash; "
+                "what is the difference?</a>. If you are still working out which "
+                'level your parent needs, the free <a href="/">six-question '
+                "assessment</a> on this site walks through that question. It asks "
+                "for no name, no email and no phone number, and your answers never "
+                "leave your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -6506,22 +7019,22 @@ RELATED = {
     "assisted-living-cost-illinois": [
         "does-medicare-pay-for-senior-care",
         "independent-living-evanston",
-        "va-aid-and-attendance-benefit"],
+        "long-term-care-insurance-assisted-living-illinois"],
     "does-medicare-pay-for-senior-care": [
         "medicare-home-health-care",
         "medicare-durable-medical-equipment-coverage",
         "medicare-fast-appeal-hospital-rehab-discharge"],
     "illinois-supportive-living-program": [
         "illinois-pace-program",
-        "illinois-medicaid-estate-recovery",
+        "long-term-care-insurance-assisted-living-illinois",
         "illinois-medicaid-look-back-period"],
     "check-illinois-inspection-records": [
         "illinois-care-facility-complaint",
         "illinois-assisted-living-involuntary-move-out",
-        "illinois-nursing-home-resident-rights"],
+        "illinois-memory-care-assisted-living"],
     "levels-of-senior-care-explained": [
         "independent-living-evanston",
-        "assisted-living-cost-illinois",
+        "illinois-memory-care-assisted-living",
         "illinois-parent-refuses-to-move-guardianship"],
     "illinois-community-care-program": [
         "illinois-money-management-program",
@@ -6568,7 +7081,7 @@ RELATED = {
         "illinois-assisted-living-involuntary-move-out",
         "illinois-advance-directive-power-of-attorney"],
     "illinois-nursing-home-preadmission-screening": [
-        "levels-of-senior-care-explained",
+        "hospital-discharge-not-safe-to-go-home",
         "illinois-pace-program",
         "illinois-community-care-program"],
     "illinois-medicaid-look-back-period": [
@@ -6654,11 +7167,23 @@ RELATED = {
     "medicare-fast-appeal-hospital-rehab-discharge": [
         "does-medicare-pay-for-senior-care",
         "medicare-home-health-care",
-        "illinois-senior-health-insurance-program"],
+        "hospital-discharge-not-safe-to-go-home"],
     "va-home-based-primary-care-and-aide": [
         "va-aid-and-attendance-benefit",
         "va-caregiver-support-program",
         "va-veteran-directed-care-program"],
+    "long-term-care-insurance-assisted-living-illinois": [
+        "assisted-living-cost-illinois",
+        "illinois-supportive-living-program",
+        "illinois-senior-health-insurance-program"],
+    "illinois-memory-care-assisted-living": [
+        "levels-of-senior-care-explained",
+        "check-illinois-inspection-records",
+        "illinois-supportive-living-program"],
+    "hospital-discharge-not-safe-to-go-home": [
+        "does-medicare-pay-for-senior-care",
+        "medicare-fast-appeal-hospital-rehab-discharge",
+        "levels-of-senior-care-explained"],
 }
 
 RELATED_MIN_INBOUND = 2
@@ -7103,6 +7628,22 @@ CARDS = {
         "Two separate VA home programmes, in VA.gov's own words — a "
         "medical team, and a trained aide — and how each differs from "
         "Veteran Directed Care and the caregiver stipend."),
+    "long-term-care-insurance-assisted-living-illinois": (
+        "Costs",
+        "Long-term care insurance and assisted living",
+        "Benefit triggers, the elimination period, which facilities a policy "
+        "covers and what to do if a claim stalls, read off the Illinois "
+        "Department of Insurance."),
+    "illinois-memory-care-assisted-living": (
+        "Checking a community",
+        "Memory care in Illinois assisted living",
+        "Who licenses it, the dementia training staff must take, the program "
+        "disclosure and what to ask on a tour, read off IDPH."),
+    "hospital-discharge-not-safe-to-go-home": (
+        "Medicare",
+        "When your parent can't safely go home from hospital",
+        "The discharge planning team, a nursing home or rehab bed, the 3-day "
+        "rule and the fast appeal, read off Medicare's own materials."),
 }
 
 
