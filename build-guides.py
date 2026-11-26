@@ -3205,8 +3205,9 @@ GUIDES = [
                  "through Medicaid, not only in a facility. Who it serves, what it "
                  "does, how to reach it."),
         "intent": "how-to / advocacy",
-        "answer": ("If your parent gets home care through an Illinois Medicaid "
-                   "managed care plan (a D-SNP) or one of four Home and Community "
+        "answer": ("If your parent is enrolled in a Dual Eligible Special Needs "
+                   "Plan (D-SNP) and gets services from its managed care "
+                   "organisation, or gets home care through one of four Home and Community "
                    "Based Services waivers &mdash; Persons who are Elderly, Persons "
                    "with Disabilities, Persons with Brain Injury, or Persons with "
                    "HIV or AIDS &mdash; the Illinois Department on Aging's "
