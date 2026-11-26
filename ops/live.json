@@ -20,5 +20,11 @@
    "by": "Claude session on Joseph's word (PR #83)",
    "how": "deployed on request"
   }
- ]
+ ],
+ "held": {
+  "main": "4dc2468daa09e2547cbc59d912717ece93450da7",
+  "reason": "hold test",
+  "utc": "2026-11-26T00:14Z",
+  "by": "record test"
+ }
 }
