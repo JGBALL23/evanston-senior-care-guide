@@ -61,3 +61,15 @@ Independent reader (second), commit 99ef6ed on claude/accuracy-20261125 (clone /
 Reopened: (1) body exception says APS may respond for a facility resident "harmed" by a relative or caregiver, dropping the brochure's limits (abused outside the facility, or financially exploited); (2) "the same page says "Report it, even if you are not sure."" now points to the Report Abuse page, which does not contain it; it is the Engage page. Corrected sentences above.
 
 Corrections applied: claude/accuracy-20261125 95e9903, 2026-11-26, cse_014eaiSdDK6VjczHrPrWrgM1 (both items of the reader check of 99ef6ed)
+
+## Reader check 2026-11-26 (95e9903)
+
+Independent reader (third), commit 95e9903 on claude/accuracy-20261125 (clone /tmp/reader3-illinois-elder-abuse-reporting). quotecheck: 21 quotations, 21 FOUND, 0 NEAR MATCH, 0 NOT FOUND, 5 cited pages, 0 unreadable. Re-read today myself: the #Engage2Change brochure PDF (heading text confirmed). The commit changes two sentences (build-guides.py and the built page agree); neither adds or changes a link.
+
+- First section: "... Adult Protective Services program is the state channel (and, as the answer above says, it may also respond when a facility resident is abused outside the facility, or financially exploited, by a family member, caregiver or another person with a relationship to them; the Department on Aging's brochure adds that "The resident may choose to work with the APS Program and/or the Ombudsman Program in this situation.")." Source: brochure, "What about adults who reside in a facility but are abused or exploited from someone they know outside the facility?": "if an individual is allegedly abused outside of a facility by a family member, caregiver or another person with a relationship to them, the APS Program may respond. Further, if a resident of a long-term care facility is allegedly financially exploited by a family member, caregiver or another person with a relationship with them, the APS Program may respond. The resident may choose to work with the APS Program and/or the Ombudsman Program in this situation." Same scope (both limits carried; matches the answer box; the quoted sentence now follows the situation it refers to).
+- "A family member does not have to be sure: the Engage page says "Report it, even if you are not sure."" Source: Engage (https://ilaging.illinois.gov/engage.html), "What if I am not sure if I should make a report?": "Report it, even if you are not sure." Same scope (attribution now correct; addressed to anyone reporting).
+
+Corrections verified
+
+Corrections verified: 2026-11-26 (95e9903), agent in cse_014eaiSdDK6VjczHrPrWrgM1
+Reader: agent in cse_014eaiSdDK6VjczHrPrWrgM1

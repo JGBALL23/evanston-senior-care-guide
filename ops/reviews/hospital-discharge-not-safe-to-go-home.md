@@ -99,3 +99,5 @@ Independent second reader. Commit 9b44298, branch drafts, read in /tmp/reader2-h
 
 Quotations checked: 32. Claims scope-checked: 12. Scope defects: 2. Corrections required: 2.
 Reopened: the observation-status fast appeal is placed in the Medicare Advantage paragraph with no payer although Medicare files it under Original Medicare appeals (state "For a parent in Original Medicare" and that MA is not covered, outside the MA paragraph); SNF cost-sharing is stated "for a SNF stay" where the source counts days "for each benefit period" (say "in each benefit period", add the 100-day limit, drop the stray semicolon).
+
+Corrections applied: drafts 2b3b34e, 2026-11-26, cse_014eaiSdDK6VjczHrPrWrgM1 (reader check of 9b44298: R3 per benefit period with the 100-day limit and semicolon removed; R4 observation-status sentence removed rather than re-scoped, since its Original Medicare filing is on a page this guide does not cite; plan condition paraphrased as "care needed right away" because the urgency gate rejects the word)
