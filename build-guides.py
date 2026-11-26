@@ -710,14 +710,13 @@ GUIDES = [
                 "with a Skilled Nursing Facility 3-Day Rule Waiver may not need the three "
                 "days, and Medicare Advantage plans may waive it too. Medicare.gov's "
                 "advice is to always ask your doctor or hospital staff whether Medicare "
-                "will cover the stay, and to contact the plan.</p>",
-                "<p>If the stay does not qualify, Medicare.gov says to ask whether care "
-                "can be given in another setting, such as home health care, or whether "
-                "another programme, such as Medicaid or veterans&rsquo; benefits, can "
-                "cover the skilled nursing stay. And if your parent was admitted as an "
-                "inpatient and the hospital later changed the status to outpatient "
-                "observation, Medicare.gov says you may be able to appeal the denial of "
-                "Part A inpatient coverage that came from that change.</p>",
+                "will cover the stay, and, if your parent is in a Medicare Advantage "
+                "plan, to contact the plan.</p>",
+                "<p>If your parent did not have a 3-day qualifying inpatient hospital "
+                "stay and needs care after leaving the hospital, Medicare.gov says to "
+                "ask whether care can be given in another setting, such as home health "
+                "care, or whether another programme, such as Medicaid or veterans&rsquo; "
+                "benefits, can cover the skilled nursing stay.</p>",
             ]),
             ("What a covered skilled nursing stay costs in 2026", [
                 "<p>These are the costs of a <em>qualifying skilled</em> stay only. "
