@@ -132,17 +132,14 @@
    "found_utc": "2026-11-25T01:14Z"
   },
   {
-   "id": "ACQ-091",
-   "task": "Verify the correction to illinois-medicaid-look-back-period on the accuracy pull request #89 (commit d27ae01): re-read each changed sentence against HFS 3191 and the HFS provider notice of 22 Jan 2026, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <RUN>' to ops/reviews/live/illinois-medicaid-look-back-period.md and to that guide's lines in the #89 body, or reopen the correction",
+   "id": "ACQ-094",
+   "task": "Verify the correction to illinois-medicaid-look-back-period on the accuracy pull request #89 (commit 54139d5): re-read each changed sentence against HFS 3191 and the HFS provider notice of 22 Jan 2026, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <reader>' to ops/reviews/live/illinois-medicaid-look-back-period.md and to that guide's lines in the #89 body, or reopen the correction",
    "workstream": "technical",
    "lane": "technical",
    "source": "followup",
-   "key": "verify-live:illinois-medicaid-look-back-period:d27ae01",
-   "not_run": [
-    "cse_014eaiScJVcYfw9RjXT6F5Km"
-   ],
+   "key": "verify-live:illinois-medicaid-look-back-period:54139d5",
    "priority": 1,
-   "evidence": "claude/accuracy-20261125 commit d27ae01 (ACQ-089)",
+   "evidence": "claude/accuracy-20261125 commit 54139d5 (ACQ-091 reader reopened d27ae01)",
    "expected_tour_acquisition_value": "quality gate before the correction enters the daily package",
    "impact": 3,
    "confidence": 5,
@@ -150,49 +147,7 @@
    "executor": "worker (research and preparation only)",
    "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
-   "found_utc": "2026-11-25T12:33Z"
-  },
-  {
-   "id": "ACQ-092",
-   "task": "Verify the update to medicare-extra-help-prescription-drug-costs on the accuracy pull request #89 (commit 7a12f29): re-read each changed sentence against Medicare.gov's Extra Help page, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <RUN>' to ops/reviews/live/medicare-extra-help-prescription-drug-costs.md and to that guide's lines in the #89 body, or reopen it",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "followup",
-   "key": "verify-live:medicare-extra-help-prescription-drug-costs:7a12f29",
-   "not_run": [
-    "cse_014eaiScJVcYfw9RjXT6F5Km"
-   ],
-   "priority": 1,
-   "evidence": "claude/accuracy-20261125 commit 7a12f29 (ACQ-090)",
-   "expected_tour_acquisition_value": "quality gate before the change enters the daily package",
-   "impact": 2,
-   "confidence": 5,
-   "effort": 1,
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
-   "status": "ready",
-   "found_utc": "2026-11-25T12:36Z"
-  },
-  {
-   "id": "ACQ-093",
-   "task": "Verify the corrections to long-term-care-insurance-assisted-living-illinois (drafts 2c15ef1): read only the changed sentences (git show 2c15ef1 in a drafts clone), run the quotation checker, apply the review rules to them; add 'Corrections verified: <date>, <RUN>' to ops/reviews/long-term-care-insurance-assisted-living-illinois.md or reopen the correction",
-   "workstream": "build",
-   "lane": "build",
-   "source": "followup",
-   "key": "verify:long-term-care-insurance-assisted-living-illinois:2c15ef1",
-   "not_run": [
-    "cse_014eaiScJVcYfw9RjXT6F5Km"
-   ],
-   "priority": 1,
-   "evidence": "drafts commit 2c15ef1 (ACQ-088)",
-   "expected_tour_acquisition_value": "quality gate before the page enters the publish batch",
-   "impact": 3,
-   "confidence": 5,
-   "effort": 1,
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
-   "status": "ready",
-   "found_utc": "2026-11-25T13:16Z"
+   "found_utc": "2026-11-26T00:34Z"
   }
  ],
  "completed": [
@@ -3036,6 +2991,96 @@
    },
    "done_utc": "2026-11-26T00:30Z",
    "minutes": 3
+  },
+  {
+   "id": "ACQ-091",
+   "task": "Verify the correction to illinois-medicaid-look-back-period on the accuracy pull request #89 (commit d27ae01): re-read each changed sentence against HFS 3191 and the HFS provider notice of 22 Jan 2026, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <RUN>' to ops/reviews/live/illinois-medicaid-look-back-period.md and to that guide's lines in the #89 body, or reopen the correction",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:illinois-medicaid-look-back-period:d27ae01",
+   "not_run": [
+    "cse_014eaiScJVcYfw9RjXT6F5Km"
+   ],
+   "priority": 1,
+   "evidence": "claude/accuracy-20261125 commit d27ae01 (ACQ-089)",
+   "expected_tour_acquisition_value": "quality gate before the correction enters the daily package",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-25T12:33Z",
+   "result": "Independent reader (agent in cse_014eaiSdvHByATtNdterRhh7) checked d27ae01: 15/15 quotations found; spouse transfer now scoped to nursing home and the spouse's own property; but reopened three wordings ('yearly limit'/'yearly amount' read as a per-year allowance; notice sentence lacked 'nonexempt' and HFS's once-only CSRA rule). Applied those corrections on #89 as 54139d5 (build clean, all suites pass, quotecheck 15/15) and queued its reader check (verify-live:illinois-medicaid-look-back-period:54139d5). #89 body updated.",
+   "verdicts": {
+    "d27ae01": "reopened",
+    "54139d5": "pending reader"
+   },
+   "sources": [
+    "HFS 3191 brochure",
+    "HFS Provider Notice prn260122a (22 Jan 2026)"
+   ],
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/live/illinois-medicaid-look-back-period.md; #89 54139d5"
+   },
+   "done_utc": "2026-11-26T00:34Z"
+  },
+  {
+   "id": "ACQ-092",
+   "task": "Verify the update to medicare-extra-help-prescription-drug-costs on the accuracy pull request #89 (commit 7a12f29): re-read each changed sentence against Medicare.gov's Extra Help page, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <RUN>' to ops/reviews/live/medicare-extra-help-prescription-drug-costs.md and to that guide's lines in the #89 body, or reopen it",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:medicare-extra-help-prescription-drug-costs:7a12f29",
+   "not_run": [
+    "cse_014eaiScJVcYfw9RjXT6F5Km"
+   ],
+   "priority": 1,
+   "evidence": "claude/accuracy-20261125 commit 7a12f29 (ACQ-090)",
+   "expected_tour_acquisition_value": "quality gate before the change enters the daily package",
+   "impact": 2,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-25T12:36Z",
+   "result": "Independent reader (agent in cse_014eaiSdvHByATtNdterRhh7) checked 7a12f29 on #89: 9/9 quotations found; SHIP, auto-enrolment, monthly switching and LI NET refund sentences match Medicare.gov's wording and scope; all figures re-read 26 Nov unchanged; links exist on main. Corrections verified; packet and #89 body updated.",
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/live/medicare-extra-help-prescription-drug-costs.md"
+   },
+   "done_utc": "2026-11-26T00:34Z"
+  },
+  {
+   "id": "ACQ-093",
+   "task": "Verify the corrections to long-term-care-insurance-assisted-living-illinois (drafts 2c15ef1): read only the changed sentences (git show 2c15ef1 in a drafts clone), run the quotation checker, apply the review rules to them; add 'Corrections verified: <date>, <RUN>' to ops/reviews/long-term-care-insurance-assisted-living-illinois.md or reopen the correction",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "verify:long-term-care-insurance-assisted-living-illinois:2c15ef1",
+   "not_run": [
+    "cse_014eaiScJVcYfw9RjXT6F5Km"
+   ],
+   "priority": 1,
+   "evidence": "drafts commit 2c15ef1 (ACQ-088)",
+   "expected_tour_acquisition_value": "quality gate before the page enters the publish batch",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-25T13:16Z",
+   "result": "Independent reader (agent in cse_014eaiSdvHByATtNdterRhh7) checked drafts 2c15ef1: 23/23 quotations found, 6 cited pages read; 'many policies' matches the Shopper's Guide p.19; SLP sentence quotes HFS with Illinois Medicaid scope, says 'one route', links exist on main. Corrections verified. Reader's optional note (not a defect): say the parent's community must participate in the SLP.",
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/long-term-care-insurance-assisted-living-illinois.md"
+   },
+   "lesson": "The page is now publish-ready after corrections with verification; it can enter the next publish batch.",
+   "done_utc": "2026-11-26T00:34Z"
   }
  ],
  "blocked": [],
@@ -3046,7 +3091,7 @@
   "picked": "ACQ-084 done, ACQ-088 done, ACQ-089 done, ACQ-090 done; added ACQ-091, ACQ-092, ACQ-093 (next session); ACQ-017 still waiting (live guides do not yet link /assisted-living-evanston/)",
   "why": "Worked: LTC-insurance draft reviewed and corrected; look-back and Extra Help live audits, 2 commits on #89; stopped: no-worthwhile-work; resume: verifications ACQ-091/092/093 next session"
  },
- "last_verified_action": "ACQ-005 done 2026-11-26T00:30Z: Make Search Console read 25 Nov 20:35Z (26 Oct-22 Nov): estate-recovery 51 impr/1 click/pos 7.2 and preadmission-screening 42/0/8.5 meet the rule (>=20 impr, p…",
+ "last_verified_action": "ACQ-093 done 2026-11-26T00:34Z: Independent reader (agent in cse_014eaiSdvHByATtNdterRhh7) checked drafts 2c15ef1: 23/23 quotations found, 6 cited pages read; 'many policies' matches the Shop…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -3704,12 +3749,19 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSdvHByATtNdterRhh7",
-   "utc": "2026-11-26T00:31Z",
+   "utc": "2026-11-26T00:34Z",
    "since_utc": "2026-11-26T00:24Z",
    "productive_min": 4,
    "deliverables": [
-    "pr:#92"
-   ]
+    "pr:#92",
+    "verification:ops/reviews/live/illinois-medicaid-look-back-period.md; #89 54139d5",
+    "verification:ops/reviews/live/medicare-extra-help-prescription-drug-costs.md",
+    "verification:ops/reviews/long-term-care-insurance-assisted-living-illinois.md"
+   ],
+   "current": {
+    "what": "ACQ-094",
+    "since_utc": "2026-11-26T00:34Z"
+   }
   },
   "monitor": {
    "last_utc": "2026-11-26T00:26Z"
@@ -4468,9 +4520,9 @@
     "evidence": "git diff of main...drafts for new guide slugs; each draft's own cited sources, fetched and read now.",
     "output": "One review task per page (key review:<slug>), worked under the review rules of procedure step 7: quotation checker, wording, the scope rule, figures, links, advice; packet at ops/reviews/<slug>.md with its table, counts line and verdict. Never a page this session built. Deliverable type review_packet.",
     "why": "A draft only helps families once Joseph publishes it; a verified packet turns that into a few-minute decision.",
-    "last_checked_utc": "2026-11-25T06:30Z",
-    "next_check_utc": "2026-11-25T18:30Z",
-    "last_result": "2026-11-25: main...drafts has 7 guide slugs not on main; all 7 have packets in ops/reviews/ (all in publish batch #90). No unreviewed draft.",
+    "last_checked_utc": "2026-11-26T00:32Z",
+    "next_check_utc": "2026-11-26T12:32Z",
+    "last_result": "main 4dc2468 has 32 guide slugs, drafts 2c15ef1 has 40: the 8 not on main all have packets in ops/reviews/ (7 in publish batch #90; long-term-care-insurance-assisted-living-illinois corrected at 2c15ef1, its reader check ACQ-093 running in this session). No unreviewed draft. Added 0.",
     "last_added": 0
    },
    {
@@ -4513,9 +4565,9 @@
     "evidence": "cloud.json metrics (per_tag) and scoreboard; state.json actions (the operator's posting plan and cap); opportunity_map channel_yield.",
     "output": "The final post text for the operator's next slot in that channel (step 8b), a similar venue added to the map with its own evidence, or the verdict that the channel is at its cap. Deliverable type post_text or map_item.",
     "why": "Local posts are the only channel with measured visitors so far.",
-    "last_checked_utc": "2026-11-23T17:43Z",
-    "next_check_utc": "2026-11-25T17:43Z",
-    "last_result": "Last 7 days: only fb-rp-1122 (Rogers Park group post, 23 Nov) produced genuine visitors (5 facebook, partial day; tour-form views unreadable that day); fb-wil-1118, fb-evsk-1117, em-1118j produced 0. No pending facebook_post in state.json actions and growth.json already shipped P-1122-01's text; th…",
+    "last_checked_utc": "2026-11-26T00:32Z",
+    "next_check_utc": "2026-11-28T00:32Z",
+    "last_result": "Last 7 days (cloud.json per_tag, scoreboard to 25 Nov): Facebook is the only channel with genuine visitors: fb-rp-1122 7, fb-evsk-1125 3 (25 Nov, Evanston/Skokie group, template C), fb-glv-1124 1 (declined by admins); email tags em-1118j/em-1120a/em-1125a/em-1125b 0 genuine (beacons at send time on…",
     "last_added": 0
    },
    {
@@ -4594,6 +4646,8 @@
    }
   ],
   "sweep_log": [
+   "2026-11-26T00:32Z draft-review +0: main 4dc2468 has 32 guide slugs, drafts 2c15ef1 has 40: the 8 not on main all have packets in ops/reviews/ (7 in publish batch #90; long-term-care-insurance-as…",
+   "2026-11-26T00:32Z channel-yield +0: Last 7 days (cloud.json per_tag, scoreboard to 25 Nov): Facebook is the only channel with genuine visitors: fb-rp-1122 7, fb-evsk-1125 3 (25 Nov, Evanston/Skok…",
    "2026-11-26T00:31Z search-console +0: Make read 25 Nov 20:35Z (26 Oct-22 Nov, data only 16-22 Nov): 1242 impressions, 2 clicks, avg pos 32.8; 74 queries >=3 impr. 63% of impressions go to does-medi…",
    "2026-11-25T13:16Z publish-ready +0: Same read as the publish plan pass at 13:2xZ: 7 qualifying pages all in #90, unchanged on drafts since porting; the LTC-insurance page waits for verification o…",
    "2026-11-25T12:28Z live-accuracy +2: quotecheck --all on main 4dc2468 (unchanged since last check): 32 live guides, same 1 NOT FOUND (pace, in #89) and 2 NEAR MATCH (preadmission in #89; VDC audit…",

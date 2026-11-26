@@ -38,3 +38,18 @@ Additions applied: claude/accuracy-20261125 (PR #89), commit 7a12f29, 2026-11-25
 Quotations checked: 9. Claims scope-checked: 18. Scope defects: 0. Corrections required: 0.
 
 Verdict: holds (figures and quotations hold as of 2026-11-25; three recommended additions applied for a later session to verify)
+
+## Reader check 2026-11-26
+
+Independent reader, clone of claude/accuracy-20261125 at 7a12f29; quotecheck 9/9 FOUND, 0 NEAR MATCH, 0 NOT FOUND, 2 cited pages, 0 unreadable; Medicare.gov drug-costs page re-fetched 2026-11-26; internal links checked against origin/main (all four guides exist).
+
+- "Illinois's own Senior Health Insurance Program is that program here: Medicare.gov says you can also contact your local State Health Insurance Assistance Program (SHIP) to get free help applying." Source (Medicare.gov, Who gets Extra Help automatically?): "If you don't get Extra Help automatically, you can apply for it: Apply for Extra Help You can also contact your local State Health Insurance Assistance Program (SHIP) to get free help applying." Same scope (people who must apply; the paragraph opens with that condition). The Illinois identification is supported by the linked SHIP guide on main (Illinois Department on Aging's Senior Health Insurance Program). Link /guides/illinois-senior-health-insurance-program/ live on main.
+- "If a parent who qualifies has no Medicare drug plan yet, Medicare.gov says it will enroll them in one automatically, and they can pick a different plan if they want." Source (If you qualify for Extra Help): "We'll automatically enroll you in a Medicare drug plan (Part D), if you don't have one already. ... You can pick a different Medicare drug plan if you want." Same scope (people who qualify for Extra Help and have no Medicare drug plan).
+- "It also says that while most people can switch plans only at certain times of the year, someone who has Medicaid or gets Extra Help may be able to change drug coverage once per month." Source (Do you think you're paying the wrong amount for your prescription(s)?): "Most people with Medicare can only switch plans at certain times of the year. If you have Medicaid or get Extra Help, you may be able to change your drug coverage once per month." Same scope; "may be able" kept.
+- "... and says a person may be able to get some money back for covered Part D drugs paid for after qualifying for LI NET, if the receipts are kept." Source (same heading): "You may be able to get some money back if you paid for covered Part D drugs after you qualified for LI NET. Keep your receipts with your prescription drug prices, and call LI NET at 1-800-783-1307." Same scope (LI NET qualifiers); the overstatement is gone; the call number follows in the next sentence and matches.
+- "Every figure on this page was read from the source listed above on 25 November 2026." / "Last reviewed 25 November 2026." Figures re-read 2026-11-26 and unchanged: 2026 limits $23,940 / $18,090 individual, $32,460 / $36,100 couple; 2027 $0 premium, $0 deductible, $5.80, $14.40, $2,400, $4.90; LI NET 1-800-783-1307, TTY 711, 8 a.m. to 7 p.m. ET; 1-800-633-4227, TTY 1-877-486-2048. Same.
+
+Corrections verified
+
+Corrections verified: 2026-11-26, agent in cse_014eaiSdvHByATtNdterRhh7
+Reader: agent in cse_014eaiSdvHByATtNdterRhh7

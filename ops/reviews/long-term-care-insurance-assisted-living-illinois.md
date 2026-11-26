@@ -59,3 +59,18 @@ Quotations checked: 21. Claims scope-checked: 31. Scope defects: 1. Corrections 
 Verdict: publish-ready after corrections
 
 Corrections applied: drafts 2c15ef1, 2026-11-25, cse_014eaiScJVcYfw9RjXT6F5Km
+
+## Reader check 2026-11-26
+
+Independent reader, fresh clone of drafts at 2c15ef1 in /tmp/reader-long-term-care-insurance-assisted-living-illinois. quotecheck: 23 quotations, 23 FOUND, 0 NEAR MATCH, 0 NOT FOUND; 6 cited pages, 0 unreadable (whole output read). HFS SLP page and the Shopper's Guide PDF re-fetched 2026-11-26 (HTTP 200, pdftotext); internal links checked against origin/main.
+
+- "Many policies do not pay from the first day." (When payments start: the elimination period). Source, Shopper's Guide p.19, "When Benefits Start (Elimination Period)": "With many policies, your benefits won't start the first day you go to a nursing home or start using home care." Same scope (policies generally, as the page's NAIC framing says); "most" overstatement removed.
+- "If savings may run out later, Medicaid does not simply pick up an assisted living bill." (Where the policy fits in the bigger picture). Source, HFS, "Illinois Supportive Living Program": Medicaid's waiver pays "for services that are not routinely covered by Medicaid" and "The resident is responsible for paying the cost of room and board at the facility." Same scope (Illinois Medicaid, assisted-living-type residence); stated as a conclusion, not as a quotation.
+- "One Illinois Medicaid route into this kind of residence is the Supportive Living Program, which HFS describes as "an alternative to nursing home care for low-income older persons and persons with physical disabilities under Medicaid"; there, HFS says, "The resident is responsible for paying the cost of room and board at the facility."" Source, HFS, heading "Illinois Supportive Living Program": "Illinois developed the Supportive Living Program (SLP) as an alternative to nursing home care for low-income older persons and persons with physical disabilities under Medicaid." / "The resident is responsible for paying the cost of room and board at the facility." Both quotations FOUND character for character. Same scope: payer (Medicaid), place (Illinois), person (low-income older persons and persons with physical disabilities, HFS's own words) and setting ("there" = the SLP, "at the facility") all kept; the sentence says "One ... route", not the only one, and does not say every assisted living community takes part, as correction 2 required. Optional improvement, not a defect: the linked SLP guide on main adds "Not every assisted living community in Illinois participates"; a clause saying the parent's community must be in the program (HFS lists sites by county) would help a family whose parent is already in private-pay assisted living.
+- "The Supportive Living Program guide explains it, and the Illinois Medicaid long-term care guide covers nursing home care and care at home." Links /guides/illinois-supportive-living-program/ and /guides/illinois-medicaid-long-term-care/ both exist on origin/main (in _dist and sitemap.xml); the Medicaid LTC guide on main covers nursing home care and care at home (Community Care Program, Persons who are Elderly waiver). Same scope.
+- Sources list adds "Illinois HFS — Supportive Living Program", https://hfs.illinois.gov/medicalprograms/slf.html: HTTP 200 on 2026-11-26, the page the quotations come from. Same.
+
+Corrections verified
+
+Corrections verified: 2026-11-26, agent in cse_014eaiSdvHByATtNdterRhh7
+Reader: agent in cse_014eaiSdvHByATtNdterRhh7
