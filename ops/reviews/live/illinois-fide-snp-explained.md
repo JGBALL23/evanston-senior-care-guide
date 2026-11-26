@@ -31,3 +31,12 @@ Recommended additions: none.
 
 Quotations checked: 18. Claims scope-checked: 13. Scope defects: 1. Corrections required: 2.
 Verdict: corrections required (C1 scope of the MLTSS rule, C2 quotation cut short); everything else holds.
+
+## Reader check 2026-11-26
+
+Independent reader, commit 004938c on claude/accuracy-20261125 (build-guides.py and _dist page agree; only this page changed). quotecheck: 18/18 FOUND, 0 NEAR MATCH, 0 NOT FOUND, 0 unreadable; all four HFS pages also fetched by the reader today. No links in the changed sentences.
+- "It adds that “Medicaid wraps around Medicare by helping with Medicare premiums and cost sharing, and by covering some services that Medicare does not cover, such as long-term services and supports (LTSS).”" | Source, HFS FIDE SNP page, "What is a FIDE SNP?": "Medicaid wraps around Medicare by helping with Medicare premiums and cost sharing, and by covering some services that Medicare does not cover, such as long-term services and supports (LTSS)." (said of dually eligible members in Illinois) | word for word, full sentence; same scope (C2 fixed).
+- "If your parent is in a FIDE SNP, those Medicaid services come through that one plan, which HFS says provides both Medicare and Medicaid benefits." | Source, same page, "What is a FIDE SNP?": "A FIDE SNP ... is a type of Medicare Advantage plan that provides both Medicare and Medicaid benefits through a single managed care plan." with LTSS named as a Medicaid service in the next sentences, and "a contract with HFS to cover Medicaid benefits" | same scope (Illinois FIDE SNP members).
+- "For dually eligible members who do not choose a FIDE SNP, HFS’s enrolment page says members receiving LTSS “must be enrolled in a HealthChoice IL Managed Long-Term Services and Support (MLTSS) plan” for those services, and adds: “Currently, to switch plans, members must call the HFS Client Enrollment Broker at 1-877-912-8880.”" | Source, How To Enroll in a FIDE SNP, heading "Dual Members Who Do Not Choose a FIDE SNP" > "Medicaid Coverage" > "Members Receiving LTSS Services": "Members must be enrolled in a HealthChoice IL Managed Long-Term Services and Support (MLTSS) plan for LTSS services. ... Currently, to switch plans, members must call the HFS Client Enrollment Broker at 1-877-912-8880." | same scope; the guide now names the heading's group in the same sentence (C1 fixed).
+Corrections verified
+Reader: agent in cse_014eaiSf2v59RahpHN2G6JvZ

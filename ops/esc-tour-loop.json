@@ -172,14 +172,14 @@
    "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in the Assisted Living and Shared Housing Act (210 ILCS 9/90, already a SRC on main as ilcs_al_90) and 77 Ill. Adm. Code 295 on ilga.gov, an approved host per check-guides.js. ilga.gov could not be read this session: curl through the proxy fails TLS (000) and WebFetch returns 503. Searched illinois.gov (IDPH, IDoA, HFS): the IDPH ITR form covers terminations only; the IDoA residents' rights brochure says a contract must state services and costs but is not scoped to assisted living and says nothing on rate-change notice; HFS Part 146 is supportive living. No guide written: the core rule cannot be read off a fetched page. Retry by WebFetch of ilga.gov after not_before."
   },
   {
-   "id": "ACQ-135",
-   "task": "Verify the corrections to illinois-supportive-living-program on the accuracy pull request #89 (commit b95d5b2): re-read each changed sentence against the HFS SLP Resident Fact Sheet, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <reader>' to ops/reviews/live/illinois-supportive-living-program.md and to that guide's lines in the #89 body, or reopen the correction",
+   "id": "ACQ-137",
+   "task": "Verify the corrections to illinois-supportive-living-program on the accuracy pull request #89 (commit c2bac4b): re-read each changed sentence against the HFS SLP Resident Fact Sheet, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <reader>' to ops/reviews/live/illinois-supportive-living-program.md and to that guide's lines in the #89 body, or reopen the correction",
    "workstream": "technical",
    "lane": "technical",
    "source": "followup",
-   "key": "verify-live:illinois-supportive-living-program:b95d5b2",
+   "key": "verify-live:illinois-supportive-living-program:c2bac4b",
    "priority": 1,
-   "evidence": "claude/accuracy-20261125 commit b95d5b2 (ACQ-133)",
+   "evidence": "claude/accuracy-20261125 commit c2bac4b (ACQ-135 reopened b95d5b2)",
    "expected_tour_acquisition_value": "quality gate before the correction enters the daily package",
    "impact": 3,
    "confidence": 5,
@@ -187,25 +187,7 @@
    "executor": "worker (research and preparation only)",
    "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
-   "found_utc": "2026-11-26T01:42Z"
-  },
-  {
-   "id": "ACQ-136",
-   "task": "Verify the corrections to illinois-fide-snp-explained on the accuracy pull request #89 (commit 004938c): re-read each changed sentence against the HFS FIDE SNP page and How To Enroll in a FIDE SNP page, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <reader>' to ops/reviews/live/illinois-fide-snp-explained.md and to that guide's lines in the #89 body, or reopen the correction",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "followup",
-   "key": "verify-live:illinois-fide-snp-explained:004938c",
-   "priority": 1,
-   "evidence": "claude/accuracy-20261125 commit 004938c (ACQ-134)",
-   "expected_tour_acquisition_value": "quality gate before the correction enters the daily package",
-   "impact": 3,
-   "confidence": 5,
-   "effort": 1,
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
-   "status": "ready",
-   "found_utc": "2026-11-26T01:42Z"
+   "found_utc": "2026-11-26T01:46Z"
   }
  ],
  "completed": [
@@ -4236,6 +4218,63 @@
    },
    "done_utc": "2026-11-26T01:42Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-135",
+   "task": "Verify the corrections to illinois-supportive-living-program on the accuracy pull request #89 (commit b95d5b2): re-read each changed sentence against the HFS SLP Resident Fact Sheet, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <reader>' to ops/reviews/live/illinois-supportive-living-program.md and to that guide's lines in the #89 body, or reopen the correction",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:illinois-supportive-living-program:b95d5b2",
+   "priority": 1,
+   "evidence": "claude/accuracy-20261125 commit b95d5b2 (ACQ-133)",
+   "expected_tour_acquisition_value": "quality gate before the correction enters the daily package",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-26T01:42Z",
+   "result": "Independent reader (agent) checked b95d5b2: A1 and A3 same scope; A2 'Savings count too' widened the fact sheet's 'all excess resources' (Medicaid resident, excess undefined): reopened. Applied the reader's corrected sentence and its recommended addition (programme serves persons who would otherwise need nursing facility care) as c2bac4b; all suites pass, quotecheck 6/6; new verify-live task for c2bac4b.",
+   "verdicts": [
+    "reopened; fixed in c2bac4b"
+   ],
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/live/illinois-supportive-living-program.md; #89 c2bac4b"
+   },
+   "lesson": "A plain-English lead-in ('Savings count too') can widen a quoted rule; keep the source's own qualifier in the lead-in.",
+   "done_utc": "2026-11-26T01:46Z",
+   "minutes": 3
+  },
+  {
+   "id": "ACQ-136",
+   "task": "Verify the corrections to illinois-fide-snp-explained on the accuracy pull request #89 (commit 004938c): re-read each changed sentence against the HFS FIDE SNP page and How To Enroll in a FIDE SNP page, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <reader>' to ops/reviews/live/illinois-fide-snp-explained.md and to that guide's lines in the #89 body, or reopen the correction",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:illinois-fide-snp-explained:004938c",
+   "priority": 1,
+   "evidence": "claude/accuracy-20261125 commit 004938c (ACQ-134)",
+   "expected_tour_acquisition_value": "quality gate before the correction enters the daily package",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-26T01:42Z",
+   "result": "Independent reader (agent) checked 004938c on #89: 18/18 quotations FOUND; C2 quotation now whole; new FIDE SNP sentence supported by the FIDE SNP page; C1 MLTSS rule now scoped to dual members who do not choose a FIDE SNP, matching the HFS heading chain. Corrections verified.",
+   "verdicts": [
+    "Corrections verified"
+   ],
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/live/illinois-fide-snp-explained.md; #89 004938c"
+   },
+   "done_utc": "2026-11-26T01:46Z",
+   "minutes": 0
   }
  ],
  "blocked": [],
@@ -4246,7 +4285,7 @@
   "picked": "ACQ-113..117,119..132 done; ACQ-118 waiting_on_data; ACQ-133,134 ready",
   "why": "Worked: 5 live guides audited (4 corrected and verified in #89), 1 new drafts guide built, reviewed and verified publish-ready"
  },
- "last_verified_action": "ACQ-134 done 2026-11-26T01:42Z: Audit of live illinois-fide-snp-explained against 4 HFS pages read 26 Nov: 18/18 quotations FOUND, 13 claims scope-checked, 1 scope defect: the MLTSS enrolment…",
+ "last_verified_action": "ACQ-136 done 2026-11-26T01:46Z: Independent reader (agent) checked 004938c on #89: 18/18 quotations FOUND; C2 quotation now whole; new FIDE SNP sentence supported by the FIDE SNP page; C1 MLT…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -4912,12 +4951,14 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSf2v59RahpHN2G6JvZ",
-   "utc": "2026-11-26T01:42Z",
+   "utc": "2026-11-26T01:46Z",
    "since_utc": "2026-11-26T01:36Z",
-   "productive_min": 8,
+   "productive_min": 11,
    "deliverables": [
     "audit:ops/reviews/live/illinois-supportive-living-program.md; #89 b95d5b2",
-    "correction:ops/reviews/live/illinois-fide-snp-explained.md; #89 004938c"
+    "correction:ops/reviews/live/illinois-fide-snp-explained.md; #89 004938c",
+    "verification:ops/reviews/live/illinois-supportive-living-program.md; #89 c2bac4b",
+    "verification:ops/reviews/live/illinois-fide-snp-explained.md; #89 004938c"
    ]
   },
   "monitor": {
