@@ -16,6 +16,67 @@
  "selftest": {
   "requested_utc": "2026-11-26T14:28Z",
   "requested_by": "supervising chat",
-  "why": "first run of the task ESCG publish after merge: prove the check, the Netlify tool and the recording in the task's own session, without publishing"
+  "why": "first run of the task ESCG publish after merge: prove the check, the Netlify tool and the recording in the task's own session, without publishing",
+  "done_utc": "2026-11-26T15:30Z",
+  "by": "ESCG publish after merge cse_014eaiScCXh8fXNQeTopYheF",
+  "check_action": "publish",
+  "reason": "1 commit(s) merged by JGBALL23 are not live",
+  "merge_seen": [
+   {
+    "pr": 83,
+    "merged_by": "JGBALL23"
+   }
+  ],
+  "suites": [
+   {
+    "suite": "build-guides.py reproduces the committed _dist",
+    "state": "pass"
+   },
+   {
+    "suite": "node test.js",
+    "state": "pass"
+   },
+   {
+    "suite": "node check-guides.js",
+    "state": "pass"
+   },
+   {
+    "suite": "node tools/test_paying_nav.js",
+    "state": "pass"
+   },
+   {
+    "suite": "node tools/test_checklist_click.mjs",
+    "state": "pass"
+   },
+   {
+    "suite": "node tools/test_inquiry_validation.mjs",
+    "state": "pass"
+   },
+   {
+    "suite": "node tools/test_start_source.mjs",
+    "state": "pass"
+   },
+   {
+    "suite": "node tools/test_tour_source.mjs",
+    "state": "pass"
+   },
+   {
+    "suite": "python3 tools/test_checklist_pdf.py",
+    "state": "pass"
+   },
+   {
+    "suite": "python3 tools/test_publish.py",
+    "state": "pass"
+   },
+   {
+    "suite": "node tools/direct_inquiry_consistency.mjs",
+    "state": "pass"
+   }
+  ],
+  "deploy_files": 89,
+  "live_matches_main": true,
+  "pages_compared": 3,
+  "netlify_tool": "command returned for the right site",
+  "deploy_cli": "ran"
  }
 }
