@@ -4174,10 +4174,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-26T01:12Z",
-  "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
-  "picked": "ACQ-005 done, ACQ-091..101 done, ACQ-102 waiting, ACQ-103..112 done, ACQ-113 ready, ACQ-114 ready",
-  "why": "Worked: 22 tasks; 4 live-guide audits (Medicare guide, estate recovery, home health, look-back) corrected and reader-verified in #89; new memory care guide built, reviewed and with LTC insurance ported to batch #90; title PR #92; stopped: time; resume: ACQ-113/114 ready"
+  "utc": "2026-11-26T01:35Z",
+  "event": "Make controller: completion of cse_014eaiSdvHByATtNdterRhh7",
+  "picked": "ACQ-113..117,119..132 done; ACQ-118 waiting_on_data; ACQ-133,134 ready",
+  "why": "Worked: 5 live guides audited (4 corrected and verified in #89), 1 new drafts guide built, reviewed and verified publish-ready"
  },
  "last_verified_action": "ACQ-132 done 2026-11-26T01:35Z: Independent reader checked drafts 2b3b34e on hospital-discharge-not-safe-to-go-home: quotecheck 32/32, SNF and fast-appeal pages re-fetched; SNF cost-sharing p…",
  "last_stop": {
@@ -4259,7 +4259,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Next: ACQ-113 and ACQ-114 (audits of the advance-directive and DME guides, next by Search Console exposure) are ready; the 26 Nov package cut (05:00-10:30 UTC) should include #89 up to f91038b (all verified), batch #90 at 686967c (9 guides, LTC insurance and memory care new), and #92 (estate-recovery title). Waiting on Joseph: the merge of package #91; ACQ-102 and ACQ-012/017 wait on #89/#81/#85 merges.",
+ "next_discovery": "Next session: live accuracy audits ACQ-133 (illinois-supportive-living-program) and ACQ-134 (illinois-fide-snp-explained) into #89; daily package cut 05:00-10:30 UTC should include #89 through 95e9903 (all commits verified) and the new drafts guide hospital-discharge-not-safe-to-go-home (publish-ready, corrections verified) in a publish batch; ACQ-118 (assisted living rate-change guide) waits for ilga.gov to be readable, retry after 27 Nov 01:30Z.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -4844,36 +4844,76 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiSdDK6VjczHrPrWrgM1",
-   "utc": "2026-11-26T01:35Z",
-   "since_utc": "2026-11-26T01:13Z",
-   "productive_min": 21,
-   "deliverables": [
-    "correction:d7724d0",
-    "verification:d7724d0",
-    "correction:63284d5",
-    "verification:63284d5",
-    "guide:317f6fb",
-    "correction:c160353",
-    "verification:c160353",
-    "review_packet:ops/reviews/hospital-discharge-not-safe-to-go-home.md",
-    "correction:09af0cb",
-    "correction:9b44298",
-    "verification:09af0cb",
-    "correction:99ef6ed",
-    "audit:ops/reviews/live/va-nursing-home-and-respite-care.md",
-    "verification:99ef6ed",
-    "correction:95e9903",
-    "verification:9b44298",
-    "verification:95e9903",
-    "correction:2b3b34e",
-    "verification:2b3b34e"
-   ]
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-26T00:26Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSdDK6VjczHrPrWrgM1",
+    "start_utc": "2026-11-26T01:13Z",
+    "end_utc": "2026-11-26T01:35Z",
+    "launch": "completion of cse_014eaiSdvHByATtNdterRhh7",
+    "outcome": "Worked: 5 live guides audited (4 corrected and verified in #89), 1 new drafts guide built, reviewed and verified publish-ready",
+    "done": 19,
+    "changed": 32,
+    "tasks": "ACQ-113..117,119..132 done; ACQ-118 waiting_on_data; ACQ-133,134 ready",
+    "next": "yes",
+    "wake_minutes": null,
+    "next_due_utc": "2026-11-26T05:00Z",
+    "plan_due": false,
+    "saturated": [
+     "search",
+     "conversion"
+    ],
+    "budget_used_hours_24h": 2.6,
+    "budget_used_hours_7d": 4.3,
+    "productive_min": 21,
+    "deliverables": [
+     "correction:d7724d0",
+     "verification:d7724d0",
+     "correction:63284d5",
+     "verification:63284d5",
+     "guide:317f6fb",
+     "correction:c160353",
+     "verification:c160353",
+     "review_packet:ops/reviews/hospital-discharge-not-safe-to-go-home.md",
+     "correction:09af0cb",
+     "correction:9b44298",
+     "verification:09af0cb",
+     "correction:99ef6ed",
+     "audit:ops/reviews/live/va-nursing-home-and-respite-care.md",
+     "verification:99ef6ed",
+     "correction:95e9903",
+     "verification:9b44298",
+     "verification:95e9903",
+     "correction:2b3b34e",
+     "verification:2b3b34e"
+    ],
+    "stop_reason": "time",
+    "considered": "technical: audits of advance-directive (3 corr), DME (3 corr + 2 additions), elder-abuse (3 rounds), VA nursing (holds), all verified by fresh-context readers; build: planned +2 then +0 (cooling to 13:35Z), built hospital-discharge-not-safe-to-go-home (publish-ready after 2 correction rounds), rate-change guide blocked by unreachable ilga.gov; fallback: quality +2 twice, search 0 (no uncovered Search Console query), needs 0 (rate-change sources unreachable); publish/package: cut window opens 05:00Z, not this session's; search, conversion: saturated waiting on Joseph; monitor not due (last 00:26Z). Handing the two queued audits to the next session because this session's context is long after…",
+    "resume_when": "now: two ready audits (ACQ-133, ACQ-134); 05:00Z daily package cut; ACQ-118 after 27 Nov 01:30Z",
+    "sweep_due_left": [],
+    "sessions_24h": 5,
+    "handoff": null,
+    "package": {
+     "due_at_close": false,
+     "skipped": null,
+     "done_today": false
+    },
+    "backlog_discovery": {
+     "explorations": 4,
+     "avenue_classes": [
+      "needs",
+      "quality",
+      "search"
+     ],
+     "tasks_added": 4,
+     "concluded": null
+    }
+   },
    {
     "run": "cse_014eaiSdvHByATtNdterRhh7",
     "start_utc": "2026-11-26T00:24Z",
@@ -5360,7 +5400,7 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-26T01:12Z",
+   "written_utc": "2026-11-26T01:35Z",
    "eligible_now": 3,
    "next_due": [
     {
