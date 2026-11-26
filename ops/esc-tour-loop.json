@@ -170,24 +170,6 @@
    "found_utc": "2026-11-26T01:19Z"
   },
   {
-   "id": "ACQ-119",
-   "task": "Apply to the live guide medicare-durable-medical-equipment-coverage, in accuracy PR #89: (A1) the reader's recommended addition, walkers page Costs: 'If this happens, Medicare will pay you later for the amount it covers after your claims have been submitted and processed by Medicare.'; (A2) scope the deductible, 20%, assignment and prior-approval terms to Original Medicare and tell a parent in a Medicare Advantage plan what to do, only from an official Medicare.gov or CMS sentence found and fetched (else write plainly that the cited pages do not say)",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "followup",
-   "key": "improve:medicare-dme-reader-additions",
-   "priority": 2,
-   "evidence": "ops/reviews/live/medicare-durable-medical-equipment-coverage.md reader check 2026-11-26 (63284d5): recommended addition and open scope note; same fix applied to medicare-home-health-care in f91038b",
-   "expected_tour_acquisition_value": "correct cost rules for Medicare Advantage members on a page families find in search (25 impressions, 25 Nov read)",
-   "impact": 3,
-   "confidence": 4,
-   "effort": 2,
-   "executor": "worker (research and preparation only)",
-   "done_when": "commit on claude/accuracy-20261125 with checks and quotecheck passing, packet line added, verify-live task added",
-   "status": "ready",
-   "found_utc": "2026-11-26T01:20Z"
-  },
-  {
    "id": "ACQ-120",
    "task": "Review hospital-discharge-not-safe-to-go-home under the review rules",
    "workstream": "build",
@@ -204,6 +186,24 @@
    "done_when": "packet at ops/reviews/hospital-discharge-not-safe-to-go-home.md with its counts and verdict",
    "status": "ready",
    "found_utc": "2026-11-26T01:23Z"
+  },
+  {
+   "id": "ACQ-121",
+   "task": "Verify the corrections to medicare-durable-medical-equipment-coverage (live, accuracy PR #89 commit c160353)",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:medicare-durable-medical-equipment-coverage:c160353",
+   "priority": 1,
+   "evidence": "commit c160353 on claude/accuracy-20261125; packet ops/reviews/live/medicare-durable-medical-equipment-coverage.md A1-A2",
+   "expected_tour_acquisition_value": "quality gate before the correction reaches the daily package",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "ready",
+   "found_utc": "2026-11-26T01:24Z"
   }
  ],
  "completed": [
@@ -3777,6 +3777,34 @@
    },
    "done_utc": "2026-11-26T01:23Z",
    "minutes": 4
+  },
+  {
+   "id": "ACQ-119",
+   "task": "Apply to the live guide medicare-durable-medical-equipment-coverage, in accuracy PR #89: (A1) the reader's recommended addition, walkers page Costs: 'If this happens, Medicare will pay you later for the amount it covers after your claims have been submitted and processed by Medicare.'; (A2) scope the deductible, 20%, assignment and prior-approval terms to Original Medicare and tell a parent in a Medicare Advantage plan what to do, only from an official Medicare.gov or CMS sentence found and fetched (else write plainly that the cited pages do not say)",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "improve:medicare-dme-reader-additions",
+   "priority": 2,
+   "evidence": "ops/reviews/live/medicare-durable-medical-equipment-coverage.md reader check 2026-11-26 (63284d5): recommended addition and open scope note; same fix applied to medicare-home-health-care in f91038b",
+   "expected_tour_acquisition_value": "correct cost rules for Medicare Advantage members on a page families find in search (25 impressions, 25 Nov read)",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "commit on claude/accuracy-20261125 with checks and quotecheck passing, packet line added, verify-live task added",
+   "status": "done",
+   "found_utc": "2026-11-26T01:20Z",
+   "result": "Applied the reader's recommended additions to live guide medicare-durable-medical-equipment-coverage as c160353 on claude/accuracy-20261125 (PR #89): A1 the walkers page's 'Medicare will pay you later ...' after the upfront-rental sentence; A2 a paragraph naming the cost terms as Original Medicare's and, from Medicare publication 11045 (2/2025, new SRC mdme_pub11045), that Medicare Advantage plans cover the same categories but suppliers and costs depend on the plan, contact the plan, appeal a denial. test.js 768/768, check-guides.js 2697/0, test_paying_nav 331/331, quotecheck 27/27. Verify-live task added.",
+   "sources": [
+    "https://www.medicare.gov/publications/11045-medicare-coverage-of-dme-and-other-devices.pdf",
+    "https://www.medicare.gov/coverage/walkers"
+   ],
+   "deliverable": {
+    "type": "correction",
+    "ref": "c160353"
+   },
+   "done_utc": "2026-11-26T01:24Z"
   }
  ],
  "blocked": [],
@@ -3787,7 +3815,7 @@
   "picked": "ACQ-005 done, ACQ-091..101 done, ACQ-102 waiting, ACQ-103..112 done, ACQ-113 ready, ACQ-114 ready",
   "why": "Worked: 22 tasks; 4 live-guide audits (Medicare guide, estate recovery, home health, look-back) corrected and reader-verified in #89; new memory care guide built, reviewed and with LTC insurance ported to batch #90; title PR #92; stopped: time; resume: ACQ-113/114 ready"
  },
- "last_verified_action": "ACQ-117 done 2026-11-26T01:23Z: Built hospital-discharge-not-safe-to-go-home on drafts (317f6fb) for the DEMAND.md topic 'the hospital wants to discharge my parent but they cannot safely go h…",
+ "last_verified_action": "ACQ-119 done 2026-11-26T01:24Z: Applied the reader's recommended additions to live guide medicare-durable-medical-equipment-coverage as c160353 on claude/accuracy-20261125 (PR #89): A1 the wa…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -4453,7 +4481,7 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSdDK6VjczHrPrWrgM1",
-   "utc": "2026-11-26T01:23Z",
+   "utc": "2026-11-26T01:24Z",
    "since_utc": "2026-11-26T01:13Z",
    "productive_min": 8,
    "deliverables": [
@@ -4461,8 +4489,13 @@
     "verification:d7724d0",
     "correction:63284d5",
     "verification:63284d5",
-    "guide:317f6fb"
-   ]
+    "guide:317f6fb",
+    "correction:c160353"
+   ],
+   "current": {
+    "what": "ACQ-120",
+    "since_utc": "2026-11-26T01:23Z"
+   }
   },
   "monitor": {
    "last_utc": "2026-11-26T00:26Z"
