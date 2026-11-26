@@ -145,6 +145,8 @@ SRC = {
              'https://www.medicare.gov/coverage/skilled-nursing-facility-snf-care'),
     "mstatus": ('Medicare.gov — Appealing a change in status during a hospital stay',
                 'https://www.medicare.gov/providers-services/claims-appeals-complaints/appeals/original-medicare/denial-part-a-hospital-status'),
+    "mstatusfast": ('Medicare.gov — Appeal when a hospital changes your status',
+                    'https://www.medicare.gov/providers-services/claims-appeals-complaints/appeals/original-medicare/appeal-part-a-hospital-status-change'),
     "mltc": ('Medicare.gov — Long-term care',
              'https://www.medicare.gov/coverage/long-term-care'),
     "jimmo": ('CMS — Jimmo v. Sebelius Settlement Agreement Fact Sheet',
@@ -743,7 +745,7 @@ GUIDES = [
                    "1&ndash;20 cost <strong>$0</strong>, days 21&ndash;100 cost "
                    "<strong>" + F["snf_coins"] + " each day</strong> in 2026, and from "
                    "day 101 you pay everything."),
-        "sources": srcs("mcosts", "msnf", "jimmo", "mltc", "mstatus"),
+        "sources": srcs("mcosts", "msnf", "jimmo", "mltc", "mstatus", "mstatusfast"),
         "body": [
             ("The distinction that decides everything", [
                 "<p>Medicare divides care into <em>skilled</em> and <em>custodial</em>, "
@@ -797,7 +799,12 @@ GUIDES = [
                 "patients currently in the hospital get a Medicare Change of Status "
                 "Notice (CMS-10868). It also says why the change matters: Medicare will "
                 "not cover a skilled nursing facility stay within 30 days of leaving the "
-                "hospital after it.</p>",
+                "hospital after it. If the notice does not come, Medicare.gov says to "
+                "ask for it. Medicare.gov also says it is best to appeal while still in "
+                "the hospital, but your parent can still ask for an appeal after "
+                "leaving: by following the instructions on the notice or, without the "
+                "notice, through the local BFCC-QIO, the organization that decides "
+                "these appeals.</p>",
                 "<p>Two exceptions exist. A doctor in an Accountable Care Organization "
                 "with a Skilled Nursing Facility 3-Day Rule Waiver may not need the three "
                 "days, and Medicare Advantage plans may waive it too. Medicare.gov's "
