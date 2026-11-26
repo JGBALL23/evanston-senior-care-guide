@@ -2796,11 +2796,11 @@ GUIDES = [
                "question from knowing whether a nursing home is even the "
                "setting your parent actually needs."),
         "reviewed": "2026-11-17",
-        "title": "Illinois Nursing Home Pre-Admission Screening (DON, PASRR)",
+        "title": "Pre-Admission Screening for an Illinois Nursing Home, Explained",
         "h1": "Does my parent need to be screened before moving into an Illinois nursing home?",
-        "desc": ("Yes: Illinois screens adults before any nursing home admission, "
-                 "private pay included. The DON and PASRR checks, who does them, and "
-                 "what if one is skipped."),
+        "desc": ("Illinois screens everyone before a nursing home admission, even "
+                 "private pay. The two checks (DON and PASRR), who does them, and "
+                 "what happens if one is skipped."),
         "intent": "how-to / process",
         "answer": ("<strong>Yes.</strong> An Illinois HFS provider notice states that "
                    "&ldquo;state statutes require that all persons age 18 or older "
