@@ -3760,12 +3760,12 @@ GUIDES = [
         "reviewed": "2026-11-17",
         "title": "Does Medicare Pay for a Home Health Aide or Nurse at Home?",
         "h1": "Does Medicare pay for a home health aide or nurse at home?",
-        "desc": ("Medicare pays $0 for covered home health visits, but only for "
+        "desc": ("Your parent pays $0 for covered home health visits, but only for "
                  "skilled care while a parent is homebound. A home health aide on "
                  "its own is not covered."),
         "intent": "coverage question",
         "answer": ("<strong>Only for skilled care, and only while your parent is "
-                   "homebound.</strong> Medicare pays <strong>$0</strong> for a "
+                   "homebound.</strong> Your parent pays <strong>$0</strong> for a "
                    "covered home health visit from a Medicare-certified agency, but it "
                    "will only start one when a doctor who has examined your parent in "
                    "person orders <em>intermittent, skilled</em> nursing or therapy "
