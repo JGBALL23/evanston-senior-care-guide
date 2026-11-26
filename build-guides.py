@@ -139,6 +139,8 @@ SRC = {
                'https://www.medicare.gov/basics/costs/medicare-costs'),
     "msnf": ('Medicare.gov — Skilled nursing facility (SNF) care',
              'https://www.medicare.gov/coverage/skilled-nursing-facility-snf-care'),
+    "mltc": ('Medicare.gov — Long-term care',
+             'https://www.medicare.gov/coverage/long-term-care'),
     "jimmo": ('CMS — Jimmo v. Sebelius Settlement Agreement Fact Sheet',
               'https://www.cms.gov/medicare/medicare-fee-for-service-payment/snfpps/downloads/jimmo-factsheet.pdf'),
     "mcompare": ('Medicare.gov — Care Compare',
@@ -637,6 +639,8 @@ GUIDES = [
 
     {
         "slug": "does-medicare-pay-for-senior-care",
+        "reviewed": "2026-11-26",
+        "listed": "2026-10-18",
         "after_section": {"So who does pay for assisted living?": TOUR_CHECKLIST + TOUR_ASK},
         "bridge": ("Knowing what Medicare covers is a different question from knowing "
                "what kind of care your parent actually needs. Coverage follows the "
@@ -654,14 +658,14 @@ GUIDES = [
                    "1&ndash;20 cost <strong>$0</strong>, days 21&ndash;100 cost "
                    "<strong>" + F["snf_coins"] + " each day</strong> in 2026, and from "
                    "day 101 you pay everything."),
-        "sources": srcs("mcosts", "msnf", "jimmo"),
+        "sources": srcs("mcosts", "msnf", "jimmo", "mltc"),
         "body": [
             ("The distinction that decides everything", [
                 "<p>Medicare divides care into <em>skilled</em> and <em>custodial</em>, "
                 "and that single distinction decides whether it pays anything at all.</p>",
                 "<p><strong>Skilled care</strong> is nursing or therapy that, in "
-                "Medicare's own words, can only be safely and effectively performed by "
-                "or under the supervision of licensed professionals — intravenous "
+                "Medicare's words, can only be safely and effectively performed by, "
+                "or under the supervision of, professionals or technical personnel — intravenous "
                 "medication, wound care, physical therapy after a fracture. "
                 "<strong>Custodial care</strong> is help with bathing, dressing, eating, "
                 "getting to the toilet, medication reminders and supervision.</p>",
@@ -704,8 +708,16 @@ GUIDES = [
                 "can be changed.</p>",
                 "<p>Two exceptions exist. A doctor in an Accountable Care Organization "
                 "with a Skilled Nursing Facility 3-Day Rule Waiver may not need the three "
-                "days, and Medicare Advantage plans may waive it too. Ask the hospital "
-                "and ask the plan — neither will volunteer it.</p>",
+                "days, and Medicare Advantage plans may waive it too. Medicare.gov's "
+                "advice is to always ask your doctor or hospital staff whether Medicare "
+                "will cover the stay, and to contact the plan.</p>",
+                "<p>If the stay does not qualify, Medicare.gov says to ask whether care "
+                "can be given in another setting, such as home health care, or whether "
+                "another programme, such as Medicaid or veterans&rsquo; benefits, can "
+                "cover the skilled nursing stay. And if your parent was admitted as an "
+                "inpatient and the hospital later changed the status to outpatient "
+                "observation, Medicare.gov says you may be able to appeal the denial of "
+                "Part A inpatient coverage that came from that change.</p>",
             ]),
             ("What a covered skilled nursing stay costs in 2026", [
                 "<p>These are the costs of a <em>qualifying skilled</em> stay only. "
