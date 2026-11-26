@@ -132,42 +132,6 @@
    "found_utc": "2026-11-25T01:14Z"
   },
   {
-   "id": "ACQ-100",
-   "task": "Verify the corrections to illinois-medicaid-estate-recovery on the accuracy pull request #89 (commit 5f5260d): re-read each changed sentence against the HFS estate recovery guide and the HFS liens page, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <reader>' to ops/reviews/live/illinois-medicaid-estate-recovery.md and to that guide's lines in the #89 body, or reopen the correction",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "followup",
-   "key": "verify-live:illinois-medicaid-estate-recovery:5f5260d",
-   "priority": 1,
-   "evidence": "claude/accuracy-20261125 commit 5f5260d (ACQ-098 audit)",
-   "expected_tour_acquisition_value": "quality gate before the correction enters the daily package",
-   "impact": 3,
-   "confidence": 5,
-   "effort": 1,
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
-   "status": "ready",
-   "found_utc": "2026-11-26T00:49Z"
-  },
-  {
-   "id": "ACQ-101",
-   "task": "Verify the correction to does-medicare-pay-for-senior-care on the accuracy pull request #89 (commit 403f6da): re-read each changed sentence against Medicare.gov SNF care, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <reader>' to ops/reviews/live/does-medicare-pay-for-senior-care.md and to that guide's lines in the #89 body, or reopen the correction",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "followup",
-   "key": "verify-live:does-medicare-pay-for-senior-care:403f6da",
-   "priority": 1,
-   "evidence": "claude/accuracy-20261125 commit 403f6da (ACQ-099 reader reopened 28073a0)",
-   "expected_tour_acquisition_value": "quality gate before the correction enters the daily package",
-   "impact": 3,
-   "confidence": 5,
-   "effort": 1,
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
-   "status": "ready",
-   "found_utc": "2026-11-26T00:49Z"
-  },
-  {
    "id": "ACQ-102",
    "task": "After #89 merges: re-apply the pre-admission screening search title and description from ACQ-005 (title 'Illinois Nursing Home Pre-Admission Screening (DON, PASRR)', answer-first description) as a small review PR from main, and check the HFS source scope of the description against the corrected page",
    "workstream": "search",
@@ -183,8 +147,44 @@
    "confidence": 3,
    "effort": 1,
    "executor": "worker (research and preparation only)",
-   "done_when": "review PR opened with the checks passing, or a no-change verdict with the newest Search Console numbers",
+   "done_when": "review PR opened with the checks passing (also re-date illinois-medicaid-estate-recovery to the day its b73f29c corrections were verified, with listed 2026-10-24, once #89 and #92 are both merged), or a no-change verdict with the newest Search Console numbers",
    "found_utc": "2026-11-26T00:49Z"
+  },
+  {
+   "id": "ACQ-103",
+   "task": "Verify the corrections to illinois-medicaid-estate-recovery on the accuracy pull request #89 (commit b73f29c): re-read each changed sentence against the HFS liens page, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <reader>' to ops/reviews/live/illinois-medicaid-estate-recovery.md and to that guide's lines in the #89 body, or reopen the correction",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:illinois-medicaid-estate-recovery:b73f29c",
+   "priority": 1,
+   "evidence": "claude/accuracy-20261125 commit b73f29c (ACQ-100 reader reopened 5f5260d)",
+   "expected_tour_acquisition_value": "quality gate before the correction enters the daily package",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "ready",
+   "found_utc": "2026-11-26T00:52Z"
+  },
+  {
+   "id": "ACQ-104",
+   "task": "Recommended addition to does-medicare-pay-for-senior-care (live): Medicare.gov's fast appeal for a hospital inpatient whose status was changed to outpatient observation on or after 14 Feb 2025 (Original Medicare), next to 'Then ask again, because the status can be changed'; fetch the Medicare.gov status-change appeal page, write it in its words and scope, commit to the accuracy PR with a verify-live task",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "addition:does-medicare-pay-for-senior-care:status-change-fast-appeal",
+   "priority": 2,
+   "evidence": "Reader check 2026-11-26 (403f6da) in ops/reviews/live/does-medicare-pay-for-senior-care.md quotes Medicare.gov: 'If you were hospitalized on or after February 14, 2025, you'll have the right to ask for a fast appeal ...'",
+   "expected_tour_acquisition_value": "the site's most-shown page (781 impressions) tells families in hospital now how to protect skilled-nursing coverage",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "addition committed with checks passing and its reader check queued, or a verdict that the source does not support it",
+   "status": "ready",
+   "found_utc": "2026-11-26T00:52Z"
   }
  ],
  "completed": [
@@ -3285,6 +3285,58 @@
    "lesson": "A reviewed-date line sits directly above the title in every guide dict, so an audit that re-dates a guide conflicts with any title PR for it; keep the date or sequence the two.",
    "done_utc": "2026-11-26T00:49Z",
    "minutes": 5
+  },
+  {
+   "id": "ACQ-101",
+   "task": "Verify the correction to does-medicare-pay-for-senior-care on the accuracy pull request #89 (commit 403f6da): re-read each changed sentence against Medicare.gov SNF care, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <reader>' to ops/reviews/live/does-medicare-pay-for-senior-care.md and to that guide's lines in the #89 body, or reopen the correction",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:does-medicare-pay-for-senior-care:403f6da",
+   "priority": 1,
+   "evidence": "claude/accuracy-20261125 commit 403f6da (ACQ-099 reader reopened 28073a0)",
+   "expected_tour_acquisition_value": "quality gate before the correction enters the daily package",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-26T00:49Z",
+   "result": "Independent reader (agent in cse_014eaiSdvHByATtNdterRhh7) checked 403f6da: 'contact the plan' now scoped to Medicare Advantage, the other-settings advice to a parent without a 3-day stay, and the retrospective appeal sentence is gone. Corrections verified; with 28073a0's C1-C2 the Medicare guide's commits on #89 are all verified. Reader's recommended addition (not a defect): Medicare.gov's fast appeal for an inpatient changed to observation on or after 14 Feb 2025 (queued as ACQ-104).",
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/live/does-medicare-pay-for-senior-care.md"
+   },
+   "done_utc": "2026-11-26T00:52Z"
+  },
+  {
+   "id": "ACQ-100",
+   "task": "Verify the corrections to illinois-medicaid-estate-recovery on the accuracy pull request #89 (commit 5f5260d): re-read each changed sentence against the HFS estate recovery guide and the HFS liens page, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <reader>' to ops/reviews/live/illinois-medicaid-estate-recovery.md and to that guide's lines in the #89 body, or reopen the correction",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:illinois-medicaid-estate-recovery:5f5260d",
+   "priority": 1,
+   "evidence": "claude/accuracy-20261125 commit 5f5260d (ACQ-098 audit)",
+   "expected_tour_acquisition_value": "quality gate before the correction enters the daily package",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-26T00:49Z",
+   "result": "Independent reader (agent in cse_014eaiSdvHByATtNdterRhh7) checked 5f5260d: short answer (blind or disabled child) and the AABD/120 calendar days lien rule hold; reopened the occupancy exception, stated for every lien while HFS limits it to the long-term care lien. Corrected in b73f29c (exception scoped; HFS's no-enforcement-at-death rule for any lien added from 'What is a lien?'). Reader also noted the page's reviewed date (24 Oct) predates today's re-read: kept so #89 and #92 merge cleanly; re-date folded into ACQ-102. Reader check of b73f29c queued (ACQ-103).",
+   "verdicts": {
+    "5f5260d": "reopened",
+    "b73f29c": "pending reader"
+   },
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/live/illinois-medicaid-estate-recovery.md; #89 b73f29c"
+   },
+   "done_utc": "2026-11-26T00:52Z"
   }
  ],
  "blocked": [],
@@ -3295,7 +3347,7 @@
   "picked": "ACQ-084 done, ACQ-088 done, ACQ-089 done, ACQ-090 done; added ACQ-091, ACQ-092, ACQ-093 (next session); ACQ-017 still waiting (live guides do not yet link /assisted-living-evanston/)",
   "why": "Worked: LTC-insurance draft reviewed and corrected; look-back and Extra Help live audits, 2 commits on #89; stopped: no-worthwhile-work; resume: verifications ACQ-091/092/093 next session"
  },
- "last_verified_action": "ACQ-098 done 2026-11-26T00:49Z: Audited illinois-medicaid-estate-recovery (51 impr, pos 7.2) against the three HFS pages today: 6/6 quotations, $25,000/1 July 2022 rule, exemptions, debts-fir…",
+ "last_verified_action": "ACQ-100 done 2026-11-26T00:52Z: Independent reader (agent in cse_014eaiSdvHByATtNdterRhh7) checked 5f5260d: short answer (blind or disabled child) and the AABD/120 calendar days lien rule hol…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -3961,7 +4013,7 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSdvHByATtNdterRhh7",
-   "utc": "2026-11-26T00:50Z",
+   "utc": "2026-11-26T00:52Z",
    "since_utc": "2026-11-26T00:24Z",
    "productive_min": 17,
    "deliverables": [
@@ -3974,8 +4026,14 @@
     "verification:ops/reviews/live/illinois-medicaid-look-back-period.md",
     "audit:ops/reviews/live/does-medicare-pay-for-senior-care.md; #89 28073a0",
     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md; #89 403f6da",
-    "audit:ops/reviews/live/illinois-medicaid-estate-recovery.md; #89 5f5260d"
-   ]
+    "audit:ops/reviews/live/illinois-medicaid-estate-recovery.md; #89 5f5260d",
+    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
+    "verification:ops/reviews/live/illinois-medicaid-estate-recovery.md; #89 b73f29c"
+   ],
+   "current": {
+    "what": "ACQ-103",
+    "since_utc": "2026-11-26T00:52Z"
+   }
   },
   "monitor": {
    "last_utc": "2026-11-26T00:26Z"
