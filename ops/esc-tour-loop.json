@@ -190,24 +190,6 @@
    "found_utc": "2026-11-26T17:55Z",
    "waiting_for": "PR #91 (or #90) merged, so that a card change no longer collides with the open publish batch in the built /guides/ index",
    "not_before_utc": "2026-11-27T05:00Z"
-  },
-  {
-   "id": "ACQ-168",
-   "task": "Verify the corrections to medicare-home-health-care on the accuracy pull request #89 (commit 9d57bf0): re-read each changed sentence against its source; packet line added",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "followup",
-   "key": "verify-live:medicare-home-health-care:9d57bf0",
-   "priority": 1,
-   "evidence": "accuracy PR #89 commit 9d57bf0 (ACQ-167)",
-   "expected_tour_acquisition_value": "quality gate before the corrections reach the live guide",
-   "impact": 3,
-   "confidence": 4,
-   "effort": 1,
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
-   "status": "ready",
-   "found_utc": "2026-11-26T18:00Z"
   }
  ],
  "completed": [
@@ -5171,6 +5153,34 @@
    },
    "done_utc": "2026-11-26T18:00Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-168",
+   "task": "Verify the corrections to medicare-home-health-care on the accuracy pull request #89 (commit 9d57bf0): re-read each changed sentence against its source; packet line added",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:medicare-home-health-care:9d57bf0",
+   "priority": 1,
+   "evidence": "accuracy PR #89 commit 9d57bf0 (ACQ-167)",
+   "expected_tour_acquisition_value": "quality gate before the corrections reach the live guide",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-26T18:00Z",
+   "result": "Independent reader (agent in this session) checked #89 9d57bf0 on medicare-home-health-care: the short answer (doctor or other health care provider like an NP, Medicare covers, $0 limited to Original Medicare with the plan pointer) matches Medicare.gov Home health services; quotecheck 5/5. Corrections verified (7cfef07, 7a71f92, 9d57bf0); card text open as ACQ-164.",
+   "verdicts": [
+    "verified"
+   ],
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/live/medicare-home-health-care.md"
+   },
+   "done_utc": "2026-11-26T18:01Z",
+   "minutes": 1
   }
  ],
  "blocked": [],
@@ -5181,7 +5191,7 @@
   "picked": "ACQ-143 done, ACQ-144 done, ACQ-145 done, ACQ-146 done, ACQ-147 done (reopened), ACQ-148 done, ACQ-149 done",
   "why": "Worked: package #91 re-cut for 26 Nov (10 guides, 17 live-guide corrections, #92), 2 verified additions to top search pages; stopped: no-worthwhile-work; resume: monitor 12:26Z, sweeps 12:32Z"
  },
- "last_verified_action": "ACQ-167 done 2026-11-26T18:00Z: Applied the reader check of 7a71f92 as #89 9d57bf0: short answer names a doctor or other health care provider (like a nurse practitioner) who has seen your par…",
+ "last_verified_action": "ACQ-168 done 2026-11-26T18:01Z: Independent reader (agent in this session) checked #89 9d57bf0 on medicare-home-health-care: the short answer (doctor or other health care provider like an NP,…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -5847,9 +5857,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSan3kSKEb4rtUHknYk",
-   "utc": "2026-11-26T18:00Z",
+   "utc": "2026-11-26T18:01Z",
    "since_utc": "2026-11-26T17:32Z",
-   "productive_min": 31,
+   "productive_min": 32,
    "deliverables": [
     "correction:#89 99cc346; ops/reviews/live/medicare-hospice-benefit-explained.md",
     "correction:#89 e587023; ops/reviews/live/illinois-nursing-home-resident-rights.md",
@@ -5867,7 +5877,8 @@
     "verification:ops/reviews/live/medicare-home-health-care.md",
     "correction:#89 7a71f92",
     "verification:ops/reviews/live/medicare-home-health-care.md",
-    "correction:#89 9d57bf0"
+    "correction:#89 9d57bf0",
+    "verification:ops/reviews/live/medicare-home-health-care.md"
    ]
   },
   "monitor": {

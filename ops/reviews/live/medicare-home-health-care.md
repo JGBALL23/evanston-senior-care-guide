@@ -84,3 +84,17 @@ Reopened: the short answer says only "a doctor who has examined your parent in p
 Reader: agent in cse_014eaiSan3kSKEb4rtUHknYk
 
 Corrections applied: #89 9d57bf0, 2026-11-26, cse_014eaiSan3kSKEb4rtUHknYk (per the reader check of 7a71f92)
+
+## Reader check 2026-11-26
+
+Independent reader, clone of claude/accuracy-20261125 at 9d57bf0 (/tmp/reader-medicare-home-health-care-3), checking the one sentence 9d57bf0 changed (the short answer; build-guides.py and _dist agree). quotecheck: 5 quotations, 5 FOUND, 0 NEAR MATCH, 0 NOT FOUND, 2 cited pages, 0 unreadable ("no longer improving" is a related-guide card phrase, not a quotation). Medicare.gov Home health services re-read today (200). The commit adds and changes no links.
+
+- Short answer: "With Original Medicare, your parent pays $0 for a covered home health visit from a Medicare-certified agency (in a Medicare Advantage or other Medicare health plan, check with the plan), but Medicare covers one only when a doctor or other health care provider (like a nurse practitioner) who has seen your parent in person orders intermittent, skilled nursing or therapy and confirms your parent is homebound." Source (Provider requirements): "Before you can get home health services, a doctor or health care provider (like a nurse practitioner) must see you in person and confirm you need home health care. They must also order your care, and a Medicare-certified home health agency must provide it."; (Who's eligible): "You must need part-time or intermittent skilled services and you're "homebound,""; (Costs): "You pay nothing for covered home health services." ... "If you get your Medicare benefits through a Medicare Advantage Plan (Part C) or another Medicare health plan, check with your plan for more information about your home health benefits." Same scope: the ordering and in-person role now covers a doctor or other provider such as a nurse practitioner, as the source does; "Medicare covers" replaces "will only start"; the $0 stays limited to Original Medicare with plan members sent to the plan. Paraphrase, not quoted, so no wording issue.
+- Not part of 9d57bf0, still open as the addendum says: the CARDS text ("Medicare pays $0 for a covered home health visit ...") has the wrong payer and no Original Medicare limit; queued for after package #91.
+
+Quotations checked: 5. Claims scope-checked: 1. Scope defects: 0. Corrections required: 0.
+Reader: agent in cse_014eaiSan3kSKEb4rtUHknYk
+Corrections verified
+
+Reader: agent in cse_014eaiSan3kSKEb4rtUHknYk
+Corrections verified: 2026-11-26, agent in cse_014eaiSan3kSKEb4rtUHknYk (#89 7cfef07 + 7a71f92 + 9d57bf0; card text open as ACQ-164)
