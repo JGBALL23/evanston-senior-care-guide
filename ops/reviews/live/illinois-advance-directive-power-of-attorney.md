@@ -33,3 +33,17 @@ Quotations checked: 5. Claims scope-checked: 15. Scope defects: 3. Corrections r
 Verdict: corrections required (C1, C2, C3).
 
 Corrections applied: claude/accuracy-20261125 d7724d0, 2026-11-26, cse_014eaiSdDK6VjczHrPrWrgM1 (C1, C2, C3; reviewed date unchanged)
+
+## Reader check 2026-11-26
+
+Independent reader, branch claude/accuracy-20261125 at d7724d0 (built page _dist/guides/illinois-advance-directive-power-of-attorney/index.html matches build-guides.py). quotecheck: 5 quotations, 5 FOUND, 0 NEAR MATCH, 0 NOT FOUND, 3 cited pages, 0 unreadable. IDPH page fetched again today (200). The commit changes no link.
+
+- C1a. "The Illinois Department of Public Health states plainly that "no health care facility, health care professional or insurer can make you execute an advance directive as a condition of providing treatment or insurance."" Source (IDPH Advance Directives, Final Notes): "No health care facility, health care professional or insurer can make you execute an advance directive as a condition of providing treatment or insurance." Same scope (the condition of treatment or insurance is now in the quotation; the source's capital N is lower-cased only because the quotation runs into the guide's sentence, and quotecheck reports FOUND).
+- C1b. "No health care facility can make signing one a condition of treating your parent." Source: the same Final Notes sentence. Same scope (a narrower true subset: facility and treatment; the source also covers professionals, insurers and insurance, which the first section already quotes in full).
+- C2. "Practitioner Orders for Life-Sustaining Treatment (POLST) - a medical order, signed by your parent (or an authorised representative) and by their attending practitioner, setting out which life-sustaining treatments to use or withhold" Source (IDPH, Practitioner Orders For Life-Sustaining Treatment): "The Uniform POLST Order requires your signature or that of your authorized legal representative (your legal guardian, health care power of attorney, or health care surrogate), as well as the signature of your attending practitioner." Same scope.
+- C3. "If a facility objects to following your parent's directive, the Illinois Department of Public Health states it must say so and must keep providing care until your parent can be transferred to a provider who will follow it." Source (IDPH, Final Notes): "If a health care facility, health care professional or insurer objects to following your advance directive, they must tell you or the individual responsible for making your health care decisions. They must continue to provide care until you or your decision maker can transfer you to another health care provider who will follow the orders contained in your advance directive." Same scope (no moral or religious condition; the source names none).
+
+Corrections verified
+
+Corrections verified: 2026-11-26, agent in cse_014eaiSdDK6VjczHrPrWrgM1
+Reader: agent in cse_014eaiSdDK6VjczHrPrWrgM1

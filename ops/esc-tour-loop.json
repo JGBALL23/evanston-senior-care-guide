@@ -168,24 +168,6 @@
    "score": 6.0,
    "status": "ready",
    "found_utc": "2026-11-26T01:12Z"
-  },
-  {
-   "id": "ACQ-115",
-   "task": "Verify the corrections to illinois-advance-directive-power-of-attorney (live, accuracy PR #89 commit d7724d0)",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "followup",
-   "key": "verify-live:illinois-advance-directive-power-of-attorney:d7724d0",
-   "priority": 1,
-   "evidence": "commit d7724d0 on claude/accuracy-20261125; packet ops/reviews/live/illinois-advance-directive-power-of-attorney.md C1-C3",
-   "expected_tour_acquisition_value": "quality gate before the correction reaches the daily package",
-   "impact": 3,
-   "confidence": 4,
-   "effort": 1,
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
-   "status": "ready",
-   "found_utc": "2026-11-26T01:16Z"
   }
  ],
  "completed": [
@@ -3627,6 +3609,36 @@
    },
    "done_utc": "2026-11-26T01:16Z",
    "minutes": 3
+  },
+  {
+   "id": "ACQ-115",
+   "task": "Verify the corrections to illinois-advance-directive-power-of-attorney (live, accuracy PR #89 commit d7724d0)",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:illinois-advance-directive-power-of-attorney:d7724d0",
+   "priority": 1,
+   "evidence": "commit d7724d0 on claude/accuracy-20261125; packet ops/reviews/live/illinois-advance-directive-power-of-attorney.md C1-C3",
+   "expected_tour_acquisition_value": "quality gate before the correction reaches the daily package",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-26T01:16Z",
+   "result": "Independent reader (fresh-context agent in this session) checked the sentences d7724d0 changed in illinois-advance-directive-power-of-attorney on claude/accuracy-20261125: quotecheck 5/5 FOUND, IDPH page re-read (200), built HTML matches source, no link changes. C1 (no-compulsion sentence in full, and its paraphrase), C2 (POLST signers) and C3 (no 'moral or religious grounds') each match IDPH in scope. Packet line 'Corrections verified: 2026-11-26, agent in cse_014eaiSdDK6VjczHrPrWrgM1' added; commit d7724d0 is eligible for the next daily package.",
+   "verdicts": [
+    "Corrections verified"
+   ],
+   "sources": [
+    "https://dph.illinois.gov/topics-services/health-care-regulation/nursing-homes/advance-directives.html"
+   ],
+   "deliverable": {
+    "type": "verification",
+    "ref": "d7724d0"
+   },
+   "done_utc": "2026-11-26T01:17Z"
   }
  ],
  "blocked": [],
@@ -3637,7 +3649,7 @@
   "picked": "ACQ-005 done, ACQ-091..101 done, ACQ-102 waiting, ACQ-103..112 done, ACQ-113 ready, ACQ-114 ready",
   "why": "Worked: 22 tasks; 4 live-guide audits (Medicare guide, estate recovery, home health, look-back) corrected and reader-verified in #89; new memory care guide built, reviewed and with LTC insurance ported to batch #90; title PR #92; stopped: time; resume: ACQ-113/114 ready"
  },
- "last_verified_action": "ACQ-113 done 2026-11-26T01:16Z: Audited live guide illinois-advance-directive-power-of-attorney against IDPH Advance Directives, IDoA Advance Directives and IDoA Legal Assistance (all 200 tod…",
+ "last_verified_action": "ACQ-115 done 2026-11-26T01:17Z: Independent reader (fresh-context agent in this session) checked the sentences d7724d0 changed in illinois-advance-directive-power-of-attorney on claude/accura…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -4303,12 +4315,17 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSdDK6VjczHrPrWrgM1",
-   "utc": "2026-11-26T01:16Z",
+   "utc": "2026-11-26T01:17Z",
    "since_utc": "2026-11-26T01:13Z",
    "productive_min": 3,
    "deliverables": [
-    "correction:d7724d0"
-   ]
+    "correction:d7724d0",
+    "verification:d7724d0"
+   ],
+   "current": {
+    "what": "ACQ-114",
+    "since_utc": "2026-11-26T01:16Z"
+   }
   },
   "monitor": {
    "last_utc": "2026-11-26T00:26Z"
