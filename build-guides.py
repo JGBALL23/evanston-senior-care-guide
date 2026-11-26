@@ -1739,13 +1739,13 @@ GUIDES = [
         "listed": "2026-10-25",
         "title": "Does Medicare Pay for Hospice Care at Home?",
         "h1": "Does Medicare pay for hospice care at home?",
-        "desc": ("You pay " + F["hospice_zero"] + " for covered hospice care once a "
-                 "doctor certifies six months or less to live and comfort care is chosen "
-                 "over a cure. What is and is not covered."),
+        "desc": ("Your parent pays " + F["hospice_zero"] + " for covered care from a "
+                 "Medicare-approved hospice once a doctor certifies six months or less "
+                 "to live and comfort care is chosen over a cure."),
         "intent": "coverage question",
         "answer": ("<strong>Yes, for the hospice benefit itself.</strong> Your parent pays "
                    "<strong>" + F["hospice_zero"] + "</strong> for covered hospice care "
-                   "once a hospice doctor and your parent&rsquo;s own doctor (if they have "
+                   "from a Medicare-approved hospice provider once a hospice doctor and your parent&rsquo;s own doctor (if they have "
                    "one) certify a life expectancy of six months or less, and your parent "
                    "chooses comfort care instead of treatment to cure the illness. You may "
                    "still pay <strong>up to " + F["hospice_rx_copay"] + "</strong> per "
@@ -1759,7 +1759,7 @@ GUIDES = [
         "body": [
             ("What the hospice benefit actually pays for", [
                 "<p>Medicare describes hospice as &ldquo;end-of-life care for people with "
-                "illnesses that can&rsquo;t be cured,&rdquo; delivered under Part A. It is "
+                "illnesses that can&rsquo;t be cured&rdquo;, delivered under Part A. It is "
                 "not a different, better version of regular treatment &mdash; it is a "
                 "different goal. Once your parent elects hospice, the aim shifts from "
                 "curing the terminal illness to managing pain and symptoms and being "
@@ -1817,9 +1817,13 @@ GUIDES = [
                 "<p><strong>If your parent is in a Medicare Advantage Plan</strong> or "
                 "another Medicare health plan, Medicare says Original Medicare will cover "
                 "everything related to the terminal illness once the hospice benefit "
-                "starts, even if your parent stays in the plan. The plan must help you find "
-                "a Medicare-approved hospice, and it can still cover services that are not "
-                "part of the terminal illness.</p>",
+                "starts, even if your parent stays in the plan. The plan must help your "
+                "parent find a Medicare-approved hospice provider in the area, and it can "
+                "still cover services that are not part of the terminal illness and "
+                "related conditions. Your parent can stay in the plan as long as they keep "
+                "paying its premiums, and what they pay for those other services depends "
+                "on the plan and on following its coverage rules, such as using "
+                "in-network providers.</p>",
             ]),
             ("What it costs", [
                 "<p>Four cost lines, all from Medicare&rsquo;s own cost pages for the "
