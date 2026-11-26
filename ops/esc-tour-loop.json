@@ -3704,9 +3704,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSdvHByATtNdterRhh7",
-   "utc": "2026-11-26T00:30Z",
+   "utc": "2026-11-26T00:31Z",
    "since_utc": "2026-11-26T00:24Z",
-   "productive_min": 3,
+   "productive_min": 4,
    "deliverables": [
     "pr:#92"
    ]
@@ -4528,9 +4528,9 @@
     "evidence": "The operator's Search Console record in state.json and scoreboard.search_console.",
     "output": "Demand topics for queries with no page; a title or description fix task for a low click-through page (search lane capacity permitting). No new read is a one-line result.",
     "why": "Real queries are the strongest demand evidence the site can get.",
-    "last_checked_utc": "2026-11-24T18:26Z",
-    "next_check_utc": "2026-11-25T18:26Z",
-    "last_result": "Newest Search Console read in state.json is still 2026-11-18T16:33Z (16 Nov: 38 impressions, 0 clicks, avg pos 47.4), already the newest scoreboard row; no newer read, no query list to act on. Waits on the operator's weekly export.",
+    "last_checked_utc": "2026-11-26T00:31Z",
+    "next_check_utc": "2026-11-27T00:31Z",
+    "last_result": "Make read 25 Nov 20:35Z (26 Oct-22 Nov, data only 16-22 Nov): 1242 impressions, 2 clicks, avg pos 32.8; 74 queries >=3 impr. 63% of impressions go to does-medicare-pay-for-senior-care (781, pos 32.5, 0 clicks): national Medicare queries, title and answer already match them, so a title fix would not…",
     "last_added": 0
    },
    {
@@ -4594,6 +4594,7 @@
    }
   ],
   "sweep_log": [
+   "2026-11-26T00:31Z search-console +0: Make read 25 Nov 20:35Z (26 Oct-22 Nov, data only 16-22 Nov): 1242 impressions, 2 clicks, avg pos 32.8; 74 queries >=3 impr. 63% of impressions go to does-medi…",
    "2026-11-25T13:16Z publish-ready +0: Same read as the publish plan pass at 13:2xZ: 7 qualifying pages all in #90, unchanged on drafts since porting; the LTC-insurance page waits for verification o…",
    "2026-11-25T12:28Z live-accuracy +2: quotecheck --all on main 4dc2468 (unchanged since last check): 32 live guides, same 1 NOT FOUND (pace, in #89) and 2 NEAR MATCH (preadmission in #89; VDC audit…",
    "2026-11-25T06:37Z demand-questions +0: 2026-11-25: DEMAND.md Open holds 2 (unsafe discharge; AL rate rise after reassessment, both added 24 Nov 06:34Z, not yet 30 h old). Searched public caregiver Q…",
