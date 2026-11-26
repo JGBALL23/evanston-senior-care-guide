@@ -709,8 +709,8 @@ GUIDES = [
                 "or are they under observation?</em> Then ask again, because the status "
                 "can be changed.</p>",
                 "<p>If your parent is in Original Medicare and the hospital changes the "
-                "status from inpatient to outpatient observation, Medicare.gov says you "
-                "can ask for a fast appeal while your parent is still in the hospital; "
+                "status from inpatient to outpatient observation, Medicare.gov says your "
+                "parent can ask for a fast appeal while still in the hospital; "
                 "patients currently in the hospital get a Medicare Change of Status "
                 "Notice (CMS-10868). It also says why the change matters: Medicare will "
                 "not cover a skilled nursing facility stay within 30 days of leaving the "
