@@ -172,24 +172,6 @@
    "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in the Assisted Living and Shared Housing Act (210 ILCS 9/90, already a SRC on main as ilcs_al_90) and 77 Ill. Adm. Code 295 on ilga.gov, an approved host per check-guides.js. ilga.gov could not be read this session: curl through the proxy fails TLS (000) and WebFetch returns 503. Searched illinois.gov (IDPH, IDoA, HFS): the IDPH ITR form covers terminations only; the IDoA residents' rights brochure says a contract must state services and costs but is not scoped to assisted living and says nothing on rate-change notice; HFS Part 146 is supportive living. No guide written: the core rule cannot be read off a fetched page. Retry by WebFetch of ilga.gov after not_before."
   },
   {
-   "id": "ACQ-120",
-   "task": "Review hospital-discharge-not-safe-to-go-home under the review rules",
-   "workstream": "build",
-   "lane": "build",
-   "source": "followup",
-   "key": "review:hospital-discharge-not-safe-to-go-home",
-   "priority": 1,
-   "evidence": "build commit 317f6fb on drafts (ACQ-117, cse_014eaiSdDK6VjczHrPrWrgM1)",
-   "expected_tour_acquisition_value": "quality gate before publication",
-   "impact": 3,
-   "confidence": 4,
-   "effort": 1,
-   "executor": "worker (research and preparation only)",
-   "done_when": "packet at ops/reviews/hospital-discharge-not-safe-to-go-home.md with its counts and verdict",
-   "status": "ready",
-   "found_utc": "2026-11-26T01:23Z"
-  },
-  {
    "id": "ACQ-122",
    "task": "Accuracy audit of the live guide illinois-elder-abuse-reporting under the review rules (scope rule included), packet at ops/reviews/live/illinois-elder-abuse-reporting.md; corrections into the rolling accuracy PR #89",
    "workstream": "technical",
@@ -226,6 +208,24 @@
    "score": 6.0,
    "status": "ready",
    "found_utc": "2026-11-26T01:25Z"
+  },
+  {
+   "id": "ACQ-124",
+   "task": "Apply the review packet ops/reviews/hospital-discharge-not-safe-to-go-home.md to the drafts guide: the two required scope corrections in the fast-appeal section and the recommended additions it lists that the cited sources support, under Improve (one commit, checks and quotecheck), then a verify task for an independent reader",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "correct:hospital-discharge-not-safe-to-go-home",
+   "priority": 1,
+   "evidence": "review packet 2026-11-26 (reader agent in cse_014eaiSdDK6VjczHrPrWrgM1): publish-ready after corrections, 2 scope defects",
+   "expected_tour_acquisition_value": "brings a new decision-stage guide to publish-ready for the daily package",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "correction commit on drafts with checks; packet line 'Corrections applied'; verify task added",
+   "status": "ready",
+   "found_utc": "2026-11-26T01:26Z"
   }
  ],
  "completed": [
@@ -3858,6 +3858,33 @@
     "ref": "c160353"
    },
    "done_utc": "2026-11-26T01:25Z"
+  },
+  {
+   "id": "ACQ-120",
+   "task": "Review hospital-discharge-not-safe-to-go-home under the review rules",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "review:hospital-discharge-not-safe-to-go-home",
+   "priority": 1,
+   "evidence": "build commit 317f6fb on drafts (ACQ-117, cse_014eaiSdDK6VjczHrPrWrgM1)",
+   "expected_tour_acquisition_value": "quality gate before publication",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet at ops/reviews/hospital-discharge-not-safe-to-go-home.md with its counts and verdict",
+   "status": "done",
+   "found_utc": "2026-11-26T01:23Z",
+   "result": "Independent reader (fresh-context agent) reviewed hospital-discharge-not-safe-to-go-home at drafts 317f6fb: 23 quotations word-perfect, 36 claims scope-checked, all links on main, sources 200. Verdict: publish-ready after corrections. Two scope defects in the fast-appeal section: the stay-while-you-wait protection is stated 'In a hospital' with no payer limit, not only Original Medicare; the Medicare Advantage 'ask your plan' sentence follows the missed-deadline rule and must not replace the BFCC-QIO fast appeal for plan members. Seven recommended additions listed (missed-deadline review, cost if the appeal is lost, 2026 SNF cost-sharing, observation-status appeal, other SNF conditions, SHIP help, hospital's own SNF unit). Correction task added.",
+   "verdicts": [
+    "publish-ready after corrections"
+   ],
+   "deliverable": {
+    "type": "review_packet",
+    "ref": "ops/reviews/hospital-discharge-not-safe-to-go-home.md"
+   },
+   "done_utc": "2026-11-26T01:26Z"
   }
  ],
  "blocked": [],
@@ -3868,7 +3895,7 @@
   "picked": "ACQ-005 done, ACQ-091..101 done, ACQ-102 waiting, ACQ-103..112 done, ACQ-113 ready, ACQ-114 ready",
   "why": "Worked: 22 tasks; 4 live-guide audits (Medicare guide, estate recovery, home health, look-back) corrected and reader-verified in #89; new memory care guide built, reviewed and with LTC insurance ported to batch #90; title PR #92; stopped: time; resume: ACQ-113/114 ready"
  },
- "last_verified_action": "ACQ-121 done 2026-11-26T01:25Z: Independent reader (fresh-context agent) checked c160353 on claude/accuracy-20261125: quotecheck 27/27 FOUND, 6 cited pages read, Walkers page and Medicare pub…",
+ "last_verified_action": "ACQ-120 done 2026-11-26T01:26Z: Independent reader (fresh-context agent) reviewed hospital-discharge-not-safe-to-go-home at drafts 317f6fb: 23 quotations word-perfect, 36 claims scope-checked…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -4534,7 +4561,7 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSdDK6VjczHrPrWrgM1",
-   "utc": "2026-11-26T01:25Z",
+   "utc": "2026-11-26T01:26Z",
    "since_utc": "2026-11-26T01:13Z",
    "productive_min": 9,
    "deliverables": [
@@ -4544,8 +4571,13 @@
     "verification:63284d5",
     "guide:317f6fb",
     "correction:c160353",
-    "verification:c160353"
-   ]
+    "verification:c160353",
+    "review_packet:ops/reviews/hospital-discharge-not-safe-to-go-home.md"
+   ],
+   "current": {
+    "what": "ACQ-122",
+    "since_utc": "2026-11-26T01:25Z"
+   }
   },
   "monitor": {
    "last_utc": "2026-11-26T00:26Z"
