@@ -3712,7 +3712,7 @@ GUIDES = [
                 "&mdash; if certain conditions are met</li>"
                 "<li><strong>Medical social services</strong></li>"
                 "<li><strong>Home health aide services</strong> &mdash; part-time or "
-                "intermittent, and, in Medicare.gov&rsquo;s words, <strong>&ldquo;only if you&rsquo;re also getting skilled nursing care.&rdquo;</strong> Examples given are bathing or grooming, feeding and help with walking</li>"
+                "intermittent, and, in Medicare.gov&rsquo;s words, <strong>&ldquo;only if you&rsquo;re also getting skilled nursing care, physical therapy, speech-language pathology services, or occupational therapy at the same time&rdquo;</strong>. Examples given are bathing or grooming, feeding and help with walking</li>"
                 "<li><strong>Injectable osteoporosis drugs</strong> for women who meet "
                 "certain criteria</li>"
                 "<li><strong>Durable medical equipment and medical supplies</strong> "
@@ -3767,6 +3767,10 @@ GUIDES = [
                 "</strong> for 2026.</p>",
                 "<p>Before giving your parent a service Medicare won&rsquo;t cover, the agency should give an Advance Beneficiary Notice (ABN) saying so. Ask for it in writing before agreeing to "
                 "anything the agency describes as extra.</p>",
+                "<p>These are the terms of Original Medicare. If your parent gets "
+                "Medicare through a Medicare Advantage plan or another Medicare health "
+                "plan, Medicare.gov says to check with the plan about its home health "
+                "benefits.</p>",
             ]),
             ("How much care, and how often", [
                 "<p>If your parent qualifies, Medicare.gov says visits are "
