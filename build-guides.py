@@ -4360,8 +4360,8 @@ GUIDES = [
                    "Medicare-approved amount, and only if the supplier is enrolled "
                    "in Medicare and accepts assignment. Power wheelchairs and "
                    "scooters need a face-to-face exam and a written prescription "
-                   "first, and some require Medicare's prior approval before you "
-                   "buy or rent."),
+                   "first, and certain types of power wheelchairs need Medicare's "
+                   "prior approval before Medicare will cover them."),
         "sources": srcs("mdme_wheelchairs", "mdme_hospitalbeds", "mdme_walkers",
                         "mdme_canes", "mdme_commodes"),
         "body": [
@@ -4396,9 +4396,9 @@ GUIDES = [
                 "<li><strong>Commode chairs</strong> &mdash; &ldquo;Medicare Part B (Medical Insurance) covers commode chairs,&rdquo; on the same doctor&rsquo;s-order and home-use terms</li></ul>",
                 "<p>That cane exclusion is worth sitting with for a moment. Two "
                 "items that look alike to a family &mdash; a mobility cane and a "
-                "cane for someone who is blind &mdash; are covered differently "
-                "because Medicare classifies one as DME and the other as an aid "
-                "for a different purpose. The lesson is not about canes "
+                "cane for someone who is blind &mdash; are covered differently, "
+                "and Medicare.gov&rsquo;s cane page states the exclusion without "
+                "giving a reason for it. The lesson is not about canes "
                 "specifically; it is that &ldquo;covered&rdquo; is decided item "
                 "by item, on each item's own Medicare.gov page, not by a general "
                 "sense that medical equipment is covered.</p>",
@@ -4414,7 +4414,7 @@ GUIDES = [
                 "&ldquo;If a supplier participates in Medicare, they must accept "
                 "assignment,&rdquo; and for anything rented rather than bought, "
                 "&ldquo;make sure the supplier is willing to accept assignment for "
-                "all rental months.&rdquo; The hospital-beds page spells out the risk: &ldquo;If a DME supplier doesn&rsquo;t participate in Medicare or won&rsquo;t accept assignment, you may be charged more.&rdquo; Ask "
+                "all rental months, otherwise you&rsquo;ll have to pay the full cost of your DME upfront.&rdquo; The hospital-beds page spells out the risk: &ldquo;If a DME supplier doesn&rsquo;t participate in Medicare or won&rsquo;t accept assignment, you may be charged more.&rdquo; Ask "
                 "the question before the equipment is ordered, not after the first "
                 "bill arrives.</p>",
             ]),
