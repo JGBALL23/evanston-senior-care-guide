@@ -170,6 +170,21 @@
    "found_utc": "2026-11-26T01:19Z",
    "not_before_utc": "2026-11-27T01:30Z",
    "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in the Assisted Living and Shared Housing Act (210 ILCS 9/90, already a SRC on main as ilcs_al_90) and 77 Ill. Adm. Code 295 on ilga.gov, an approved host per check-guides.js. ilga.gov could not be read this session: curl through the proxy fails TLS (000) and WebFetch returns 503. Searched illinois.gov (IDPH, IDoA, HFS): the IDPH ITR form covers terminations only; the IDoA residents' rights brochure says a contract must state services and costs but is not scoped to assisted living and says nothing on rate-change notice; HFS Part 146 is supportive living. No guide written: the core rule cannot be read off a fetched page. Retry by WebFetch of ilga.gov after not_before."
+  },
+  {
+   "id": "ACQ-145",
+   "task": "Verify the addition to does-medicare-pay-for-senior-care on the accuracy pull request #89 (commit 6876bfd): re-read the changed sentences against Medicare.gov 'Appeal when a hospital changes your status'",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:does-medicare-pay-for-senior-care:6876bfd",
+   "priority": 1,
+   "evidence": "commit 6876bfd on claude/accuracy-20261125 (ACQ-144)",
+   "expected_tour_acquisition_value": "quality gate before the addition enters the daily package",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "ready",
+   "found_utc": "2026-11-26T06:36Z"
   }
  ],
  "completed": [
@@ -4492,6 +4507,34 @@
    },
    "done_utc": "2026-11-26T06:32Z",
    "minutes": 8
+  },
+  {
+   "id": "ACQ-144",
+   "task": "Recommended addition to does-medicare-pay-for-senior-care (live) on the accuracy pull request #89: after the CMS-10868 sentence, Medicare.gov's 'If you don't get this notice, ask for it' and that an appeal can still be asked for after leaving the hospital through the BFCC-QIO (Original Medicare, status changed to observation)",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "improve:does-medicare-pay-for-senior-care:cms10868-after-discharge",
+   "priority": 2,
+   "evidence": "ops/reviews/live/does-medicare-pay-for-senior-care.md reader checks of 8457ed1 and d9d1fc3 (26 Nov 2026): recommended addition still open; Make Search Console read 25 Nov: this page has 781 of the site's 1,242 impressions",
+   "expected_tour_acquisition_value": "the most-seen page tells a family in a hospital observation situation exactly what to ask for and what still works after discharge; trust on the page families land on most",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "one sourced commit on claude/accuracy-20261125 with all suites and quotecheck passing, packet line added, verify-live task added",
+   "status": "done",
+   "found_utc": "2026-11-26T06:34Z",
+   "result": "Applied the open recommended addition from the reader checks of 8457ed1/d9d1fc3 to the live Medicare guide (781 of 1,242 search impressions) on the accuracy PR #89 as 6876bfd: after the CMS-10868 sentence, Medicare.gov's 'If you don't get this notice, ask for it', that it is best to appeal while in hospital, and that an appeal can still be asked for after leaving by the notice's instructions or through the local BFCC-QIO. Paraphrase only, no new quotation. New source mstatusfast (Medicare.gov 'Appeal when a hospital changes your status...', read 26 Nov, 200). Build changes only this page; all suites pass; quotecheck 6 cited pages readable. Packet line added; verify-live task ACQ-145 added for an independent reader.",
+   "sources": [
+    "https://www.medicare.gov/providers-services/claims-appeals-complaints/appeals/original-medicare/appeal-part-a-hospital-status-change (read 2026-11-26)"
+   ],
+   "deliverable": {
+    "type": "correction",
+    "ref": "claude/accuracy-20261125 6876bfd (PR #89)"
+   },
+   "done_utc": "2026-11-26T06:36Z",
+   "minutes": 3
   }
  ],
  "blocked": [],
@@ -4502,7 +4545,7 @@
   "picked": "ACQ-142 done",
   "why": "Worked: SC3 scout (own numbers) ran, 0 new map items; stopped: no-worthwhile-work; resume: package cut 05:00Z"
  },
- "last_verified_action": "ACQ-143 done 2026-11-26T06:32Z: Daily package for 26 Nov cut inside the window. Ported the newly verified guide hospital-discharge-not-safe-to-go-home (drafts 2b3b34e, packet publish-ready af…",
+ "last_verified_action": "ACQ-144 done 2026-11-26T06:36Z: Applied the open recommended addition from the reader checks of 8457ed1/d9d1fc3 to the live Medicare guide (781 of 1,242 search impressions) on the accuracy PR…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -5169,11 +5212,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSe8SBqppdHD1M3fw41",
-   "utc": "2026-11-26T06:34Z",
+   "utc": "2026-11-26T06:36Z",
    "since_utc": "2026-11-26T06:24Z",
-   "productive_min": 8,
+   "productive_min": 12,
    "deliverables": [
-    "publish_pr:PR #91 at 4d047b4; batch #90 at 40e9da0"
+    "publish_pr:PR #91 at 4d047b4; batch #90 at 40e9da0",
+    "correction:claude/accuracy-20261125 6876bfd (PR #89)"
    ]
   },
   "monitor": {
@@ -6041,9 +6085,9 @@
     "plan_cooldown_hours": 72,
     "open_prs": [],
     "owner_open": 1,
-    "cooldown_until_utc": "2026-11-26T06:28Z",
-    "last_planned_utc": "2026-11-23T06:28Z",
-    "last_plan_result": "2026-11-23: no referral_partnerships map item has verdict ACT (R1 waiting, R8 waiting, the rest dropped); R1 class closed to new emails; one email draft already ready for the operator. Nothing to prepare."
+    "cooldown_until_utc": "2026-11-29T06:34Z",
+    "last_planned_utc": "2026-11-26T06:34Z",
+    "last_plan_result": "26 Nov: no map item with an unhandled ACT verdict. R8's one ACT (Open Communities) already handed off 22 Nov; R1 closed (6 municipal sends, 0 replies); referral emails 11 sent, 0 replies; D6/D7/D8 wait on Joseph (business page, his byline, his time). No reply in the monitor record to answer. Nothin…"
    }
   ],
   "outcomes": [
@@ -6103,6 +6147,7 @@
    }
   ],
   "log": [
+   "2026-11-26T06:34Z partnerships +0: 26 Nov: no map item with an unhandled ACT verdict. R8's one ACT (Open Communities) already handed off 22 Nov; R1 closed (6 municipal sends, 0 replies); referra…",
    "2026-11-26T06:34Z technical +0: 26 Nov 06:3xZ crawl: all 36 sitemap URLs 200 under 3 s; robots.txt 200; 202 distinct hrefs, every internal path 200; outbound links 200 except truleeevanston.c…",
    "2026-11-26T06:33Z demand +0: 26 Nov: Make's Search Console read of 25 Nov (73 queries, 3+ impressions): every query maps to a live guide (Medicare/assisted-living cluster -> does-medicare-…",
    "2026-11-26T01:35Z build +0: Second build pass 26 Nov: DEMAND Open holds one topic (ACQ-118, waiting on ilga.gov); Search Console read 25 Nov has no uncovered query; no new public-question…",
@@ -6204,9 +6249,9 @@
     "evidence": "The demand lane's evidence: public Q&A sites, forums, community boards and news comment sections (type, venue kind and date only); Search Console queries when available.",
     "output": "Topics committed to DEMAND.md's Open list on drafts, at most three open at once (step 7). Deliverable type demand_topic.",
     "why": "Each topic becomes a guide draft at 6 AM the next morning.",
-    "last_checked_utc": "2026-11-25T06:37Z",
-    "next_check_utc": "2026-11-26T06:37Z",
-    "last_result": "2026-11-25: DEMAND.md Open holds 2 (unsafe discharge; AL rate rise after reassessment, both added 24 Nov 06:34Z, not yet 30 h old). Searched public caregiver Q&A for decision-stage questions: long-term care insurance claims for assisted living qualified (4 dated questions) and was BUILT this sessio…",
+    "last_checked_utc": "2026-11-26T06:34Z",
+    "next_check_utc": "2026-11-27T06:34Z",
+    "last_result": "Answered from this session's demand planning pass (26 Nov 06:33Z): Search Console queries of the 25 Nov Make read all map to live guides; public-question search found hospice room-and-board (covered by medicare-hospice-benefit-explained) and assisted-living respite stays (no dated family questions,…",
     "last_added": 0
    },
    {
@@ -6301,6 +6346,7 @@
    }
   ],
   "sweep_log": [
+   "2026-11-26T06:34Z demand-questions +0: Answered from this session's demand planning pass (26 Nov 06:33Z): Search Console queries of the 25 Nov Make read all map to live guides; public-question searc…",
    "2026-11-26T06:34Z site-health +0: Covered by this session's technical planning crawl (26 Nov): 36 live URLs 200, internal links all resolve, main's suites pass; only bot-blocked third-party pag…",
    "2026-11-26T00:50Z publish-ready +0: 8 drafts not on main, all with packets: 7 already in publish batch #90 at the drafts text they were ported from (latest drafts commits for them predate the 25 …",
    "2026-11-26T00:50Z search-presence +0: Answered from Google data this time (Make Search Console read 25 Nov) instead of the research index: the site appears in Google for national program questions …",

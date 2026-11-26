@@ -95,3 +95,5 @@ Corrections verified
 
 Corrections verified: 2026-11-26, agent in cse_014eaiSdvHByATtNdterRhh7 (8457ed1 with d9d1fc3)
 Reader: agent in cse_014eaiSdvHByATtNdterRhh7
+
+Corrections applied: claude/accuracy-20261125 6876bfd, 2026-11-26, cse_014eaiSe8SBqppdHD1M3fw41 (recommended addition: ask for the CMS-10868 if it does not come; appeal after leaving through the notice or the BFCC-QIO; new source Medicare.gov "Appeal when a hospital changes your status")
