@@ -172,25 +172,6 @@
    "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in the Assisted Living and Shared Housing Act (210 ILCS 9/90, already a SRC on main as ilcs_al_90) and 77 Ill. Adm. Code 295 on ilga.gov, an approved host per check-guides.js. ilga.gov could not be read this session: curl through the proxy fails TLS (000) and WebFetch returns 503. Searched illinois.gov (IDPH, IDoA, HFS): the IDPH ITR form covers terminations only; the IDoA residents' rights brochure says a contract must state services and costs but is not scoped to assisted living and says nothing on rate-change notice; HFS Part 146 is supportive living. No guide written: the core rule cannot be read off a fetched page. Retry by WebFetch of ilga.gov after not_before."
   },
   {
-   "id": "ACQ-122",
-   "task": "Accuracy audit of the live guide illinois-elder-abuse-reporting under the review rules (scope rule included), packet at ops/reviews/live/illinois-elder-abuse-reporting.md; corrections into the rolling accuracy PR #89",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "plan",
-   "key": "audit:illinois-elder-abuse-reporting",
-   "priority": 2,
-   "evidence": "Make Search Console read 25 Nov 20:35Z: 24 impressions, pos 41.1; no packet in ops/reviews/live/ (next by exposure after medicare-durable-medical-equipment-coverage, audited 26 Nov)",
-   "expected_tour_acquisition_value": "correct rules on pages families find in search keep trust at the decision stage",
-   "impact": 3,
-   "confidence": 4,
-   "effort": 2,
-   "executor": "worker (research and preparation only)",
-   "done_when": "packet ops/reviews/live/illinois-elder-abuse-reporting.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
-   "score": 6.0,
-   "status": "ready",
-   "found_utc": "2026-11-26T01:25Z"
-  },
-  {
    "id": "ACQ-123",
    "task": "Accuracy audit of the live guide va-nursing-home-and-respite-care under the review rules (scope rule included), packet at ops/reviews/live/va-nursing-home-and-respite-care.md; corrections into the rolling accuracy PR #89",
    "workstream": "technical",
@@ -226,6 +207,24 @@
    "done_when": "correction commit on drafts with checks; packet line 'Corrections applied'; verify task added",
    "status": "ready",
    "found_utc": "2026-11-26T01:26Z"
+  },
+  {
+   "id": "ACQ-125",
+   "task": "Verify the corrections to illinois-elder-abuse-reporting (live, accuracy PR #89 commit 09af0cb)",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:illinois-elder-abuse-reporting:09af0cb",
+   "priority": 1,
+   "evidence": "commit 09af0cb on claude/accuracy-20261125; packet ops/reviews/live/illinois-elder-abuse-reporting.md C1-C2, A1",
+   "expected_tour_acquisition_value": "quality gate before the correction reaches the daily package",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "ready",
+   "found_utc": "2026-11-26T01:27Z"
   }
  ],
  "completed": [
@@ -3885,6 +3884,39 @@
     "ref": "ops/reviews/hospital-discharge-not-safe-to-go-home.md"
    },
    "done_utc": "2026-11-26T01:26Z"
+  },
+  {
+   "id": "ACQ-122",
+   "task": "Accuracy audit of the live guide illinois-elder-abuse-reporting under the review rules (scope rule included), packet at ops/reviews/live/illinois-elder-abuse-reporting.md; corrections into the rolling accuracy PR #89",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:illinois-elder-abuse-reporting",
+   "priority": 2,
+   "evidence": "Make Search Console read 25 Nov 20:35Z: 24 impressions, pos 41.1; no packet in ops/reviews/live/ (next by exposure after medicare-durable-medical-equipment-coverage, audited 26 Nov)",
+   "expected_tour_acquisition_value": "correct rules on pages families find in search keep trust at the decision stage",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet ops/reviews/live/illinois-elder-abuse-reporting.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
+   "score": 6.0,
+   "status": "done",
+   "found_utc": "2026-11-26T01:25Z",
+   "result": "Audited live guide illinois-elder-abuse-reporting against the three cited IDoA pages (200 today). quotecheck 13/13 FOUND; 16 claims scope-checked. C1: the guide said the pages it read do not state who must report, but the cited Engage page does (mandated reporters in seven fields; 'Report it, even if you are not sure.'). C2 scope: the guide told families every problem of a nursing home or assisted living resident goes to the Ombudsman or IDPH; IDoA's #Engage2Change brochure says APS may respond when a facility resident is abused outside the facility or financially exploited by a family member or caregiver (new SRC idoa_e2c_ombudsman). A1 added the adult's right to choose. Applied as 09af0cb on claude/accuracy-20261125 (PR #89), reviewed date unchanged; test.js 768/768, check-guides 2697/0, test_paying_nav 331/331, quotecheck 17/17. Verify-live task added.",
+   "sources": [
+    "https://ilaging.illinois.gov/programs/adult-protective-services-aps-.html",
+    "https://ilaging.illinois.gov/protectionadvocacy/aps-definitions.html",
+    "https://ilaging.illinois.gov/engage.html",
+    "https://ilaging.illinois.gov/content/dam/soi/en/web/aging/resources/newsandpublications/publications/documents/engage2change-ombudsman.pdf"
+   ],
+   "lesson": "'could not find' sentences in live guides deserve a re-read of the cited page itself; this one was false on the page it cited.",
+   "deliverable": {
+    "type": "correction",
+    "ref": "09af0cb"
+   },
+   "done_utc": "2026-11-26T01:27Z",
+   "minutes": 3
   }
  ],
  "blocked": [],
@@ -3895,7 +3927,7 @@
   "picked": "ACQ-005 done, ACQ-091..101 done, ACQ-102 waiting, ACQ-103..112 done, ACQ-113 ready, ACQ-114 ready",
   "why": "Worked: 22 tasks; 4 live-guide audits (Medicare guide, estate recovery, home health, look-back) corrected and reader-verified in #89; new memory care guide built, reviewed and with LTC insurance ported to batch #90; title PR #92; stopped: time; resume: ACQ-113/114 ready"
  },
- "last_verified_action": "ACQ-120 done 2026-11-26T01:26Z: Independent reader (fresh-context agent) reviewed hospital-discharge-not-safe-to-go-home at drafts 317f6fb: 23 quotations word-perfect, 36 claims scope-checked…",
+ "last_verified_action": "ACQ-122 done 2026-11-26T01:27Z: Audited live guide illinois-elder-abuse-reporting against the three cited IDoA pages (200 today). quotecheck 13/13 FOUND; 16 claims scope-checked. C1: the guid…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -4561,9 +4593,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSdDK6VjczHrPrWrgM1",
-   "utc": "2026-11-26T01:26Z",
+   "utc": "2026-11-26T01:27Z",
    "since_utc": "2026-11-26T01:13Z",
-   "productive_min": 9,
+   "productive_min": 12,
    "deliverables": [
     "correction:d7724d0",
     "verification:d7724d0",
@@ -4572,12 +4604,9 @@
     "guide:317f6fb",
     "correction:c160353",
     "verification:c160353",
-    "review_packet:ops/reviews/hospital-discharge-not-safe-to-go-home.md"
-   ],
-   "current": {
-    "what": "ACQ-122",
-    "since_utc": "2026-11-26T01:25Z"
-   }
+    "review_packet:ops/reviews/hospital-discharge-not-safe-to-go-home.md",
+    "correction:09af0cb"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-26T00:26Z"
