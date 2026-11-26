@@ -1668,7 +1668,18 @@ GUIDES = [
                 "or in some cases a sibling, and a lien is released if the resident is "
                 "discharged home. For any lien, HFS says no action will be taken to "
                 "enforce it when the person dies while one of those relatives lives in "
-                "the home.</p>",
+                "the home. HFS also says no action will be taken to force the sale of "
+                "the property, that the lien is paid from the sale proceeds if and when "
+                "the property is sold, and that &ldquo;No one will be asked to leave the "
+                "property.&rdquo;</p>",
+                "<p>A resident who receives medical assistance only and is notified of "
+                "HFS's decision to file a lien after 120 consecutive days in a medical "
+                "institution can appeal it. HFS says to write a letter requesting a "
+                "hearing or fill out an Appeal Request form (available at any local "
+                "Department of Human Services office, where the caseworker will help), "
+                "and to take or mail it to the local DHS office or the DHS Bureau of "
+                "Administrative Hearings; an appeal can also be made by calling "
+                "1-800-435-0774, Monday to Friday, 8:30 a.m. to 4:45 p.m.</p>",
                 "<p>This tool has also been narrowed by law. HFS states that "
                 "<strong>Public Act 102-1037</strong>, effective <strong>2 June "
                 "2022</strong>, restricts the filing of <em>new</em> liens on real "
