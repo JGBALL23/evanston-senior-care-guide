@@ -370,6 +370,8 @@ SRC = {
                     'https://ilaging.illinois.gov/engage.html'),
     "idoa_e2c_ombudsman": ('Illinois Department on Aging — Adult Protective Services and Ombudsman Program (#Engage2Change brochure, printed 1/21)',
                            'https://ilaging.illinois.gov/content/dam/soi/en/web/aging/resources/newsandpublications/publications/documents/engage2change-ombudsman.pdf'),
+    "idoa_abuse_reporting": ('Illinois Department on Aging — Report Abuse, Neglect, Exploitation or Self-Neglect',
+                             'https://ilaging.illinois.gov/protectionadvocacy/abuse-reporting.html'),
     "idoa_benefit_access": ('Illinois Department on Aging — Benefit Access Program',
                             'https://ilaging.illinois.gov/benefitsaccess.html'),
     "idoa_benefit_access_faq": ('Illinois Department on Aging — Benefit Access, Eligibility and Frequently Asked Questions',
@@ -4089,7 +4091,7 @@ GUIDES = [
                    "caregiver or another person with a relationship to them, "
                    "&ldquo;the APS Program may respond.&rdquo;"),
         "sources": srcs("idoa_aps_program", "idoa_aps_definitions", "idoa_engage",
-                        "idoa_e2c_ombudsman"),
+                        "idoa_e2c_ombudsman", "idoa_abuse_reporting"),
         "body": [
             ("Two different hotlines, and this guide is about one of them", [
                 "<p>Illinois splits elder-safety reporting the same way it "
@@ -4097,7 +4099,13 @@ GUIDES = [
                 "your parent lives in their own home, an apartment, or with "
                 "family &mdash; anywhere outside a licensed care facility "
                 "&mdash; the Illinois Department on Aging's <strong>Adult "
-                "Protective Services</strong> program is the state channel. "
+                "Protective Services</strong> program is the state channel "
+                "(and, as the answer above says, it may also respond for a "
+                "facility resident harmed by a family member, caregiver or "
+                "someone else with a relationship to them; the Department on "
+                "Aging&rsquo;s brochure adds that &ldquo;The resident may choose "
+                "to work with the APS Program and/or the Ombudsman Program in "
+                "this situation.&rdquo;). "
                 "Its own programme page states it &ldquo;investigates reports "
                 "of abuse, neglect, exploitation, and self-neglect of adults "
                 "age 60 or older, and adults age 18-59 with disabilities "
@@ -4140,8 +4148,12 @@ GUIDES = [
                 "Engage page also lists the older adult&rsquo;s own rights, "
                 "among them to &ldquo;Choose where and how they will live&rdquo; "
                 "and to &ldquo;Choose whether to accept social services or other "
-                "community assistance&rdquo;, so a report starts a conversation "
-                "with your parent, not a decision made for them.</p>",
+                "community assistance&rdquo;, and to make &ldquo;bad&rdquo; decisions "
+                "&ldquo;as long as those decisions don&rsquo;t hurt themselves or "
+                "others&rdquo;. The same list says that when an older adult "
+                "&ldquo;is incapable of protecting himself or herself, under the "
+                "law that person has the right to have protective measures taken "
+                "on his or her behalf&rdquo;.</p>",
             ]),
             ("How to report, and what the state says happens next", [
                 "<p>The hotline is <strong>1-866-800-1409</strong>, which the department&rsquo;s APS page calls &ldquo;the statewide, 24-hour Adult Protective Services Hotline&rdquo;; for deaf and speech-impaired callers, the same page says to dial Illinois Relay at <strong>711</strong>. The department's Engage page, aimed "
@@ -4166,11 +4178,15 @@ GUIDES = [
                 "caseworker judges the situation to be, so this guide will not "
                 "invent a number of hours or days. On who must report, the Engage "
                 "page says Illinois law requires certain professionals to report "
-                "suspected abuse of adults age 60 or older, or people with "
+                "suspected abuse of adults age 60 or older or people with "
                 "disabilities age 18-59 who are unable, due to dysfunction, to "
                 "report for themselves: people delivering professional services "
                 "to them in social services, adult care, law enforcement, "
                 "education, medicine, state service to seniors and social work. "
+                "The Department&rsquo;s Report Abuse page adds that these "
+                "&ldquo;Mandatory reporting requirements only apply when the "
+                "reporter believes that the adult is not capable of reporting the "
+                "abuse, neglect, or financial exploitation themselves&rdquo;. "
                 "A family member does not have to be sure: the same page says "
                 "&ldquo;Report it, even if you are not sure.&rdquo; And while the Engage page mentions, "
                 "in a single success story, that APS worked with a State&rsquo;s Attorney in one case, nothing on the pages read states a general "
