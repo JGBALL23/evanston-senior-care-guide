@@ -133,6 +133,10 @@ F["va_mapr_aa_single_month"] = "$%s" % format(
     int(F["va_mapr_aa_single"].lstrip("$").replace(",", "")) // 12, ",")
 
 SRC = {
+    "medicare_nh_choosing": ('Medicare.gov — Your Guide to Choosing a Nursing Home or Other '
+                             'Long-Term Services & Supports (publication 02174)',
+                             'https://www.medicare.gov/care-compare/en/assets/resources/'
+                             'nursing-home/02174-nursing-home-other-long-term-services.pdf'),
     "carescout": ('CareScout 2025 Cost of Care Survey, published 2026',
                   'https://assets.carescout.com/x/5c90319b6a/298701.pdf'),
     "mcosts": ('Medicare.gov — Medicare costs',
@@ -6538,6 +6542,201 @@ GUIDES = [
             ]),
         ],
     },
+    {
+        "slug": "hospital-discharge-not-safe-to-go-home",
+        "bridge": ("Getting through the discharge itself is a different question "
+                   "from knowing which level of care your parent needs once "
+                   "they leave the hospital."),
+        "reviewed": "2026-11-26",
+        "title": "Hospital Discharge When Your Parent Can't Safely Go Home",
+        "h1": "The hospital says my parent is ready to leave, but they can't safely go home. What now?",
+        "desc": ("What Medicare's own discharge materials tell a family to do when "
+                 "home is not safe: the planning team, rehab or a nursing home, "
+                 "and a fast appeal."),
+        "intent": "decision at hospital discharge",
+        "answer": ("<strong>Say so to the hospital staff before the discharge "
+                   "date, not on the day.</strong> Medicare&rsquo;s discharge "
+                   "planning checklist says the doctor and staff &ldquo;will work "
+                   "with you to plan for your discharge&rdquo; and that a family "
+                   "caregiver is one of the &ldquo;important members of the "
+                   "planning team.&rdquo; It tells a caregiver to make sure they can "
+                   "give the help needed and to talk to the staff about getting "
+                   "help before discharge. If the next step is a nursing home, "
+                   "Medicare&rsquo;s nursing home guide says the hospital&rsquo;s "
+                   "staff should be able to help find one and help with the "
+                   "transfer. If your parent has Medicare and you think the "
+                   "discharge is too soon, Medicare.gov describes a fast appeal "
+                   "that must be requested no later than the scheduled discharge "
+                   "day."),
+        "sources": srcs("medicare_discharge_checklist", "medicare_nh_choosing",
+                        "msnf", "medicare_fast_appeals"),
+        "body": [
+            ("You are part of the discharge planning team", [
+                "<p>Medicare&rsquo;s publication <em>Your discharge planning "
+                "checklist</em> is written for patients and their caregivers "
+                "preparing to leave a hospital, nursing home or other care "
+                "setting. It says: &ldquo;You and your caregiver (a family member "
+                "or friend who may be helping you) are important members of the "
+                "planning team.&rdquo; Its first instruction is to use the "
+                "checklist &ldquo;throughout your stay&rdquo;, and it names the "
+                "people to talk to: the doctor and staff &ldquo;like a discharge "
+                "planner, social worker, ombudsman, or nurse&rdquo;.</p>",
+                "<p>The checklist also says: &ldquo;Ask where you&rsquo;ll get "
+                "care after you&rsquo;re discharged. Do you have options (like "
+                "home health care)? Tell the staff what you prefer.&rdquo; If "
+                "home is not a safe option, that is the moment to say so, while "
+                "there is still time to arrange something else.</p>",
+            ]),
+            ("Tell the staff plainly what help is, and is not, there at home", [
+                "<p>The checklist asks the patient to circle the activities they "
+                "need help with and to &ldquo;discuss your concerns with the "
+                "staff&rdquo;: bathing, dressing, using the bathroom and climbing "
+                "stairs; cooking, food shopping, house cleaning and paying bills; "
+                "driving to doctors&rsquo; appointments and picking up "
+                "prescriptions.</p>",
+                "<p>It has a separate section for the family caregiver. It says: "
+                "&ldquo;Make sure you can give the person you&rsquo;re caring for "
+                "the help they need.&rdquo; It asks what tasks the caregiver "
+                "needs help with and whether they need education or training, "
+                "and it says to &ldquo;Talk to the staff about getting the help "
+                "you need before discharge.&rdquo; If you cannot provide the care "
+                "your parent will need at home, this checklist is the "
+                "hospital&rsquo;s own Medicare material telling you to raise it "
+                "with the staff before the discharge happens.</p>",
+                "<p>For questions about money, the checklist says to talk to a "
+                "social worker or your health plan &ldquo;if you have questions "
+                "about what your insurance will cover and how much you&rsquo;ll "
+                "have to pay.&rdquo;</p>",
+            ]),
+            ("If the next step is a nursing home or rehab", [
+                "<p>Medicare&rsquo;s <em>Your Guide to Choosing a Nursing Home or "
+                "Other Long-Term Services &amp; Supports</em> (revised October "
+                "2019) says: &ldquo;If you&rsquo;re in the hospital, ask your "
+                "social worker about discharge planning as early in your hospital "
+                "stay as possible. The hospital&rsquo;s staff should be able to "
+                "help you find a nursing home that meets your needs and help with "
+                "your transfer when you&rsquo;re ready to be discharged.&rdquo;</p>",
+                "<p>The same guide covers the case where the only nursing home "
+                "with a bed is one you do not want. The hospital discharge planner "
+                "or doctor &ldquo;may be able to help you find a more suitable "
+                "nursing home or arrange for other care, like short-term home "
+                "health care, until a bed is available at another nursing home "
+                "you choose.&rdquo; It adds a warning: &ldquo;But you may be "
+                "responsible for paying the bill for any additional days you stay "
+                "in the hospital.&rdquo;</p>",
+                "<p>To compare the quality of nursing homes, home health agencies "
+                "and inpatient rehabilitation facilities near you, the checklist "
+                "points to Medicare&rsquo;s Care Compare tool at "
+                "Medicare.gov/care-compare, or 1-800-MEDICARE "
+                "(1-800-633-4227; TTY 1-877-486-2048).</p>",
+            ]),
+            ("Whether Original Medicare will pay for a rehab stay in a nursing home", [
+                "<p>Medicare.gov&rsquo;s skilled nursing facility page says "
+                "Medicare will only cover care in a skilled nursing facility "
+                "(SNF) if your parent first has a qualifying inpatient hospital "
+                "stay: a medically necessary &ldquo;inpatient hospital stay of at "
+                "least 3 days in a row (starting the day you were admitted as an "
+                "inpatient, but not including the day you leave the "
+                "hospital).&rdquo; Time under observation or in the emergency "
+                "room before admission does not count, &ldquo;even if "
+                "you&rsquo;re there overnight.&rdquo; The page also requires that "
+                "a doctor or other health care provider has decided your parent "
+                "needs daily skilled care, given in a Medicare-certified SNF, "
+                "entered within a short time (generally 30 days) of leaving the "
+                "hospital. If the hospital has its own SNF, the page says: &ldquo;If "
+                "the hospital you&rsquo;re in has its own SNF, and a bed is "
+                "available, you may choose to stay there.&rdquo;</p>",
+                "<p>What Original Medicare&rsquo;s Part A charges for SNF care in "
+                "each benefit period in 2026, on the same page: days 1 to 20, &ldquo;You pay $0 each day "
+                "after you pay the $1,736&rdquo; deductible (none if it was already "
+                "paid for a hospital stay in the same benefit period); days 21 to "
+                "100, &ldquo;You pay $217 each day ($222 in 2027).&rdquo; From day "
+                "101, &ldquo;You pay all costs.&rdquo; The page adds: &ldquo;Part A "
+                "limits SNF coverage to 100 days in each benefit period.&rdquo; "
+                "So a parent who already used SNF days in the same benefit period "
+                "does not start again at day 1. In a Medicare Advantage "
+                "plan, the page says, &ldquo;you may be charged copayments during "
+                "the first 20 days.&rdquo;</p>",
+                "<p>The page names exceptions to the 3-day rule: a doctor in an "
+                "Accountable Care Organization approved for a &ldquo;Skilled "
+                "Nursing Facility 3-Day Rule Waiver&rdquo;, and Medicare Advantage "
+                "plans, which &ldquo;may also waive the 3-day minimum inpatient "
+                "hospital stay.&rdquo; Its advice is: &ldquo;Always ask your doctor "
+                "or hospital staff if Medicare will cover your SNF stay.&rdquo; "
+                "Without a qualifying stay, it says to ask about care in other "
+                "settings, like home health care, or whether other programs, like "
+                "Medicaid or Veterans&rsquo; benefits, can cover SNF care. For "
+                "what Medicare pays and never pays in a nursing home or assisted "
+                "living, see "
+                '<a href="/guides/does-medicare-pay-for-senior-care/">Does '
+                "Medicare pay for assisted living or nursing home care?</a>; for "
+                "care at home, see "
+                '<a href="/guides/medicare-home-health-care/">Medicare home health '
+                "care</a>. Before a move into an Illinois nursing home, the state "
+                "has its own screening step, explained in "
+                '<a href="/guides/illinois-nursing-home-preadmission-screening/">'
+                "Illinois nursing home pre-admission screening</a>.</p>",
+            ]),
+            ("If you think the discharge is too soon", [
+                "<p>Medicare.gov&rsquo;s fast appeals page says that in a "
+                "hospital, within 2 days of admission and before discharge, your "
+                "parent should get a notice called the Important Message from "
+                "Medicare, and &ldquo;If you don&rsquo;t get this notice, ask for "
+                "it.&rdquo; To appeal, follow its directions &ldquo;no later than "
+                "the day you&rsquo;re scheduled to be discharged from the "
+                "hospital.&rdquo; The appeal goes to an independent reviewer, the "
+                "Beneficiary and Family Centered Care Quality Improvement "
+                "Organization (BFCC-QIO); the checklist says 1-800-MEDICARE can "
+                "give you its phone number.</p>",
+                "<p>In a hospital, the page says that if your parent asks in time "
+                "&ldquo;you can stay in the hospital while you wait to get the "
+                "BFCC-QIO&rsquo;s decision. You won&rsquo;t have to pay for your "
+                "stay (except for applicable coinsurance or deductibles).&rdquo; "
+                "The page does not limit this to Original Medicare: it says that "
+                "in a hospital, &ldquo;If you have a Medicare health plan, the "
+                "BFCC-QIO will notify your plan and the hospital.&rdquo; If the "
+                "reviewer decides the stay should end and you met the deadline, "
+                "your parent won&rsquo;t pay hospital charges, other than "
+                "coinsurance or deductibles, &ldquo;incurred through noon of the "
+                "day after the BFCC-QIO gives you its decision.&rdquo; Miss the "
+                "deadline and &ldquo;you can still ask the BFCC-QIO to review your "
+                "case, but different rules and time frames apply&rdquo;, and your "
+                "parent &ldquo;might be responsible for the cost of the hospital "
+                "stay past the original day the hospital tries to discharge "
+                "you.&rdquo;</p>",
+                "<p>For a parent in a Medicare Advantage plan, the page says that "
+                "if the BFCC-QIO decides the stay should continue, Medicare keeps "
+                "covering it if the plan had previously authorised the inpatient "
+                "admission, or if the admission was for emergency care or for "
+                "other care needed right away; "
+                "otherwise, it says, you may need to appeal the plan&rsquo;s "
+                "denial of coverage. Right after the rule "
+                "for a missed deadline, it adds: &ldquo;If you&rsquo;re in a "
+                "Medicare Advantage Plan, you can ask your plan for an appeal, but "
+                "different rules apply.&rdquo; For free help with an appeal, Medicare&rsquo;s checklist lists "
+                "the State Health Insurance Assistance Programs, which "
+                "&ldquo;help with claims, billing, and appeals&rdquo;; "
+                "1-800-MEDICARE can give you the local number.</p>",
+                "<p>An appeal decides whether Medicare keeps covering "
+                "the hospital stay; it does not by itself arrange the care your "
+                "parent needs afterwards, so keep the planning conversation going "
+                "with the staff at the same time.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>A discharge that home cannot absorb is often the point where "
+                "a family has to decide on a different level of care for good, "
+                "not just for a few weeks. For the differences between those "
+                "levels, see "
+                '<a href="/guides/levels-of-senior-care-explained/">Assisted '
+                "living, memory care, skilled nursing and rehabilitation &mdash; "
+                "what is the difference?</a>. If you are still working out which "
+                'level your parent needs, the free <a href="/">six-question '
+                "assessment</a> on this site walks through that question. It asks "
+                "for no name, no email and no phone number, and your answers never "
+                "leave your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -6792,7 +6991,7 @@ RELATED = {
         "illinois-assisted-living-involuntary-move-out",
         "illinois-advance-directive-power-of-attorney"],
     "illinois-nursing-home-preadmission-screening": [
-        "levels-of-senior-care-explained",
+        "hospital-discharge-not-safe-to-go-home",
         "illinois-pace-program",
         "illinois-community-care-program"],
     "illinois-medicaid-look-back-period": [
@@ -6878,7 +7077,7 @@ RELATED = {
     "medicare-fast-appeal-hospital-rehab-discharge": [
         "does-medicare-pay-for-senior-care",
         "medicare-home-health-care",
-        "illinois-senior-health-insurance-program"],
+        "hospital-discharge-not-safe-to-go-home"],
     "va-home-based-primary-care-and-aide": [
         "va-aid-and-attendance-benefit",
         "va-caregiver-support-program",
@@ -6891,6 +7090,10 @@ RELATED = {
         "levels-of-senior-care-explained",
         "check-illinois-inspection-records",
         "illinois-supportive-living-program"],
+    "hospital-discharge-not-safe-to-go-home": [
+        "does-medicare-pay-for-senior-care",
+        "medicare-fast-appeal-hospital-rehab-discharge",
+        "levels-of-senior-care-explained"],
 }
 
 RELATED_MIN_INBOUND = 2
@@ -7346,6 +7549,11 @@ CARDS = {
         "Memory care in Illinois assisted living",
         "Who licenses it, the dementia training staff must take, the program "
         "disclosure and what to ask on a tour, read off IDPH."),
+    "hospital-discharge-not-safe-to-go-home": (
+        "Medicare",
+        "When your parent can't safely go home from hospital",
+        "The discharge planning team, a nursing home or rehab bed, the 3-day "
+        "rule and the fast appeal, read off Medicare's own materials."),
 }
 
 
