@@ -382,6 +382,8 @@ SRC = {
                          'https://www.medicare.gov/coverage/hospital-beds'),
     "mdme_walkers": ('Medicare.gov — Walkers',
                      'https://www.medicare.gov/coverage/walkers'),
+    "mdme_pub11045": ('Medicare.gov — Medicare Coverage of Durable Medical Equipment & Other Devices (publication 11045)',
+                      'https://www.medicare.gov/publications/11045-medicare-coverage-of-dme-and-other-devices.pdf'),
     "mdme_wheelchairs": ('Medicare.gov — Wheelchairs & scooters',
                         'https://www.medicare.gov/coverage/wheelchairs-scooters'),
     "idph_vet_homes": ("Illinois Department of Public Health — Veterans' Homes",
@@ -4363,7 +4365,7 @@ GUIDES = [
                    "first, and certain types of power wheelchairs need Medicare's "
                    "prior approval before Medicare will cover them."),
         "sources": srcs("mdme_wheelchairs", "mdme_hospitalbeds", "mdme_walkers",
-                        "mdme_canes", "mdme_commodes"),
+                        "mdme_canes", "mdme_commodes", "mdme_pub11045"),
         "body": [
             ("The rule that applies to all of it", [
                 "<p>Medicare.gov states the same condition on its walker, cane and commode-chair pages: &ldquo;Part B covers medically "
@@ -4377,6 +4379,17 @@ GUIDES = [
                 F["partB_deductible"] + " for 2026. That last clause &mdash; "
                 "&ldquo;if your supplier accepts assignment&rdquo; &mdash; is not "
                 "a formality, which is why it gets its own section below.</p>",
+                "<p>These are the terms of Original Medicare. If your parent gets "
+                "Medicare through a Medicare Advantage plan, Medicare&rsquo;s "
+                "booklet on equipment coverage says the plan must cover &ldquo;the "
+                "same medically necessary categories of DME items as Original "
+                "Medicare&rdquo;, but that &ldquo;the suppliers you get your DME "
+                "from and your specific costs will depend on which Medicare "
+                "Advantage Plan you belong to.&rdquo; It says to contact the plan "
+                "to find out if it will cover the equipment, and that if the plan "
+                "will not cover an item you believe your parent needs, you can "
+                "appeal the plan&rsquo;s denial and get an independent "
+                "review.</p>",
             ]),
             ("What is actually covered, item by item", [
                 "<ul class=\"res__list\">"
@@ -4414,7 +4427,7 @@ GUIDES = [
                 "&ldquo;If a supplier participates in Medicare, they must accept "
                 "assignment,&rdquo; and for anything rented rather than bought, "
                 "&ldquo;make sure the supplier is willing to accept assignment for "
-                "all rental months, otherwise you&rsquo;ll have to pay the full cost of your DME upfront.&rdquo; The hospital-beds page spells out the risk: &ldquo;If a DME supplier doesn&rsquo;t participate in Medicare or won&rsquo;t accept assignment, you may be charged more.&rdquo; Ask "
+                "all rental months, otherwise you&rsquo;ll have to pay the full cost of your DME upfront.&rdquo; In that case, the page says, &ldquo;Medicare will pay you later for the amount it covers after your claims have been submitted and processed by Medicare.&rdquo; The hospital-beds page spells out the risk: &ldquo;If a DME supplier doesn&rsquo;t participate in Medicare or won&rsquo;t accept assignment, you may be charged more.&rdquo; Ask "
                 "the question before the equipment is ordered, not after the first "
                 "bill arrives.</p>",
             ]),
