@@ -500,8 +500,11 @@ check("styles.css: the tour button's one rule is scoped and only centres its lab
 /* ---- OWNER FINDING 3, 2026-10-18: skilled coverage is not custodial ---- */
 const med = page["does-medicare-pay-for-senior-care"];
 check("custodial care is named in the answer", lc(med).indexOf("long-term custodial") !== -1);
+/* 2026-11-26: re-pinned to Medicare.gov's own definition. The page attributed
+   "licensed professionals" to Medicare; the SNF care page says "professionals or
+   technical personnel" (accuracy audit ops/reviews/live/does-medicare-pay-for-senior-care.md, C1). */
 check("skilled is defined by who must perform it",
-  lc(med).indexOf("under the supervision of licensed professionals") !== -1);
+  lc(med).indexOf("or under the supervision of, professionals or technical personnel") !== -1);
 check("custodial is defined by the tasks",
   lc(med).indexOf("bathing, dressing, eating") !== -1);
 check("Medicare pays nothing toward custodial care is explicit",
@@ -1121,8 +1124,14 @@ check("its JSON-LD dateModified agrees with its printed date",
 /* 2026-11-05: the inspection guide was re-verified when it was rewritten
    (Experiment 2), so it carries its own date too. The other three of the
    original five were not re-read and must keep 2026-10-18. */
-const ORIGINAL_UNCHANGED = ["does-medicare-pay-for-senior-care",
+/* 2026-11-26: the Medicare guide was re-verified in the accuracy audit
+   (ops/reviews/live/does-medicare-pay-for-senior-care.md), so it carries its own
+   date; its "listed" date stays 2026-10-18. The other two keep 2026-10-18. */
+const ORIGINAL_UNCHANGED = [
   "illinois-supportive-living-program", "levels-of-senior-care-explained"];
+check("the Medicare guide is dated the day it was re-verified",
+  dates[SLUGS.indexOf("does-medicare-pay-for-senior-care")] === "26 November 2026",
+  String(dates[SLUGS.indexOf("does-medicare-pay-for-senior-care")]));
 check("the original five that were not re-verified keep their 2026-10-18 date",
   ORIGINAL_UNCHANGED.every((s) => dates[SLUGS.indexOf(s)] === "18 October 2026"),
   ORIGINAL_UNCHANGED.map((s) => dates[SLUGS.indexOf(s)]).join(" | "));
