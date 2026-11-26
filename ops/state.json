@@ -2,7 +2,7 @@
   "schema": 1,
   "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
   "updated_utc": "2026-11-18T23:05Z",
-  "last_run_utc": "2026-11-26T22:21Z",
+  "last_run_utc": "2026-11-26T23:29Z",
   "facebook": {
     "access": {
       "value": "yes",
@@ -499,7 +499,6 @@
     ]
   },
   "log": [
-    "2026-11-21T15:02Z Sat 9:00 Chicago: Chrome offline, so the Winnetka post (P-1120-01) and lead scan wait; no org replies; no new sends; hourly re-check until 19:00 Chicago while the post is planned",
     "2026-11-21T16:16Z Sat 10:15 Chicago: Claude in Chrome extension still not connected (owner says Chrome is open; extension link is what's missing); Winnetka post waits; no replies",
     "2026-11-21T17:16Z Sat 11:15 Chicago: extension still not connected; no replies; Winnetka post waits",
     "2026-11-21T18:16Z Sat 12:15 Chicago: extension not linked; Winnetka text handed to Joseph to post manually; no replies; checks every 3h while unlinked, no routine messages to Joseph",
@@ -538,7 +537,8 @@
     "2026-11-26T15:20Z morning lead scan 11 groups, 387 posts, 0 new leads; outreach email paused for Thanksgiving (offices closed), resume Mon 30 Nov",
     "2026-11-26T17:08Z check: fb-nsh-1126 still pending admin approval (this group approved the 15 Nov post after ~11h); no org replies",
     "2026-11-26T19:28Z afternoon lead scan 11 groups, 216 posts, 0 new leads; fb-nsh-1126 still pending; no org replies",
-    "2026-11-26T22:21Z fb-nsh-1126 still pending (1 pending in group); no org replies; next: evening lead scan"
+    "2026-11-26T22:21Z fb-nsh-1126 still pending (1 pending in group); no org replies; next: evening lead scan",
+    "2026-11-26T23:29Z evening lead scan 11 groups, 236 posts, 0 new leads; no org replies"
   ],
   "next_actions": [
     "17:05Z: check North Shore post approval (fb-nsh-1126) and engagement",
@@ -665,8 +665,8 @@
   },
   "due": {
     "post_next": "2026-11-27T15:00Z",
-    "fb_checks": "2026-11-27T15:00Z",
-    "lead_scan": "2026-11-26T23:30Z",
+    "fb_checks": "2026-11-27T02:25Z",
+    "lead_scan": "2026-11-27T03:30Z",
     "metrics": "2026-11-19T00:05Z",
     "venues": "2026-11-25T15:00Z",
     "evanston_join_status": "2026-11-19T15:00Z",
