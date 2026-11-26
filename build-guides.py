@@ -6164,7 +6164,8 @@ GUIDES = [
                    "Illinois Department of Public Health (IDPH) calls assisted living "
                    "&ldquo;a state licensure program with no federal oversight&rdquo;. "
                    "Its 2026&ndash;2029 Alzheimer&rsquo;s plan says staff serving people "
-                   "with dementia in an assisted living facility must take "
+                   "with dementia in an assisted living facility providing "
+                   "Alzheimer&rsquo;s or dementia services must take "
                    "&ldquo;six hours of initial dementia training and three hours of "
                    "annual dementia training thereafter&rdquo;, and that settings "
                    "offering specialised dementia care must disclose information "
@@ -6180,8 +6181,8 @@ GUIDES = [
                 "licence fee.</p>",
                 "<p>IDPH&rsquo;s Alzheimer&rsquo;s plan describes the same division as "
                 "conducting annual and complaint surveys, incident report "
-                "investigations and follow-up surveys, and adds why Medicare plays no "
-                "part: &ldquo;This is a state licensure program with no federal "
+                "investigations and follow-up surveys, and adds why there is no "
+                "federal oversight: &ldquo;This is a state licensure program with no federal "
                 "oversight, as the residents in both assisted living and memory care "
                 "areas are private pay through an establishment contract.&rdquo;</p>",
                 "<p>The plan is also plain about the rules themselves: &ldquo;There are "
@@ -6195,9 +6196,9 @@ GUIDES = [
             ]),
             ("The training staff must have", [
                 "<p>According to IDPH&rsquo;s plan, staff serving people with "
-                "Alzheimer&rsquo;s disease or a related dementia in an assisted living "
-                "facility, as in a skilled nursing facility, home health provider or "
-                "hospice providing Alzheimer&rsquo;s or dementia services, are required "
+                "Alzheimer&rsquo;s disease or a related dementia in a skilled nursing "
+                "facility, assisted living facility, home health provider or hospice "
+                "program that provides Alzheimer&rsquo;s or dementia services are required "
                 "to take &ldquo;six hours of initial dementia training and three hours "
                 "of annual dementia training thereafter.&rdquo;</p>",
                 "<p>The person in charge of the dementia program has a higher bar: "
@@ -6212,8 +6213,9 @@ GUIDES = [
                 "&ldquo;requires licensed residential care settings that provide "
                 "specialized care to individuals with dementia to disclose information "
                 "about their program to the state agency responsible for licensing of "
-                "that setting&rdquo;. A community that markets memory care has, in "
-                "other words, described its program to the state in writing.</p>",
+                "that setting&rdquo;. A licensed community that provides specialised "
+                "dementia care is, in other words, required to have disclosed "
+                "information about its program to the state.</p>",
             ]),
             ("Check the licence and the record before you visit", [
                 "<p>IDPH&rsquo;s Assisted Living page links to its list of licensed "
@@ -6246,8 +6248,12 @@ GUIDES = [
             ]),
             ("If private pay is not possible, and when to plan", [
                 "<p>Because assisted living memory care is private pay through an "
-                "establishment contract, families who cannot pay privately usually "
-                "look at Illinois&rsquo; Supportive Living Program. IDPH&rsquo;s plan "
+                "establishment contract, one option for a family that cannot pay "
+                "privately is Illinois&rsquo; Supportive Living Program, which IDPH&rsquo;s "
+                "plan describes as an alternative to nursing home care for low-income "
+                "older people, paid through a Medicaid waiver obtained by the "
+                "Department of Healthcare and Family Services, with the resident still "
+                "paying room and board. IDPH&rsquo;s plan "
                 "says &ldquo;There are currently 20 SLP dementia care settings with "
                 "approximately 520 apartments.&rdquo; See "
                 '<a href="/guides/illinois-supportive-living-program/">Illinois '
