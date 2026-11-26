@@ -3877,7 +3877,15 @@
     "as_of_utc": "2026-11-22T21:30Z",
     "queries_checked": 18,
     "guide_appears_for": 0,
-    "index": "research web-search index (not Google); Google data comes from Search Console (S2)"
+    "index": "research web-search index (not Google); Google data comes from Search Console (S2)",
+    "google_2026_11_25": {
+     "source": "Make Search Console read 2026-11-25T20:35Z (26 Oct-22 Nov)",
+     "local_queries_with_impressions": [
+      "assisted living cost evanston il: 5 impr, pos 78.2"
+     ],
+     "local_pages_with_impressions": "none of /assisted-living-evanston/, assisted-living-cost-illinois, independent-living-evanston",
+     "national_queries": "73 of 74 queries >=3 impr are national Medicare, VA, Medicaid program questions"
+    }
    },
    "log": [
     "2026-11-22T21:28Z SC1 peer listings (ACQ-031): 5 targets checked, 0 passed the gate, 0 reopened; next due 2026-12-22T21:28Z.",
@@ -3955,7 +3963,7 @@
    "holder": "cse_014eaiSdvHByATtNdterRhh7",
    "utc": "2026-11-26T00:50Z",
    "since_utc": "2026-11-26T00:24Z",
-   "productive_min": 15,
+   "productive_min": 16,
    "deliverables": [
     "pr:#92",
     "verification:ops/reviews/live/illinois-medicaid-look-back-period.md; #89 54139d5",
@@ -4801,9 +4809,9 @@
     "evidence": "Live web search results for each tracked search, recorded with the date.",
     "output": "Updated search_presence; for a search where a fitting page exists but does not appear, one concrete on-page or internal-link task; for a search with no fitting page, a demand topic.",
     "why": "Search is how families at the decision stage find local help.",
-    "last_checked_utc": "2026-11-23T17:43Z",
-    "next_check_utc": "2026-11-25T21:43Z",
-    "last_result": "Not repeated: discovery/search_presence was checked 2026-11-22T21:30Z (18 tracked searches, guide appears for 0 in the research index), inside this angle's 72h recheck window; Google positions come from Search Console, whose newest read is 18 Nov.",
+    "last_checked_utc": "2026-11-26T00:50Z",
+    "next_check_utc": "2026-11-29T00:50Z",
+    "last_result": "Answered from Google data this time (Make Search Console read 25 Nov) instead of the research index: the site appears in Google for national program questions (Medicare and assisted living 781 impr at pos 32.5; VA caregiver 84 at 51) and for one local decision-stage search only (assisted living cos…",
     "last_added": 0
    },
    {
@@ -4852,6 +4860,7 @@
    }
   ],
   "sweep_log": [
+   "2026-11-26T00:50Z search-presence +0: Answered from Google data this time (Make Search Console read 25 Nov) instead of the research index: the site appears in Google for national program questions …",
    "2026-11-26T00:50Z asset-gaps +0: Guide index: main 32, drafts 40 (+ LTC insurance now in batch #90). DEMAND Open has 2 worker topics added 24 Nov 06:34Z (over 30h; the 6 AM routine did not wri…",
    "2026-11-26T00:41Z live-accuracy +2: quotecheck --all on main 4dc2468 unchanged: 32 live guides, 1 NOT FOUND (pace, corrected in #89), 2 NEAR MATCH (preadmission in #89; VDC audited). 13 packets n…",
    "2026-11-26T00:32Z draft-review +0: main 4dc2468 has 32 guide slugs, drafts 2c15ef1 has 40: the 8 not on main all have packets in ops/reviews/ (7 in publish batch #90; long-term-care-insurance-as…",
