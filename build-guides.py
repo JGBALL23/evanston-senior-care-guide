@@ -358,6 +358,8 @@ SRC = {
                  'https://ilaging.illinois.gov/ship/long-term-care-insurance.html'),
     "hfs_slp": ('Illinois HFS — Supportive Living Program',
                 'https://hfs.illinois.gov/medicalprograms/slf.html'),
+    "idph_alz_plan": ('Illinois Department of Public Health \u2014 State of Illinois Alzheimer\u2019s Disease Plan 2026\u20132029',
+                      'https://dph.illinois.gov/content/dam/soi/en/web/idph/publications/idph/topics-and-services/diseases-and-conditions/alzheimers/alzheimers-state-plan-20262029.pdf'),
 }
 
 
@@ -6146,6 +6148,128 @@ GUIDES = [
             ]),
         ],
     },
+    {
+        "slug": "illinois-memory-care-assisted-living",
+        "bridge": ("Knowing what Illinois requires of a memory care setting is a "
+                   "different question from knowing whether your parent needs one yet."),
+        "reviewed": "2026-11-26",
+        "title": "Memory Care in Illinois Assisted Living: What the State Requires",
+        "h1": "What does Illinois require of memory care in an assisted living community?",
+        "desc": ("Who licenses memory care in Illinois assisted living, the dementia "
+                 "training staff must take, the program disclosure, and what to ask "
+                 "on a tour."),
+        "intent": "choosing a community",
+        "answer": ("<strong>Memory care in an Illinois assisted living community is "
+                   "licensed and surveyed by the state, not by Medicare.</strong> The "
+                   "Illinois Department of Public Health (IDPH) calls assisted living "
+                   "&ldquo;a state licensure program with no federal oversight&rdquo;. "
+                   "Its 2026&ndash;2029 Alzheimer&rsquo;s plan says staff serving people "
+                   "with dementia in an assisted living facility must take "
+                   "&ldquo;six hours of initial dementia training and three hours of "
+                   "annual dementia training thereafter&rdquo;, and that settings "
+                   "offering specialised dementia care must disclose information "
+                   "about their program to the agency that licenses them. Those are "
+                   "the facts you can check before a tour."),
+        "sources": srcs("idph_alz_plan", "idph_al_div"),
+        "body": [
+            ("Who licenses memory care in Illinois assisted living", [
+                "<p>IDPH&rsquo;s Division of Assisted Living is "
+                "&ldquo;responsible for all state licensure and survey processes for "
+                "Assisted Living and Shared Housing establishments.&rdquo; Every "
+                "establishment must send IDPH an annual renewal application with its "
+                "licence fee.</p>",
+                "<p>IDPH&rsquo;s Alzheimer&rsquo;s plan describes the same division as "
+                "conducting annual and complaint surveys, incident report "
+                "investigations and follow-up surveys, and adds why Medicare plays no "
+                "part: &ldquo;This is a state licensure program with no federal "
+                "oversight, as the residents in both assisted living and memory care "
+                "areas are private pay through an establishment contract.&rdquo;</p>",
+                "<p>The plan is also plain about the rules themselves: &ldquo;There are "
+                "basic dementia provisions in the regulations for ALFs&rdquo;. The "
+                "more detailed Special Care Unit regulations it names apply to "
+                "skilled nursing and intermediate care facilities, not to assisted "
+                "living. This guide does not summarise the assisted living dementia "
+                "provisions themselves, because their text is published outside the "
+                "state agency pages this library cites; IDPH&rsquo;s Assisted Living "
+                "page links to it under Laws &amp; Rules.</p>",
+            ]),
+            ("The training staff must have", [
+                "<p>According to IDPH&rsquo;s plan, staff serving people with "
+                "Alzheimer&rsquo;s disease or a related dementia in an assisted living "
+                "facility, as in a skilled nursing facility, home health provider or "
+                "hospice providing Alzheimer&rsquo;s or dementia services, are required "
+                "to take &ldquo;six hours of initial dementia training and three hours "
+                "of annual dementia training thereafter.&rdquo;</p>",
+                "<p>The person in charge of the dementia program has a higher bar: "
+                "&ldquo;Alzheimer&rsquo;s services supervisors in skilled nursing "
+                "facilities and assisted living facilities are required to take 12 "
+                "hours of annual dementia training&rdquo;. The plan adds that the "
+                "training topics are prescribed in statute and associated rules.</p>",
+            ]),
+            ("The program disclosure", [
+                "<p>IDPH&rsquo;s plan states that Illinois has an Alzheimer&rsquo;s "
+                "Disease and Related Dementias Special Care Disclosure Act that "
+                "&ldquo;requires licensed residential care settings that provide "
+                "specialized care to individuals with dementia to disclose information "
+                "about their program to the state agency responsible for licensing of "
+                "that setting&rdquo;. A community that markets memory care has, in "
+                "other words, described its program to the state in writing.</p>",
+            ]),
+            ("Check the licence and the record before you visit", [
+                "<p>IDPH&rsquo;s Assisted Living page links to its list of licensed "
+                "Assisted Living and Shared Housing establishments "
+                "(<a href=\"https://llcs.dph.illinois.gov/s/?language=en_US\">IDPH "
+                "licensing search</a>). For how to read what the state has found at a "
+                "community, see "
+                '<a href="/guides/check-illinois-inspection-records/">How to check an '
+                "Illinois care community&rsquo;s inspection record</a>, and if "
+                "something goes wrong after a move, "
+                '<a href="/guides/illinois-care-facility-complaint/">How to report a '
+                "problem at an Illinois care facility</a>.</p>",
+            ]),
+            ("Questions to ask on a memory care tour", [
+                "<p>Each of these follows from a rule above, so a community should be "
+                "able to answer it plainly:</p>",
+                "<ul class=\"res__list\">"
+                "<li>Is this memory care area part of a licence from IDPH&rsquo;s "
+                "Division of Assisted Living, and under what name is it listed?</li>"
+                "<li>May we see the description of your dementia program that you "
+                "disclosed to the state?</li>"
+                "<li>How many hours of dementia training have the staff who would care "
+                "for my parent completed, and when was their last annual "
+                "training?</li>"
+                "<li>Who is your Alzheimer&rsquo;s services supervisor, and how is "
+                "their annual training kept up to date?</li>"
+                "<li>What does the establishment contract say my parent will pay, and "
+                "what changes the price?</li>"
+                "</ul>",
+            ]),
+            ("If private pay is not possible, and when to plan", [
+                "<p>Because assisted living memory care is private pay through an "
+                "establishment contract, families who cannot pay privately usually "
+                "look at Illinois&rsquo; Supportive Living Program. IDPH&rsquo;s plan "
+                "says &ldquo;There are currently 20 SLP dementia care settings with "
+                "approximately 520 apartments.&rdquo; See "
+                '<a href="/guides/illinois-supportive-living-program/">Illinois '
+                "Supportive Living Program, explained</a> for how it works.</p>",
+                "<p>The same plan is candid that supply is short: &ldquo;the "
+                "availability of even costly assisted living facilities (ALFs) with "
+                "dementia care does not meet the demand.&rdquo; If memory care is "
+                "likely, it is worth visiting communities early.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>For how memory care differs from assisted living and skilled "
+                "nursing, see "
+                '<a href="/guides/levels-of-senior-care-explained/">Assisted living, '
+                "memory care, skilled nursing and rehabilitation &mdash; what is the "
+                "difference?</a>. If you are still working out which level of care "
+                'your parent actually needs, the free <a href="/">six-question '
+                "assessment</a> on this site walks through that question and shows "
+                "its reasoning. It asks for no name, no email and no phone number, "
+                "and your answers never leave your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -6711,6 +6835,11 @@ CARDS = {
         "Benefit triggers, the elimination period, which facilities a policy "
         "covers and what to do if a claim stalls, read off the Illinois "
         "Department of Insurance."),
+    "illinois-memory-care-assisted-living": (
+        "Checking a community",
+        "Memory care in Illinois assisted living",
+        "Who licenses it, the dementia training staff must take, the program "
+        "disclosure and what to ask on a tour, read off IDPH."),
 }
 
 
