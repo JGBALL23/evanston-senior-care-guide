@@ -132,33 +132,14 @@
    "found_utc": "2026-11-25T01:14Z"
   },
   {
-   "id": "ACQ-098",
-   "task": "Accuracy audit of the live guide illinois-medicaid-estate-recovery under the review rules (scope rule included), packet at ops/reviews/live/illinois-medicaid-estate-recovery.md; corrections into the rolling accuracy PR #89",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "plan",
-   "key": "audit:illinois-medicaid-estate-recovery",
-   "priority": 2,
-   "evidence": "Make Search Console read 25 Nov 20:35Z: 51 impressions at pos 7.2 (highest page-one exposure); no packet in ops/reviews/live/; states the $25,000 protection, the 1 July 2022 date and exemptions (title change in review PR #92)",
-   "expected_tour_acquisition_value": "a wrong figure on the site's most-shown pages costs trust with families comparing care; correct pages keep search exposure",
-   "impact": 3,
-   "confidence": 4,
-   "effort": 2,
-   "executor": "worker (research and preparation only)",
-   "done_when": "packet ops/reviews/live/illinois-medicaid-estate-recovery.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
-   "score": 6.0,
-   "status": "ready",
-   "found_utc": "2026-11-26T00:40Z"
-  },
-  {
-   "id": "ACQ-099",
-   "task": "Verify the correction to does-medicare-pay-for-senior-care on the accuracy pull request #89 (commit 28073a0): re-read each changed sentence against Medicare.gov SNF care and Long-term care, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <reader>' to ops/reviews/live/does-medicare-pay-for-senior-care.md and to that guide's lines in the #89 body, or reopen the correction",
+   "id": "ACQ-100",
+   "task": "Verify the corrections to illinois-medicaid-estate-recovery on the accuracy pull request #89 (commit 5f5260d): re-read each changed sentence against the HFS estate recovery guide and the HFS liens page, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <reader>' to ops/reviews/live/illinois-medicaid-estate-recovery.md and to that guide's lines in the #89 body, or reopen the correction",
    "workstream": "technical",
    "lane": "technical",
    "source": "followup",
-   "key": "verify-live:does-medicare-pay-for-senior-care:28073a0",
+   "key": "verify-live:illinois-medicaid-estate-recovery:5f5260d",
    "priority": 1,
-   "evidence": "claude/accuracy-20261125 commit 28073a0 (ACQ-097 audit)",
+   "evidence": "claude/accuracy-20261125 commit 5f5260d (ACQ-098 audit)",
    "expected_tour_acquisition_value": "quality gate before the correction enters the daily package",
    "impact": 3,
    "confidence": 5,
@@ -166,7 +147,44 @@
    "executor": "worker (research and preparation only)",
    "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
-   "found_utc": "2026-11-26T00:44Z"
+   "found_utc": "2026-11-26T00:49Z"
+  },
+  {
+   "id": "ACQ-101",
+   "task": "Verify the correction to does-medicare-pay-for-senior-care on the accuracy pull request #89 (commit 403f6da): re-read each changed sentence against Medicare.gov SNF care, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <reader>' to ops/reviews/live/does-medicare-pay-for-senior-care.md and to that guide's lines in the #89 body, or reopen the correction",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:does-medicare-pay-for-senior-care:403f6da",
+   "priority": 1,
+   "evidence": "claude/accuracy-20261125 commit 403f6da (ACQ-099 reader reopened 28073a0)",
+   "expected_tour_acquisition_value": "quality gate before the correction enters the daily package",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "ready",
+   "found_utc": "2026-11-26T00:49Z"
+  },
+  {
+   "id": "ACQ-102",
+   "task": "After #89 merges: re-apply the pre-admission screening search title and description from ACQ-005 (title 'Illinois Nursing Home Pre-Admission Screening (DON, PASRR)', answer-first description) as a small review PR from main, and check the HFS source scope of the description against the corrected page",
+   "workstream": "search",
+   "lane": "search",
+   "source": "followup",
+   "key": "serp-title:illinois-nursing-home-preadmission-screening",
+   "priority": 2,
+   "status": "waiting_on_data",
+   "not_before": "PR #89 merged (its reviewed-date change sits directly above this guide's title)",
+   "evidence": "Make Search Console read 25 Nov 20:35Z: 42 impressions, 0 clicks, position 8.5; removed from #92 on 26 Nov to keep #89 and #92 mergeable",
+   "expected_tour_acquisition_value": "page-one snippet that answers the question can earn clicks from families facing a nursing home admission",
+   "impact": 2,
+   "confidence": 3,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "review PR opened with the checks passing, or a no-change verdict with the newest Search Console numbers",
+   "found_utc": "2026-11-26T00:49Z"
   }
  ],
  "completed": [
@@ -3208,6 +3226,65 @@
    "lesson": "A guide with no quotations gets nothing from quotecheck: its figures and attributions need a hand read.",
    "done_utc": "2026-11-26T00:44Z",
    "minutes": 3
+  },
+  {
+   "id": "ACQ-099",
+   "task": "Verify the correction to does-medicare-pay-for-senior-care on the accuracy pull request #89 (commit 28073a0): re-read each changed sentence against Medicare.gov SNF care and Long-term care, run the quotation checker, apply the review rules; add 'Corrections verified: <date>, <reader>' to ops/reviews/live/does-medicare-pay-for-senior-care.md and to that guide's lines in the #89 body, or reopen the correction",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:does-medicare-pay-for-senior-care:28073a0",
+   "priority": 1,
+   "evidence": "claude/accuracy-20261125 commit 28073a0 (ACQ-097 audit)",
+   "expected_tour_acquisition_value": "quality gate before the correction enters the daily package",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-26T00:44Z",
+   "result": "Independent reader (agent in cse_014eaiSdvHByATtNdterRhh7) checked 28073a0: C1 (skilled-care definition) and C2 (Long-term care source) hold; reopened 3 scope defects: 'contact the plan' (MA only), 'If the stay does not qualify' (source: no 3-day stay), and the status-change appeal (Medicare.gov's retrospective appeal for 2009-13 Feb 2025 stays, filing closed 2 Jan 2026, presented as current). Corrected in 403f6da: first two scoped; appeal sentence removed. Its reader check queued (ACQ-101).",
+   "verdicts": {
+    "28073a0": "reopened",
+    "403f6da": "pending reader"
+   },
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/live/does-medicare-pay-for-senior-care.md; #89 403f6da"
+   },
+   "lesson": "An addition built from a Medicare.gov sentence must be checked against the heading it sits under: 'You can appeal past hospital stays back to January 2009' made it retrospective.",
+   "done_utc": "2026-11-26T00:49Z"
+  },
+  {
+   "id": "ACQ-098",
+   "task": "Accuracy audit of the live guide illinois-medicaid-estate-recovery under the review rules (scope rule included), packet at ops/reviews/live/illinois-medicaid-estate-recovery.md; corrections into the rolling accuracy PR #89",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:illinois-medicaid-estate-recovery",
+   "priority": 2,
+   "evidence": "Make Search Console read 25 Nov 20:35Z: 51 impressions at pos 7.2 (highest page-one exposure); no packet in ops/reviews/live/; states the $25,000 protection, the 1 July 2022 date and exemptions (title change in review PR #92)",
+   "expected_tour_acquisition_value": "a wrong figure on the site's most-shown pages costs trust with families comparing care; correct pages keep search exposure",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet ops/reviews/live/illinois-medicaid-estate-recovery.md ends 'Verdict: holds' or lists each correction with its source sentence; corrections committed to #89 with a verify-live task",
+   "score": 6.0,
+   "status": "done",
+   "found_utc": "2026-11-26T00:40Z",
+   "result": "Audited illinois-medicaid-estate-recovery (51 impr, pos 7.2) against the three HFS pages today: 6/6 quotations, $25,000/1 July 2022 rule, exemptions, debts-first, probate scope, Public Act 102-1037, helpline and the 'could not find a deadline' sentence hold. Two scope defects corrected in #89 (5f5260d): short answer now names a blind or disabled child of any age; lien paragraph scoped to AABD medical-assistance-only recipients, 120 calendar days in a medical institution, blind or disabled child over 21. Reviewed date left at 2026-10-24 (f9ee414) so #89 and #92 merge in either order. Reader check queued (ACQ-100).",
+   "verdicts": {
+    "illinois-medicaid-estate-recovery": "corrections required (applied 5f5260d)"
+   },
+   "deliverable": {
+    "type": "audit",
+    "ref": "ops/reviews/live/illinois-medicaid-estate-recovery.md; #89 5f5260d"
+   },
+   "lesson": "A reviewed-date line sits directly above the title in every guide dict, so an audit that re-dates a guide conflicts with any title PR for it; keep the date or sequence the two.",
+   "done_utc": "2026-11-26T00:49Z",
+   "minutes": 5
   }
  ],
  "blocked": [],
@@ -3218,7 +3295,7 @@
   "picked": "ACQ-084 done, ACQ-088 done, ACQ-089 done, ACQ-090 done; added ACQ-091, ACQ-092, ACQ-093 (next session); ACQ-017 still waiting (live guides do not yet link /assisted-living-evanston/)",
   "why": "Worked: LTC-insurance draft reviewed and corrected; look-back and Extra Help live audits, 2 commits on #89; stopped: no-worthwhile-work; resume: verifications ACQ-091/092/093 next session"
  },
- "last_verified_action": "ACQ-097 done 2026-11-26T00:44Z: Audited does-medicare-pay-for-senior-care (781 of 1,242 impressions) against Medicare.gov SNF care, Medicare costs, Long-term care and the CMS Jimmo fact sheet…",
+ "last_verified_action": "ACQ-098 done 2026-11-26T00:49Z: Audited illinois-medicaid-estate-recovery (51 impr, pos 7.2) against the three HFS pages today: 6/6 quotations, $25,000/1 July 2022 rule, exemptions, debts-fir…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -3876,9 +3953,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSdvHByATtNdterRhh7",
-   "utc": "2026-11-26T00:44Z",
+   "utc": "2026-11-26T00:49Z",
    "since_utc": "2026-11-26T00:24Z",
-   "productive_min": 10,
+   "productive_min": 15,
    "deliverables": [
     "pr:#92",
     "verification:ops/reviews/live/illinois-medicaid-look-back-period.md; #89 54139d5",
@@ -3887,8 +3964,14 @@
     "publish_pr:#90 d00713b",
     "verification:ops/reviews/live/illinois-medicaid-look-back-period.md; #89 9cff2fb",
     "verification:ops/reviews/live/illinois-medicaid-look-back-period.md",
-    "audit:ops/reviews/live/does-medicare-pay-for-senior-care.md; #89 28073a0"
-   ]
+    "audit:ops/reviews/live/does-medicare-pay-for-senior-care.md; #89 28073a0",
+    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md; #89 403f6da",
+    "audit:ops/reviews/live/illinois-medicaid-estate-recovery.md; #89 5f5260d"
+   ],
+   "current": {
+    "what": "ACQ-100",
+    "since_utc": "2026-11-26T00:49Z"
+   }
   },
   "monitor": {
    "last_utc": "2026-11-26T00:26Z"
