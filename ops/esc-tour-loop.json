@@ -172,19 +172,19 @@
    "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in the Assisted Living and Shared Housing Act (210 ILCS 9/90, already a SRC on main as ilcs_al_90) and 77 Ill. Adm. Code 295 on ilga.gov, an approved host per check-guides.js. ilga.gov could not be read this session: curl through the proxy fails TLS (000) and WebFetch returns 503. Searched illinois.gov (IDPH, IDoA, HFS): the IDPH ITR form covers terminations only; the IDoA residents' rights brochure says a contract must state services and costs but is not scoped to assisted living and says nothing on rate-change notice; HFS Part 146 is supportive living. No guide written: the core rule cannot be read off a fetched page. Retry by WebFetch of ilga.gov after not_before."
   },
   {
-   "id": "ACQ-147",
-   "task": "Verify the additions to illinois-medicaid-estate-recovery on the accuracy pull request #89 (commit 64feb14): re-read the changed sentences against HFS Liens and Estate Recovery",
+   "id": "ACQ-149",
+   "task": "Verify the correction to illinois-medicaid-estate-recovery on the accuracy pull request #89 (commit 64feb14): re-read the changed sentences against HFS Liens and Estate Recovery",
    "workstream": "technical",
    "lane": "technical",
    "source": "followup",
-   "key": "verify-live:illinois-medicaid-estate-recovery:__S__",
+   "key": "verify-live:illinois-medicaid-estate-recovery:c964f99",
    "priority": 1,
-   "evidence": "commit __S__ on claude/accuracy-20261125 (ACQ-146)",
+   "evidence": "commit c964f99 on claude/accuracy-20261125 (ACQ-148)",
    "expected_tour_acquisition_value": "quality gate before the addition enters the daily package",
    "executor": "worker (research and preparation only)",
    "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
-   "found_utc": "2026-11-26T06:41Z"
+   "found_utc": "2026-11-26T06:45Z"
   }
  ],
  "completed": [
@@ -4588,6 +4588,53 @@
    },
    "done_utc": "2026-11-26T06:41Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-147",
+   "task": "Verify the additions to illinois-medicaid-estate-recovery on the accuracy pull request #89 (commit 64feb14): re-read the changed sentences against HFS Liens and Estate Recovery",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:illinois-medicaid-estate-recovery:__S__",
+   "priority": 1,
+   "evidence": "commit __S__ on claude/accuracy-20261125 (ACQ-146)",
+   "expected_tour_acquisition_value": "quality gate before the addition enters the daily package",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-26T06:41Z",
+   "result": "Independent reader (fresh-context agent in cse_014eaiSe8SBqppdHD1M3fw41) checked 64feb14: quotecheck 7/7, appeal paragraph's scope, phone and hours match HFS. Reopened: 'No one will be asked to leave the property.' belongs to HFS's death-while-a-relative-occupies sentence but was placed in a general no-forced-sale statement (scope defect); '120 consecutive days' should be 'at least 120 consecutive calendar days'. Recommended addition: HFS's other appeal routes (BAH address, email, fax, TTY). Re-correction task added.",
+   "verdicts": [
+    "Reopened"
+   ],
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/live/illinois-medicaid-estate-recovery.md reader check of 64feb14"
+   },
+   "done_utc": "2026-11-26T06:42Z",
+   "minutes": 2
+  },
+  {
+   "id": "ACQ-148",
+   "task": "Apply the reader check of 64feb14 to illinois-medicaid-estate-recovery on #89: scope the 'No one will be asked to leave the property' quotation to HFS's death-while-a-relative-occupies sentence; 'at least 120 consecutive calendar days'",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "recorrect:illinois-medicaid-estate-recovery:64feb14",
+   "priority": 1,
+   "evidence": "ops/reviews/live/illinois-medicaid-estate-recovery.md reader check 2026-11-26 of 64feb14 (ACQ-147)",
+   "expected_tour_acquisition_value": "keeps the best-ranked page's lien advice in HFS's scope before it enters the package",
+   "executor": "worker (research and preparation only)",
+   "done_when": "corrected commit on claude/accuracy-20261125, suites and quotecheck pass, verify-live task added",
+   "status": "done",
+   "found_utc": "2026-11-26T06:42Z",
+   "result": "Applied the reader check of 64feb14 to illinois-medicaid-estate-recovery as c964f99 on #89: 'No one will be asked to leave the property.' now sits with HFS's no-enforcement-at-death-while-a-relative-occupies sentence ('and in that case'), the no-forced-sale and sale-proceeds sentence follows on its own; the appeal paragraph says 'at least 120 consecutive calendar days'. All suites pass; quotecheck 7/7. The reader's recommended addition (other appeal routes: BAH address, email, fax, TTY) left for a later Improve. Verify-live task added.",
+   "deliverable": {
+    "type": "correction",
+    "ref": "claude/accuracy-20261125 c964f99 (PR #89)"
+   },
+   "done_utc": "2026-11-26T06:45Z",
+   "minutes": 3
   }
  ],
  "blocked": [],
@@ -4598,7 +4645,7 @@
   "picked": "ACQ-142 done",
   "why": "Worked: SC3 scout (own numbers) ran, 0 new map items; stopped: no-worthwhile-work; resume: package cut 05:00Z"
  },
- "last_verified_action": "ACQ-146 done 2026-11-26T06:41Z: Applied the two open recommended additions from the reader check of 5f5260d to the live estate-recovery guide (best-ranked page, 51 impressions at position 7.2…",
+ "last_verified_action": "ACQ-148 done 2026-11-26T06:45Z: Applied the reader check of 64feb14 to illinois-medicaid-estate-recovery as c964f99 on #89: 'No one will be asked to leave the property.' now sits with HFS's n…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -5265,14 +5312,16 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSe8SBqppdHD1M3fw41",
-   "utc": "2026-11-26T06:41Z",
+   "utc": "2026-11-26T06:45Z",
    "since_utc": "2026-11-26T06:24Z",
-   "productive_min": 15,
+   "productive_min": 20,
    "deliverables": [
     "publish_pr:PR #91 at 4d047b4; batch #90 at 40e9da0",
     "correction:claude/accuracy-20261125 6876bfd (PR #89)",
     "verification:claude/accuracy-20261125 6876bfd; ops/reviews/live/does-medicare-pay-for-senior-care.md",
-    "correction:claude/accuracy-20261125 64feb14 (PR #89)"
+    "correction:claude/accuracy-20261125 64feb14 (PR #89)",
+    "verification:ops/reviews/live/illinois-medicaid-estate-recovery.md reader check of 64feb14",
+    "correction:claude/accuracy-20261125 c964f99 (PR #89)"
    ]
   },
   "monitor": {
