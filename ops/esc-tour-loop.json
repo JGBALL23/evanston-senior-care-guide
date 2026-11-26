@@ -151,23 +151,19 @@
    "found_utc": "2026-11-26T00:49Z"
   },
   {
-   "id": "ACQ-107",
-   "task": "Build a guide on drafts: memory care in Illinois assisted living: what the state requires (dementia special care disclosure, staff dementia training hours), how to check a setting's license and record, and what to ask on a tour, sourced only from IDPH pages",
+   "id": "ACQ-108",
+   "task": "Review illinois-memory-care-assisted-living under the review rules",
    "workstream": "build",
    "lane": "build",
-   "source": "plan",
-   "key": "build:illinois-memory-care-assisted-living",
+   "source": "followup",
+   "key": "review:illinois-memory-care-assisted-living",
    "priority": 1,
-   "evidence": "Questions families asked in public, national caregiver Q&A forum: 2020-06-04 (what memory care specifically provides), 2020-03-25 (deciding between assisted living and assisted living with memory care), 2019-04-08 (anything between assisted living and memory care). No guide on main or drafts covers Illinois memory care rules (levels-of-senior-care-explained defines the care types only). IDPH State of Illinois Alzheimer's Disease Plan 2026-2029 states the training hours and the Special Care Disclosure Act; IDPH Assisted Living page.",
-   "expected_tour_acquisition_value": "memory care is a decision-stage choice families make while touring communities near Evanston; a sourced checklist of what Illinois requires and what to ask leads naturally to the assessment and a tour",
-   "impact": 4,
-   "confidence": 3,
-   "effort": 3,
+   "evidence": "drafts 80e9595 (ACQ-107 build)",
+   "expected_tour_acquisition_value": "quality gate before publication",
    "executor": "worker (research and preparation only)",
-   "done_when": "guide committed to drafts with all five ROUTINE.md checks passing and quotecheck all FOUND, DEMAND.md Done line added, review task queued; or a recorded verdict that the sources do not support it",
-   "score": 4.0,
+   "done_when": "packet at ops/reviews/illinois-memory-care-assisted-living.md with its counts and verdict",
    "status": "ready",
-   "found_utc": "2026-11-26T00:59Z"
+   "found_utc": "2026-11-26T01:02Z"
   }
  ],
  "completed": [
@@ -3423,6 +3419,32 @@
    },
    "done_utc": "2026-11-26T00:58Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-107",
+   "task": "Build a guide on drafts: memory care in Illinois assisted living: what the state requires (dementia special care disclosure, staff dementia training hours), how to check a setting's license and record, and what to ask on a tour, sourced only from IDPH pages",
+   "workstream": "build",
+   "lane": "build",
+   "source": "plan",
+   "key": "build:illinois-memory-care-assisted-living",
+   "priority": 1,
+   "evidence": "Questions families asked in public, national caregiver Q&A forum: 2020-06-04 (what memory care specifically provides), 2020-03-25 (deciding between assisted living and assisted living with memory care), 2019-04-08 (anything between assisted living and memory care). No guide on main or drafts covers Illinois memory care rules (levels-of-senior-care-explained defines the care types only). IDPH State of Illinois Alzheimer's Disease Plan 2026-2029 states the training hours and the Special Care Disclosure Act; IDPH Assisted Living page.",
+   "expected_tour_acquisition_value": "memory care is a decision-stage choice families make while touring communities near Evanston; a sourced checklist of what Illinois requires and what to ask leads naturally to the assessment and a tour",
+   "impact": 4,
+   "confidence": 3,
+   "effort": 3,
+   "executor": "worker (research and preparation only)",
+   "done_when": "guide committed to drafts with all five ROUTINE.md checks passing and quotecheck all FOUND, DEMAND.md Done line added, review task queued; or a recorded verdict that the sources do not support it",
+   "score": 4.0,
+   "status": "done",
+   "found_utc": "2026-11-26T00:59Z",
+   "result": "Built illinois-memory-care-assisted-living on drafts (80e9595): who licenses memory care in Illinois assisted living (IDPH Division of Assisted Living, state licensure without federal oversight, private pay by establishment contract), the dementia training hours (6 initial, 3 annual; supervisors 12), the Special Care Disclosure Act, how to check the licence list and record, five tour questions tied to those rules, and the SLP dementia settings as the Medicaid route. Sources: IDPH Alzheimer's plan 2026-2029 and IDPH Assisted Living page. Refused: the 295.4060 provisions themselves (text only on ilga.gov, not an allowed host) and the plan's two inconsistent assisted-living counts (502 vs nearly 570). Checks: test.js 669/669, check-guides 2686/0, citations all 109 resolve, mobile-nav skipped, quotecheck 10/10. DEMAND.md Done line added. Review queued (ACQ-108).",
+   "deliverable": {
+    "type": "guide",
+    "ref": "drafts 80e9595"
+   },
+   "done_utc": "2026-11-26T01:02Z",
+   "minutes": 3
   }
  ],
  "blocked": [],
@@ -3433,7 +3455,7 @@
   "picked": "ACQ-084 done, ACQ-088 done, ACQ-089 done, ACQ-090 done; added ACQ-091, ACQ-092, ACQ-093 (next session); ACQ-017 still waiting (live guides do not yet link /assisted-living-evanston/)",
   "why": "Worked: LTC-insurance draft reviewed and corrected; look-back and Extra Help live audits, 2 commits on #89; stopped: no-worthwhile-work; resume: verifications ACQ-091/092/093 next session"
  },
- "last_verified_action": "ACQ-106 done 2026-11-26T00:58Z: Independent reader (agent in cse_014eaiSdvHByATtNdterRhh7) checked d9d1fc3: the fast-appeal sentence now gives the appeal to the patient, matching Medicare.gov…",
+ "last_verified_action": "ACQ-107 done 2026-11-26T01:02Z: Built illinois-memory-care-assisted-living on drafts (80e9595): who licenses memory care in Illinois assisted living (IDPH Division of Assisted Living, state l…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -4099,9 +4121,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSdvHByATtNdterRhh7",
-   "utc": "2026-11-26T00:59Z",
+   "utc": "2026-11-26T01:02Z",
    "since_utc": "2026-11-26T00:24Z",
-   "productive_min": 24,
+   "productive_min": 27,
    "deliverables": [
     "pr:#92",
     "verification:ops/reviews/live/illinois-medicaid-look-back-period.md; #89 54139d5",
@@ -4118,11 +4140,12 @@
     "verification:ops/reviews/live/illinois-medicaid-estate-recovery.md",
     "correction:#89 8457ed1",
     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md; #89 d9d1fc3",
-    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md"
+    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
+    "guide:drafts 80e9595"
    ],
    "current": {
-    "what": "plan:publish",
-    "since_utc": "2026-11-26T00:59Z"
+    "what": "ACQ-108",
+    "since_utc": "2026-11-26T01:02Z"
    }
   },
   "monitor": {
@@ -4630,7 +4653,7 @@
     "owner_wip_limit": 10,
     "plan_cooldown_hours": 12,
     "open_prs": [],
-    "owner_open": 4,
+    "owner_open": 5,
     "cooldown_until_utc": "",
     "last_planned_utc": "2026-11-26T00:59Z",
     "last_plan_result": "Evidence: guide index on main (32) and drafts (40), DEMAND Open/Done, Search Console read 25 Nov, dated public questions. Passed: Illinois memory care in assisted living (3 dated forum questions 2019-2020; IDPH 2026-2029 Alzheimer's plan states training hours and the disclosure law). Failed: the 2 …",
