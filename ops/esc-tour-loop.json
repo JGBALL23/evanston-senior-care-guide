@@ -4466,10 +4466,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-26T01:53Z",
-  "event": "Make controller: completion of cse_014eaiSdDK6VjczHrPrWrgM1",
-  "picked": "ACQ-133 done, ACQ-134 done, ACQ-135 done (reopened, fixed c2bac4b), ACQ-136 done, ACQ-137 done, ACQ-138 done, ACQ-139 done, ACQ-140 done, ACQ-141 done",
-  "why": "Worked: 5 live-guide audits (2 hold, 3 corrected in #89), 4 corrections verified by independent readers; stopped: no-worthwhile-work; resume: package cut 05:00Z"
+  "utc": "2026-11-26T01:55Z",
+  "event": "Make controller: completion of cse_014eaiSf2v59RahpHN2G6JvZ",
+  "picked": "ACQ-142 done",
+  "why": "Worked: SC3 scout (own numbers) ran, 0 new map items; stopped: no-worthwhile-work; resume: package cut 05:00Z"
  },
  "last_verified_action": "ACQ-142 done 2026-11-26T01:55Z: SC3 first run. Read cloud.json scoreboard (daily 22-25 Nov), metrics.per_tag, Make Search Console read 25 Nov 20:35Z (1,242 impressions, 2 clicks, 40 queries, …",
  "last_stop": {
@@ -4551,7 +4551,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Next session: live accuracy audits ACQ-133 (illinois-supportive-living-program) and ACQ-134 (illinois-fide-snp-explained) into #89; daily package cut 05:00-10:30 UTC should include #89 through 95e9903 (all commits verified) and the new drafts guide hospital-discharge-not-safe-to-go-home (publish-ready, corrections verified) in a publish batch; ACQ-118 (assisted living rate-change guide) waits for ilga.gov to be readable, retry after 27 Nov 01:30Z.",
+ "next_discovery": "Next: daily package cut 05:00-10:30Z (should carry #89 through its newest verified commit and the drafts guide hospital-discharge-not-safe-to-go-home in the publish batch), then planner cooldown ends and site-health/demand-questions angles at 06:28-06:37Z; SC3 next 3 Dec. Waiting on Joseph: merge of #91 (search and conversion lanes saturated), decision A. ACQ-118 retries ilga.gov after 27 Nov 01:30Z.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -5137,18 +5137,54 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiScJj1AYsLEn22C16dY",
-   "utc": "2026-11-26T01:55Z",
-   "since_utc": "2026-11-26T01:54Z",
-   "productive_min": 2,
-   "deliverables": [
-    "verdict:opportunity_map/discovery/scouts SC3"
-   ]
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-26T00:26Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiScJj1AYsLEn22C16dY",
+    "start_utc": "2026-11-26T01:54Z",
+    "end_utc": "2026-11-26T01:55Z",
+    "launch": "completion of cse_014eaiSf2v59RahpHN2G6JvZ",
+    "outcome": "Worked: SC3 scout (own numbers) ran, 0 new map items; stopped: no-worthwhile-work; resume: package cut 05:00Z",
+    "done": 1,
+    "changed": 2,
+    "tasks": "ACQ-142 done",
+    "next": "no",
+    "wake_minutes": 155,
+    "next_due_utc": "2026-11-26T05:00Z",
+    "plan_due": false,
+    "saturated": [
+     "search",
+     "conversion"
+    ],
+    "budget_used_hours_24h": 2.7,
+    "budget_used_hours_7d": 4.6,
+    "productive_min": 2,
+    "deliverables": [
+     "verdict:opportunity_map/discovery/scouts SC3"
+    ],
+    "stop_reason": "no-worthwhile-work",
+    "considered": "SC3 scout (overdue, run: 6 candidates, 0 passed); event waits ACQ-012/017/102 (#81, #85, #89 still open, not merged), ACQ-007 waiting on Joseph; ACQ-118 waits for ilga.gov until 27 Nov 01:30Z; planning cooling until 06:28Z; sweeps search-console, search-presence, competitor-gaps waiting on Joseph (search and conversion lanes saturated); backlog fallback resting until 13:53Z after the previous session's exhausted conclusion; monitor next 12:26Z; package cut window opens 05:00Z",
+    "resume_when": "Daily package cut at 05:00Z (then planner cooldown and site-health/demand-questions angles at 06:28-06:37Z), or a merge of #91",
+    "sweep_due_left": [],
+    "sessions_24h": 6,
+    "handoff": null,
+    "package": {
+     "due_at_close": false,
+     "skipped": null,
+     "done_today": false
+    },
+    "backlog_discovery": {
+     "explorations": 0,
+     "avenue_classes": [],
+     "tasks_added": 0,
+     "concluded": null
+    }
+   },
    {
     "run": "cse_014eaiSf2v59RahpHN2G6JvZ",
     "start_utc": "2026-11-26T01:36Z",
@@ -5761,8 +5797,8 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-26T01:53Z",
-   "eligible_now": 1,
+   "written_utc": "2026-11-26T01:55Z",
+   "eligible_now": 0,
    "next_due": [
     {
      "utc": "2026-11-26T05:00Z",
