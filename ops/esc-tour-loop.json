@@ -33,17 +33,6 @@
  },
  "queue": [
   {
-   "id": "ACQ-005",
-   "priority": 1,
-   "status": "ready",
-   "workstream": "search_acquisition",
-   "hypothesis": "Page-one Illinois guides get impressions but 0 clicks; their titles are 94-99 characters (estate recovery 94, complaint 99) and Google truncates near 60, so the query-matching words may be cut. A shorter, query-first title could lift CTR without new claims.",
-   "evidence_needed": "Search Console Performance (queries, pages, CTR, position) for 17-24 Nov from the operator's 25 Nov check; PR #78 merge status.",
-   "done_when": "If those pages show >=20 impressions at position <=10 with CTR <3%, open one small tested review PR rewriting only their <title>/meta description; otherwise record no-change with numbers.",
-   "not_before_utc": "2026-11-25T15:00Z",
-   "note_2026_11_26": "Make Search Console read 25 Nov 20:35Z (period 26 Oct-22 Nov) is in cloud.json scoreboard; ready."
-  },
-  {
    "id": "ACQ-007",
    "priority": 2,
    "status": "waiting_on_owner",
@@ -3019,6 +3008,34 @@
    },
    "done_utc": "2026-11-25T13:16Z",
    "minutes": 0
+  },
+  {
+   "id": "ACQ-005",
+   "priority": 1,
+   "status": "done",
+   "workstream": "search_acquisition",
+   "hypothesis": "Page-one Illinois guides get impressions but 0 clicks; their titles are 94-99 characters (estate recovery 94, complaint 99) and Google truncates near 60, so the query-matching words may be cut. A shorter, query-first title could lift CTR without new claims.",
+   "evidence_needed": "Search Console Performance (queries, pages, CTR, position) for 17-24 Nov from the operator's 25 Nov check; PR #78 merge status.",
+   "done_when": "If those pages show >=20 impressions at position <=10 with CTR <3%, open one small tested review PR rewriting only their <title>/meta description; otherwise record no-change with numbers.",
+   "not_before_utc": "2026-11-25T15:00Z",
+   "note_2026_11_26": "Make Search Console read 25 Nov 20:35Z (period 26 Oct-22 Nov) is in cloud.json scoreboard; ready.",
+   "result": "Make Search Console read 25 Nov 20:35Z (26 Oct-22 Nov): estate-recovery 51 impr/1 click/pos 7.2 and preadmission-screening 42/0/8.5 meet the rule (>=20 impr, pos<=10, CTR<3%). Opened review PR #92 (claude/serp-titles-estate-preadmission): shorter query-first titles (53 and 58 chars before the suffix, from 65 and 63) and answer-first descriptions using only claims already sourced on the pages; no body, source or reviewed-date change. All suites pass; mobile-nav not run (websockets). Benefit-access (31, pos 13.8) and supportive-living/medicaid-ltc (<20 impr) did not qualify. 'what is a uai screening' is another state's form: not targeted.",
+   "verdicts": {
+    "illinois-medicaid-estate-recovery": "act",
+    "illinois-nursing-home-preadmission-screening": "act",
+    "illinois-benefit-access-program": "no-change (position 13.8)"
+   },
+   "sources": [
+    "cloud.json scoreboard.search_console_pages read 2026-11-25T20:35Z",
+    "PR #92"
+   ],
+   "lesson": "Search Console queries are site-wide in the Make read; page attribution comes only from the pages list.",
+   "deliverable": {
+    "type": "pr",
+    "ref": "#92"
+   },
+   "done_utc": "2026-11-26T00:30Z",
+   "minutes": 3
   }
  ],
  "blocked": [],
@@ -3029,7 +3046,7 @@
   "picked": "ACQ-084 done, ACQ-088 done, ACQ-089 done, ACQ-090 done; added ACQ-091, ACQ-092, ACQ-093 (next session); ACQ-017 still waiting (live guides do not yet link /assisted-living-evanston/)",
   "why": "Worked: LTC-insurance draft reviewed and corrected; look-back and Extra Help live audits, 2 commits on #89; stopped: no-worthwhile-work; resume: verifications ACQ-091/092/093 next session"
  },
- "last_verified_action": "ACQ-088 done 2026-11-25T13:16Z: Applied the two required corrections from the review packet to long-term-care-insurance-assisted-living-illinois on drafts (commit 2c15ef1), after the drafts q…",
+ "last_verified_action": "ACQ-005 done 2026-11-26T00:30Z: Make Search Console read 25 Nov 20:35Z (26 Oct-22 Nov): estate-recovery 51 impr/1 click/pos 7.2 and preadmission-screening 42/0/8.5 meet the rule (>=20 impr, p…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -3687,8 +3704,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSdvHByATtNdterRhh7",
-   "utc": "2026-11-26T00:27Z",
-   "since_utc": "2026-11-26T00:24Z"
+   "utc": "2026-11-26T00:30Z",
+   "since_utc": "2026-11-26T00:24Z",
+   "productive_min": 3,
+   "deliverables": [
+    "pr:#92"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-26T00:26Z"
@@ -4248,9 +4269,10 @@
     "plan_cooldown_hours": 48,
     "open_prs": [
      81,
-     85
+     85,
+     92
     ],
-    "owner_open": 2,
+    "owner_open": 3,
     "cooldown_until_utc": "2026-11-27T06:30Z",
     "last_planned_utc": "2026-11-25T06:30Z",
     "last_plan_result": "2026-11-25 06:3xZ crawl of the live sitemap (36 URLs): all 200, canonical self, one h1 each, descriptions 145-172 chars; only the home page and /assisted-living-evanston/ link to the local page on production because #85 is not merged or deployed. Every gap found is already tracked: titles 72-99 cha…"
