@@ -22,3 +22,11 @@ Review date: left at 6 November 2026, because the page's footnote says the listi
 
 Quotations checked: 1. Claims scope-checked: 9. Scope defects: 1. Corrections required: 1.
 Verdict: corrections listed (applied to accuracy PR #89; reader check pending)
+
+## Reader check 2026-11-26
+
+Independent reader, branch claude/accuracy-20261125 at commit 8b2b0cd, cloned to /tmp/reader-independent-living-evanston. quotecheck: 1/1 FOUND, 7 cited pages, 0 unreadable (the 4 short terms are the guide's own phrases, not quotations). City of Evanston Access Evanston page (https://www.cityofevanston.org/accessevanston) fetched and read 2026-11-26; the link is the one already on main.
+
+- "In Evanston, the City's Access Evanston program, for residents of the 60201 and 60202 zip codes, helps residents 65 or older, or over 18 with a disability." Source, under "Residency Requirement": "The Access Evanston Program is available to individuals residing in zip codes 60201 and 60202."; under "Subsidized Transportation": "The City of Evanston offers a choice of two special low-cost transportation options to Evanston seniors over the age of 65, and residents with disabilities over the age of 18 and are enrolled in the Access Evanston program." (and the eligibility heading "Individuals 65 and Over or Under 65 with a Disability" lists "Subsidized Transportation Program"). Same scope: Evanston residents of those two zip codes, the transportation program.
+- "For its transportation help, income must be $35,000 or less for a one-person household; the City's page gives no figure for a larger household." Source, under "Subsidized Taxicab Coupons" and "Transportation Debit Card": "Group One: Program users with an income of less than $17,500/year (1-person household) ..." and "Group Two: Program users with an income between $17,501-$35,000/year (1-person household) ..."; no transportation figure for a larger household appears anywhere on the page. The $60,000 figure appears only under "Access Evanston Wheel Tax Discount" ("$35,000 or less (1 person) $60,000 or less (2 people)"), which the guide no longer attaches to transportation. Same scope.
+Corrections verified
