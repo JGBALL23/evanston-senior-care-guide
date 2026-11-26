@@ -163,7 +163,9 @@ SRC = {
     # was read that day. NITA is the RTA's new name; Reduced Fare covers
     # riders 65+, Ride Free covers Benefit Access enrollees. Access Evanston:
     # 65+ (or under 65 with a disability), income up to $35,000 for one person
-    # or $60,000 for two, a choice of $5 one-way taxi coupons within Evanston
+    # (2026-11-26 audit: the $60,000-for-two figure on the City's page belongs to
+    # the wheel-tax discount, not the transportation program; the program is for
+    # zip codes 60201 and 60202), a choice of $5 one-way taxi coupons within Evanston
     # or a City-matched transportation debit card, applications at the City's
     # community centers. HACC does not run the Evanston building; it
     # subsidizes rent there (62+, very low income; the resident pays 30% of
@@ -2075,10 +2077,11 @@ GUIDES = [
                 "the Northern Illinois Transit Authority, formerly the RTA. Those "
                 "enrolled in the state&rsquo;s Benefit Access program can ride free "
                 "instead, after applying to the authority&rsquo;s Ride Free "
-                "program. In Evanston, the City&rsquo;s Access Evanston program "
-                "helps residents 65 or older, or over 18 with a disability. Income "
-                "must be $35,000 or less for one person, or $60,000 or less for "
-                "two. Members choose between taxi coupons that cost $5 each, one "
+                "program. In Evanston, the City&rsquo;s Access Evanston program, "
+                "for residents of the 60201 and 60202 zip codes, helps residents 65 "
+                "or older, or over 18 with a disability. For its transportation help, "
+                "income must be $35,000 or less for a one-person household; the "
+                "City&rsquo;s page gives no figure for a larger household. Members choose between taxi coupons that cost $5 each, one "
                 "per one-way ride within Evanston, and a transportation debit card. "
                 "The City "
                 "matches money loaded onto the card, up to a monthly limit. "
