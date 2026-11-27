@@ -807,9 +807,10 @@ GUIDES = [
                 "&ldquo;only if you&rsquo;re already in a Medicare Advantage "
                 "Plan&rdquo;: your parent can switch to another Medicare Advantage "
                 "plan, or &ldquo;Drop your Medicare Advantage Plan and return to "
-                "Original Medicare.&rdquo; A parent in Original Medicare cannot use "
-                "it to join a plan.</p>",
-                "<p>A move opens its own window. Medicare.gov lists a Special "
+                "Original Medicare.&rdquo; A parent who returns to Original Medicare "
+                "this way can also join a separate Medicare drug plan. A parent in "
+                "Original Medicare cannot use this window to join a plan.</p>",
+                "<p>Some moves open their own window. Medicare.gov lists a Special "
                 "Enrollment Period for someone who lives in, or recently moved out "
                 "of, an institution such as a nursing home or rehabilitation "
                 "hospital: &ldquo;Your chance to join, switch, or drop coverage lasts "
@@ -818,7 +819,19 @@ GUIDES = [
                 "to an address outside their Medicare Advantage plan&rsquo;s service "
                 "area, for example to be near family in Evanston, can switch plans "
                 "too; Medicare.gov says that chance &ldquo;begins when you move and "
-                "continues for 2 full months after you move.&rdquo;</p>",
+                "continues for 2 full months after you move.&rdquo; If your parent "
+                "tells the plan before the move, that chance begins the month before "
+                "the month of the move. A parent who moves out of the plan&rsquo;s "
+                "area can also go back to Original Medicare, and one who joins no "
+                "new Medicare Advantage plan in that time is enrolled in Original "
+                "Medicare when the old plan drops them. A move to a new address "
+                "that is still in the plan&rsquo;s area but brings new plan options "
+                "opens a window to switch as well.</p>",
+                "<p>These address-move windows are for someone already in a plan. "
+                "The pages cited here list no window for a parent in Original "
+                "Medicare with no plan who moves somewhere that is not an "
+                "institution, such as assisted living; for that parent, ask "
+                "1-800-MEDICARE or use the Open Enrollment Period.</p>",
                 "<p>Why it matters before a move: as the sections above say, the rules "
                 "for a skilled nursing stay differ in a Medicare Advantage plan (a "
                 "plan may waive the three-day hospital stay, and some plans charge "
