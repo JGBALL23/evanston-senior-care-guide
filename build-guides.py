@@ -6575,9 +6575,10 @@ GUIDES = [
             ]),
             ("Make one call: the Senior HelpLine", [
                 "<p>The HelpLine and the other programs below are Illinois programs for "
-                "people who live in Illinois; the Department&rsquo;s pages do not say "
-                "whom to call for a parent in another state. Both the Department and "
-                "Medicare.gov link to the federal Eldercare Locator for that.</p>",
+                "people who live in Illinois. For a parent in another state, the "
+                "HelpLine page says: &ldquo;To get information about services in "
+                "another state, please visit the Eldercare Locator for helpful "
+                "resources and contacts.&rdquo;</p>",
                 "<p>The Illinois Department on Aging runs a Senior HelpLine at "
                 "1-800-252-8966, Monday through Friday, from 8:30 a.m. to 5:00 p.m.; "
                 "people who are deaf or have speech impairments can dial 711 "
