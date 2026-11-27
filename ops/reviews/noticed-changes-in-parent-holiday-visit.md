@@ -68,3 +68,5 @@ Figures and dates checked today: 12 months, 20%, $17,500, 13 areas, 1-800-252-89
 
 Quotations checked: 15. Claims scope-checked: 35. Scope defects: 3. Corrections required: 3.
 Verdict: publish-ready after corrections (three scope defects: the guide sends a specific worry into the prevention-only Wellness visit, sends a parent in any state to the Illinois HelpLine, and presents the Illinois APS hotline for any danger in any setting. All quotations are word-perfect.)
+
+Reader: agent in cse_014eaiSeY3WV1Qzjy2ZNkkuN
