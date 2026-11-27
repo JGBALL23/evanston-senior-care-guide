@@ -6067,10 +6067,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-27T19:33Z",
+  "utc": "2026-11-27T20:26Z",
   "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
-  "picked": "ACQ-191 done, ACQ-192 done, ACQ-193 done, ACQ-194 done (reopened 3 sentences), ACQ-195 done, ACQ-196 done (corrections verified), ACQ-197 done",
-  "why": "Worked: built, reviewed, corrected and verified a home care vs assisted living Illinois comparison and ported it into batch #90; stopped: no-worthwhile-work; resume: channel-yield sweep 00:32Z or the 05:00Z package cut"
+  "picked": "ACQ-198 done, ACQ-199 done, ACQ-200 done, ACQ-201 waiting_on_data, ACQ-202 done, ACQ-203 done (reopened), ACQ-204 done, ACQ-205 done",
+  "why": "Worked: all 13 open frontier questions answered (F12 act: 2027 retroactive-Medicaid correction; F17 act: IndexNow decision drafted), 2 live/draft guides corrected and verified by independent readers; stopped: no-worthwhile-work; resume: channel-yield sweep 00:32Z, package cut 05:00Z"
  },
  "last_verified_action": "ACQ-205 done 2026-11-27T20:25Z: Independent reader agent re-read every sentence faf855a changed in illinois-fide-snp-explained (quotecheck 22/22 FOUND, 5/5 pages readable, HFS FAQ read whole)…",
  "last_stop": {
@@ -6783,24 +6783,93 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiSeGWreJzfEyfVMTtWN",
-   "utc": "2026-11-27T20:25Z",
-   "since_utc": "2026-11-27T19:57Z",
-   "productive_min": 33,
-   "deliverables": [
-    "correction:drafts dad7c20",
-    "verification:ops/reviews/illinois-medicaid-pending-nursing-home.md",
-    "publish_pr:#90 4815ca1",
-    "correction:#89 3d922fa",
-    "verification:ops/reviews/live/illinois-fide-snp-explained.md",
-    "correction:#89 faf855a",
-    "verification:ops/reviews/live/illinois-fide-snp-explained.md"
-   ]
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-27T18:25Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+    "start_utc": "2026-11-27T19:57Z",
+    "end_utc": "2026-11-27T20:26Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: all 13 open frontier questions answered (F12 act: 2027 retroactive-Medicaid correction; F17 act: IndexNow decision drafted), 2 live/draft guides corrected and verified by independent readers; stopped: no-worthwhile-work; resume: channel-yield sweep 00:32Z, package cut 05:00Z",
+    "done": 8,
+    "changed": 18,
+    "tasks": "ACQ-198 done, ACQ-199 done, ACQ-200 done, ACQ-201 waiting_on_data, ACQ-202 done, ACQ-203 done (reopened), ACQ-204 done, ACQ-205 done",
+    "next": "no",
+    "wake_minutes": 216,
+    "next_due_utc": "2026-11-28T00:32Z",
+    "plan_due": false,
+    "saturated": [],
+    "budget_used_hours_24h": 1.9,
+    "budget_used_hours_7d": 7.4,
+    "productive_min": 33,
+    "deliverables": [
+     "correction:drafts dad7c20",
+     "verification:ops/reviews/illinois-medicaid-pending-nursing-home.md",
+     "publish_pr:#90 4815ca1",
+     "correction:#89 3d922fa",
+     "verification:ops/reviews/live/illinois-fide-snp-explained.md",
+     "correction:#89 faf855a",
+     "verification:ops/reviews/live/illinois-fide-snp-explained.md"
+    ],
+    "stop_reason": "no-worthwhile-work",
+    "considered": "Frontier F10 drop (hospital pages: no resource lists), F11 drop (R11: hospice/DMM/home-mod), F12 act (local news: enforcement stories served by live inspection guide; research report drafts cbbdad3; retro-coverage correction), F07 watch and F18 watch (Google results/AI summaries unreadable here), F09 watch (D15: AgingCare/City-Data bar links; news comments need account), F16 watch (placements_live 0 from evidence), F17 act (S10 IndexNow decision), F20 drop (D9/D12, no new evidence), F13 watch (IDPH directory interactive only), F14 watch (no demand evidence), F15 drop (all pairs covered), F19 watch (email reminder not proposable; print/save wait 30 visitors). Fallback: quality hfs-figures-ja…",
+    "resume_when": "channel-yield sweep due 28 Nov 00:32Z; daily package cut 05:00Z; a new Search Console read; Joseph's merge of #91",
+    "sweep_due_left": [],
+    "sessions_24h": 5,
+    "handoff": null,
+    "make_ops": null,
+    "package": {
+     "due_at_close": false,
+     "recut_due_at_close": false,
+     "skipped": null,
+     "done_today": true
+    },
+    "backlog_discovery": {
+     "explorations": 15,
+     "avenue_classes": [
+      "frontier",
+      "needs",
+      "quality"
+     ],
+     "tasks_added": 3,
+     "concluded": {
+      "utc": "2026-11-27T20:26Z",
+      "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+      "explorations": 15,
+      "avenue_classes": [
+       "frontier",
+       "needs",
+       "quality"
+      ],
+      "tasks_added": 3,
+      "skipped": null,
+      "rest_hours": 12
+     }
+    },
+    "frontier": {
+     "explored": [
+      "frontier-f19",
+      "frontier-f15",
+      "frontier-f14",
+      "frontier-f13",
+      "frontier-f20",
+      "frontier-f18",
+      "frontier-f17",
+      "frontier-f16",
+      "frontier-f09",
+      "frontier-f07",
+      "frontier-f12",
+      "frontier-f11",
+      "frontier-f10"
+     ],
+     "open_left": 0
+    }
+   },
    {
     "run": "cse_014eaiSah6rgKCpixbDvmA6L",
     "start_utc": "2026-11-27T19:12Z",
@@ -7843,7 +7912,7 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-27T19:33Z",
+   "written_utc": "2026-11-27T20:26Z",
    "eligible_now": 0,
    "next_due": [
     {
@@ -7903,7 +7972,7 @@
    "note": "Cut twice on 25 Nov by the supervising chat; re-cut 26 Nov 06:31Z by the ESCG worker (cse_014eaiSe8SBqppdHD1M3fw41): #90 now 10 guides (40e9da0), #92 added; #89 through c964f99 by 06:47Z (6876bfd, 64feb14, c964f99 verified by independent readers in the same session). 26 Nov 10:03Z, supervising chat: one housekeeping commit 2d84762 on the package branch (the temporary file .cite-count of check-citations.sh, committed by accident in #89's d7724d0, removed and added to .gitignore; no page, test or script changes; rebuild clean and all eleven suites pass on 2d84762). #89 itself is unchanged at c964f99. 27 Nov 06:29Z re-cut by the ESCG worker (cse_014eaiSeY3WV1Qzjy2ZNkkuN, ACQ-169): #89's verified commits 99cc346..9d57bf0 merged (a523b5e); rebuild clean, all eleven suites pass; title and body rewritten (number unchanged). 27 Nov 2026-11-27T09:48Z second cut by the supervising chat (the worker had finished them after its 06:29Z cut and left them for the 28 Nov package, although the window was open): #90's eleventh guide (eea57b7, holiday visits), #89's commit 166f2d1 and #93 (Medicare plan choice before 7 Dec) merged (eca3b23). #93 collided with the batch in build-guides.py only where both add entries at the end of SRC; both sets kept unchanged. Rebuild clean, all eleven suites pass, the three touched pages compared with their verified branches; title and body rewritten (number unchanged).",
    "owner_actions": []
   },
-  "next_discovery": "Monitor due 18:26Z, then draft-review and publish-ready sweeps and the planner from 18:48Z. #89 holds one new verified commit (166f2d1) for tomorrow's package; #91 waits on Joseph's merge.",
+  "next_discovery": "Next: channel-yield sweep 28 Nov 00:32Z, then the daily package cut from 05:00Z: it should include #90 at 4815ca1 (Medicaid-pending guide corrected for the 1 Jan 2027 cut to 2 months of retroactive coverage) and #89 through faf855a (verified: 166f2d1, 3d922fa, faf855a), and offer the new lettered decision drafted on map item S10 (IndexNow announcement after each publish). Waits on Joseph: merge of #91.",
   "addenda": [
    {
     "utc": "2026-11-27T18:55Z",
@@ -8460,7 +8529,7 @@
    "explore_recheck_days": 14,
    "exhausted_base_hours": 12,
    "exhausted_max_hours": 96,
-   "exhausted_until_utc": "",
+   "exhausted_until_utc": "2026-11-28T08:26Z",
    "empty_streak": 0,
    "log": [
     {
@@ -8969,15 +9038,15 @@
    "why": "Joseph, 24 Nov 2026: \"Maintain a replenishing backlog instead of relying exclusively on scheduled discovery windows.\" \"Do not manufacture meaningless work to consume usage.\"",
    "how": "Procedure step 7, INDEPENDENT BACKLOG FALLBACK and RECORDING IT. One explore record per avenue; a key is not explored twice in 14 days without new evidence; close refuses no-worthwhile-work until three avenue classes are recorded or --fallback-skipped says why; after an empty conclusion discovery rests 12 hours, doubling to 96.",
    "last_conclusion": {
-    "utc": "2026-11-27T18:35Z",
-    "run": "cse_014eaiSbgkYkmzevMK2yQoyV",
-    "explorations": 4,
+    "utc": "2026-11-27T20:26Z",
+    "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+    "explorations": 15,
     "avenue_classes": [
-     "channels",
      "frontier",
-     "search"
+     "needs",
+     "quality"
     ],
-    "tasks_added": 1,
+    "tasks_added": 3,
     "skipped": null,
     "rest_hours": 12
    }
