@@ -6663,9 +6663,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeGWreJzfEyfVMTtWN",
-   "utc": "2026-11-27T20:15Z",
+   "utc": "2026-11-27T20:16Z",
    "since_utc": "2026-11-27T19:57Z",
-   "productive_min": 23,
+   "productive_min": 24,
    "deliverables": [
     "correction:drafts dad7c20",
     "verification:ops/reviews/illinois-medicaid-pending-nursing-home.md",
@@ -8341,6 +8341,17 @@
     {
      "utc": "2026-11-27T20:16Z",
      "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+     "key": "frontier-f19",
+     "avenue": "frontier",
+     "lane": null,
+     "candidates": 3,
+     "added": 0,
+     "result": "Read 27 Nov 2026: main's styles.css and _dist (no @media print rules, no save/bookmark prompt; the tour checklist PDF is the only printable); privacy.html and the procedure's limits; comparable local guides: F06 (27 Nov) found only referral directories, which bring visitors back by collecting phone/email. Options: (1)…",
+     "verdict": "watch"
+    },
+    {
+     "utc": "2026-11-27T20:16Z",
+     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
      "key": "frontier-f15",
      "avenue": "frontier",
      "lane": null,
@@ -9159,9 +9170,14 @@
      "evidence": "Comparable independent local guides; this site's privacy notice and its rules.",
      "output": "A build task only for options that collect nothing. An option that changes what the site collects is one lettered decision with the evidence, never built without Joseph.",
      "why": "Most visitors are not ready to tour on the first visit.",
-     "status": "open",
+     "status": "explored",
      "added_utc": "2026-11-27T01:18Z",
-     "added_by": "supervisor"
+     "added_by": "supervisor",
+     "verdict": "watch",
+     "explored_utc": "2026-11-27T20:16Z",
+     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+     "added": 0,
+     "result": "Read 27 Nov 2026: main's styles.css and _dist (no @media print rules, no save/bookmark prompt; the tour checklist PDF is the only printable); privacy.html and the procedure's limits; comparable local guides: F06 (27 Nov) found only referral directories, which bring visitors back by collecting phone/email. Options: (1) a print stylesheet so a guide prints cleanly to carry to a tour: collects nothing, but styles.css is site-wide and a conversion change waits for 30 genuine visitors at the step (28 genuine visitors in all 22-27 Nov, guide-print use unmeasured): WATCH; (2) a 'save this page' prom…"
     },
     {
      "id": "F20",
