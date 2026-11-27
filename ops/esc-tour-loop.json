@@ -6191,7 +6191,7 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
-   "utc": "2026-11-27T06:57Z",
+   "utc": "2026-11-27T06:58Z",
    "since_utc": "2026-11-27T06:24Z",
    "productive_min": 18,
    "deliverables": [
@@ -7496,7 +7496,10 @@
     "evidence": "ops/cloud.json scoreboard (search_console, search_console_pages, search_console_queries: Make's weekly read); the live page; today's results page for its top query (what the pages above it answer that ours does not); strategy/ladder/pages (each page's last recorded rung and change).",
     "output": "At most three tasks a pass (lane search): one change per page as a small tested review pull request against main whose body gives the rung before, the evidence and the rung expected after. Never an element that is pending in the open package or was changed in the last 28 days: record the rung again after two reads and measure first. Record each page's rung and change in strategy/ladder/pages. No new read since the last pass is a one-line result.",
     "why": "Compounding (Joseph, 26 Nov 2026: build upon previous work): the same pages improve read after read instead of new pages starting from zero.",
-    "next_check_utc": "2026-11-27T01:18Z"
+    "next_check_utc": "2026-12-04T06:58Z",
+    "last_checked_utc": "2026-11-27T06:58Z",
+    "last_added": 0,
+    "last_result": "First ladder pass on the 25 Nov Make read (25 pages): rung 5 (a click) home and estate recovery; rung 4 (position <=10) preadmission 8.5, SLP 8.0, Medicaid LTC 4.4, CCP 7.0, /guides/ 3.2; rung 3 Benefit Access 13.8, complaint 16.3, look-back 18.0; the rest rung 2. The five closest to the next rung …"
    },
    {
     "id": "seasonal",
@@ -7508,10 +7511,15 @@
     "evidence": "strategy/calendar/moments; the official page for each date as it reads today; Search Console queries from the same weeks; public questions from that season in earlier years (kind of venue and date only); the calendar scout's findings (SC4).",
     "output": "Per moment at most one task: a page built on drafts (lane build) or a sourced addition to a live page (review pull request), and one post text or handoff prepared for the operator under step 8's rules. Add newly found dated moments to strategy/calendar/moments with their source. A moment with a page and a post ready is a one-line result.",
     "why": "Demand follows the calendar, and work prepared ahead is reused every year.",
-    "next_check_utc": "2026-11-27T01:18Z"
+    "next_check_utc": "2026-12-04T06:58Z",
+    "last_checked_utc": "2026-11-27T06:58Z",
+    "last_added": 0,
+    "last_result": "Calendar moments in the next 45 days (strategy/calendar, read 2026-11-27): holiday visits -> frontier F01 built noticed-changes-in-parent-holiday-visit (in #90) and post P-1227-01 already prepared (ACQ-035); Medicare Open Enrollment to 7 Dec -> frontier F02 PR #93; 1 Dec VA pension rates -> ACQ-076…"
    }
   ],
   "sweep_log": [
+   "2026-11-27T06:58Z page-ladder +0: First ladder pass on the 25 Nov Make read (25 pages): rung 5 (a click) home and estate recovery; rung 4 (position <=10) preadmission 8.5, SLP 8.0, Medicaid LTC…",
+   "2026-11-27T06:58Z seasonal +0: Calendar moments in the next 45 days (strategy/calendar, read 2026-11-27): holiday visits -> frontier F01 built noticed-changes-in-parent-holiday-visit (in #90…",
    "2026-11-27T06:57Z publish-ready +1: Of 11 worker pages on drafts not on main, 10 were already in batch #90 at their verified text; the holiday-visit guide qualified after its corrections were ver…",
    "2026-11-27T06:48Z draft-review +0: All 11 worker pages on drafts not on main have packets with the counts line; the newest (noticed-changes-in-parent-holiday-visit) was reviewed, corrected and v…",
    "2026-11-26T17:45Z asset-gaps +0: 26 Nov 17:50Z: guide index main 32 / drafts 42; DEMAND Open holds only ACQ-118. Fresh searches 26 Nov: listing sites only for Evanston/Skokie AL questions (no …",
@@ -8400,7 +8408,208 @@
   ],
   "ladder": {
    "about": "One entry per live page that has impressions, keyed by slug: rung (1 indexed, 2 impressions, 3 average position 20 or better, 4 position 10 or better, 5 clicks, 6 tour-path clicks), position, impressions, read_utc, last_change_utc, change. Written by the page-ladder angle with set.",
-   "pages": {}
+   "pages": {
+    "home": {
+     "rung": 5,
+     "position": 36.4,
+     "impressions": 11,
+     "read_utc": "2026-11-25T20:35Z",
+     "last_change_utc": null,
+     "change": "pending: #81 title (package)"
+    },
+    "illinois-medicaid-estate-recovery": {
+     "rung": 5,
+     "position": 7.2,
+     "impressions": 51,
+     "read_utc": "2026-11-25T20:35Z",
+     "last_change_utc": null,
+     "change": "pending: #92 title/description and #89 (package)"
+    },
+    "guides": {
+     "rung": 4,
+     "position": 3.2,
+     "impressions": 5,
+     "read_utc": "2026-11-25T20:35Z",
+     "last_change_utc": null,
+     "change": null
+    },
+    "does-medicare-pay-for-senior-care": {
+     "rung": 2,
+     "position": 32.5,
+     "impressions": 781,
+     "read_utc": "2026-11-25T20:35Z",
+     "last_change_utc": null,
+     "change": "pending: #89 corrections and #93 new section (package)"
+    },
+    "illinois-advance-directive-power-of-attorney": {
+     "rung": 2,
+     "position": 53.3,
+     "impressions": 26,
+     "read_utc": "2026-11-25T20:35Z",
+     "last_change_utc": null,
+     "change": null
+    },
+    "illinois-benefit-access-program": {
+     "rung": 3,
+     "position": 13.8,
+     "impressions": 31,
+     "read_utc": "2026-11-25T20:35Z",
+     "last_change_utc": null,
+     "change": "pending: #89 (package)"
+    },
+    "illinois-care-facility-complaint": {
+     "rung": 3,
+     "position": 16.3,
+     "impressions": 17,
+     "read_utc": "2026-11-25T20:35Z",
+     "last_change_utc": null,
+     "change": null
+    },
+    "illinois-community-care-program": {
+     "rung": 4,
+     "position": 7.0,
+     "impressions": 2,
+     "read_utc": "2026-11-25T20:35Z",
+     "last_change_utc": null,
+     "change": null
+    },
+    "illinois-elder-abuse-reporting": {
+     "rung": 2,
+     "position": 41.1,
+     "impressions": 24,
+     "read_utc": "2026-11-25T20:35Z",
+     "last_change_utc": null,
+     "change": null
+    },
+    "illinois-fide-snp-explained": {
+     "rung": 2,
+     "position": 32.4,
+     "impressions": 8,
+     "read_utc": "2026-11-25T20:35Z",
+     "last_change_utc": null,
+     "change": null
+    },
+    "illinois-home-care-ombudsman-program": {
+     "rung": 2,
+     "position": 23.3,
+     "impressions": 4,
+     "read_utc": "2026-11-25T20:35Z",
+     "last_change_utc": null,
+     "change": null
+    },
+    "illinois-home-caregiver-background-check": {
+     "rung": 2,
+     "position": 97.7,
+     "impressions": 3,
+     "read_utc": "2026-11-25T20:35Z",
+     "last_change_utc": null,
+     "change": null
+    },
+    "illinois-home-delivered-meals": {
+     "rung": 2,
+     "position": 44.4,
+     "impressions": 8,
+     "read_utc": "2026-11-25T20:35Z",
+     "last_change_utc": null,
+     "change": null
+    },
+    "illinois-medicaid-long-term-care": {
+     "rung": 4,
+     "position": 4.4,
+     "impressions": 9,
+     "read_utc": "2026-11-25T20:35Z",
+     "last_change_utc": null,
+     "change": "pending: #89 (package)"
+    },
+    "illinois-medicaid-look-back-period": {
+     "rung": 3,
+     "position": 18.0,
+     "impressions": 7,
+     "read_utc": "2026-11-25T20:35Z",
+     "last_change_utc": null,
+     "change": null
+    },
+    "illinois-medicare-savings-program": {
+     "rung": 2,
+     "position": 49.7,
+     "impressions": 25,
+     "read_utc": "2026-11-25T20:35Z",
+     "last_change_utc": null,
+     "change": null
+    },
+    "illinois-nursing-home-preadmission-screening": {
+     "rung": 4,
+     "position": 8.5,
+     "impressions": 42,
+     "read_utc": "2026-11-25T20:35Z",
+     "last_change_utc": null,
+     "change": "pending: #89; title task ACQ-102 waits on it"
+    },
+    "illinois-nursing-home-resident-rights": {
+     "rung": 2,
+     "position": 69.0,
+     "impressions": 1,
+     "read_utc": "2026-11-25T20:35Z",
+     "last_change_utc": null,
+     "change": null
+    },
+    "illinois-pace-program": {
+     "rung": 2,
+     "position": 30.2,
+     "impressions": 5,
+     "read_utc": "2026-11-25T20:35Z",
+     "last_change_utc": null,
+     "change": null
+    },
+    "illinois-supportive-living-program": {
+     "rung": 4,
+     "position": 8.0,
+     "impressions": 12,
+     "read_utc": "2026-11-25T20:35Z",
+     "last_change_utc": null,
+     "change": "pending: #89 (package)"
+    },
+    "medicare-durable-medical-equipment-coverage": {
+     "rung": 2,
+     "position": 40.5,
+     "impressions": 25,
+     "read_utc": "2026-11-25T20:35Z",
+     "last_change_utc": null,
+     "change": null
+    },
+    "medicare-extra-help-prescription-drug-costs": {
+     "rung": 2,
+     "position": 64.5,
+     "impressions": 2,
+     "read_utc": "2026-11-25T20:35Z",
+     "last_change_utc": null,
+     "change": null
+    },
+    "medicare-home-health-care": {
+     "rung": 2,
+     "position": 47.6,
+     "impressions": 44,
+     "read_utc": "2026-11-25T20:35Z",
+     "last_change_utc": null,
+     "change": null
+    },
+    "va-caregiver-support-program": {
+     "rung": 2,
+     "position": 51.3,
+     "impressions": 84,
+     "read_utc": "2026-11-25T20:35Z",
+     "last_change_utc": null,
+     "change": null
+    },
+    "va-nursing-home-and-respite-care": {
+     "rung": 2,
+     "position": 45.0,
+     "impressions": 20,
+     "read_utc": "2026-11-25T20:35Z",
+     "last_change_utc": null,
+     "change": null
+    }
+   }
   },
   "calendar": {
    "about": "Dated moments that change what local families search, ask or decide. Verify every date on its official page before using it; add newly found moments with their source.",
