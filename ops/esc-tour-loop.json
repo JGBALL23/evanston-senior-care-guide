@@ -191,25 +191,6 @@
    "waiting_for": "PR #91 (or #90) merged, so that a card change no longer collides with the open publish batch in the built /guides/ index",
    "not_before_utc": "2026-11-28T06:30Z",
    "note": "2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 1: #91 and #90 still open (checked 06:27Z), so the card change would still collide with the publish batch."
-  },
-  {
-   "id": "ACQ-190",
-   "task": "Sourcing-and-review page for the guides, linked from every guide's Sources block and declared as publishingPrinciples in each guide's Article structured data (review pull request against main)",
-   "workstream": "search",
-   "lane": "search",
-   "source": "plan",
-   "key": "frontier-f04-sourcing-page",
-   "priority": 2,
-   "evidence": "Frontier F04, 27 Nov 2026 18:40Z: results for 'does medicare cover assisted living' (87 impressions, pos 36.7), 'how much does medicare pay for assisted living' (44), 'does medicare pay for nursing home care for the elderly' (21), 'va caregiver support program', 'illinois medicaid estate recovery' (SC read 25 Nov 20:35Z). Pages above ours: Healthline (visible 'Medically reviewed by', 'Updated on', 'How we reviewed this article' + editorial policy link; MedicalWebPage JSON-LD with reviewedBy, lastReviewed, datePublished), NerdWallet ('Fact Checked: How is this page expert verified?' link; Article+BreadcrumbList, datePublished/dateModified), Humana (author Organization url /about/editorial-standards, reviewedBy, datePublished/dateModified), Caring.com ('Written by/Reviewed by'); VA and estate-recovery results are official sites (va.gov, hfs.illinois.gov). Ours (live /guides/does-medicare-pay-for-senior-care/): Article JSON-LD with author and dateModified, visible 'Last reviewed', dated sources list; missing: any page explaining how guides are sourced and checked, and the link to it.",
-   "expected_tour_acquisition_value": "Search: 1,242 impressions at average position 32.8 on money and health queries; a public, verifiable sourcing standard is the trust signal every result above ours carries, aimed at more clicks from families researching how to pay for care.",
-   "impact": 3,
-   "confidence": 3,
-   "effort": 2,
-   "executor": "worker (research and preparation only)",
-   "done_when": "review pull request against main: one page stating only the sourcing and checking rules already true under ROUTINE.md (official sources, quotations copied exactly, figures read on the stated date, every quotation and its scope re-checked against the source before publication, review dates), linked from each guide's Sources block and declared as publishingPrinciples; build clean, every suite passes; nothing that names or describes Joseph, his employer or who reviews",
-   "score": 4.5,
-   "status": "ready",
-   "found_utc": "2026-11-27T18:27Z"
   }
  ],
  "completed": [
@@ -5687,6 +5668,33 @@
    },
    "done_utc": "2026-11-27T07:16Z",
    "minutes": 2
+  },
+  {
+   "id": "ACQ-190",
+   "task": "Sourcing-and-review page for the guides, linked from every guide's Sources block and declared as publishingPrinciples in each guide's Article structured data (review pull request against main)",
+   "workstream": "search",
+   "lane": "search",
+   "source": "plan",
+   "key": "frontier-f04-sourcing-page",
+   "priority": 2,
+   "evidence": "Frontier F04, 27 Nov 2026 18:40Z: results for 'does medicare cover assisted living' (87 impressions, pos 36.7), 'how much does medicare pay for assisted living' (44), 'does medicare pay for nursing home care for the elderly' (21), 'va caregiver support program', 'illinois medicaid estate recovery' (SC read 25 Nov 20:35Z). Pages above ours: Healthline (visible 'Medically reviewed by', 'Updated on', 'How we reviewed this article' + editorial policy link; MedicalWebPage JSON-LD with reviewedBy, lastReviewed, datePublished), NerdWallet ('Fact Checked: How is this page expert verified?' link; Article+BreadcrumbList, datePublished/dateModified), Humana (author Organization url /about/editorial-standards, reviewedBy, datePublished/dateModified), Caring.com ('Written by/Reviewed by'); VA and estate-recovery results are official sites (va.gov, hfs.illinois.gov). Ours (live /guides/does-medicare-pay-for-senior-care/): Article JSON-LD with author and dateModified, visible 'Last reviewed', dated sources list; missing: any page explaining how guides are sourced and checked, and the link to it.",
+   "expected_tour_acquisition_value": "Search: 1,242 impressions at average position 32.8 on money and health queries; a public, verifiable sourcing standard is the trust signal every result above ours carries, aimed at more clicks from families researching how to pay for care.",
+   "impact": 3,
+   "confidence": 3,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "review pull request against main: one page stating only the sourcing and checking rules already true under ROUTINE.md (official sources, quotations copied exactly, figures read on the stated date, every quotation and its scope re-checked against the source before publication, review dates), linked from each guide's Sources block and declared as publishingPrinciples; build clean, every suite passes; nothing that names or describes Joseph, his employer or who reviews",
+   "score": 4.5,
+   "status": "done",
+   "found_utc": "2026-11-27T18:27Z",
+   "result": "Review PR #94 (claude/sourcing-page, 019bda5) against main: new /sourcing/ page 'How these guides are sourced and checked' generated by build-guides.py (build_sourcing), stating only rules already in ROUTINE.md and the check-guides.js/check-citations.sh gates (allowed source list, figures left out when unconfirmed, quotations matched word for word and scope-checked before a new guide or correction is published, dates, no ranking, not advice); one link line in every guide's Sources block; publishingPrinciples in every guide's Article JSON-LD. /guides/ index and sitemaps unchanged; no test changed. All 11 suites pass; renders at 390px without overflow. Removed two unsupported phrases while drafting ('usually once a year'; a Westminster Place sentence that touched how WP is presented). Byline/AI-drafting line left as owner decision (map T1).",
+   "deliverable": {
+    "type": "pr",
+    "ref": "#94"
+   },
+   "lesson": "A trust page must describe only enforced rules; anything describing the owner or how drafting is done goes to the package as a decision.",
+   "done_utc": "2026-11-27T18:31Z",
+   "minutes": 3
   }
  ],
  "blocked": [],
@@ -5697,7 +5705,7 @@
   "picked": "ACQ-188 done, ACQ-189 done",
   "why": "Worked: audited live cost guide, 1 date correction in #89 (166f2d1) verified by an independent reader; stopped: no-worthwhile-work; resume: monitor 18:26Z"
  },
- "last_verified_action": "ACQ-189 done 2026-11-27T07:16Z: Independent reader agent (fresh context, standard brief) checked the one sentence 166f2d1 changed in assisted-living-cost-illinois on claude/accuracy-20261125:…",
+ "last_verified_action": "ACQ-190 done 2026-11-27T18:31Z: Review PR #94 (claude/sourcing-page, 019bda5) against main: new /sourcing/ page 'How these guides are sourced and checked' generated by build-guides.py (build_…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -6085,7 +6093,7 @@
     "class": "visible byline and review line on guides (trust signal for money and health queries)",
     "status": "owner",
     "note": "27 Nov (frontier F04, worker cse_014eaiSbgkYkmzevMK2yQoyV): every result above ours for the top Medicare queries shows a visible writer and reviewer line (Healthline: Medically reviewed by ... / Written by ...; Caring.com: Written by / Reviewed by; NerdWallet: Written by + Fact Checked; Humana: Written by: Humana + editorial standards). Our guides name the author only in structured data and in the footer disclosure. Proposed lettered decision for the next package cut (it names Joseph and says how the guides are made, so nothing is built): add under each guide title the line \"Written by Joseph Gonzales. Researched and drafted with AI tools; every quotation and figure is checked against its official source before publication.\" with a link to the sourcing page of ACQ-190. Yes changes one line on every guide; about 1 minute. The buildable, non-personal part (sourcing page, publishingPrinciples) is ACQ-190.",
-    "checked_utc": "2026-11-27T18:55Z"
+    "checked_utc": "2026-11-27T18:27Z"
    }
   ],
   "channel_yield": [
@@ -6371,9 +6379,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSbgkYkmzevMK2yQoyV",
-   "utc": "2026-11-27T18:27Z",
+   "utc": "2026-11-27T18:31Z",
    "since_utc": "2026-11-27T18:24Z",
-   "productive_min": 2
+   "productive_min": 5,
+   "deliverables": [
+    "pr:#94"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-27T18:25Z"
@@ -7438,9 +7449,10 @@
      81,
      85,
      92,
-     93
+     93,
+     94
     ],
-    "owner_open": 4,
+    "owner_open": 5,
     "cooldown_until_utc": "2026-11-29T06:47Z",
     "last_planned_utc": "2026-11-27T06:47Z",
     "last_plan_result": "Search Console read 25 Nov (pages and queries in the 27 Nov payload, same read): Medicare page 781 imp pos 32.5 -> new section PR #93 (frontier F02) and title/body corrections already in #89; estate recovery pos 7.2 -> #92; preadmission screening 42 imp pos 8.5 0 clicks -> already queued as ACQ-102…"
