@@ -6665,7 +6665,7 @@
    "holder": "cse_014eaiSeGWreJzfEyfVMTtWN",
    "utc": "2026-11-27T20:14Z",
    "since_utc": "2026-11-27T19:57Z",
-   "productive_min": 19,
+   "productive_min": 20,
    "deliverables": [
     "correction:drafts dad7c20",
     "verification:ops/reviews/illinois-medicaid-pending-nursing-home.md",
@@ -8341,6 +8341,17 @@
     {
      "utc": "2026-11-27T20:14Z",
      "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+     "key": "frontier-f20",
+     "avenue": "frontier",
+     "lane": null,
+     "candidates": 4,
+     "added": 0,
+     "result": "Read 27 Nov 2026: northwestern.edu/hr/benefits/work-life (Caregiving Resources with a 'Senior & Adult Care' page; university excluded since E-1118-03, emailed 18 Nov, no reply); endeavorhealth.org careers benefits (404; staff caregiver support is vendor/EAP per D9); district65.net (school-family caregiver councils onl…",
+     "verdict": "drop"
+    },
+    {
+     "utc": "2026-11-27T20:14Z",
+     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
      "key": "frontier-f18",
      "avenue": "frontier",
      "lane": null,
@@ -9112,9 +9123,14 @@
      "evidence": "Each institution's own public pages, read by you (work-life or elder-care resource pages, congregational care or older-adult ministry pages): does a resource list exist, what kinds of entries does it hold, who maintains it and how are additions asked for. The opportunity map and growth.json for what was already contacted or dropped. Never a private person's contact details.",
      "output": "A verdict for every institution in the opportunity map (ACT with one prepared handoff for the outreach operator, WATCH with the event that reopens it, or DROP with the reason); at most three prepared proposals in all (the rule for a new referral class), each to a published general address; nothing is sent by you.",
      "why": "Facebook community groups are the only source with measured visitors (16 of 25 in four days) and eleven emails to senior-care organizations brought no reply. Institutions that reach working adult children at scale and keep a resource list are a different class of intermediary that nobody has examined.",
-     "status": "open",
+     "status": "explored",
      "added_utc": "2026-11-27T19:52Z",
-     "added_by": "supervisor"
+     "added_by": "supervisor",
+     "verdict": "drop",
+     "explored_utc": "2026-11-27T20:14Z",
+     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+     "added": 0,
+     "result": "Read 27 Nov 2026: northwestern.edu/hr/benefits/work-life (Caregiving Resources with a 'Senior & Adult Care' page; university excluded since E-1118-03, emailed 18 Nov, no reply); endeavorhealth.org careers benefits (404; staff caregiver support is vendor/EAP per D9); district65.net (school-family caregiver councils only, no elder-care list). Employers (D9, 22 Nov: 5 employers, 0 ACT) and congregational care ministries (D12, members-only care teams) were examined and dropped; no new evidence found, so neither is reopened. 0 proposals."
     }
    ],
    "per_day_note": "24 since 2026-11-27T19:52Z (was 4, then 6): Joseph refreshed the Claude allowance and ordered 'Make productive use of the refreshed capacity ... discovering new growth opportunities'. Since then open questions are eligible work while the usage reserve has room (helper v4.6: below three quarters of budget_hours_per_day and budget_hours_per_week); the last quarter stays for monitoring, the daily package and ready tasks. The count per day only stops a runaway. Depth still comes before count: every answer names the sources read and their dates, and watch or drop is a complete result.",
