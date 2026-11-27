@@ -61,3 +61,19 @@ Quotations checked: 1. Claims scope-checked: 1. Scope defects: 1. Corrections re
 Verdict: publish-ready after corrections
 
 Corrections applied: drafts dad7c20, 2026-11-27, cse_014eaiSeGWreJzfEyfVMTtWN
+
+## Reader check 2026-11-27
+
+- Reader: independent reader (not the builder or corrector), clone of drafts at dad7c20 in /tmp/reader-illinois-medicaid-pending-nursing-home; quotecheck rerun: 21 quotations, 21 FOUND, 0 NEAR MATCH, 0 NOT FOUND, 8 cited pages, 0 unreadable. HFS federal-changes page fetched by the reader (HTTP 200).
+
+- Short answer: "...can reach back up to three months before it (HFS says that falls to two months from 1 January 2027)..." / HFS "How will Federal changes impact Medicaid?", FAQ "When will H.R.1 changes begin impacting Medicaid members?": "Effective January 1, 2027, retroactive coverage will be decreased from 3 months to 2 months for all Illinois Medicaid customers." / same scope (Illinois, all Medicaid groups including aged nursing home applicants, from 1 Jan 2027; the body states the application-date reading).
+- Body: "That brochure predates a federal change." / HFS 3191 is revised February 2015 (guide says so); the HFS page names H.R. 1 as the federal change / same scope.
+- Body: "HFS's page on how federal changes affect Illinois Medicaid states: 'Effective January 1, 2027, retroactive coverage will be decreased from 3 months to 2 months for all Illinois Medicaid customers.'" / same sentence, FOUND character for character, under "When will H.R.1 changes begin impacting Medicaid members?" (page heading "IMPACT OF H.R. 1 ON ILLINOIS") / same scope.
+- Body: "For an application made in 2027 or later, count on at most two months of coverage before the month you apply, not three." / FAQ "Limits to retroactive coverage. What is chaning and when?": "Beginning January 2027, Medicaid will only provide two months of retroactive coverage to eligible people at application instead of three months." and "HFS has secured state funding to allow all Medicaid groups to be assessed for up to two months of retroactive coverage." / same scope (tied to the application, from January 2027, all groups, "up to" matches "at most").
+- Sources list: added "Illinois HFS — How will Federal changes impact Medicaid?" https://hfs.illinois.gov/info/fedresctr/faqshowwillfedchimpactmedicaid.html / resolves (200), allowed host hfs.illinois.gov, is the page quoted / same.
+- Dates: "read from the source listed above on 27 November 2026" and "Last reviewed 27 November 2026" / all 21 quotations FOUND on today's pages / holds. No internal link changed by the commit.
+
+Corrections verified
+
+Reader: agent in cse_014eaiSeGWreJzfEyfVMTtWN
+Corrections verified: 2026-11-27, agent in cse_014eaiSeGWreJzfEyfVMTtWN

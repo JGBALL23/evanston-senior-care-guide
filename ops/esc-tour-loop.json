@@ -191,40 +191,6 @@
    "waiting_for": "PR #91 (or #90) merged, so that a card change no longer collides with the open publish batch in the built /guides/ index",
    "not_before_utc": "2026-11-28T06:30Z",
    "note": "2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 1: #91 and #90 still open (checked 06:27Z), so the card change would still collide with the publish batch."
-  },
-  {
-   "id": "ACQ-198",
-   "task": "Re-check illinois-medicaid-pending-nursing-home (drafts; in publish batch #90) against HFS's notice that retroactive Medicaid coverage falls from 3 to 2 months on 1 Jan 2027; add the scope correction to its review packet, apply it on drafts under Improve, and have an independent reader verify it",
-   "workstream": "build",
-   "lane": "build",
-   "source": "plan",
-   "key": "frontier-F12-medicaid-retro-2027",
-   "priority": 1,
-   "evidence": "Frontier F12, 27 Nov 2026: local outlets ran four Medicaid-change stories in 12 months (Evanston Now 19 Jan and 2 Sep 2026; Evanston RoundTable 9 Jun 2026). Official sources read 27 Nov 2026: HFS 'How will Federal changes impact Medicaid?' (hfs.illinois.gov/info/fedresctr/faqshowwillfedchimpactmedicaid.html): 'Effective January 1, 2027, retroactive coverage will be decreased from 3 months to 2 months for all Illinois Medicaid customers.'; CMS CIB of 18 Nov 2026 (medicaid.gov cib111726, section 71112, applications on or after 1 Jan 2027). The drafts guide states 'up to three months before the month you apply' (HFS 3191, Feb 2015) without the date limit.",
-   "expected_tour_acquisition_value": "families applying for nursing-home Medicaid in January 2027 would otherwise plan on a third month of back coverage that no longer exists; a correct page keeps the guide trusted on money questions",
-   "impact": 4,
-   "confidence": 5,
-   "effort": 2,
-   "executor": "worker (research and preparation only)",
-   "done_when": "packet ops/reviews/illinois-medicaid-pending-nursing-home.md lists the scope correction with its HFS source sentence; correction committed on drafts with the five checks and quotecheck passing; verify:<slug>:<commit> task added and worked by an independent reader agent",
-   "score": 10.0,
-   "status": "ready",
-   "found_utc": "2026-11-27T20:04Z"
-  },
-  {
-   "id": "ACQ-199",
-   "task": "Verify the corrections to illinois-medicaid-pending-nursing-home",
-   "workstream": "build",
-   "lane": "build",
-   "source": "followup",
-   "key": "verify:illinois-medicaid-pending-nursing-home:dad7c20",
-   "priority": 1,
-   "evidence": "drafts dad7c20 (ACQ-198), packet ops/reviews/illinois-medicaid-pending-nursing-home.md scope check 2026-11-27",
-   "expected_tour_acquisition_value": "quality gate before publication",
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
-   "status": "ready",
-   "found_utc": "2026-11-27T20:05Z"
   }
  ],
  "completed": [
@@ -5898,6 +5864,61 @@
    },
    "done_utc": "2026-11-27T19:33Z",
    "minutes": 5
+  },
+  {
+   "id": "ACQ-198",
+   "task": "Re-check illinois-medicaid-pending-nursing-home (drafts; in publish batch #90) against HFS's notice that retroactive Medicaid coverage falls from 3 to 2 months on 1 Jan 2027; add the scope correction to its review packet, apply it on drafts under Improve, and have an independent reader verify it",
+   "workstream": "build",
+   "lane": "build",
+   "source": "plan",
+   "key": "frontier-F12-medicaid-retro-2027",
+   "priority": 1,
+   "evidence": "Frontier F12, 27 Nov 2026: local outlets ran four Medicaid-change stories in 12 months (Evanston Now 19 Jan and 2 Sep 2026; Evanston RoundTable 9 Jun 2026). Official sources read 27 Nov 2026: HFS 'How will Federal changes impact Medicaid?' (hfs.illinois.gov/info/fedresctr/faqshowwillfedchimpactmedicaid.html): 'Effective January 1, 2027, retroactive coverage will be decreased from 3 months to 2 months for all Illinois Medicaid customers.'; CMS CIB of 18 Nov 2026 (medicaid.gov cib111726, section 71112, applications on or after 1 Jan 2027). The drafts guide states 'up to three months before the month you apply' (HFS 3191, Feb 2015) without the date limit.",
+   "expected_tour_acquisition_value": "families applying for nursing-home Medicaid in January 2027 would otherwise plan on a third month of back coverage that no longer exists; a correct page keeps the guide trusted on money questions",
+   "impact": 4,
+   "confidence": 5,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet ops/reviews/illinois-medicaid-pending-nursing-home.md lists the scope correction with its HFS source sentence; correction committed on drafts with the five checks and quotecheck passing; verify:<slug>:<commit> task added and worked by an independent reader agent",
+   "score": 10.0,
+   "status": "done",
+   "found_utc": "2026-11-27T20:04Z",
+   "result": "Frontier F12 led to HFS's notice (hfs.illinois.gov federal-changes FAQ, read 27 Nov 2026): retroactive Medicaid coverage falls from 3 to 2 months for all Illinois Medicaid customers from 1 Jan 2027 (CMS CIB 18 Nov 2026, s.71112, applications on/after that date). The drafts guide illinois-medicaid-pending-nursing-home (in publish batch #90) stated 'up to three months' (HFS 3191, 2015) with no date limit. Scope check added to its packet (1 scope defect, verdict publish-ready after corrections); correction applied on drafts dad7c20: short answer qualified, body quotes HFS's sentence and gives the 2027 rule, new SRC hfs_fed_medicaid_faq, reviewed 2026-11-27. Checks: test.js 669/669, check-guides 2860/0, citations 116 resolve, mobile-nav skipped (websockets), quotecheck 21/21. Independent reader agent verified (ACQ-199). Next: port the updated page into #90 for tomorrow's package.",
+   "sources": [
+    "https://hfs.illinois.gov/info/fedresctr/faqshowwillfedchimpactmedicaid.html",
+    "https://www.medicaid.gov/federal-policy-guidance/downloads/cib111726.pdf"
+   ],
+   "lesson": "A quotation from an older official brochure can go out of date on a fixed date: check federal-change pages for any figure a law changes in the coming months.",
+   "deliverable": {
+    "type": "correction",
+    "ref": "drafts dad7c20"
+   },
+   "done_utc": "2026-11-27T20:07Z"
+  },
+  {
+   "id": "ACQ-199",
+   "task": "Verify the corrections to illinois-medicaid-pending-nursing-home",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "verify:illinois-medicaid-pending-nursing-home:dad7c20",
+   "priority": 1,
+   "evidence": "drafts dad7c20 (ACQ-198), packet ops/reviews/illinois-medicaid-pending-nursing-home.md scope check 2026-11-27",
+   "expected_tour_acquisition_value": "quality gate before publication",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-27T20:05Z",
+   "result": "Independent reader agent (fresh context, exact brief) re-read every sentence dad7c20 changed in illinois-medicaid-pending-nursing-home: quotecheck 21/21 FOUND, 8/8 pages readable; each changed sentence matches HFS's federal-changes page in wording and scope (Illinois, all Medicaid groups, applications from January 2027). Packet carries 'Reader check 2026-11-27', 'Corrections verified', 'Reader: agent in cse_014eaiSeGWreJzfEyfVMTtWN'.",
+   "verdicts": [
+    "Corrections verified"
+   ],
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/illinois-medicaid-pending-nursing-home.md"
+   },
+   "done_utc": "2026-11-27T20:07Z",
+   "minutes": 3
   }
  ],
  "blocked": [],
@@ -5908,7 +5929,7 @@
   "picked": "ACQ-191 done, ACQ-192 done, ACQ-193 done, ACQ-194 done (reopened 3 sentences), ACQ-195 done, ACQ-196 done (corrections verified), ACQ-197 done",
   "why": "Worked: built, reviewed, corrected and verified a home care vs assisted living Illinois comparison and ported it into batch #90; stopped: no-worthwhile-work; resume: channel-yield sweep 00:32Z or the 05:00Z package cut"
  },
- "last_verified_action": "ACQ-197 done 2026-11-27T19:33Z: Ported home-care-or-assisted-living-illinois into publish batch #90 (claude/publish-batch-20261125-1, 220233f): guide dict, CARDS and the new SRC entry medicar…",
+ "last_verified_action": "ACQ-199 done 2026-11-27T20:07Z: Independent reader agent (fresh context, exact brief) re-read every sentence dad7c20 changed in illinois-medicaid-pending-nursing-home: quotecheck 21/21 FOUND,…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -6052,7 +6073,7 @@
     "lane": "distribution",
     "class": "free community routes on local news sites (Evanston RoundTable, Evanston Now, Patch editions for Evanston and neighbors, other North Shore local news): reader posts, letters or guest essays, events calendars, resource listings",
     "status": "owner",
-    "note": "draft with Joseph since 22 Nov; when it is published, measure evanstonnow.com referrals for 14 days. (ACQ-018 verdicts: Evanston Now guest essay ACT, his byline and form; Patch Evanston ACT after his account decision; Evanston Now calendar and neighbouring Patch editions WATCH; The Record North Shore and Evanston Now press release DROP; contacted publication excluded, B-RT.)",
+    "note": "draft with Joseph since 22 Nov; when it is published, measure evanstonnow.com referrals for 14 days. (ACQ-018 verdicts: Evanston Now guest essay ACT, his byline and form; Patch Evanston ACT after his account decision; Evanston Now calendar and neighbouring Patch editions WATCH; The Record North Shore and Evanston Now press release DROP; contacted publication excluded, B-RT.) 27 Nov (frontier F12): research/local-news-senior-care-stories.md on drafts (cbbdad3): the recurring local story is state enforcement at a licensed facility (7 stories in 11 months); the page to offer a newsroom is check-illinois-inspection-records once audited; build nothing new.",
     "checked_utc": "2026-11-22T21:24Z"
    },
    {
@@ -6600,13 +6621,13 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeGWreJzfEyfVMTtWN",
-   "utc": "2026-11-27T20:05Z",
+   "utc": "2026-11-27T20:07Z",
    "since_utc": "2026-11-27T19:57Z",
-   "productive_min": 8,
-   "current": {
-    "what": "ACQ-198",
-    "since_utc": "2026-11-27T20:04Z"
-   }
+   "productive_min": 11,
+   "deliverables": [
+    "correction:drafts dad7c20",
+    "verification:ops/reviews/illinois-medicaid-pending-nursing-home.md"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-27T18:25Z"
