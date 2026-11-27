@@ -6156,8 +6156,8 @@
     "lane": "referral_partnerships",
     "class": "hospital and rehab social work or case management",
     "status": "drop",
-    "note": "ACQ-024 (22 Nov): 0 ACT across 6 routes (Endeavor Glenbrook/Skokie/Highland Park, Saint Francis Evanston (Prime), SRAL LIFE Center, IL Dept on Aging discharge page, Evanston SNF rehab units, Evanston Hospital). No public resource list or social-work address; referrals run through internal/vendor lists. Reopen only if a hospital publishes a community resource list that includes outside websites. 27 Nov (worker, channels avenue): SRAL LIFE Center does publish public resource listings (advance-directive forms, reviewed 1 Jul 2026; Chicago-area assisted living, reviewed 8 Jul 2026), but they link only government forms/pages (IDPH, GAC, illinois.gov, one illinoislegalaid.org form) and providers' own websites; no independent guides, and no suggestion route except a phone line and the general contact form. Still DROP.",
-    "checked_utc": "2026-11-27T18:34Z"
+    "note": "ACQ-024 (22 Nov): 0 ACT across 6 routes (Endeavor Glenbrook/Skokie/Highland Park, Saint Francis Evanston (Prime), SRAL LIFE Center, IL Dept on Aging discharge page, Evanston SNF rehab units, Evanston Hospital). No public resource list or social-work address; referrals run through internal/vendor lists. Reopen only if a hospital publishes a community resource list that includes outside websites. 27 Nov (worker, channels avenue): SRAL LIFE Center does publish public resource listings (advance-directive forms, reviewed 1 Jul 2026; Chicago-area assisted living, reviewed 8 Jul 2026), but they link only government forms/pages (IDPH, GAC, illinois.gov, one illinoislegalaid.org form) and providers' own websites; no independent guides, and no suggestion route except a phone line and the general contact form. Still DROP. 27 Nov 20:10Z (worker, frontier F10): re-read today: Endeavor Health patients-visitors, your-hospital-visit and patient-services (interpreter, patient experience, spiritual care only; case-management URLs 404); Endeavor community-programs-clinics lists only Endeavor and partner care programs (clinics, food, Emerald/Sapphire Circle), no informational sites, no suggestion route; Saint Francis Evanston patients-visitors and site search 'discharge' (no discharge or social-work page; GEDA accreditation news 27 Oct 2025 names no resources); Northwestern Lake Forest location page and its linked leaving-the-hospital and case-management pages (404). Gmail Sent: no mail to any of these domains. Reopen condition not met: still DROP.",
+    "checked_utc": "2026-11-27T19:58Z"
    },
    {
     "id": "R4",
@@ -6556,8 +6556,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeGWreJzfEyfVMTtWN",
-   "utc": "2026-11-27T19:57Z",
-   "since_utc": "2026-11-27T19:57Z"
+   "utc": "2026-11-27T19:58Z",
+   "since_utc": "2026-11-27T19:57Z",
+   "productive_min": 2
   },
   "monitor": {
    "last_utc": "2026-11-27T18:25Z"
@@ -8226,6 +8227,17 @@
    "empty_streak": 0,
    "log": [
     {
+     "utc": "2026-11-27T19:58Z",
+     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+     "key": "frontier-f10",
+     "avenue": "frontier",
+     "lane": null,
+     "candidates": 4,
+     "added": 0,
+     "result": "Read 27 Nov 2026: endeavorhealth.org patients-visitors, your-hospital-visit, patient-services, support-groups, community-programs-clinics (partner care programs only, no informational sites, no suggestion route; case-management URLs 404); saintfrancisevanston.org patients-visitors and search 'discharge' (no discharge/…",
+     "verdict": "drop"
+    },
+    {
      "utc": "2026-11-27T19:22Z",
      "run": "cse_014eaiSah6rgKCpixbDvmA6L",
      "key": "frontier-f08",
@@ -8751,9 +8763,14 @@
      "evidence": "The hospitals' own public pages as they read today; the map's referral_partnerships items; Gmail Sent for earlier contact (the duplicate check of step 8c).",
      "output": "A verdict per target; for an ACT target one proposal for the operator (step 8c) built around the hospital-discharge guide, not a general request.",
      "why": "Discharge is the most urgent decision point, and a guide for it is in the open package.",
-     "status": "open",
+     "status": "explored",
      "added_utc": "2026-11-27T01:18Z",
-     "added_by": "supervisor"
+     "added_by": "supervisor",
+     "verdict": "drop",
+     "explored_utc": "2026-11-27T19:58Z",
+     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+     "added": 0,
+     "result": "Read 27 Nov 2026: endeavorhealth.org patients-visitors, your-hospital-visit, patient-services, support-groups, community-programs-clinics (partner care programs only, no informational sites, no suggestion route; case-management URLs 404); saintfrancisevanston.org patients-visitors and search 'discharge' (no discharge/social-work page), GEDA news 27 Oct 2025; nm.org Lake Forest hospital page and its linked leaving-the-hospital and case-management pages (404). Gmail Sent: none to these domains. 0 ACT: no hospital publishes a discharge resource list with outside websites or a route to suggest on…"
     },
     {
      "id": "F11",
