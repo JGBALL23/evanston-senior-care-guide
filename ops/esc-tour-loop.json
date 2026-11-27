@@ -5919,6 +5919,28 @@
    },
    "done_utc": "2026-11-27T20:07Z",
    "minutes": 3
+  },
+  {
+   "id": "ACQ-200",
+   "task": "Port the corrected illinois-medicaid-pending-nursing-home (drafts dad7c20, corrections verified 27 Nov) into the open publish batch #90 as an Update guide commit and refresh its body",
+   "workstream": "publish",
+   "lane": "publish",
+   "source": "followup",
+   "key": "publish:illinois-medicaid-pending-nursing-home:dad7c20",
+   "priority": 1,
+   "evidence": "ops/reviews/illinois-medicaid-pending-nursing-home.md: scope check 2026-11-27 (1 correction), Corrections verified 2026-11-27 by an independent reader agent (drafts dad7c20); the 2 Jan 2027 retroactive-coverage change makes the batch's current text wrong for January applications",
+   "expected_tour_acquisition_value": "the published page tells families applying from January 2027 the right retroactive period",
+   "executor": "worker (research and preparation only)",
+   "done_when": "page updated in #90 with all suites and quotecheck passing; PR body updated",
+   "status": "done",
+   "found_utc": "2026-11-27T20:07Z",
+   "result": "Ported the corrected illinois-medicaid-pending-nursing-home into open publish batch #90 (claude/publish-batch-20261125-1) as 4815ca1 'Update guide' (body, short answer, new SRC hfs_fed_medicaid_faq and reviewed date from drafts dad7c20; the batch's shortened description kept). Checks: build 48 URLs, test.js 768/768, check-guides 3536/0, test_paying_nav 343/343, all tools/test_* pass, direct_inquiry_consistency 29/29, citations 15 dead = the known ilga.gov/truleeevanston set, mobile-nav skipped; quotecheck on all twelve batch pages 219/219 FOUND. #90 body table row and an 'Updated 27 Nov' line rewritten (number kept). Outside the cut window: enters the 28 Nov package; package #91 still holds the old text until then.",
+   "deliverable": {
+    "type": "publish_pr",
+    "ref": "#90 4815ca1"
+   },
+   "done_utc": "2026-11-27T20:11Z",
+   "minutes": 4
   }
  ],
  "blocked": [],
@@ -5929,7 +5951,7 @@
   "picked": "ACQ-191 done, ACQ-192 done, ACQ-193 done, ACQ-194 done (reopened 3 sentences), ACQ-195 done, ACQ-196 done (corrections verified), ACQ-197 done",
   "why": "Worked: built, reviewed, corrected and verified a home care vs assisted living Illinois comparison and ported it into batch #90; stopped: no-worthwhile-work; resume: channel-yield sweep 00:32Z or the 05:00Z package cut"
  },
- "last_verified_action": "ACQ-199 done 2026-11-27T20:07Z: Independent reader agent (fresh context, exact brief) re-read every sentence dad7c20 changed in illinois-medicaid-pending-nursing-home: quotecheck 21/21 FOUND,…",
+ "last_verified_action": "ACQ-200 done 2026-11-27T20:11Z: Ported the corrected illinois-medicaid-pending-nursing-home into open publish batch #90 (claude/publish-batch-20261125-1) as 4815ca1 'Update guide' (body, shor…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -6621,12 +6643,13 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeGWreJzfEyfVMTtWN",
-   "utc": "2026-11-27T20:07Z",
+   "utc": "2026-11-27T20:11Z",
    "since_utc": "2026-11-27T19:57Z",
-   "productive_min": 11,
+   "productive_min": 15,
    "deliverables": [
     "correction:drafts dad7c20",
-    "verification:ops/reviews/illinois-medicaid-pending-nursing-home.md"
+    "verification:ops/reviews/illinois-medicaid-pending-nursing-home.md",
+    "publish_pr:#90 4815ca1"
    ]
   },
   "monitor": {
