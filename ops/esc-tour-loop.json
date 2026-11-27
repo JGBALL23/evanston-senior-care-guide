@@ -193,19 +193,19 @@
    "note": "2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 1: #91 and #90 still open (checked 06:27Z), so the card change would still collide with the publish batch."
   },
   {
-   "id": "ACQ-183",
-   "task": "Verify the corrections to the plan-choice section of does-medicare-pay-for-senior-care (PR #93, commit 5eeca4f)",
+   "id": "ACQ-185",
+   "task": "Verify the corrections to the plan-choice section of does-medicare-pay-for-senior-care (PR #93, commit 28897f1)",
    "workstream": "search",
    "lane": "search",
    "source": "followup",
-   "key": "verify-live:does-medicare-pay-for-senior-care:5eeca4f",
+   "key": "verify-live:does-medicare-pay-for-senior-care:28897f1",
    "priority": 1,
-   "evidence": "PR #93 commit 5eeca4f (ACQ-182)",
+   "evidence": "PR #93 commit 28897f1 (ACQ-184)",
    "expected_tour_acquisition_value": "quality gate before the package",
    "executor": "worker (research and preparation only)",
    "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
-   "found_utc": "2026-11-27T06:57Z"
+   "found_utc": "2026-11-27T07:01Z"
   }
  ],
  "completed": [
@@ -5515,6 +5515,49 @@
     "ref": "#90 eea57b7"
    },
    "done_utc": "2026-11-27T06:57Z"
+  },
+  {
+   "id": "ACQ-183",
+   "task": "Verify the corrections to the plan-choice section of does-medicare-pay-for-senior-care (PR #93, commit 5eeca4f)",
+   "workstream": "search",
+   "lane": "search",
+   "source": "followup",
+   "key": "verify-live:does-medicare-pay-for-senior-care:5eeca4f",
+   "priority": 1,
+   "evidence": "PR #93 commit 5eeca4f (ACQ-182)",
+   "expected_tour_acquisition_value": "quality gate before the package",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-27T06:57Z",
+   "result": "Independent reader checked #93 5eeca4f: quotecheck 7/7, 8/8 pages readable; the within-the-U.S. and move-back sentences hold. Reopened: the Medicaid / Extra Help once-a-month change was offered to every such parent, but Medicare.gov excludes a 'potential at-risk beneficiary' or 'at-risk beneficiary' under a Part D drug management program. Additions: joining a drug plan this way and the first-of-next-month start; the integrated D-SNP monthly option for full Medicaid with a link to the FIDE SNP guide. Re-correction queued.",
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/live/does-medicare-pay-for-senior-care.md"
+   },
+   "done_utc": "2026-11-27T06:59Z"
+  },
+  {
+   "id": "ACQ-184",
+   "task": "Re-correct PR #93 per the reader check of 5eeca4f (at-risk exclusion; drug plan join; D-SNP)",
+   "workstream": "search",
+   "lane": "search",
+   "source": "followup",
+   "key": "recorrect:does-medicare-pay-for-senior-care:5eeca4f",
+   "priority": 1,
+   "evidence": "reader check 2026-11-27 in ops/reviews/live/does-medicare-pay-for-senior-care.md",
+   "expected_tour_acquisition_value": "quality gate before the package",
+   "executor": "worker (research and preparation only)",
+   "done_when": "one commit on claude/medicare-plan-choice-before-move with checks passing; verify-live task added",
+   "status": "done",
+   "found_utc": "2026-11-27T06:59Z",
+   "result": "Applied the reader's correction and two additions to #93 as 28897f1: the at-risk / potentially at-risk exclusion in the Medicaid / Extra Help paragraph; joining a drug plan and 'The change will take effect on the first day of the next month.'; the integrated D-SNP monthly option for full Medicaid with a link to the live FIDE SNP guide. Rebuild clean; all suites pass; quotecheck 8/8.",
+   "deliverable": {
+    "type": "correction",
+    "ref": "#93 28897f1"
+   },
+   "done_utc": "2026-11-27T07:01Z",
+   "minutes": 3
   }
  ],
  "blocked": [],
@@ -5525,7 +5568,7 @@
   "picked": "ACQ-150 done, ACQ-151 done, ACQ-152 done(reopened), ACQ-153 done, ACQ-154 done, ACQ-155 done, ACQ-156 done, ACQ-157 done, ACQ-158 done, ACQ-159 done, ACQ-160 done, ACQ-161 done, ACQ-162 done, ACQ-163 done(reopened), ACQ-164 waiting_on_data, ACQ-165 done, ACQ-166 done(reopened), ACQ-167 done, ACQ-168 done",
   "why": "Worked: 6 live-guide accuracy audits (4 corrected, incl. a wrong payer on hospice and home health; Access Evanston income limit), all reader-verified in #89; stopped: no-worthwhile-work; resume: package cut 27 Nov 05:00Z or #91 merge"
  },
- "last_verified_action": "ACQ-180 done 2026-11-27T06:57Z: Ported noticed-changes-in-parent-holiday-visit into publish batch #90 (claude/publish-batch-20261125-1, eea57b7): guide dict, CARDS and four SRC entries copied…",
+ "last_verified_action": "ACQ-184 done 2026-11-27T07:01Z: Applied the reader's correction and two additions to #93 as 28897f1: the at-risk / potentially at-risk exclusion in the Medicaid / Extra Help paragraph; joinin…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -6191,9 +6234,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
-   "utc": "2026-11-27T06:58Z",
+   "utc": "2026-11-27T07:01Z",
    "since_utc": "2026-11-27T06:24Z",
-   "productive_min": 18,
+   "productive_min": 23,
    "deliverables": [
     "publish_pr:#91 a523b5e",
     "guide:drafts e9241f2",
@@ -6208,7 +6251,9 @@
     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
     "correction:#93 5eeca4f",
     "verification:ops/reviews/noticed-changes-in-parent-holiday-visit.md",
-    "publish_pr:#90 eea57b7"
+    "publish_pr:#90 eea57b7",
+    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
+    "correction:#93 28897f1"
    ]
   },
   "monitor": {
@@ -7421,9 +7466,9 @@
     "evidence": "The operator's Search Console record in state.json and scoreboard.search_console.",
     "output": "Demand topics for queries with no page; a title or description fix task for a low click-through page (search lane capacity permitting). No new read is a one-line result.",
     "why": "Real queries are the strongest demand evidence the site can get.",
-    "last_checked_utc": "2026-11-26T00:31Z",
-    "next_check_utc": "2026-11-27T00:31Z",
-    "last_result": "Make read 25 Nov 20:35Z (26 Oct-22 Nov, data only 16-22 Nov): 1242 impressions, 2 clicks, avg pos 32.8; 74 queries >=3 impr. 63% of impressions go to does-medicare-pay-for-senior-care (781, pos 32.5, 0 clicks): national Medicare queries, title and answer already match them, so a title fix would not…",
+    "last_checked_utc": "2026-11-27T06:58Z",
+    "next_check_utc": "2026-11-28T06:58Z",
+    "last_result": "No Search Console read newer than 2026-11-25T20:35Z (the 27 Nov payload repeats it; already recorded 26 Nov). Its uncovered-query and low-CTR candidates were worked: Medicare page -> #93; estate recovery -> #92; preadmission -> ACQ-102. Next read expected Wednesday evening UTC.",
     "last_added": 0
    },
    {
@@ -7518,6 +7563,7 @@
    }
   ],
   "sweep_log": [
+   "2026-11-27T06:58Z search-console +0: No Search Console read newer than 2026-11-25T20:35Z (the 27 Nov payload repeats it; already recorded 26 Nov). Its uncovered-query and low-CTR candidates were w…",
    "2026-11-27T06:58Z page-ladder +0: First ladder pass on the 25 Nov Make read (25 pages): rung 5 (a click) home and estate recovery; rung 4 (position <=10) preadmission 8.5, SLP 8.0, Medicaid LTC…",
    "2026-11-27T06:58Z seasonal +0: Calendar moments in the next 45 days (strategy/calendar, read 2026-11-27): holiday visits -> frontier F01 built noticed-changes-in-parent-holiday-visit (in #90…",
    "2026-11-27T06:57Z publish-ready +1: Of 11 worker pages on drafts not on main, 10 were already in batch #90 at their verified text; the holiday-visit guide qualified after its corrections were ver…",
@@ -7569,6 +7615,16 @@
    "exhausted_until_utc": "",
    "empty_streak": 0,
    "log": [
+    {
+     "utc": "2026-11-27T06:59Z",
+     "run": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
+     "key": "needs-adult-day-services-evanston",
+     "avenue": "needs",
+     "lane": null,
+     "candidates": 1,
+     "added": 0,
+     "result": "Web results read 2026-11-27 for 'adult day care Evanston IL cost Medicaid': aggregator listings and one local provider, no published Evanston price; official route is CCP adult day service. Live guides already cover it: illinois-community-care-program (adult day service section), illinois-pace-program, VA respite/nurs…"
+    },
     {
      "utc": "2026-11-27T06:40Z",
      "run": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
