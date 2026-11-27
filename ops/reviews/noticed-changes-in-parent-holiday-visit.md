@@ -91,3 +91,13 @@ Reopened: the "Make one call" opening says the Department's pages do not say who
 Reader: agent in cse_014eaiSeY3WV1Qzjy2ZNkkuN
 
 Corrections applied: drafts d2cc9c4, 2026-11-27, cse_014eaiSeY3WV1Qzjy2ZNkkuN (reader check of 5283618)
+
+## Reader check 2026-11-27 (d2cc9c4)
+
+Commit checked: d2cc9c4 (branch drafts), read in /tmp/reader-noticed-changes-in-parent-holiday-visit. quotecheck: 17 quotations, 17 FOUND, 0 NEAR MATCH, 0 NOT FOUND; 8 cited pages, 0 unreadable (the notes on #7 and #8 come from source markup, not wording). I fetched helpline-main myself today; the sentence is there word for word (with "Eldercare Locator" as a link to eldercare.acl.gov). The commit changes one sentence pair in build-guides.py and the same text in the rendered _dist page; it adds no links.
+
+- "Make one call: the Senior HelpLine", opening: "The HelpLine and the other programs below are Illinois programs for people who live in Illinois. For a parent in another state, the HelpLine page says: "To get information about services in another state, please visit the Eldercare Locator for helpful resources and contacts."" Source: helpline-main, "Contact" block (after the Department's mailing address): "To get information about services in another state, please visit the Eldercare Locator for helpful resources and contacts." Same scope (a parent in another state; the Illinois programs are stated as Illinois-only). The false "could not find" claim and the reason given to Medicare.gov are gone. Matches the corrected sentence from the previous reader check exactly.
+
+Corrections verified
+Reader: agent in cse_014eaiSeY3WV1Qzjy2ZNkkuN
+Corrections verified: 2026-11-27, agent in cse_014eaiSeY3WV1Qzjy2ZNkkuN (5283618 + d2cc9c4)

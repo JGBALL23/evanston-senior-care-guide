@@ -206,21 +206,6 @@
    "done_when": "each changed sentence re-read against its source; packet line added in ops/reviews/live/does-medicare-pay-for-senior-care.md",
    "status": "ready",
    "found_utc": "2026-11-27T06:45Z"
-  },
-  {
-   "id": "ACQ-177",
-   "task": "Verify the corrections to noticed-changes-in-parent-holiday-visit",
-   "workstream": "build",
-   "lane": "build",
-   "source": "followup",
-   "key": "verify:noticed-changes-in-parent-holiday-visit:d2cc9c4",
-   "priority": 1,
-   "evidence": "correction commit d2cc9c4 on drafts (ACQ-176)",
-   "expected_tour_acquisition_value": "quality gate before publication",
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
-   "status": "ready",
-   "found_utc": "2026-11-27T06:47Z"
   }
  ],
  "completed": [
@@ -5382,6 +5367,27 @@
    },
    "done_utc": "2026-11-27T06:47Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-177",
+   "task": "Verify the corrections to noticed-changes-in-parent-holiday-visit",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "verify:noticed-changes-in-parent-holiday-visit:d2cc9c4",
+   "priority": 1,
+   "evidence": "correction commit d2cc9c4 on drafts (ACQ-176)",
+   "expected_tour_acquisition_value": "quality gate before publication",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-27T06:47Z",
+   "result": "Independent reader checked drafts d2cc9c4: the one changed sentence now quotes the HelpLine page's Eldercare Locator sentence word for word, same scope (Illinois programs for Illinois residents; the quote covers another state); quotecheck 17/17, 8/8 pages readable; no links added. Corrections verified (5283618 + d2cc9c4). Page qualifies for packaging.",
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/noticed-changes-in-parent-holiday-visit.md"
+   },
+   "done_utc": "2026-11-27T06:48Z"
   }
  ],
  "blocked": [],
@@ -5392,7 +5398,7 @@
   "picked": "ACQ-150 done, ACQ-151 done, ACQ-152 done(reopened), ACQ-153 done, ACQ-154 done, ACQ-155 done, ACQ-156 done, ACQ-157 done, ACQ-158 done, ACQ-159 done, ACQ-160 done, ACQ-161 done, ACQ-162 done, ACQ-163 done(reopened), ACQ-164 waiting_on_data, ACQ-165 done, ACQ-166 done(reopened), ACQ-167 done, ACQ-168 done",
   "why": "Worked: 6 live-guide accuracy audits (4 corrected, incl. a wrong payer on hospice and home health; Access Evanston income limit), all reader-verified in #89; stopped: no-worthwhile-work; resume: package cut 27 Nov 05:00Z or #91 merge"
  },
- "last_verified_action": "ACQ-176 done 2026-11-27T06:47Z: Replaced the another-state sentence with the HelpLine page's own words ('To get information about services in another state, please visit the Eldercare Locator…",
+ "last_verified_action": "ACQ-177 done 2026-11-27T06:48Z: Independent reader checked drafts d2cc9c4: the one changed sentence now quotes the HelpLine page's Eldercare Locator sentence word for word, same scope (Illino…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -6058,7 +6064,7 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
-   "utc": "2026-11-27T06:47Z",
+   "utc": "2026-11-27T06:48Z",
    "since_utc": "2026-11-27T06:24Z",
    "productive_min": 15,
    "deliverables": [
@@ -6068,12 +6074,9 @@
     "correction:drafts 5283618",
     "pr:#93",
     "verification:ops/reviews/noticed-changes-in-parent-holiday-visit.md",
-    "correction:drafts d2cc9c4"
-   ],
-   "current": {
-    "what": "plan:demand",
-    "since_utc": "2026-11-27T06:47Z"
-   }
+    "correction:drafts d2cc9c4",
+    "verification:ops/reviews/noticed-changes-in-parent-holiday-visit.md"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-27T06:26Z"
@@ -7225,9 +7228,9 @@
     "evidence": "git diff of main...drafts for new guide slugs; each draft's own cited sources, fetched and read now.",
     "output": "One review task per page (key review:<slug>), worked under the review rules of procedure step 7: quotation checker, wording, the scope rule, figures, links, advice; packet at ops/reviews/<slug>.md with its table, counts line and verdict. Never a page this session built. Deliverable type review_packet.",
     "why": "A draft only helps families once Joseph publishes it; a verified packet turns that into a few-minute decision.",
-    "last_checked_utc": "2026-11-26T17:34Z",
-    "next_check_utc": "2026-11-27T05:34Z",
-    "last_result": "26 Nov 17:50Z: drafts 42 slugs vs main 32: the 10 not on main all have packets in ops/reviews/. No unreviewed draft.",
+    "last_checked_utc": "2026-11-27T06:48Z",
+    "next_check_utc": "2026-11-27T18:48Z",
+    "last_result": "All 11 worker pages on drafts not on main have packets with the counts line; the newest (noticed-changes-in-parent-holiday-visit) was reviewed, corrected and verified in this session. Nothing to add.",
     "last_added": 0
    },
    {
@@ -7376,6 +7379,7 @@
    }
   ],
   "sweep_log": [
+   "2026-11-27T06:48Z draft-review +0: All 11 worker pages on drafts not on main have packets with the counts line; the newest (noticed-changes-in-parent-holiday-visit) was reviewed, corrected and v…",
    "2026-11-26T17:45Z asset-gaps +0: 26 Nov 17:50Z: guide index main 32 / drafts 42; DEMAND Open holds only ACQ-118. Fresh searches 26 Nov: listing sites only for Evanston/Skokie AL questions (no …",
    "2026-11-26T17:34Z draft-review +0: 26 Nov 17:50Z: drafts 42 slugs vs main 32: the 10 not on main all have packets in ops/reviews/. No unreviewed draft.",
    "2026-11-26T17:34Z publish-ready +0: 26 Nov 17:50Z: 10 drafts guides not on main, all with packets, all in publish batch #90 (in package #91); no drafts change since their ports. Nothing to packag…",
