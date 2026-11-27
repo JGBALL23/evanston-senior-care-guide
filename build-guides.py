@@ -828,10 +828,19 @@ GUIDES = [
                 "that is still in the plan&rsquo;s area but brings new plan options "
                 "opens a window to switch as well.</p>",
                 "<p>These address-move windows are for someone already in a plan. "
-                "The pages cited here list no window for a parent in Original "
-                "Medicare with no plan who moves somewhere that is not an "
-                "institution, such as assisted living; for that parent, ask "
-                "1-800-MEDICARE or use the Open Enrollment Period.</p>",
+                "The pages cited here list no window tied to the move for a parent "
+                "in Original Medicare with no plan who moves within the U.S. to "
+                "somewhere that is not an institution, such as assisted living; for "
+                "that parent, ask 1-800-MEDICARE or use the Open Enrollment Period. "
+                "(A parent moving back to the U.S. after living abroad has 2 full "
+                "months after the month of the move to join a plan.)</p>",
+                "<p>A parent with Medicaid or Extra Help has one more option. For "
+                "them, the Special Enrollment Periods page says: &ldquo;If you have "
+                "Medicaid or get Extra Help, you can make changes to your coverage "
+                "once a calendar month.&rdquo; The changes it lists are switching to "
+                "a different Medicare drug plan, or dropping a Medicare Advantage "
+                "plan with drug coverage and returning to Original Medicare by "
+                "joining a stand-alone Medicare drug plan.</p>",
                 "<p>Why it matters before a move: as the sections above say, the rules "
                 "for a skilled nursing stay differ in a Medicare Advantage plan (a "
                 "plan may waive the three-day hospital stay, and some plans charge "
