@@ -191,21 +191,6 @@
    "waiting_for": "PR #91 (or #90) merged, so that a card change no longer collides with the open publish batch in the built /guides/ index",
    "not_before_utc": "2026-11-28T06:30Z",
    "note": "2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 1: #91 and #90 still open (checked 06:27Z), so the card change would still collide with the publish batch."
-  },
-  {
-   "id": "ACQ-189",
-   "task": "Verify the corrections to assisted-living-cost-illinois (PR #89 commit 166f2d1) under the review rules",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "followup",
-   "key": "verify-live:assisted-living-cost-illinois:166f2d1",
-   "priority": 1,
-   "evidence": "claude/accuracy-20261125 166f2d1; ops/reviews/live/assisted-living-cost-illinois.md C1",
-   "expected_tour_acquisition_value": "quality gate before the correction enters the daily package",
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
-   "status": "ready",
-   "found_utc": "2026-11-27T07:14Z"
   }
  ],
  "completed": [
@@ -5661,6 +5646,28 @@
    "lesson": "ilga.gov remains unreadable from worker sessions; statute claims on live guides need a reader that can open ilga.gov.",
    "done_utc": "2026-11-27T07:14Z",
    "minutes": 5
+  },
+  {
+   "id": "ACQ-189",
+   "task": "Verify the corrections to assisted-living-cost-illinois (PR #89 commit 166f2d1) under the review rules",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:assisted-living-cost-illinois:166f2d1",
+   "priority": 1,
+   "evidence": "claude/accuracy-20261125 166f2d1; ops/reviews/live/assisted-living-cost-illinois.md C1",
+   "expected_tour_acquisition_value": "quality gate before the correction enters the daily package",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-27T07:14Z",
+   "result": "Independent reader agent (fresh context, standard brief) checked the one sentence 166f2d1 changed in assisted-living-cost-illinois on claude/accuracy-20261125: the 12 Nov date matches the page's Trulee paragraph and source lines; Trulee prices re-read 27 Nov via WebFetch ($9,475 one-bedroom starting rent; $1,850 Your Choice, rent excluded); exception covers exactly the Trulee figures; no quotation or link changed. Packet: 'Corrections verified'. The ilga.gov-cited contract and assessment claims stay unchecked (unchanged by the commit).",
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/live/assisted-living-cost-illinois.md; #89 166f2d1"
+   },
+   "done_utc": "2026-11-27T07:16Z",
+   "minutes": 2
   }
  ],
  "blocked": [],
@@ -5671,7 +5678,7 @@
   "picked": "ACQ-169 done, ACQ-170 done, ACQ-171 done, ACQ-173 done, ACQ-174 done (reopened), ACQ-176 done, ACQ-177 done, ACQ-180 done, ACQ-181 done, ACQ-172 done, ACQ-175 done (reopened), ACQ-178 done, ACQ-179 done (reopened), ACQ-182 done, ACQ-183 done (reopened), ACQ-184 done, ACQ-185 done, ACQ-186 done, ACQ-187 done; ACQ-118 and ACQ-164 postponed to 28 Nov 06:30Z",
   "why": "Worked: package #91 re-cut with verified #89 commits; holiday-visit guide built, reviewed, corrected, verified and added to batch #90; PR #93 Medicare plan choice before 7 Dec verified; tour-path beacon read found. stopped: no-worthwhile-work; resume: 28 Nov package cut or a merge"
  },
- "last_verified_action": "ACQ-188 done 2026-11-27T07:14Z: Audited live assisted-living-cost-illinois (main 4dc2468) against its readable sources as they read 27 Nov 2026: CareScout 2025 survey ($6,219 AL; $8,304/$9,21…",
+ "last_verified_action": "ACQ-189 done 2026-11-27T07:16Z: Independent reader agent (fresh context, standard brief) checked the one sentence 166f2d1 changed in assisted-living-cost-illinois on claude/accuracy-20261125:…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -6337,11 +6344,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSaU9VKyTkRhekq5VFJ",
-   "utc": "2026-11-27T07:14Z",
+   "utc": "2026-11-27T07:16Z",
    "since_utc": "2026-11-27T07:07Z",
-   "productive_min": 7,
+   "productive_min": 9,
    "deliverables": [
-    "audit:ops/reviews/live/assisted-living-cost-illinois.md; #89 166f2d1"
+    "audit:ops/reviews/live/assisted-living-cost-illinois.md; #89 166f2d1",
+    "verification:ops/reviews/live/assisted-living-cost-illinois.md; #89 166f2d1"
    ]
   },
   "monitor": {

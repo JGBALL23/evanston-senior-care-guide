@@ -33,3 +33,13 @@ Claims not checked (ilga.gov unreadable): 2 (rows 11, 12); a later session or th
 Verdict: corrections listed (C1)
 
 Corrections applied: claude/accuracy-20261125 166f2d1 (PR #89), 2026-11-27, cse_014eaiSaU9VKyTkRhekq5VFJ. Tests changed: check-guides.js footnote-exception assertion re-pinned to exactly two guides; one new check pins the corrected sentence. Reviewed date unchanged.
+
+## Reader check 2026-11-27
+
+Independent reader, check of claude/accuracy-20261125 166f2d1. Quotation checker on the branch: 0 quotations, 6 short terms (2 not found, both as already explained in the audit: "Evanston area", a listing site's label; "no longer improving", another guide's card), 10 cited pages, 4 unreadable (the ilga.gov pages; the changed sentence cites none of them). Links on the page are identical to main. Trulee pages fetched by hand today (curl 403; WebFetch read them).
+
+- Changed sentence: "Every figure on this page was read from the source listed above on 4 November 2026, except Trulee Evanston’s advertised prices, read on 12 November 2026. Figures change; the review date tells you how fresh this page is." Sources behind it: the page's own "One Evanston example" paragraph ("On 12 November 2026, Trulee Evanston’s website listed ... $9,475 a month ... $1,850 a month") and its two source lines "(assisted living prices, read 12 November 2026)" / "(read 12 November 2026)"; truleeevanston.com/floor-plans/, Assisted Living, 1 Bedroom: "Prices starting at $9,475"; truleeevanston.com/your-choice/: "For just $1,850* per month, our all-inclusive Your Choice program ..." with "*does not include monthly rental rate" (both still read so on 27 Nov 2026). Every other figure on the page is a CareScout 2025 survey figure, which the audit dates to 4 November 2026 and which the page's "Last reviewed 4 November 2026" matches. Scope: same. The exception covers exactly the Trulee figures ($9,475, $1,850 and the $11,325 sum derived from them) and nothing else; no other figure on the page carries another read date. No quotation marks in the sentence, no link in it.
+
+Corrections verified
+Reader: agent in cse_014eaiSaU9VKyTkRhekq5VFJ
+Corrections verified: 2026-11-27 (166f2d1), agent in cse_014eaiSaU9VKyTkRhekq5VFJ
