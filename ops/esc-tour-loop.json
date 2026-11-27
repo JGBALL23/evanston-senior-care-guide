@@ -7329,7 +7329,8 @@
    "note": "Cut twice on 25 Nov by the supervising chat; re-cut 26 Nov 06:31Z by the ESCG worker (cse_014eaiSe8SBqppdHD1M3fw41): #90 now 10 guides (40e9da0), #92 added; #89 through c964f99 by 06:47Z (6876bfd, 64feb14, c964f99 verified by independent readers in the same session). 26 Nov 10:03Z, supervising chat: one housekeeping commit 2d84762 on the package branch (the temporary file .cite-count of check-citations.sh, committed by accident in #89's d7724d0, removed and added to .gitignore; no page, test or script changes; rebuild clean and all eleven suites pass on 2d84762). #89 itself is unchanged at c964f99. 27 Nov 06:29Z re-cut by the ESCG worker (cse_014eaiSeY3WV1Qzjy2ZNkkuN, ACQ-169): #89's verified commits 99cc346..9d57bf0 merged (a523b5e); rebuild clean, all eleven suites pass; title and body rewritten (number unchanged). 27 Nov 2026-11-27T09:48Z second cut by the supervising chat (the worker had finished them after its 06:29Z cut and left them for the 28 Nov package, although the window was open): #90's eleventh guide (eea57b7, holiday visits), #89's commit 166f2d1 and #93 (Medicare plan choice before 7 Dec) merged (eca3b23). #93 collided with the batch in build-guides.py only where both add entries at the end of SRC; both sets kept unchanged. Rebuild clean, all eleven suites pass, the three touched pages compared with their verified branches; title and body rewritten (number unchanged).",
    "owner_actions": []
   },
-  "next_discovery": "Monitor due 18:26Z, then draft-review and publish-ready sweeps and the planner from 18:48Z. #89 holds one new verified commit (166f2d1) for tomorrow's package; #91 waits on Joseph's merge."
+  "next_discovery": "Monitor due 18:26Z, then draft-review and publish-ready sweeps and the planner from 18:48Z. #89 holds one new verified commit (166f2d1) for tomorrow's package; #91 waits on Joseph's merge.",
+  "addenda": []
  },
  "planner": {
   "version": "4.3.3",
@@ -8167,7 +8168,7 @@
   "frontier": {
    "enabled": true,
    "min_per_session": 1,
-   "per_day": 4,
+   "per_day": 6,
    "why": "Joseph, 26 Nov 2026 19:00 Chicago: \"My goal is to build a reliable, autonomous AI workforce that continuously grows Evanston Senior Care Guide over the next 12 months.\" \"Proactively discover and execute high-value business opportunities.\" \"Continuously replenish your own backlog instead of waiting for instructions.\" \"Prioritize qualified traffic, customer acquisition, inquiries, tours, and revenue.\" \"Build upon previous work so improvements compound over time.\" \"Do not create meaningless work just to remain active. However, an empty queue, discovery cooldown, or pending approval should not prevent you from exploring genuinely new opportunities.\" \"Think about what 365 consecutive days of meaningful business improvements could accomplish.\"",
    "how": "Procedure step 7, FRONTIER. Status shows frontier.due and frontier.next. Each question is a genuinely new kind of opportunity with the evidence to read and the output allowed. Answer it once: start explore:frontier:<id>, do the research, put every candidate through the gate, add what passes, then explore frontier:<id> --avenue frontier --verdict act|watch|drop --candidates N --added N --result TEXT. A drop or a watch is a complete result. Add a new question with frontier-add only when evidence found on the way points to a kind of opportunity that is neither in this list nor on the opportunity map; a rewording is refused. close refuses no-worthwhile-work while frontier.due holds.",
    "questions": [
@@ -8419,7 +8420,8 @@
      "added_utc": "2026-11-27T01:18Z",
      "added_by": "supervisor"
     }
-   ]
+   ],
+   "per_day_note": "Raised from 4 to 6 on 27 Nov 2026: the first session answered four with real evidence in 43 minutes and the chained session then stopped after 9 minutes with 15 questions open. Every session answers at least one while questions are open and fewer than per_day were answered in 24 hours; depth still comes before count."
   }
  },
  "owner_decisions": [

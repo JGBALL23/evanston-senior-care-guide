@@ -48,6 +48,9 @@ Write commands (edit the working copy only; committing and pushing is the caller
                                     Exit 6 (nothing written) while status shows package.due (the daily approval
                                     package has not been cut inside its window): cut it, or say with
                                     --package-skipped why not.
+                                    Exit 6 likewise while status shows package.recut_due (work that belongs in
+                                    the package was finished after its cut and the window is still open): cut
+                                    once more, or say with --package-skipped why not.
                                     Exit 6 (nothing written) when the stop reason is no-worthwhile-work while
                                     backlog discovery is due and this session recorded fewer than three avenue
                                     classes with explore; explore more, or say with --fallback-skipped why not.
@@ -64,6 +67,7 @@ import argparse
 import datetime as dt
 import json
 import math
+import os
 import re
 import sys
 
@@ -357,10 +361,50 @@ def package_view(d, now):
         nxt = start
     else:
         nxt = start + dt.timedelta(days=1)
+    # A SECOND CUT (27 Nov 2026: the session that cut at 06:29Z then finished a holiday guide, a verified
+    # Medicare section for a 7 Dec deadline and a verified correction, and left all three for the next day's
+    # package although the window was open). Work that belongs in the package and was finished after the
+    # recorded cut makes a second cut due until controller/package/cut_utc is newer than that work.
+    recut_for = []
+    cpk = (d.get("controller") or {}).get("package")
+    cut = parse_ts(cpk.get("cut_utc")) if isinstance(cpk, dict) else None
+    if enabled and in_window and settled and cut is not None:
+        for t in (d.get("completed") or []):
+            if not isinstance(t, dict):
+                continue
+            done = parse_ts(t.get("done_utc"))
+            if done is None or done <= cut:
+                continue
+            k = norm_key(t.get("key") or "")
+            dl = t.get("deliverable") if isinstance(t.get("deliverable"), dict) else {}
+            if k.startswith("package-") or t.get("status") == "dropped":
+                continue
+            if dl.get("type") in ("publish_pr", "pr") or k.startswith("verify-live-"):
+                recut_for.append(t.get("id"))
     return {"enabled": enabled, "due": due, "key": key, "task": queued[0].get("id") if queued else None,
             "done_today": bool(settled), "ahead_today": bool(enabled and not settled and now < start),
+            "recut_due": bool(recut_for), "recut_for": recut_for[:12],
             "window_utc": ["%02d:%02d" % (h0, m0), "%02d:%02d" % (h1, m1)],
             "stale_tasks": stale, "next_due_utc": fmt(nxt) if nxt else None, "_next": nxt}
+
+
+ADDENDA_MAX, ADDENDA_CHARS = 8, 900
+
+
+def addenda_view(d, now):
+    """Dated rules of the supervising session (controller/addenda): each {"utc", "by": "supervisor", "rule"} and
+    optionally "until_utc" or "retired": true. The procedure tells the worker to follow them like its own
+    sentences; they can add to or tighten it and never widen ROLE AND LIMITS. Read only."""
+    rows = (d.get("controller") or {}).get("addenda")
+    out_rows = []
+    for e in (rows if isinstance(rows, list) else []):
+        if not isinstance(e, dict) or e.get("retired") or not e.get("rule"):
+            continue
+        until = parse_ts(e.get("until_utc"))
+        if until is not None and until <= now:
+            continue
+        out_rows.append({"utc": e.get("utc"), "rule": str(e.get("rule"))[:ADDENDA_CHARS]})
+    return out_rows[-ADDENDA_MAX:]
 
 
 def end_current(c, what, now, deliverable=None):
@@ -484,6 +528,7 @@ def compute(d, now, monitor_hours, run=None):
         "frontier": frv,
         "strategy": strategy_view(d, now),
         "package": pkv,
+        "addenda": addenda_view(d, now),
         "budget": budget_view(d, now),
         "eligible": eligible,
         "work_now": eligible > 0 or mon_due,
@@ -970,6 +1015,8 @@ def main():
             value = json.loads(args[1])
         except ValueError:
             fail("the value must be JSON (quote strings: '\"text\"')")
+        if args[0].strip("/").startswith("controller/addenda") and os.environ.get("ESCG_SUPERVISOR") != "1":
+            fail("controller/addenda is written by the supervising session only")
         parent, key = walk(d, args[0])
         if cmd == "set":
             parent[key] = value
@@ -1198,6 +1245,16 @@ def main():
                            "error or a refused permission prevents the cut, repeat close with --package-skipped "
                            "\"<the reason>\"." % st["package"]["key"],
                  "package": st["package"]}, 6)
+        if st["package"].get("recut_due") and not pkg_skipped:
+            out({"refused": True, "wrote": "nothing",
+                 "reason": "work that belongs in today's package was finished after its cut (%s) and the cut window "
+                           "is still open: cut once more before closing (procedure step 7, DAILY PACKAGE, A SECOND "
+                           "CUT: the same steps on the same pull request, no new task; then RECORD again with the "
+                           "new head, cut_utc and contains, and rewrite line 1 of owner_review_needed). What is "
+                           "time-critical for families must not wait a day. If the session is out of time, or a "
+                           "usage limit, a store error or a refused permission prevents it, repeat close with "
+                           "--package-skipped \"<the reason>\"." % ", ".join(str(x) for x in st["package"]["recut_for"]),
+                 "package": st["package"]}, 6)
         if a.stop_reason in NO_WORK_REASONS and st["frontier"]["due"] and not a.fallback_skipped.strip():
             out({"refused": True, "wrote": "nothing",
                  "reason": "open frontier questions wait (planner/frontier): an empty queue, a cooldown or a pending "
@@ -1350,7 +1407,8 @@ def main():
                                              "make_ops_today_estimate": ops_today} if blocked_here else None,
                                  "make_ops": {"day_from_utc": fmt(day0), "used_estimate": ops_today + (0 if nxt == "yes" else 2),
                                               "per_day": mops, "chain_held": ops_wait, "why": ops_why} if mops is not None else None,
-                                 "package": {"due_at_close": pkg_due_at_close, "skipped": short(pkg_skipped, 200) or None,
+                                 "package": {"due_at_close": pkg_due_at_close, "recut_due_at_close": bool(st["package"].get("recut_due")),
+                                             "skipped": short(pkg_skipped, 200) or None,
                                              "done_today": st["package"]["done_today"]} if st["package"]["enabled"] else None,
                                  "backlog_discovery": {"explorations": len(mine), "avenue_classes": classes,
                                                        "tasks_added": sum(int(e.get("added") or 0) for e in mine),
