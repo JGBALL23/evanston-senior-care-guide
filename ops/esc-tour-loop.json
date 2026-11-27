@@ -8319,6 +8319,17 @@
    "empty_streak": 0,
    "log": [
     {
+     "utc": "2026-11-27T20:11Z",
+     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+     "key": "frontier-f07",
+     "avenue": "frontier",
+     "lane": null,
+     "candidates": 0,
+     "added": 0,
+     "result": "27 Nov 2026: Google results pages cannot be read from the worker's environment: curl to google.com/search returns a JavaScript redirect stub (no results, no 'People also ask', no AI summary); the WebSearch tool returns links only, without page features; Bing renders 'People Also Ask' and Copilot but is a different eng…",
+     "verdict": "watch"
+    },
+    {
      "utc": "2026-11-27T20:04Z",
      "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
      "key": "frontier-f12",
@@ -8836,9 +8847,14 @@
      "evidence": "The live results pages for those queries; the cited pages; our live pages.",
      "output": "Up to three tasks (lane search): one small review pull request per page that puts a sourced, direct answer in the form the results page rewards. One element per page, never an element pending in the package.",
      "why": "At position 30 a better title changes little; the answer boxes are where a small site can appear above larger ones.",
-     "status": "open",
+     "status": "explored",
      "added_utc": "2026-11-27T01:18Z",
-     "added_by": "supervisor"
+     "added_by": "supervisor",
+     "verdict": "watch",
+     "explored_utc": "2026-11-27T20:11Z",
+     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+     "added": 0,
+     "result": "27 Nov 2026: Google results pages cannot be read from the worker's environment: curl to google.com/search returns a JavaScript redirect stub (no results, no 'People also ask', no AI summary); the WebSearch tool returns links only, without page features; Bing renders 'People Also Ask' and Copilot but is a different engine from Search Console's Google data, so it cannot stand in. Not routed around. Reopens when a session with a real browser (the supervising chat's or the operator's) can capture the results pages for the top 20 queries of the 25 Nov read (17 of them Medicare/assisted-living vari…"
     },
     {
      "id": "F08",
