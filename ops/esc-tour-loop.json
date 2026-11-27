@@ -191,21 +191,6 @@
    "waiting_for": "PR #91 (or #90) merged, so that a card change no longer collides with the open publish batch in the built /guides/ index",
    "not_before_utc": "2026-11-28T06:30Z",
    "note": "2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 1: #91 and #90 still open (checked 06:27Z), so the card change would still collide with the publish batch."
-  },
-  {
-   "id": "ACQ-187",
-   "task": "Verify the corrections to the plan-choice section of does-medicare-pay-for-senior-care (PR #93, commit 3e601d0)",
-   "workstream": "search",
-   "lane": "search",
-   "source": "followup",
-   "key": "verify-live:does-medicare-pay-for-senior-care:3e601d0",
-   "priority": 1,
-   "evidence": "PR #93 commit 3e601d0 (ACQ-186)",
-   "expected_tour_acquisition_value": "quality gate before the package",
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
-   "status": "ready",
-   "found_utc": "2026-11-27T07:05Z"
   }
  ],
  "completed": [
@@ -5604,6 +5589,28 @@
    },
    "done_utc": "2026-11-27T07:05Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-187",
+   "task": "Verify the corrections to the plan-choice section of does-medicare-pay-for-senior-care (PR #93, commit 3e601d0)",
+   "workstream": "search",
+   "lane": "search",
+   "source": "followup",
+   "key": "verify-live:does-medicare-pay-for-senior-care:3e601d0",
+   "priority": 1,
+   "evidence": "PR #93 commit 3e601d0 (ACQ-186)",
+   "expected_tour_acquisition_value": "quality gate before the package",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-27T07:05Z",
+   "result": "Independent reader checked #93 3e601d0: 'Remember, not all D-SNPs are integrated.' is word for word from Medicare.gov's Special Enrollment Periods page, used for the same full-Medicaid reader; the contact sentence restates the source; quotecheck 9/9, 8/8 pages readable. Corrections verified: #93 is verified through its head 3e601d0 and ready for the 28 Nov package.",
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/live/does-medicare-pay-for-senior-care.md"
+   },
+   "done_utc": "2026-11-27T07:06Z",
+   "minutes": 2
   }
  ],
  "blocked": [],
@@ -5614,7 +5621,7 @@
   "picked": "ACQ-150 done, ACQ-151 done, ACQ-152 done(reopened), ACQ-153 done, ACQ-154 done, ACQ-155 done, ACQ-156 done, ACQ-157 done, ACQ-158 done, ACQ-159 done, ACQ-160 done, ACQ-161 done, ACQ-162 done, ACQ-163 done(reopened), ACQ-164 waiting_on_data, ACQ-165 done, ACQ-166 done(reopened), ACQ-167 done, ACQ-168 done",
   "why": "Worked: 6 live-guide accuracy audits (4 corrected, incl. a wrong payer on hospice and home health; Access Evanston income limit), all reader-verified in #89; stopped: no-worthwhile-work; resume: package cut 27 Nov 05:00Z or #91 merge"
  },
- "last_verified_action": "ACQ-186 done 2026-11-27T07:05Z: Added Medicare.gov's 'Remember, not all D-SNPs are integrated.' with its advice to contact the D-SNP plan or 1-800-MEDICARE for a list of integrated D-SNPs, to…",
+ "last_verified_action": "ACQ-187 done 2026-11-27T07:06Z: Independent reader checked #93 3e601d0: 'Remember, not all D-SNPs are integrated.' is word for word from Medicare.gov's Special Enrollment Periods page, used f…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -6280,9 +6287,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
-   "utc": "2026-11-27T07:05Z",
+   "utc": "2026-11-27T07:06Z",
    "since_utc": "2026-11-27T06:24Z",
-   "productive_min": 26,
+   "productive_min": 28,
    "deliverables": [
     "publish_pr:#91 a523b5e",
     "guide:drafts e9241f2",
@@ -6301,7 +6308,8 @@
     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
     "correction:#93 28897f1",
     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
-    "correction:#93 3e601d0"
+    "correction:#93 3e601d0",
+    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md"
    ]
   },
   "monitor": {

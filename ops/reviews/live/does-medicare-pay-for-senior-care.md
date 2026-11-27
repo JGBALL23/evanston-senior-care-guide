@@ -233,3 +233,20 @@ Reader: agent in cse_014eaiSeY3WV1Qzjy2ZNkkuN
 Corrections verified: 2026-11-27, agent in cse_014eaiSeY3WV1Qzjy2ZNkkuN (#93 e4ad616 + 5490888 + 5eeca4f + 28897f1)
 
 Corrections applied: #93 3e601d0, 2026-11-27, cse_014eaiSeY3WV1Qzjy2ZNkkuN (recommended addition from reader check of 28897f1)
+
+## Reader check 2026-11-27 (3e601d0)
+
+Independent reader, branch claude/medicare-plan-choice-before-move at 3e601d0, read in /tmp/reader5-does-medicare-pay-for-senior-care. quotecheck: 9 quotations, 9 FOUND, 0 NEAR MATCH, 0 NOT FOUND; 8 cited pages, 0 unreadable; 1 short term NOT FOUND ("$0 coinsurance", unchanged sentence, the guide's own term, not attributed; not touched by this commit). The commit splits one sentence and adds two; build-guides.py and _dist agree; no link added or changed (/guides/illinois-fide-snp-explained/ unchanged, present on main).
+
+- "A parent with Medicare and full Medicaid can also join or switch to an integrated Dual Eligible Special Needs Plan (D-SNP), where one is available, once a calendar month." / Special Enrollment Periods, "Other special situations", "I have Medicare and get full Medicaid benefits.", When?: "If you qualify for this Special Enrollment Period, you can join or switch to an integrated D-SNP once a calendar month." / same scope (only punctuation changed: semicolon to full stop).
+- "The page adds: "Remember, not all D-SNPs are integrated."" / same item, directly after "The change will take effect on the first day of the next month.": "Remember, not all D-SNPs are integrated." / same scope (full-Medicaid parent choosing a D-SNP; quotation FOUND word for word).
+- "It says to contact the D-SNP plan you are interested in, or 1-800-MEDICARE for a list of integrated D-SNPs." / same item: "Contact the D-SNP plan you're interested in for more information and to find out how it works. You can also contact 1-800-MEDICARE for a list of integrated D-SNPs." / same scope; unquoted paraphrase, faithful (the list comes from 1-800-MEDICARE; the plan is the contact for how it works).
+- "For how that works in Illinois, see the guide to FIDE SNPs." / unchanged link text and target, now its own sentence; "that" still refers to the integrated D-SNP monthly change / same scope.
+
+Note (carried, not counted): the footer still says "Last reviewed 26 November 2026"; the plan-choice section's sources were read 27 November 2026.
+
+Quotations checked: 9. Claims scope-checked: 4. Scope defects: 0. Corrections required: 0.
+Reader: agent in cse_014eaiSeY3WV1Qzjy2ZNkkuN
+Corrections verified
+Reader: agent in cse_014eaiSeY3WV1Qzjy2ZNkkuN
+Corrections verified: 2026-11-27, agent in cse_014eaiSeY3WV1Qzjy2ZNkkuN (#93 through 3e601d0)
