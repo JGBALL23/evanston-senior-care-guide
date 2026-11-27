@@ -6706,7 +6706,7 @@
    "pr": 91,
    "branch": "claude/package-20261125",
    "head": "a523b5e",
-   "cut_utc": "2026-11-27T06:40Z",
+   "cut_utc": "2026-11-27T06:29Z",
    "contains": [
     90,
     89,
@@ -6728,7 +6728,7 @@
    "superseded": [],
    "after_merge": "After the merge nothing else is needed. The merged commit is published automatically by the Claude task \"ESCG publish after merge\" (it looks every hour from 06:27 to 23:27 Chicago time): it checks that the commit is your merge, rebuilds the site, runs every test suite, publishes through Netlify as before, compares every changed page with what you merged, and sends you one notification: live, or not live and why.",
    "about": "The daily approval package (procedure step 7, DAILY PACKAGE). One pull request for Joseph to merge; the worker re-cuts it once a day. after_merge is changed only by a session that heard Joseph say how the site gets deployed.",
-   "note": "Cut twice on 25 Nov by the supervising chat; re-cut 26 Nov 06:31Z by the ESCG worker (cse_014eaiSe8SBqppdHD1M3fw41): #90 now 10 guides (40e9da0), #92 added; #89 through c964f99 by 06:47Z (6876bfd, 64feb14, c964f99 verified by independent readers in the same session). 26 Nov 10:03Z, supervising chat: one housekeeping commit 2d84762 on the package branch (the temporary file .cite-count of check-citations.sh, committed by accident in #89's d7724d0, removed and added to .gitignore; no page, test or script changes; rebuild clean and all eleven suites pass on 2d84762). #89 itself is unchanged at c964f99. 27 Nov 06:40Z re-cut by the ESCG worker (cse_014eaiSeY3WV1Qzjy2ZNkkuN, ACQ-169): #89's verified commits 99cc346..9d57bf0 merged (a523b5e); rebuild clean, all eleven suites pass; title and body rewritten (number unchanged).",
+   "note": "Cut twice on 25 Nov by the supervising chat; re-cut 26 Nov 06:31Z by the ESCG worker (cse_014eaiSe8SBqppdHD1M3fw41): #90 now 10 guides (40e9da0), #92 added; #89 through c964f99 by 06:47Z (6876bfd, 64feb14, c964f99 verified by independent readers in the same session). 26 Nov 10:03Z, supervising chat: one housekeeping commit 2d84762 on the package branch (the temporary file .cite-count of check-citations.sh, committed by accident in #89's d7724d0, removed and added to .gitignore; no page, test or script changes; rebuild clean and all eleven suites pass on 2d84762). #89 itself is unchanged at c964f99. 27 Nov 06:29Z re-cut by the ESCG worker (cse_014eaiSeY3WV1Qzjy2ZNkkuN, ACQ-169): #89's verified commits 99cc346..9d57bf0 merged (a523b5e); rebuild clean, all eleven suites pass; title and body rewritten (number unchanged).",
    "owner_actions": []
   },
   "next_discovery": "Next due: monitor 12:26Z, sweep angles draft-review, live-accuracy, asset-gaps, publish-ready from 12:32Z, backlog discovery 13:53Z, cut of the 27 Nov package from 05:00Z. Waiting on Joseph: merge of package #91 (10 guides, 17 live-guide corrections, #92, #86 and #84/#79 flagged), decision A (publish after merge)."
