@@ -6437,7 +6437,7 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSah6rgKCpixbDvmA6L",
-   "utc": "2026-11-27T19:21Z",
+   "utc": "2026-11-27T19:22Z",
    "since_utc": "2026-11-27T19:12Z",
    "deliverables": [
     "resource:drafts 73e991c"
@@ -8051,6 +8051,17 @@
    "empty_streak": 0,
    "log": [
     {
+     "utc": "2026-11-27T19:22Z",
+     "run": "cse_014eaiSah6rgKCpixbDvmA6L",
+     "key": "frontier-f08",
+     "avenue": "frontier",
+     "lane": null,
+     "candidates": 1,
+     "added": 0,
+     "result": "Read 27 Nov 2026: web results for 'Evanston senior services' (City of Evanston pages first, then the library directory, BBB and commercial directories); City Senior Services page (Access Evanston; Senior Services Division as the first contact; Levy Center; Evanston LTC Ombudsman 847-448-8696; it says the office gives …",
+     "verdict": "watch"
+    },
+    {
      "utc": "2026-11-27T18:34Z",
      "run": "cse_014eaiSbgkYkmzevMK2yQoyV",
      "key": "channels-sralab-life-center-resource-lists",
@@ -8536,9 +8547,14 @@
      "evidence": "Those results pages; the official page of each office as it reads today; the live guides that already list local contacts.",
      "output": "At most one page on drafts (lane build) that answers 'whom do I call first' from official sources, if the gap is real; a short research note if existing pages already do it.",
      "why": "A page that local offices and neighbors can point to earns local visitors and listings.",
-     "status": "open",
+     "status": "explored",
      "added_utc": "2026-11-27T01:18Z",
-     "added_by": "supervisor"
+     "added_by": "supervisor",
+     "verdict": "watch",
+     "explored_utc": "2026-11-27T19:22Z",
+     "run": "cse_014eaiSah6rgKCpixbDvmA6L",
+     "added": 0,
+     "result": "Read 27 Nov 2026: web results for 'Evanston senior services' (City of Evanston pages first, then the library directory, BBB and commercial directories); City Senior Services page (Access Evanston; Senior Services Division as the first contact; Levy Center; Evanston LTC Ombudsman 847-448-8696; it says the office gives no direct care); the residents/senior-services page refused (403). Ours: draft noticed-changes-in-parent-holiday-visit (in batch #90) already gives the state layer (Senior HelpLine, AgeOptions for suburban Cook, CCUs, APS); live independent-living-evanston names Access Evanston a…"
     },
     {
      "id": "F09",
