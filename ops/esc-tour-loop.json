@@ -6069,7 +6069,11 @@
     "pr:#93",
     "verification:ops/reviews/noticed-changes-in-parent-holiday-visit.md",
     "correction:drafts d2cc9c4"
-   ]
+   ],
+   "current": {
+    "what": "plan:demand",
+    "since_utc": "2026-11-27T06:47Z"
+   }
   },
   "monitor": {
    "last_utc": "2026-11-27T06:26Z"
@@ -6977,9 +6981,9 @@
     "plan_cooldown_hours": 24,
     "open_prs": [],
     "owner_open": 0,
-    "cooldown_until_utc": "2026-11-27T06:33Z",
-    "last_planned_utc": "2026-11-26T06:33Z",
-    "last_plan_result": "26 Nov: Make's Search Console read of 25 Nov (73 queries, 3+ impressions): every query maps to a live guide (Medicare/assisted-living cluster -> does-medicare-pay-for-senior-care; VA caregiver -> va-caregiver-support-program; advance directive, elder abuse, meals, QMB/MSP, VA nursing home covered);…"
+    "cooldown_until_utc": "2026-11-28T06:47Z",
+    "last_planned_utc": "2026-11-27T06:47Z",
+    "last_plan_result": "Search Console queries (25 Nov read): every Medicare/assisted living, nursing home, VA caregiver, advance directive, QMB, home-delivered-meals and MSP query maps to a live guide; 'what is a uai screening' (Virginia's instrument) and 'eps reporting' are not Illinois needs; DEMAND.md Open holds one w…"
    },
    {
     "id": "search",
@@ -6997,9 +7001,9 @@
      93
     ],
     "owner_open": 4,
-    "cooldown_until_utc": "2026-11-27T06:30Z",
-    "last_planned_utc": "2026-11-25T06:30Z",
-    "last_plan_result": "2026-11-25 06:3xZ crawl of the live sitemap (36 URLs): all 200, canonical self, one h1 each, descriptions 145-172 chars; only the home page and /assisted-living-evanston/ link to the local page on production because #85 is not merged or deployed. Every gap found is already tracked: titles 72-99 cha…"
+    "cooldown_until_utc": "2026-11-29T06:47Z",
+    "last_planned_utc": "2026-11-27T06:47Z",
+    "last_plan_result": "Search Console read 25 Nov (pages and queries in the 27 Nov payload, same read): Medicare page 781 imp pos 32.5 -> new section PR #93 (frontier F02) and title/body corrections already in #89; estate recovery pos 7.2 -> #92; preadmission screening 42 imp pos 8.5 0 clicks -> already queued as ACQ-102…"
    },
    {
     "id": "technical",
@@ -7145,6 +7149,8 @@
    }
   ],
   "log": [
+   "2026-11-27T06:47Z demand +0: Search Console queries (25 Nov read): every Medicare/assisted living, nursing home, VA caregiver, advance directive, QMB, home-delivered-meals and MSP query ma…",
+   "2026-11-27T06:47Z search +0: Search Console read 25 Nov (pages and queries in the 27 Nov payload, same read): Medicare page 781 imp pos 32.5 -> new section PR #93 (frontier F02) and title/…",
    "2026-11-26T17:34Z build +0: 26 Nov 17:45Z: no new Search Console read since 25 Nov 20:35Z (already examined 26 Nov 01:35Z: the Medicare/assisted-living/nursing-home queries land on does-m…",
    "2026-11-26T17:34Z publish +0: 26 Nov 17:45Z: drafts has 10 guides not on main (main 32, drafts 42); all 10 have packets and are in publish batch #90 inside package #91 (open, clean); no pac…",
    "2026-11-26T06:34Z partnerships +0: 26 Nov: no map item with an unhandled ACT verdict. R8's one ACT (Open Communities) already handed off 22 Nov; R1 closed (6 municipal sends, 0 replies); referra…",
