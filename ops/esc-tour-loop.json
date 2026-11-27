@@ -6665,7 +6665,7 @@
    "holder": "cse_014eaiSeGWreJzfEyfVMTtWN",
    "utc": "2026-11-27T20:15Z",
    "since_utc": "2026-11-27T19:57Z",
-   "productive_min": 22,
+   "productive_min": 23,
    "deliverables": [
     "correction:drafts dad7c20",
     "verification:ops/reviews/illinois-medicaid-pending-nursing-home.md",
@@ -8339,6 +8339,17 @@
    "empty_streak": 0,
    "log": [
     {
+     "utc": "2026-11-27T20:16Z",
+     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+     "key": "frontier-f15",
+     "avenue": "frontier",
+     "lane": null,
+     "candidates": 5,
+     "added": 0,
+     "result": "Read 27 Nov 2026: Google autocomplete (suggestqueries) for 8 either-or stems: strong national pairs (assisted living vs nursing home / cost / criteria; vs memory care; vs skilled nursing; vs independent living; home care vs assisted living); Illinois and Evanston variants return no suggestions; Search Console 25 Nov r…",
+     "verdict": "drop"
+    },
+    {
      "utc": "2026-11-27T20:15Z",
      "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
      "key": "frontier-f14",
@@ -9080,9 +9091,14 @@
      "evidence": "Results pages and autocomplete; Search Console queries; the live guides, levels-of-senior-care-explained first.",
      "output": "At most one page on drafts comparing care types, programs or rules, never communities.",
      "why": "A comparison is the search of a family close to deciding.",
-     "status": "open",
+     "status": "explored",
      "added_utc": "2026-11-27T01:18Z",
-     "added_by": "supervisor"
+     "added_by": "supervisor",
+     "verdict": "drop",
+     "explored_utc": "2026-11-27T20:16Z",
+     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+     "added": 0,
+     "result": "Read 27 Nov 2026: Google autocomplete (suggestqueries) for 8 either-or stems: strong national pairs (assisted living vs nursing home / cost / criteria; vs memory care; vs skilled nursing; vs independent living; home care vs assisted living); Illinois and Evanston variants return no suggestions; Search Console 25 Nov read has no comparison query. Coverage on main: levels-of-senior-care-explained (AL vs memory care vs skilled nursing vs rehab, 'How to tell which one applies'), assisted-living-cost-illinois (AL median vs nursing home semi-private/private medians, CareScout 2025), independent-liv…"
     },
     {
      "id": "F16",
