@@ -70,3 +70,5 @@ Quotations checked: 15. Claims scope-checked: 35. Scope defects: 3. Corrections 
 Verdict: publish-ready after corrections (three scope defects: the guide sends a specific worry into the prevention-only Wellness visit, sends a parent in any state to the Illinois HelpLine, and presents the Illinois APS hotline for any danger in any setting. All quotations are word-perfect.)
 
 Reader: agent in cse_014eaiSeY3WV1Qzjy2ZNkkuN
+
+Corrections applied: drafts 5283618, 2026-11-27, cse_014eaiSeY3WV1Qzjy2ZNkkuN (Eldercare Locator named as the Department and Medicare.gov link it, without citing eldercare.acl.gov or its phone number: that host is not an allowed citation host in check-guides.js)

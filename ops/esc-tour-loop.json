@@ -212,19 +212,19 @@
    "found_utc": "2026-11-27T06:39Z"
   },
   {
-   "id": "ACQ-173",
-   "task": "Apply the corrections and recommended additions in ops/reviews/noticed-changes-in-parent-holiday-visit.md to the drafts page",
+   "id": "ACQ-174",
+   "task": "Verify the corrections to noticed-changes-in-parent-holiday-visit",
    "workstream": "build",
    "lane": "build",
    "source": "followup",
-   "key": "correct:noticed-changes-in-parent-holiday-visit",
+   "key": "verify:noticed-changes-in-parent-holiday-visit:5283618",
    "priority": 1,
-   "evidence": "review packet 2026-11-27 (ACQ-171): 3 scope defects, 5 recommended additions",
+   "evidence": "correction commit 5283618 on drafts (ACQ-173)",
    "expected_tour_acquisition_value": "quality gate before publication",
    "executor": "worker (research and preparation only)",
-   "done_when": "one Correct commit on drafts with checks and quotecheck passing; verify task added",
+   "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
-   "found_utc": "2026-11-27T06:40Z"
+   "found_utc": "2026-11-27T06:42Z"
   }
  ],
  "completed": [
@@ -5295,6 +5295,28 @@
     "ref": "ops/reviews/noticed-changes-in-parent-holiday-visit.md"
    },
    "done_utc": "2026-11-27T06:40Z"
+  },
+  {
+   "id": "ACQ-173",
+   "task": "Apply the corrections and recommended additions in ops/reviews/noticed-changes-in-parent-holiday-visit.md to the drafts page",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "correct:noticed-changes-in-parent-holiday-visit",
+   "priority": 1,
+   "evidence": "review packet 2026-11-27 (ACQ-171): 3 scope defects, 5 recommended additions",
+   "expected_tour_acquisition_value": "quality gate before publication",
+   "executor": "worker (research and preparation only)",
+   "done_when": "one Correct commit on drafts with checks and quotecheck passing; verify task added",
+   "status": "done",
+   "found_utc": "2026-11-27T06:40Z",
+   "result": "Applied the packet's three corrections and five recommended additions to noticed-changes-in-parent-holiday-visit in one commit (drafts 5283618). Deviation: correction 2 suggested citing eldercare.acl.gov with its phone number; that host is not allowed by check-guides.js, so the guide names the Eldercare Locator as the IDoA and Medicare.gov pages link it, without its number. Checks: build 46 URLs; test.js 669/669; check-guides 2802/0; citations 114 resolve; mobile-nav SKIPPED; quotecheck 16/16. Verify task added.",
+   "deliverable": {
+    "type": "correction",
+    "ref": "drafts 5283618"
+   },
+   "done_utc": "2026-11-27T06:42Z",
+   "minutes": 1
   }
  ],
  "blocked": [],
@@ -5305,7 +5327,7 @@
   "picked": "ACQ-150 done, ACQ-151 done, ACQ-152 done(reopened), ACQ-153 done, ACQ-154 done, ACQ-155 done, ACQ-156 done, ACQ-157 done, ACQ-158 done, ACQ-159 done, ACQ-160 done, ACQ-161 done, ACQ-162 done, ACQ-163 done(reopened), ACQ-164 waiting_on_data, ACQ-165 done, ACQ-166 done(reopened), ACQ-167 done, ACQ-168 done",
   "why": "Worked: 6 live-guide accuracy audits (4 corrected, incl. a wrong payer on hospice and home health; Access Evanston income limit), all reader-verified in #89; stopped: no-worthwhile-work; resume: package cut 27 Nov 05:00Z or #91 merge"
  },
- "last_verified_action": "ACQ-171 done 2026-11-27T06:40Z: Independent reader (agent in this session, fresh context) reviewed noticed-changes-in-parent-holiday-visit at drafts e9241f2: quotecheck 15/15 FOUND, 8/8 cited…",
+ "last_verified_action": "ACQ-173 done 2026-11-27T06:42Z: Applied the packet's three corrections and five recommended additions to noticed-changes-in-parent-holiday-visit in one commit (drafts 5283618). Deviation: cor…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -5971,18 +5993,15 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
-   "utc": "2026-11-27T06:40Z",
+   "utc": "2026-11-27T06:42Z",
    "since_utc": "2026-11-27T06:24Z",
-   "productive_min": 9,
+   "productive_min": 10,
    "deliverables": [
     "publish_pr:#91 a523b5e",
     "guide:drafts e9241f2",
-    "review_packet:ops/reviews/noticed-changes-in-parent-holiday-visit.md"
-   ],
-   "current": {
-    "what": "ACQ-172",
-    "since_utc": "2026-11-27T06:40Z"
-   }
+    "review_packet:ops/reviews/noticed-changes-in-parent-holiday-visit.md",
+    "correction:drafts 5283618"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-27T06:26Z"
