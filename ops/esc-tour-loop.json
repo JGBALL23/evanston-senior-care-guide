@@ -5987,8 +5987,8 @@
     "lane": "referral_partnerships",
     "class": "hospital and rehab social work or case management",
     "status": "drop",
-    "note": "ACQ-024 (22 Nov): 0 ACT across 6 routes (Endeavor Glenbrook/Skokie/Highland Park, Saint Francis Evanston (Prime), SRAL LIFE Center, IL Dept on Aging discharge page, Evanston SNF rehab units, Evanston Hospital). No public resource list or social-work address; referrals run through internal/vendor lists. Reopen only if a hospital publishes a community resource list that includes outside websites.",
-    "checked_utc": "2026-11-22T17:37Z"
+    "note": "ACQ-024 (22 Nov): 0 ACT across 6 routes (Endeavor Glenbrook/Skokie/Highland Park, Saint Francis Evanston (Prime), SRAL LIFE Center, IL Dept on Aging discharge page, Evanston SNF rehab units, Evanston Hospital). No public resource list or social-work address; referrals run through internal/vendor lists. Reopen only if a hospital publishes a community resource list that includes outside websites. 27 Nov (worker, channels avenue): SRAL LIFE Center does publish public resource listings (advance-directive forms, reviewed 1 Jul 2026; Chicago-area assisted living, reviewed 8 Jul 2026), but they link only government forms/pages (IDPH, GAC, illinois.gov, one illinoislegalaid.org form) and providers' own websites; no independent guides, and no suggestion route except a phone line and the general contact form. Still DROP.",
+    "checked_utc": "2026-11-27T18:34Z"
    },
    {
     "id": "R4",
@@ -6387,9 +6387,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSbgkYkmzevMK2yQoyV",
-   "utc": "2026-11-27T18:33Z",
+   "utc": "2026-11-27T18:34Z",
    "since_utc": "2026-11-27T18:24Z",
-   "productive_min": 8,
+   "productive_min": 10,
    "deliverables": [
     "pr:#94"
    ]
@@ -7921,6 +7921,27 @@
    "exhausted_until_utc": "",
    "empty_streak": 0,
    "log": [
+    {
+     "utc": "2026-11-27T18:34Z",
+     "run": "cse_014eaiSbgkYkmzevMK2yQoyV",
+     "key": "channels-sralab-life-center-resource-lists",
+     "avenue": "channels",
+     "lane": null,
+     "candidates": 2,
+     "added": 0,
+     "result": "Read 27 Nov via WebFetch: sralab.org LIFE Center 'Listing: Advance Directives Forms' (reviewed 1 Jul 2026) and 'Listing: Assisted Living Facilities, Chicago metropolitan area' (reviewed 8 Jul 2026). Both list only government forms/pages and providers' own sites; no independent guides; no suggestion route except phone …",
+     "new_evidence": "R3 said no public resource list; two public LIFE Center lists surfaced in 27 Nov searches"
+    },
+    {
+     "utc": "2026-11-27T18:33Z",
+     "run": "cse_014eaiSbgkYkmzevMK2yQoyV",
+     "key": "search-advance-directive-illinois-results",
+     "avenue": "search",
+     "lane": null,
+     "candidates": 1,
+     "added": 0,
+     "result": "SC read 25 Nov: guide illinois-advance-directive-power-of-attorney 26 impressions, pos 53.3; queries 'illinois advance directive' (3, pos 87), 'advance directive form illinois' (3, pos 68), 'medical power of attorney illinois' (3, pos 23.3). Live title 'Power of Attorney for Health Care in Illinois, Explained' (publis…"
+    },
     {
      "utc": "2026-11-27T18:33Z",
      "run": "cse_014eaiSbgkYkmzevMK2yQoyV",
