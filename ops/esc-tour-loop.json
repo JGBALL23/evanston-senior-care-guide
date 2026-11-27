@@ -193,23 +193,19 @@
    "note": "2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 1: #91 and #90 still open (checked 06:27Z), so the card change would still collide with the publish batch."
   },
   {
-   "id": "ACQ-191",
-   "task": "Build a comparison page on drafts: home care or assisted living in Illinois - what each costs (CareScout 2025 Illinois medians for in-home non-medical care, adult day and assisted living, each with the survey's stated basis), what Medicare and Illinois programs pay for at home versus in assisted living, and the questions that decide it (hours of help needed, nights, supervision)",
+   "id": "ACQ-192",
+   "task": "Review home-care-or-assisted-living-illinois under the review rules",
    "workstream": "build",
    "lane": "build",
-   "source": "plan",
-   "key": "build:home-care-vs-assisted-living-illinois",
-   "evidence": "Question asked in public, national caregiver Q&A forum, 2023-09 (cost of home care vs assisted living); competitor-gap finding 2026-11-27: web results for 'home care or assisted living cheaper' are national provider and listing pages only, no official-source Illinois page; Search Console 28 days to 2026-11-22: home-help coverage queries (does medicare pay for home health aides 5, does medicare cover home health aide 3, medicare home health aide 3, does medicare cover personal care aides 3); CareScout Cost of Care Survey 2025 PDF (assets.carescout.com, already cited on main) read 2026-11-27: Illinois non-medical in-home care $36/hour, $6,864/month on 44 h/week; adult day $91/day, $1,977/month on 5 days/week; assisted living $6,219/month. No guide on main or drafts compares the two (levels-of-senior-care-explained and assisted-living-cost-illinois omit home care costs).",
-   "expected_tour_acquisition_value": "Families weighing more help at home against a move are at the decision stage; an Illinois-sourced comparison earns search visitors and leads to the assessment and the assisted-living path",
-   "impact": 4,
-   "confidence": 4,
-   "effort": 3,
-   "priority": 2,
+   "source": "followup",
+   "key": "review:home-care-or-assisted-living-illinois",
+   "priority": 1,
+   "evidence": "build commit drafts 73e991c (cse_014eaiSah6rgKCpixbDvmA6L)",
+   "expected_tour_acquisition_value": "quality gate before publication",
    "executor": "worker (research and preparation only)",
-   "done_when": "comparison page built on drafts under ROUTINE.md with all five checks passing and quotecheck all FOUND, DEMAND.md Done line, review task added",
-   "score": 5.33,
+   "done_when": "packet at ops/reviews/home-care-or-assisted-living-illinois.md with its counts and verdict",
    "status": "ready",
-   "found_utc": "2026-11-27T19:14Z"
+   "found_utc": "2026-11-27T19:18Z"
   }
  ],
  "completed": [
@@ -5714,6 +5710,41 @@
    "lesson": "A trust page must describe only enforced rules; anything describing the owner or how drafting is done goes to the package as a decision.",
    "done_utc": "2026-11-27T18:31Z",
    "minutes": 3
+  },
+  {
+   "id": "ACQ-191",
+   "task": "Build a comparison page on drafts: home care or assisted living in Illinois - what each costs (CareScout 2025 Illinois medians for in-home non-medical care, adult day and assisted living, each with the survey's stated basis), what Medicare and Illinois programs pay for at home versus in assisted living, and the questions that decide it (hours of help needed, nights, supervision)",
+   "workstream": "build",
+   "lane": "build",
+   "source": "plan",
+   "key": "build:home-care-vs-assisted-living-illinois",
+   "evidence": "Question asked in public, national caregiver Q&A forum, 2023-09 (cost of home care vs assisted living); competitor-gap finding 2026-11-27: web results for 'home care or assisted living cheaper' are national provider and listing pages only, no official-source Illinois page; Search Console 28 days to 2026-11-22: home-help coverage queries (does medicare pay for home health aides 5, does medicare cover home health aide 3, medicare home health aide 3, does medicare cover personal care aides 3); CareScout Cost of Care Survey 2025 PDF (assets.carescout.com, already cited on main) read 2026-11-27: Illinois non-medical in-home care $36/hour, $6,864/month on 44 h/week; adult day $91/day, $1,977/month on 5 days/week; assisted living $6,219/month. No guide on main or drafts compares the two (levels-of-senior-care-explained and assisted-living-cost-illinois omit home care costs).",
+   "expected_tour_acquisition_value": "Families weighing more help at home against a move are at the decision stage; an Illinois-sourced comparison earns search visitors and leads to the assessment and the assisted-living path",
+   "impact": 4,
+   "confidence": 4,
+   "effort": 3,
+   "priority": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "comparison page built on drafts under ROUTINE.md with all five checks passing and quotecheck all FOUND, DEMAND.md Done line, review task added",
+   "score": 5.33,
+   "status": "done",
+   "found_utc": "2026-11-27T19:14Z",
+   "result": "Built home-care-or-assisted-living-illinois on drafts (73e991c): CareScout 2025 Illinois medians (in-home non-medical care $36/h, $6,864/month on 44 h/week; adult day $91/day, $1,977/month on 5 days/week; assisted living $6,219/month private one-bedroom), what Medicare home health covers and excludes (24-hour care, personal care alone), Medicare long-term care page, CCP eligibility and no-out-of-pocket rule, Home Services Agencies private pay, Supportive Living room and board, and the deciding questions. Checks: build 47 URLs; test.js 669/669; check-guides 2860/0; citations all 115 resolve; mobile-nav SKIP (no websockets); quotecheck 12/12 FOUND. DEMAND.md Done line added. Review by independent reader queued as a task.",
+   "sources": [
+    "https://assets.carescout.com/x/5c90319b6a/298701.pdf",
+    "https://www.medicare.gov/coverage/home-health-services",
+    "https://www.medicare.gov/coverage/long-term-care",
+    "https://ilaging.illinois.gov/programs/ccp.html",
+    "https://ilaging.illinois.gov/programs/caregiver/in-home-care.html",
+    "https://dph.illinois.gov/topics-services/health-care-regulation/health-care-facilities/home-services/faq.html",
+    "https://hfs.illinois.gov/medicalprograms/slf.html",
+    "https://hfs.illinois.gov/medicalprograms/slf/residentfactsheet.html"
+   ],
+   "deliverable": {
+    "type": "resource",
+    "ref": "drafts 73e991c"
+   },
+   "done_utc": "2026-11-27T19:18Z"
   }
  ],
  "blocked": [],
@@ -5724,7 +5755,7 @@
   "picked": "ACQ-190 done",
   "why": "Worked: sourcing-page review PR #94 (frontier F04), North Shore town-page report (F06 watch), monitor clean; stopped: no-worthwhile-work; resume: 19:06Z planning and sweeps"
  },
- "last_verified_action": "ACQ-190 done 2026-11-27T18:31Z: Review PR #94 (claude/sourcing-page, 019bda5) against main: new /sourcing/ page 'How these guides are sourced and checked' generated by build-guides.py (build_…",
+ "last_verified_action": "ACQ-191 done 2026-11-27T19:18Z: Built home-care-or-assisted-living-illinois on drafts (73e991c): CareScout 2025 Illinois medians (in-home non-medical care $36/h, $6,864/month on 44 h/week; ad…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -6406,12 +6437,15 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSah6rgKCpixbDvmA6L",
-   "utc": "2026-11-27T19:14Z",
+   "utc": "2026-11-27T19:18Z",
    "since_utc": "2026-11-27T19:12Z",
    "current": {
     "what": "plan:publish",
     "since_utc": "2026-11-27T19:14Z"
-   }
+   },
+   "deliverables": [
+    "resource:drafts 73e991c"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-27T18:25Z"
@@ -7496,7 +7530,7 @@
     "owner_wip_limit": 30,
     "plan_cooldown_hours": 12,
     "open_prs": [],
-    "owner_open": 7,
+    "owner_open": 8,
     "cooldown_until_utc": "",
     "last_planned_utc": "2026-11-27T19:14Z",
     "last_plan_result": "Read Search Console 25 Nov read (home-help coverage queries), DEMAND.md Open/Done, slugs on main and drafts, CareScout 2025 Illinois tables, public caregiver Q&A and web results for home care vs assisted living. Passed: home care or assisted living in Illinois comparison (no page compares; Illinois…",
