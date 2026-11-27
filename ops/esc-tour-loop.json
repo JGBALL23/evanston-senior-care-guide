@@ -6094,6 +6094,14 @@
     "status": "owner",
     "note": "27 Nov (frontier F04, worker cse_014eaiSbgkYkmzevMK2yQoyV): every result above ours for the top Medicare queries shows a visible writer and reviewer line (Healthline: Medically reviewed by ... / Written by ...; Caring.com: Written by / Reviewed by; NerdWallet: Written by + Fact Checked; Humana: Written by: Humana + editorial standards). Our guides name the author only in structured data and in the footer disclosure. Proposed lettered decision for the next package cut (it names Joseph and says how the guides are made, so nothing is built): add under each guide title the line \"Written by Joseph Gonzales. Researched and drafted with AI tools; every quotation and figure is checked against its official source before publication.\" with a link to the sourcing page of ACQ-190. Yes changes one line on every guide; about 1 minute. The buildable, non-personal part (sourcing page, publishingPrinciples) is ACQ-190.",
     "checked_utc": "2026-11-27T18:27Z"
+   },
+   {
+    "id": "T2",
+    "lane": "build",
+    "class": "North Shore town landing pages (Skokie, Lincolnwood, Wilmette, Winnetka, Glenview, Northbrook, Rogers Park, Edgewater)",
+    "status": "watch",
+    "note": "27 Nov (frontier F06, worker cse_014eaiSbgkYkmzevMK2yQoyV): results for assisted living <town> and <town> cost are all referral directories; no independent official-source explainer. But a town page under PRIMARY_HOSTS could cite only IDPH and CareScout (a keyword variant of /assisted-living-evanston/), township and village sites are not allowed hosts, and Search Console shows no query naming these towns. Report: drafts e514821 research/north-shore-town-pages.md. Reopen when SC shows a query naming one of these towns, or the owner approves township/village hosts; then one North Shore page, Niles Township towns first.",
+    "checked_utc": "2026-11-27T18:36Z"
    }
   ],
   "channel_yield": [
@@ -6379,9 +6387,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSbgkYkmzevMK2yQoyV",
-   "utc": "2026-11-27T18:31Z",
+   "utc": "2026-11-27T18:33Z",
    "since_utc": "2026-11-27T18:24Z",
-   "productive_min": 6,
+   "productive_min": 8,
    "deliverables": [
     "pr:#94"
    ]
@@ -7914,6 +7922,17 @@
    "empty_streak": 0,
    "log": [
     {
+     "utc": "2026-11-27T18:33Z",
+     "run": "cse_014eaiSbgkYkmzevMK2yQoyV",
+     "key": "frontier-f06",
+     "avenue": "frontier",
+     "lane": null,
+     "candidates": 2,
+     "added": 0,
+     "result": "Read 27 Nov: web results for assisted living in Skokie, Wilmette (cost), Glenview/Northbrook, Rogers Park/Edgewater, Winnetka/Lincolnwood (cost): all referral directories (APFM, Seniorly, Caring, seniorliving.org, Checkbook), no independent official-source explainer; SC 25 Nov read: only 'assisted living cost evanston…",
+     "verdict": "watch"
+    },
+    {
      "utc": "2026-11-27T18:27Z",
      "run": "cse_014eaiSbgkYkmzevMK2yQoyV",
      "key": "frontier-f04",
@@ -8337,9 +8356,14 @@
      "evidence": "Results pages and autocomplete for two searches per town today; Search Console queries that name a town; the state's public directory of licensed communities for each town; how /assisted-living-evanston/ is built and sourced.",
      "output": "A research report on drafts (research/north-shore-town-pages.md) with the evidence and a verdict per town and a build order; then one build task for the first town that qualifies (lane build). Never a ranking or a recommendation of communities.",
      "why": "Evanston alone is a small search market; the families who can tour live across the North Shore.",
-     "status": "open",
+     "status": "explored",
      "added_utc": "2026-11-27T01:18Z",
-     "added_by": "supervisor"
+     "added_by": "supervisor",
+     "verdict": "watch",
+     "explored_utc": "2026-11-27T18:33Z",
+     "run": "cse_014eaiSbgkYkmzevMK2yQoyV",
+     "added": 0,
+     "result": "Read 27 Nov: web results for assisted living in Skokie, Wilmette (cost), Glenview/Northbrook, Rogers Park/Edgewater, Winnetka/Lincolnwood (cost): all referral directories (APFM, Seniorly, Caring, seniorliving.org, Checkbook), no independent official-source explainer; SC 25 Nov read: only 'assisted living cost evanston il' names a town; /assisted-living-evanston/ sources (IDPH lookup, IDPH AL page, CareScout statewide median). Candidates: per-town clone (fails: keyword variant, no demand); North Shore township-office page (fails now: township/village hosts not in PRIMARY_HOSTS = owner decision…"
     },
     {
      "id": "F07",
