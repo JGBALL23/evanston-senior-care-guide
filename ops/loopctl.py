@@ -273,12 +273,31 @@ def fallback_view(d, now, soon, pipeline, plan):
             "_until": until if (wanted and resting) else None}
 
 
-def frontier_view(d, now, run=None):
+FR_ROOM_SHARE = 0.75
+
+
+def discovery_room(bud):
+    """True while the worker's usage reserve has room for discovery: below FR_ROOM_SHARE of its limit for
+    24 hours and for 7 days. The last quarter stays for what must not wait: monitoring, the daily package,
+    ready tasks."""
+    for used_key, lim_key in (("used_hours_24h", "limit_hours_per_day"), ("used_hours_7d", "limit_hours_per_week")):
+        lim = bud.get(lim_key)
+        if lim and (bud.get(used_key) or 0) >= FR_ROOM_SHARE * lim:
+            return False
+    return True
+
+
+def frontier_view(d, now, run=None, room=True):
     """Standing list of genuinely new opportunity questions (planner/frontier/questions). Joseph, 26 Nov 2026:
     "an empty queue, discovery cooldown, or pending approval should not prevent you from exploring genuinely
-    new opportunities." Due while an open question exists, this session has explored fewer than min_per_session
-    and the last 24 hours hold fewer than per_day: independent of lane cooldowns, owner limits and the rest of
-    backlog discovery. It never starts a session by itself (not counted in eligible). Read only."""
+    new opportunities." And 27 Nov 2026, after Make went to its Core plan and he refreshed the Claude
+    allowance: "Make productive use of the refreshed capacity. Prioritize customer acquisition, SEO, business
+    development, conversion improvements and discovering new growth opportunities."
+    more: an open question exists and the last 24 hours hold fewer than per_day answers.
+    SINCE 27 NOV 2026 open questions are eligible work (starts_sessions) while the usage reserve has room
+    (discovery_room): they wake a session and keep the chain going, and they are due for a running session as
+    long as that holds. When the reserve is in its last quarter, the older rule applies: due only until this
+    session has answered min_per_session, and not counted in eligible. Read only."""
     pl = d.get("planner") or {}
     fr = pl.get("frontier") if isinstance(pl.get("frontier"), dict) else {}
     enabled = bool(fr.get("enabled")) and bool(pl.get("enabled", True))
@@ -294,7 +313,11 @@ def frontier_view(d, now, run=None):
     day = [e for e in log if (parse_ts(e.get("utc")) or now) > now - dt.timedelta(hours=24)]
     mine = [e for e in log if run and e.get("run") == run]
     need, cap = num(fr.get("min_per_session"), FR_MIN_SESSION), num(fr.get("per_day"), FR_PER_DAY)
-    return {"enabled": enabled, "due": enabled and bool(open_q) and len(mine) < need and len(day) < cap,
+    more = enabled and bool(open_q) and len(day) < cap
+    times = sorted(t_ for t_ in (parse_ts(e.get("utc")) for e in day) if t_)
+    slot = (times[len(day) - cap] + dt.timedelta(hours=24, minutes=1)) if (enabled and open_q and len(day) >= cap and len(times) == len(day) and cap > 0) else None
+    return {"enabled": enabled, "due": more and (len(mine) < need or bool(room)),
+            "more": more, "room": bool(room), "starts_sessions": more and bool(room), "_slot": slot,
             "open": len(open_q), "explored": sum(1 for q in qs if q.get("status") == "explored"),
             "this_session": len(mine), "last_24h": len(day), "min_per_session": need, "per_day": cap,
             "next": [{"id": q.get("id"), "lever": q.get("lever"), "question": short(q.get("question") or "", 220)}
@@ -491,7 +514,11 @@ def compute(d, now, monitor_hours, run=None, _probe=False):
     sweep = sweep_view(d, soon, plan["lanes"])
     future.extend(sweep.pop("_later"))
     fbv = fallback_view(d, now, soon, pipeline, plan)
-    frv = frontier_view(d, now, run)
+    bud_now = budget_view(d, now)
+    frv = frontier_view(d, now, run, discovery_room(bud_now))
+    if frv["_slot"] is not None:
+        future.append((frv["_slot"], "frontier: next question"))
+    frv.pop("_slot", None)
     if fbv["_until"] is not None:
         future.append((fbv["_until"], "backlog discovery"))
     fbv.pop("_until", None)
@@ -503,7 +530,7 @@ def compute(d, now, monitor_hours, run=None, _probe=False):
     future.sort(key=lambda x: x[0])
     next_due = future[0][0] if future else None
     eligible = (pipeline + len(handoff) + (1 if plan["due"] else 0) + len(sweep["due"]) + (1 if fbv["due"] else 0)
-                + (1 if pkv["due"] else 0))
+                + (1 if pkv["due"] else 0) + (1 if frv["starts_sessions"] else 0))
     # The wake time is the first moment at which a session would really find work. Since 27 Nov 2026 Make's
     # timer looks every 15 minutes (Core plan), so a wake set one grace before something that has no grace
     # (the package window) would start a session that finds nothing due. Candidates: every due time and
@@ -543,7 +570,7 @@ def compute(d, now, monitor_hours, run=None, _probe=False):
         "strategy": strategy_view(d, now),
         "package": pkv,
         "addenda": addenda_view(d, now),
-        "budget": budget_view(d, now),
+        "budget": bud_now,
         "eligible": eligible,
         "work_now": eligible > 0 or mon_due,
         "grace_minutes": int(g.total_seconds() // 60),
@@ -1130,7 +1157,8 @@ def main():
              "this_session": {"explorations": len(mine), "avenue_classes": classes,
                               "tasks_added": sum(int(e.get("added") or 0) for e in mine)},
              "classes_still_needed_before_no_worthwhile_work": max(0, need - len(classes)),
-             "frontier": frontier_view(d, now, run) if avenue == "frontier" else None})
+             "frontier": ({k: v for k, v in frontier_view(d, now, run, discovery_room(budget_view(d, now))).items()
+                           if k != "_slot"} if avenue == "frontier" else None)})
 
     if cmd == "frontier-add":
         pl = d.get("planner")
@@ -1311,7 +1339,9 @@ def main():
                                      "rest_hours": hours}
             fb_note = fb["last_conclusion"]
             st = compute(d, now, a.monitor_hours, run)
-        progress = (a.done + a.changed) > 0
+        # an answered frontier question or another recorded exploration is progress too (a watch or a drop adds
+        # no task and no change, and must not break the chain or cause a retry wait)
+        progress = (a.done + a.changed) > 0 or bool(mine)
         start = (c["lock"].get("since_utc") or c["lock"].get("utc")) if c["lock"].get("holder") == run else None
         bud = budget_view(d, now, parse_ts(start) if start else None)
         # Work that only a different session may do (not_run names this run). Joseph, 25 Nov 2026: "If those

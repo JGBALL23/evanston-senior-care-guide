@@ -7670,6 +7670,11 @@
     "utc": "2026-11-27T18:55Z",
     "by": "supervisor",
     "rule": "Since 27 Nov 2026 Make runs on its Core plan and its timer looks every 15 minutes. Session starts are no longer scarce and there is no daily budget of Make operations: wherever this procedure speaks of about three starts a day, of the day's Make operations being used, or of a timer that looks every 3 hours, that no longer applies. The helper's NEXT and WAKE are the rule: remaining eligible work and handoffs chain at once, also before the package window, and a session wakes when work is really due. Claude's usage is the limit now: keep the usage reserve, finish what you start, and still prefer the reviewer agent inside the session to a later session. Nothing else changes: ROLE AND LIMITS, the gate, the independent readers, the daily package and QUIET stay exactly as they are."
+   },
+   {
+    "utc": "2026-11-27T19:52Z",
+    "by": "supervisor",
+    "rule": "On Joseph's word of 27 Nov 2026 (\"Make productive use of the refreshed capacity. Prioritize customer acquisition, SEO, business development, conversion improvements and discovering new growth opportunities.\"): open frontier questions are eligible work while the usage reserve has room (STATUS.frontier.starts_sessions). They wake a session and keep the chain going, and frontier.due stays true in a session until the list is done, the day's count is reached or time is up; so \"it never starts a session by itself\" and \"at least one\" no longer describe it. Answer them in the order of frontier.next, each to the full standard: read every source yourself; act, watch or drop. A question whose sources you cannot read from here gets the verdict watch naming what blocks it; never skip one and leave it open. Close with --stop-reason time at SESSION_MINUTES minus 15; the next session continues."
    }
   ]
  },
@@ -8590,7 +8595,7 @@
   "frontier": {
    "enabled": true,
    "min_per_session": 1,
-   "per_day": 6,
+   "per_day": 24,
    "why": "Joseph, 26 Nov 2026 19:00 Chicago: \"My goal is to build a reliable, autonomous AI workforce that continuously grows Evanston Senior Care Guide over the next 12 months.\" \"Proactively discover and execute high-value business opportunities.\" \"Continuously replenish your own backlog instead of waiting for instructions.\" \"Prioritize qualified traffic, customer acquisition, inquiries, tours, and revenue.\" \"Build upon previous work so improvements compound over time.\" \"Do not create meaningless work just to remain active. However, an empty queue, discovery cooldown, or pending approval should not prevent you from exploring genuinely new opportunities.\" \"Think about what 365 consecutive days of meaningful business improvements could accomplish.\"",
    "how": "Procedure step 7, FRONTIER. Status shows frontier.due and frontier.next. Each question is a genuinely new kind of opportunity with the evidence to read and the output allowed. Answer it once: start explore:frontier:<id>, do the research, put every candidate through the gate, add what passes, then explore frontier:<id> --avenue frontier --verdict act|watch|drop --candidates N --added N --result TEXT. A drop or a watch is a complete result. Add a new question with frontier-add only when evidence found on the way points to a kind of opportunity that is neither in this list nor on the opportunity map; a rewording is refused. close refuses no-worthwhile-work while frontier.due holds.",
    "questions": [
@@ -8739,7 +8744,7 @@
     },
     {
      "id": "F10",
-     "priority": 2,
+     "priority": 1,
      "lever": "partnerships",
      "question": "Families who must choose care within days after a hospital stay: what do the Evanston-area hospitals and their social-work or care-management pages publish for them, do those pages list outside resources, and is there a published route for suggesting one?",
      "evidence": "The hospitals' own public pages as they read today; the map's referral_partnerships items; Gmail Sent for earlier contact (the duplicate check of step 8c).",
@@ -8751,7 +8756,7 @@
     },
     {
      "id": "F11",
-     "priority": 2,
+     "priority": 1,
      "lever": "partnerships",
      "question": "Which local professionals meet families at the moment of a move without competing with the guide (senior move managers, daily money managers, estate-sale firms, hospice and palliative social workers, parish nurses, home-modification services), and which of them publish client resources with a published way to suggest one?",
      "evidence": "Their own sites; national association directories filtered to Evanston and the North Shore; the map's dropped classes (never a variation of one).",
@@ -8763,7 +8768,7 @@
     },
     {
      "id": "F12",
-     "priority": 2,
+     "priority": 1,
      "lever": "authority",
      "question": "Which senior-care stories did local outlets run in the last twelve months (rate increases, closures, inspections, new communities, benefit changes), and which recurring story type could the guide support with a factual, sourced resource a reporter would link?",
      "evidence": "The outlets' own archives and site search; our live pages; the map item for Joseph's guest essay.",
@@ -8811,7 +8816,7 @@
     },
     {
      "id": "F16",
-     "priority": 3,
+     "priority": 2,
      "lever": "authority",
      "question": "Which outside pages link to or mention the guide today, and which mention it without a link?",
      "evidence": "Searches for the site's name and its address in quotation marks; Netlify's referrers since 1 Nov. (Search Console's links report is not part of Make's read: say what could not be seen.)",
@@ -8823,7 +8828,7 @@
     },
     {
      "id": "F17",
-     "priority": 3,
+     "priority": 2,
      "lever": "search engines",
      "question": "After an automatic publish, changed pages are no longer announced to Bing through IndexNow, which the earlier publishing step did (ledger on main, last entry 17 Nov). What share of visitors and crawls comes from Bing, and what would a supported, free announcement after each publish involve?",
      "evidence": "Netlify's request counts by referrer and by crawler since 1 Nov; data/indexnow-ledger.json and tools/publish.py on main (read only).",
@@ -8835,7 +8840,7 @@
     },
     {
      "id": "F18",
-     "priority": 3,
+     "priority": 2,
      "lever": "search",
      "question": "When an AI summary answers a search about senior care in Evanston or about Illinois programs, which sources does it cite, and what do the cited pages have in common that ours lack?",
      "evidence": "The AI summaries on the results pages of ten of our queries where one shows, and the pages they cite. No account-based assistant can be asked from a worker session: say so and do not guess.",
@@ -8856,9 +8861,22 @@
      "status": "open",
      "added_utc": "2026-11-27T01:18Z",
      "added_by": "supervisor"
+    },
+    {
+     "id": "F20",
+     "priority": 2,
+     "lever": "qualified local reach through intermediaries",
+     "question": "Which Evanston and North Shore institutions already speak to adult children who care for a parent, apart from senior-care providers and the groups already on the map: work-life or employee-assistance pages of large local employers (the university, the hospital systems, the city, the school districts) and caregiver or older-adult ministries of congregations? Which of them publish a list of outside resources, and would an independent, sourced local guide fit what that list accepts?",
+     "evidence": "Each institution's own public pages, read by you (work-life or elder-care resource pages, congregational care or older-adult ministry pages): does a resource list exist, what kinds of entries does it hold, who maintains it and how are additions asked for. The opportunity map and growth.json for what was already contacted or dropped. Never a private person's contact details.",
+     "output": "A verdict for every institution in the opportunity map (ACT with one prepared handoff for the outreach operator, WATCH with the event that reopens it, or DROP with the reason); at most three prepared proposals in all (the rule for a new referral class), each to a published general address; nothing is sent by you.",
+     "why": "Facebook community groups are the only source with measured visitors (16 of 25 in four days) and eleven emails to senior-care organizations brought no reply. Institutions that reach working adult children at scale and keep a resource list are a different class of intermediary that nobody has examined.",
+     "status": "open",
+     "added_utc": "2026-11-27T19:52Z",
+     "added_by": "supervisor"
     }
    ],
-   "per_day_note": "Raised from 4 to 6 on 27 Nov 2026: the first session answered four with real evidence in 43 minutes and the chained session then stopped after 9 minutes with 15 questions open. Every session answers at least one while questions are open and fewer than per_day were answered in 24 hours; depth still comes before count."
+   "per_day_note": "24 since 2026-11-27T19:52Z (was 4, then 6): Joseph refreshed the Claude allowance and ordered 'Make productive use of the refreshed capacity ... discovering new growth opportunities'. Since then open questions are eligible work while the usage reserve has room (helper v4.6: below three quarters of budget_hours_per_day and budget_hours_per_week); the last quarter stays for monitoring, the daily package and ready tasks. The count per day only stops a runaway. Depth still comes before count: every answer names the sources read and their dates, and watch or drop is a complete result.",
+   "order_note": "Order set 2026-11-27T19:52Z: first the questions whose results do not wait for Joseph's merge and bring new qualified reach or relationships (F10 hospital discharge, F11 local professionals, F12 local press), then search and measurement questions that are cheap to act on (F07, F09, F16, F17, F18), then assets that need a build and a merge (F13, F14, F15), then F19."
   }
  },
  "owner_decisions": [
@@ -8917,6 +8935,13 @@
    "heard_in": "supervising chat",
    "for": "supervisor",
    "applied": "2026-11-27T18:55Z: helper v4.5 (no budget of Make operations, no cap on sessions a day, wake time = first moment work is due); Make timer set to 15 minutes and its ceiling sized for the Core plan by the supervising session; see controller/addenda."
+  },
+  {
+   "utc": "2026-11-27T19:45Z",
+   "said": "I've reset my weekly Claude usage allowance for free. Continue autonomous business execution under our new 15-minute Make coordination system. Make productive use of the refreshed capacity. Prioritize customer acquisition, SEO, business development, conversion improvements and discovering new growth opportunities. Keep the existing 6-hour daily and 28-hour weekly worker allowances for now. Do not introduce additional arbitrary restrictions. No additional spending or unnecessary infrastructure changes.",
+   "heard_in": "supervising chat",
+   "for": "supervisor",
+   "applied": "2026-11-27T19:52Z: open frontier questions are eligible work while the usage reserve has room (helper v4.6), per_day 24, order of the open questions set, F20 added; allowances unchanged (6 hours a day, 28 a week); see controller/addenda."
   }
  ],
  "strategy": {
@@ -8924,7 +8949,7 @@
   "version": 1,
   "set_utc": "2026-11-27T01:18Z",
   "set_by": "supervising chat, at Joseph's request",
-  "owner_words": "Joseph, 26 Nov 2026 19:00 Chicago: \"My goal is to build a reliable, autonomous AI workforce that continuously grows Evanston Senior Care Guide over the next 12 months.\" \"Proactively discover and execute high-value business opportunities.\" \"Continuously replenish your own backlog instead of waiting for instructions.\" \"Prioritize qualified traffic, customer acquisition, inquiries, tours, and revenue.\" \"Build upon previous work so improvements compound over time.\" \"Do not create meaningless work just to remain active. However, an empty queue, discovery cooldown, or pending approval should not prevent you from exploring genuinely new opportunities.\" \"Think about what 365 consecutive days of meaningful business improvements could accomplish.\"",
+  "owner_words": "Joseph, 26 Nov 2026 19:00 Chicago: \"My goal is to build a reliable, autonomous AI workforce that continuously grows Evanston Senior Care Guide over the next 12 months.\" \"Proactively discover and execute high-value business opportunities.\" \"Continuously replenish your own backlog instead of waiting for instructions.\" \"Prioritize qualified traffic, customer acquisition, inquiries, tours, and revenue.\" \"Build upon previous work so improvements compound over time.\" \"Do not create meaningless work just to remain active. However, an empty queue, discovery cooldown, or pending approval should not prevent you from exploring genuinely new opportunities.\" \"Think about what 365 consecutive days of meaningful business improvements could accomplish.\" 27 Nov 2026: \"Prioritize customer acquisition, SEO, business development, conversion improvements and discovering new growth opportunities.\" \"I want us to grow Evanston Senior Care Guide simultaneously and independently.\"",
   "how_to_use": "Read this object when you plan (step 6e), sweep, explore and review. It ranks work; it never widens ROLE AND LIMITS. A working target is a yardstick for the monthly review, not a forecast and not a result. Rank a candidate that advances an objective of the current quarter above an equal-scoring one. The programs name what compounds: each has a standing angle, lane or step where its next step is found, so the backlog refills from the plan and not only from events. The monthly review (task keyed strategy-review:YYYYMM, due when status shows strategy.review_due) rewrites the baseline, each objective's status, the programs' next steps and the frontier list from measured results, adds one entry to reviews/log, and puts a change of direction to Joseph as one lettered decision.",
   "north_star": "Tour requests through the site's own form that Westminster Place can confirm, counted per month. Leading measures, read weekly: genuine local visitors by source; tour-path steps (checklist opens, assessment starts, tour-form views); Search Console clicks and impressions, local-intent queries first; outside pages that list the guide; organization replies. Tasks, commits, drafts and pages are never the measure.",
   "baseline": {
