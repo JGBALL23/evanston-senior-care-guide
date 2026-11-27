@@ -32,11 +32,15 @@ Write commands (edit the working copy only; committing and pushing is the caller
   set PATH JSON [--file F]          set one value, e.g. opportunity_map/items[id=D13]/status '"watch"'
   append PATH JSON [--file F] [--front] [--keep N]   add to a list
   monitor-done                      record that the monitoring pass ran now
-  explore KEY --avenue needs|search|channels|quality --added N --result TEXT [--candidates N] [--lane L]
-              [--new-evidence TEXT]
+  explore KEY --avenue needs|search|channels|quality|frontier --added N --result TEXT [--candidates N]
+              [--lane L] [--new-evidence TEXT] [--verdict act|watch|drop]
                                     record one avenue of independent backlog discovery (procedure step 7).
                                     Exit 5 if the same KEY was explored inside its recheck window (14 days)
-                                    and nothing new is named: pick a different question, source or segment
+                                    and nothing new is named: pick a different question, source or segment.
+                                    --avenue frontier answers one open question of planner/frontier/questions
+                                    (KEY frontier:<id>, --verdict required) and marks it explored
+  frontier-add --from FILE          add a genuinely new opportunity question (question, lever, evidence,
+                                    output, why); exit 5 for a repeat or a rewording of an existing one
   close RUN --done N --changed M --outcome TEXT [--launch TEXT] [--tasks TEXT] [--monitor-hours N]
             [--stop-reason R --considered TEXT --resume-when TEXT] [--fallback-skipped TEXT]
             [--package-skipped TEXT]
@@ -46,7 +50,10 @@ Write commands (edit the working copy only; committing and pushing is the caller
                                     --package-skipped why not.
                                     Exit 6 (nothing written) when the stop reason is no-worthwhile-work while
                                     backlog discovery is due and this session recorded fewer than three avenue
-                                    classes with explore; explore more, or say with --fallback-skipped why not
+                                    classes with explore; explore more, or say with --fallback-skipped why not.
+                                    Exit 6 likewise while status shows frontier.due (an open frontier question
+                                    and none answered in this session): an empty queue, a cooldown or a pending
+                                    approval does not end the search for genuinely new opportunities
 
 Due times have a grace (30 minutes): what falls due within it counts as due now, and wake times are set
 that much earlier, because Make's timer only looks every 3 hours.
@@ -70,7 +77,9 @@ WORKSTREAM_LANE = {"build": "build", "assets": "build", "content": "build", "pub
                    "discovery": "discovery", "system_test": "system"}
 WAKE_MIN, WAKE_MAX, WAKE_DEFAULT, WAKE_RETRY = 30, 2880, 720, 120
 DUE_GRACE_MIN = 30
-FB_AVENUES = ("needs", "search", "channels", "quality")
+FB_AVENUES = ("needs", "search", "channels", "quality", "frontier")
+FR_MIN_SESSION, FR_PER_DAY, FR_MAX_OPEN = 1, 4, 60
+FR_VERDICTS = ("act", "watch", "drop")
 FB_MIN_AVENUES, FB_RECHECK_DAYS, FB_BASE_H, FB_MAX_H, FB_LOG_KEEP = 3, 14, 12, 96, 150
 HANDOFF_SESSIONS_24H = 4
 PKG_WINDOW = ("05:00", "10:30")
@@ -155,22 +164,41 @@ def lane_of(task):
     return WORKSTREAM_LANE.get(task.get("workstream") or "", "other")
 
 
+def package_inside(d):
+    """Pull requests that reach Joseph inside the open daily package: together they are ONE decision (one
+    merge), so they count once against a lane's owner limit (planner/package/counts_as_one). Joseph, 24 Nov
+    2026: "a pending approval blocks only the affected action, not independent business work"; 26 Nov 2026:
+    a pending approval "should not prevent you from exploring genuinely new opportunities". Read only."""
+    pk = (d.get("controller") or {}).get("package")
+    cfg = (d.get("planner") or {}).get("package")
+    if not isinstance(pk, dict) or not isinstance(cfg, dict) or not cfg.get("counts_as_one") or not pk.get("pr"):
+        return set()
+    nums = [pk.get("pr"), pk.get("batch"), pk.get("accuracy")] + list(pk.get("contains") or [])
+    return {n for n in nums if isinstance(n, int) and not isinstance(n, bool)}
+
+
+def as_one(n, packed):
+    return n if packed <= 0 or n <= 0 else max(1, n - packed + 1)
+
+
 def plan_view(d, now, pipeline):
     """Planner state. Read only: never changes d."""
     pl = d.get("planner") or {}
     low = int(pl.get("low_water", PLAN_LOW_WATER))
     queue = d.get("queue") or []
+    inside = package_inside(d)
     lanes = []
     for ln in sorted(pl.get("lanes") or [], key=lambda x: (x.get("order", 99), str(x.get("id")))):
         lid = ln.get("id")
         waiting = sum(1 for t in queue if t.get("status") == WAIT_OWNER and lane_of(t) == lid)
-        wip = max(waiting, int(ln.get("owner_open") or 0))
+        packed = len({p for p in (ln.get("open_prs") or []) if isinstance(p, int) and not isinstance(p, bool) and p in inside})
+        wip = max(as_one(waiting, packed), as_one(int(ln.get("owner_open") or 0), packed))
         limit = int(ln.get("owner_wip_limit", 3))
         cool = parse_ts(ln.get("cooldown_until_utc"))
         cooling = cool is not None and cool > now
         live = sum(1 for t in queue if t.get("status") in (READY, WAIT_DATA) and lane_of(t) == lid)
         lanes.append({"id": lid, "order": ln.get("order"), "enabled": bool(ln.get("enabled", True)),
-                      "owner_wip": wip, "wip_limit": limit,
+                      "owner_wip": wip, "wip_limit": limit, "in_package": packed,
                       "saturated": wip >= limit, "cooling_until": fmt(cool) if cooling else None,
                       "live_tasks": live, "last_planned_utc": ln.get("last_planned_utc") or None,
                       "plannable": bool(ln.get("enabled", True)) and wip < limit and not cooling,
@@ -238,6 +266,51 @@ def fallback_view(d, now, soon, pipeline, plan):
             "recent": [{"key": e.get("key"), "avenue": e.get("avenue"), "utc": e.get("utc"), "added": e.get("added")}
                        for e in recent[:40]],
             "_until": until if (wanted and resting) else None}
+
+
+def frontier_view(d, now, run=None):
+    """Standing list of genuinely new opportunity questions (planner/frontier/questions). Joseph, 26 Nov 2026:
+    "an empty queue, discovery cooldown, or pending approval should not prevent you from exploring genuinely
+    new opportunities." Due while an open question exists, this session has explored fewer than min_per_session
+    and the last 24 hours hold fewer than per_day: independent of lane cooldowns, owner limits and the rest of
+    backlog discovery. It never starts a session by itself (not counted in eligible). Read only."""
+    pl = d.get("planner") or {}
+    fr = pl.get("frontier") if isinstance(pl.get("frontier"), dict) else {}
+    enabled = bool(fr.get("enabled")) and bool(pl.get("enabled", True))
+
+    def num(v, default):
+        return v if isinstance(v, int) and not isinstance(v, bool) and v >= 0 else default
+
+    qs = [q for q in (fr.get("questions") or []) if isinstance(q, dict)]
+    open_q = [q for q in qs if q.get("status") == "open"
+              and (parse_ts(q.get("not_before_utc")) is None or parse_ts(q.get("not_before_utc")) <= now)]
+    open_q.sort(key=lambda q: (num(q.get("priority"), 9), str(q.get("id"))))
+    log = [e for e in ((pl.get("fallback") or {}).get("log") or []) if isinstance(e, dict) and e.get("avenue") == "frontier"]
+    day = [e for e in log if (parse_ts(e.get("utc")) or now) > now - dt.timedelta(hours=24)]
+    mine = [e for e in log if run and e.get("run") == run]
+    need, cap = num(fr.get("min_per_session"), FR_MIN_SESSION), num(fr.get("per_day"), FR_PER_DAY)
+    return {"enabled": enabled, "due": enabled and bool(open_q) and len(mine) < need and len(day) < cap,
+            "open": len(open_q), "explored": sum(1 for q in qs if q.get("status") == "explored"),
+            "this_session": len(mine), "last_24h": len(day), "min_per_session": need, "per_day": cap,
+            "next": [{"id": q.get("id"), "lever": q.get("lever"), "question": short(q.get("question") or "", 220)}
+                     for q in open_q[:3]]}
+
+
+def strategy_view(d, now):
+    """The 12-month plan (strategy). Its monthly review is due from reviews/first_due_utc on, in every month
+    that has no task keyed strategy-review:YYYYMM in the queue or among the completed tasks. Read only."""
+    s = d.get("strategy") if isinstance(d.get("strategy"), dict) else {}
+    enabled = bool(s.get("enabled"))
+    key = "strategy-review:" + now.strftime("%Y%m")
+    want = norm_key(key)
+
+    def has(pool):
+        return any(isinstance(t, dict) and norm_key(t.get("key") or "") == want for t in (d.get(pool) or []))
+
+    first = parse_ts((s.get("reviews") or {}).get("first_due_utc")) if isinstance(s.get("reviews"), dict) else None
+    queued = has("queue")
+    return {"enabled": enabled, "review_due": enabled and (first is None or now >= first) and not queued and not has("completed"),
+            "review_key": key, "review_queued": queued}
 
 
 def package_view(d, now):
@@ -373,6 +446,7 @@ def compute(d, now, monitor_hours, run=None):
     sweep = sweep_view(d, soon, plan["lanes"])
     future.extend(sweep.pop("_later"))
     fbv = fallback_view(d, now, soon, pipeline, plan)
+    frv = frontier_view(d, now, run)
     if fbv["_until"] is not None:
         future.append((fbv["_until"], "backlog discovery"))
     fbv.pop("_until", None)
@@ -407,6 +481,8 @@ def compute(d, now, monitor_hours, run=None):
         "handoff_waiting": len(handoff),
         "sweep": sweep,
         "fallback": fbv,
+        "frontier": frv,
+        "strategy": strategy_view(d, now),
         "package": pkv,
         "budget": budget_view(d, now),
         "eligible": eligible,
@@ -611,6 +687,7 @@ def main():
     p.add_argument("--lane", default="")
     p.add_argument("--candidates", type=int, default=0)
     p.add_argument("--new-evidence", default="")
+    p.add_argument("--verdict", default="")
     p.add_argument("--fallback-skipped", default="")
     p.add_argument("--package-skipped", default="")
     a = p.parse_args()
@@ -756,6 +833,21 @@ def main():
                         if not isinstance(e, dict) or e.get("avenue") not in FB_AVENUES or parse_ts(e.get("utc")) is None:
                             problems.append("planner/fallback/log has a malformed entry: " + short(e, 60))
                             break
+            frk = pl.get("frontier")
+            if frk is not None:
+                if not isinstance(frk, dict) or not isinstance(frk.get("questions", []), list):
+                    problems.append("planner/frontier is not an object with a questions list")
+                else:
+                    seen = set()
+                    for q in frk.get("questions") or []:
+                        if not (isinstance(q, dict) and q.get("id") and q.get("question")
+                                and q.get("status") in ("open", "explored", "dropped")):
+                            problems.append("planner/frontier/questions has a malformed entry: " + short(q, 60))
+                            break
+                        if norm_key(q["id"]) in seen:
+                            problems.append("planner/frontier/questions repeats the id " + str(q["id"]))
+                            break
+                        seen.add(norm_key(q["id"]))
         for t in d.get("queue") or []:
             if t.get("not_run") is not None and not (isinstance(t["not_run"], list) and all(isinstance(x, str) for x in t["not_run"])):
                 problems.append("task %s: not_run must be a list of run ids" % t.get("id"))
@@ -923,6 +1015,23 @@ def main():
             fail("KEY names the question or segment explored, e.g. needs:paying-for-memory-care")
         if not a.result.strip():
             fail("--result is required: the sources read with their dates, what qualified, what did not and why")
+        fq, verdict = None, ""
+        if avenue == "frontier":
+            fr = pl.get("frontier") if isinstance(pl.get("frontier"), dict) else {}
+            for q in fr.get("questions") or []:
+                if isinstance(q, dict) and norm_key("frontier:" + str(q.get("id"))) == key:
+                    fq = q
+                    break
+            if fq is None or fq.get("status") != "open":
+                out({"rejected": True, "reason": "a frontier exploration answers an open question of planner/frontier/"
+                     "questions and its KEY is frontier:<id>"
+                     + ("" if fq is None else " (%s is already %s)" % (fq.get("id"), fq.get("status"))),
+                     "next": frontier_view(d, now, run)["next"]}, 5)
+            verdict = a.verdict.strip().lower()
+            if verdict not in FR_VERDICTS:
+                fail("--verdict act|watch|drop is required for a frontier question: act (tasks, an asset, a handoff or a "
+                     "lettered decision came out of it), watch (--result names the event or date that reopens it) or "
+                     "drop (--result gives the reason)")
         fb = pl.setdefault("fallback", {})
         log = fb.setdefault("log", [])
         days = fb.get("explore_recheck_days", FB_RECHECK_DAYS)
@@ -938,6 +1047,10 @@ def main():
                  "candidates": max(0, a.candidates), "added": max(0, a.added), "result": short(a.result, 320)}
         if a.new_evidence.strip():
             entry["new_evidence"] = short(a.new_evidence, 160)
+        if fq is not None:
+            entry["verdict"] = verdict
+            fq.update({"status": "explored", "verdict": verdict, "explored_utc": fmt(now), "run": run,
+                       "added": max(0, a.added), "result": short(a.result, 600)})
         log.insert(0, entry)
         del log[FB_LOG_KEEP:]
         if a.added > 0:
@@ -954,7 +1067,49 @@ def main():
         out({"explored": key, "avenue": avenue, "added": max(0, a.added), "minutes": mins,
              "this_session": {"explorations": len(mine), "avenue_classes": classes,
                               "tasks_added": sum(int(e.get("added") or 0) for e in mine)},
-             "classes_still_needed_before_no_worthwhile_work": max(0, need - len(classes))})
+             "classes_still_needed_before_no_worthwhile_work": max(0, need - len(classes)),
+             "frontier": frontier_view(d, now, run) if avenue == "frontier" else None})
+
+    if cmd == "frontier-add":
+        pl = d.get("planner")
+        if not a.src or not isinstance(pl, dict):
+            fail("usage: frontier-add --from FILE (JSON object: question, lever, evidence, output, why "
+                 "[, id, priority 1-5, not_before_utc])")
+        new = load(a.src)
+        if not isinstance(new, dict) or not all(str(new.get(k) or "").strip() for k in ("question", "lever", "evidence", "output", "why")):
+            fail("the file needs question, lever, evidence, output and why (the evidence that suggested the question)")
+        fr = pl.setdefault("frontier", {"enabled": True, "questions": []})
+        qs = fr.setdefault("questions", [])
+
+        def words(t):
+            return set(re.findall(r"[a-z0-9]{4,}", str(t).lower()))
+
+        nw = words(new["question"])
+        for q in qs:
+            if not isinstance(q, dict):
+                continue
+            ow = words(q.get("question") or "")
+            if new.get("id") and norm_key(new["id"]) == norm_key(q.get("id") or ""):
+                out({"rejected": True, "reason": "id %s exists" % q.get("id")}, 5)
+            if nw and ow and len(nw & ow) / float(len(nw | ow)) >= 0.6:
+                out({"rejected": True, "reason": "too close to %s (%s): a frontier question is a genuinely new one, never "
+                     "a rewording" % (q.get("id"), q.get("status")), "existing": short(q.get("question") or "", 200)}, 5)
+        if sum(1 for q in qs if isinstance(q, dict) and q.get("status") == "open") >= FR_MAX_OPEN:
+            out({"rejected": True, "reason": "%d questions are open already: explore those first" % FR_MAX_OPEN}, 5)
+        nums = [int(m.group(1)) for m in (re.match(r"^F(\d+)$", str(q.get("id") or "")) for q in qs if isinstance(q, dict)) if m]
+        qid = str(new.get("id") or "F%02d" % ((max(nums) if nums else 0) + 1))
+        pr = new.get("priority")
+        row = {"id": qid, "priority": pr if isinstance(pr, int) and not isinstance(pr, bool) and 1 <= pr <= 5 else 3,
+               "lever": short(new["lever"], 40), "question": short(new["question"], 700),
+               "evidence": short(new["evidence"], 500), "output": short(new["output"], 400), "why": short(new["why"], 300),
+               "status": "open", "added_utc": fmt(now), "added_by": (controller(d)["lock"].get("holder") or "supervisor")}
+        if new.get("not_before_utc"):
+            if parse_ts(new["not_before_utc"]) is None:
+                fail("not_before_utc is unreadable")
+            row["not_before_utc"] = new["not_before_utc"]
+        qs.append(row)
+        save(target, d)
+        out({"added": qid, "open": sum(1 for q in qs if isinstance(q, dict) and q.get("status") == "open")})
 
     if cmd == "start":
         if not args:
@@ -1043,6 +1198,17 @@ def main():
                            "error or a refused permission prevents the cut, repeat close with --package-skipped "
                            "\"<the reason>\"." % st["package"]["key"],
                  "package": st["package"]}, 6)
+        if a.stop_reason in NO_WORK_REASONS and st["frontier"]["due"] and not a.fallback_skipped.strip():
+            out({"refused": True, "wrote": "nothing",
+                 "reason": "open frontier questions wait (planner/frontier): an empty queue, a cooldown or a pending "
+                           "approval does not end the search for genuinely new opportunities (Joseph, 26 Nov 2026). "
+                           "Before closing with %s, answer the first one: start explore:frontier:<id>, do the research "
+                           "its evidence field names, add what passes the gate, then explore frontier:<id> --avenue "
+                           "frontier --verdict act|watch|drop --candidates N --added N --result TEXT, and work what it "
+                           "added. If time, a usage limit, a store error or a refused permission prevents it, repeat "
+                           "close with --fallback-skipped \"<the reason>\"; if the session is out of time, close with "
+                           "--stop-reason time instead." % a.stop_reason,
+                 "next": st["frontier"]["next"]}, 6)
         if a.stop_reason in NO_WORK_REASONS and st["fallback"]["due"]:
             need = st["fallback"]["min_avenues"]
             skipped = a.fallback_skipped.strip()
@@ -1188,7 +1354,9 @@ def main():
                                              "done_today": st["package"]["done_today"]} if st["package"]["enabled"] else None,
                                  "backlog_discovery": {"explorations": len(mine), "avenue_classes": classes,
                                                        "tasks_added": sum(int(e.get("added") or 0) for e in mine),
-                                                       "concluded": fb_note}})
+                                                       "concluded": fb_note},
+                                 "frontier": {"explored": [e.get("key") for e in mine if e.get("avenue") == "frontier"],
+                                              "open_left": st["frontier"]["open"]} if st["frontier"]["enabled"] else None})
         del c["sessions"][80:]
         if c["lock"].get("holder") in ("", run):
             c["lock"] = {"holder": "", "utc": ""}
