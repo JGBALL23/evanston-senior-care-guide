@@ -193,25 +193,6 @@
    "note": "2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 1: #91 and #90 still open (checked 06:27Z), so the card change would still collide with the publish batch."
   },
   {
-   "id": "ACQ-172",
-   "task": "Review pull request against main: add one sourced section to does-medicare-pay-for-senior-care on choosing or changing a Medicare plan when a move may be coming (Open Enrollment 15 Oct-7 Dec, Medicare Advantage Open Enrollment 1 Jan-31 Mar, the Special Enrollment Periods for a parent who lives in or moves out of a nursing home or moves to a new address), with a link to the SHIP guide; reader check; into the 28 Nov package",
-   "workstream": "search",
-   "lane": "search",
-   "source": "plan",
-   "key": "frontier-F02-medicare-plan-choice-before-move",
-   "priority": 1,
-   "evidence": "Medicare.gov joining-a-plan and special-enrollment-periods pages read 2026-11-27; Medicare.gov SNF coverage page (MA may waive the 3-day stay); does-medicare-pay-for-senior-care draws 781 of 1,242 impressions (Make Search Console read 2026-11-25) and says nothing about enrollment periods (checked on main and on #89 head 9d57bf0); deadline 7 Dec",
-   "expected_tour_acquisition_value": "the page most families find gains the one dated, actionable step they can take this fortnight, which earns trust before the tour path below it",
-   "impact": 4,
-   "confidence": 3,
-   "effort": 2,
-   "executor": "worker (research and preparation only)",
-   "done_when": "review pull request open with checks passing, a verify-live task finished by an independent reader, PR number in the search lane's open_prs",
-   "score": 6.0,
-   "status": "ready",
-   "found_utc": "2026-11-27T06:39Z"
-  },
-  {
    "id": "ACQ-174",
    "task": "Verify the corrections to noticed-changes-in-parent-holiday-visit",
    "workstream": "build",
@@ -225,6 +206,21 @@
    "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
    "found_utc": "2026-11-27T06:42Z"
+  },
+  {
+   "id": "ACQ-175",
+   "task": "Verify the new section in does-medicare-pay-for-senior-care (PR #93, commit e4ad616)",
+   "workstream": "search",
+   "lane": "search",
+   "source": "followup",
+   "key": "verify-live:does-medicare-pay-for-senior-care:e4ad616",
+   "priority": 1,
+   "evidence": "PR #93 commit e4ad616 (ACQ-172)",
+   "expected_tour_acquisition_value": "quality gate before the package",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added in ops/reviews/live/does-medicare-pay-for-senior-care.md",
+   "status": "ready",
+   "found_utc": "2026-11-27T06:45Z"
   }
  ],
  "completed": [
@@ -5317,6 +5313,32 @@
    },
    "done_utc": "2026-11-27T06:42Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-172",
+   "task": "Review pull request against main: add one sourced section to does-medicare-pay-for-senior-care on choosing or changing a Medicare plan when a move may be coming (Open Enrollment 15 Oct-7 Dec, Medicare Advantage Open Enrollment 1 Jan-31 Mar, the Special Enrollment Periods for a parent who lives in or moves out of a nursing home or moves to a new address), with a link to the SHIP guide; reader check; into the 28 Nov package",
+   "workstream": "search",
+   "lane": "search",
+   "source": "plan",
+   "key": "frontier-F02-medicare-plan-choice-before-move",
+   "priority": 1,
+   "evidence": "Medicare.gov joining-a-plan and special-enrollment-periods pages read 2026-11-27; Medicare.gov SNF coverage page (MA may waive the 3-day stay); does-medicare-pay-for-senior-care draws 781 of 1,242 impressions (Make Search Console read 2026-11-25) and says nothing about enrollment periods (checked on main and on #89 head 9d57bf0); deadline 7 Dec",
+   "expected_tour_acquisition_value": "the page most families find gains the one dated, actionable step they can take this fortnight, which earns trust before the tour path below it",
+   "impact": 4,
+   "confidence": 3,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "review pull request open with checks passing, a verify-live task finished by an independent reader, PR number in the search lane's open_prs",
+   "score": 6.0,
+   "status": "done",
+   "found_utc": "2026-11-27T06:39Z",
+   "result": "Opened review PR #93 (branch claude/medicare-plan-choice-before-move, e4ad616, built on #89's verified head 9d57bf0 to avoid a sources-line conflict): one new section in does-medicare-pay-for-senior-care on Open Enrollment (15 Oct-7 Dec, change starts 1 Jan), Medicare Advantage Open Enrollment (1 Jan-31 Mar, MA members only), Special Enrollment Periods for a parent in or leaving a nursing home or rehab hospital and for a move outside the plan's area; link to the SHIP guide; two Medicare.gov sources. Rebuild clean; all suites pass; quotecheck 6/6. verify-live task added for the 28 Nov package.",
+   "deliverable": {
+    "type": "pr",
+    "ref": "#93"
+   },
+   "done_utc": "2026-11-27T06:45Z",
+   "minutes": 4
   }
  ],
  "blocked": [],
@@ -5327,7 +5349,7 @@
   "picked": "ACQ-150 done, ACQ-151 done, ACQ-152 done(reopened), ACQ-153 done, ACQ-154 done, ACQ-155 done, ACQ-156 done, ACQ-157 done, ACQ-158 done, ACQ-159 done, ACQ-160 done, ACQ-161 done, ACQ-162 done, ACQ-163 done(reopened), ACQ-164 waiting_on_data, ACQ-165 done, ACQ-166 done(reopened), ACQ-167 done, ACQ-168 done",
   "why": "Worked: 6 live-guide accuracy audits (4 corrected, incl. a wrong payer on hospice and home health; Access Evanston income limit), all reader-verified in #89; stopped: no-worthwhile-work; resume: package cut 27 Nov 05:00Z or #91 merge"
  },
- "last_verified_action": "ACQ-173 done 2026-11-27T06:42Z: Applied the packet's three corrections and five recommended additions to noticed-changes-in-parent-holiday-visit in one commit (drafts 5283618). Deviation: cor…",
+ "last_verified_action": "ACQ-172 done 2026-11-27T06:45Z: Opened review PR #93 (branch claude/medicare-plan-choice-before-move, e4ad616, built on #89's verified head 9d57bf0 to avoid a sources-line conflict): one new …",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -5993,14 +6015,15 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
-   "utc": "2026-11-27T06:42Z",
+   "utc": "2026-11-27T06:45Z",
    "since_utc": "2026-11-27T06:24Z",
-   "productive_min": 10,
+   "productive_min": 14,
    "deliverables": [
     "publish_pr:#91 a523b5e",
     "guide:drafts e9241f2",
     "review_packet:ops/reviews/noticed-changes-in-parent-holiday-visit.md",
-    "correction:drafts 5283618"
+    "correction:drafts 5283618",
+    "pr:#93"
    ]
   },
   "monitor": {
@@ -6925,9 +6948,10 @@
     "open_prs": [
      81,
      85,
-     92
+     92,
+     93
     ],
-    "owner_open": 3,
+    "owner_open": 4,
     "cooldown_until_utc": "2026-11-27T06:30Z",
     "last_planned_utc": "2026-11-25T06:30Z",
     "last_plan_result": "2026-11-25 06:3xZ crawl of the live sitemap (36 URLs): all 200, canonical self, one h1 each, descriptions 145-172 chars; only the home page and /assisted-living-evanston/ link to the local page on production because #85 is not merged or deployed. Every gap found is already tracked: titles 72-99 cha…"
