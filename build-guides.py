@@ -519,6 +519,10 @@ SRC = {
                       'https://ilaging.illinois.gov/resources/helpline-main.html'),
     "idoa_aaa_list": ('Illinois Department on Aging — Area Agencies on Aging list',
                       'https://ilaging.illinois.gov/forprofessionals/aaa-list.html'),
+    "mjoin": ('Medicare.gov — Joining a plan (enrollment periods)',
+              'https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan'),
+    "msep": ('Medicare.gov — Special Enrollment Periods',
+             'https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan/special-enrollment-periods'),
 }
 
 
@@ -759,7 +763,8 @@ GUIDES = [
                    "1&ndash;20 cost <strong>$0</strong>, days 21&ndash;100 cost "
                    "<strong>" + F["snf_coins"] + " each day</strong> in 2026, and from "
                    "day 101 you pay everything."),
-        "sources": srcs("mcosts", "msnf", "jimmo", "mltc", "mstatus", "mstatusfast"),
+        "sources": srcs("mcosts", "msnf", "jimmo", "mltc", "mstatus", "mstatusfast",
+                        "mjoin", "msep"),
         "body": [
             ("The distinction that decides everything", [
                 "<p>Medicare divides care into <em>skilled</em> and <em>custodial</em>, "
@@ -877,6 +882,78 @@ GUIDES = [
                 "given is that your parent is no longer improving, say the word "
                 "<em>Jimmo</em>, ask for the decision in writing, and ask how to appeal. "
                 "A written notice is what gives you weeks instead of days.</p>",
+            ]),
+            ("Choosing or changing a Medicare plan when a move may be coming", [
+                "<p>Medicare.gov sets the dates. During the Open Enrollment Period, "
+                "15 October to 7 December each year, your parent can join, drop or "
+                "switch Medicare Advantage plans and can &ldquo;Switch from Original "
+                "Medicare to a Medicare Advantage Plan or from a Medicare Advantage "
+                "Plan to Original Medicare.&rdquo; A change made then starts on "
+                "&ldquo;January 1 of the next year (the plan must get your request "
+                "to join by December 7)&rdquo;.</p>",
+                "<p>From 1 January to 31 March there is a second window, the Medicare "
+                "Advantage Open Enrollment Period, which Medicare.gov says is "
+                "&ldquo;only if you&rsquo;re already in a Medicare Advantage "
+                "Plan&rdquo;: your parent can switch to another Medicare Advantage "
+                "plan, or &ldquo;Drop your Medicare Advantage Plan and return to "
+                "Original Medicare.&rdquo; A parent who returns to Original Medicare "
+                "this way can also join a separate Medicare drug plan. A parent in "
+                "Original Medicare cannot use this window to join a plan.</p>",
+                "<p>Some moves open their own window. Medicare.gov lists a Special "
+                "Enrollment Period for someone who lives in, or recently moved out "
+                "of, an institution such as a nursing home or rehabilitation "
+                "hospital: &ldquo;Your chance to join, switch, or drop coverage lasts "
+                "as long as you live in the institution and for 2 full months after "
+                "the month you move out of the institution.&rdquo; A parent who moves "
+                "to an address outside their Medicare Advantage plan&rsquo;s service "
+                "area, for example to be near family in Evanston, can switch plans "
+                "too; Medicare.gov says that chance &ldquo;begins when you move and "
+                "continues for 2 full months after you move.&rdquo; If your parent "
+                "tells the plan before the move, that chance begins the month before "
+                "the month of the move. A parent who moves out of the plan&rsquo;s "
+                "area can also go back to Original Medicare, and one who joins no "
+                "new Medicare Advantage plan in that time is enrolled in Original "
+                "Medicare when the old plan drops them. A move to a new address "
+                "that is still in the plan&rsquo;s area but brings new plan options "
+                "opens a window to switch as well.</p>",
+                "<p>These address-move windows are for someone already in a plan. "
+                "The pages cited here list no window tied to the move for a parent "
+                "in Original Medicare with no plan who moves within the U.S. to "
+                "somewhere that is not an institution, such as assisted living; for "
+                "that parent, ask 1-800-MEDICARE or use the Open Enrollment Period. "
+                "(A parent moving back to the U.S. after living abroad has 2 full "
+                "months after the month of the move to join a plan.)</p>",
+                "<p>A parent with Medicaid or Extra Help has one more option. For "
+                "them, the Special Enrollment Periods page says: &ldquo;If you have "
+                "Medicaid or get Extra Help, you can make changes to your coverage "
+                "once a calendar month.&rdquo; The changes it lists are switching to "
+                "a different Medicare drug plan, or dropping a Medicare Advantage "
+                "plan with drug coverage and returning to Original Medicare by "
+                "joining a stand-alone Medicare drug plan. Another listing of the same "
+                "window on that page also allows joining a drug plan, and says "
+                "&ldquo;The change will take effect on the first day of the next "
+                "month.&rdquo; The page adds that this window is not open to someone "
+                "identified as a &ldquo;potential at-risk beneficiary&rdquo; or "
+                "&ldquo;at-risk beneficiary&rdquo; under a Part D drug management "
+                "program; the plan sends a letter if so. A parent with Medicare and "
+                "full Medicaid can also join or switch to an integrated Dual Eligible "
+                "Special Needs Plan (D-SNP), where one is available, once a calendar "
+                "month. The page adds: &ldquo;Remember, not all D-SNPs are "
+                "integrated.&rdquo; It says to contact the D-SNP plan you are "
+                "interested in, or 1-800-MEDICARE for a list of integrated D-SNPs. "
+                "For how that works in Illinois, see "
+                '<a href="/guides/illinois-fide-snp-explained/">the guide to FIDE '
+                "SNPs</a>.</p>",
+                "<p>Why it matters before a move: as the sections above say, the rules "
+                "for a skilled nursing stay differ in a Medicare Advantage plan (a "
+                "plan may waive the three-day hospital stay, and some plans charge "
+                "copayments during the first 20 days), and the plan your parent holds "
+                "when they need that stay is the one whose rules apply. For questions about enrollment "
+                "changes, Medicare.gov gives 1-800-MEDICARE (1-800-633-4227). In "
+                "Illinois, free one-to-one help comparing plans comes from the "
+                "state&rsquo;s counsellors: see "
+                '<a href="/guides/illinois-senior-health-insurance-program/">Who '
+                "helps my parent choose a Medicare plan for free in Illinois?</a>.</p>",
             ]),
             ("So who does pay for assisted living?", [
                 "<p>Three realistic sources. Private funds, including savings, pension "
