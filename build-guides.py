@@ -6491,8 +6491,8 @@ GUIDES = [
         "title": "Noticed Changes in a Parent Over the Holidays? Next Steps",
         "h1": "You noticed changes in your parent during a holiday visit. What should you do next?",
         "desc": ("A first-week plan for Illinois families: what to write down, the "
-                 "Medicare Wellness visit and its memory check, and who to call, "
-                 "read off Medicare.gov and the Department on Aging."),
+                 "Medicare Wellness visit and its memory check, and who to call "
+                 "first."),
         "intent": "first steps after noticing a decline",
         "answer": ("<strong>Write down what you saw, book an appointment with your "
                    "parent&rsquo;s doctor about it, and, if your parent lives in "
