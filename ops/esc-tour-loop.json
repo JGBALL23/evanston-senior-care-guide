@@ -193,23 +193,19 @@
    "note": "2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 1: #91 and #90 still open (checked 06:27Z), so the card change would still collide with the publish batch."
   },
   {
-   "id": "ACQ-170",
-   "task": "Build a guide on drafts: you noticed changes in your parent during a holiday visit; what to do next in Illinois (what to write down, the Medicare yearly Wellness visit and its cognitive assessment, the Senior HelpLine and suburban Cook County's Area Agency on Aging, the Community Care Program, Adult Protective Services for self-neglect)",
+   "id": "ACQ-171",
+   "task": "Review noticed-changes-in-parent-holiday-visit under the review rules",
    "workstream": "build",
    "lane": "build",
-   "source": "plan",
-   "key": "frontier-F01-holiday-visit-changes",
-   "priority": 2,
-   "evidence": "Web results read 2026-11-27 for 'signs aging parent needs help holiday visit' and a North Shore variant: provider blogs dominate, including a senior-living chain with Highland Park, Glenview and Park Ridge pages on noticing changes in a parent; no official-source Illinois page; strategy/calendar moment holiday-visits (late Nov to 1 Jan); no guide on main or drafts covers the moment (closest: levels-of-senior-care-explained, a definitional comparison; illinois-community-care-program, one programme); earlier post text for the moment exists (ACQ-035).",
-   "expected_tour_acquisition_value": "adult children who first see the need at a holiday visit reach a sourced next-steps page that points to the assessment and the tour checklist while they are deciding, in the weeks when many act",
-   "impact": 4,
-   "confidence": 3,
-   "effort": 3,
+   "source": "followup",
+   "key": "review:noticed-changes-in-parent-holiday-visit",
+   "priority": 1,
+   "evidence": "build commit e9241f2 on drafts (ACQ-170)",
+   "expected_tour_acquisition_value": "quality gate before publication",
    "executor": "worker (research and preparation only)",
-   "done_when": "guide built with build-guides.py on drafts under ROUTINE.md, five checks and quotecheck pass, DEMAND line under Done in the build commit, review:<slug> task added",
-   "score": 4.0,
+   "done_when": "packet at ops/reviews/noticed-changes-in-parent-holiday-visit.md with its counts and verdict",
    "status": "ready",
-   "found_utc": "2026-11-27T06:31Z"
+   "found_utc": "2026-11-27T06:35Z"
   }
  ],
  "completed": [
@@ -5223,6 +5219,42 @@
    },
    "done_utc": "2026-11-27T06:29Z",
    "minutes": 0
+  },
+  {
+   "id": "ACQ-170",
+   "task": "Build a guide on drafts: you noticed changes in your parent during a holiday visit; what to do next in Illinois (what to write down, the Medicare yearly Wellness visit and its cognitive assessment, the Senior HelpLine and suburban Cook County's Area Agency on Aging, the Community Care Program, Adult Protective Services for self-neglect)",
+   "workstream": "build",
+   "lane": "build",
+   "source": "plan",
+   "key": "frontier-F01-holiday-visit-changes",
+   "priority": 2,
+   "evidence": "Web results read 2026-11-27 for 'signs aging parent needs help holiday visit' and a North Shore variant: provider blogs dominate, including a senior-living chain with Highland Park, Glenview and Park Ridge pages on noticing changes in a parent; no official-source Illinois page; strategy/calendar moment holiday-visits (late Nov to 1 Jan); no guide on main or drafts covers the moment (closest: levels-of-senior-care-explained, a definitional comparison; illinois-community-care-program, one programme); earlier post text for the moment exists (ACQ-035).",
+   "expected_tour_acquisition_value": "adult children who first see the need at a holiday visit reach a sourced next-steps page that points to the assessment and the tour checklist while they are deciding, in the weeks when many act",
+   "impact": 4,
+   "confidence": 3,
+   "effort": 3,
+   "executor": "worker (research and preparation only)",
+   "done_when": "guide built with build-guides.py on drafts under ROUTINE.md, five checks and quotecheck pass, DEMAND line under Done in the build commit, review:<slug> task added",
+   "score": 4.0,
+   "status": "done",
+   "found_utc": "2026-11-27T06:31Z",
+   "result": "Built noticed-changes-in-parent-holiday-visit on drafts (e9241f2): first-week plan after a holiday visit shows changes: notes keyed to Medicare.gov's cognitive-impairment signs; the yearly Wellness visit and its cognitive assessment (Part B costs scoped, MA members told to ask the plan); separate cognitive assessment visit (20% after deductible); Senior HelpLine 1-800-252-8966 with hours and what to have ready; AgeOptions for suburban Cook (IDoA AAA list); CCP eligibility as IDoA lists it; private Home Services Agencies; APS hotline 1-866-800-1409. Links only to live guides. Refused: a 'call 911' line (not on a fetched page). Checks: build 46 URLs; test.js 669/669; check-guides 2802/0; citations 114 resolve; mobile-nav SKIPPED (websockets); quotecheck 15/15. DEMAND Done line in the same commit.",
+   "deliverable": {
+    "type": "guide",
+    "ref": "drafts e9241f2"
+   },
+   "sources": [
+    "https://www.medicare.gov/coverage/yearly-wellness-visits",
+    "https://www.medicare.gov/coverage/cognitive-assessment-care-plan-services",
+    "https://ilaging.illinois.gov/resources/helpline-main.html",
+    "https://ilaging.illinois.gov/forprofessionals/areaagenciesonaging.html",
+    "https://ilaging.illinois.gov/forprofessionals/aaa-list.html",
+    "https://ilaging.illinois.gov/programs/ccp.html",
+    "https://ilaging.illinois.gov/programs/caregiver/in-home-care.html",
+    "https://ilaging.illinois.gov/programs/adult-protective-services-aps-.html"
+   ],
+   "done_utc": "2026-11-27T06:35Z",
+   "minutes": 4
   }
  ],
  "blocked": [],
@@ -5233,7 +5265,7 @@
   "picked": "ACQ-150 done, ACQ-151 done, ACQ-152 done(reopened), ACQ-153 done, ACQ-154 done, ACQ-155 done, ACQ-156 done, ACQ-157 done, ACQ-158 done, ACQ-159 done, ACQ-160 done, ACQ-161 done, ACQ-162 done, ACQ-163 done(reopened), ACQ-164 waiting_on_data, ACQ-165 done, ACQ-166 done(reopened), ACQ-167 done, ACQ-168 done",
   "why": "Worked: 6 live-guide accuracy audits (4 corrected, incl. a wrong payer on hospice and home health; Access Evanston income limit), all reader-verified in #89; stopped: no-worthwhile-work; resume: package cut 27 Nov 05:00Z or #91 merge"
  },
- "last_verified_action": "ACQ-169 done 2026-11-27T06:29Z: Package re-cut for 27 Nov: #91 (branch claude/package-20261125) now a523b5e. Merged origin/main (unchanged, 4dc2468) and #89's eight commits 99cc346..9d57bf0, …",
+ "last_verified_action": "ACQ-170 done 2026-11-27T06:35Z: Built noticed-changes-in-parent-holiday-visit on drafts (e9241f2): first-week plan after a holiday visit shows changes: notes keyed to Medicare.gov's cognitive…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -5899,11 +5931,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
-   "utc": "2026-11-27T06:32Z",
+   "utc": "2026-11-27T06:35Z",
    "since_utc": "2026-11-27T06:24Z",
-   "productive_min": 3,
+   "productive_min": 7,
    "deliverables": [
-    "publish_pr:#91 a523b5e"
+    "publish_pr:#91 a523b5e",
+    "guide:drafts e9241f2"
    ]
   },
   "monitor": {
@@ -6774,7 +6807,7 @@
     "owner_wip_limit": 30,
     "plan_cooldown_hours": 12,
     "open_prs": [],
-    "owner_open": 6,
+    "owner_open": 7,
     "cooldown_until_utc": "2026-11-27T05:34Z",
     "last_planned_utc": "2026-11-26T17:34Z",
     "last_plan_result": "26 Nov 17:45Z: no new Search Console read since 25 Nov 20:35Z (already examined 26 Nov 01:35Z: the Medicare/assisted-living/nursing-home queries land on does-medicare-pay-for-senior-care, VA caregiver queries on va-caregiver-support-program, meals/QMB/advance-directive queries on existing guides; '…",
