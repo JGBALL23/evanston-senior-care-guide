@@ -6494,17 +6494,22 @@ GUIDES = [
                  "Medicare Wellness visit and its memory check, and who to call, "
                  "read off Medicare.gov and the Department on Aging."),
         "intent": "first steps after noticing a decline",
-        "answer": ("<strong>Write down what you saw, book your parent&rsquo;s doctor, "
-                   "and make one call to the state&rsquo;s Senior HelpLine.</strong> "
+        "answer": ("<strong>Write down what you saw, book an appointment with your "
+                   "parent&rsquo;s doctor about it, and, if your parent lives in "
+                   "Illinois, make one call to the Illinois Department on "
+                   "Aging&rsquo;s Senior HelpLine.</strong> "
                    "Medicare Part B covers a yearly &ldquo;Wellness&rdquo; visit in "
                    "which the provider will &ldquo;Perform a cognitive assessment to "
                    "look for signs of dementia, including Alzheimer&rsquo;s "
                    "disease.&rdquo; The Illinois Department on Aging&rsquo;s Senior "
                    "HelpLine, 1-800-252-8966, says its staff can &ldquo;evaluate your "
                    "needs and answer your questions&rdquo; and connect you with local "
-                   "care coordination services. If you fear your parent is in danger "
-                   "or neglecting themselves, the 24-hour Adult Protective Services "
-                   "Hotline is 1-866-800-1409."),
+                   "care coordination services. If you fear that your parent, aged 60 or "
+                   "older and living in their own home in Illinois, is being abused, "
+                   "neglected or exploited or is neglecting themselves, the statewide "
+                   "24-hour Adult Protective Services Hotline is 1-866-800-1409; for a "
+                   "parent in a nursing home, the guide to reporting elder abuse covers "
+                   "the other hotline."),
         "sources": srcs("medicare_awv", "medicare_cog", "idoa_helpline",
                         "idoa_aaa", "idoa_aaa_list", "idoa_ccp", "idoa_inhome", "idoa_aps_program"),
         "body": [
@@ -6547,8 +6552,21 @@ GUIDES = [
                 "place within 12 months of Part B enrollment or the &ldquo;Welcome to "
                 "Medicare&rdquo; preventive visit, and that &ldquo;If you have "
                 "specific concerns about your health, you should schedule a separate "
-                "appointment to discuss those&rdquo;. If what you saw is a specific "
-                "worry, say so when you book.</p>",
+                "appointment to discuss those&rdquo;. What you noticed is a specific "
+                "concern, so ask for a separate appointment to discuss it rather than "
+                "relying on the Wellness visit alone. For a parent with Medicare Part "
+                "B, the cognitive assessment page says Part B covers a separate visit "
+                "with a health care provider to fully review cognitive function and "
+                "develop a care plan; after the Part B deductible, your parent pays "
+                "20% of the Medicare-approved amount.</p>",
+                "<p>Medicare.gov also says that if the provider performs tests or "
+                "services Medicare doesn&rsquo;t cover during the Wellness visit, "
+                "&ldquo;like a routine physical exam&rdquo;, your parent may have to "
+                "pay the full amount. Some people living with dementia and their "
+                "unpaid caregivers may be able to get extra support through a "
+                "Medicare pilot program called the Guiding an Improved Dementia "
+                "Experience (GUIDE) Model; Medicare.gov says to ask the provider "
+                "whether they take part.</p>",
                 "<p>You can go too. The cognitive assessment page says: &ldquo;When "
                 "you have an assessment, you can bring someone with you (like a "
                 "spouse, friend, or caregiver) to help listen to information and "
@@ -6556,6 +6574,10 @@ GUIDES = [
                 "there.</p>",
             ]),
             ("Make one call: the Senior HelpLine", [
+                "<p>The HelpLine and the other programs below are Illinois programs for "
+                "people who live in Illinois; the Department&rsquo;s pages do not say "
+                "whom to call for a parent in another state. Both the Department and "
+                "Medicare.gov link to the federal Eldercare Locator for that.</p>",
                 "<p>The Illinois Department on Aging runs a Senior HelpLine at "
                 "1-800-252-8966, Monday through Friday, from 8:30 a.m. to 5:00 p.m.; "
                 "people who are deaf or have speech impairments can dial 711 "
@@ -6565,14 +6587,16 @@ GUIDES = [
                 "provide helpful information, assistance, and literature.&rdquo; Its "
                 "staff write referrals for care coordination services, the Long-Term "
                 "Care Ombudsman program, legal services, transportation, employment "
-                "and nutrition services.</p>",
+                "and nutrition services, and they also handle abuse intake.</p>",
                 "<p>The HelpLine page lists what it is helpful to have when you call: "
                 "your parent&rsquo;s name, age and address, the services they already "
                 "receive, and daytime telephone numbers.</p>",
                 "<p>Illinois is divided into 13 areas, each served by an Area Agency "
                 "on Aging. For suburban Cook County, the Department&rsquo;s list names "
                 "AgeOptions, Inc., at 1-800-699-9043 (for the suburban Cook County "
-                "area only) or 708-383-0258. The Department notes that Area Agencies "
+                "area only) or 708-383-0258; for a parent in the City of Chicago, it names "
+                "the Chicago Department of Family and Support Services, 312-746-5682. "
+                "The Department notes that Area Agencies "
                 "&ldquo;are not, as a rule, direct service providers&rdquo;: they "
                 "contract with local agencies that serve older people in their own "
                 "communities.</p>",
@@ -6600,6 +6624,11 @@ GUIDES = [
                 "to employ home care aides for help with daily activities and "
                 "personal care, and that &ldquo;Clients served by Home Services "
                 "Agencies pay out-of-pocket for care.&rdquo;</p>",
+                "<p>If a relative would rather give the care, the same page says the "
+                "Community Care Program allows a family member, including a spouse, "
+                "to be paid, once they meet its qualifications, pass a background "
+                "check, complete 24 hours of pre-service training and are hired and "
+                "supervised by an In-Home Services agency.</p>",
             ]),
             ("If you are worried about safety right now", [
                 "<p>The Department on Aging&rsquo;s Adult Protective Services program "
