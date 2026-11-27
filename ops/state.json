@@ -2,7 +2,7 @@
   "schema": 1,
   "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
   "updated_utc": "2026-11-18T23:05Z",
-  "last_run_utc": "2026-11-27T18:16Z",
+  "last_run_utc": "2026-11-27T19:25Z",
   "facebook": {
     "access": {
       "value": "yes",
@@ -500,7 +500,6 @@
     ]
   },
   "log": [
-    "2026-11-22T00:06Z Sat 18:05 Chicago: extension not linked all day; Winnetka post not confirmed by Joseph; no replies; sleep until Sun 9:00 Chicago (Rogers Park post due after 17:29Z if linked)",
     "2026-11-22T15:08Z Winnetka post P-1120-01 live (template A, fb-wnk-1120); extension reconnected Sun morning",
     "2026-11-22T15:20Z lead scan 11 groups, 361 posts, 1 new lead (in-home caregiver request, Glenview-Northbrook; no reply allowed there; Joseph alerted)",
     "2026-11-22T15:30Z checks: Wilmette post no longer visible to its author anywhere (likely admin removal, no notice); Evanston/Skokie and North Shore posts still live; Rogers Park post moved to Monday",
@@ -539,7 +538,8 @@
     "2026-11-27T02:27Z fb-nsh-1126 APPROVED and live (seen); pushed Joseph; no org replies",
     "2026-11-27T03:34Z late lead scan 11 groups, 188 posts, 0 new leads; fb-nsh-1126 live 0 reactions/0 comments; no org replies; sleeping to Fri 15:00Z",
     "2026-11-27T15:07Z Fri morning: identity ok; lead scan 11 groups 383 posts 0 leads; fb-nsh-1126 and fb-evsk-1125 0 reactions/0 comments; venue search (caregivers/Evanston seniors) found only already-rejected groups; no org replies; no post (5-in-7 cap to 29 Nov 15:08Z)",
-    "2026-11-27T18:16Z midday check: no org replies; nothing else due before 19:20Z scan"
+    "2026-11-27T18:16Z midday check: no org replies; nothing else due before 19:20Z scan",
+    "2026-11-27T19:25Z afternoon lead scan 11 groups 230 posts 0 leads (1 filter hit: unhoused older man, not a care lead); no org replies; Make.com receipt seen in guide inbox (not operator action), Joseph notified once"
   ],
   "next_actions": [
     "Fri 19:20Z afternoon lead scan; ~23:30Z evening scan",
@@ -667,7 +667,7 @@
   "due": {
     "post_next": "2026-11-29T15:10Z",
     "fb_checks": "2026-11-27T21:15Z",
-    "lead_scan": "2026-11-27T19:20Z",
+    "lead_scan": "2026-11-27T23:25Z",
     "metrics": "2026-11-19T00:05Z",
     "venues": "2026-12-04T15:00Z",
     "evanston_join_status": "2026-11-19T15:00Z",
