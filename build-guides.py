@@ -340,6 +340,8 @@ SRC = {
                         'for Long Term Supports and Services',
                         'https://hfs.illinois.gov/content/dam/soi/en/web/hfs/sitecollectiondocuments/'
                         'ltc_faq.pdf'),
+    "hfs_fed_medicaid_faq": ('Illinois HFS — How will Federal changes impact Medicaid?',
+                             'https://hfs.illinois.gov/info/fedresctr/faqshowwillfedchimpactmedicaid.html'),
     "gac_fact_sheet": ('Illinois Guardianship and Advocacy Commission — Office of State Guardian, '
                        'Guardianship fact sheet',
                        'https://gac.illinois.gov/osg/guardianship-fact-sheet.html'),
@@ -5658,7 +5660,7 @@ GUIDES = [
         "bridge": ("Getting the application decided is a different question from "
                    "knowing whether a nursing home is the right level of care for "
                    "your parent in the first place."),
-        "reviewed": "2026-11-24",
+        "reviewed": "2026-11-27",
         "title": "Medicaid Pending in an Illinois Nursing Home: Who Pays, How Long",
         "h1": "My parent is in an Illinois nursing home and Medicaid is still pending. What happens now?",
         "desc": ("How long Illinois has to decide a long-term care Medicaid "
@@ -5676,11 +5678,12 @@ GUIDES = [
                    "threshold.&rdquo; Meanwhile, the HFS brochure for nursing "
                    "home applicants says eligibility &ldquo;usually begins with "
                    "the month you apply&rdquo; and can reach back up to three "
-                   "months before it, and that your parent &ldquo;may also be "
+                   "months before it (HFS says that falls to two months from 1 "
+                   "January 2027), and that your parent &ldquo;may also be "
                    "responsible to pay for some of your long term care "
                    "services.&rdquo;"),
         "sources": srcs("oag_ltc_2025", "hfs_pe_notice_2023", "hfs_pe_faq",
-                        "hfs_3191", "hfs_abe_ltc_faq", "hfs_ltc_clients",
+                        "hfs_3191", "hfs_fed_medicaid_faq", "hfs_abe_ltc_faq", "hfs_ltc_clients",
                         "idoa_resident_rights_brochure"),
         "body": [
             ("How long Illinois has to decide, and how long it really takes", [
@@ -5757,6 +5760,13 @@ GUIDES = [
                 "you meet all the eligibility requirements,&rdquo; and that "
                 "&ldquo;you may be eligible for medical benefits for up to "
                 "three months before the month you apply.&rdquo;</p>",
+                "<p>That brochure predates a federal change. HFS&rsquo;s page on "
+                "how federal changes affect Illinois Medicaid states: "
+                "&ldquo;Effective January 1, 2027, retroactive coverage will be "
+                "decreased from 3 months to 2 months for all Illinois Medicaid "
+                "customers.&rdquo; For an application made in 2027 or later, "
+                "count on at most two months of coverage before the month you "
+                "apply, not three.</p>",
                 "<p>The same brochure advises: &ldquo;If possible, do not pay "
                 "your medical bills until you learn whether or not you are "
                 "eligible for medical benefits from the state.&rdquo; It "
