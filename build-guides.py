@@ -849,7 +849,10 @@ GUIDES = [
                 "program; the plan sends a letter if so. A parent with Medicare and "
                 "full Medicaid can also join or switch to an integrated Dual Eligible "
                 "Special Needs Plan (D-SNP), where one is available, once a calendar "
-                "month; for how that works in Illinois, see "
+                "month. The page adds: &ldquo;Remember, not all D-SNPs are "
+                "integrated.&rdquo; It says to contact the D-SNP plan you are "
+                "interested in, or 1-800-MEDICARE for a list of integrated D-SNPs. "
+                "For how that works in Illinois, see "
                 '<a href="/guides/illinois-fide-snp-explained/">the guide to FIDE '
                 "SNPs</a>.</p>",
                 "<p>Why it matters before a move: as the sections above say, the rules "
