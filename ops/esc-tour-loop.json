@@ -191,6 +191,25 @@
    "waiting_for": "PR #91 (or #90) merged, so that a card change no longer collides with the open publish batch in the built /guides/ index",
    "not_before_utc": "2026-11-28T06:30Z",
    "note": "2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 1: #91 and #90 still open (checked 06:27Z), so the card change would still collide with the publish batch."
+  },
+  {
+   "id": "ACQ-170",
+   "task": "Build a guide on drafts: you noticed changes in your parent during a holiday visit; what to do next in Illinois (what to write down, the Medicare yearly Wellness visit and its cognitive assessment, the Senior HelpLine and suburban Cook County's Area Agency on Aging, the Community Care Program, Adult Protective Services for self-neglect)",
+   "workstream": "build",
+   "lane": "build",
+   "source": "plan",
+   "key": "frontier-F01-holiday-visit-changes",
+   "priority": 2,
+   "evidence": "Web results read 2026-11-27 for 'signs aging parent needs help holiday visit' and a North Shore variant: provider blogs dominate, including a senior-living chain with Highland Park, Glenview and Park Ridge pages on noticing changes in a parent; no official-source Illinois page; strategy/calendar moment holiday-visits (late Nov to 1 Jan); no guide on main or drafts covers the moment (closest: levels-of-senior-care-explained, a definitional comparison; illinois-community-care-program, one programme); earlier post text for the moment exists (ACQ-035).",
+   "expected_tour_acquisition_value": "adult children who first see the need at a holiday visit reach a sourced next-steps page that points to the assessment and the tour checklist while they are deciding, in the weeks when many act",
+   "impact": 4,
+   "confidence": 3,
+   "effort": 3,
+   "executor": "worker (research and preparation only)",
+   "done_when": "guide built with build-guides.py on drafts under ROUTINE.md, five checks and quotecheck pass, DEMAND line under Done in the build commit, review:<slug> task added",
+   "score": 4.0,
+   "status": "ready",
+   "found_utc": "2026-11-27T06:31Z"
   }
  ],
  "completed": [
@@ -5880,9 +5899,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
-   "utc": "2026-11-27T06:29Z",
+   "utc": "2026-11-27T06:32Z",
    "since_utc": "2026-11-27T06:24Z",
-   "productive_min": 0,
+   "productive_min": 3,
    "deliverables": [
     "publish_pr:#91 a523b5e"
    ]
@@ -7229,9 +7248,20 @@
    "explore_recheck_days": 14,
    "exhausted_base_hours": 12,
    "exhausted_max_hours": 96,
-   "exhausted_until_utc": "2026-11-27T06:01Z",
+   "exhausted_until_utc": "",
    "empty_streak": 0,
    "log": [
+    {
+     "utc": "2026-11-27T06:32Z",
+     "run": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
+     "key": "frontier-f01",
+     "avenue": "frontier",
+     "lane": null,
+     "candidates": 2,
+     "added": 1,
+     "result": "Read 2026-11-27: web results for 'signs aging parent needs help holiday visit' and 'noticed changes in mom at Thanksgiving ... assisted living Evanston' (provider and chain blogs, including North Shore town pages of a senior-living chain; no official Illinois page); live guides on main and drafts (no page for the mome…",
+     "verdict": "act"
+    },
     {
      "utc": "2026-11-26T17:49Z",
      "run": "cse_014eaiSan3kSKEb4rtUHknYk",
@@ -7507,9 +7537,14 @@
      "evidence": "Results pages and autocomplete for eight to ten such searches as they read today; public questions dated November to January of earlier years (kind of venue and date only, never a name or a link to a person's post); the queries of the newest Search Console read; the live guides and the open package.",
      "output": "At most one page built on drafts if a real gap shows (lane build), and one post text prepared for the operator under step 8's rules that opens with this moment; or the verdict that live pages already answer it, naming them.",
      "why": "Holiday visits are when adult children first see the need, and January is when many act. The window opened on 26 Nov.",
-     "status": "open",
+     "status": "explored",
      "added_utc": "2026-11-27T01:18Z",
-     "added_by": "supervisor"
+     "added_by": "supervisor",
+     "verdict": "act",
+     "explored_utc": "2026-11-27T06:32Z",
+     "run": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
+     "added": 1,
+     "result": "Read 2026-11-27: web results for 'signs aging parent needs help holiday visit' and 'noticed changes in mom at Thanksgiving ... assisted living Evanston' (provider and chain blogs, including North Shore town pages of a senior-living chain; no official Illinois page); live guides on main and drafts (no page for the moment; levels-of-senior-care-explained is definitional); Search Console read 25 Nov (no holiday query yet, read predates the moment). Sources usable on allowed hosts: Medicare.gov yearly Wellness visit and cognitive assessment pages, IDoA Senior HelpLine, AAA list (AgeOptions, subur…"
     },
     {
      "id": "F02",
