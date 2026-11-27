@@ -6271,6 +6271,16 @@
     "status": "watch",
     "note": "27 Nov (frontier F06, worker cse_014eaiSbgkYkmzevMK2yQoyV): results for assisted living <town> and <town> cost are all referral directories; no independent official-source explainer. But a town page under PRIMARY_HOSTS could cite only IDPH and CareScout (a keyword variant of /assisted-living-evanston/), township and village sites are not allowed hosts, and Search Console shows no query naming these towns. Report: drafts e514821 research/north-shore-town-pages.md. Reopen when SC shows a query naming one of these towns, or the owner approves township/village hosts; then one North Shore page, Niles Township towns first.",
     "checked_utc": "2026-11-27T18:36Z"
+   },
+   {
+    "id": "R11",
+    "lane": "referral_partnerships",
+    "class": "move-moment professionals not yet on the map: daily money managers, hospice and palliative care teams, home-modification services",
+    "status": "drop",
+    "note": "27 Nov (frontier F11, worker cse_014eaiSeGWreJzfEyfVMTtWN): hospice: JourneyCare (Chicago-region, Deerfield office) /resources/ lists only national websites, looks unmaintained (2021 footer, dead-era entries), route is a general contact form; hospice families are past the senior-living decision: DROP. Daily money managers: AADMM find-a-dmm is a login widget not readable here; the one nearby listing found is a care-advocacy firm (R4 class); no local DMM with a client-resources page: WATCH, reopen only for a named local DMM that publishes client resources. Home modification: only paid remodelers in Evanston results; Rebuilding Together Metro Chicago Safe at Home serves South and West Sides; SRAL LIFE Center list is providers only: DROP. Senior move managers and estate-sale firms are R6, parish nurses D12 (not re-proposed). Gmail Sent: none to these.",
+    "checked_utc": "2026-11-27T20:00Z",
+    "added_utc": "2026-11-27T20:00Z",
+    "source": "frontier F11"
    }
   ],
   "channel_yield": [
@@ -6556,9 +6566,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeGWreJzfEyfVMTtWN",
-   "utc": "2026-11-27T19:58Z",
+   "utc": "2026-11-27T20:00Z",
    "since_utc": "2026-11-27T19:57Z",
-   "productive_min": 2
+   "productive_min": 4
   },
   "monitor": {
    "last_utc": "2026-11-27T18:25Z"
@@ -8227,6 +8237,17 @@
    "empty_streak": 0,
    "log": [
     {
+     "utc": "2026-11-27T20:00Z",
+     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+     "key": "frontier-f11",
+     "avenue": "frontier",
+     "lane": null,
+     "candidates": 6,
+     "added": 0,
+     "result": "Read 27 Nov 2026: journeycare.org /resources/ and /hospice-locations/ (national-only list, stale, contact form only); secure.aadmm.com find-a-dmm (login widget, unreadable); web results for daily money managers in Evanston/Wilmette/Skokie/Glenview/Winnetka (one Skokie advocacy firm, R4 class); home-modification result…",
+     "verdict": "drop"
+    },
+    {
      "utc": "2026-11-27T19:58Z",
      "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
      "key": "frontier-f10",
@@ -8780,9 +8801,14 @@
      "evidence": "Their own sites; national association directories filtered to Evanston and the North Shore; the map's dropped classes (never a variation of one).",
      "output": "Verdicts per class in the map; at most three proposals before a response is seen.",
      "why": "Referrals from people families already trust convert better than cold visits.",
-     "status": "open",
+     "status": "explored",
      "added_utc": "2026-11-27T01:18Z",
-     "added_by": "supervisor"
+     "added_by": "supervisor",
+     "verdict": "drop",
+     "explored_utc": "2026-11-27T20:00Z",
+     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+     "added": 0,
+     "result": "Read 27 Nov 2026: journeycare.org /resources/ and /hospice-locations/ (national-only list, stale, contact form only); secure.aadmm.com find-a-dmm (login widget, unreadable); web results for daily money managers in Evanston/Wilmette/Skokie/Glenview/Winnetka (one Skokie advocacy firm, R4 class); home-modification results (paid remodelers; Rebuilding Together Metro Chicago serves South/West Sides). Senior move managers/estate sales = R6, parish nurses = D12, not re-proposed. Gmail Sent none. 0 ACT; map item R11 (hospice DROP, DMM WATCH for a named local DMM with client resources, home mods DROP)."
     },
     {
      "id": "F12",
