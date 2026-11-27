@@ -104,7 +104,8 @@
   "assessment_completions": null,
   "tour_form_views": null,
   "tour_requests": 0,
-  "genuine_detail": "26 Nov 17:32Z-27 Nov 06:25Z: all 25 browser script loads (app.js) came from one client address: one returning direct visitor viewing the home page about 18 times over 11 hours (2 direct landed beacons, 1 tour-questions view, 1 costs view); 1 checklist PDF open from a Facebook link (fbclid, no ref tag); a 7-page burst at 22:02:27Z in 30 ms is automated (not counted); 0 tour POSTs"
+  "genuine_detail": "26 Nov 17:32Z-27 Nov 06:25Z: all 25 browser script loads (app.js) came from one client address: one returning direct visitor viewing the home page about 18 times over 11 hours (2 direct landed beacons, 1 tour-questions view, 1 costs view); 1 checklist PDF open from a Facebook link (fbclid, no ref tag); a 7-page burst at 22:02:27Z in 30 ms is automated (not counted); 0 tour POSTs",
+  "tour_path_read": "TOUR-PATH READ (worker, 27 Nov 2026, frontier F03): the site records each tour-path step as a GET of a beacon file /t/<event>.txt?s=<arrival tag> (app.js, assessment.js, paying-nav.js on main). Read them with the Netlify observability tool: get-topk, query_name urls_with_query, one URL filter per event (filters on the same field are ORed), e.g. https://evanstonseniorcareguide.com/t/checklist-click.txt, /t/assessment-started.txt, /t/assessment-completed.txt, /t/direct-inquiry-form-view.txt, /t/plan-visit-form-view.txt, /t/inquiry-submitted.txt, /t/landed.txt, /t/viewed-tour-questions.txt. The key's ?s= value is the arrival channel. An event absent from the result had 0 requests in the window: record 0, not null. Map: checklist_opens = checklist-click beacons (plus browser fetches of the PDF from an outside link such as fbclid, named in the note); assessment_starts = assessment-started; tour_form_views = direct-inquiry-form-view + plan-visit-form-view; tour_requests = inquiry-submitted (Gmail stays the check). Netlify keeps 24 hours, so a window older than that stays null."
  },
  "summary": {
   "last_utc": "2026-11-19T01:24Z",
@@ -210,6 +211,7 @@
  },
  "demand_candidates": [],
  "log": [
+  "2026-11-27T06:58Z worker: tour-path beacon read found (Netlify urls_with_query filtered by /t/<event>.txt); 26 Nov row filled: 0 assessment starts, 0 tour-form views; convention in metrics/tour_path_read",
   "2026-11-27T06:27Z worker monitor: site OK (no 5xx); 2 genuine visitors (1 returning direct, 1 Facebook checklist open); 0 tour requests; 0 org replies; no merges (#78-#92 open, all clean; package #91 waiting); Search Console read 25 Nov 20:35Z already recorded; operator last run 03:34Z",
   "2026-11-26T17:35Z worker monitor: site OK (no 5xx, 0 browser 404s); 6 genuine visitors (5 fb-nsh-1126, 1 direct); 0 tour requests; 0 org replies; no merges (#78-#92 open, all clean; package #91 waiting); Search Console read 25 Nov 20:35Z already recorded; operator last run 17:08Z",
   "2026-11-26T00:28Z worker monitor: site OK (no 5xx); 5 genuine visitors 25 Nov (3 fb-evsk-1125, 1 search, 1 direct); 0 tour requests; 0 org replies; no merges (#78-#91 open, all clean); Search Console read 20:35Z recorded (1242 impressions, 2 clicks, 28-day); operator last run 23:37Z",
@@ -268,8 +270,7 @@
   "2026-11-22T17:40Z run: site OK; 0 genuine, 0 tour requests; no org replies; loop idle since 00:37Z with no ready item -> created opportunity_map (statuses corrected from Gmail Sent/state: D7 and D9 partly touched, R1 count 6 of 11 sends) and queued map tasks ACQ-018 (D7 local news routes), ACQ-019 (S3 local-intent demand), ACQ-020 (D9 employer elder-care pages) in one loop commit",
   "2026-11-22T19:24Z run: site OK; 0 genuine (30 automated req); no org replies/inquiries; no merges; loop idle by design (no ready, no open map item, next events 25 Nov), no loop write",
   "2026-11-22T20:23Z run: site OK; 0 genuine (54 automated req incl. Meta re-scrape of fb-evsk-1117 that fired beacons from Meta IPs - beacon counts this hour are not visitors); no org replies/inquiries; no merges; loop idle by design, no loop write",
-  "2026-11-22T21:23Z run: site OK; 0 genuine (31 automated req); no org replies/inquiries; no merges (PR #86 open); loop idle with no ready item -> one loop commit 186b7ba: discovery scouts created, ACQ-031 SC1 / ACQ-032 SC2 / ACQ-033 SC4 ready, Joseph's 22 Nov answers recorded (ACQ-007 -> PR #86; D7 essay draft with him), 22 Nov worker timestamps corrected from commit times",
-  "2026-11-22T22:25Z run: site OK; 0 genuine (59 automated req incl. loop worker HeadlessChrome test of fb-hol-test); no org replies/inquiries; no merges (PR #86 open); loop idle by design after ACQ-034 (no ready, no open map item, no scout due until SC3 25 Nov 16:00Z), no loop write"
+  "2026-11-22T21:23Z run: site OK; 0 genuine (31 automated req); no org replies/inquiries; no merges (PR #86 open); loop idle with no ready item -> one loop commit 186b7ba: discovery scouts created, ACQ-031 SC1 / ACQ-032 SC2 / ACQ-033 SC4 ready, Joseph's 22 Nov answers recorded (ACQ-007 -> PR #86; D7 essay draft with him), 22 Nov worker timestamps corrected from commit times"
  ],
  "facebook_interruptions_past": [
   {
@@ -321,10 +322,10 @@
      "other": 2
     },
     "checklist_opens": 1,
-    "assessment_starts": null,
-    "tour_form_views": null,
+    "assessment_starts": 0,
+    "tour_form_views": 0,
     "tour_requests": 0,
-    "note": "18:25 Chicago 25 Nov to 00:25 Chicago 27 Nov; fb-nsh-1126 post 5, 1 direct; search referrals not separable (null); 0 tour POSTs; +17:32Z 26 Nov-06:25Z 27 Nov: 1 returning direct visitor (many home views, 1 tour-questions view), 1 Facebook checklist PDF open (fbclid, untagged); 0 tour POSTs"
+    "note": "18:25 Chicago 25 Nov to 00:25 Chicago 27 Nov; fb-nsh-1126 post 5, 1 direct; search referrals not separable (null); 0 tour POSTs; +17:32Z 26 Nov-06:25Z 27 Nov: 1 returning direct visitor (many home views, 1 tour-questions view), 1 Facebook checklist PDF open (fbclid, untagged); 0 tour POSTs; tour-path beacons read 27 Nov 06:58Z for 05:20Z 26 Nov-06:20Z 27 Nov: 0 checklist-click, 0 assessment-started, 0 tour-form views, 0 inquiry-submitted (checklist_opens 1 = a Facebook-linked PDF fetch)"
    },
    {
     "date_chicago": "2026-11-25",

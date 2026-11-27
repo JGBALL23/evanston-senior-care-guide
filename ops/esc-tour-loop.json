@@ -6234,7 +6234,7 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
-   "utc": "2026-11-27T07:01Z",
+   "utc": "2026-11-27T07:02Z",
    "since_utc": "2026-11-27T06:24Z",
    "productive_min": 23,
    "deliverables": [
@@ -6254,7 +6254,11 @@
     "publish_pr:#90 eea57b7",
     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
     "correction:#93 28897f1"
-   ]
+   ],
+   "current": {
+    "what": "ACQ-185",
+    "since_utc": "2026-11-27T07:01Z"
+   }
   },
   "monitor": {
    "last_utc": "2026-11-27T06:26Z"
@@ -7616,6 +7620,17 @@
    "empty_streak": 0,
    "log": [
     {
+     "utc": "2026-11-27T07:02Z",
+     "run": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
+     "key": "frontier-f03",
+     "avenue": "frontier",
+     "lane": null,
+     "candidates": 1,
+     "added": 0,
+     "result": "Read 2026-11-27: main's app.js, assessment.js and paying-nav.js send each tour-path step as a GET of /t/<event>.txt?s=<tag> (18 events, incl. checklist-click, assessment-started, direct-inquiry-form-view, plan-visit-form-view, inquiry-submitted); Netlify observability get-topk urls_with_query with OR-ed URL filters re…",
+     "verdict": "act"
+    },
+    {
      "utc": "2026-11-27T06:59Z",
      "run": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
      "key": "needs-adult-day-services-evanston",
@@ -7956,9 +7971,14 @@
      "evidence": "The site's code on main (the tracking calls in the pages and the functions under netlify/functions), the privacy notice, the Netlify observability tool's request counts by path, and ops/cloud.json before 23 Nov (how the earlier hourly task filled those fields).",
      "output": "The read working in the monitoring pass, with its convention written into cloud.json; or, if no read path exists inside ROLE AND LIMITS, one lettered decision naming the smallest change that would give one. Never a change to what the site collects.",
      "why": "Conversion work is blind without it, and the north star is tour requests.",
-     "status": "open",
+     "status": "explored",
      "added_utc": "2026-11-27T01:18Z",
-     "added_by": "supervisor"
+     "added_by": "supervisor",
+     "verdict": "act",
+     "explored_utc": "2026-11-27T07:02Z",
+     "run": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
+     "added": 0,
+     "result": "Read 2026-11-27: main's app.js, assessment.js and paying-nav.js send each tour-path step as a GET of /t/<event>.txt?s=<tag> (18 events, incl. checklist-click, assessment-started, direct-inquiry-form-view, plan-visit-form-view, inquiry-submitted); Netlify observability get-topk urls_with_query with OR-ed URL filters returns per-event, per-tag counts (24 h: landed 3 direct + 3 fb-nsh-1126, viewed-tour-questions 1, all tour-path steps 0). The earlier nulls came from reading only the page topk. Read now working: convention written to cloud.json metrics/tour_path_read and the 26 Nov row filled (0 …"
     },
     {
      "id": "F04",
