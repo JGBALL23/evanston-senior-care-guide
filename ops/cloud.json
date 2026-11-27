@@ -825,6 +825,15 @@
      "position": 45.0
     }
    ]
+  },
+  "outside_links": {
+   "checked_utc": "2026-11-27T20:13Z",
+   "by": "worker frontier F16 (cse_014eaiSeGWreJzfEyfVMTtWN)",
+   "placements_live": 0,
+   "linking_domains": [],
+   "unlinked_mentions": [],
+   "method": "web searches for \"evanstonseniorcareguide.com\" and \"Evanston Senior Care Guide\" (27 Nov 2026: no result names the site); direct reads of the pages organizations were asked to list it on: City of Evanston Dementia Friendly resources (200, no mention), Glenview PL older-adult resources (200, none), Open Communities resources (200, none), Wilmette PL home (200, none); scoreboard.daily by_source.referral = 0 on every row 22-27 Nov",
+   "not_seen": "Netlify keeps 24 hours, so referrers 1-21 Nov are only in earlier daily rows (none kept before 22 Nov); Search Console's links report is not in Make's read; nssc.org 403, villageofglencoe.org 403, cje.net 406, nsvn.org unreachable from here; EPL directory 404"
   }
  }
 }

@@ -6653,9 +6653,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeGWreJzfEyfVMTtWN",
-   "utc": "2026-11-27T20:12Z",
+   "utc": "2026-11-27T20:13Z",
    "since_utc": "2026-11-27T19:57Z",
-   "productive_min": 17,
+   "productive_min": 18,
    "deliverables": [
     "correction:drafts dad7c20",
     "verification:ops/reviews/illinois-medicaid-pending-nursing-home.md",
@@ -8329,6 +8329,17 @@
    "empty_streak": 0,
    "log": [
     {
+     "utc": "2026-11-27T20:13Z",
+     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+     "key": "frontier-f16",
+     "avenue": "frontier",
+     "lane": null,
+     "candidates": 0,
+     "added": 0,
+     "result": "27 Nov 2026: exact-phrase searches for the domain and the site name return no page naming it; target pages read directly (Evanston Dementia Friendly resources, Glenview PL older-adult resources, Open Communities resources, Wilmette PL) carry no mention; referral visitors 0 in every scoreboard.daily row 22-27 Nov. plac…",
+     "verdict": "watch"
+    },
+    {
      "utc": "2026-11-27T20:12Z",
      "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
      "key": "frontier-f09",
@@ -9006,9 +9017,14 @@
      "evidence": "Searches for the site's name and its address in quotation marks; Netlify's referrers since 1 Nov. (Search Console's links report is not part of Make's read: say what could not be seen.)",
      "output": "placements_live in the scoreboard totals set from evidence, with the linking domains in cloud.json; for an unlinked mention on an organization's page, one proposal for the operator.",
      "why": "The count of outside listings is a measure of the plan and is unknown today.",
-     "status": "open",
+     "status": "explored",
      "added_utc": "2026-11-27T01:18Z",
-     "added_by": "supervisor"
+     "added_by": "supervisor",
+     "verdict": "watch",
+     "explored_utc": "2026-11-27T20:13Z",
+     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+     "added": 0,
+     "result": "27 Nov 2026: exact-phrase searches for the domain and the site name return no page naming it; target pages read directly (Evanston Dementia Friendly resources, Glenview PL older-adult resources, Open Communities resources, Wilmette PL) carry no mention; referral visitors 0 in every scoreboard.daily row 22-27 Nov. placements_live = 0 from evidence; cloud.json scoreboard.outside_links written with method and what could not be seen (Search Console links report, Netlify before 24h, nssc.org/glencoe 403, cje 406, nsvn unreachable). No unlinked mention, so no proposal. Reopens with a referral visit…"
     },
     {
      "id": "F17",
