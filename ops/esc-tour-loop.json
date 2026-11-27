@@ -193,19 +193,19 @@
    "note": "2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 1: #91 and #90 still open (checked 06:27Z), so the card change would still collide with the publish batch."
   },
   {
-   "id": "ACQ-194",
+   "id": "ACQ-196",
    "task": "Verify the corrections to home-care-or-assisted-living-illinois",
    "workstream": "build",
    "lane": "build",
    "source": "followup",
-   "key": "verify:home-care-or-assisted-living-illinois:7dfe57f",
+   "key": "verify:home-care-or-assisted-living-illinois:2dd30a6",
    "priority": 1,
-   "evidence": "drafts 7dfe57f",
+   "evidence": "drafts 2dd30a6",
    "expected_tour_acquisition_value": "quality gate before publication",
    "executor": "worker (research and preparation only)",
    "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
-   "found_utc": "2026-11-27T19:24Z"
+   "found_utc": "2026-11-27T19:27Z"
   }
  ],
  "completed": [
@@ -5791,6 +5791,50 @@
    },
    "done_utc": "2026-11-27T19:24Z",
    "minutes": 2
+  },
+  {
+   "id": "ACQ-194",
+   "task": "Verify the corrections to home-care-or-assisted-living-illinois",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "verify:home-care-or-assisted-living-illinois:7dfe57f",
+   "priority": 1,
+   "evidence": "drafts 7dfe57f",
+   "expected_tour_acquisition_value": "quality gate before publication",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-27T19:24Z",
+   "result": "Independent reader (agent in cse_014eaiSah6rgKCpixbDvmA6L) checked drafts 7dfe57f: quotecheck 12/12, 9/9 pages readable; 12 of 15 changed claims same scope. Reopened: short-answer CCP sentence omits the citizenship condition; short answer and night bullet name only Medicare Advantage where Medicare.gov says 'a Medicare Advantage Plan (Part C) or another Medicare health plan'.",
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/home-care-or-assisted-living-illinois.md (Reader check 2026-11-27)"
+   },
+   "done_utc": "2026-11-27T19:26Z",
+   "minutes": 2
+  },
+  {
+   "id": "ACQ-195",
+   "task": "Re-correct home-care-or-assisted-living-illinois per the reader check of 7dfe57f (CCP citizenship condition; 'or another Medicare health plan' in short answer and night bullet)",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "recorrect:home-care-or-assisted-living-illinois:7dfe57f",
+   "priority": 1,
+   "evidence": "ops/reviews/home-care-or-assisted-living-illinois.md Reader check 2026-11-27",
+   "expected_tour_acquisition_value": "makes the page publish-ready",
+   "executor": "worker (research and preparation only)",
+   "done_when": "three sentences corrected on drafts with checks passing; verify task added",
+   "status": "done",
+   "found_utc": "2026-11-27T19:26Z",
+   "result": "Applied the reader check's three corrections on drafts as 2dd30a6: short answer CCP sentence now includes 'is a U.S. citizen or an eligible non-citizen'; short answer and night bullet now say 'a Medicare Advantage Plan or another Medicare health plan'. Checks: build, test.js 669/669, check-guides 2860/0, citations resolve, quotecheck 12/12. Verify task queued.",
+   "deliverable": {
+    "type": "correction",
+    "ref": "drafts 2dd30a6"
+   },
+   "done_utc": "2026-11-27T19:27Z",
+   "minutes": 1
   }
  ],
  "blocked": [],
@@ -5801,7 +5845,7 @@
   "picked": "ACQ-190 done",
   "why": "Worked: sourcing-page review PR #94 (frontier F04), North Shore town-page report (F06 watch), monitor clean; stopped: no-worthwhile-work; resume: 19:06Z planning and sweeps"
  },
- "last_verified_action": "ACQ-193 done 2026-11-27T19:24Z: Applied the packet's 6 required corrections and 6 recommended additions to home-care-or-assisted-living-illinois on drafts as 7dfe57f: Original Medicare (Part …",
+ "last_verified_action": "ACQ-195 done 2026-11-27T19:27Z: Applied the reader check's three corrections on drafts as 2dd30a6: short answer CCP sentence now includes 'is a U.S. citizen or an eligible non-citizen'; short…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -6483,14 +6527,16 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSah6rgKCpixbDvmA6L",
-   "utc": "2026-11-27T19:24Z",
+   "utc": "2026-11-27T19:27Z",
    "since_utc": "2026-11-27T19:12Z",
    "deliverables": [
     "resource:drafts 73e991c",
     "review_packet:ops/reviews/home-care-or-assisted-living-illinois.md",
-    "correction:drafts 7dfe57f"
+    "correction:drafts 7dfe57f",
+    "verification:ops/reviews/home-care-or-assisted-living-illinois.md (Reader check 2026-11-27)",
+    "correction:drafts 2dd30a6"
    ],
-   "productive_min": 2
+   "productive_min": 5
   },
   "monitor": {
    "last_utc": "2026-11-27T18:25Z"
