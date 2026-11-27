@@ -5137,7 +5137,8 @@ GUIDES = [
                    "and Medicaid coverage is a different question from knowing "
                    "whether the care it arranges is still the right amount of "
                    "help."),
-        "reviewed": "2026-11-17",
+        "reviewed": "2026-11-27",
+        "listed": "2026-11-17",
         "title": "Illinois FIDE SNP: What Replaced MMAI for Dual-Eligible Seniors",
         "h1": "What happened to my parent&rsquo;s MMAI plan, and what is a FIDE SNP?",
         "desc": ("Illinois ended MMAI on 31 December 2025. What a FIDE SNP is, "
@@ -5215,8 +5216,25 @@ GUIDES = [
                 "you were already enrolled in Medicare as of July 4, 2025, you "
                 "can keep your coverage until January 4, 2027, when it "
                 "ends.&rdquo; A parent who is lawfully present under another "
-                "status may therefore lose Medicare, and with it a FIDE SNP, on "
-                "that date.</p>",
+                "status may therefore lose Medicare on that date.</p>",
+                "<p>Medicaid narrowed earlier. The same HFS page says that "
+                "&ldquo;Beginning October 1, 2026, only the following noncitizens "
+                "will keep Medicaid coverage&rdquo;: lawful permanent residents "
+                "who have met, or are not subject to, the five-year waiting "
+                "period, Cuban/Haitian entrants and people from Micronesia, Palau "
+                "or the Marshall Islands, along with children, pregnant "
+                "individuals and some state-funded programs. Because a FIDE SNP "
+                "requires full Illinois Medicaid, a parent outside those groups "
+                "no longer meets that condition from 1 October 2026. HFS says "
+                "such a person receives a notice and, if their status cannot be "
+                "verified right away, 90 days to send current immigration "
+                "documents. If you are unsure of your parent&rsquo;s status, HFS "
+                "lists its Health Benefits Hotline, 1-877-805-5312 (TTY "
+                "1-877-204-1012), and the IDHS Customer Help Line, "
+                "1-800-843-6154 (TTY 1-877-734-7429). It also says "
+                "&ldquo;Emergency Medicaid will continue to be available for "
+                "qualifying emergency medical needs regardless of noncitizen "
+                "status.&rdquo;</p>",
                 "<p>HFS says a person is not eligible if they are under 21, "
                 "receive developmental disability institutional services or "
                 "take part in the HCBS waiver for Adults with Developmental "
