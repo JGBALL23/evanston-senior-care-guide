@@ -588,6 +588,10 @@ TOUR_ASK = ('<p class="narrow-p tour-ask">Visiting Westminster Place in Evanston
 GUIDES = [
     {
         "slug": "assisted-living-cost-illinois",
+        # Accuracy audit 2026-11-27 (ops/reviews/live/assisted-living-cost-illinois.md
+        # C1): the Trulee Evanston prices were read on 12 Nov 2026, not on the
+        # review date, as the page's own example paragraph and source lines say.
+        "figures_except": "Trulee Evanston’s advertised prices, read on 12 November 2026",
         "after_section": {"The four costs that surprise families": TOUR_CHECKLIST + TOUR_ASK},
         "bridge": ("A price only means something once you know which kind of care "
                "you are pricing. The same parent can be quoted wildly different "
