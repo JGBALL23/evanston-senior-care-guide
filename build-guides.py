@@ -436,6 +436,10 @@ SRC = {
                          'https://hfs.illinois.gov/medicalprograms/slf/residentfactsheet.html'),
     "idph_dementia_2025": ('Illinois Department of Public Health — Dementia Annual Report: Dementia Capability in Illinois 2025',
                            'https://dph.illinois.gov/content/dam/soi/en/web/idph/publications/idph/topics-and-services/diseases-and-conditions/alzheimers/dementia-capability-report-2025.pdf'),
+    "mjoin": ('Medicare.gov — Joining a plan (enrollment periods)',
+              'https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan'),
+    "msep": ('Medicare.gov — Special Enrollment Periods',
+             'https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan/special-enrollment-periods'),
 }
 
 
@@ -670,7 +674,8 @@ GUIDES = [
                    "1&ndash;20 cost <strong>$0</strong>, days 21&ndash;100 cost "
                    "<strong>" + F["snf_coins"] + " each day</strong> in 2026, and from "
                    "day 101 you pay everything."),
-        "sources": srcs("mcosts", "msnf", "jimmo", "mltc", "mstatus", "mstatusfast"),
+        "sources": srcs("mcosts", "msnf", "jimmo", "mltc", "mstatus", "mstatusfast",
+                        "mjoin", "msep"),
         "body": [
             ("The distinction that decides everything", [
                 "<p>Medicare divides care into <em>skilled</em> and <em>custodial</em>, "
@@ -788,6 +793,42 @@ GUIDES = [
                 "given is that your parent is no longer improving, say the word "
                 "<em>Jimmo</em>, ask for the decision in writing, and ask how to appeal. "
                 "A written notice is what gives you weeks instead of days.</p>",
+            ]),
+            ("Choosing or changing a Medicare plan when a move may be coming", [
+                "<p>Medicare.gov sets the dates. During the Open Enrollment Period, "
+                "15 October to 7 December each year, your parent can join, drop or "
+                "switch Medicare Advantage plans and can &ldquo;Switch from Original "
+                "Medicare to a Medicare Advantage Plan or from a Medicare Advantage "
+                "Plan to Original Medicare.&rdquo; A change made then starts on "
+                "&ldquo;January 1 of the next year (the plan must get your request "
+                "to join by December 7)&rdquo;.</p>",
+                "<p>From 1 January to 31 March there is a second window, the Medicare "
+                "Advantage Open Enrollment Period, which Medicare.gov says is "
+                "&ldquo;only if you&rsquo;re already in a Medicare Advantage "
+                "Plan&rdquo;: your parent can switch to another Medicare Advantage "
+                "plan, or &ldquo;Drop your Medicare Advantage Plan and return to "
+                "Original Medicare.&rdquo; A parent in Original Medicare cannot use "
+                "it to join a plan.</p>",
+                "<p>A move opens its own window. Medicare.gov lists a Special "
+                "Enrollment Period for someone who lives in, or recently moved out "
+                "of, an institution such as a nursing home or rehabilitation "
+                "hospital: &ldquo;Your chance to join, switch, or drop coverage lasts "
+                "as long as you live in the institution and for 2 full months after "
+                "the month you move out of the institution.&rdquo; A parent who moves "
+                "to an address outside their Medicare Advantage plan&rsquo;s service "
+                "area, for example to be near family in Evanston, can switch plans "
+                "too; Medicare.gov says that chance &ldquo;begins when you move and "
+                "continues for 2 full months after you move.&rdquo;</p>",
+                "<p>Why it matters before a move: as the sections above say, the rules "
+                "for a skilled nursing stay differ in a Medicare Advantage plan (a "
+                "plan may waive the three-day hospital stay, and some plans charge "
+                "copayments during the first 20 days), and the plan your parent holds "
+                "when they need that stay is the one whose rules apply. For questions about enrollment "
+                "changes, Medicare.gov gives 1-800-MEDICARE (1-800-633-4227). In "
+                "Illinois, free one-to-one help comparing plans comes from the "
+                "state&rsquo;s counsellors: see "
+                '<a href="/guides/illinois-senior-health-insurance-program/">Who '
+                "helps my parent choose a Medicare plan for free in Illinois?</a>.</p>",
             ]),
             ("So who does pay for assisted living?", [
                 "<p>Three realistic sources. Private funds, including savings, pension "
