@@ -6665,7 +6665,7 @@
    "holder": "cse_014eaiSeGWreJzfEyfVMTtWN",
    "utc": "2026-11-27T20:14Z",
    "since_utc": "2026-11-27T19:57Z",
-   "productive_min": 20,
+   "productive_min": 21,
    "deliverables": [
     "correction:drafts dad7c20",
     "verification:ops/reviews/illinois-medicaid-pending-nursing-home.md",
@@ -8339,6 +8339,17 @@
    "empty_streak": 0,
    "log": [
     {
+     "utc": "2026-11-27T20:15Z",
+     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+     "key": "frontier-f13",
+     "avenue": "frontier",
+     "lane": null,
+     "candidates": 4,
+     "added": 0,
+     "result": "Read 27 Nov 2026: IDPH Assisted Living/Shared Housing page and its Public Data Assets 'Tracking' page (directory is an interactive application; no current file); data.illinois.gov assisted-living listing (last updated 24 Jun 2019, stale, not citable as current). Where to read inspection results: already plain on live …",
+     "verdict": "watch"
+    },
+    {
      "utc": "2026-11-27T20:14Z",
      "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
      "key": "frontier-f20",
@@ -9024,9 +9035,14 @@
      "evidence": "The official data sources as they read today; what local pages and local news cited in the last year.",
      "output": "A research report and at most one neutral facts page on drafts (counts and where to look, never a ranking).",
      "why": "Plain local facts are what other sites cite.",
-     "status": "open",
+     "status": "explored",
      "added_utc": "2026-11-27T01:18Z",
-     "added_by": "supervisor"
+     "added_by": "supervisor",
+     "verdict": "watch",
+     "explored_utc": "2026-11-27T20:15Z",
+     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+     "added": 0,
+     "result": "Read 27 Nov 2026: IDPH Assisted Living/Shared Housing page and its Public Data Assets 'Tracking' page (directory is an interactive application; no current file); data.illinois.gov assisted-living listing (last updated 24 Jun 2019, stale, not citable as current). Where to read inspection results: already plain on live check-illinois-inspection-records and /assisted-living-evanston/. Township program offices and Cook County senior-exemption deadlines: on township and cookcountyassessoril.gov sites outside the allowed citation hosts (T2 note; needs-cook-county-senior-exemption-after-move 26 Nov)…"
     },
     {
      "id": "F14",
