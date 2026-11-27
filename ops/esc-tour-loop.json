@@ -6713,7 +6713,7 @@
   "low_water": 3,
   "min_score": 2.0,
   "budget_note": "Usage reserve, not a task cap: the worker, Joseph's own chats, the drafts routine, the Daily Report and the outreach operator all share one Claude Max allowance (a 5-hour window and a weekly limit that resets Monday 4:00 am Chicago). The worker stops starting sessions once its sessions add up to budget_hours_per_day in the last 24 hours (and budget_hours_per_week in 7 days, when set), then resumes on its own. Starting value 6 hours per 24 hours, to be calibrated against the usage readings. Joseph changes it with one word.",
-  "how_to_use": "When status shows plan.due (fewer than low_water items in the pipeline and at least one lane neither waiting on Joseph nor cooling down), plan for at most two plannable lanes, best measured outcome first (python3 ops/loopctl.py outcomes --days 28: lane_visitors, plus 10 per inquiry and 5 per organization reply attributed to the lane), then by order. Gather the lane's evidence, put every candidate through the gate, add the survivors with source plan, then record the pass with plan-done. Finding nothing is a complete result and puts the lane on cooldown. A lane whose owner_wip reaches its limit takes no new tasks until Joseph or the operator clears items. Since 24 Nov 2026 (v4.3.2): when the pipeline is under low_water and no planning pass or sweep is left, status shows fallback.due and the session runs the independent backlog fallback, recording each avenue with explore (see planner/fallback/how).",
+  "how_to_use": "When status shows plan.due (fewer than low_water items in the pipeline and at least one lane neither waiting on Joseph nor cooling down), plan for at most two plannable lanes, best measured outcome first (python3 ops/loopctl.py outcomes --days 28: lane_visitors, plus 10 per inquiry and 5 per organization reply attributed to the lane), then by order. Gather the lane's evidence, put every candidate through the gate, add the survivors with source plan, then record the pass with plan-done. Finding nothing is a complete result and puts the lane on cooldown. A lane whose owner_wip reaches its limit takes no new tasks until Joseph or the operator clears items. Since 24 Nov 2026 (v4.3.2): when the pipeline is under low_water and no planning pass or sweep is left, status shows fallback.due and the session runs the independent backlog fallback, recording each avenue with explore (see planner/fallback/how). Since 27 Nov 2026 (v4.4): everything inside the open daily package counts as one item against a lane's limit (planner/package/counts_as_one); strategy holds the 12-month plan that ranks candidates; planner/frontier holds genuinely new opportunity questions, answered one per session before a session may stop for lack of work.",
   "gate": "A candidate becomes a task only if all hold: (1) concrete evidence with its source and date, never a guess; (2) a stated, plausible effect on qualified visitors, inquiries, referrals or tours; (3) not already queued, done, dropped or waiting (dupes and key); (4) its output is a change, a business asset (guide, FAQ, checklist, comparison or research resource that families or Joseph will use), a prepared handoff or a verdict someone can act on, never only an internal note, a rewording or a cosmetic change; (5) the worker can finish it within ROLE AND LIMITS; (6) impact x confidence / effort (each 1-5) of at least min_score.",
   "lanes": [
    {
@@ -6724,14 +6724,14 @@
     "evidence": "Every evidence source the sweep angles use (public family questions, Search Console, search presence, competitor gaps, measured channel results) plus the guide index on main and drafts.",
     "output": "One verified asset per task on drafts, built to ROUTINE.md's quality rules and registered in DEMAND.md's Done list (procedure step 7 BUILD).",
     "outcome": "assets that, once Joseph publishes them, earn search visitors and tour-path clicks",
-    "owner_wip_limit": 10,
+    "owner_wip_limit": 30,
     "plan_cooldown_hours": 12,
     "open_prs": [],
     "owner_open": 6,
     "cooldown_until_utc": "2026-11-27T05:34Z",
     "last_planned_utc": "2026-11-26T17:34Z",
     "last_plan_result": "26 Nov 17:45Z: no new Search Console read since 25 Nov 20:35Z (already examined 26 Nov 01:35Z: the Medicare/assisted-living/nursing-home queries land on does-medicare-pay-for-senior-care, VA caregiver queries on va-caregiver-support-program, meals/QMB/advance-directive queries on existing guides; '…",
-    "wip_note": "owner_open counts worker-built assets on drafts that are not on main yet; at 10 the lane waits for Joseph to publish"
+    "wip_note": "owner_open counts worker-built assets on drafts that are not on main yet. Limit 30 since 27 Nov 2026 (was 10): the assets wait inside the daily package, which is one decision for Joseph, and a pending approval does not stop evidence-backed building (his words of 24 and 26 Nov). The evidence rules decide what is built, not the count."
    },
    {
     "id": "publish",
@@ -7130,6 +7130,30 @@
     "next_check_utc": "2026-11-29T06:34Z",
     "last_result": "Covered by this session's technical planning crawl (26 Nov): 36 live URLs 200, internal links all resolve, main's suites pass; only bot-blocked third-party pages (403) and ilga.gov (unreachable here). Clean.",
     "last_added": 0
+   },
+   {
+    "id": "page-ladder",
+    "lane": "search",
+    "priority": 1,
+    "recheck_hours": 168,
+    "enabled": true,
+    "question": "Using the newest Search Console read: which rung is each live page on (1 indexed, 2 impressions, 3 average position 20 or better, 4 position 10 or better, 5 clicks, 6 tour-path clicks), and for the five pages closest to the next rung (impressions times closeness), what single change would move each one up: a first-screen answer in the words of its top queries, a question families ask that it does not answer, a link from a related live guide, a clearer title or description?",
+    "evidence": "ops/cloud.json scoreboard (search_console, search_console_pages, search_console_queries: Make's weekly read); the live page; today's results page for its top query (what the pages above it answer that ours does not); strategy/ladder/pages (each page's last recorded rung and change).",
+    "output": "At most three tasks a pass (lane search): one change per page as a small tested review pull request against main whose body gives the rung before, the evidence and the rung expected after. Never an element that is pending in the open package or was changed in the last 28 days: record the rung again after two reads and measure first. Record each page's rung and change in strategy/ladder/pages. No new read since the last pass is a one-line result.",
+    "why": "Compounding (Joseph, 26 Nov 2026: build upon previous work): the same pages improve read after read instead of new pages starting from zero.",
+    "next_check_utc": "2026-11-27T01:18Z"
+   },
+   {
+    "id": "seasonal",
+    "lane": "build",
+    "priority": 1,
+    "recheck_hours": 168,
+    "enabled": true,
+    "question": "Which dated moments in the next 45 days change what Evanston and North Shore families search, ask or decide about senior care (strategy/calendar/moments, plus local events), and for each one: does a live or packaged page answer it, and is a post ready for the operator at least ten days ahead?",
+    "evidence": "strategy/calendar/moments; the official page for each date as it reads today; Search Console queries from the same weeks; public questions from that season in earlier years (kind of venue and date only); the calendar scout's findings (SC4).",
+    "output": "Per moment at most one task: a page built on drafts (lane build) or a sourced addition to a live page (review pull request), and one post text or handoff prepared for the operator under step 8's rules. Add newly found dated moments to strategy/calendar/moments with their source. A moment with a page and a post ready is a one-line result.",
+    "why": "Demand follows the calendar, and work prepared ahead is reused every year.",
+    "next_check_utc": "2026-11-27T01:18Z"
    }
   ],
   "sweep_log": [
@@ -7434,10 +7458,249 @@
     "05:00",
     "10:30"
    ],
-   "about": "The daily approval package (procedure step 7, DAILY PACKAGE). status shows package.due inside this UTC window while no task keyed package:YYYYMMDD is finished for the date; close refuses (exit 6) until the cut is done or --package-skipped gives the reason. Outside the window nothing is cut, so the package Joseph's 11:44 UTC report shows is the one he merges."
+   "about": "The daily approval package (procedure step 7, DAILY PACKAGE). status shows package.due inside this UTC window while no task keyed package:YYYYMMDD is finished for the date; close refuses (exit 6) until the cut is done or --package-skipped gives the reason. Outside the window nothing is cut, so the package Joseph's 11:44 UTC report shows is the one he merges.",
+   "counts_as_one": true,
+   "counts_as_one_why": "Since 27 Nov 2026: pull requests that reach Joseph inside the open daily package are one decision (one merge), so the helper counts them once against a lane's owner limit. His words: \"a pending approval blocks only the affected action, not independent business work\" (24 Nov) and a pending approval \"should not prevent you from exploring genuinely new opportunities\" (26 Nov). The affected action stays blocked: never a second change to an element that is pending in the package."
   },
   "make_ops_per_day": 13,
-  "make_ops_about": "Daily budget of Make operations for the worker's sessions (3 per session start, 2 per closing report that does not chain), counted by the helper from 05:00 UTC, the start of the package window. 13 allows the session that cuts the daily package, one chained session, and a last session kept for the next monitoring pass; after that the next session opens the next day at 05:00 UTC. It must stay below Make's own hard allowance (record V3: ops_used < ops_base 82 + ops_per_day 14 x day of the period, since 26 Nov 2026 17:35Z; before that 60 + 16 x day). Why (26 Nov 2026): the evening chain of four sessions (00:24-01:55Z) used the whole allowance of the UTC day, the session that cut the package started with one operation to spare, and Make then refused every start from 06:48Z on although the monitoring pass was due at 12:26Z (Timer ticks 09:24Z, 12:24Z and 15:24Z: one operation each, nothing started). Fixed in two places: this budget spreads the day's sessions, and Make's allowance was reshaped (more room now, 38 fewer operations by the end of the period: at most 502 instead of 540) so that one session could start on 26 Nov. Measured 26 Nov 17:30Z: 313 of the month's 1,000 operations used on day 5.7 (set-up and tests included); the idle timer costs 12 a day; with this budget the month ends near 905, with Make's allowance alone near 950."
+  "make_ops_about": "Daily budget of Make operations for the worker's sessions (3 per session start, 2 per closing report that does not chain), counted by the helper from 05:00 UTC, the start of the package window. 13 allows the session that cuts the daily package, one chained session, and a last session kept for the next monitoring pass; after that the next session opens the next day at 05:00 UTC. It must stay below Make's own hard allowance (record V3: ops_used < ops_base 82 + ops_per_day 14 x day of the period, since 26 Nov 2026 17:35Z; before that 60 + 16 x day). Why (26 Nov 2026): the evening chain of four sessions (00:24-01:55Z) used the whole allowance of the UTC day, the session that cut the package started with one operation to spare, and Make then refused every start from 06:48Z on although the monitoring pass was due at 12:26Z (Timer ticks 09:24Z, 12:24Z and 15:24Z: one operation each, nothing started). Fixed in two places: this budget spreads the day's sessions, and Make's allowance was reshaped (more room now, 38 fewer operations by the end of the period: at most 502 instead of 540) so that one session could start on 26 Nov. Measured 26 Nov 17:30Z: 313 of the month's 1,000 operations used on day 5.7 (set-up and tests included); the idle timer costs 12 a day; with this budget the month ends near 905, with Make's allowance alone near 950.",
+  "frontier": {
+   "enabled": true,
+   "min_per_session": 1,
+   "per_day": 4,
+   "why": "Joseph, 26 Nov 2026 19:00 Chicago: \"My goal is to build a reliable, autonomous AI workforce that continuously grows Evanston Senior Care Guide over the next 12 months.\" \"Proactively discover and execute high-value business opportunities.\" \"Continuously replenish your own backlog instead of waiting for instructions.\" \"Prioritize qualified traffic, customer acquisition, inquiries, tours, and revenue.\" \"Build upon previous work so improvements compound over time.\" \"Do not create meaningless work just to remain active. However, an empty queue, discovery cooldown, or pending approval should not prevent you from exploring genuinely new opportunities.\" \"Think about what 365 consecutive days of meaningful business improvements could accomplish.\"",
+   "how": "Procedure step 7, FRONTIER. Status shows frontier.due and frontier.next. Each question is a genuinely new kind of opportunity with the evidence to read and the output allowed. Answer it once: start explore:frontier:<id>, do the research, put every candidate through the gate, add what passes, then explore frontier:<id> --avenue frontier --verdict act|watch|drop --candidates N --added N --result TEXT. A drop or a watch is a complete result. Add a new question with frontier-add only when evidence found on the way points to a kind of opportunity that is neither in this list nor on the opportunity map; a rewording is refused. close refuses no-worthwhile-work while frontier.due holds.",
+   "questions": [
+    {
+     "id": "F01",
+     "priority": 1,
+     "lever": "seasonal demand",
+     "question": "Families who notice a change in a parent during the Thanksgiving-to-New-Year visits: what do they search and ask in public from late November through January, with Evanston and North Shore variants, and which of those questions has no page on this site written for that moment?",
+     "evidence": "Results pages and autocomplete for eight to ten such searches as they read today; public questions dated November to January of earlier years (kind of venue and date only, never a name or a link to a person's post); the queries of the newest Search Console read; the live guides and the open package.",
+     "output": "At most one page built on drafts if a real gap shows (lane build), and one post text prepared for the operator under step 8's rules that opens with this moment; or the verdict that live pages already answer it, naming them.",
+     "why": "Holiday visits are when adult children first see the need, and January is when many act. The window opened on 26 Nov.",
+     "status": "open",
+     "added_utc": "2026-11-27T01:18Z",
+     "added_by": "supervisor"
+    },
+    {
+     "id": "F02",
+     "priority": 1,
+     "lever": "seasonal demand",
+     "question": "Medicare Open Enrollment ends on 7 December. Does the plan a parent picks now change what a later move costs or allows (skilled nursing stays, plan networks, the 1 January to 31 March window to switch), and do our Medicare pages, which hold most of our search impressions, say so with the official source?",
+     "evidence": "Medicare.gov's pages on Open Enrollment, Medicare Advantage Open Enrollment and skilled nursing facility coverage as they read today; the live guides does-medicare-pay-for-senior-care and medicare-home-health-care; the queries of the newest Search Console read.",
+     "output": "At most one sourced addition to a live page as a small review pull request, cut early enough to be in the package before 4 December; or the verdict that the pages already cover it.",
+     "why": "781 of 1,242 weekly impressions sit on the Medicare page, and the deadline is dated and near.",
+     "status": "open",
+     "added_utc": "2026-11-27T01:18Z",
+     "added_by": "supervisor"
+    },
+    {
+     "id": "F03",
+     "priority": 1,
+     "lever": "measurement",
+     "question": "The scoreboard's tour-path counts (checklist opens, assessment starts, tour-form views) have been empty since 23 Nov. Where does the site record them, and which read path can a worker session use with its own tools?",
+     "evidence": "The site's code on main (the tracking calls in the pages and the functions under netlify/functions), the privacy notice, the Netlify observability tool's request counts by path, and ops/cloud.json before 23 Nov (how the earlier hourly task filled those fields).",
+     "output": "The read working in the monitoring pass, with its convention written into cloud.json; or, if no read path exists inside ROLE AND LIMITS, one lettered decision naming the smallest change that would give one. Never a change to what the site collects.",
+     "why": "Conversion work is blind without it, and the north star is tour requests.",
+     "status": "open",
+     "added_utc": "2026-11-27T01:18Z",
+     "added_by": "supervisor"
+    },
+    {
+     "id": "F04",
+     "priority": 1,
+     "lever": "trust",
+     "question": "For money and health topics, search systems and families look for who writes and reviews a page and how it is sourced. What do the three results above us show for five of our top queries (author and reviewer lines, a sourcing or editorial page, review dates, structured data), and which of those does this site lack?",
+     "evidence": "The live results pages for five queries of the newest Search Console read; the pages ranking above ours; our live pages and their structured data; ROUTINE.md's sourcing rules as the factual basis for a page on how the guide is sourced.",
+     "output": "A review pull request for the parts that state only what is already true and public (structured data, a sourcing-and-review page built from ROUTINE.md's rules, visible review dates). Anything that names or describes Joseph, his employer or Westminster Place: one lettered decision with the proposed words, nothing built.",
+     "why": "Average position 32.8 across 1,242 impressions: the pages are found relevant and not yet trusted enough to rank.",
+     "status": "open",
+     "added_utc": "2026-11-27T01:18Z",
+     "added_by": "supervisor"
+    },
+    {
+     "id": "F05",
+     "priority": 1,
+     "lever": "local reach",
+     "question": "Local Facebook groups are the only source with measured visitors (16 of 25 in four days). What do the operator's own records show about how many posts it could ship under each group's rules, which hooks and venues brought visitors, and which prepared items it actually picked up?",
+     "evidence": "ops/state.json (actions, posts, venues, due dates), ops/growth.json and cloud.json (campaigns, experiments) with their git history since 13 Nov; the scoreboard's by_source rows; the ref tags in Netlify's request counts.",
+     "output": "The verdict in the map, and where the records show room, prepared items in the form the operator has picked up before, inside step 8's limits. A finding that would need a change to the operator's own instructions becomes one lettered decision.",
+     "why": "The only proven channel should never wait for material.",
+     "status": "open",
+     "added_utc": "2026-11-27T01:18Z",
+     "added_by": "supervisor"
+    },
+    {
+     "id": "F06",
+     "priority": 2,
+     "lever": "local search",
+     "question": "For the nearest towns and neighborhoods (Wilmette, Skokie, Winnetka, Glenview, Northbrook, Lincolnwood, Rogers Park, Edgewater), what does the results page show for '<care type> <town>' and '<care type> <town> cost': directories, community sites or independent local guidance? Where no independent local explainer shows, would a page like /assisted-living-evanston/ for that town meet this site's rules?",
+     "evidence": "Results pages and autocomplete for two searches per town today; Search Console queries that name a town; the state's public directory of licensed communities for each town; how /assisted-living-evanston/ is built and sourced.",
+     "output": "A research report on drafts (research/north-shore-town-pages.md) with the evidence and a verdict per town and a build order; then one build task for the first town that qualifies (lane build). Never a ranking or a recommendation of communities.",
+     "why": "Evanston alone is a small search market; the families who can tour live across the North Shore.",
+     "status": "open",
+     "added_utc": "2026-11-27T01:18Z",
+     "added_by": "supervisor"
+    },
+    {
+     "id": "F07",
+     "priority": 2,
+     "lever": "search",
+     "question": "For the twenty queries with the most impressions, which results-page features show (a boxed direct answer, 'People also ask' questions, an AI summary with cited sources), what form does the cited answer take, and does our page give that answer in that form on its first screen?",
+     "evidence": "The live results pages for those queries; the cited pages; our live pages.",
+     "output": "Up to three tasks (lane search): one small review pull request per page that puts a sourced, direct answer in the form the results page rewards. One element per page, never an element pending in the package.",
+     "why": "At position 30 a better title changes little; the answer boxes are where a small site can appear above larger ones.",
+     "status": "open",
+     "added_utc": "2026-11-27T01:18Z",
+     "added_by": "supervisor"
+    },
+    {
+     "id": "F08",
+     "priority": 2,
+     "lever": "local search",
+     "question": "Is there one page where an Evanston family can see whom to call first for each need (city and township senior services, the area agency on aging, care coordination, transport, meals, benefits help), and what do the results pages for 'Evanston senior services' and its variants show?",
+     "evidence": "Those results pages; the official page of each office as it reads today; the live guides that already list local contacts.",
+     "output": "At most one page on drafts (lane build) that answers 'whom do I call first' from official sources, if the gap is real; a short research note if existing pages already do it.",
+     "why": "A page that local offices and neighbors can point to earns local visitors and listings.",
+     "status": "open",
+     "added_utc": "2026-11-27T01:18Z",
+     "added_by": "supervisor"
+    },
+    {
+     "id": "F09",
+     "priority": 2,
+     "lever": "channels",
+     "question": "Outside Facebook, where do Chicago-area and North Shore families ask senior-care questions in public (city and caregiving forums, neighborhood boards, question sites, local news comment sections), and which venues allow a disclosed, useful answer with a link under their own rules?",
+     "evidence": "Each venue's rules page and its recent public threads (kind of venue and date only); the opportunity map's distribution items, so that nothing dropped is examined again.",
+     "output": "A verdict per venue in the map (ACT, WATCH or DROP); for an ACT venue one reply draft or post text prepared for the operator under step 8.",
+     "why": "One channel carries nearly all local visitors today.",
+     "status": "open",
+     "added_utc": "2026-11-27T01:18Z",
+     "added_by": "supervisor"
+    },
+    {
+     "id": "F10",
+     "priority": 2,
+     "lever": "partnerships",
+     "question": "Families who must choose care within days after a hospital stay: what do the Evanston-area hospitals and their social-work or care-management pages publish for them, do those pages list outside resources, and is there a published route for suggesting one?",
+     "evidence": "The hospitals' own public pages as they read today; the map's referral_partnerships items; Gmail Sent for earlier contact (the duplicate check of step 8c).",
+     "output": "A verdict per target; for an ACT target one proposal for the operator (step 8c) built around the hospital-discharge guide, not a general request.",
+     "why": "Discharge is the most urgent decision point, and a guide for it is in the open package.",
+     "status": "open",
+     "added_utc": "2026-11-27T01:18Z",
+     "added_by": "supervisor"
+    },
+    {
+     "id": "F11",
+     "priority": 2,
+     "lever": "partnerships",
+     "question": "Which local professionals meet families at the moment of a move without competing with the guide (senior move managers, daily money managers, estate-sale firms, hospice and palliative social workers, parish nurses, home-modification services), and which of them publish client resources with a published way to suggest one?",
+     "evidence": "Their own sites; national association directories filtered to Evanston and the North Shore; the map's dropped classes (never a variation of one).",
+     "output": "Verdicts per class in the map; at most three proposals before a response is seen.",
+     "why": "Referrals from people families already trust convert better than cold visits.",
+     "status": "open",
+     "added_utc": "2026-11-27T01:18Z",
+     "added_by": "supervisor"
+    },
+    {
+     "id": "F12",
+     "priority": 2,
+     "lever": "authority",
+     "question": "Which senior-care stories did local outlets run in the last twelve months (rate increases, closures, inspections, new communities, benefit changes), and which recurring story type could the guide support with a factual, sourced resource a reporter would link?",
+     "evidence": "The outlets' own archives and site search; our live pages; the map item for Joseph's guest essay.",
+     "output": "A research report on drafts with the story types, their dates and the one asset that would serve them; a build task if it passes the gate. Contact with a newsroom is Joseph's or the operator's.",
+     "why": "A link from a local news page lifts every page of the site.",
+     "status": "open",
+     "added_utc": "2026-11-27T01:18Z",
+     "added_by": "supervisor"
+    },
+    {
+     "id": "F13",
+     "priority": 3,
+     "lever": "assets",
+     "question": "Which public facts about senior care in Evanston and the North Shore does no local page present plainly (licensed communities by type and town from the state directory, where to read inspection results, program offices by township, deadlines for county senior exemptions)?",
+     "evidence": "The official data sources as they read today; what local pages and local news cited in the last year.",
+     "output": "A research report and at most one neutral facts page on drafts (counts and where to look, never a ranking).",
+     "why": "Plain local facts are what other sites cite.",
+     "status": "open",
+     "added_utc": "2026-11-27T01:18Z",
+     "added_by": "supervisor"
+    },
+    {
+     "id": "F14",
+     "priority": 3,
+     "lever": "assets",
+     "question": "The tour checklist is the site's only printable. Which other one-page printables do decision-stage families ask for or pass around (questions for a memory-care visit, a cost sheet for comparing two communities, the documents an Illinois Medicaid long-term-care application asks for, a move-in week list)?",
+     "evidence": "Public questions (kind of venue and date only); what local offices hand out; printables on the pages ranking above ours; checklist-open counts once they can be read.",
+     "output": "At most one printable on drafts built like the tour checklist (no sign-up, nothing collected).",
+     "why": "Printables are shared between siblings and carried to tours.",
+     "status": "open",
+     "added_utc": "2026-11-27T01:18Z",
+     "added_by": "supervisor"
+    },
+    {
+     "id": "F15",
+     "priority": 3,
+     "lever": "search",
+     "question": "Which either-or decisions do families search with Illinois or local intent (assisted living or memory care, assisted living or a nursing home, staying home with care or moving, a life-plan community or renting), and which of them lacks a page here?",
+     "evidence": "Results pages and autocomplete; Search Console queries; the live guides, levels-of-senior-care-explained first.",
+     "output": "At most one page on drafts comparing care types, programs or rules, never communities.",
+     "why": "A comparison is the search of a family close to deciding.",
+     "status": "open",
+     "added_utc": "2026-11-27T01:18Z",
+     "added_by": "supervisor"
+    },
+    {
+     "id": "F16",
+     "priority": 3,
+     "lever": "authority",
+     "question": "Which outside pages link to or mention the guide today, and which mention it without a link?",
+     "evidence": "Searches for the site's name and its address in quotation marks; Netlify's referrers since 1 Nov. (Search Console's links report is not part of Make's read: say what could not be seen.)",
+     "output": "placements_live in the scoreboard totals set from evidence, with the linking domains in cloud.json; for an unlinked mention on an organization's page, one proposal for the operator.",
+     "why": "The count of outside listings is a measure of the plan and is unknown today.",
+     "status": "open",
+     "added_utc": "2026-11-27T01:18Z",
+     "added_by": "supervisor"
+    },
+    {
+     "id": "F17",
+     "priority": 3,
+     "lever": "search engines",
+     "question": "After an automatic publish, changed pages are no longer announced to Bing through IndexNow, which the earlier publishing step did (ledger on main, last entry 17 Nov). What share of visitors and crawls comes from Bing, and what would a supported, free announcement after each publish involve?",
+     "evidence": "Netlify's request counts by referrer and by crawler since 1 Nov; data/indexnow-ledger.json and tools/publish.py on main (read only).",
+     "output": "One lettered decision for Joseph with the evidence and the exact step proposed. The worker never announces to a search engine.",
+     "why": "Ten new guides go live with the next merge, and older searchers use Bing more than most.",
+     "status": "open",
+     "added_utc": "2026-11-27T01:18Z",
+     "added_by": "supervisor"
+    },
+    {
+     "id": "F18",
+     "priority": 3,
+     "lever": "search",
+     "question": "When an AI summary answers a search about senior care in Evanston or about Illinois programs, which sources does it cite, and what do the cited pages have in common that ours lack?",
+     "evidence": "The AI summaries on the results pages of ten of our queries where one shows, and the pages they cite. No account-based assistant can be asked from a worker session: say so and do not guess.",
+     "output": "A verdict; where a concrete, checkable gap shows (a direct dated answer, a source line, a question-and-answer block), tasks in lane search.",
+     "why": "A growing share of answers is read without a click; being the cited source is the new first position.",
+     "status": "open",
+     "added_utc": "2026-11-27T01:18Z",
+     "added_by": "supervisor"
+    },
+    {
+     "id": "F19",
+     "priority": 4,
+     "lever": "return visits",
+     "question": "A senior-living decision takes weeks or months, and a visitor who leaves has no way back except memory. What do comparable independent guides offer for coming back (a printable, a prompt to save the page, an optional reminder by email), and what would each require here?",
+     "evidence": "Comparable independent local guides; this site's privacy notice and its rules.",
+     "output": "A build task only for options that collect nothing. An option that changes what the site collects is one lettered decision with the evidence, never built without Joseph.",
+     "why": "Most visitors are not ready to tour on the first visit.",
+     "status": "open",
+     "added_utc": "2026-11-27T01:18Z",
+     "added_by": "supervisor"
+    }
+   ]
+  }
  },
  "owner_decisions": [
   {
@@ -7481,6 +7744,334 @@
    "heard_in": "supervising chat",
    "for": "supervisor",
    "applied": "Decision A answered: yes. Set up 26 Nov 14:27Z by the supervising chat: the scheduled Claude task \"ESCG publish after merge\" (trig_01YVLEX2Pm4X8EZ84ViZuPyU, every hour 06:27 to 23:27 Chicago time, cloud only) publishes main after his merge with the Netlify connector, as before. It runs ops/publish_after_merge.py at the fixed commit 8a453d25 of branch claude/escg-loop-tools: every new commit on main must be a pull request merged by JGBALL23, the build must reproduce _dist and every test suite must run and pass; then it uploads, compares every changed page with the merged commit, records ops/live.json and sends him one notification (live, or not live and why). Nothing else may publish: the worker and the operator still never merge or deploy. Line A removed from his list; controller/package/after_merge now says that nothing is needed after a merge."
+  },
+  {
+   "utc": "2026-11-27T01:00Z",
+   "said": "My goal is to build a reliable, autonomous AI workforce that continuously grows Evanston Senior Care Guide over the next 12 months. [...] Proactively discover and execute high-value business opportunities. Continuously replenish your own backlog instead of waiting for instructions. Prioritize qualified traffic, customer acquisition, inquiries, tours, and revenue. Build upon previous work so improvements compound over time. [...] Do not create meaningless work just to remain active. However, an empty queue, discovery cooldown, or pending approval should not prevent you from exploring genuinely new opportunities. [...] Keep Make.com as the central coordinator. Preserve our existing infrastructure, automatic publishing, quality standards, privacy safeguards, and spending controls.",
+   "heard_in": "supervising chat",
+   "for": "supervisor",
+   "applied": "Set up 2026-11-27T01:18Z by the supervising chat (procedure v4.4, helper and state): strategy holds the 12-month plan (north star, baseline of 26 Nov, objectives per quarter, nine programs, page ladder, calendar; monthly review from December); planner/frontier holds 19 genuinely new opportunity questions, one answered per session before a session may stop for lack of work, independent of cooldowns and owner limits; two new angles (page-ladder, seasonal); the open daily package counts as one item against a lane's owner limit (search and conversion lanes open again; build limit 30). Unchanged: Make as controller, the operations budget, the 6-hour usage reserve, every approval, privacy and publishing rule."
   }
- ]
+ ],
+ "strategy": {
+  "enabled": true,
+  "version": 1,
+  "set_utc": "2026-11-27T01:18Z",
+  "set_by": "supervising chat, at Joseph's request",
+  "owner_words": "Joseph, 26 Nov 2026 19:00 Chicago: \"My goal is to build a reliable, autonomous AI workforce that continuously grows Evanston Senior Care Guide over the next 12 months.\" \"Proactively discover and execute high-value business opportunities.\" \"Continuously replenish your own backlog instead of waiting for instructions.\" \"Prioritize qualified traffic, customer acquisition, inquiries, tours, and revenue.\" \"Build upon previous work so improvements compound over time.\" \"Do not create meaningless work just to remain active. However, an empty queue, discovery cooldown, or pending approval should not prevent you from exploring genuinely new opportunities.\" \"Think about what 365 consecutive days of meaningful business improvements could accomplish.\"",
+  "how_to_use": "Read this object when you plan (step 6e), sweep, explore and review. It ranks work; it never widens ROLE AND LIMITS. A working target is a yardstick for the monthly review, not a forecast and not a result. Rank a candidate that advances an objective of the current quarter above an equal-scoring one. The programs name what compounds: each has a standing angle, lane or step where its next step is found, so the backlog refills from the plan and not only from events. The monthly review (task keyed strategy-review:YYYYMM, due when status shows strategy.review_due) rewrites the baseline, each objective's status, the programs' next steps and the frontier list from measured results, adds one entry to reviews/log, and puts a change of direction to Joseph as one lettered decision.",
+  "north_star": "Tour requests through the site's own form that Westminster Place can confirm, counted per month. Leading measures, read weekly: genuine local visitors by source; tour-path steps (checklist opens, assessment starts, tour-form views); Search Console clicks and impressions, local-intent queries first; outside pages that list the guide; organization replies. Tasks, commits, drafts and pages are never the measure.",
+  "baseline": {
+   "as_of": "2026-11-26",
+   "genuine_visitors": "25 in the four days 23-26 Nov (scoreboard): Facebook 16, search 2, other 7",
+   "tour_requests": "0 in the scoreboard period",
+   "tour_path_counts": "not readable since 23 Nov: checklist opens, assessment starts and tour-form views are null in every daily row",
+   "search": "week of 16-22 Nov (first week with data): 1,242 impressions, 2 clicks, average position 32.8; 781 of the impressions on does-medicare-pay-for-senior-care at position 32.5; one Evanston query seen (assisted living cost evanston il, 5 impressions, position 78); six pages average inside the top 10, most with few impressions: guides index 3.2, Medicaid long-term care 4.4, community care 7.0, estate recovery 7.2, supportive living 8.0, pre-admission screening 8.5",
+   "pages": "32 guides live, 10 more verified and waiting in package #91, one local page (/assisted-living-evanston/), one printable (the tour checklist)",
+   "authority": "11 referral emails sent, 0 replies, 0 outside pages known to list the guide"
+  },
+  "diagnosis": [
+   "The visitors who can become tours are local, and almost all arrive from the operator's posts in local Facebook groups. Group rules cap that channel, so it needs prepared material on hand and other local sources beside it.",
+   "Search shows the guide for national Medicare questions at positions around 30: wide, too deep to be clicked, and mostly not local. The pages already inside the top 10 are Illinois program pages; local-intent queries barely show yet.",
+   "The path from a visit to a tour request cannot be measured at present, so conversion work is blind until the counts can be read again.",
+   "Nothing outside links to the guide, and asking by email has not worked. Listings have to be earned with things worth listing.",
+   "Verified work reaches families only through Joseph's merge of the daily package; the merge now publishes automatically."
+  ],
+  "time_split": "Owner rule of 17 Nov 2026: about 80% customer acquisition, 15% conversion and measurement, 5% maintenance. An accuracy audit beyond what a reader reopened, or beyond one a session, is maintenance.",
+  "principles": [
+   "Evanston first, then the North Shore; Illinois and federal rules support the local answer.",
+   "The guide stays independent: never rank or recommend communities, never present Westminster Place as a partner or as objectively better; the tour request stays optional.",
+   "No pop-ups, chat widgets, extra questions or walls of text, and no feature whose benefit cannot be measured.",
+   "One change per page element, then measure before changing it again.",
+   "Evidence before building: a query, a public question, a measured result or an official source; never a guess, a rewording or filler.",
+   "Publishing, merging, sending, posting, contacting, spending, privacy, consent and how Westminster Place appears wait for Joseph or his operator: one daily package, one merge.",
+   "This repository is public: no personal information, and nothing about money or business plans beyond the site itself."
+  ],
+  "quarters": [
+   {
+    "id": "Q1",
+    "from": "2026-12-01",
+    "to": "2027-02-28",
+    "theme": "Measure the path, win local intent, climb with what already ranks",
+    "objectives": [
+     {
+      "id": "Q1-1",
+      "text": "The tour path is measurable again.",
+      "measure": "tour-path counts present in every daily scoreboard row",
+      "working_target": "by 15 Dec 2026",
+      "status": "open"
+     },
+     {
+      "id": "Q1-2",
+      "text": "Every decision-stage question an Evanston family searches has one page that answers it on the first screen; the nearest towns are covered where evidence supports it.",
+      "measure": "local-intent impressions a week (Search Console queries naming Evanston or a North Shore town)",
+      "working_target": "300 a week by the end of February (5 in the week of 16-22 Nov); town coverage decided by a research report in December",
+      "status": "open"
+     },
+     {
+      "id": "Q1-3",
+      "text": "Pages that already show in search move up a rung each month (page ladder).",
+      "measure": "pages with an average position of 10 or better for a query with at least 10 impressions",
+      "working_target": "12 by the end of February",
+      "status": "open"
+     },
+     {
+      "id": "Q1-4",
+      "text": "Local reach beyond one channel.",
+      "measure": "genuine visitors a month and the share from outside Facebook",
+      "working_target": "300 a month by February, at least a third from search, referrals and other local sources (25 in four days now, 64% Facebook)",
+      "status": "open"
+     },
+     {
+      "id": "Q1-5",
+      "text": "The guide earns its first outside listings with things worth listing, not with requests.",
+      "measure": "outside pages known to list the guide (scoreboard totals, placements_live)",
+      "working_target": "3 by the end of February (0 now)",
+      "status": "open"
+     },
+     {
+      "id": "Q1-6",
+      "text": "Families and search systems can see who writes and reviews the guide and how it is sourced.",
+      "measure": "trust elements live",
+      "working_target": "the parts that need no decision in a package by 31 Dec; anything about Joseph or Westminster Place as one lettered decision",
+      "status": "open"
+     },
+     {
+      "id": "Q1-7",
+      "text": "First tour requests through the form.",
+      "measure": "tour requests a month (north star)",
+      "working_target": "at least 1 a month by February",
+      "status": "open"
+     }
+    ]
+   },
+   {
+    "id": "Q2",
+    "from": "2027-03-01",
+    "to": "2027-05-31",
+    "theme": "Compound what worked",
+    "objectives": [
+     {
+      "id": "Q2-1",
+      "text": "Put more of each session into the two programs with the best measured yield (visitors who reach a tour-path step); shrink or stop the weakest.",
+      "measure": "program yields in the monthly reviews",
+      "working_target": "decided in the March review",
+      "status": "later"
+     },
+     {
+      "id": "Q2-2",
+      "text": "Refresh cycle: every live page re-read against its sources at least every 90 days; yearly figures corrected in the week they change.",
+      "measure": "oldest review date among live pages",
+      "working_target": "under 90 days",
+      "status": "later"
+     },
+     {
+      "id": "Q2-3",
+      "text": "Two or three local assets that other sites list and reporters cite.",
+      "measure": "outside listings",
+      "working_target": "8 by the end of May",
+      "status": "later"
+     },
+     {
+      "id": "Q2-4",
+      "text": "Reach and tours.",
+      "measure": "genuine visitors and tour requests a month",
+      "working_target": "600 visitors and 2 tour requests a month",
+      "status": "later"
+     }
+    ]
+   },
+   {
+    "id": "Q3",
+    "from": "2027-06-01",
+    "to": "2027-08-31",
+    "theme": "Scale and prune",
+    "objectives": [
+     {
+      "id": "Q3-1",
+      "text": "Merge or retire pages with no impressions after six months; extend the local cluster that sends visitors to the tour path.",
+      "measure": "share of live pages with impressions",
+      "working_target": "over 90%",
+      "status": "later"
+     },
+     {
+      "id": "Q3-2",
+      "text": "Reach and tours.",
+      "measure": "genuine visitors and tour requests a month",
+      "working_target": "1,000 visitors and 3 tour requests a month",
+      "status": "later"
+     }
+    ]
+   },
+   {
+    "id": "Q4",
+    "from": "2027-09-01",
+    "to": "2027-11-30",
+    "theme": "The season of decisions",
+    "objectives": [
+     {
+      "id": "Q4-1",
+      "text": "Open Enrollment and the holiday visits are prepared 30 days ahead from this year's evidence.",
+      "measure": "pages and posts ready by 15 Sep and 25 Oct",
+      "working_target": "both dates met",
+      "status": "later"
+     },
+     {
+      "id": "Q4-2",
+      "text": "Year review: which work produced tour requests per hour spent, and the plan for year two.",
+      "measure": "review delivered to Joseph",
+      "working_target": "in the package of 1 Dec 2027; 4 tour requests a month",
+      "status": "later"
+     }
+    ]
+   }
+  ],
+  "programs": [
+   {
+    "id": "P1",
+    "name": "Search ladder",
+    "where": "angle page-ladder (lane search)",
+    "compounds": "the same pages improve read after read instead of new pages starting from zero",
+    "cadence": "weekly, after Make's Search Console read (Wednesday evening UTC)",
+    "measure": "rungs gained per month",
+    "next_step": "First pass on the 25 Nov read: record every live page's rung in strategy/ladder/pages and choose the five closest to the next rung."
+   },
+   {
+    "id": "P2",
+    "name": "Local intent",
+    "where": "frontier questions on towns and on whom to call first; angles asset-gaps and demand-questions; lane build",
+    "compounds": "each local page links to and is linked from the others and from /assisted-living-evanston/",
+    "cadence": "one local asset a week while evidence supports it",
+    "measure": "local-intent impressions and clicks",
+    "next_step": "The town research report (frontier)."
+   },
+   {
+    "id": "P3",
+    "name": "Calendar",
+    "where": "angle seasonal; strategy/calendar",
+    "compounds": "every dated moment prepared once is reused and improved each year",
+    "cadence": "weekly look 45 days ahead",
+    "measure": "moments with a page and a post ready ten days before",
+    "next_step": "The holiday-visits moment and the 7 December enrollment deadline (frontier)."
+   },
+   {
+    "id": "P4",
+    "name": "Local reach through the operator",
+    "where": "lane distribution; step 8",
+    "compounds": "hooks and venues that brought visitors are reused; the others are dropped",
+    "cadence": "whenever the operator has room to post",
+    "measure": "genuine visitors by ref tag",
+    "next_step": "What the operator's records show it could ship with prepared material (frontier)."
+   },
+   {
+    "id": "P5",
+    "name": "Listings and authority",
+    "where": "lane partnerships; frontier questions on press, professionals, hospitals and local data",
+    "compounds": "each listing lifts every page",
+    "cadence": "at most three proposals per class before a response is seen",
+    "measure": "outside pages that list the guide; organization replies",
+    "next_step": "Asset-led approaches only: the class of plain requests is closed (11 sent, 0 replies)."
+   },
+   {
+    "id": "P6",
+    "name": "Tour path and measurement",
+    "where": "lane conversion; monitoring pass",
+    "compounds": "each measured step shows where the next change pays",
+    "cadence": "a change to a step only after 30 genuine visitors reached it; tracking repairs at once",
+    "measure": "tour-form views and tour requests per 100 genuine visitors",
+    "next_step": "Make the tour-path counts readable again (frontier)."
+   },
+   {
+    "id": "P7",
+    "name": "Trust",
+    "where": "frontier question on who writes, reviews and sources the guide",
+    "compounds": "trust signals lift every money and health page",
+    "cadence": "once, then at each monthly review",
+    "measure": "average position of the Medicare and Medicaid pages",
+    "next_step": "The comparison with the results above us."
+   },
+   {
+    "id": "P8",
+    "name": "Accuracy and freshness",
+    "where": "angles live-accuracy and freshness; lane technical",
+    "compounds": "a page that stays right keeps its rank and its readers",
+    "cadence": "inside the 5% maintenance share; yearly figures in the week they change",
+    "measure": "oldest review date among live pages",
+    "next_step": "The dated figure changes already queued (Medicare 2027, VA rates)."
+   },
+   {
+    "id": "P9",
+    "name": "Learning loop",
+    "where": "monthly strategy review; python3 ops/loopctl.py outcomes",
+    "compounds": "effort moves to what measurably works",
+    "cadence": "monthly; outcomes rows weekly",
+    "measure": "share of session time in the two best-yielding programs",
+    "next_step": "First review in the first session of December."
+   }
+  ],
+  "ladder": {
+   "about": "One entry per live page that has impressions, keyed by slug: rung (1 indexed, 2 impressions, 3 average position 20 or better, 4 position 10 or better, 5 clicks, 6 tour-path clicks), position, impressions, read_utc, last_change_utc, change. Written by the page-ladder angle with set.",
+   "pages": {}
+  },
+  "calendar": {
+   "about": "Dated moments that change what local families search, ask or decide. Verify every date on its official page before using it; add newly found moments with their source.",
+   "moments": [
+    {
+     "id": "holiday-visits",
+     "when": "late November to 1 January, every year",
+     "what": "families visiting a parent notice changes; January is when many act"
+    },
+    {
+     "id": "medicare-open-enrollment",
+     "when": "15 October to 7 December, every year",
+     "what": "plan choices; our Medicare pages hold most of our impressions"
+    },
+    {
+     "id": "medicare-advantage-open-enrollment",
+     "when": "1 January to 31 March, every year",
+     "what": "people in a Medicare Advantage plan may switch or return to Original Medicare once"
+    },
+    {
+     "id": "new-year-figures",
+     "when": "1 December (VA pension rates) and 1 January (Medicare premiums, deductibles and coinsurance; Social Security cost-of-living adjustment; income and asset figures that follow from it)",
+     "what": "dated figures on live pages change"
+    },
+    {
+     "id": "tax-season",
+     "when": "late January to mid April",
+     "what": "questions about deducting care costs and claiming a parent"
+    },
+    {
+     "id": "county-senior-exemptions",
+     "when": "application period set by the Cook County Assessor each year, usually in spring",
+     "what": "senior and senior-freeze exemptions"
+    },
+    {
+     "id": "older-americans-month",
+     "when": "May",
+     "what": "local programs and press attention"
+    },
+    {
+     "id": "alzheimers-and-brain-awareness-month",
+     "when": "June",
+     "what": "memory-care questions and local events"
+    },
+    {
+     "id": "assisted-living-week-and-falls-prevention",
+     "when": "September",
+     "what": "community open houses; fall-prevention programs"
+    },
+    {
+     "id": "caregivers-and-alzheimers-awareness-month",
+     "when": "November",
+     "what": "caregiver questions; leads into the holiday visits"
+    }
+   ]
+  },
+  "reviews": {
+   "first_due_utc": "2026-12-01T00:00Z",
+   "monthly": "Task keyed strategy-review:YYYYMM (lane search, workstream discovery or search, source followup, priority 2). Read outcomes --days 28, the scoreboard, the Search Console reads, the ladder and the frontier results; rewrite baseline, objective status, program next steps; add up to ten new frontier questions that the month's evidence suggests (frontier-add); log one entry here {month, utc, what moved, what did not, what changes}; a change of direction is one lettered decision in the next package.",
+   "log": []
+  }
+ }
 }
