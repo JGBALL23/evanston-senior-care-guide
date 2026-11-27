@@ -5869,10 +5869,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-27T18:35Z",
+  "utc": "2026-11-27T19:33Z",
   "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
-  "picked": "ACQ-190 done",
-  "why": "Worked: sourcing-page review PR #94 (frontier F04), North Shore town-page report (F06 watch), monitor clean; stopped: no-worthwhile-work; resume: 19:06Z planning and sweeps"
+  "picked": "ACQ-191 done, ACQ-192 done, ACQ-193 done, ACQ-194 done (reopened 3 sentences), ACQ-195 done, ACQ-196 done (corrections verified), ACQ-197 done",
+  "why": "Worked: built, reviewed, corrected and verified a home care vs assisted living Illinois comparison and ported it into batch #90; stopped: no-worthwhile-work; resume: channel-yield sweep 00:32Z or the 05:00Z package cut"
  },
  "last_verified_action": "ACQ-197 done 2026-11-27T19:33Z: Ported home-care-or-assisted-living-illinois into publish batch #90 (claude/publish-batch-20261125-1, 220233f): guide dict, CARDS and the new SRC entry medicar…",
  "last_stop": {
@@ -5953,7 +5953,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "19:06Z: planner cooldown ends with sweep angles asset-gaps and live-accuracy (19:09Z); 28 Nov 05:00Z the daily package cut, which should carry PR #94 (sourcing page) and map T1 (byline/AI-drafting line) as one new lettered decision. Waiting on Joseph: merge of package #91 (unblocks ACQ-012/017/102 measurements).",
+ "next_discovery": "Next due: sweep angle channel-yield 00:32Z, daily package cut 05:00Z (it should carry batch #90 at 220233f with the new home-care guide), monitor and draft-review 06:2xZ, ACQ-118 and ACQ-164 rechecks 06:30Z. Waiting on Joseph: package #91 merge (holds #90, #89, #93 and others).",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -6555,24 +6555,67 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiSah6rgKCpixbDvmA6L",
-   "utc": "2026-11-27T19:33Z",
-   "since_utc": "2026-11-27T19:12Z",
-   "deliverables": [
-    "resource:drafts 73e991c",
-    "review_packet:ops/reviews/home-care-or-assisted-living-illinois.md",
-    "correction:drafts 7dfe57f",
-    "verification:ops/reviews/home-care-or-assisted-living-illinois.md (Reader check 2026-11-27)",
-    "correction:drafts 2dd30a6",
-    "verification:ops/reviews/home-care-or-assisted-living-illinois.md",
-    "publish_pr:#90 220233f"
-   ],
-   "productive_min": 11
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-27T18:25Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSah6rgKCpixbDvmA6L",
+    "start_utc": "2026-11-27T19:12Z",
+    "end_utc": "2026-11-27T19:33Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: built, reviewed, corrected and verified a home care vs assisted living Illinois comparison and ported it into batch #90; stopped: no-worthwhile-work; resume: channel-yield sweep 00:32Z or the 05:00Z package cut",
+    "done": 7,
+    "changed": 12,
+    "tasks": "ACQ-191 done, ACQ-192 done, ACQ-193 done, ACQ-194 done (reopened 3 sentences), ACQ-195 done, ACQ-196 done (corrections verified), ACQ-197 done",
+    "next": "no",
+    "wake_minutes": 269,
+    "next_due_utc": "2026-11-28T00:32Z",
+    "plan_due": false,
+    "saturated": [],
+    "budget_used_hours_24h": 1.4,
+    "budget_used_hours_7d": 6.9,
+    "productive_min": 11,
+    "deliverables": [
+     "resource:drafts 73e991c",
+     "review_packet:ops/reviews/home-care-or-assisted-living-illinois.md",
+     "correction:drafts 7dfe57f",
+     "verification:ops/reviews/home-care-or-assisted-living-illinois.md (Reader check 2026-11-27)",
+     "correction:drafts 2dd30a6",
+     "verification:ops/reviews/home-care-or-assisted-living-illinois.md",
+     "publish_pr:#90 220233f"
+    ],
+    "stop_reason": "no-worthwhile-work",
+    "considered": "plan build +1 (home care vs AL) then +0 on a second pass; plan publish +0 (cooling until 28 Nov 07:14Z); sweeps asset-gaps +0 (same evidence as the plan pass) and live-accuracy +0 (only check-illinois-inspection-records unaudited, its 9 ilga.gov sources unreachable); frontier F08 watch (city sources outside the citation gate); F09 skipped (Reddit still 403, other venues already on the map); monitor not due (last 18:25Z), Search Console read of 25 Nov already recorded; package window closed (next cut 05:00Z); backlog fallback resting until 06:35Z; demand cooling until 06:47Z, search until 29 Nov 06:47Z",
+    "resume_when": "sweep angle channel-yield due 2026-11-28T00:32Z; daily package cut 05:00Z; a merge of package #91; a new Search Console read",
+    "sweep_due_left": [],
+    "sessions_24h": 4,
+    "handoff": null,
+    "make_ops": null,
+    "package": {
+     "due_at_close": false,
+     "recut_due_at_close": false,
+     "skipped": null,
+     "done_today": true
+    },
+    "backlog_discovery": {
+     "explorations": 1,
+     "avenue_classes": [
+      "frontier"
+     ],
+     "tasks_added": 0,
+     "concluded": null
+    },
+    "frontier": {
+     "explored": [
+      "frontier-f08"
+     ],
+     "open_left": 12
+    }
+   },
    {
     "run": "cse_014eaiSbgkYkmzevMK2yQoyV",
     "start_utc": "2026-11-27T18:24Z",
@@ -7561,21 +7604,9 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-27T18:35Z",
+   "written_utc": "2026-11-27T19:33Z",
    "eligible_now": 0,
    "next_due": [
-    {
-     "utc": "2026-11-27T19:06Z",
-     "what": "planner cooldown ends"
-    },
-    {
-     "utc": "2026-11-27T19:06Z",
-     "what": "sweep angle asset-gaps"
-    },
-    {
-     "utc": "2026-11-27T19:09Z",
-     "what": "sweep angle live-accuracy"
-    },
     {
      "utc": "2026-11-28T00:32Z",
      "what": "sweep angle channel-yield"
@@ -7587,6 +7618,18 @@
     {
      "utc": "2026-11-28T06:25Z",
      "what": "monitor"
+    },
+    {
+     "utc": "2026-11-28T06:26Z",
+     "what": "sweep angle draft-review"
+    },
+    {
+     "utc": "2026-11-28T06:30Z",
+     "what": "ACQ-118"
+    },
+    {
+     "utc": "2026-11-28T06:30Z",
+     "what": "ACQ-164"
     }
    ]
   },
@@ -7653,9 +7696,9 @@
     "plan_cooldown_hours": 12,
     "open_prs": [],
     "owner_open": 8,
-    "cooldown_until_utc": "",
-    "last_planned_utc": "2026-11-27T19:14Z",
-    "last_plan_result": "Read Search Console 25 Nov read (home-help coverage queries), DEMAND.md Open/Done, slugs on main and drafts, CareScout 2025 Illinois tables, public caregiver Q&A and web results for home care vs assisted living. Passed: home care or assisted living in Illinois comparison (no page compares; Illinois…",
+    "cooldown_until_utc": "2026-11-28T07:33Z",
+    "last_planned_utc": "2026-11-27T19:33Z",
+    "last_plan_result": "Second pass this session, no new evidence since 19:1xZ: the one qualifying need (home care vs assisted living) is built, verified and ported to #90; ACQ-118 waits on ilga.gov; contract-disclosure and move-in-assessment topics need ilga.gov (unreachable); MA open enrollment covered by #93; whom-to-c…",
     "wip_note": "owner_open counts worker-built assets on drafts that are not on main yet. Limit 30 since 27 Nov 2026 (was 10): the assets wait inside the daily package, which is one decision for Joseph, and a pending approval does not stop evidence-backed building (his words of 24 and 26 Nov). The evidence rules decide what is built, not the count."
    },
    {
@@ -7877,6 +7920,7 @@
    }
   ],
   "log": [
+   "2026-11-27T19:33Z build +0: Second pass this session, no new evidence since 19:1xZ: the one qualifying need (home care vs assisted living) is built, verified and ported to #90; ACQ-118 wa…",
    "2026-11-27T19:14Z publish +0: Batch #90 holds all 11 verified worker pages; no new packet with publish-ready verdict since the 07:06Z pass; nothing qualifies.",
    "2026-11-27T19:14Z build +1: Read Search Console 25 Nov read (home-help coverage queries), DEMAND.md Open/Done, slugs on main and drafts, CareScout 2025 Illinois tables, public caregiver Q…",
    "2026-11-27T07:06Z distribution +0: F05 answered: operator writes its own posts; cap frees 29 Nov 15:08Z; no pending facebook_post action for step 8b; D1 set to watch. Nothing passes.",
