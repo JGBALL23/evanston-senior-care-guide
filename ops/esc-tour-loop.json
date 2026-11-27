@@ -212,6 +212,25 @@
    "priority": 2,
    "score": 6.0,
    "found_utc": "2026-11-27T20:17Z"
+  },
+  {
+   "id": "ACQ-202",
+   "task": "Add to live guide illinois-fide-snp-explained, on the rolling accuracy PR #89, HFS's statement that the 2025 federal law limits Medicare for noncitizens (new applicants from 4 July 2025: green-card holders, Cuban/Haitian entrants, COFA migrants; others already enrolled keep Medicare only until 4 January 2027), next to its 'citizen or lawfully present' condition; then a verify-live task for an independent reader",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit-add:illinois-fide-snp-explained:noncitizen-medicare-2027",
+   "evidence": "HFS 'How will Federal changes impact Medicaid?' (hfs.illinois.gov/info/fedresctr/faqshowwillfedchimpactmedicaid.html, read 27 Nov 2026), FAQ 'Does this new law affect Medicare?': 'For new Medicare applicants on or after July 4, 2025, only these noncitizens can be eligible: Lawful permanent residents (Green Card holders), Cubans or Haitians, ... People from Micronesia, Palau, or the Marshall Islands' and 'If you were already enrolled in Medicare as of July 4, 2025, you can keep your coverage until January 4, 2027, when it ends.' Live guide (main, read 27 Nov) lists 'being a United States citizen or lawfully present in the United States' among FIDE-SNP conditions; Medicare Parts A and B are a condition of the plan.",
+   "expected_tour_acquisition_value": "a family with a noncitizen parent in or choosing a FIDE-SNP learns before 4 January 2027 that Medicare, and so the plan, may end; an eligibility rule that changes on a date is named first among corrections",
+   "impact": 2,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet ops/reviews/live/illinois-fide-snp-explained.md lists the recommended addition with its HFS sentences; commit on the accuracy PR with all suites and quotecheck passing; verify-live:<slug>:<commit> task added",
+   "priority": 1,
+   "score": 4.0,
+   "status": "ready",
+   "found_utc": "2026-11-27T20:18Z"
   }
  ],
  "completed": [
@@ -6684,9 +6703,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeGWreJzfEyfVMTtWN",
-   "utc": "2026-11-27T20:17Z",
+   "utc": "2026-11-27T20:18Z",
    "since_utc": "2026-11-27T19:57Z",
-   "productive_min": 25,
+   "productive_min": 26,
    "deliverables": [
     "correction:drafts dad7c20",
     "verification:ops/reviews/illinois-medicaid-pending-nursing-home.md",
@@ -8359,6 +8378,16 @@
    "exhausted_until_utc": "",
    "empty_streak": 0,
    "log": [
+    {
+     "utc": "2026-11-27T20:18Z",
+     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+     "key": "needs-noncitizen-parent-medicaid-oct-2026",
+     "avenue": "needs",
+     "lane": null,
+     "candidates": 3,
+     "added": 1,
+     "result": "27 Nov 2026: HFS federal-changes FAQ (read today): immigrant Medicaid definitions narrowed 1 Oct 2026 (state-funded HBIS unchanged); Medicare for noncitizens limited since 4 Jul 2025, existing enrollees outside the three groups lose it 4 Jan 2027. Live/drafts guides with citizenship conditions: illinois-community-care…"
+    },
     {
      "utc": "2026-11-27T20:18Z",
      "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
