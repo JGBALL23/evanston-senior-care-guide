@@ -5616,10 +5616,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-26T18:01Z",
+  "utc": "2026-11-27T07:07Z",
   "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
-  "picked": "ACQ-150 done, ACQ-151 done, ACQ-152 done(reopened), ACQ-153 done, ACQ-154 done, ACQ-155 done, ACQ-156 done, ACQ-157 done, ACQ-158 done, ACQ-159 done, ACQ-160 done, ACQ-161 done, ACQ-162 done, ACQ-163 done(reopened), ACQ-164 waiting_on_data, ACQ-165 done, ACQ-166 done(reopened), ACQ-167 done, ACQ-168 done",
-  "why": "Worked: 6 live-guide accuracy audits (4 corrected, incl. a wrong payer on hospice and home health; Access Evanston income limit), all reader-verified in #89; stopped: no-worthwhile-work; resume: package cut 27 Nov 05:00Z or #91 merge"
+  "picked": "ACQ-169 done, ACQ-170 done, ACQ-171 done, ACQ-173 done, ACQ-174 done (reopened), ACQ-176 done, ACQ-177 done, ACQ-180 done, ACQ-181 done, ACQ-172 done, ACQ-175 done (reopened), ACQ-178 done, ACQ-179 done (reopened), ACQ-182 done, ACQ-183 done (reopened), ACQ-184 done, ACQ-185 done, ACQ-186 done, ACQ-187 done; ACQ-118 and ACQ-164 postponed to 28 Nov 06:30Z",
+  "why": "Worked: package #91 re-cut with verified #89 commits; holiday-visit guide built, reviewed, corrected, verified and added to batch #90; PR #93 Medicare plan choice before 7 Dec verified; tour-path beacon read found. stopped: no-worthwhile-work; resume: 28 Nov package cut or a merge"
  },
  "last_verified_action": "ACQ-187 done 2026-11-27T07:06Z: Independent reader checked #93 3e601d0: 'Remember, not all D-SNPs are integrated.' is word for word from Medicare.gov's Special Enrollment Periods page, used f…",
  "last_stop": {
@@ -5700,7 +5700,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Next: the daily package cut 27 Nov 05:00Z picks up #89 through 9d57bf0 (eight commits added 26 Nov, all reader-verified); ACQ-118 recheck 27 Nov 01:30Z; planner cooldowns end 27 Nov 05:34Z. Waiting on Joseph: merge of package #91 (search and conversion lanes saturated until then; ACQ-164 card fix and ACQ-012/017/102 follow it).",
+ "next_discovery": "Next: the 28 Nov package cut (05:00Z) picks up #90 with the holiday-visit guide (11 guides) and #93 (Medicare plan choice before 7 Dec, verified through 3e601d0); ACQ-118 and ACQ-164 recheck 28 Nov 06:30Z; sweep live-accuracy and planning for search/demand/technical when their cooldowns end; frontier F04 and F06 open. Waiting on Joseph: merge of package #91 (offered since 25 Nov).",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -6286,36 +6286,101 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
-   "utc": "2026-11-27T07:06Z",
-   "since_utc": "2026-11-27T06:24Z",
-   "productive_min": 29,
-   "deliverables": [
-    "publish_pr:#91 a523b5e",
-    "guide:drafts e9241f2",
-    "review_packet:ops/reviews/noticed-changes-in-parent-holiday-visit.md",
-    "correction:drafts 5283618",
-    "pr:#93",
-    "verification:ops/reviews/noticed-changes-in-parent-holiday-visit.md",
-    "correction:drafts d2cc9c4",
-    "verification:ops/reviews/noticed-changes-in-parent-holiday-visit.md",
-    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
-    "correction:#93 5490888",
-    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
-    "correction:#93 5eeca4f",
-    "verification:ops/reviews/noticed-changes-in-parent-holiday-visit.md",
-    "publish_pr:#90 eea57b7",
-    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
-    "correction:#93 28897f1",
-    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
-    "correction:#93 3e601d0",
-    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md"
-   ]
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-27T06:26Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
+    "start_utc": "2026-11-27T06:24Z",
+    "end_utc": "2026-11-27T07:07Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: package #91 re-cut with verified #89 commits; holiday-visit guide built, reviewed, corrected, verified and added to batch #90; PR #93 Medicare plan choice before 7 Dec verified; tour-path beacon read found. stopped: no-worthwhile-work; resume: 28 Nov package cut or a merge",
+    "done": 19,
+    "changed": 30,
+    "tasks": "ACQ-169 done, ACQ-170 done, ACQ-171 done, ACQ-173 done, ACQ-174 done (reopened), ACQ-176 done, ACQ-177 done, ACQ-180 done, ACQ-181 done, ACQ-172 done, ACQ-175 done (reopened), ACQ-178 done, ACQ-179 done (reopened), ACQ-182 done, ACQ-183 done (reopened), ACQ-184 done, ACQ-185 done, ACQ-186 done, ACQ-187 done; ACQ-118 and ACQ-164 postponed to 28 Nov 06:30Z",
+    "next": "yes",
+    "wake_minutes": null,
+    "next_due_utc": "2026-11-27T18:26Z",
+    "plan_due": false,
+    "saturated": [],
+    "budget_used_hours_24h": 1.2,
+    "budget_used_hours_7d": 6.2,
+    "productive_min": 29,
+    "deliverables": [
+     "publish_pr:#91 a523b5e",
+     "guide:drafts e9241f2",
+     "review_packet:ops/reviews/noticed-changes-in-parent-holiday-visit.md",
+     "correction:drafts 5283618",
+     "pr:#93",
+     "verification:ops/reviews/noticed-changes-in-parent-holiday-visit.md",
+     "correction:drafts d2cc9c4",
+     "verification:ops/reviews/noticed-changes-in-parent-holiday-visit.md",
+     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
+     "correction:#93 5490888",
+     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
+     "correction:#93 5eeca4f",
+     "verification:ops/reviews/noticed-changes-in-parent-holiday-visit.md",
+     "publish_pr:#90 eea57b7",
+     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
+     "correction:#93 28897f1",
+     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
+     "correction:#93 3e601d0",
+     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md"
+    ],
+    "stop_reason": "no-worthwhile-work",
+    "considered": "monitor (done); package cut (done, #91 a523b5e); frontier F01 act (guide), F02 act (#93), F03 act (beacon read), F05 watch; plan search, demand, build, publish, conversion, distribution +0 (evidence in each result); technical cooling until 29 Nov 06:34Z; sweeps draft-review +0, publish-ready +1, seasonal +0, page-ladder +0 (all top pages pending in #91/#93), search-console +0 (no newer read), asset-gaps +0, demand-questions +0; live-accuracy skipped (maintenance share; 15 audits 25-26 Nov, none reopened); needs explore adult day services: covered; step 8: no pending facebook_post or reply, nothing to prepare; ACQ-118 waits on ilga.gov (unreadable), ACQ-164 waits on #91 merge",
+    "resume_when": "28 Nov 05:00Z package cut (adds #90's 11th guide and #93), a merge of #91, a new Search Console read from Make, or ilga.gov readable for ACQ-118",
+    "sweep_due_left": [
+     "live-accuracy"
+    ],
+    "sessions_24h": 2,
+    "handoff": null,
+    "make_ops": {
+     "day_from_utc": "2026-11-27T05:00Z",
+     "used_estimate": 3,
+     "per_day": 13,
+     "chain_held": false,
+     "why": null
+    },
+    "package": {
+     "due_at_close": false,
+     "skipped": null,
+     "done_today": true
+    },
+    "backlog_discovery": {
+     "explorations": 5,
+     "avenue_classes": [
+      "frontier",
+      "needs"
+     ],
+     "tasks_added": 2,
+     "concluded": {
+      "utc": "2026-11-27T07:07Z",
+      "run": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
+      "explorations": 5,
+      "avenue_classes": [
+       "frontier",
+       "needs"
+      ],
+      "tasks_added": 2,
+      "skipped": "frontier (4 questions) and needs explored; search evidence was worked through the page-ladder and search-console sweeps on the same 25 Nov read (no new read to explore); channels answered by F05 (ope…",
+      "rest_hours": 12
+     }
+    },
+    "frontier": {
+     "explored": [
+      "frontier-f05",
+      "frontier-f03",
+      "frontier-f02",
+      "frontier-f01"
+     ],
+     "open_left": 15
+    }
+   },
    {
     "run": "cse_014eaiSan3kSKEb4rtUHknYk",
     "start_utc": "2026-11-26T17:32Z",
@@ -7097,32 +7162,32 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-26T18:01Z",
-   "eligible_now": 0,
+   "written_utc": "2026-11-27T07:07Z",
+   "eligible_now": 1,
    "next_due": [
     {
-     "utc": "2026-11-27T01:30Z",
-     "what": "ACQ-118"
-    },
-    {
-     "utc": "2026-11-27T05:00Z",
-     "what": "ACQ-164"
-    },
-    {
-     "utc": "2026-11-27T05:00Z",
-     "what": "daily package cut"
-    },
-    {
-     "utc": "2026-11-27T05:33Z",
+     "utc": "2026-11-27T18:26Z",
      "what": "monitor"
     },
     {
-     "utc": "2026-11-27T05:34Z",
+     "utc": "2026-11-27T18:48Z",
+     "what": "sweep angle draft-review"
+    },
+    {
+     "utc": "2026-11-27T18:57Z",
+     "what": "sweep angle publish-ready"
+    },
+    {
+     "utc": "2026-11-27T19:06Z",
      "what": "planner cooldown ends"
     },
     {
-     "utc": "2026-11-27T05:34Z",
-     "what": "sweep angle draft-review"
+     "utc": "2026-11-27T19:06Z",
+     "what": "sweep angle asset-gaps"
+    },
+    {
+     "utc": "2026-11-27T19:07Z",
+     "what": "backlog discovery"
     }
    ]
   },
@@ -7156,7 +7221,7 @@
    "note": "Cut twice on 25 Nov by the supervising chat; re-cut 26 Nov 06:31Z by the ESCG worker (cse_014eaiSe8SBqppdHD1M3fw41): #90 now 10 guides (40e9da0), #92 added; #89 through c964f99 by 06:47Z (6876bfd, 64feb14, c964f99 verified by independent readers in the same session). 26 Nov 10:03Z, supervising chat: one housekeeping commit 2d84762 on the package branch (the temporary file .cite-count of check-citations.sh, committed by accident in #89's d7724d0, removed and added to .gitignore; no page, test or script changes; rebuild clean and all eleven suites pass on 2d84762). #89 itself is unchanged at c964f99. 27 Nov 06:29Z re-cut by the ESCG worker (cse_014eaiSeY3WV1Qzjy2ZNkkuN, ACQ-169): #89's verified commits 99cc346..9d57bf0 merged (a523b5e); rebuild clean, all eleven suites pass; title and body rewritten (number unchanged).",
    "owner_actions": []
   },
-  "next_discovery": "Next due: monitor 12:26Z, sweep angles draft-review, live-accuracy, asset-gaps, publish-ready from 12:32Z, backlog discovery 13:53Z, cut of the 27 Nov package from 05:00Z. Waiting on Joseph: merge of package #91 (10 guides, 17 live-guide corrections, #92, #86 and #84/#79 flagged), decision A (publish after merge)."
+  "next_discovery": "Next: the 28 Nov package cut (05:00Z) picks up #90 with the holiday-visit guide (11 guides) and #93 (Medicare plan choice before 7 Dec, verified through 3e601d0); ACQ-118 and ACQ-164 recheck 28 Nov 06:30Z; sweep live-accuracy and planning for search/demand/technical when their cooldowns end; frontier F04 and F06 open. Waiting on Joseph: merge of package #91 (offered since 25 Nov)."
  },
  "planner": {
   "version": "4.3.3",
@@ -7674,7 +7739,7 @@
    "explore_recheck_days": 14,
    "exhausted_base_hours": 12,
    "exhausted_max_hours": 96,
-   "exhausted_until_utc": "",
+   "exhausted_until_utc": "2026-11-27T19:07Z",
    "empty_streak": 0,
    "log": [
     {
@@ -7966,16 +8031,15 @@
    "why": "Joseph, 24 Nov 2026: \"Maintain a replenishing backlog instead of relying exclusively on scheduled discovery windows.\" \"Do not manufacture meaningless work to consume usage.\"",
    "how": "Procedure step 7, INDEPENDENT BACKLOG FALLBACK and RECORDING IT. One explore record per avenue; a key is not explored twice in 14 days without new evidence; close refuses no-worthwhile-work until three avenue classes are recorded or --fallback-skipped says why; after an empty conclusion discovery rests 12 hours, doubling to 96.",
    "last_conclusion": {
-    "utc": "2026-11-26T18:01Z",
-    "run": "cse_014eaiSan3kSKEb4rtUHknYk",
-    "explorations": 4,
+    "utc": "2026-11-27T07:07Z",
+    "run": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
+    "explorations": 5,
     "avenue_classes": [
-     "needs",
-     "quality",
-     "search"
+     "frontier",
+     "needs"
     ],
-    "tasks_added": 4,
-    "skipped": null,
+    "tasks_added": 2,
+    "skipped": "frontier (4 questions) and needs explored; search evidence was worked through the page-ladder and search-console sweeps on the same 25 Nov read (no new read to explore); channels answered by F05 (ope…",
     "rest_hours": 12
    }
   },
