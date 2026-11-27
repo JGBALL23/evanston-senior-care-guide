@@ -191,6 +191,25 @@
    "waiting_for": "PR #91 (or #90) merged, so that a card change no longer collides with the open publish batch in the built /guides/ index",
    "not_before_utc": "2026-11-28T06:30Z",
    "note": "2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 1: #91 and #90 still open (checked 06:27Z), so the card change would still collide with the publish batch."
+  },
+  {
+   "id": "ACQ-188",
+   "task": "Accuracy audit of the live guide assisted-living-cost-illinois against its readable cited sources as they read today (procedure step 7 Improve, ACCURACY AUDIT); claims cited only to ilga.gov are listed as not checked because ilga.gov is unreadable from this environment (WebFetch 503 on 27 Nov 2026; quotecheck: 4 of 10 cited pages unreadable).",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:assisted-living-cost-illinois",
+   "evidence": "Sweep live-accuracy 27 Nov 2026 07:10Z: 30 of 32 live guides have packets in ops/reviews/live/; this one and check-illinois-inspection-records have none. quotecheck on main 27 Nov: 0 quotations, 6 short terms (2 not found), 10 cited pages, 4 unreadable. The guide states dollar figures and contract rules families act on.",
+   "expected_tour_acquisition_value": "A family pricing assisted living acts on the figures in the site's cost guide; a wrong figure costs trust in the page that leads to the tour checklist.",
+   "impact": 3,
+   "confidence": 3,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/live/assisted-living-cost-illinois.md with one row per figure and rule checked against its readable source, the ilga.gov-only claims listed as not checked, counts line and a verdict (holds, or corrections with source sentences)",
+   "priority": 2,
+   "score": 4.5,
+   "status": "ready",
+   "found_utc": "2026-11-27T07:09Z"
   }
  ],
  "completed": [
@@ -6287,8 +6306,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSaU9VKyTkRhekq5VFJ",
-   "utc": "2026-11-27T07:07Z",
-   "since_utc": "2026-11-27T07:07Z"
+   "utc": "2026-11-27T07:09Z",
+   "since_utc": "2026-11-27T07:07Z",
+   "productive_min": 2
   },
   "monitor": {
    "last_utc": "2026-11-27T06:26Z"
@@ -7547,10 +7567,10 @@
     "evidence": "python3 ops/quotecheck.py --site <clone of main> --all: every guide with a NOT FOUND or NEAR MATCH quotation; then, among guides without a packet in ops/reviews/live/, those with deadlines, dollar figures or eligibility rules. State on 25 Nov 2026 after two sessions: 32 live guides; 8 audited (packets in ops/reviews/live/: 4 hold, 4 corrected in pull request #89); the checker (corrected the same day: a link or a PDF line break inside a source sentence no longer reads as NOT FOUND) reports 249 of 252 quotations FOUND, 1 NOT FOUND (illinois-pace-program, corrected in #89) and 2 NEAR MATCH (illinois-nursing-home-preadmission-screening, corrected in #89; va-veteran-directed-care-program, a dropped hyphen inside quotation marks, audit queued). assisted-living-cost-illinois and check-illinois-inspection-records cite ilga.gov pages that neither the worker's environment nor the main chat's could read: audit them with a web fetch tool for those pages.",
     "output": "One audit task per live guide with a NOT FOUND quotation (all of them, key audit:<slug>), plus at most two more guides per check chosen by risk; each audit under procedure step 7 Improve, ACCURACY AUDIT. Corrections go into one rolling review pull request. When every live guide has a packet, record that and pass --recheck-hours 720.",
     "why": "Joseph, 24 Nov 2026: \"Correct the known content accuracy problems and strengthen the review process.\" Families act on these deadlines and figures.",
-    "last_checked_utc": "2026-11-26T17:34Z",
-    "next_check_utc": "2026-11-27T05:34Z",
-    "last_result": "26 Nov 17:50Z: quotecheck on main for the 7 live guides without a packet: hospice 1/1, resident rights 10/10, SHIP 8/8, family caregiver 8/8, independent living 1/1 FOUND; levels-of-care and inspection records have no quotations (short-term hits only; inspection records' 9 ilga.gov pages unreadable…",
-    "last_added": 2
+    "last_checked_utc": "2026-11-27T07:09Z",
+    "next_check_utc": "2026-11-27T19:09Z",
+    "last_result": "27 Nov 07:10Z: 30/32 live guides have packets. quotecheck on main: assisted-living-cost-illinois 0 quotations, 10 cited pages, 4 unreadable (ilga.gov); check-illinois-inspection-records 0 quotations, 13 pages, 9 unreadable. ilga.gov still unreadable (WebFetch 503 on K90; a direct fetch was refused …",
+    "last_added": 1
    },
    {
     "id": "demand-questions",
@@ -7689,6 +7709,7 @@
    }
   ],
   "sweep_log": [
+   "2026-11-27T07:09Z live-accuracy +1: 27 Nov 07:10Z: 30/32 live guides have packets. quotecheck on main: assisted-living-cost-illinois 0 quotations, 10 cited pages, 4 unreadable (ilga.gov); check-i…",
    "2026-11-27T07:06Z demand-questions +0: Public questions read 27 Nov for holiday-visit warning signs (built) and adult day care in Evanston (covered); DEMAND.md Open at one worker topic waiting on il…",
    "2026-11-27T07:06Z asset-gaps +0: Strongest current need without a page was the holiday-visit moment (F01), built this session; adult day services (needs avenue) and the Medicare plan-choice ga…",
    "2026-11-27T06:58Z search-console +0: No Search Console read newer than 2026-11-25T20:35Z (the 27 Nov payload repeats it; already recorded 26 Nov). Its uncovered-query and low-CTR candidates were w…",
