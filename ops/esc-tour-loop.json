@@ -5673,10 +5673,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-27T07:07Z",
-  "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
-  "picked": "ACQ-169 done, ACQ-170 done, ACQ-171 done, ACQ-173 done, ACQ-174 done (reopened), ACQ-176 done, ACQ-177 done, ACQ-180 done, ACQ-181 done, ACQ-172 done, ACQ-175 done (reopened), ACQ-178 done, ACQ-179 done (reopened), ACQ-182 done, ACQ-183 done (reopened), ACQ-184 done, ACQ-185 done, ACQ-186 done, ACQ-187 done; ACQ-118 and ACQ-164 postponed to 28 Nov 06:30Z",
-  "why": "Worked: package #91 re-cut with verified #89 commits; holiday-visit guide built, reviewed, corrected, verified and added to batch #90; PR #93 Medicare plan choice before 7 Dec verified; tour-path beacon read found. stopped: no-worthwhile-work; resume: 28 Nov package cut or a merge"
+  "utc": "2026-11-27T07:16Z",
+  "event": "Make controller: completion of cse_014eaiSeY3WV1Qzjy2ZNkkuN",
+  "picked": "ACQ-188 done, ACQ-189 done",
+  "why": "Worked: audited live cost guide, 1 date correction in #89 (166f2d1) verified by an independent reader; stopped: no-worthwhile-work; resume: monitor 18:26Z"
  },
  "last_verified_action": "ACQ-189 done 2026-11-27T07:16Z: Independent reader agent (fresh context, standard brief) checked the one sentence 166f2d1 changed in assisted-living-cost-illinois on claude/accuracy-20261125:…",
  "last_stop": {
@@ -6343,19 +6343,63 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiSaU9VKyTkRhekq5VFJ",
-   "utc": "2026-11-27T07:16Z",
-   "since_utc": "2026-11-27T07:07Z",
-   "productive_min": 9,
-   "deliverables": [
-    "audit:ops/reviews/live/assisted-living-cost-illinois.md; #89 166f2d1",
-    "verification:ops/reviews/live/assisted-living-cost-illinois.md; #89 166f2d1"
-   ]
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-27T06:26Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSaU9VKyTkRhekq5VFJ",
+    "start_utc": "2026-11-27T07:07Z",
+    "end_utc": "2026-11-27T07:16Z",
+    "launch": "completion of cse_014eaiSeY3WV1Qzjy2ZNkkuN",
+    "outcome": "Worked: audited live cost guide, 1 date correction in #89 (166f2d1) verified by an independent reader; stopped: no-worthwhile-work; resume: monitor 18:26Z",
+    "done": 2,
+    "changed": 4,
+    "tasks": "ACQ-188 done, ACQ-189 done",
+    "next": "no",
+    "wake_minutes": 640,
+    "next_due_utc": "2026-11-27T18:26Z",
+    "plan_due": false,
+    "saturated": [],
+    "budget_used_hours_24h": 1.4,
+    "budget_used_hours_7d": 6.4,
+    "productive_min": 9,
+    "deliverables": [
+     "audit:ops/reviews/live/assisted-living-cost-illinois.md; #89 166f2d1",
+     "verification:ops/reviews/live/assisted-living-cost-illinois.md; #89 166f2d1"
+    ],
+    "stop_reason": "no-worthwhile-work",
+    "considered": "live-accuracy sweep: 30/32 live guides audited; assisted-living-cost-illinois audited (11 claims hold, 1 footer-date correction, 2 ilga.gov statute claims unchecked); check-illinois-inspection-records not queued (9/13 sources on unreadable ilga.gov, no quotations). ilga.gov: WebFetch 503, direct fetch refused by permission check, not retried. Frontier not due (4 answered today); backlog discovery resting until 19:07Z; planner cooling until 19:06Z; package already cut today (166f2d1 enters tomorrow's; #89 body line not updated: gh API not used here). Other angles cooling (draft-review 18:48Z, publish-ready 18:57Z, asset-gaps 19:06Z).",
+    "resume_when": "monitor due 18:26Z; draft-review sweep 18:48Z; planner and backlog discovery 19:06-19:07Z; or a merge of #91",
+    "sweep_due_left": [],
+    "sessions_24h": 3,
+    "handoff": null,
+    "make_ops": {
+     "day_from_utc": "2026-11-27T05:00Z",
+     "used_estimate": 8,
+     "per_day": 13,
+     "chain_held": false,
+     "why": "Make's operations allow one more session today (about 8 of 13 used); it is kept for the next monitoring pass"
+    },
+    "package": {
+     "due_at_close": false,
+     "skipped": null,
+     "done_today": true
+    },
+    "backlog_discovery": {
+     "explorations": 0,
+     "avenue_classes": [],
+     "tasks_added": 0,
+     "concluded": null
+    },
+    "frontier": {
+     "explored": [],
+     "open_left": 15
+    }
+   },
    {
     "run": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
     "start_utc": "2026-11-27T06:24Z",
@@ -7225,8 +7269,8 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-27T07:07Z",
-   "eligible_now": 1,
+   "written_utc": "2026-11-27T07:16Z",
+   "eligible_now": 0,
    "next_due": [
     {
      "utc": "2026-11-27T18:26Z",
@@ -7284,7 +7328,7 @@
    "note": "Cut twice on 25 Nov by the supervising chat; re-cut 26 Nov 06:31Z by the ESCG worker (cse_014eaiSe8SBqppdHD1M3fw41): #90 now 10 guides (40e9da0), #92 added; #89 through c964f99 by 06:47Z (6876bfd, 64feb14, c964f99 verified by independent readers in the same session). 26 Nov 10:03Z, supervising chat: one housekeeping commit 2d84762 on the package branch (the temporary file .cite-count of check-citations.sh, committed by accident in #89's d7724d0, removed and added to .gitignore; no page, test or script changes; rebuild clean and all eleven suites pass on 2d84762). #89 itself is unchanged at c964f99. 27 Nov 06:29Z re-cut by the ESCG worker (cse_014eaiSeY3WV1Qzjy2ZNkkuN, ACQ-169): #89's verified commits 99cc346..9d57bf0 merged (a523b5e); rebuild clean, all eleven suites pass; title and body rewritten (number unchanged).",
    "owner_actions": []
   },
-  "next_discovery": "Next: the 28 Nov package cut (05:00Z) picks up #90 with the holiday-visit guide (11 guides) and #93 (Medicare plan choice before 7 Dec, verified through 3e601d0); ACQ-118 and ACQ-164 recheck 28 Nov 06:30Z; sweep live-accuracy and planning for search/demand/technical when their cooldowns end; frontier F04 and F06 open. Waiting on Joseph: merge of package #91 (offered since 25 Nov)."
+  "next_discovery": "Monitor due 18:26Z, then draft-review and publish-ready sweeps and the planner from 18:48Z. #89 holds one new verified commit (166f2d1) for tomorrow's package; #91 waits on Joseph's merge."
  },
  "planner": {
   "version": "4.3.3",
