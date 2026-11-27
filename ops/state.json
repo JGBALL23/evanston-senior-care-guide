@@ -2,7 +2,7 @@
   "schema": 1,
   "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
   "updated_utc": "2026-11-18T23:05Z",
-  "last_run_utc": "2026-11-27T03:34Z",
+  "last_run_utc": "2026-11-27T15:07Z",
   "facebook": {
     "access": {
       "value": "yes",
@@ -500,7 +500,6 @@
     ]
   },
   "log": [
-    "2026-11-21T18:16Z Sat 12:15 Chicago: extension not linked; Winnetka text handed to Joseph to post manually; no replies; checks every 3h while unlinked, no routine messages to Joseph",
     "2026-11-21T21:11Z Sat 15:10 Chicago: extension not linked; no replies; no change",
     "2026-11-22T00:06Z Sat 18:05 Chicago: extension not linked all day; Winnetka post not confirmed by Joseph; no replies; sleep until Sun 9:00 Chicago (Rogers Park post due after 17:29Z if linked)",
     "2026-11-22T15:08Z Winnetka post P-1120-01 live (template A, fb-wnk-1120); extension reconnected Sun morning",
@@ -539,13 +538,14 @@
     "2026-11-26T22:21Z fb-nsh-1126 still pending (1 pending in group); no org replies; next: evening lead scan",
     "2026-11-26T23:29Z evening lead scan 11 groups, 236 posts, 0 new leads; no org replies",
     "2026-11-27T02:27Z fb-nsh-1126 APPROVED and live (seen); pushed Joseph; no org replies",
-    "2026-11-27T03:34Z late lead scan 11 groups, 188 posts, 0 new leads; fb-nsh-1126 live 0 reactions/0 comments; no org replies; sleeping to Fri 15:00Z"
+    "2026-11-27T03:34Z late lead scan 11 groups, 188 posts, 0 new leads; fb-nsh-1126 live 0 reactions/0 comments; no org replies; sleeping to Fri 15:00Z",
+    "2026-11-27T15:07Z Fri morning: identity ok; lead scan 11 groups 383 posts 0 leads; fb-nsh-1126 and fb-evsk-1125 0 reactions/0 comments; venue search (caregivers/Evanston seniors) found only already-rejected groups; no org replies; no post (5-in-7 cap to 29 Nov 15:08Z)"
   ],
   "next_actions": [
-    "17:05Z: check North Shore post approval (fb-nsh-1126) and engagement",
-    "19:20Z: afternoon lead scan",
-    "Fri 27 Nov: no new post (5-in-7 cap until 29 Nov 15:08Z); Everything Evanston day rule Fri but its cost post still pending",
-    "Mon 30 Nov: outreach targets (CJE SeniorLife, Niles Township) after preflight"
+    "Fri 19:20Z afternoon lead scan; ~23:30Z evening scan",
+    "Sat 28 Nov: scans only (cap)",
+    "Sun 29 Nov after 15:08Z: next post (new venue/content)",
+    "Mon 30 Nov: outreach CJE SeniorLife, Niles Township after preflight"
   ],
   "one_offs": {
     "pr22": "done: released 2026-11-17T00:54Z. Merged with main (all suites passed: check-guides 1501, test.js 768, inquiry validation 36, checklist-click 30, start-source 21, tour-source 23, paying-nav 314, checklist PDF, publish 32; build reproduces _dist); consent wording, form fields, server code and inquiry payload unchanged; merge commit 1dc0004; Netlify deploy 6afba5a9ea3f94d69014251e (4 functions); live check 33/33 files, 0 problems; also shipped the reviewed #27 and #28",
@@ -665,11 +665,11 @@
     "last_scan_utc": "2026-11-23T15:30Z"
   },
   "due": {
-    "post_next": "2026-11-27T15:00Z",
-    "fb_checks": "2026-11-27T15:00Z",
-    "lead_scan": "2026-11-27T15:00Z",
+    "post_next": "2026-11-29T15:10Z",
+    "fb_checks": "2026-11-27T21:15Z",
+    "lead_scan": "2026-11-27T19:20Z",
     "metrics": "2026-11-19T00:05Z",
-    "venues": "2026-11-25T15:00Z",
+    "venues": "2026-12-04T15:00Z",
     "evanston_join_status": "2026-11-19T15:00Z",
     "rollup": "2026-11-19T01:00Z",
     "guides": "no drafts left worth publishing today (two deferred with reasons); next drafts run 18 Nov ~12:02Z",
