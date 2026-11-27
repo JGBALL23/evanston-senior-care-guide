@@ -191,6 +191,25 @@
    "waiting_for": "PR #91 (or #90) merged, so that a card change no longer collides with the open publish batch in the built /guides/ index",
    "not_before_utc": "2026-11-28T06:30Z",
    "note": "2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 1: #91 and #90 still open (checked 06:27Z), so the card change would still collide with the publish batch."
+  },
+  {
+   "id": "ACQ-198",
+   "task": "Re-check illinois-medicaid-pending-nursing-home (drafts; in publish batch #90) against HFS's notice that retroactive Medicaid coverage falls from 3 to 2 months on 1 Jan 2027; add the scope correction to its review packet, apply it on drafts under Improve, and have an independent reader verify it",
+   "workstream": "build",
+   "lane": "build",
+   "source": "plan",
+   "key": "frontier-F12-medicaid-retro-2027",
+   "priority": 1,
+   "evidence": "Frontier F12, 27 Nov 2026: local outlets ran four Medicaid-change stories in 12 months (Evanston Now 19 Jan and 2 Sep 2026; Evanston RoundTable 9 Jun 2026). Official sources read 27 Nov 2026: HFS 'How will Federal changes impact Medicaid?' (hfs.illinois.gov/info/fedresctr/faqshowwillfedchimpactmedicaid.html): 'Effective January 1, 2027, retroactive coverage will be decreased from 3 months to 2 months for all Illinois Medicaid customers.'; CMS CIB of 18 Nov 2026 (medicaid.gov cib111726, section 71112, applications on or after 1 Jan 2027). The drafts guide states 'up to three months before the month you apply' (HFS 3191, Feb 2015) without the date limit.",
+   "expected_tour_acquisition_value": "families applying for nursing-home Medicaid in January 2027 would otherwise plan on a third month of back coverage that no longer exists; a correct page keeps the guide trusted on money questions",
+   "impact": 4,
+   "confidence": 5,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet ops/reviews/illinois-medicaid-pending-nursing-home.md lists the scope correction with its HFS source sentence; correction committed on drafts with the five checks and quotecheck passing; verify:<slug>:<commit> task added and worked by an independent reader agent",
+   "score": 10.0,
+   "status": "ready",
+   "found_utc": "2026-11-27T20:04Z"
   }
  ],
  "completed": [
@@ -6566,9 +6585,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeGWreJzfEyfVMTtWN",
-   "utc": "2026-11-27T20:00Z",
+   "utc": "2026-11-27T20:04Z",
    "since_utc": "2026-11-27T19:57Z",
-   "productive_min": 4
+   "productive_min": 8
   },
   "monitor": {
    "last_utc": "2026-11-27T18:25Z"
@@ -8233,9 +8252,20 @@
    "explore_recheck_days": 14,
    "exhausted_base_hours": 12,
    "exhausted_max_hours": 96,
-   "exhausted_until_utc": "2026-11-28T06:35Z",
+   "exhausted_until_utc": "",
    "empty_streak": 0,
    "log": [
+    {
+     "utc": "2026-11-27T20:04Z",
+     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+     "key": "frontier-f12",
+     "avenue": "frontier",
+     "lane": "build",
+     "candidates": 4,
+     "added": 1,
+     "result": "Read 27 Nov 2026 via the outlets' own archives (WordPress API, after 2025-11-27): Evanston RoundTable and Evanston Now, ~190 items for senior-care terms. Story types: (1) state enforcement at a licensed long-term-care facility (Albany Care: 7 stories Jan-Nov 2026; an assisted-living abuse case Jun 2026), served by liv…",
+     "verdict": "act"
+    },
     {
      "utc": "2026-11-27T20:00Z",
      "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
@@ -8818,9 +8848,14 @@
      "evidence": "The outlets' own archives and site search; our live pages; the map item for Joseph's guest essay.",
      "output": "A research report on drafts with the story types, their dates and the one asset that would serve them; a build task if it passes the gate. Contact with a newsroom is Joseph's or the operator's.",
      "why": "A link from a local news page lifts every page of the site.",
-     "status": "open",
+     "status": "explored",
      "added_utc": "2026-11-27T01:18Z",
-     "added_by": "supervisor"
+     "added_by": "supervisor",
+     "verdict": "act",
+     "explored_utc": "2026-11-27T20:04Z",
+     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+     "added": 1,
+     "result": "Read 27 Nov 2026 via the outlets' own archives (WordPress API, after 2025-11-27): Evanston RoundTable and Evanston Now, ~190 items for senior-care terms. Story types: (1) state enforcement at a licensed long-term-care facility (Albany Care: 7 stories Jan-Nov 2026; an assisted-living abuse case Jun 2026), served by live check-illinois-inspection-records and illinois-care-facility-complaint; (2) Medicaid/benefit changes (EN 19 Jan, 2 Sep; RT 9 Jun; SNAP 6 May): led to HFS/CMS check, drafts Medicaid-pending guide misses the 1 Jan 2027 cut from 3 to 2 retroactive months: task added; (3) ownership…"
     },
     {
      "id": "F13",
