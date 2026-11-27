@@ -7442,7 +7442,13 @@
    "owner_actions": []
   },
   "next_discovery": "Monitor due 18:26Z, then draft-review and publish-ready sweeps and the planner from 18:48Z. #89 holds one new verified commit (166f2d1) for tomorrow's package; #91 waits on Joseph's merge.",
-  "addenda": []
+  "addenda": [
+   {
+    "utc": "2026-11-27T18:55Z",
+    "by": "supervisor",
+    "rule": "Since 27 Nov 2026 Make runs on its Core plan and its timer looks every 15 minutes. Session starts are no longer scarce and there is no daily budget of Make operations: wherever this procedure speaks of about three starts a day, of the day's Make operations being used, or of a timer that looks every 3 hours, that no longer applies. The helper's NEXT and WAKE are the rule: remaining eligible work and handoffs chain at once, also before the package window, and a session wakes when work is really due. Claude's usage is the limit now: keep the usage reserve, finish what you start, and still prefer the reviewer agent inside the session to a later session. Nothing else changes: ROLE AND LIMITS, the gate, the independent readers, the daily package and QUIET stay exactly as they are."
+   }
+  ]
  },
  "planner": {
   "version": "4.3.3",
@@ -7975,7 +7981,7 @@
   ],
   "continue_by_default": "Joseph, 23 Nov 2026 10:36 Chicago: change from STOP-BY-DEFAULT to CONTINUE-BY-DEFAULT. After the ready tasks, a session plans and sweeps these angles before it may stop; it stops only for time, no-worthwhile-work, approval-pending, usage-reserve, usage-limit, permission or store-error, recording the alternatives considered and the condition to resume.",
   "due_grace_minutes": 30,
-  "handoff_sessions_24h": 4,
+  "handoff_sessions_24h": null,
   "fallback": {
    "enabled": true,
    "min_avenues": 3,
@@ -8340,8 +8346,8 @@
    "counts_as_one": true,
    "counts_as_one_why": "Since 27 Nov 2026: pull requests that reach Joseph inside the open daily package are one decision (one merge), so the helper counts them once against a lane's owner limit. His words: \"a pending approval blocks only the affected action, not independent business work\" (24 Nov) and a pending approval \"should not prevent you from exploring genuinely new opportunities\" (26 Nov). The affected action stays blocked: never a second change to an element that is pending in the package."
   },
-  "make_ops_per_day": 13,
-  "make_ops_about": "Daily budget of Make operations for the worker's sessions (3 per session start, 2 per closing report that does not chain), counted by the helper from 05:00 UTC, the start of the package window. 13 allows the session that cuts the daily package, one chained session, and a last session kept for the next monitoring pass; after that the next session opens the next day at 05:00 UTC. It must stay below Make's own hard allowance (record V3: ops_used < ops_base 82 + ops_per_day 14 x day of the period, since 26 Nov 2026 17:35Z; before that 60 + 16 x day). Why (26 Nov 2026): the evening chain of four sessions (00:24-01:55Z) used the whole allowance of the UTC day, the session that cut the package started with one operation to spare, and Make then refused every start from 06:48Z on although the monitoring pass was due at 12:26Z (Timer ticks 09:24Z, 12:24Z and 15:24Z: one operation each, nothing started). Fixed in two places: this budget spreads the day's sessions, and Make's allowance was reshaped (more room now, 38 fewer operations by the end of the period: at most 502 instead of 540) so that one session could start on 26 Nov. Measured 26 Nov 17:30Z: 313 of the month's 1,000 operations used on day 5.7 (set-up and tests included); the idle timer costs 12 a day; with this budget the month ends near 905, with Make's allowance alone near 950.",
+  "make_ops_per_day": null,
+  "make_ops_about": "REMOVED 2026-11-27T18:55Z. Joseph upgraded Make to its Core plan (10,000 credits a month) on 27 Nov 2026 and ordered: \"Configure checks every 15 minutes, 24/7. Remove the artificial Free plan session-start restrictions.\" Make's timer now looks every 15 minutes, and neither a daily budget of Make operations (it was 13 a day from 26 Nov) nor a cap on sessions in 24 hours (it was 4) is set. NEXT is yes whenever eligible work remains, the session made progress and the usage reserve allows it; the wake time is the first moment work is really due. What still limits sessions: the usage reserve (budget_hours_per_day), Make's hourly limit (8 starts) and its monthly ceiling (record V3: ops_base 0 + ops_per_day 120 x day of its period, which only a runaway could reach), the lock, and work actually being due. The helper keeps the budget code: it applies again only if make_ops_per_day or handoff_sessions_24h is set.",
   "frontier": {
    "enabled": true,
    "min_per_session": 1,
@@ -8660,6 +8666,13 @@
    "heard_in": "supervising chat",
    "for": "supervisor",
    "applied": "Set up 2026-11-27T01:18Z by the supervising chat (procedure v4.4, helper and state): strategy holds the 12-month plan (north star, baseline of 26 Nov, objectives per quarter, nine programs, page ladder, calendar; monthly review from December); planner/frontier holds 19 genuinely new opportunity questions, one answered per session before a session may stop for lack of work, independent of cooldowns and owner limits; two new angles (page-ladder, seasonal); the open daily package counts as one item against a lane's owner limit (search and conversion lanes open again; build limit 30). Unchanged: Make as controller, the operations budget, the 6-hour usage reserve, every approval, privacy and publishing rule."
+  },
+  {
+   "utc": "2026-11-27T18:45Z",
+   "said": "I've upgraded Make to 10,000 monthly credits. Configure checks every 15 minutes, 24/7. Remove the artificial Free plan session-start restrictions. Keep immediate session-to-session handoffs, automatic recovery, duplicate protection, Claude usage limits, quality standards, owner approvals and emergency off-switches. Keep automatic credit purchases disabled. Independently test, activate and verify everything. Preserve our existing architecture and prioritize continuous, meaningful business growth.",
+   "heard_in": "supervising chat",
+   "for": "supervisor",
+   "applied": "2026-11-27T18:55Z: helper v4.5 (no budget of Make operations, no cap on sessions a day, wake time = first moment work is due); Make timer set to 15 minutes and its ceiling sized for the Core plan by the supervising session; see controller/addenda."
   }
  ],
  "strategy": {

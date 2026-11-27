@@ -58,8 +58,9 @@ Write commands (edit the working copy only; committing and pushing is the caller
                                     and none answered in this session): an empty queue, a cooldown or a pending
                                     approval does not end the search for genuinely new opportunities
 
-Due times have a grace (30 minutes): what falls due within it counts as due now, and wake times are set
-that much earlier, because Make's timer only looks every 3 hours.
+Due times have a grace (30 minutes): what falls due within it counts as due now, so that one session takes
+what comes due close together. The wake time is the first moment at which a session would really find work
+(Make's timer looks every 15 minutes since 27 Nov 2026).
 
 Common options: --loop PATH (default ops/esc-tour-loop.json), --now ISO (tests only).
 """
@@ -85,7 +86,7 @@ FB_AVENUES = ("needs", "search", "channels", "quality", "frontier")
 FR_MIN_SESSION, FR_PER_DAY, FR_MAX_OPEN = 1, 4, 60
 FR_VERDICTS = ("act", "watch", "drop")
 FB_MIN_AVENUES, FB_RECHECK_DAYS, FB_BASE_H, FB_MAX_H, FB_LOG_KEEP = 3, 14, 12, 96, 150
-HANDOFF_SESSIONS_24H = 4
+HANDOFF_SESSIONS_24H = None   # no cap on sessions in 24 hours unless planner/handoff_sessions_24h sets one
 PKG_WINDOW = ("05:00", "10:30")
 NO_WORK_REASONS = ("no-worthwhile-work", "approval-pending")
 TS = re.compile(r"^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::(\d{2})(?:\.\d+)?)?Z$")
@@ -423,7 +424,7 @@ def end_current(c, what, now, deliverable=None):
     return minutes
 
 
-def compute(d, now, monitor_hours, run=None):
+def compute(d, now, monitor_hours, run=None, _probe=False):
     c = d.get("controller") or {}
     lock = c.get("lock") or {}
     lock_t = parse_ts(lock.get("utc"))
@@ -503,6 +504,19 @@ def compute(d, now, monitor_hours, run=None):
     next_due = future[0][0] if future else None
     eligible = (pipeline + len(handoff) + (1 if plan["due"] else 0) + len(sweep["due"]) + (1 if fbv["due"] else 0)
                 + (1 if pkv["due"] else 0))
+    # The wake time is the first moment at which a session would really find work. Since 27 Nov 2026 Make's
+    # timer looks every 15 minutes (Core plan), so a wake set one grace before something that has no grace
+    # (the package window) would start a session that finds nothing due. Candidates: every due time and
+    # every due time minus the grace; the first at which work_now holds wins.
+    wake_m = wake_minutes(fmt(next_due - g) if next_due else None, now)
+    wake_t = (next_due - g) if next_due else None
+    if not _probe and future:
+        for w in sorted({x - g for x, _ in future} | {x for x, _ in future}):
+            if w <= now:
+                continue
+            if compute(d, w, monitor_hours, run, _probe=True)["work_now"]:
+                wake_m, wake_t = wake_minutes(fmt(w), now), w
+                break
 
     def ready_row(t):
         row = {"id": t.get("id"), "priority": t.get("priority"), "workstream": t.get("workstream"),
@@ -534,7 +548,8 @@ def compute(d, now, monitor_hours, run=None):
         "work_now": eligible > 0 or mon_due,
         "grace_minutes": int(g.total_seconds() // 60),
         "next_due_utc": fmt(next_due) if next_due else None,
-        "wake_minutes": wake_minutes(fmt(next_due - g) if next_due else None, now),
+        "wake_minutes": wake_m,
+        "wake_utc": fmt(wake_t) if wake_t else None,
         "next_due": [{"utc": fmt(w), "what": i} for w, i in future[:6]],
         "counts": {"queue": len(queue), "completed": len(d.get("completed") or []),
                    "map_items": len(om.get("items") or []), "owner_review_needed": len(d.get("owner_review_needed") or [])},
@@ -1314,6 +1329,13 @@ def main():
                                and (parse_ts(s_.get("end_utc")) or parse_ts(s_.get("start_utc")) or day_ago) > day_ago)
         cap = pl.get("handoff_sessions_24h", HANDOFF_SESSIONS_24H)
         cap = cap if isinstance(cap, int) and not isinstance(cap, bool) and cap >= 1 else HANDOFF_SESSIONS_24H
+        # SINCE 27 NOV 2026 (Make Core, 10,000 credits a month, timer every 15 minutes): session starts are no
+        # longer scarce. planner/make_ops_per_day and planner/handoff_sessions_24h are absent, so nothing
+        # below holds a chain or a handoff back for Make's sake: NEXT is yes whenever eligible work remains,
+        # the session made progress and the usage reserve allows it, and the wake time is simply when the
+        # next thing is due. The budget code stays for the case that either setting is given again (a free
+        # plan). What still limits sessions: the usage reserve (budget_view), Make's hourly limit and its
+        # monthly ceiling, the lock, and work actually being due.
         mops = pl.get("make_ops_per_day")
         mops = mops if isinstance(mops, int) and not isinstance(mops, bool) and mops >= 10 else None
         # Make's free operations are the scarce resource, so they are budgeted per day here (26 Nov 2026: a
@@ -1336,13 +1358,13 @@ def main():
                          and (parse_ts(s_.get("start_utc")) or day_ago) >= day0]
         ops_today = (3 * (len(earlier_today) + (1 if (parse_ts(start) if start else now) >= day0 else 0))
                      + 2 * sum(1 for s_ in earlier_today if s_.get("next") != "yes"))
-        hold_cut = bool(st["package"]["ahead_today"])
+        hold_cut = bool(st["package"]["ahead_today"]) and mops is not None
         # A chained start (3) and its closing report (2) are allowed only while a further whole session (5)
         # still fits afterwards: that one carries the second monitoring pass of the day.
         chain_room = (ops_today + 5 + 5 <= mops) if mops is not None else True
         another_fits = (ops_today + 2 + 5 <= mops) if mops is not None else True
         one_after_next = (ops_today + 2 + 5 + 5 <= mops) if mops is not None else True
-        hold_ops = (not chain_room) if mops is not None else (sessions_24h >= cap)
+        hold_ops = (not chain_room) if mops is not None else (cap is not None and sessions_24h >= cap)
         handoff_wait = handoff_only and (hold_cut or hold_ops)
         ops_wait = bool(mops is not None and not chain_room and st["eligible"] > 0 and not handoff_wait)
         handoff_why = None
@@ -1350,7 +1372,7 @@ def main():
             handoff_why = ("the session that cuts the daily package takes it (window from %s UTC)" % st["package"]["window_utc"][0]
                            if hold_cut else
                            ("Make's operations for today are used by its sessions (about %d of %d)" % (ops_today, mops)
-                            if mops is not None else "%d sessions in 24 hours (limit %d)" % (sessions_24h, cap)))
+                            if mops is not None else "%d sessions in 24 hours (limit %s)" % (sessions_24h, cap)))
         nxt = "yes" if (st["eligible"] > 0 and progress and not bud["over"] and not handoff_wait and not ops_wait) else "no"
         if nxt == "yes":
             wake = None
