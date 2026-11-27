@@ -6,8 +6,8 @@
   "note": "tour-request alerts: sha256(message id) and time only"
  },
  "metrics": {
-  "last_utc": "2026-11-26T17:32Z",
-  "window_utc": "2026-11-26T00:25Z/2026-11-26T17:32Z",
+  "last_utc": "2026-11-27T06:25Z",
+  "window_utc": "2026-11-26T17:32Z/2026-11-27T06:25Z",
   "note": "incremental since previous window; Netlify topk urls_with_query + user_agents + request logs",
   "per_tag": {
    "fb-wil-1118": {
@@ -104,7 +104,7 @@
   "assessment_completions": null,
   "tour_form_views": null,
   "tour_requests": 0,
-  "genuine_detail": "26 Nov 00:25Z-17:32Z: fb-nsh-1126 5 distinct fbclid landings (3 landed beacons); 1 direct landed beacon; ~15 single browser guide views at ~1.2 s with no referrer (not separable from automated fetches, not counted); 1 checklist PDF fetch and 1 ?tour=form view not attributable (null); 0 tour POSTs (3 POSTs: xmlrpc.php scanner 404s)"
+  "genuine_detail": "26 Nov 17:32Z-27 Nov 06:25Z: all 25 browser script loads (app.js) came from one client address: one returning direct visitor viewing the home page about 18 times over 11 hours (2 direct landed beacons, 1 tour-questions view, 1 costs view); 1 checklist PDF open from a Facebook link (fbclid, no ref tag); a 7-page burst at 22:02:27Z in 30 ms is automated (not counted); 0 tour POSTs"
  },
  "summary": {
   "last_utc": "2026-11-19T01:24Z",
@@ -113,8 +113,8 @@
  "site": {
   "fail_count": 0,
   "down_since_utc": null,
-  "last_check_utc": "2026-11-26T17:35Z",
-  "last_check_method": "curl (loop worker): home 200, ?tour=form 200, /assisted-living-evanston/ 200, checklist PDF 200 application/pdf, #assessment present; Netlify 00:25Z-17:32Z: 1770 req (903 other, 513 page-preview, 152 tooling, 140 browser, 48 ai-agent, 14 crawler), 953x200, 397x404 (scanners; 0 browser 404s), 385x301, no 5xx"
+  "last_check_utc": "2026-11-27T06:27Z",
+  "last_check_method": "curl (loop worker): home 200, ?tour=form 200, /assisted-living-evanston/ 200, checklist PDF 200 application/pdf, #assessment present; Netlify 17:32Z 26 Nov-06:25Z 27 Nov: 419 req (177 browser, 163 page-preview, 34 crawler, 19 tooling, 15 other, 11 ai-agent), 258x200, 97x304, 32x301, 30x404 (6 browser 404s: apple-touch-icon probes), no 5xx"
  },
  "recovery": {
   "last_attempt_utc": "2026-11-18T01:39Z",
@@ -210,6 +210,7 @@
  },
  "demand_candidates": [],
  "log": [
+  "2026-11-27T06:27Z worker monitor: site OK (no 5xx); 2 genuine visitors (1 returning direct, 1 Facebook checklist open); 0 tour requests; 0 org replies; no merges (#78-#92 open, all clean; package #91 waiting); Search Console read 25 Nov 20:35Z already recorded; operator last run 03:34Z",
   "2026-11-26T17:35Z worker monitor: site OK (no 5xx, 0 browser 404s); 6 genuine visitors (5 fb-nsh-1126, 1 direct); 0 tour requests; 0 org replies; no merges (#78-#92 open, all clean; package #91 waiting); Search Console read 25 Nov 20:35Z already recorded; operator last run 17:08Z",
   "2026-11-26T00:28Z worker monitor: site OK (no 5xx); 5 genuine visitors 25 Nov (3 fb-evsk-1125, 1 search, 1 direct); 0 tour requests; 0 org replies; no merges (#78-#91 open, all clean); Search Console read 20:35Z recorded (1242 impressions, 2 clicks, 28-day); operator last run 23:37Z",
   "2026-11-25T06:26Z worker monitor: site OK (no 5xx); 1 probable genuine visitor (Google search, complaint guide); 0 tour requests; 0 org replies; no merges (#78-#91 open, all clean); operator last run 03:40Z",
@@ -268,8 +269,7 @@
   "2026-11-22T19:24Z run: site OK; 0 genuine (30 automated req); no org replies/inquiries; no merges; loop idle by design (no ready, no open map item, next events 25 Nov), no loop write",
   "2026-11-22T20:23Z run: site OK; 0 genuine (54 automated req incl. Meta re-scrape of fb-evsk-1117 that fired beacons from Meta IPs - beacon counts this hour are not visitors); no org replies/inquiries; no merges; loop idle by design, no loop write",
   "2026-11-22T21:23Z run: site OK; 0 genuine (31 automated req); no org replies/inquiries; no merges (PR #86 open); loop idle with no ready item -> one loop commit 186b7ba: discovery scouts created, ACQ-031 SC1 / ACQ-032 SC2 / ACQ-033 SC4 ready, Joseph's 22 Nov answers recorded (ACQ-007 -> PR #86; D7 essay draft with him), 22 Nov worker timestamps corrected from commit times",
-  "2026-11-22T22:25Z run: site OK; 0 genuine (59 automated req incl. loop worker HeadlessChrome test of fb-hol-test); no org replies/inquiries; no merges (PR #86 open); loop idle by design after ACQ-034 (no ready, no open map item, no scout due until SC3 25 Nov 16:00Z), no loop write",
-  "2026-11-23T00:25Z worker monitor: site OK; 0 genuine (87 automated req 22:25Z-00:25Z); 0 tour requests; 0 org replies; no merges (#78-81, #84-86 open); operator ran 23:30Z; SC row seeded from operator 18 Nov read"
+  "2026-11-22T22:25Z run: site OK; 0 genuine (59 automated req incl. loop worker HeadlessChrome test of fb-hol-test); no org replies/inquiries; no merges (PR #86 open); loop idle by design after ACQ-034 (no ready, no open map item, no scout due until SC3 25 Nov 16:00Z), no loop write"
  ],
  "facebook_interruptions_past": [
   {
@@ -296,8 +296,8 @@
  "outreach_watch": {
   "alerted": [],
   "replies_alerted": [],
-  "last_utc": "2026-11-26T17:35Z",
-  "note": "no org replies (inbox 3d: 13 threads, none in the 13 sent outreach threads)"
+  "last_utc": "2026-11-27T06:27Z",
+  "note": "no org replies (inbox 3d: 12 threads, none in the 13 sent outreach threads)"
  },
  "facebook_interruption": {
   "since_utc": "2026-11-19T16:22Z",
@@ -313,18 +313,18 @@
   "daily": [
    {
     "date_chicago": "2026-11-26",
-    "genuine_visitors": 6,
+    "genuine_visitors": 8,
     "by_source": {
-     "facebook": 5,
+     "facebook": 6,
      "referral": 0,
      "search": null,
-     "other": 1
+     "other": 2
     },
-    "checklist_opens": null,
+    "checklist_opens": 1,
     "assessment_starts": null,
     "tour_form_views": null,
     "tour_requests": 0,
-    "note": "partial: 18:25 Chicago 25 Nov to 11:32 Chicago 26 Nov; fb-nsh-1126 post 5, 1 direct; search referrals not separable (null); 0 tour POSTs"
+    "note": "18:25 Chicago 25 Nov to 00:25 Chicago 27 Nov; fb-nsh-1126 post 5, 1 direct; search referrals not separable (null); 0 tour POSTs; +17:32Z 26 Nov-06:25Z 27 Nov: 1 returning direct visitor (many home views, 1 tour-questions view), 1 Facebook checklist PDF open (fbclid, untagged); 0 tour POSTs"
    },
    {
     "date_chicago": "2026-11-25",

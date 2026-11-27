@@ -5857,11 +5857,11 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
-   "utc": "2026-11-27T06:24Z",
+   "utc": "2026-11-27T06:26Z",
    "since_utc": "2026-11-27T06:24Z"
   },
   "monitor": {
-   "last_utc": "2026-11-26T17:33Z"
+   "last_utc": "2026-11-27T06:26Z"
   },
   "sessions": [
    {
