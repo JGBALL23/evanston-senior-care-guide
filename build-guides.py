@@ -511,6 +511,14 @@ SRC = {
                 'https://hfs.illinois.gov/medicalprograms/slf.html'),
     "idph_alz_plan": ('Illinois Department of Public Health \u2014 State of Illinois Alzheimer\u2019s Disease Plan 2026\u20132029',
                       'https://dph.illinois.gov/content/dam/soi/en/web/idph/publications/idph/topics-and-services/diseases-and-conditions/alzheimers/alzheimers-state-plan-20262029.pdf'),
+    "medicare_awv": ('Medicare.gov — Yearly "Wellness" visits',
+                     'https://www.medicare.gov/coverage/yearly-wellness-visits'),
+    "medicare_cog": ('Medicare.gov — Cognitive assessment & care plan services',
+                     'https://www.medicare.gov/coverage/cognitive-assessment-care-plan-services'),
+    "idoa_helpline": ('Illinois Department on Aging — Senior HelpLine',
+                      'https://ilaging.illinois.gov/resources/helpline-main.html'),
+    "idoa_aaa_list": ('Illinois Department on Aging — Area Agencies on Aging list',
+                      'https://ilaging.illinois.gov/forprofessionals/aaa-list.html'),
 }
 
 
@@ -6967,6 +6975,185 @@ GUIDES = [
             ]),
         ],
     },
+    {
+        "slug": "noticed-changes-in-parent-holiday-visit",
+        "bridge": ("Seeing that something has changed is a different question from "
+                   "knowing what kind of help your parent now needs."),
+        "reviewed": "2026-11-27",
+        "title": "Noticed Changes in a Parent Over the Holidays? Next Steps",
+        "h1": "You noticed changes in your parent during a holiday visit. What should you do next?",
+        "desc": ("A first-week plan for Illinois families: what to write down, the "
+                 "Medicare Wellness visit and its memory check, and who to call "
+                 "first."),
+        "intent": "first steps after noticing a decline",
+        "answer": ("<strong>Write down what you saw, book an appointment with your "
+                   "parent&rsquo;s doctor about it, and, if your parent lives in "
+                   "Illinois, make one call to the Illinois Department on "
+                   "Aging&rsquo;s Senior HelpLine.</strong> "
+                   "Medicare Part B covers a yearly &ldquo;Wellness&rdquo; visit in "
+                   "which the provider will &ldquo;Perform a cognitive assessment to "
+                   "look for signs of dementia, including Alzheimer&rsquo;s "
+                   "disease.&rdquo; The Illinois Department on Aging&rsquo;s Senior "
+                   "HelpLine, 1-800-252-8966, says its staff can &ldquo;evaluate your "
+                   "needs and answer your questions&rdquo; and connect you with local "
+                   "care coordination services. If you fear that your parent, aged 60 or "
+                   "older and living in their own home in Illinois, is being abused, "
+                   "neglected or exploited or is neglecting themselves, the statewide "
+                   "24-hour Adult Protective Services Hotline is 1-866-800-1409; for a "
+                   "parent in a nursing home, the guide to reporting elder abuse covers "
+                   "the other hotline."),
+        "sources": srcs("medicare_awv", "medicare_cog", "idoa_helpline",
+                        "idoa_aaa", "idoa_aaa_list", "idoa_ccp", "idoa_inhome", "idoa_aps_program"),
+        "body": [
+            ("Start with what you saw, in writing", [
+                "<p>If you do not see your parent every week, a holiday visit can "
+                "show changes all at once. Before you call anyone, write down what you "
+                "noticed and when: the things your parent found hard, what was "
+                "different from your last visit, and anything that worried you about "
+                "safety. Keep it factual and short. It gives the doctor and anyone "
+                "else you speak to something concrete to work from, and it lets "
+                "brothers and sisters who were not there see the same picture.</p>",
+                "<p>Medicare.gov lists the kinds of change a provider looks for in a "
+                "memory check: &ldquo;Signs of cognitive impairment include trouble "
+                "remembering, learning new things, concentrating, managing finances, "
+                "and making decisions about your everyday life.&rdquo; Those are "
+                "useful headings for your notes. A list is not a diagnosis, and only "
+                "a clinician can say what is behind a change.</p>",
+            ]),
+            ("Book the doctor: the yearly Wellness visit and its memory check", [
+                "<p>Medicare Part B covers a yearly &ldquo;Wellness&rdquo; visit "
+                "once every 12 months. Medicare.gov says of it: &ldquo;It isn&rsquo;t "
+                "a routine physical exam.&rdquo; During the visit, the provider will "
+                "&ldquo;Perform a cognitive assessment to look for signs of dementia, "
+                "including Alzheimer&rsquo;s disease.&rdquo; The page adds that if "
+                "the provider thinks there may be cognitive impairment, &ldquo;Medicare "
+                "covers a separate visit to do a more thorough review of your "
+                "cognitive function and check for conditions like dementia, "
+                "depression, anxiety, or delirium.&rdquo;</p>",
+                "<p>On cost, the Wellness visit page says: &ldquo;You pay nothing if "
+                "your provider accepts assignment.&rdquo; It also says your parent "
+                "may have to pay coinsurance, and the Part B deductible may apply, "
+                "if the provider performs additional tests or services during the "
+                "same visit that this preventive benefit does not cover. For the "
+                "separate cognitive assessment visit, Medicare.gov says: &ldquo;After "
+                "you meet the Part B deductible, you pay 20% of the Medicare-approved "
+                "amount.&rdquo; Both pages describe Medicare Part B; they do not say "
+                "what a Medicare Advantage plan charges, so a parent in one of those "
+                "plans should ask the plan.</p>",
+                "<p>Medicare.gov also says that a first Wellness visit cannot take "
+                "place within 12 months of Part B enrollment or the &ldquo;Welcome to "
+                "Medicare&rdquo; preventive visit, and that &ldquo;If you have "
+                "specific concerns about your health, you should schedule a separate "
+                "appointment to discuss those&rdquo;. What you noticed is a specific "
+                "concern, so ask for a separate appointment to discuss it rather than "
+                "relying on the Wellness visit alone. For a parent with Medicare Part "
+                "B, the cognitive assessment page says Part B covers a separate visit "
+                "with a health care provider to fully review cognitive function and "
+                "develop a care plan; after the Part B deductible, your parent pays "
+                "20% of the Medicare-approved amount.</p>",
+                "<p>Medicare.gov also says that if the provider performs tests or "
+                "services Medicare doesn&rsquo;t cover during the Wellness visit, "
+                "&ldquo;like a routine physical exam&rdquo;, your parent may have to "
+                "pay the full amount. Some people living with dementia and their "
+                "unpaid caregivers may be able to get extra support through a "
+                "Medicare pilot program called the Guiding an Improved Dementia "
+                "Experience (GUIDE) Model; Medicare.gov says to ask the provider "
+                "whether they take part.</p>",
+                "<p>You can go too. The cognitive assessment page says: &ldquo;When "
+                "you have an assessment, you can bring someone with you (like a "
+                "spouse, friend, or caregiver) to help listen to information and "
+                "answer questions.&rdquo; Your written notes are most useful "
+                "there.</p>",
+            ]),
+            ("Make one call: the Senior HelpLine", [
+                "<p>The HelpLine and the other programs below are Illinois programs for "
+                "people who live in Illinois. For a parent in another state, the "
+                "HelpLine page says: &ldquo;To get information about services in "
+                "another state, please visit the Eldercare Locator for helpful "
+                "resources and contacts.&rdquo;</p>",
+                "<p>The Illinois Department on Aging runs a Senior HelpLine at "
+                "1-800-252-8966, Monday through Friday, from 8:30 a.m. to 5:00 p.m.; "
+                "people who are deaf or have speech impairments can dial 711 "
+                "(Illinois Relay). The Department says: &ldquo;We can help you locate "
+                "services in your community, evaluate your needs and answer your "
+                "questions, connect you with local care coordination services, and "
+                "provide helpful information, assistance, and literature.&rdquo; Its "
+                "staff write referrals for care coordination services, the Long-Term "
+                "Care Ombudsman program, legal services, transportation, employment "
+                "and nutrition services, and they also handle abuse intake.</p>",
+                "<p>The HelpLine page lists what it is helpful to have when you call: "
+                "your parent&rsquo;s name, age and address, the services they already "
+                "receive, and daytime telephone numbers.</p>",
+                "<p>Illinois is divided into 13 areas, each served by an Area Agency "
+                "on Aging. For suburban Cook County, the Department&rsquo;s list names "
+                "AgeOptions, Inc., at 1-800-699-9043 (for the suburban Cook County "
+                "area only) or 708-383-0258; for a parent in the City of Chicago, it names "
+                "the Chicago Department of Family and Support Services, 312-746-5682. "
+                "The Department notes that Area Agencies "
+                "&ldquo;are not, as a rule, direct service providers&rdquo;: they "
+                "contract with local agencies that serve older people in their own "
+                "communities.</p>",
+            ]),
+            ("If your parent wants to stay at home", [
+                "<p>The Department on Aging&rsquo;s Community Care Program "
+                "&ldquo;helps older adults who might otherwise need nursing home care "
+                "to remain in their homes by providing in-home and community-based "
+                "services.&rdquo; Its services include in-home help with household "
+                "and personal care tasks, adult day services, emergency home response "
+                "and automated medication dispensers. To be eligible, the Department "
+                "lists: age 60 or older; U.S. citizen or eligible non-citizen; an "
+                "Illinois resident; non-exempt assets of $17,500 or less (the home, "
+                "car and personal furnishings are exempt); an assessed need for "
+                "long-term care, measured by the Determination of Need assessment; "
+                "and applying for and, if eligible, enrolling in Medicaid. The "
+                "Department&rsquo;s in-home care page says people who meet the "
+                "criteria and enroll &ldquo;receive services at no out-of-pocket "
+                "cost.&rdquo; The program is arranged through local Care Coordination "
+                "Units. See "
+                '<a href="/guides/illinois-community-care-program/">the guide to the '
+                "Community Care Program</a> for more.</p>",
+                "<p>Families can also pay for help privately. The same page says the "
+                "Illinois Department of Public Health licenses Home Services Agencies "
+                "to employ home care aides for help with daily activities and "
+                "personal care, and that &ldquo;Clients served by Home Services "
+                "Agencies pay out-of-pocket for care.&rdquo;</p>",
+                "<p>If a relative would rather give the care, the same page says the "
+                "Community Care Program allows a family member, including a spouse, "
+                "to be paid, once they meet its qualifications, pass a background "
+                "check, complete 24 hours of pre-service training and are hired and "
+                "supervised by an In-Home Services agency.</p>",
+            ]),
+            ("If you are worried about safety right now", [
+                "<p>The Department on Aging&rsquo;s Adult Protective Services program "
+                "investigates reports of &ldquo;abuse, neglect, exploitation, and "
+                "self-neglect of adults age 60 or older, and adults age 18-59 with "
+                "disabilities living in the community.&rdquo; To report, the "
+                "statewide, 24-hour Adult Protective Services Hotline is "
+                "1-866-800-1409, and the Department lists Illinois Relay at 711 for "
+                "deaf and speech-impaired callers. "
+                '<a href="/guides/illinois-elder-abuse-reporting/">The guide to '
+                "reporting elder abuse in Illinois</a> explains what happens after a "
+                "report.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>Notes, a doctor&rsquo;s visit and one phone call are a first "
+                "week, not a decision. If what you saw points towards more help than "
+                "home can give, "
+                '<a href="/guides/levels-of-senior-care-explained/">Assisted living, '
+                "memory care, skilled nursing and rehabilitation &mdash; what is the "
+                "difference?</a> sets out what each kind of care provides, and "
+                '<a href="/guides/assisted-living-cost-illinois/">the Illinois '
+                "assisted living cost guide</a> covers what it costs. The Wellness "
+                "visit is also a moment to talk about advance directives, which "
+                '<a href="/guides/illinois-advance-directive-power-of-attorney/">the '
+                "guide to Illinois advance directives</a> explains. If you are still "
+                'working out which level of care fits, the free <a href="/">six-question '
+                "assessment</a> on this site walks through that question. It asks for "
+                "no name, no email and no phone number, and your answers never leave "
+                "your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -7331,7 +7518,7 @@ RELATED = {
         "illinois-elder-abuse-reporting"],
     "illinois-parent-refuses-to-move-guardianship": [
         "illinois-advance-directive-power-of-attorney",
-        "illinois-elder-abuse-reporting",
+        "noticed-changes-in-parent-holiday-visit",
         "illinois-money-management-program"],
     "medicare-fast-appeal-hospital-rehab-discharge": [
         "does-medicare-pay-for-senior-care",
@@ -7348,11 +7535,15 @@ RELATED = {
     "illinois-memory-care-assisted-living": [
         "levels-of-senior-care-explained",
         "check-illinois-inspection-records",
-        "illinois-supportive-living-program"],
+        "noticed-changes-in-parent-holiday-visit"],
     "hospital-discharge-not-safe-to-go-home": [
         "does-medicare-pay-for-senior-care",
         "medicare-fast-appeal-hospital-rehab-discharge",
         "levels-of-senior-care-explained"],
+    "noticed-changes-in-parent-holiday-visit": [
+        "levels-of-senior-care-explained",
+        "illinois-community-care-program",
+        "illinois-elder-abuse-reporting"],
 }
 
 RELATED_MIN_INBOUND = 2
@@ -7813,6 +8004,11 @@ CARDS = {
         "When your parent can't safely go home from hospital",
         "The discharge planning team, a nursing home or rehab bed, the 3-day "
         "rule and the fast appeal, read off Medicare's own materials."),
+    "noticed-changes-in-parent-holiday-visit": (
+        "Getting oriented",
+        "Noticed changes in a parent over the holidays",
+        "What to write down, the Medicare Wellness visit and its memory check, "
+        "and who to call first in Illinois, read off Medicare.gov and IDoA."),
 }
 
 
