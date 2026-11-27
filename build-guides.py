@@ -139,6 +139,12 @@ SRC = {
                'https://www.medicare.gov/basics/costs/medicare-costs'),
     "msnf": ('Medicare.gov — Skilled nursing facility (SNF) care',
              'https://www.medicare.gov/coverage/skilled-nursing-facility-snf-care'),
+    "mstatus": ('Medicare.gov — Appealing a change in status during a hospital stay',
+                'https://www.medicare.gov/providers-services/claims-appeals-complaints/appeals/original-medicare/denial-part-a-hospital-status'),
+    "mstatusfast": ('Medicare.gov — Appeal when a hospital changes your status',
+                    'https://www.medicare.gov/providers-services/claims-appeals-complaints/appeals/original-medicare/appeal-part-a-hospital-status-change'),
+    "mltc": ('Medicare.gov — Long-term care',
+             'https://www.medicare.gov/coverage/long-term-care'),
     "jimmo": ('CMS — Jimmo v. Sebelius Settlement Agreement Fact Sheet',
               'https://www.cms.gov/medicare/medicare-fee-for-service-payment/snfpps/downloads/jimmo-factsheet.pdf'),
     "mcompare": ('Medicare.gov — Care Compare',
@@ -157,7 +163,9 @@ SRC = {
     # was read that day. NITA is the RTA's new name; Reduced Fare covers
     # riders 65+, Ride Free covers Benefit Access enrollees. Access Evanston:
     # 65+ (or under 65 with a disability), income up to $35,000 for one person
-    # or $60,000 for two, a choice of $5 one-way taxi coupons within Evanston
+    # (2026-11-26 audit: the $60,000-for-two figure on the City's page belongs to
+    # the wheel-tax discount, not the transportation program; the program is for
+    # zip codes 60201 and 60202), a choice of $5 one-way taxi coupons within Evanston
     # or a City-matched transportation debit card, applications at the City's
     # community centers. HACC does not run the Evanston building; it
     # subsidizes rent there (62+, very low income; the resident pays 30% of
@@ -266,10 +274,15 @@ SRC = {
                       'https://hfs.illinois.gov/info/brochures-and-forms/brochures/hfs591sp.html'),
     "hfs_spousal2026": ('Illinois HFS Provider Notice, 22 January 2026 — 2026 spousal impoverishment standards',
                         'https://hfs.illinois.gov/medicalproviders/notices/notice.prn260122a.html'),
+    "hfs_pna2024": ('Illinois HFS Provider Notice, 25 January 2024 — Personal Needs Allowance increase in nursing facilities',
+                    'https://hfs.illinois.gov/medicalproviders/notices/notice.prn240125a.html'),
     "idoa_ombudsman": ('Illinois Department on Aging — Long-Term Care Ombudsman Program',
                        'https://ilaging.illinois.gov/programs/ltcombudsman.html'),
     "idoa_ombudsman_contact": ('Illinois Department on Aging — Office of the State Long-Term Care Ombudsman, contact information',
                                'https://ilaging.illinois.gov/programs/ltcombudsman/contact-information--office-of-the-state-long-term-care-ombudsma.html'),
+    "idph_ccr_form": ('Illinois Department of Public Health — Health Care Facility Complaint Form',
+                      'https://dph.illinois.gov/content/dam/soi/en/web/idph/forms/topics-services/'
+                      'health-care-regulation/complaints/healthcarefacilitycomplaintform20210625.pdf'),
     "idph_ccr": ('Illinois Department of Public Health — Health care facility complaints',
                 'https://dph.illinois.gov/topics-services/health-care-regulation/complaints.html'),
     "hfs_estate_guide": ('Illinois HFS — Guide to the Medicaid Estate Recovery Program',
@@ -359,6 +372,10 @@ SRC = {
                         'https://ilaging.illinois.gov/programs/adult-protective-services-aps-.html'),
     "idoa_engage": ('Illinois Department on Aging — Engage2Change (what happens after a report)',
                     'https://ilaging.illinois.gov/engage.html'),
+    "idoa_e2c_ombudsman": ('Illinois Department on Aging — Adult Protective Services and Ombudsman Program (#Engage2Change brochure, printed 1/21)',
+                           'https://ilaging.illinois.gov/content/dam/soi/en/web/aging/resources/newsandpublications/publications/documents/engage2change-ombudsman.pdf'),
+    "idoa_abuse_reporting": ('Illinois Department on Aging — Report Abuse, Neglect, Exploitation or Self-Neglect',
+                             'https://ilaging.illinois.gov/protectionadvocacy/abuse-reporting.html'),
     "idoa_benefit_access": ('Illinois Department on Aging — Benefit Access Program',
                             'https://ilaging.illinois.gov/benefitsaccess.html'),
     "idoa_benefit_access_faq": ('Illinois Department on Aging — Benefit Access, Eligibility and Frequently Asked Questions',
@@ -373,6 +390,8 @@ SRC = {
                          'https://www.medicare.gov/coverage/hospital-beds'),
     "mdme_walkers": ('Medicare.gov — Walkers',
                      'https://www.medicare.gov/coverage/walkers'),
+    "mdme_pub11045": ('Medicare.gov — Medicare Coverage of Durable Medical Equipment & Other Devices (publication 11045)',
+                      'https://www.medicare.gov/publications/11045-medicare-coverage-of-dme-and-other-devices.pdf'),
     "mdme_wheelchairs": ('Medicare.gov — Wheelchairs & scooters',
                         'https://www.medicare.gov/coverage/wheelchairs-scooters'),
     "idph_vet_homes": ("Illinois Department of Public Health — Veterans' Homes",
@@ -417,6 +436,10 @@ SRC = {
                          'https://hfs.illinois.gov/medicalprograms/slf/residentfactsheet.html'),
     "idph_dementia_2025": ('Illinois Department of Public Health — Dementia Annual Report: Dementia Capability in Illinois 2025',
                            'https://dph.illinois.gov/content/dam/soi/en/web/idph/publications/idph/topics-and-services/diseases-and-conditions/alzheimers/dementia-capability-report-2025.pdf'),
+    "mjoin": ('Medicare.gov — Joining a plan (enrollment periods)',
+              'https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan'),
+    "msep": ('Medicare.gov — Special Enrollment Periods',
+             'https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan/special-enrollment-periods'),
 }
 
 
@@ -632,6 +655,8 @@ GUIDES = [
 
     {
         "slug": "does-medicare-pay-for-senior-care",
+        "reviewed": "2026-11-26",
+        "listed": "2026-10-18",
         "after_section": {"So who does pay for assisted living?": TOUR_CHECKLIST + TOUR_ASK},
         "bridge": ("Knowing what Medicare covers is a different question from knowing "
                "what kind of care your parent actually needs. Coverage follows the "
@@ -649,14 +674,15 @@ GUIDES = [
                    "1&ndash;20 cost <strong>$0</strong>, days 21&ndash;100 cost "
                    "<strong>" + F["snf_coins"] + " each day</strong> in 2026, and from "
                    "day 101 you pay everything."),
-        "sources": srcs("mcosts", "msnf", "jimmo"),
+        "sources": srcs("mcosts", "msnf", "jimmo", "mltc", "mstatus", "mstatusfast",
+                        "mjoin", "msep"),
         "body": [
             ("The distinction that decides everything", [
                 "<p>Medicare divides care into <em>skilled</em> and <em>custodial</em>, "
                 "and that single distinction decides whether it pays anything at all.</p>",
                 "<p><strong>Skilled care</strong> is nursing or therapy that, in "
-                "Medicare's own words, can only be safely and effectively performed by "
-                "or under the supervision of licensed professionals — intravenous "
+                "Medicare's words, can only be safely and effectively performed by, "
+                "or under the supervision of, professionals or technical personnel — intravenous "
                 "medication, wound care, physical therapy after a fracture. "
                 "<strong>Custodial care</strong> is help with bathing, dressing, eating, "
                 "getting to the toilet, medication reminders and supervision.</p>",
@@ -697,10 +723,29 @@ GUIDES = [
                 "loud, on the first day: <em>has my parent been admitted as an inpatient, "
                 "or are they under observation?</em> Then ask again, because the status "
                 "can be changed.</p>",
+                "<p>If your parent is in Original Medicare and the hospital changes the "
+                "status from inpatient to outpatient observation, Medicare.gov says your "
+                "parent can ask for a fast appeal while still in the hospital; "
+                "patients currently in the hospital get a Medicare Change of Status "
+                "Notice (CMS-10868). It also says why the change matters: Medicare will "
+                "not cover a skilled nursing facility stay within 30 days of leaving the "
+                "hospital after it. If the notice does not come, Medicare.gov says to "
+                "ask for it. Medicare.gov also says it is best to appeal while still in "
+                "the hospital, but your parent can still ask for an appeal after "
+                "leaving: by following the instructions on the notice or, without the "
+                "notice, through the local BFCC-QIO, the organization that decides "
+                "these appeals.</p>",
                 "<p>Two exceptions exist. A doctor in an Accountable Care Organization "
                 "with a Skilled Nursing Facility 3-Day Rule Waiver may not need the three "
-                "days, and Medicare Advantage plans may waive it too. Ask the hospital "
-                "and ask the plan — neither will volunteer it.</p>",
+                "days, and Medicare Advantage plans may waive it too. Medicare.gov's "
+                "advice is to always ask your doctor or hospital staff whether Medicare "
+                "will cover the stay, and, if your parent is in a Medicare Advantage "
+                "plan, to contact the plan.</p>",
+                "<p>If your parent did not have a 3-day qualifying inpatient hospital "
+                "stay and needs care after leaving the hospital, Medicare.gov says to "
+                "ask whether care can be given in another setting, such as home health "
+                "care, or whether another programme, such as Medicaid or veterans&rsquo; "
+                "benefits, can cover the skilled nursing stay.</p>",
             ]),
             ("What a covered skilled nursing stay costs in 2026", [
                 "<p>These are the costs of a <em>qualifying skilled</em> stay only. "
@@ -749,6 +794,78 @@ GUIDES = [
                 "<em>Jimmo</em>, ask for the decision in writing, and ask how to appeal. "
                 "A written notice is what gives you weeks instead of days.</p>",
             ]),
+            ("Choosing or changing a Medicare plan when a move may be coming", [
+                "<p>Medicare.gov sets the dates. During the Open Enrollment Period, "
+                "15 October to 7 December each year, your parent can join, drop or "
+                "switch Medicare Advantage plans and can &ldquo;Switch from Original "
+                "Medicare to a Medicare Advantage Plan or from a Medicare Advantage "
+                "Plan to Original Medicare.&rdquo; A change made then starts on "
+                "&ldquo;January 1 of the next year (the plan must get your request "
+                "to join by December 7)&rdquo;.</p>",
+                "<p>From 1 January to 31 March there is a second window, the Medicare "
+                "Advantage Open Enrollment Period, which Medicare.gov says is "
+                "&ldquo;only if you&rsquo;re already in a Medicare Advantage "
+                "Plan&rdquo;: your parent can switch to another Medicare Advantage "
+                "plan, or &ldquo;Drop your Medicare Advantage Plan and return to "
+                "Original Medicare.&rdquo; A parent who returns to Original Medicare "
+                "this way can also join a separate Medicare drug plan. A parent in "
+                "Original Medicare cannot use this window to join a plan.</p>",
+                "<p>Some moves open their own window. Medicare.gov lists a Special "
+                "Enrollment Period for someone who lives in, or recently moved out "
+                "of, an institution such as a nursing home or rehabilitation "
+                "hospital: &ldquo;Your chance to join, switch, or drop coverage lasts "
+                "as long as you live in the institution and for 2 full months after "
+                "the month you move out of the institution.&rdquo; A parent who moves "
+                "to an address outside their Medicare Advantage plan&rsquo;s service "
+                "area, for example to be near family in Evanston, can switch plans "
+                "too; Medicare.gov says that chance &ldquo;begins when you move and "
+                "continues for 2 full months after you move.&rdquo; If your parent "
+                "tells the plan before the move, that chance begins the month before "
+                "the month of the move. A parent who moves out of the plan&rsquo;s "
+                "area can also go back to Original Medicare, and one who joins no "
+                "new Medicare Advantage plan in that time is enrolled in Original "
+                "Medicare when the old plan drops them. A move to a new address "
+                "that is still in the plan&rsquo;s area but brings new plan options "
+                "opens a window to switch as well.</p>",
+                "<p>These address-move windows are for someone already in a plan. "
+                "The pages cited here list no window tied to the move for a parent "
+                "in Original Medicare with no plan who moves within the U.S. to "
+                "somewhere that is not an institution, such as assisted living; for "
+                "that parent, ask 1-800-MEDICARE or use the Open Enrollment Period. "
+                "(A parent moving back to the U.S. after living abroad has 2 full "
+                "months after the month of the move to join a plan.)</p>",
+                "<p>A parent with Medicaid or Extra Help has one more option. For "
+                "them, the Special Enrollment Periods page says: &ldquo;If you have "
+                "Medicaid or get Extra Help, you can make changes to your coverage "
+                "once a calendar month.&rdquo; The changes it lists are switching to "
+                "a different Medicare drug plan, or dropping a Medicare Advantage "
+                "plan with drug coverage and returning to Original Medicare by "
+                "joining a stand-alone Medicare drug plan. Another listing of the same "
+                "window on that page also allows joining a drug plan, and says "
+                "&ldquo;The change will take effect on the first day of the next "
+                "month.&rdquo; The page adds that this window is not open to someone "
+                "identified as a &ldquo;potential at-risk beneficiary&rdquo; or "
+                "&ldquo;at-risk beneficiary&rdquo; under a Part D drug management "
+                "program; the plan sends a letter if so. A parent with Medicare and "
+                "full Medicaid can also join or switch to an integrated Dual Eligible "
+                "Special Needs Plan (D-SNP), where one is available, once a calendar "
+                "month. The page adds: &ldquo;Remember, not all D-SNPs are "
+                "integrated.&rdquo; It says to contact the D-SNP plan you are "
+                "interested in, or 1-800-MEDICARE for a list of integrated D-SNPs. "
+                "For how that works in Illinois, see "
+                '<a href="/guides/illinois-fide-snp-explained/">the guide to FIDE '
+                "SNPs</a>.</p>",
+                "<p>Why it matters before a move: as the sections above say, the rules "
+                "for a skilled nursing stay differ in a Medicare Advantage plan (a "
+                "plan may waive the three-day hospital stay, and some plans charge "
+                "copayments during the first 20 days), and the plan your parent holds "
+                "when they need that stay is the one whose rules apply. For questions about enrollment "
+                "changes, Medicare.gov gives 1-800-MEDICARE (1-800-633-4227). In "
+                "Illinois, free one-to-one help comparing plans comes from the "
+                "state&rsquo;s counsellors: see "
+                '<a href="/guides/illinois-senior-health-insurance-program/">Who '
+                "helps my parent choose a Medicare plan for free in Illinois?</a>.</p>",
+            ]),
             ("So who does pay for assisted living?", [
                 "<p>Three realistic sources. Private funds, including savings, pension "
                 "income and the proceeds of a house. A long-term care insurance policy, "
@@ -787,6 +904,12 @@ GUIDES = [
                 "assisted living community, and it is not a nursing home. It is a "
                 "separate category of setting, approved by the state, where Medicaid pays "
                 "for the care a resident receives.</p>",
+                "<p>HFS&rsquo;s resident fact sheet says the programme "
+                "&ldquo;offers older persons (65 +) or persons with physical "
+                "disabilities (ages 22-64) services to remain in a community "
+                "setting.&rdquo; It adds that the aim is to serve &ldquo;persons "
+                "who would otherwise need nursing facility care.&rdquo; Age "
+                "alone does not make a parent a fit.</p>",
                 "<p>Not every assisted living community in Illinois participates. A "
                 "community can be excellent and still not be a Supportive Living "
                 "facility. Ask directly, early, because it decides whether a place is "
@@ -806,7 +929,11 @@ GUIDES = [
                 "insurance premiums, certain medical expenses, the room and board "
                 "portion, and the " + F["pna"] + " personal needs allowance. Whatever "
                 "remains is paid monthly toward the cost of care, and Medicaid covers "
-                "the rest.</p>",
+                "the rest. Savings can count too: for a resident covered by "
+                "Medicaid, the fact sheet says &ldquo;all excess resources will be "
+                "counted towards the cost of care.&rdquo; It does not say which "
+                "savings count as excess, so ask HFS before you assume your "
+                "parent&rsquo;s savings are safe or spent.</p>",
                 "<p>So there is no sum on this page that produces your parent's figure, "
                 "and any site that offers you one is guessing. The amount owed is "
                 "determined by the state for that individual, from documents you have "
@@ -816,6 +943,12 @@ GUIDES = [
                 "personal — clothing, haircuts, a phone, gifts for grandchildren. Most "
                 "residents owe both charges; a resident avoids the group care credit "
                 "only when their income equals the SSI amount.</p>",
+                "<p>That amount is also the floor. HFS says &ldquo;The minimum "
+                "income that a SLP participant can have should be equal to the SSI "
+                "amount. This is to ensure they can pay for the room and board "
+                "amount and receive their PNA.&rdquo; Ask the facility or HFS how "
+                "your parent&rsquo;s income compares before you count on this "
+                "setting.</p>",
             ]),
             ("If your parent has dementia: dementia care settings", [
                 "<p>Some Supportive Living facilities are certified as "
@@ -1236,9 +1369,15 @@ GUIDES = [
         "bridge": ("Working out who pays is a separate problem from working out what "
                "your parent needs paying for. Most families end up doing both, and "
                "the second one usually comes first."),
-        # Researched and verified in the cloud routine's own run on this date,
-        # not on the library's original 2026-10-18 review date.
-        "reviewed": "2026-10-23",
+        # Researched and verified in the cloud routine's own run on 2026-10-23,
+        # not on the library's original 2026-10-18 review date. Re-read in full
+        # against its sources on 2026-11-25 (accuracy audit, packet
+        # ops/reviews/live/illinois-medicaid-long-term-care.md on branch
+        # ops/operator-state), when the personal needs allowance was added.
+        "reviewed": "2026-11-25",
+        # Joined the library on this date; re-read in full on the review date above
+        # (accuracy audit, 25 Nov 2026). Keeps the library-level dates where they were.
+        "listed": "2026-10-23",
         "title": "How Illinois Medicaid Pays for Long-Term Care and Spend-Down",
         "h1": "How Illinois Medicaid pays for long-term care, and what spend-down means",
         "desc": ("Illinois Medicaid can pay for nursing home and other long-term care. "
@@ -1256,7 +1395,7 @@ GUIDES = [
                    "&ldquo;a little like an insurance deductible,&rdquo; where medical "
                    "bills above a set monthly amount count toward eligibility."),
         "sources": srcs("hfs_ltc_clients", "hfs_ltc_providers", "hfs_spenddown",
-                        "hfs_spousal2026", "hfs_elderly"),
+                        "hfs_spousal2026", "hfs_pna2024", "hfs_elderly"),
         "body": [
             ("What Illinois Medicaid actually pays for", [
                 "<p>Medicaid is not one single long-term-care benefit. The Illinois "
@@ -1305,12 +1444,11 @@ GUIDES = [
                 "instead of submitting bills; HFS describes this option as available to "
                 "people enrolled in spenddown who are aged, blind, or have a disability "
                 "and live in the community.</p>",
-                "<p>This is the detail families miss: nursing home care is expensive "
-                "enough that the monthly spend-down amount for someone in a facility is "
-                "often met immediately by the facility's own bill. Spenddown is "
-                "frequently the route by which a long nursing home stay ends up "
-                "Medicaid-covered even when the same person would not have qualified for "
-                "Medicaid the month before they were admitted.</p>",
+                "<p>HFS lists bills for nursing home services among the medical "
+                "expenses that count toward spenddown. How spenddown and your "
+                "parent's own income apply to a nursing home stay is worked out by "
+                "the DHS caseworker; ask before assuming the facility's bill settles "
+                "it.</p>",
             ]),
             ("Protecting a spouse who stays at home", [
                 "<p>Federal and state rules exist specifically so that one spouse "
@@ -1345,18 +1483,22 @@ GUIDES = [
                 "<p>Both standards change every year, and HFS reissues the notice each "
                 "time. Do not rely on a figure copied from any article, including this "
                 "one, once a year has passed &mdash; check the current HFS notice or ask "
-                "the DHS caseworker handling the case.</p>",
+                "the DHS caseworker handling the case. One exception, in HFS's "
+                "words: &ldquo;The CSRA determination only occurs once.&rdquo; If it "
+                "was already determined at application, the amount is not updated "
+                "when the standard rises.</p>",
             ]),
-            ("A figure this guide will not publish", [
+            ("The personal needs allowance", [
                 "<p>Illinois law sets a monthly personal needs allowance for Medicaid "
                 "nursing facility residents &mdash; a small amount of their own income "
                 "protected for personal spending rather than put toward the cost of "
-                "care. This guide went looking for the current figure on the HFS public "
-                "notice that sets it, and could not read a verifiable number off that "
-                "document. Rather than repeat a figure picked up secondhand, this guide "
-                "leaves it out. Ask the nursing facility's business office or the DHS "
-                "caseworker what the current personal needs allowance is before "
-                "assuming any number you have seen elsewhere.</p>",
+                "care. An HFS provider notice of 25 January 2024 states that, effective "
+                "1 January 2024, the Personal Needs Allowance increased &ldquo;from $30 "
+                "per month to $60 per month for nursing home residents who reside in a "
+                "nursing facility licensed under the Nursing Home Care Act and who are "
+                "determined to be eligible for Medical Assistance.&rdquo; Ask the "
+                "nursing facility's business office or the DHS caseworker whether a "
+                "later change applies before relying on that figure.</p>",
             ]),
             ("Where to go from here", [
                 "<p>If the person you are helping is not yet in a facility and the "
@@ -1383,7 +1525,8 @@ GUIDES = [
         "bridge": ("Some concerns are a problem with the care being given. Others are a "
                "sign the setting itself no longer matches what your parent needs. "
                "Those two look alike from the outside."),
-        "reviewed": "2026-10-23",
+        "reviewed": "2026-11-25",
+        "listed": "2026-10-23",
         "title": "How to Report a Problem at an Illinois Nursing Home or Assisted Living",
         "h1": "How to report a problem at an Illinois care facility",
         "desc": ("A concern about an Illinois nursing home or assisted living has two "
@@ -1399,7 +1542,7 @@ GUIDES = [
                    "investigates facilities &mdash; call <strong>800-252-4343</strong>, "
                    "Monday&ndash;Friday 8:30 a.m. to 4:30 p.m. You do not have to choose "
                    "just one."),
-        "sources": srcs("idoa_ombudsman", "idoa_ombudsman_contact", "idph_ccr", "idoa_aps_program"),
+        "sources": srcs("idoa_ombudsman", "idoa_ombudsman_contact", "idph_ccr", "idph_ccr_form", "hfs_slf", "idoa_aps_program"),
         "body": [
             ("Two kinds of help, and when to use each", [
                 "<p>Families searching for how to complain about a care community "
@@ -1440,19 +1583,40 @@ GUIDES = [
                 "The department's complaints page gives the hotline as "
                 "<strong>800-252-4343</strong>, with hours of "
                 "<strong>Monday&ndash;Friday 8:30 a.m. to 4:30 p.m.</strong></p>",
-                "<p>The same page states that for a long-term care complaint "
-                "specifically, that same number reaches the department's Bureau of "
-                "Long-Term Care. Besides the phone line, the page lists three other ways "
-                "to file: online through the OHCR Portal, by fax at 217-524-8885, or by "
-                "e-mail to DPH.CCR@illinois.gov using the Health Care Facilities "
-                "Complaint Form. Written complaints can also go by mail to the Illinois "
-                "Department of Public Health, Office of Health Care Regulation, Central "
-                "Complaint Registry, 525 W. Jefferson St., Ground Floor, Springfield, IL "
-                "62761-0001.</p>",
+                "<p>The same page gives that number, for the department's Bureau of "
+                "Long-Term Care, as the one to call to check the status of a long-term "
+                "care complaint. For a written complaint, use IDPH's Health Care "
+                "Facility Complaint Form, linked from that page: it lists &ldquo;nursing "
+                "homes, skilled nursing homes, licensed facilities for individuals with "
+                "intellectual disability, and assisted living facilities&rdquo; among the "
+                "places it covers, and goes by fax to 217-524-8885, by e-mail to "
+                "DPH.CCR@illinois.gov, or by mail to the Illinois Department of Public "
+                "Health, Office of Health Care Regulation, Central Complaint Registry, "
+                "525 W. Jefferson St., Ground Floor, Springfield, IL 62761-0001. The "
+                "complaints page&rsquo;s own list of providers for complaints submitted "
+                "through the site does not name nursing homes or assisted living, so "
+                "for a care-facility concern use the phone line or the form.</p>",
+                "<p>The form gives the hotline as &ldquo;Available 24 hours a day - 7 "
+                "days per week,&rdquo; while the complaints page gives weekday hours, and "
+                "the form adds: &ldquo;If a resident&rsquo;s immediate health and/or "
+                "safety are at risk please call 800-252-4343 to speak with an IDPH "
+                "representative.&rdquo; Forms sent after 4:30 p.m., it says, are not seen "
+                "until the next business day.</p>",
                 "<p>IDPH says your identity is not disclosed to the facility, and you "
                 "may file anonymously or leave contact information to receive written "
                 "notice of the outcome. Describing who, what, when, where and how gives "
                 "investigators the most to work with.</p>",
+            ]),
+            ("If your parent is in a supportive living facility", [
+                "<p>A supportive living facility under Illinois&rsquo;s Supportive "
+                "Living Program has its own complaint line, run by the Department of "
+                "Healthcare and Family Services rather than IDPH. The programme&rsquo;s "
+                "resident fact sheet states: &ldquo;Complaints concerning a Supportive "
+                "Living Program provider may be directed to the SLP complaint hotline: "
+                "1-844-528-8444&rdquo;. "
+                '<a href="/guides/illinois-supportive-living-program/">The Supportive '
+                "Living Program guide</a> explains how these facilities differ from "
+                "licensed assisted living.</p>",
             ]),
             ("The other number on the Ombudsman page", [
                 "<p>The Ombudsman Program's own page also carries a navigation link "
@@ -1500,7 +1664,8 @@ GUIDES = [
                    "services,&rdquo; it cannot touch the "
                    "<strong>first $25,000</strong> of any estate with a death on or "
                    "after 1 July 2022, and it does not pursue a claim at all while a "
-                   "spouse, a child under 21, or a disabled child survives. Heirs are "
+                   "spouse, a child under 21, or a blind or disabled child of any age "
+                   "survives. Heirs are "
                    "never required to pay a claim from their own money."),
         "sources": srcs("hfs_estate_guide", "hfs_estate_faq", "hfs_estate_liens"),
         "body": [
@@ -1573,13 +1738,27 @@ GUIDES = [
                 "&mdash; while someone is still alive, rather than after death. HFS "
                 "describes two situations where one can be filed: cash assistance "
                 "combined with medical assistance produces a lien equal to the cash "
-                "assistance received, and medical-assistance-only recipients in a "
-                "long-term care facility can face a lien, equal to all medical "
-                "assistance paid before and during the stay, but only after "
-                "<strong>120 consecutive days</strong> in the facility. No lien is filed "
-                "if the home is occupied by a spouse, a child under 21, a disabled "
-                "child of any age, or in some cases a sibling, and a lien is released if "
-                "the resident is discharged home.</p>",
+                "assistance received, and people who receive AABD medical assistance "
+                "only and live in a long-term care facility can face a lien, equal to "
+                "all medical assistance paid before and during the stay, but only after "
+                "<strong>120 consecutive calendar days</strong> in a medical institution. "
+                "For that long-term care lien, no lien is filed if the home is occupied "
+                "by a spouse, a child under 21, a child over 21 who is blind or disabled, "
+                "or in some cases a sibling, and a lien is released if the resident is "
+                "discharged home. For any lien, HFS says no action will be taken to "
+                "enforce it when the person dies while one of those relatives lives in "
+                "the home, and in that case &ldquo;No one will be asked to leave the "
+                "property.&rdquo; HFS also says no action will be taken to force the "
+                "sale of the property, and that if and when the property is sold, the "
+                "lien is paid from the sale proceeds.</p>",
+                "<p>A resident who receives medical assistance only and is notified of "
+                "HFS's decision to file a lien after at least 120 consecutive calendar "
+                "days in a medical institution can appeal it. HFS says to write a letter requesting a "
+                "hearing or fill out an Appeal Request form (available at any local "
+                "Department of Human Services office, where the caseworker will help), "
+                "and to take or mail it to the local DHS office or the DHS Bureau of "
+                "Administrative Hearings; an appeal can also be made by calling "
+                "1-800-435-0774, Monday to Friday, 8:30 a.m. to 4:45 p.m.</p>",
                 "<p>This tool has also been narrowed by law. HFS states that "
                 "<strong>Public Act 102-1037</strong>, effective <strong>2 June "
                 "2022</strong>, restricts the filing of <em>new</em> liens on real "
@@ -1635,34 +1814,37 @@ GUIDES = [
         "bridge": ("Hospice rules say what is covered once a doctor certifies six months "
                "or less to live. They say nothing about which kind of care your parent "
                "needs before that point is reached."),
-        "reviewed": "2026-10-25",
+        "reviewed": "2026-11-26",
+        "listed": "2026-10-25",
         "title": "Does Medicare Pay for Hospice Care at Home?",
         "h1": "Does Medicare pay for hospice care at home?",
-        "desc": ("Medicare pays " + F["hospice_zero"] + " for covered hospice care once a "
-                 "doctor certifies six months or less to live and comfort care is chosen "
-                 "over a cure. What is and is not covered."),
+        "desc": ("Your parent pays " + F["hospice_zero"] + " for covered care from a "
+                 "Medicare-approved hospice once a doctor certifies six months or less "
+                 "to live and comfort care is chosen over a cure."),
         "intent": "coverage question",
-        "answer": ("<strong>Yes, for the hospice benefit itself.</strong> Medicare pays "
+        "answer": ("<strong>Yes, for the hospice benefit itself.</strong> Your parent pays "
                    "<strong>" + F["hospice_zero"] + "</strong> for covered hospice care "
-                   "once a hospice doctor and your parent&rsquo;s own doctor (if they have "
+                   "from a Medicare-approved hospice provider once a hospice doctor and your parent&rsquo;s own doctor (if they have "
                    "one) certify a life expectancy of six months or less, and your parent "
                    "chooses comfort care instead of treatment to cure the illness. You may "
                    "still pay <strong>up to " + F["hospice_rx_copay"] + "</strong> per "
                    "prescription for pain and symptom drugs, and <strong>" +
                    F["hospice_respite_coins"] + "</strong> coinsurance for a short inpatient "
-                   "respite stay. What it does not pay is room and board if your parent "
-                   "lives in a facility, or anything meant to cure the terminal illness."),
+                   "respite stay. What Medicare does not pay is room and board if your parent "
+                   "lives in a facility (a short inpatient or respite stay the hospice team "
+                   "arranges is the exception), or anything meant to cure the terminal "
+                   "illness."),
         "sources": srcs("mhospice", "mcosts"),
         "body": [
             ("What the hospice benefit actually pays for", [
                 "<p>Medicare describes hospice as &ldquo;end-of-life care for people with "
-                "illnesses that can&rsquo;t be cured,&rdquo; delivered under Part A. It is "
+                "illnesses that can&rsquo;t be cured&rdquo;, delivered under Part A. It is "
                 "not a different, better version of regular treatment &mdash; it is a "
                 "different goal. Once your parent elects hospice, the aim shifts from "
                 "curing the terminal illness to managing pain and symptoms and being "
                 "comfortable.</p>",
                 "<p>For <strong>covered</strong> hospice care from a Medicare-approved "
-                "hospice provider, Medicare pays <strong>" + F["hospice_zero"] +
+                "hospice provider, your parent pays <strong>" + F["hospice_zero"] +
                 "</strong>. That is the headline figure, and it is real &mdash; but "
                 "&ldquo;covered hospice care&rdquo; is a narrower category than most "
                 "families assume, and the next two sections set out exactly where its "
@@ -1682,9 +1864,10 @@ GUIDES = [
                 "<li>Your parent <strong>signs a Hospice Election Statement</strong>, "
                 "which must be completed before any hospice services begin</li></ul>",
                 "<p>Six months is not a deadline on the care itself. If your parent is "
-                "still alive after six months, hospice continues as long as a hospice "
-                "doctor or nurse practitioner recertifies eligibility after a face-to-face "
-                "visit. People do come off hospice &mdash; because they improve, or "
+                "still alive after six months, hospice continues as long as the hospice "
+                "medical director or hospice doctor recertifies that your parent is still "
+                "terminally ill, after a face-to-face meeting with the hospice doctor or "
+                "hospice nurse practitioner. People do come off hospice &mdash; because they improve, or "
                 "because they or their family decide to go back to curative treatment "
                 "&mdash; and electing hospice does not forfeit that choice.</p>",
             ]),
@@ -1710,6 +1893,16 @@ GUIDES = [
                 "for everything else. Before any service outside what the hospice team has "
                 "arranged, ask the hospice team first &mdash; Medicare is explicit that it "
                 "will not pay for it otherwise.</p>",
+                "<p><strong>If your parent is in a Medicare Advantage Plan</strong> or "
+                "another Medicare health plan, Medicare says Original Medicare will cover "
+                "everything related to the terminal illness once the hospice benefit "
+                "starts, even if your parent stays in the plan. The plan must help your "
+                "parent find a Medicare-approved hospice provider in the area, and it can "
+                "still cover services that are not part of the terminal illness and "
+                "related conditions. Your parent can stay in the plan as long as they keep "
+                "paying its premiums, and what they pay for those other services depends "
+                "on the plan and on following its coverage rules, such as using "
+                "in-network providers.</p>",
             ]),
             ("What it costs", [
                 "<p>Four cost lines, all from Medicare&rsquo;s own cost pages for the "
@@ -1724,7 +1917,8 @@ GUIDES = [
                 F["hospice_respite_coins"] + "</strong> of the Medicare-approved amount"
                 "</li>"
                 "<li><strong>Room and board</strong> in a facility: not paid by the "
-                "hospice benefit at all</li></ul>",
+                "hospice benefit, except that Medicare covers the stay when the hospice "
+                "team arranges short-term inpatient or respite care</li></ul>",
                 "<p><strong>There is a ceiling on the respite copayment.</strong> "
                 "Medicare states that for inpatient respite care, <q>your copayment "
                 "can&rsquo;t be more than the inpatient deductible amount</q>. The Part A "
@@ -1960,10 +2154,11 @@ GUIDES = [
                 "the Northern Illinois Transit Authority, formerly the RTA. Those "
                 "enrolled in the state&rsquo;s Benefit Access program can ride free "
                 "instead, after applying to the authority&rsquo;s Ride Free "
-                "program. In Evanston, the City&rsquo;s Access Evanston program "
-                "helps residents 65 or older, or over 18 with a disability. Income "
-                "must be $35,000 or less for one person, or $60,000 or less for "
-                "two. Members choose between taxi coupons that cost $5 each, one "
+                "program. In Evanston, the City&rsquo;s Access Evanston program, "
+                "for residents of the 60201 and 60202 zip codes, helps residents 65 "
+                "or older, or over 18 with a disability. For its transportation help, "
+                "income must be $35,000 or less for a one-person household; the "
+                "City&rsquo;s page gives no figure for a larger household. Members choose between taxi coupons that cost $5 each, one "
                 "per one-way ride within Evanston, and a transportation debit card. "
                 "The City "
                 "matches money loaded onto the card, up to a monthly limit. "
@@ -2232,7 +2427,12 @@ GUIDES = [
         "bridge": ("Knowing that the VA will fund help at home answers how your "
                "veteran parent might pay for it. It does not answer whether help "
                "at home, rather than a higher level of care, is actually enough."),
-        "reviewed": "2026-10-27",
+        # Re-read in full against its sources on 2026-11-25 (accuracy audit,
+        # packet ops/reviews/live/va-veteran-directed-care-program.md on branch
+        # ops/operator-state).
+        "reviewed": "2026-11-25",
+        # Joined the library on this date; keeps the library-level dates where they were.
+        "listed": "2026-10-27",
         "title": "Can a Veteran Get Paid In-Home Care Through the VA?",
         "h1": "Can a veteran get paid in-home care through the VA?",
         "desc": ("Veteran Directed Care lets an eligible veteran set a spending plan "
@@ -2291,8 +2491,11 @@ GUIDES = [
                 "care&rdquo; and &ldquo;you have approval from your VA health "
                 "care team before you get care from a community provider&rdquo; "
                 "&mdash; plus at least one of several further conditions, such as "
-                "needing a service VA does not provide at any facility or living "
-                "somewhere without a full-service VA facility nearby.</p>",
+                "needing a service VA does not provide at any VA health facility, "
+                "living in a state or territory that has no full-service VA health "
+                "facility at all, or VA being unable to provide the care within its "
+                "own standards for drive and wait times. Living some distance from "
+                "a VA facility is not, by itself, one of the conditions.</p>",
                 "<p>This guide has not confirmed, on any VA.gov page, that the "
                 "general community-care eligibility rules apply to Veteran "
                 "Directed Care exactly as written for an outside specialist "
@@ -2327,17 +2530,19 @@ GUIDES = [
                 "the Veteran Decision Aid for Care at Home or in the Community "
                 "&ldquo;to help you figure out what home care services or long "
                 "term care services may best meet your needs&rdquo; now or in "
-                "the future, and then: &ldquo;If Veteran Directed Care seems "
+                "the future, and then: &ldquo;If Veteran-Directed Care seems "
                 "right for you, talk with your VA social worker and find out if "
                 "it is available&rdquo; in your location.</p>",
                 "<p>A veteran who is not yet enrolled in VA health care has to "
                 "clear that step first, since enrollment is one of the stated "
-                "gates above. VA.gov lists four ways to apply for VA health "
-                "care: online, by phone at <strong>877-222-8387</strong> "
-                "(Monday&ndash;Friday, 8:00 a.m. to 8:00 p.m. ET), by mailing a "
-                "signed VA Form 10-10EZ to the Health Eligibility Center, PO Box "
-                "5207, Janesville, WI 53547-5207, or in person at the nearest VA "
-                "medical centre or clinic with the same signed form in hand.</p>",
+                "gates above. VA.gov says a veteran can apply for VA health care "
+                "online, or in four other ways: by phone at <strong>877-222-8387"
+                "</strong> (Monday&ndash;Friday, 8:00 a.m. to 8:00 p.m. ET), by "
+                "mailing a signed VA Form 10-10EZ to the Health Eligibility Center, "
+                "PO Box 5207, Janesville, WI 53547-5207, in person at the nearest "
+                "VA medical centre or clinic with the same signed form in hand, or "
+                "with the help of an accredited attorney, claims agent or Veterans "
+                "Service Organization representative.</p>",
             ]),
             ("A figure this guide will not guess at", [
                 "<p>Families will want to know the size of the budget a veteran "
@@ -2379,7 +2584,8 @@ GUIDES = [
         "bridge": ("Finding help for yourself as the caregiver is a different "
                "question from knowing whether your parent's needs have moved "
                "past what any amount of help at home can cover."),
-        "reviewed": "2026-10-29",
+        "reviewed": "2026-11-26",
+        "listed": "2026-10-29",
         "title": "Illinois Family Caregiver Support Program, Explained",
         "h1": "Is there help for the caregiver, not just the parent, in Illinois?",
         "desc": ("Illinois&rsquo;s Family Caregiver Support Program serves the person "
@@ -2463,11 +2669,14 @@ GUIDES = [
                 "cost to the caregiver, a cap on respite hours, or a formal "
                 "application form. The Resource Centers page lists services "
                 "and regional contacts and nothing about eligibility or fees "
-                "at all. The Department&rsquo;s own answer to &ldquo;Where can "
-                "I find out about services nearest to me?&rdquo; is to "
-                "&ldquo;inquire at your local Caregiver Resource Center or "
-                "your local Area Agency on Aging,&rdquo; or to call the "
-                "Senior HelpLine.</p>",
+                "at all. The Department&rsquo;s caregiver questions and answers "
+                "send families, again and again, to the local Caregiver "
+                "Resource Center or Area Agency on Aging; for help with "
+                "assistive or home modification devices, for example, the "
+                "answer is to &ldquo;Inquire at your local Caregiver Resource "
+                "Center or your local Area Agency on Aging&rdquo;, and for help "
+                "paying for services it points to the Community Care Program "
+                "and the local Caregiver Resource Center.</p>",
                 "<p>This guide will not guess at any of those figures on the "
                 "Department's behalf. If a cost, an income test or a waiting "
                 "list applies in your case, that answer lives with your local "
@@ -2482,16 +2691,19 @@ GUIDES = [
                 "Center or Area Agency on Aging that covers your parent's "
                 "address, since services are organised locally rather than "
                 "from one statewide office.</p>",
-                "<p>If your parent lives outside Illinois, the Department's "
-                "own guidance is to contact the Caregiver Resource Center "
-                "nearest to <em>your parent</em>, not to you &mdash; the "
-                "service follows the older adult's location.</p>",
+                "<p>If <em>you</em> live outside Illinois and your parent lives "
+                "here, the Department's own guidance is to contact a "
+                "Caregiver Resource Center near your parent's home, or the "
+                "Senior HelpLine &mdash; the service follows the older "
+                "adult's location.</p>",
             ]),
             ("Where this fits with the rest of this site", [
                 "<p>This programme supports the person doing the caring. It "
                 "is not the same thing as Illinois paying for help at home "
-                "for the older adult, which is a separate Medicaid-funded "
-                'programme covered in <a '
+                "for the older adult through the Community Care Program, which "
+                "the Department describes as helping frail older people who "
+                "might otherwise need nursing home care to remain in their "
+                'own homes, covered in <a '
                 'href="/guides/illinois-community-care-program/">Can my '
                 "parent get paid help at home in Illinois?</a> A family can "
                 "in principle use both at once; this guide found no "
@@ -2639,7 +2851,8 @@ GUIDES = [
         "bridge": ("Knowing what rights your parent has on paper is a "
                "different question from knowing whether the facility "
                "they are in is still the right level of care for them."),
-        "reviewed": "2026-11-17",
+        "reviewed": "2026-11-26",
+        "listed": "2026-11-17",
         "title": "What Rights Does Your Parent Have in an Illinois Care Facility?",
         "h1": "What rights does your parent have in an Illinois nursing home or care facility?",
         "desc": ("What an Illinois nursing home cannot take away: your parent&rsquo;s "
@@ -2649,13 +2862,15 @@ GUIDES = [
         "answer": ("Illinois residents of nursing homes and other long-term "
                    "care facilities keep legal rights that the facility cannot "
                    "override: a say in their own care, privacy, control of "
-                   "their own money, a written contract, and protection from "
-                   "being discharged except for one of four stated reasons. "
+                   "their own money, a written contract, and a written notice "
+                   "and a right to appeal if the facility asks them to leave. "
                    "The Illinois Department on Aging sets these out in a "
                    "brochure called <em>Residents&rsquo; Rights for People in "
                    "Long-Term Care Facilities</em>. It is a summary, not the "
                    "full statute &mdash; the brochure itself says to ask your "
-                   "ombudsman for the complete list."),
+                   "ombudsman for the complete list. It speaks of long-term care "
+                   "facilities and does not say which of these rights apply in "
+                   "assisted living, so ask the ombudsman about that too."),
         "sources": srcs("idoa_resident_rights_brochure", "idoa_ombudsman"),
         "body": [
             ("Where this list comes from", [
@@ -2720,12 +2935,16 @@ GUIDES = [
                 "receive Medicaid, the facility cannot make you pay for "
                 "anything for which Medicaid pays.&rdquo;</p>",
             ]),
-            ("Being asked to leave: the only four reasons, and the right to appeal", [
+            ("Being asked to leave: the reasons the brochure lists, and the right to appeal", [
                 "<p>The brochure states a resident has the right to keep "
                 "living in their facility, and that it &ldquo;can force you "
-                "to leave&rdquo; only because the bill has not been paid, "
+                "to leave&rdquo; because the bill has not been paid, "
                 "the resident is dangerous to themselves or others, their "
                 "medical needs cannot be met there, or the facility closes. "
+                "The brochure is a summary and does not say that these are "
+                "the only reasons the law allows; if a notice gives a "
+                "reason, ask the ombudsman whether it is one the law "
+                "allows. "
                 "A written notice is required, and it must state why the "
                 "resident is being asked to move, how to appeal, and include "
                 "a self-addressed envelope to the Illinois Department of "
@@ -2767,7 +2986,10 @@ GUIDES = [
                 "Aging describes elsewhere as a free, confidential, "
                 "<strong>resident-directed</strong> advocate &mdash; reach it "
                 "through the Senior HelpLine at <strong>1-800-252-8966 (711 "
-                "TRS)</strong>. The brochure separately names the Central "
+                "TRS)</strong>. If the problem concerns a person with a "
+                "developmental disability or mental illness, the brochure "
+                "adds that you may ask Equip for Equality for help at "
+                "<strong>800-537-2632</strong>. The brochure separately names the Central "
                 "Complaint Registry, <strong>800-252-4343</strong>, as the "
                 "Illinois Department of Public Health's channel for a formal "
                 "complaint. A full walk-through of both channels, including "
@@ -2795,7 +3017,10 @@ GUIDES = [
         "bridge": ("Knowing that a screening is required is a different "
                "question from knowing whether a nursing home is even the "
                "setting your parent actually needs."),
-        "reviewed": "2026-11-17",
+        "reviewed": "2026-11-25",
+        # Joined the library on this date; re-read in full on the review date above
+        # (accuracy audit, 25 Nov 2026). Keeps the library-level dates where they were.
+        "listed": "2026-11-17",
         "title": "Pre-Admission Screening for an Illinois Nursing Home, Explained",
         "h1": "Does my parent need to be screened before moving into an Illinois nursing home?",
         "desc": ("Illinois screens everyone before a nursing home admission, even "
@@ -2809,7 +3034,8 @@ GUIDES = [
                    "&mdash; a private-pay admission is not exempt. Two separate checks "
                    "are involved: a <strong>Determination of Need (DON)</strong> "
                    "assessment of the functional need for nursing-facility-level care, "
-                   "and a <strong>PASRR Level I screen</strong> for serious mental "
+                   "and, at a Medicaid-certified nursing facility, a <strong>PASRR "
+                   "Level I screen</strong> for serious mental "
                    "illness or an intellectual/developmental disability. Both must be "
                    "completed before admission."),
         "sources": srcs("hfs_preadmission_notice", "hfs_ltc_brochure", "idoa_ccp"),
@@ -2856,7 +3082,7 @@ GUIDES = [
                 "privately and assume Medicaid rules do not apply to them. The "
                 "screening requirement is a state statute covering <strong>every</strong> "
                 "nursing facility admission &mdash; the HFS notice is explicit that it "
-                "applies &ldquo;regardless of income, assets, or funding source&rdquo;. "
+                "applies &ldquo;regardless of income, assets or funding source&rdquo;. "
                 "Paying the full bill out of pocket does not remove the requirement to "
                 "be screened before moving in.</p>",
                 "<p>HFS's own consumer brochure on long-term care frames the same rule "
@@ -2955,7 +3181,8 @@ GUIDES = [
         "bridge": ("Whether a past gift still counts against your parent today is "
                "a different question from whether assisted living, memory care "
                "or skilled nursing is the right fit for them now."),
-        "reviewed": "2026-11-17",
+        "reviewed": "2026-11-25",
+        "listed": "2026-11-17",
         "title": "Illinois Medicaid's Five-Year Look-Back and Transfer Penalties",
         "h1": "Will giving money away affect my parent&rsquo;s Illinois Medicaid eligibility?",
         "desc": ("Illinois Medicaid looks back five years for gifts and below-value "
@@ -2969,10 +3196,13 @@ GUIDES = [
                    "than something was worth during that window can trigger a "
                    "<strong>penalty period</strong> &mdash; a stretch of time "
                    "Medicaid will not pay toward long-term care. Not every transfer "
-                   "counts: HFS says a transfer to a spouse, or a small gift "
-                   "consistent with your parent&rsquo;s past giving, will not "
-                   "trigger one."),
-        "sources": srcs("hfs_ltc_brochure", "hfs_ltc_clients"),
+                   "counts: HFS says a small gift consistent with your parent&rsquo;s "
+                   "past giving will not trigger one, and a parent going into a "
+                   "nursing home may transfer property to a spouse up to a limit, "
+                   "which HFS raises each year and the caseworker works out once, "
+                   "when your parent applies or when long-term care eligibility "
+                   "is decided."),
+        "sources": srcs("hfs_ltc_brochure", "hfs_ltc_clients", "hfs_spousal2026"),
         "body": [
             ("The 60-month look-back, and what it looks back at", [
                 "<p>Illinois HFS's own brochure for long-term care applicants, "
@@ -3015,12 +3245,12 @@ GUIDES = [
                 "behavior.&rdquo; A pattern of modest giving kept up over years "
                 "reads differently from a gift that appears only once, near an "
                 "application.</li>"
-                "<li><strong>Transfers to a spouse.</strong> HFS states: &ldquo;You may transfer this other property to your spouse or to someone else for the sole benefit of your spouse,&rdquo; and that when a person goes into a nursing home, the spouse may keep the home, the car and the household furnishings.</li>"
+                "<li><strong>Transfers to a spouse, up to a limit.</strong> When a parent goes into a nursing home, HFS states the spouse may keep the home, the car and the household furnishings, and that &ldquo;You may transfer this other property to your spouse or to someone else for the sole benefit of your spouse.&rdquo; The same paragraph limits it: &ldquo;Depending on how much property your spouse already has (not counting things like the house and the car), you may give your spouse property&rdquo; up to an amount HFS raises each year, and &ldquo;Your FCRC caseworker will tell you the actual amount you may give to your spouse.&rdquo;</li>"
                 "<li><strong>Returning the property.</strong> HFS states a "
                 "penalty can be eliminated by getting the transferred property "
                 "back.</li></ul>",
-                "<p>This guide is not going to put a current dollar ceiling on "
-                "the spousal exception &mdash; see below for why.</p>",
+                "<p>The brochure&rsquo;s own figure for that limit is out of date; "
+                "where to find the current one is below.</p>",
             ]),
             ("When the penalty starts, and how long it lasts", [
                 "<p>HFS sets the start date as &ldquo;the month of application "
@@ -3063,10 +3293,16 @@ GUIDES = [
                 "Maintenance Needs Allowance figures in "
                 '<a href="/guides/illinois-medicaid-long-term-care/">How Illinois '
                 "Medicaid pays for long-term care</a>, which this library "
-                "verified against HFS's current 2026 notice &mdash; that is a "
-                "related but legally separate rule from the transfer exception "
-                "on this page, so ask the FCRC which one applies to a specific "
-                "transfer.</p>",
+                "verified against HFS's current 2026 notice. That notice describes "
+                "the resource allowance as the maximum amount of resources a "
+                "resident may transfer to a community spouse, less the "
+                "spouse&rsquo;s own nonexempt resources, so the 2026 figure is "
+                "the ceiling on the spousal transfer above for a couple whose "
+                "allowance is worked out in 2026. HFS adds that the "
+                "determination &ldquo;only occurs once&rdquo;: an amount already "
+                "set at an earlier application or long-term care determination is "
+                "not updated. The FCRC confirms "
+                "the amount for a specific couple.</p>",
             ]),
             ("Where this fits with the rest of this site", [
                 "<p>This page only covers whether a past transfer can delay "
@@ -3099,8 +3335,9 @@ GUIDES = [
                  "through Medicaid, not only in a facility. Who it serves, what it "
                  "does, how to reach it."),
         "intent": "how-to / advocacy",
-        "answer": ("If your parent gets home care through an Illinois Medicaid "
-                   "managed care plan (a D-SNP) or one of four Home and Community "
+        "answer": ("If your parent is enrolled in a Dual Eligible Special Needs "
+                   "Plan (D-SNP) and gets services from its managed care "
+                   "organisation, or gets home care through one of four Home and Community "
                    "Based Services waivers &mdash; Persons who are Elderly, Persons "
                    "with Disabilities, Persons with Brain Injury, or Persons with "
                    "HIV or AIDS &mdash; the Illinois Department on Aging's "
@@ -3224,12 +3461,13 @@ GUIDES = [
                 "treatments in advance (Mental Health Treatment Preference "
                 "Declaration Act)</li>"
                 "<li><strong>Practitioner Orders for Life-Sustaining Treatment "
-                "(POLST)</strong> &mdash; a medical order, signed by a doctor as "
-                "well as your parent, setting out which life-sustaining "
+                "(POLST)</strong> &mdash; a medical order, signed by your parent "
+                "(or an authorised representative) and by their attending "
+                "practitioner, setting out which life-sustaining "
                 "treatments to use or withhold</li>"
                 "</ul>",
                 "<p>None of the four is required. The Illinois Department of "
-                "Public Health states plainly that &ldquo;no health care facility, health care professional or insurer can make you execute an advance directive.&rdquo; In its words: &ldquo;It is entirely your decision.&rdquo;</p>",
+                "Public Health states plainly that &ldquo;no health care facility, health care professional or insurer can make you execute an advance directive as a condition of providing treatment or insurance.&rdquo; In its words: &ldquo;It is entirely your decision.&rdquo;</p>",
             ]),
             ("What a Power of Attorney for Health Care actually does", [
                 "<p>Your parent (the <strong>principal</strong>) names an "
@@ -3300,9 +3538,9 @@ GUIDES = [
                 "attempted if your parent&rsquo;s heart or breathing stops.</p>",
             ]),
             ("What a nursing home or hospital must do — and must never do", [
-                "<p>The Illinois Department of Public Health says information about the right to make an advance directive is given &ldquo;upon admission to a facility or when provision of care begins.&rdquo; No health care facility can make your parent sign one.</p>",
+                "<p>The Illinois Department of Public Health says information about the right to make an advance directive is given &ldquo;upon admission to a facility or when provision of care begins.&rdquo; No health care facility can make signing one a condition of treating your parent.</p>",
                 "<p>If a facility objects to following your parent&rsquo;s "
-                "directive on moral or religious grounds, the Illinois "
+                "directive, the Illinois "
                 "Department of Public Health states it must say so and must "
                 "keep providing care until your parent can be transferred to a "
                 "provider who will follow it. It cannot simply stop caring for "
@@ -3474,7 +3712,10 @@ GUIDES = [
                "because the question it answers &mdash; can my parent get full "
                "medical and personal care without leaving home &mdash; is the "
                "same question every setting on this site is trying to answer."),
-        "reviewed": "2026-11-17",
+        "reviewed": "2026-11-25",
+        # Joined the library on this date; re-read in full on the review date above
+        # (accuracy audit, 25 Nov 2026). Keeps the library-level dates where they were.
+        "listed": "2026-11-17",
         "title": "What Is PACE, and Can a Parent in Evanston Use It?",
         "h1": "What is PACE, and can a parent in Evanston use it?",
         "desc": ("PACE coordinates full medical and personal care so an older adult "
@@ -3541,7 +3782,7 @@ GUIDES = [
                 "West Side Chicago; Habitat Health at Annie's Place and Esperanza "
                 "Health Centers for South Side Chicago; BoldAge PACE Illinois for "
                 "Southern Cook County; OSF HealthCare System for Peoria; and Habitat "
-                "Health at Stella's Place for East St. Louis. The page&rsquo;s only date is a launch &ldquo;scheduled to begin in June 2024,&rdquo; and it describes Kinship specifically as &ldquo;a "
+                "Health at Stella's Place for East St. Louis. The page describes Kinship specifically as &ldquo;a "
                 "new entrant into the Illinois health care delivery system&rdquo; "
                 "&mdash; so a family calling any of these should ask directly whether it "
                 "is actually taking participants yet, rather than assume active service "
@@ -3596,15 +3837,17 @@ GUIDES = [
         "reviewed": "2026-11-17",
         "title": "Does Medicare Pay for a Home Health Aide or Nurse at Home?",
         "h1": "Does Medicare pay for a home health aide or nurse at home?",
-        "desc": ("Medicare pays $0 for covered home health visits, but only for "
-                 "skilled care while a parent is homebound. A home health aide on "
-                 "its own is not covered."),
+        "desc": ("With Original Medicare, your parent pays $0 for covered home health "
+                 "visits, only for skilled care while homebound. A home health aide "
+                 "alone is not covered."),
         "intent": "coverage question",
         "answer": ("<strong>Only for skilled care, and only while your parent is "
-                   "homebound.</strong> Medicare pays <strong>$0</strong> for a "
-                   "covered home health visit from a Medicare-certified agency, but it "
-                   "will only start one when a doctor who has examined your parent in "
-                   "person orders <em>intermittent, skilled</em> nursing or therapy "
+                   "homebound.</strong> With Original Medicare, your parent pays "
+                   "<strong>$0</strong> for a covered home health visit from a "
+                   "Medicare-certified agency (in a Medicare Advantage or other "
+                   "Medicare health plan, check with the plan), but Medicare "
+                   "covers one only when a doctor or other health care provider (like "
+                   "a nurse practitioner) who has seen your parent in person orders <em>intermittent, skilled</em> nursing or therapy "
                    "and confirms your parent is homebound. A home health aide for "
                    "bathing, feeding or help walking is covered only alongside that "
                    "skilled care &mdash; Medicare does not pay for an aide, or for "
@@ -3625,7 +3868,7 @@ GUIDES = [
                 "&mdash; if certain conditions are met</li>"
                 "<li><strong>Medical social services</strong></li>"
                 "<li><strong>Home health aide services</strong> &mdash; part-time or "
-                "intermittent, and, in Medicare.gov&rsquo;s words, <strong>&ldquo;only if you&rsquo;re also getting skilled nursing care.&rdquo;</strong> Examples given are bathing or grooming, feeding and help with walking</li>"
+                "intermittent, and, in Medicare.gov&rsquo;s words, <strong>&ldquo;only if you&rsquo;re also getting skilled nursing care, physical therapy, speech-language pathology services, or occupational therapy at the same time&rdquo;</strong>. Examples given are bathing or grooming, feeding and help with walking</li>"
                 "<li><strong>Injectable osteoporosis drugs</strong> for women who meet "
                 "certain criteria</li>"
                 "<li><strong>Durable medical equipment and medical supplies</strong> "
@@ -3680,6 +3923,10 @@ GUIDES = [
                 "</strong> for 2026.</p>",
                 "<p>Before giving your parent a service Medicare won&rsquo;t cover, the agency should give an Advance Beneficiary Notice (ABN) saying so. Ask for it in writing before agreeing to "
                 "anything the agency describes as extra.</p>",
+                "<p>These are the terms of Original Medicare. If your parent gets "
+                "Medicare through a Medicare Advantage plan or another Medicare health "
+                "plan, Medicare.gov says to check with the plan about its home health "
+                "benefits.</p>",
             ]),
             ("How much care, and how often", [
                 "<p>If your parent qualifies, Medicare.gov says visits are "
@@ -3721,7 +3968,8 @@ GUIDES = [
         "bridge": ("Paying less for a parent's prescriptions says nothing "
                    "about whether assisted living, home care or a nursing "
                    "home is the level of care they actually need."),
-        "reviewed": "2026-11-17",
+        "reviewed": "2026-11-25",
+        "listed": "2026-11-17",
         "title": "Medicare Extra Help: Lowering a Parent's Prescription Drug Costs",
         "h1": "Does your parent qualify for Extra Help with Medicare drug costs?",
         "desc": ("Extra Help lowers Medicare Part D costs for people with limited "
@@ -3816,13 +4064,19 @@ GUIDES = [
                 "go to, not a page this guide can describe first-hand. "
                 "Illinois's own "
                 '<a href="/guides/illinois-senior-health-insurance-program/">'
-                "Senior Health Insurance Program counselors</a> can point you to the state&rsquo;s Extra Help chart and answer questions before you apply.</p>",
+                "Senior Health Insurance Program</a> is that program here: Medicare.gov says you can also contact your local State Health Insurance Assistance Program (SHIP) to get free help applying.</p>",
                 "<p>Applying for Extra Help and a Medicare Savings Program "
                 "can happen at the same time: the page states that Social "
                 "Security &ldquo;will send information to your state to "
                 "initiate an MSP application&rdquo; unless the applicant says "
                 "not to on the Extra Help form itself. Once approved, Extra Help runs through 31 December even if income changes mid-year, and someone who still meets the limits keeps it into the next year; if no notice comes from Medicare or Social Security, Extra Help and the same plan simply continue. Anyone can reapply at any time if "
                 "income or resources change.</p>",
+                "<p>If a parent who qualifies has no Medicare drug plan yet, "
+                "Medicare.gov says it will enroll them in one automatically, "
+                "and they can pick a different plan if they want. It also "
+                "says that while most people can switch plans only at certain "
+                "times of the year, someone who has Medicaid or gets Extra "
+                "Help may be able to change drug coverage once per month.</p>",
             ]),
             ("If a pharmacy charges the wrong amount, or there is a gap before coverage starts", [
                 "<p>Medicare.gov's advice if a pharmacy charges more than the "
@@ -3836,9 +4090,10 @@ GUIDES = [
                 "Limited Income Newly Eligible Transition (LI NET) Program as "
                 "giving &ldquo;temporary Medicare Part D drug coverage to "
                 "people who qualify for Extra Help or Medicaid but who "
-                "aren't enrolled in a Medicare drug plan yet,&rdquo; with "
-                "money back available for covered drugs bought after the "
-                "qualifying date if receipts are kept. The number given for "
+                "aren't enrolled in a Medicare drug plan yet,&rdquo; and says "
+                "a person may be able to get some money back for covered "
+                "Part D drugs paid for after qualifying for LI NET, if the "
+                "receipts are kept. The number given for "
                 "LI NET is <strong>1-800-783-1307</strong> (TTY 711), "
                 "8 a.m. to 7 p.m. Eastern.</p>",
             ]),
@@ -3976,12 +4231,16 @@ GUIDES = [
                    "&ldquo;investigates reports of abuse, neglect, exploitation, "
                    "and self-neglect of adults age 60 or older, and adults age "
                    "18-59 with disabilities living in the community.&rdquo; That "
-                   "last phrase matters: APS is for someone living at home or in "
-                   "the community, not in a nursing home or assisted living "
-                   "facility &mdash; a suspected problem there goes to the Long-"
-                   "Term Care Ombudsman or the Illinois Department of Public "
-                   "Health instead."),
-        "sources": srcs("idoa_aps_program", "idoa_aps_definitions", "idoa_engage"),
+                   "last phrase matters: a problem with the care inside a nursing home "
+                   "or assisted living facility goes to the Long-Term Care "
+                   "Ombudsman or the Illinois Department of Public Health "
+                   "instead. The exception, in the Department on Aging&rsquo;s "
+                   "words: if a facility resident is abused outside the "
+                   "facility, or financially exploited, by a family member, "
+                   "caregiver or another person with a relationship to them, "
+                   "&ldquo;the APS Program may respond.&rdquo;"),
+        "sources": srcs("idoa_aps_program", "idoa_aps_definitions", "idoa_engage",
+                        "idoa_e2c_ombudsman", "idoa_abuse_reporting"),
         "body": [
             ("Two different hotlines, and this guide is about one of them", [
                 "<p>Illinois splits elder-safety reporting the same way it "
@@ -3989,13 +4248,20 @@ GUIDES = [
                 "your parent lives in their own home, an apartment, or with "
                 "family &mdash; anywhere outside a licensed care facility "
                 "&mdash; the Illinois Department on Aging's <strong>Adult "
-                "Protective Services</strong> program is the state channel. "
+                "Protective Services</strong> program is the state channel "
+                "(and, as the answer above says, it may also respond when a "
+                "facility resident is abused outside the facility, or "
+                "financially exploited, by a family member, caregiver or "
+                "another person with a relationship to them; the Department on "
+                "Aging&rsquo;s brochure adds that &ldquo;The resident may choose "
+                "to work with the APS Program and/or the Ombudsman Program in "
+                "this situation.&rdquo;). "
                 "Its own programme page states it &ldquo;investigates reports "
                 "of abuse, neglect, exploitation, and self-neglect of adults "
                 "age 60 or older, and adults age 18-59 with disabilities "
                 "living in the community.&rdquo;</p>",
-                "<p>A concern about a nursing home or assisted living "
-                "community is a different problem with a different number "
+                "<p>A concern about the care a nursing home or assisted living "
+                "community gives is a different problem with a different number "
                 "&mdash; the Long-Term Care Ombudsman Program or the Illinois "
                 "Department of Public Health's Central Complaint Registry, "
                 "both covered in "
@@ -4028,7 +4294,16 @@ GUIDES = [
                 "family worried that a parent living alone is no longer "
                 "managing &mdash; not eating, not taking medication, not "
                 "keeping the home safe &mdash; does not need a suspect to "
-                "call; self-neglect on its own is a reportable concern.</p>",
+                "call; self-neglect on its own is a reportable concern. The "
+                "Engage page also lists the older adult&rsquo;s own rights, "
+                "among them to &ldquo;Choose where and how they will live&rdquo; "
+                "and to &ldquo;Choose whether to accept social services or other "
+                "community assistance&rdquo;, and to make &ldquo;bad&rdquo; decisions "
+                "&ldquo;as long as those decisions don&rsquo;t hurt themselves or "
+                "others&rdquo;. The same list says that when an older adult "
+                "&ldquo;is incapable of protecting himself or herself, under the "
+                "law that person has the right to have protective measures taken "
+                "on his or her behalf&rdquo;.</p>",
             ]),
             ("How to report, and what the state says happens next", [
                 "<p>The hotline is <strong>1-866-800-1409</strong>, which the department&rsquo;s APS page calls &ldquo;the statewide, 24-hour Adult Protective Services Hotline&rdquo;; for deaf and speech-impaired callers, the same page says to dial Illinois Relay at <strong>711</strong>. The department's Engage page, aimed "
@@ -4051,12 +4326,19 @@ GUIDES = [
                 "<p>The department's own pages do not give a specific response "
                 "time &mdash; only that it varies with how serious the "
                 "caseworker judges the situation to be, so this guide will not "
-                "invent a number of hours or days. Nor do the pages this guide "
-                "read state who, by law, is required to report &mdash; a "
-                "<strong>mandated reporter</strong> page exists and is linked "
-                "from the department's site, but this guide did not fetch it, "
-                "so it will not describe mandated-reporter rules on the "
-                "strength of a link alone. And while the Engage page mentions, "
+                "invent a number of hours or days. On who must report, the Engage "
+                "page says Illinois law requires certain professionals to report "
+                "suspected abuse of adults age 60 or older or people with "
+                "disabilities age 18-59 who are unable, due to dysfunction, to "
+                "report for themselves: people delivering professional services "
+                "to them in social services, adult care, law enforcement, "
+                "education, medicine, state service to seniors and social work. "
+                "The Department&rsquo;s Report Abuse page adds that these "
+                "&ldquo;Mandatory reporting requirements only apply when the "
+                "reporter believes that the adult is not capable of reporting the "
+                "abuse, neglect, or financial exploitation themselves&rdquo;. "
+                "A family member does not have to be sure: the Engage page says "
+                "&ldquo;Report it, even if you are not sure.&rdquo; And while the Engage page mentions, "
                 "in a single success story, that APS worked with a State&rsquo;s Attorney in one case, nothing on the pages read states a general "
                 "rule for when or whether law enforcement gets involved "
                 "&mdash; that single anecdote is not a stated procedure, and "
@@ -4088,7 +4370,10 @@ GUIDES = [
         "bridge": ("A cheaper license plate and free transit rides are a "
                "different question from whether your parent can still get "
                "around safely enough to use either one."),
-        "reviewed": "2026-11-17",
+        "reviewed": "2026-11-25",
+        # Joined the library on this date; re-read in full on the review date above
+        # (accuracy audit, 25 Nov 2026). Keeps the library-level dates where they were.
+        "listed": "2026-11-17",
         "title": "Illinois Benefit Access: Free Transit and a Cheaper License Plate",
         "h1": "Illinois Benefit Access Program: free transit and a cheaper license plate",
         "desc": ("Illinois seniors and people with disabilities under an income limit "
@@ -4102,7 +4387,9 @@ GUIDES = [
                    "discounted license plate sticker through the Secretary "
                    "of State. To qualify, a person must be 65 or older "
                    "before January 1 of the current year (or turning 65 "
-                   "this year), live in Illinois, and have had gross "
+                   "this year) or be at least 16 and totally and "
+                   "permanently disabled before January 1, live in "
+                   "Illinois, and have had gross "
                    "household income below a published limit for the last "
                    "closed tax year &mdash; <strong>$33,562</strong> for one "
                    "person, <strong>$44,533</strong> for two, or "
@@ -4255,10 +4542,10 @@ GUIDES = [
                    "Medicare-approved amount, and only if the supplier is enrolled "
                    "in Medicare and accepts assignment. Power wheelchairs and "
                    "scooters need a face-to-face exam and a written prescription "
-                   "first, and some require Medicare's prior approval before you "
-                   "buy or rent."),
+                   "first, and certain types of power wheelchairs need Medicare's "
+                   "prior approval before Medicare will cover them."),
         "sources": srcs("mdme_wheelchairs", "mdme_hospitalbeds", "mdme_walkers",
-                        "mdme_canes", "mdme_commodes"),
+                        "mdme_canes", "mdme_commodes", "mdme_pub11045"),
         "body": [
             ("The rule that applies to all of it", [
                 "<p>Medicare.gov states the same condition on its walker, cane and commode-chair pages: &ldquo;Part B covers medically "
@@ -4272,6 +4559,17 @@ GUIDES = [
                 F["partB_deductible"] + " for 2026. That last clause &mdash; "
                 "&ldquo;if your supplier accepts assignment&rdquo; &mdash; is not "
                 "a formality, which is why it gets its own section below.</p>",
+                "<p>These are the terms of Original Medicare. If your parent gets "
+                "Medicare through a Medicare Advantage plan, Medicare&rsquo;s "
+                "booklet on equipment coverage says the plan must cover &ldquo;the "
+                "same medically necessary categories of DME items as Original "
+                "Medicare&rdquo;, but that &ldquo;the suppliers you get your DME "
+                "from and your specific costs will depend on which Medicare "
+                "Advantage Plan you belong to.&rdquo; It says to contact the plan "
+                "to find out if it will cover the equipment, and that if the plan "
+                "will not cover an item you believe your parent needs, you can "
+                "appeal the plan&rsquo;s denial and get an independent "
+                "review.</p>",
             ]),
             ("What is actually covered, item by item", [
                 "<ul class=\"res__list\">"
@@ -4291,9 +4589,9 @@ GUIDES = [
                 "<li><strong>Commode chairs</strong> &mdash; &ldquo;Medicare Part B (Medical Insurance) covers commode chairs,&rdquo; on the same doctor&rsquo;s-order and home-use terms</li></ul>",
                 "<p>That cane exclusion is worth sitting with for a moment. Two "
                 "items that look alike to a family &mdash; a mobility cane and a "
-                "cane for someone who is blind &mdash; are covered differently "
-                "because Medicare classifies one as DME and the other as an aid "
-                "for a different purpose. The lesson is not about canes "
+                "cane for someone who is blind &mdash; are covered differently, "
+                "and Medicare.gov&rsquo;s cane page states the exclusion without "
+                "giving a reason for it. The lesson is not about canes "
                 "specifically; it is that &ldquo;covered&rdquo; is decided item "
                 "by item, on each item's own Medicare.gov page, not by a general "
                 "sense that medical equipment is covered.</p>",
@@ -4309,7 +4607,7 @@ GUIDES = [
                 "&ldquo;If a supplier participates in Medicare, they must accept "
                 "assignment,&rdquo; and for anything rented rather than bought, "
                 "&ldquo;make sure the supplier is willing to accept assignment for "
-                "all rental months.&rdquo; The hospital-beds page spells out the risk: &ldquo;If a DME supplier doesn&rsquo;t participate in Medicare or won&rsquo;t accept assignment, you may be charged more.&rdquo; Ask "
+                "all rental months, otherwise you&rsquo;ll have to pay the full cost of your DME upfront.&rdquo; In that case, the page says, &ldquo;Medicare will pay you later for the amount it covers after your claims have been submitted and processed by Medicare.&rdquo; The hospital-beds page spells out the risk: &ldquo;If a DME supplier doesn&rsquo;t participate in Medicare or won&rsquo;t accept assignment, you may be charged more.&rdquo; Ask "
                 "the question before the equipment is ordered, not after the first "
                 "bill arrives.</p>",
             ]),
@@ -4947,7 +5245,9 @@ GUIDES = [
                 "FIDE SNPs are the most like MMAI plans because &ldquo;they "
                 "provide the same level of care coordination&rdquo;. It adds "
                 "that &ldquo;Medicaid wraps around Medicare by helping with "
-                "Medicare premiums and cost sharing.&rdquo;</p>",
+                "Medicare premiums and cost sharing, and by covering some "
+                "services that Medicare does not cover, such as long-term "
+                "services and supports (LTSS).&rdquo;</p>",
             ]),
             ("What happened to MMAI members", [
                 "<p>HFS&rsquo;s enrolment page says that for &ldquo;Members of "
@@ -4995,11 +5295,15 @@ GUIDES = [
                 "HFS calls long-term services and supports (LTSS); its managed "
                 "care page says dual-eligible adults receiving certain of these "
                 "services are &ldquo;referred to as the MLTSS population&rdquo;. "
-                "HFS&rsquo;s enrolment page says members receiving LTSS "
-                "&ldquo;must be enrolled in a HealthChoice IL Managed Long-Term "
-                "Services and Support (MLTSS) plan&rdquo; for those services, "
-                "and adds: &ldquo;Currently, to switch plans, members must call "
-                "the HFS Client Enrollment Broker at 1-877-912-8880.&rdquo;</p>",
+                "If your parent is in a FIDE SNP, those Medicaid services come "
+                "through that one plan, which HFS says provides both Medicare "
+                "and Medicaid benefits. For dually eligible members who do not "
+                "choose a FIDE SNP, HFS&rsquo;s enrolment page says members "
+                "receiving LTSS &ldquo;must be enrolled in a HealthChoice IL "
+                "Managed Long-Term Services and Support (MLTSS) plan&rdquo; for "
+                "those services, and adds: &ldquo;Currently, to switch plans, "
+                "members must call the HFS Client Enrollment Broker at "
+                "1-877-912-8880.&rdquo;</p>",
                 "<p>This guide has not researched HealthChoice Illinois MLTSS "
                 "plans themselves. Ask your parent&rsquo;s care coordinator, "
                 "or the HFS Client Enrollment Broker, which plan your parent is "
