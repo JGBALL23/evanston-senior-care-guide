@@ -397,20 +397,33 @@ check("IL guide: a shared phone number is flagged as not the community's, on one
   ilEvLc.indexOf("the other two gave no number for any community") !== -1);
 check("IL guide: the sources footnote says the listing-website figures did not come from the listed sources",
   /Every figure on this page was read from the source listed above on 6 November 2026, except the listing-website figures under &ldquo;Looking in Evanston&rdquo;, which were read from those websites the same day\./.test(ilFlat));
-check("only the IL guide carries a footnote exception",
-  SLUGS.filter((s) => /read from the source listed above on [^.<]*, except /.test(flat(page[s]))).join(",") === "independent-living-evanston");
+/* Re-pinned 2026-11-27 (accuracy audit ops/reviews/live/assisted-living-cost-illinois.md C1):
+   the cost guide's Trulee Evanston prices were read on 12 Nov 2026, not on its
+   4 Nov review date, so its footnote now names that exception too. Still exact:
+   these two guides and no other. */
+check("only the IL guide and the cost guide carry a footnote exception",
+  SLUGS.filter((s) => /read from the source listed above on [^.<]*, except /.test(flat(page[s]))).sort().join(",") === "assisted-living-cost-illinois,independent-living-evanston");
+check("cost guide: the sources footnote dates the Trulee Evanston prices to 12 November 2026",
+  /Every figure on this page was read from the source listed above on 4 November 2026, except Trulee Evanston’s advertised prices, read on 12 November 2026\./.test(flat(page["assisted-living-cost-illinois"])));
 /* The only dollar figures allowed in the section are the City's own:
    the coupon price and the two income limits. */
 check("IL guide: no listing-site price is printed",
   !/\$\s?\d/.test(ilEv.replace("taxi coupons that cost $5 each", "")
-    .replace("must be $35,000 or less for one person, or $60,000 or less for two", "")));
+    /* 2026-11-26 accuracy audit (ops/reviews/live/independent-living-evanston.md):
+       the City's page gives $35,000 for a one-person household for the
+       transportation help; its $60,000-for-two figure is the wheel-tax
+       discount's. Re-pinned to the corrected sentence. */
+    .replace("income must be $35,000 or less for a one-person household", "")));
 check("IL guide: no list can be complete, worded as this guide's own finding",
   ilEvLc.indexOf("this guide found no state licence for independent living as such, so no state register lists every community") !== -1);
 check("IL guide: transport help is stated as the agencies state it",
   ilEvLc.indexOf("riders 65 or older can get a reduced-fare permit for cta, metra and pace from the northern illinois transit authority, formerly the rta") !== -1 &&
   /* Second fact-check, 2026-11-06: Ride Free is not automatic. */
   ilEvLc.indexOf("benefit access program can ride free instead, after applying to the authority&rsquo;s ride free program") !== -1 &&
-  ilEvLc.indexOf("helps residents 65 or older, or over 18 with a disability. income must be $35,000 or less for one person, or $60,000 or less for two") !== -1 &&
+  /* 2026-11-26 accuracy audit: Access Evanston is for zip codes 60201 and
+     60202, and the $60,000-for-two limit was the wheel-tax discount's, not the
+     transportation program's. Re-pinned to the corrected sentence. */
+  ilEvLc.indexOf("access evanston program, for residents of the 60201 and 60202 zip codes, helps residents 65 or older, or over 18 with a disability. for its transportation help, income must be $35,000 or less for a one-person household; the city&rsquo;s page gives no figure for a larger household") !== -1 &&
   /* A coupon costs the rider $5; it is not a $5 coupon. */
   ilEvLc.indexOf("members choose between taxi coupons that cost $5 each, one per one-way ride within evanston, and a transportation debit card") !== -1 &&
   ilEvLc.indexOf("the city matches money loaded onto the card, up to a monthly limit") !== -1 &&
@@ -500,8 +513,11 @@ check("styles.css: the tour button's one rule is scoped and only centres its lab
 /* ---- OWNER FINDING 3, 2026-10-18: skilled coverage is not custodial ---- */
 const med = page["does-medicare-pay-for-senior-care"];
 check("custodial care is named in the answer", lc(med).indexOf("long-term custodial") !== -1);
+/* 2026-11-26: re-pinned to Medicare.gov's own definition. The page attributed
+   "licensed professionals" to Medicare; the SNF care page says "professionals or
+   technical personnel" (accuracy audit ops/reviews/live/does-medicare-pay-for-senior-care.md, C1). */
 check("skilled is defined by who must perform it",
-  lc(med).indexOf("under the supervision of licensed professionals") !== -1);
+  lc(med).indexOf("or under the supervision of, professionals or technical personnel") !== -1);
 check("custodial is defined by the tasks",
   lc(med).indexOf("bathing, dressing, eating") !== -1);
 check("Medicare pays nothing toward custodial care is explicit",
@@ -1026,8 +1042,22 @@ check("the CSMNA deduction rule is quoted from HFS",
     + "from the standard") !== -1);
 check("the guide refuses to do the spousal subtraction itself",
   lc(mcd).indexOf("does not do that subtraction for you") !== -1);
-check("the personal needs allowance is still refused",
-  lc(mcd).indexOf("could not read a verifiable number") !== -1);
+/* 2026-11-25: the refusal is replaced by the figure. The accuracy audit of
+   this page found the HFS provider notice of 25 January 2024, which states
+   the nursing facility personal needs allowance in so many words, so "could
+   not read a verifiable number" was no longer true. The gate now holds the
+   page to that notice's own sentence, its scope (a nursing facility licensed
+   under the Nursing Home Care Act, a resident eligible for Medical
+   Assistance), its link, and the advice to ask whether a later change
+   applies. A figure without all four fails. */
+check("the personal needs allowance is quoted from the HFS notice, with its scope",
+  lc(mcd).indexOf("from $30 per month to $60 per month for nursing home "
+    + "residents who reside in a nursing facility licensed under the nursing "
+    + "home care act and who are determined to be eligible for medical "
+    + "assistance") !== -1 &&
+  mcd.indexOf("notices/notice.prn240125a.html") !== -1 &&
+  lc(mcd).indexOf("whether a later change applies") !== -1 &&
+  lc(mcd).indexOf("could not read a verifiable number") === -1);
 
 /* ---- OWNER FINDING, 2026-10-29: a pension ceiling is not an add-on ----
    The Aid and Attendance guide's description said the benefit "can add up
@@ -1092,19 +1122,29 @@ const dates = SLUGS.map((s) =>
 check("every guide prints a review date", dates.every(Boolean), String(dates));
 check("review dates are per-guide, not one global stamp",
   new Set(dates).size > 1, dates.join(" | "));
-check("the Medicaid guide is dated the day it was researched",
-  dates[SLUGS.indexOf("illinois-medicaid-long-term-care")] === "23 October 2026",
+/* 2026-11-25: the Medicaid guide was re-read in full against its sources in
+   the accuracy audit of that day (three corrections), so it carries that
+   date. Before then this gate pinned 23 October 2026, the day it was first
+   researched. */
+check("the Medicaid guide is dated the day it was last re-verified",
+  dates[SLUGS.indexOf("illinois-medicaid-long-term-care")] === "25 November 2026",
   String(dates[SLUGS.indexOf("illinois-medicaid-long-term-care")]));
 check("its JSON-LD dateModified agrees with its printed date",
-  mcd.indexOf('"dateModified": "2026-10-23"') !== -1);
+  mcd.indexOf('"dateModified": "2026-11-25"') !== -1);
 /* 2026-11-04: the cost guide was re-verified when its Evanston section was
    rewritten (Experiment 1), so it now carries its own date. The other four
    of the original five were not re-read and must keep 2026-10-18. */
 /* 2026-11-05: the inspection guide was re-verified when it was rewritten
    (Experiment 2), so it carries its own date too. The other three of the
    original five were not re-read and must keep 2026-10-18. */
-const ORIGINAL_UNCHANGED = ["does-medicare-pay-for-senior-care",
+/* 2026-11-26: the Medicare guide was re-verified in the accuracy audit
+   (ops/reviews/live/does-medicare-pay-for-senior-care.md), so it carries its own
+   date; its "listed" date stays 2026-10-18. The other two keep 2026-10-18. */
+const ORIGINAL_UNCHANGED = [
   "illinois-supportive-living-program", "levels-of-senior-care-explained"];
+check("the Medicare guide is dated the day it was re-verified",
+  dates[SLUGS.indexOf("does-medicare-pay-for-senior-care")] === "26 November 2026",
+  String(dates[SLUGS.indexOf("does-medicare-pay-for-senior-care")]));
 check("the original five that were not re-verified keep their 2026-10-18 date",
   ORIGINAL_UNCHANGED.every((s) => dates[SLUGS.indexOf(s)] === "18 October 2026"),
   ORIGINAL_UNCHANGED.map((s) => dates[SLUGS.indexOf(s)]).join(" | "));
