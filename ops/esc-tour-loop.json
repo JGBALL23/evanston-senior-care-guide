@@ -6289,7 +6289,7 @@
    "holder": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
    "utc": "2026-11-27T07:06Z",
    "since_utc": "2026-11-27T06:24Z",
-   "productive_min": 28,
+   "productive_min": 29,
    "deliverables": [
     "publish_pr:#91 a523b5e",
     "guide:drafts e9241f2",
@@ -7181,9 +7181,9 @@
     "plan_cooldown_hours": 12,
     "open_prs": [],
     "owner_open": 7,
-    "cooldown_until_utc": "2026-11-27T05:34Z",
-    "last_planned_utc": "2026-11-26T17:34Z",
-    "last_plan_result": "26 Nov 17:45Z: no new Search Console read since 25 Nov 20:35Z (already examined 26 Nov 01:35Z: the Medicare/assisted-living/nursing-home queries land on does-medicare-pay-for-senior-care, VA caregiver queries on va-caregiver-support-program, meals/QMB/advance-directive queries on existing guides; '…",
+    "cooldown_until_utc": "2026-11-27T19:06Z",
+    "last_planned_utc": "2026-11-27T07:06Z",
+    "last_plan_result": "This session built the one need with fresh evidence (holiday-visit guide, F01; ported to #90). DEMAND.md Open holds ACQ-118 (waits on ilga.gov). Adult day services checked (needs avenue): covered by live guides. Nothing further passes the gate.",
     "wip_note": "owner_open counts worker-built assets on drafts that are not on main yet. Limit 30 since 27 Nov 2026 (was 10): the assets wait inside the daily package, which is one decision for Joseph, and a pending approval does not stop evidence-backed building (his words of 24 and 26 Nov). The evidence rules decide what is built, not the count."
    },
    {
@@ -7200,9 +7200,9 @@
      91
     ],
     "owner_open": 1,
-    "cooldown_until_utc": "2026-11-27T05:34Z",
-    "last_planned_utc": "2026-11-26T17:34Z",
-    "last_plan_result": "26 Nov 17:45Z: drafts has 10 guides not on main (main 32, drafts 42); all 10 have packets and are in publish batch #90 inside package #91 (open, clean); no packet-qualified page outside the batch and no drafts change since the ports. Nothing added.",
+    "cooldown_until_utc": "2026-11-27T19:06Z",
+    "last_planned_utc": "2026-11-27T07:06Z",
+    "last_plan_result": "Batch #90 now holds all 11 verified worker pages (holiday guide added eea57b7); package #91 re-cut 27 Nov; #93 verified for the 28 Nov package. Nothing else qualifies.",
     "wip_note": "Limit 3 open publish pull requests since 24 Nov 2026 (was 2): batches are stacked, so the newest one publishes all of them with a single merge.",
     "note_open_prs": "#90 contains #87 and #88 (one decision for Joseph); when a batch is open, changed pages are added to its branch, not to a new pull request"
    },
@@ -7276,9 +7276,9 @@
      78
     ],
     "owner_open": 5,
-    "cooldown_until_utc": "",
-    "last_planned_utc": "",
-    "last_plan_result": ""
+    "cooldown_until_utc": "2026-11-30T07:06Z",
+    "last_planned_utc": "2026-11-27T07:06Z",
+    "last_plan_result": "Tour-path beacons now readable (F03): 0 assessment starts, 0 tour-form views in the last 24 h; conversion changes wait until 30 genuine visitors reach a step (procedure Handoffs); tour-path PRs #78, #79, #84, #86 already in package #91. Nothing passes."
    },
    {
     "id": "distribution",
@@ -7291,9 +7291,9 @@
     "plan_cooldown_hours": 48,
     "open_prs": [],
     "owner_open": 0,
-    "cooldown_until_utc": "2026-11-27T06:30Z",
-    "last_planned_utc": "2026-11-25T06:30Z",
-    "last_plan_result": "2026-11-25: state.json (operator last run 03:40Z) holds no pending facebook_post action; P-1122-01 and P-1124-01 completed; next post 15:00Z is the operator's own venue choice (Highland Park group, Edgewater pending review) and step 8b needs a pending action, so no post text to prepare. Map items u…"
+    "cooldown_until_utc": "2026-11-29T07:06Z",
+    "last_planned_utc": "2026-11-27T07:06Z",
+    "last_plan_result": "F05 answered: operator writes its own posts; cap frees 29 Nov 15:08Z; no pending facebook_post action for step 8b; D1 set to watch. Nothing passes."
    },
    {
     "id": "partnerships",
@@ -7386,6 +7386,10 @@
    }
   ],
   "log": [
+   "2026-11-27T07:06Z distribution +0: F05 answered: operator writes its own posts; cap frees 29 Nov 15:08Z; no pending facebook_post action for step 8b; D1 set to watch. Nothing passes.",
+   "2026-11-27T07:06Z conversion +0: Tour-path beacons now readable (F03): 0 assessment starts, 0 tour-form views in the last 24 h; conversion changes wait until 30 genuine visitors reach a step (…",
+   "2026-11-27T07:06Z publish +0: Batch #90 now holds all 11 verified worker pages (holiday guide added eea57b7); package #91 re-cut 27 Nov; #93 verified for the 28 Nov package. Nothing else qu…",
+   "2026-11-27T07:06Z build +0: This session built the one need with fresh evidence (holiday-visit guide, F01; ported to #90). DEMAND.md Open holds ACQ-118 (waits on ilga.gov). Adult day serv…",
    "2026-11-27T06:47Z demand +0: Search Console queries (25 Nov read): every Medicare/assisted living, nursing home, VA caregiver, advance directive, QMB, home-delivered-meals and MSP query ma…",
    "2026-11-27T06:47Z search +0: Search Console read 25 Nov (pages and queries in the 27 Nov payload, same read): Medicare page 781 imp pos 32.5 -> new section PR #93 (frontier F02) and title/…",
    "2026-11-26T17:34Z build +0: 26 Nov 17:45Z: no new Search Console read since 25 Nov 20:35Z (already examined 26 Nov 01:35Z: the Medicare/assisted-living/nursing-home queries land on does-m…",
@@ -7432,9 +7436,9 @@
     "evidence": "Public family questions, Search Console queries, search presence and competitor gaps already recorded in the sweep log, plus fresh searches; the guide index on main and drafts; DEMAND.md open and done.",
     "output": "Up to three BUILD tasks (lane build), each one asset with its evidence, never a topic in DEMAND.md's Open list. Deliverable of each task: guide, faq, checklist, resource or research_report on drafts.",
     "why": "Joseph wants assets built, not only opportunities reported.",
-    "last_checked_utc": "2026-11-26T17:45Z",
-    "next_check_utc": "2026-11-27T05:45Z",
-    "last_result": "26 Nov 17:50Z: guide index main 32 / drafts 42; DEMAND Open holds only ACQ-118. Fresh searches 26 Nov: listing sites only for Evanston/Skokie AL questions (no family-question venue indexed); one recurring public question 'parent in assisted living runs out of money' (early-retirement.org forum thre…",
+    "last_checked_utc": "2026-11-27T07:06Z",
+    "next_check_utc": "2026-11-27T19:06Z",
+    "last_result": "Strongest current need without a page was the holiday-visit moment (F01), built this session; adult day services (needs avenue) and the Medicare plan-choice gap (F02, #93) also handled; Search Console queries all map to live guides. Nothing further.",
     "last_added": 0
    },
    {
@@ -7492,9 +7496,9 @@
     "evidence": "The demand lane's evidence: public Q&A sites, forums, community boards and news comment sections (type, venue kind and date only); Search Console queries when available.",
     "output": "Topics committed to DEMAND.md's Open list on drafts, at most three open at once (step 7). Deliverable type demand_topic.",
     "why": "Each topic becomes a guide draft at 6 AM the next morning.",
-    "last_checked_utc": "2026-11-26T06:34Z",
-    "next_check_utc": "2026-11-27T06:34Z",
-    "last_result": "Answered from this session's demand planning pass (26 Nov 06:33Z): Search Console queries of the 25 Nov Make read all map to live guides; public-question search found hospice room-and-board (covered by medicare-hospice-benefit-explained) and assisted-living respite stays (no dated family questions,…",
+    "last_checked_utc": "2026-11-27T07:06Z",
+    "next_check_utc": "2026-11-28T07:06Z",
+    "last_result": "Public questions read 27 Nov for holiday-visit warning signs (built) and adult day care in Evanston (covered); DEMAND.md Open at one worker topic waiting on ilga.gov. Nothing further passes.",
     "last_added": 0
    },
    {
@@ -7619,6 +7623,8 @@
    }
   ],
   "sweep_log": [
+   "2026-11-27T07:06Z demand-questions +0: Public questions read 27 Nov for holiday-visit warning signs (built) and adult day care in Evanston (covered); DEMAND.md Open at one worker topic waiting on il…",
+   "2026-11-27T07:06Z asset-gaps +0: Strongest current need without a page was the holiday-visit moment (F01), built this session; adult day services (needs avenue) and the Medicare plan-choice ga…",
    "2026-11-27T06:58Z search-console +0: No Search Console read newer than 2026-11-25T20:35Z (the 27 Nov payload repeats it; already recorded 26 Nov). Its uncovered-query and low-CTR candidates were w…",
    "2026-11-27T06:58Z page-ladder +0: First ladder pass on the 25 Nov Make read (25 pages): rung 5 (a click) home and estate recovery; rung 4 (position <=10) preadmission 8.5, SLP 8.0, Medicaid LTC…",
    "2026-11-27T06:58Z seasonal +0: Calendar moments in the next 45 days (strategy/calendar, read 2026-11-27): holiday visits -> frontier F01 built noticed-changes-in-parent-holiday-visit (in #90…",
