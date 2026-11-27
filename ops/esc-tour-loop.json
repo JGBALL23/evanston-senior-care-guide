@@ -193,19 +193,22 @@
    "note": "2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 1: #91 and #90 still open (checked 06:27Z), so the card change would still collide with the publish batch."
   },
   {
-   "id": "ACQ-185",
-   "task": "Verify the corrections to the plan-choice section of does-medicare-pay-for-senior-care (PR #93, commit 28897f1)",
+   "id": "ACQ-186",
+   "task": "Apply the recommended addition from the reader check of #93 28897f1 (not all D-SNPs are integrated; contact the plan or 1-800-MEDICARE for a list of integrated D-SNPs), then a reader check",
    "workstream": "search",
    "lane": "search",
    "source": "followup",
-   "key": "verify-live:does-medicare-pay-for-senior-care:28897f1",
-   "priority": 1,
-   "evidence": "PR #93 commit 28897f1 (ACQ-184)",
-   "expected_tour_acquisition_value": "quality gate before the package",
+   "key": "add:does-medicare-pay-for-senior-care:dsnp-integrated",
+   "priority": 2,
+   "evidence": "ops/reviews/live/does-medicare-pay-for-senior-care.md reader check 2026-11-27 (28897f1)",
+   "expected_tour_acquisition_value": "a dual-eligible parent's family is not misled into a non-integrated plan",
+   "impact": 2,
+   "confidence": 5,
+   "effort": 1,
    "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
+   "done_when": "one commit on #93 with checks passing and a verify-live task finished",
    "status": "ready",
-   "found_utc": "2026-11-27T07:01Z"
+   "found_utc": "2026-11-27T07:03Z"
   }
  ],
  "completed": [
@@ -5558,6 +5561,27 @@
    },
    "done_utc": "2026-11-27T07:01Z",
    "minutes": 3
+  },
+  {
+   "id": "ACQ-185",
+   "task": "Verify the corrections to the plan-choice section of does-medicare-pay-for-senior-care (PR #93, commit 28897f1)",
+   "workstream": "search",
+   "lane": "search",
+   "source": "followup",
+   "key": "verify-live:does-medicare-pay-for-senior-care:28897f1",
+   "priority": 1,
+   "evidence": "PR #93 commit 28897f1 (ACQ-184)",
+   "expected_tour_acquisition_value": "quality gate before the package",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-27T07:01Z",
+   "result": "Independent reader checked #93 28897f1: quotecheck 8/8, 8/8 pages readable, rebuild no diff; the drug-plan join with first-of-next-month start, the at-risk exclusion and the integrated D-SNP monthly option all match Medicare.gov's Special Enrollment Periods page in scope; link to the FIDE SNP guide is on main. Corrections verified for the whole #93 section (e4ad616, 5490888, 5eeca4f, 28897f1). One recommended addition (not all D-SNPs are integrated; 1-800-MEDICARE lists integrated D-SNPs) queued separately.",
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/live/does-medicare-pay-for-senior-care.md"
+   },
+   "done_utc": "2026-11-27T07:03Z"
   }
  ],
  "blocked": [],
@@ -5568,7 +5592,7 @@
   "picked": "ACQ-150 done, ACQ-151 done, ACQ-152 done(reopened), ACQ-153 done, ACQ-154 done, ACQ-155 done, ACQ-156 done, ACQ-157 done, ACQ-158 done, ACQ-159 done, ACQ-160 done, ACQ-161 done, ACQ-162 done, ACQ-163 done(reopened), ACQ-164 waiting_on_data, ACQ-165 done, ACQ-166 done(reopened), ACQ-167 done, ACQ-168 done",
   "why": "Worked: 6 live-guide accuracy audits (4 corrected, incl. a wrong payer on hospice and home health; Access Evanston income limit), all reader-verified in #89; stopped: no-worthwhile-work; resume: package cut 27 Nov 05:00Z or #91 merge"
  },
- "last_verified_action": "ACQ-184 done 2026-11-27T07:01Z: Applied the reader's correction and two additions to #93 as 28897f1: the at-risk / potentially at-risk exclusion in the Medicaid / Extra Help paragraph; joinin…",
+ "last_verified_action": "ACQ-185 done 2026-11-27T07:03Z: Independent reader checked #93 28897f1: quotecheck 8/8, 8/8 pages readable, rebuild no diff; the drug-plan join with first-of-next-month start, the at-risk exc…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -5664,8 +5688,8 @@
     "lane": "distribution",
     "class": "Facebook town groups, posts",
     "status": "active",
-    "note": "8 posts submitted since 8 Nov (5 live, 1 declined, 1 pending, 1 removed), 4 to 5 genuine visitors, 0 tour-form views; the checklist hook beat the costs hook (E1); posting cap in state.json; read fb-wnk-1120 and fb-rp-1122 at +24h and +48h",
-    "checked_utc": "2026-11-22T17:40Z"
+    "note": "27 Nov (frontier F05, worker): operator records show 11 posts submitted since 8 Nov (7 live, 2 declined incl. Glenview 24 Nov, 1 pending since 13 Nov, 1 removed); measured genuine visitors by tag: fb-rp-1122 Rogers Park 7 (template A + sources), fb-nsh-1126 North Shore 5-6 (template C, assessment), fb-evsk-1125 Evanston/Skokie 3 (C), fb-evsk-1117 2, fb-wnk-1120 and fb-wil-1118 0; 0 tour-form views and 0 tour requests from any post. Room: the 5-in-7 cap frees 29 Nov 15:08Z; venues eligible without a post yet or past their 7-day gap: Edgewater (never posted; north-side neighbour of the best-yield Rogers Park), What's Happening in Evanston (never), Winnetka (from 29 Nov), Rogers Park (from 30 Nov), Wilmette. The operator writes its own post texts now (templates A and C); no state.json facebook_post action is pending, so step 8b has nothing to prepare. Watch: reopen when the operator schedules a post (state.json actions) or when a post brings a tour-path step (beacons, metrics/tour_path_read).",
+    "checked_utc": "2026-11-27T07:05Z"
    },
    {
     "id": "D2",
@@ -6234,9 +6258,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
-   "utc": "2026-11-27T07:02Z",
+   "utc": "2026-11-27T07:04Z",
    "since_utc": "2026-11-27T06:24Z",
-   "productive_min": 23,
+   "productive_min": 25,
    "deliverables": [
     "publish_pr:#91 a523b5e",
     "guide:drafts e9241f2",
@@ -6253,12 +6277,9 @@
     "verification:ops/reviews/noticed-changes-in-parent-holiday-visit.md",
     "publish_pr:#90 eea57b7",
     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
-    "correction:#93 28897f1"
-   ],
-   "current": {
-    "what": "ACQ-185",
-    "since_utc": "2026-11-27T07:01Z"
-   }
+    "correction:#93 28897f1",
+    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-27T06:26Z"
@@ -7620,6 +7641,17 @@
    "empty_streak": 0,
    "log": [
     {
+     "utc": "2026-11-27T07:04Z",
+     "run": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
+     "key": "frontier-f05",
+     "avenue": "frontier",
+     "lane": null,
+     "candidates": 1,
+     "added": 0,
+     "result": "Read 2026-11-27: ops/state.json (posts, venues, posting_cap, next_actions, actions), ops/growth.json ready (all shipped), cloud.json campaigns and scoreboard by_source, Netlify landed beacons by tag. Best yield Rogers Park (7, template A + sources), North Shore (5-6, template C); 0 tour-form views from any post. The c…",
+     "verdict": "watch"
+    },
+    {
      "utc": "2026-11-27T07:02Z",
      "run": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
      "key": "frontier-f03",
@@ -8000,9 +8032,14 @@
      "evidence": "ops/state.json (actions, posts, venues, due dates), ops/growth.json and cloud.json (campaigns, experiments) with their git history since 13 Nov; the scoreboard's by_source rows; the ref tags in Netlify's request counts.",
      "output": "The verdict in the map, and where the records show room, prepared items in the form the operator has picked up before, inside step 8's limits. A finding that would need a change to the operator's own instructions becomes one lettered decision.",
      "why": "The only proven channel should never wait for material.",
-     "status": "open",
+     "status": "explored",
      "added_utc": "2026-11-27T01:18Z",
-     "added_by": "supervisor"
+     "added_by": "supervisor",
+     "verdict": "watch",
+     "explored_utc": "2026-11-27T07:04Z",
+     "run": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
+     "added": 0,
+     "result": "Read 2026-11-27: ops/state.json (posts, venues, posting_cap, next_actions, actions), ops/growth.json ready (all shipped), cloud.json campaigns and scoreboard by_source, Netlify landed beacons by tag. Best yield Rogers Park (7, template A + sources), North Shore (5-6, template C); 0 tour-form views from any post. The cap frees 29 Nov 15:08Z with 5 eligible venues (Edgewater and What's Happening in Evanston never posted). No pending facebook_post action, so step 8b allows no prepared text; the operator writes its own. Verdict watch in D1: reopens when the operator schedules a post or a post bri…"
     },
     {
      "id": "F06",

@@ -212,3 +212,22 @@ Reopened: the Medicaid/Extra Help monthly change is given to every parent with M
 Reader: agent in cse_014eaiSeY3WV1Qzjy2ZNkkuN
 
 Corrections applied: #93 28897f1, 2026-11-27, cse_014eaiSeY3WV1Qzjy2ZNkkuN (reader check of 5eeca4f)
+
+## Reader check 2026-11-27 (28897f1)
+
+Independent reader, branch claude/medicare-plan-choice-before-move at 28897f1, read in /tmp/reader4-does-medicare-pay-for-senior-care. quotecheck: 8 quotations, 8 FOUND, 0 NEAR MATCH, 0 NOT FOUND; 8 cited pages, 0 unreadable; 1 short term NOT FOUND ("$0 coinsurance", unchanged sentence, the guide's own term, not attributed; not touched by this commit). Read today in full: Medicare.gov Special Enrollment Periods (200). The commit extends one paragraph; build-guides.py and _dist agree (a rebuild produces no diff); one link added, /guides/illinois-fide-snp-explained/, present on main (its page says Illinois FIDE SNPs are fully integrated dual eligible special needs plans and quotes HFS: "members eligible for a FIDE SNP can enroll once-per-month in a FIDE SNP using the Integrated Care SEP").
+
+- "Another listing of the same window on that page also allows joining a drug plan, and says "The change will take effect on the first day of the next month."" / Special Enrollment Periods, "Other special situations", second "I have Medicare and Medicaid, or I get Extra Help paying for Medicare drug coverage." item, What can I do?: "Join or switch to a different Medicare drug plan." When?: "If you have Medicaid or get Extra Help, you can make changes to your coverage once a calendar month. The change will take effect on the first day of the next month." / same scope (parent with Medicaid or Extra Help; the first listing carries the same start date, so nothing is narrowed wrongly); recommended addition 1 of the 5eeca4f check applied.
+- "The page adds that this window is not open to someone identified as a "potential at-risk beneficiary" or "at-risk beneficiary" under a Part D drug management program; the plan sends a letter if so." / same items, What can I do?: "This Special Enrollment Period isn't available to you if you're identified as a "potential at-risk beneficiary" or "at-risk beneficiary" under a Part D drug management program. You'll get a letter from your plan if they identify you as "at-risk" or "potentially at-risk."" / same scope; the 5eeca4f scope defect is closed (the exclusion is now in the paragraph and tied to "this window", the Medicaid / Extra Help monthly change).
+- "A parent with Medicare and full Medicaid can also join or switch to an integrated Dual Eligible Special Needs Plan (D-SNP), where one is available, once a calendar month; for how that works in Illinois, see the guide to FIDE SNPs." / "Other special situations", "I have Medicare and get full Medicaid benefits.", What can I do?: "Join or switch to a plan that can help coordinate coverage between my Medicare and Medicaid managed care plans (called an integrated Dual Eligible Special Needs Plan (D-SNP )) if one's available in my area." When?: "If you qualify for this Special Enrollment Period, you can join or switch to an integrated D-SNP once a calendar month. The change will take effect on the first day of the next month." / same scope (full Medicaid, integrated D-SNP only, where available; the at-risk exclusion is not attached to this item on the source and the guide does not attach it); recommended addition 2 of the 5eeca4f check applied, link to the Illinois FIDE SNP guide on main.
+
+Recommended additions (not defects; Improve):
+1. Same item, after When?: "Remember, not all D-SNPs are integrated. Contact the D-SNP plan you're interested in for more information and to find out how it works. You can also contact 1-800-MEDICARE for a list of integrated D-SNPs." Scope: a parent with Medicare and full Medicaid choosing a D-SNP; tells the family whom to call to confirm a plan qualifies for the monthly change.
+
+Note (carried, not counted): the footer still says "Last reviewed 26 November 2026"; the plan-choice section's sources were read 27 November 2026.
+
+Quotations checked: 8. Claims scope-checked: 3. Scope defects: 0. Corrections required: 0.
+Reader: agent in cse_014eaiSeY3WV1Qzjy2ZNkkuN
+Corrections verified
+Reader: agent in cse_014eaiSeY3WV1Qzjy2ZNkkuN
+Corrections verified: 2026-11-27, agent in cse_014eaiSeY3WV1Qzjy2ZNkkuN (#93 e4ad616 + 5490888 + 5eeca4f + 28897f1)
