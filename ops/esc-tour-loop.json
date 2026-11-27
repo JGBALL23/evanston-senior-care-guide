@@ -231,6 +231,21 @@
    "score": 4.0,
    "status": "ready",
    "found_utc": "2026-11-27T20:18Z"
+  },
+  {
+   "id": "ACQ-203",
+   "task": "Verify the addition to illinois-fide-snp-explained on accuracy PR #89 (commit 3d922fa)",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:illinois-fide-snp-explained:3d922fa",
+   "priority": 1,
+   "evidence": "accuracy PR #89 commit 3d922fa (ACQ-202); packet ops/reviews/live/illinois-fide-snp-explained.md R1",
+   "expected_tour_acquisition_value": "quality gate before publication",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "ready",
+   "found_utc": "2026-11-27T20:20Z"
   }
  ],
  "completed": [
@@ -6703,14 +6718,18 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeGWreJzfEyfVMTtWN",
-   "utc": "2026-11-27T20:18Z",
+   "utc": "2026-11-27T20:20Z",
    "since_utc": "2026-11-27T19:57Z",
    "productive_min": 26,
    "deliverables": [
     "correction:drafts dad7c20",
     "verification:ops/reviews/illinois-medicaid-pending-nursing-home.md",
     "publish_pr:#90 4815ca1"
-   ]
+   ],
+   "current": {
+    "what": "ACQ-202",
+    "since_utc": "2026-11-27T20:18Z"
+   }
   },
   "monitor": {
    "last_utc": "2026-11-27T18:25Z"

@@ -40,3 +40,22 @@ Independent reader, commit 004938c on claude/accuracy-20261125 (build-guides.py 
 - "For dually eligible members who do not choose a FIDE SNP, HFS’s enrolment page says members receiving LTSS “must be enrolled in a HealthChoice IL Managed Long-Term Services and Support (MLTSS) plan” for those services, and adds: “Currently, to switch plans, members must call the HFS Client Enrollment Broker at 1-877-912-8880.”" | Source, How To Enroll in a FIDE SNP, heading "Dual Members Who Do Not Choose a FIDE SNP" > "Medicaid Coverage" > "Members Receiving LTSS Services": "Members must be enrolled in a HealthChoice IL Managed Long-Term Services and Support (MLTSS) plan for LTSS services. ... Currently, to switch plans, members must call the HFS Client Enrollment Broker at 1-877-912-8880." | same scope; the guide now names the heading's group in the same sentence (C1 fixed).
 Corrections verified
 Reader: agent in cse_014eaiSf2v59RahpHN2G6JvZ
+
+## Scope check 2026-11-27 (new evidence)
+
+- Reviewer: ESCG worker, session cse_014eaiSeGWreJzfEyfVMTtWN (task ACQ-202); not the builder of this page.
+- Trigger: HFS's page on the 2025 federal law (read 27 Nov 2026) states a Medicare eligibility change for noncitizens with a fixed end date.
+
+| # | Guide's claim | Guide's scope | Source's scope with heading | Result |
+|---|---|---|---|---|
+| A1 | "Who can join a FIDE SNP": conditions include "having Medicare Part A and Part B" and "being a United States citizen or lawfully present in the United States" (HFS FIDE SNP page) | the plan's own enrolment conditions | HFS "How will Federal changes impact Medicaid?", FAQ "Does this new law affect Medicare?": "For new Medicare applicants on or after July 4, 2025, only these noncitizens can be eligible: Lawful permanent residents (Green Card holders), Cubans or Haitians, with a range of current or past statuses, and People from Micronesia, Palau, or the Marshall Islands living in the U.S." and "If you were already enrolled in Medicare as of July 4, 2025, you can keep your coverage until January 4, 2027, when it ends." (federal, noncitizens) | same as quoted, but the guide leaves out that Medicare itself, a condition of the plan, narrows for noncitizens and ends for some on 4 Jan 2027 |
+
+## Recommended additions
+
+R1: after the eligibility paragraph, state HFS's two sentences on Medicare for noncitizens (quoted, with the three groups named), and that a parent lawfully present in another status may lose Medicare, and so a FIDE SNP, on 4 January 2027. Source: HFS federal-changes FAQ (hfs.illinois.gov, allowed host). Scope: federal Medicare rule, noncitizens.
+
+Quotations checked: 2. Claims scope-checked: 1. Scope defects: 0. Corrections required: 0.
+
+Verdict: holds (recommended addition R1)
+
+Corrections applied: R1 on accuracy PR #89 as 3d922fa, 2026-11-27, cse_014eaiSeGWreJzfEyfVMTtWN
