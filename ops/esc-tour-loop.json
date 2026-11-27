@@ -6344,8 +6344,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSbgkYkmzevMK2yQoyV",
-   "utc": "2026-11-27T18:25Z",
-   "since_utc": "2026-11-27T18:24Z"
+   "utc": "2026-11-27T18:26Z",
+   "since_utc": "2026-11-27T18:24Z",
+   "productive_min": 0
   },
   "monitor": {
    "last_utc": "2026-11-27T18:25Z"
@@ -7659,9 +7660,9 @@
     "evidence": "git diff of main...drafts for new guide slugs; each draft's own cited sources, fetched and read now.",
     "output": "One review task per page (key review:<slug>), worked under the review rules of procedure step 7: quotation checker, wording, the scope rule, figures, links, advice; packet at ops/reviews/<slug>.md with its table, counts line and verdict. Never a page this session built. Deliverable type review_packet.",
     "why": "A draft only helps families once Joseph publishes it; a verified packet turns that into a few-minute decision.",
-    "last_checked_utc": "2026-11-27T06:48Z",
-    "next_check_utc": "2026-11-27T18:48Z",
-    "last_result": "All 11 worker pages on drafts not on main have packets with the counts line; the newest (noticed-changes-in-parent-holiday-visit) was reviewed, corrected and verified in this session. Nothing to add.",
+    "last_checked_utc": "2026-11-27T18:26Z",
+    "next_check_utc": "2026-11-28T06:26Z",
+    "last_result": "drafts 12e63bd vs main: 11 worker pages not on main, all 11 have packets in ops/reviews with the counts line; newest commit 12e63bd already reader-verified; the 6 AM routine wrote nothing new today. Nothing to add.",
     "last_added": 0
    },
    {
@@ -7816,6 +7817,7 @@
    }
   ],
   "sweep_log": [
+   "2026-11-27T18:26Z draft-review +0: drafts 12e63bd vs main: 11 worker pages not on main, all 11 have packets in ops/reviews with the counts line; newest commit 12e63bd already reader-verified; th…",
    "2026-11-27T07:09Z live-accuracy +1: 27 Nov 07:10Z: 30/32 live guides have packets. quotecheck on main: assisted-living-cost-illinois 0 quotations, 10 cited pages, 4 unreadable (ilga.gov); check-i…",
    "2026-11-27T07:06Z demand-questions +0: Public questions read 27 Nov for holiday-visit warning signs (built) and adult day care in Evanston (covered); DEMAND.md Open at one worker topic waiting on il…",
    "2026-11-27T07:06Z asset-gaps +0: Strongest current need without a page was the holiday-visit moment (F01), built this session; adult day services (needs avenue) and the Medicare plan-choice ga…",
