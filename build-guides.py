@@ -500,6 +500,8 @@ SRC = {
                       'https://ilaging.illinois.gov/resources/helpline-main.html'),
     "idoa_aaa_list": ('Illinois Department on Aging — Area Agencies on Aging list',
                       'https://ilaging.illinois.gov/forprofessionals/aaa-list.html'),
+    "medicare_ltc_cov": ('Medicare.gov — Long-term care',
+                         'https://www.medicare.gov/coverage/long-term-care'),
 }
 
 
@@ -6924,6 +6926,218 @@ GUIDES = [
             ]),
         ],
     },
+    {
+        "slug": "home-care-or-assisted-living-illinois",
+        "bridge": ("Comparing what each option costs is a different question from "
+                   "knowing how much help your parent needs, and when."),
+        "reviewed": "2026-11-27",
+        "title": "Home Care or Assisted Living in Illinois? Costs and Who Pays",
+        "h1": "Home care or assisted living for a parent in Illinois: what each costs and what pays for it",
+        "desc": ("Illinois medians for in-home care, adult day and assisted living, "
+                 "what Medicare and Illinois programs pay for, and the questions "
+                 "that decide it."),
+        "intent": "comparing more help at home with a move to assisted living",
+        "answer": ("<strong>It depends mostly on how many hours of help your parent "
+                   "needs, and whether that includes nights.</strong> CareScout&rsquo;s "
+                   "2025 Cost of Care Survey puts the Illinois median for a non-medical "
+                   "caregiver at home at $36 an hour; its monthly figure of $6,864 is "
+                   "based on 44 hours of care a week. The same survey&rsquo;s Illinois "
+                   "median for assisted living is $6,219 a month for a private, "
+                   "one-bedroom unit. Original Medicare does not fill the gap at home: among "
+                   "the things Medicare.gov says Medicare doesn&rsquo;t pay for are "
+                   "&ldquo;24-hour-a-day care at your home&rdquo; and personal care when "
+                   "that is the only care your parent needs, and its long-term care page "
+                   "says Medicare doesn&rsquo;t pay for long-term care; a parent in a "
+                   "Medicare Advantage Plan or another Medicare health plan should check "
+                   "with the plan about its home health benefits. For a parent aged 60 or "
+                   "older who lives in Illinois, is a U.S. citizen or an eligible "
+                   "non-citizen, has non-exempt assets of $17,500 or less, is assessed as at risk of "
+                   "nursing facility placement and applies for Medicaid, Illinois&rsquo;s "
+                   "Community Care Program can pay for help at home; for a parent aged 65 "
+                   "or older who qualifies for Medicaid and would otherwise need nursing "
+                   "facility care, the Supportive Living Program is the state&rsquo;s "
+                   "assisted-living-style alternative to a nursing home."),
+        "sources": srcs("carescout", "mhha", "medicare_ltc_cov", "idoa_ccp",
+                        "idoa_inhome", "dph_home_services_faq", "hfs_slp", "hfs_slf"),
+        "body": [
+            ("What the Illinois figures say", [
+                "<p>CareScout&rsquo;s Cost of Care Survey 2025 collected prices from "
+                "July through November 2025 and publishes a median for each state and "
+                "type of care. These are the Illinois figures, as the survey&rsquo;s "
+                "own tables state them:</p>",
+                "<ul>"
+                "<li><strong>A non-medical caregiver at home (in-home care):</strong> "
+                "$36 an hour. The survey&rsquo;s monthly figure, $6,864, is not a "
+                "price anyone quoted; it is based on 44 hours of care a week for 52 "
+                "weeks, divided by 12.</li>"
+                "<li><strong>Adult day health care:</strong> $91 a day. The monthly "
+                "figure, $1,977, is based on 5 days a week for 52 weeks.</li>"
+                "<li><strong>Assisted living:</strong> $6,219 a month, the monthly "
+                "rate as reported for a private, one-bedroom unit.</li>"
+                "</ul>",
+                "<p>Read the two monthly figures with their bases. The in-home figure "
+                "buys 44 hours of a caregiver&rsquo;s time a week; the assisted living "
+                "figure is the community&rsquo;s monthly rate. Neither tells you what "
+                "your parent would pay, and both are statewide medians, not Evanston "
+                "prices. The <a href=\"/guides/assisted-living-cost-illinois/\">guide "
+                "to what assisted living costs in Illinois</a> explains what the "
+                "assisted living median measures and the charges that appear after a "
+                "move.</p>",
+                "<p>When you put the options side by side, list the costs of keeping "
+                "your parent&rsquo;s home running (housing, utilities, food) next to "
+                "the in-home figure, because the survey&rsquo;s in-home rate is a "
+                "price for a caregiver&rsquo;s hours. Then ask each assisted living "
+                "community for its written fee schedule, so you can see what its "
+                "monthly rate covers.</p>",
+            ]),
+            ("What Medicare pays for at home, and what it does not", [
+                "<p>Medicare.gov says Original Medicare (Part A and Part B) covers "
+                "certain home health services for a person who needs part-time or "
+                "intermittent skilled services and is &ldquo;homebound&rdquo;. Covered "
+                "services include part-time or intermittent skilled nursing care; "
+                "physical therapy, occupational therapy and speech-language pathology "
+                "services if your parent meets certain conditions; and part-time or "
+                "intermittent home health aide care only if your parent is also "
+                "getting skilled nursing care or therapy at the same time. In most "
+                "cases, the page says, part-time or intermittent means skilled nursing "
+                "and home health aide services &ldquo;up to 8 hours a day (combined), "
+                "for a maximum of 28 hours a week.&rdquo; It adds that your parent may be "
+                "able to get more frequent care for a short time (less than 8 hours a "
+                "day and up to 35 hours a week) if the provider decides it is "
+                "necessary. For covered home health services under Original Medicare, "
+                "Medicare.gov says: &ldquo;You pay nothing for covered home health "
+                "services.&rdquo; For a parent in a Medicare Advantage Plan or another "
+                "Medicare health plan, the page says to check with the plan about its "
+                "home health benefits. The page also notes that a home health agency "
+                "in Illinois may be part of a Medicare demonstration in which the "
+                "agency may ask Medicare for a pre-claim review of coverage, which helps "
+                "the family and the agency know earlier whether Medicare is likely to "
+                "cover the services.</p>",
+                "<p>The same page lists what Original Medicare doesn&rsquo;t pay for, "
+                "including &ldquo;24-hour-a-day care at your home&rdquo;, homemaker "
+                "services unrelated to your parent&rsquo;s care plan, and &ldquo;Custodial "
+                "or personal care that helps you with daily living activities (like "
+                "bathing, dressing, or using the bathroom), when this is the only care "
+                "you need&rdquo;.</p>",
+                "<p>Medicare.gov&rsquo;s long-term care page is headed &ldquo;Medicare "
+                "doesn&rsquo;t pay for long-term care&rdquo;, and says non-medical "
+                "long-term care services can be had &ldquo;at home, in the community, "
+                "in an assisted living facility, or in a nursing home.&rdquo; So the "
+                "everyday help that makes up most of either option, at home or in "
+                "assisted living, is not something Medicare pays for. The long-term "
+                "care page says this of Medicare and most health insurance, including "
+                "Medicare Supplement Insurance (Medigap). It adds that a person may be "
+                "eligible for long-term care through Medicaid, if they meet their "
+                "state&rsquo;s eligibility requirements, or can choose to buy private "
+                "long-term care insurance. The <a "
+                "href=\"/guides/medicare-home-health-care/\">guide to Medicare home "
+                "health care</a> covers who qualifies and how it starts.</p>",
+                "<p>The home health page also says: &ldquo;You can still get home "
+                "health care if you attend adult day care.&rdquo;</p>",
+            ]),
+            ("What Illinois pays for at home: the Community Care Program", [
+                "<p>The Illinois Department on Aging&rsquo;s Community Care Program "
+                "&ldquo;helps older adults who might otherwise need nursing home care "
+                "to remain in their homes by providing in-home and community-based "
+                "services.&rdquo; Its services include care coordination, adult day "
+                "services, in-home services, emergency home response services and an "
+                "automated medication dispenser service.</p>",
+                "<p>The Department lists who is eligible: people 60 or older; U.S. "
+                "citizens or eligible non-citizens within specific categories; "
+                "residents of Illinois; with non-exempt assets of $17,500 or less (the "
+                "home, car and personal furnishings are exempt); with an assessed need "
+                "for long-term care, measured by the Determination of Need (DON) "
+                "assessment; and who apply for and, if eligible, enroll in "
+                "Medicaid.</p>",
+                "<p>On cost, the Department&rsquo;s in-home care page says: "
+                "&ldquo;Persons who meet CCP eligibility criteria and enroll in the "
+                "program receive services at no out-of-pocket cost.&rdquo; It describes "
+                "the program&rsquo;s In-Home Service as delivered by home care aides on "
+                "a daily or weekly basis. Services are arranged through local Care "
+                "Coordination Units, which the Department&rsquo;s <a "
+                "href=\"https://ilaging.illinois.gov/programs/ccp/maps.html\">map "
+                "tool</a> finds; the Department&rsquo;s Senior HelpLine is "
+                "1-800-252-8966 (711 TRS). A family member (including a spouse) or a "
+                "friend can be paid as the caregiver only after "
+                "meeting the program&rsquo;s qualifications, passing a background "
+                "check, completing 24 hours of pre-service training and being hired "
+                "and supervised by an In-Home Services agency. The <a "
+                "href=\"/guides/illinois-community-care-program/\">guide to the "
+                "Community Care Program</a> covers the assessment and how to "
+                "apply.</p>",
+            ]),
+            ("If your parent pays for help at home", [
+                "<p>The Illinois Department of Public Health licenses Home Services "
+                "Agencies to employ home care aides for help with daily living and "
+                "personal care, and the Department on Aging says: &ldquo;Clients served "
+                "by Home Services Agencies pay out-of-pocket for care.&rdquo; IDPH&rsquo;s "
+                "licensing questions and answers list the payers a Home Services "
+                "license can accept as private pay (out of pocket) or private "
+                "insurance, with Medicaid clients served through the Community Care "
+                "Program or the Department of Human Services&rsquo; Division of "
+                "Rehabilitation Services.</p>",
+                "<p>Skilled care at home is licensed separately: IDPH licenses Home "
+                "Nursing Agencies and Home Health Agencies, and the Department on "
+                "Aging says that, depending on the circumstance, Medicare, Medicaid "
+                "and/or private insurance may cover those services. If you hire a "
+                "caregiver directly instead of through an agency, the Department says "
+                "to check the IDPH Health Care Worker Registry to ensure the caregiver "
+                "is eligible to work in home care; the <a "
+                "href=\"/guides/illinois-home-caregiver-background-check/\">guide to "
+                "checking a home caregiver</a> explains how.</p>",
+            ]),
+            ("What Illinois pays for in an assisted living setting: Supportive Living", [
+                "<p>Illinois runs the Supportive Living Program, which the Department "
+                "of Healthcare and Family Services "
+                "describes as an alternative to nursing home care for low-income older "
+                "persons and persons with physical disabilities under Medicaid. Its "
+                "resident fact sheet calls it an &ldquo;Affordable assisted living "
+                "model&rdquo; for people 65 or older, or 22 to 64 with physical "
+                "disabilities, who would otherwise need nursing facility care.</p>",
+                "<p>Residents choose from a menu of services that includes personal "
+                "care, medication oversight, meals and snacks, housekeeping, laundry, "
+                "intermittent nursing services and 24-hour response and security. "
+                "Medicaid pays for the services; HFS says: &ldquo;The resident is "
+                "responsible for paying the cost of room and board at the "
+                "facility.&rdquo; The fact sheet adds that most residents have both a "
+                "room and board charge and a monthly share of the cost of care, worked "
+                "out from their income. Certified Supportive Living providers are "
+                "exempt from the Assisted Living and Shared Housing Act, the law under "
+                "which IDPH licenses assisted living establishments. HFS also says each "
+                "Medicaid-eligible resident must have income at least equal to the "
+                "current SSI amount and must contribute all but $120 each month to the "
+                "provider for lodging and meals, and that certified providers can "
+                "charge a different rate to residents who pay privately. "
+                "The <a href=\"/guides/illinois-supportive-living-program/\">guide to "
+                "the Supportive Living Program</a> covers eligibility and the monthly "
+                "charges.</p>",
+            ]),
+            ("The questions that decide it", [
+                "<ul>"
+                "<li><strong>How many hours of help a day, and on which days?</strong> "
+                "The survey&rsquo;s in-home monthly figure assumes 44 hours a week. "
+                "Count the hours your parent actually needs before comparing it with "
+                "a monthly rate.</li>"
+                "<li><strong>Does your parent need someone at night?</strong> "
+                "Medicare.gov says Original Medicare doesn&rsquo;t pay for 24-hour-a-day "
+                "care at home, so overnight help at home is paid for some other way; a "
+                "parent in a Medicare Advantage Plan or another Medicare health plan "
+                "should ask the plan what its home health benefits include.</li>"
+                "<li><strong>Is the need mainly during the day?</strong> The Community "
+                "Care Program describes adult day service as being for older adults "
+                "who cannot be home alone during the day, and as respite for family "
+                "caregivers, especially those who are employed outside the home.</li>"
+                "<li><strong>Could your parent qualify for the Community Care Program "
+                "or for Medicaid?</strong> The asset limit, the assessment and the "
+                "Medicaid application above decide which public programs are open.</li>"
+                "</ul>",
+                "<p>If the real question is which level of care fits your parent, the "
+                "free <a href=\"/\">six-question assessment</a> on this site walks "
+                "through it. It asks for no name, no email and no phone number, and "
+                "your answers never leave your device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -7272,7 +7486,7 @@ RELATED = {
     "long-term-care-insurance-assisted-living-illinois": [
         "assisted-living-cost-illinois",
         "illinois-supportive-living-program",
-        "illinois-senior-health-insurance-program"],
+        "home-care-or-assisted-living-illinois"],
     "illinois-memory-care-assisted-living": [
         "levels-of-senior-care-explained",
         "check-illinois-inspection-records",
@@ -7280,11 +7494,15 @@ RELATED = {
     "hospital-discharge-not-safe-to-go-home": [
         "does-medicare-pay-for-senior-care",
         "medicare-fast-appeal-hospital-rehab-discharge",
-        "levels-of-senior-care-explained"],
+        "home-care-or-assisted-living-illinois"],
     "noticed-changes-in-parent-holiday-visit": [
         "levels-of-senior-care-explained",
         "illinois-community-care-program",
         "illinois-elder-abuse-reporting"],
+    "home-care-or-assisted-living-illinois": [
+        "assisted-living-cost-illinois",
+        "illinois-community-care-program",
+        "illinois-supportive-living-program"],
 }
 
 RELATED_MIN_INBOUND = 2
@@ -7750,6 +7968,11 @@ CARDS = {
         "Noticed changes in a parent over the holidays",
         "What to write down, the Medicare Wellness visit and its memory check, "
         "and who to call first in Illinois, read off Medicare.gov and IDoA."),
+    "home-care-or-assisted-living-illinois": (
+        "Costs",
+        "Home care or assisted living in Illinois?",
+        "Illinois medians for in-home care, adult day and assisted living, and "
+        "what Medicare, the Community Care Program and Supportive Living pay for."),
 }
 
 
