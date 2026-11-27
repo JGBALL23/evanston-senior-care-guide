@@ -428,6 +428,8 @@ SRC = {
                       'https://hfs.illinois.gov/medicalproviders/cc/mmai/fullyintegdesnpii.html'),
     "hfs_managedcare": ('Illinois HFS — Managed Care (for clients)',
                         'https://hfs.illinois.gov/medicalclients/managedcare.html'),
+    "hfs_fed_changes_medicare": ('Illinois HFS — How will Federal changes impact Medicaid? (FAQ: Does this new law affect Medicare?)',
+                                 'https://hfs.illinois.gov/info/fedresctr/faqshowwillfedchimpactmedicaid.html'),
     "hfs_mmai_end": ('Illinois HFS — Medicare Medicaid Alignment Initiative (MMAI) End Date',
                      'https://hfs.illinois.gov/medicalproviders/cc/mmai.html'),
     "hfs_slp_cook": ('Illinois HFS — Cook County Supportive Living Program sites',
@@ -5156,7 +5158,7 @@ GUIDES = [
                    "Medicare Open Enrollment Period runs from 15 October to 7 "
                    "December."),
         "sources": srcs("hfs_mmai_end", "hfs_fide_info", "hfs_fide_enroll",
-                        "hfs_managedcare"),
+                        "hfs_managedcare", "hfs_fed_changes_medicare"),
         "body": [
             ("MMAI ended on 31 December 2025", [
                 "<p>Illinois HFS states: &ldquo;The Illinois Medicare-Medicaid "
@@ -5203,6 +5205,18 @@ GUIDES = [
                 "older at enrolment, having Medicare Part A and Part B, living "
                 "in the plan&rsquo;s service area, and being a United States "
                 "citizen or lawfully present in the United States.</p>",
+                "<p>Medicare itself is one of those conditions, and the 2025 "
+                "federal law narrowed it for noncitizens. HFS states: "
+                "&ldquo;For new Medicare applicants on or after July 4, 2025, "
+                "only these noncitizens can be eligible&rdquo;: lawful permanent "
+                "residents (green card holders), Cubans or Haitians with a range "
+                "of current or past statuses, and people from Micronesia, Palau "
+                "or the Marshall Islands living in the U.S. It adds: &ldquo;If "
+                "you were already enrolled in Medicare as of July 4, 2025, you "
+                "can keep your coverage until January 4, 2027, when it "
+                "ends.&rdquo; A parent who is lawfully present under another "
+                "status may therefore lose Medicare, and with it a FIDE SNP, on "
+                "that date.</p>",
                 "<p>HFS says a person is not eligible if they are under 21, "
                 "receive developmental disability institutional services or "
                 "take part in the HCBS waiver for Adults with Developmental "
