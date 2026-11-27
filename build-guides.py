@@ -840,7 +840,18 @@ GUIDES = [
                 "once a calendar month.&rdquo; The changes it lists are switching to "
                 "a different Medicare drug plan, or dropping a Medicare Advantage "
                 "plan with drug coverage and returning to Original Medicare by "
-                "joining a stand-alone Medicare drug plan.</p>",
+                "joining a stand-alone Medicare drug plan. Another listing of the same "
+                "window on that page also allows joining a drug plan, and says "
+                "&ldquo;The change will take effect on the first day of the next "
+                "month.&rdquo; The page adds that this window is not open to someone "
+                "identified as a &ldquo;potential at-risk beneficiary&rdquo; or "
+                "&ldquo;at-risk beneficiary&rdquo; under a Part D drug management "
+                "program; the plan sends a letter if so. A parent with Medicare and "
+                "full Medicaid can also join or switch to an integrated Dual Eligible "
+                "Special Needs Plan (D-SNP), where one is available, once a calendar "
+                "month; for how that works in Illinois, see "
+                '<a href="/guides/illinois-fide-snp-explained/">the guide to FIDE '
+                "SNPs</a>.</p>",
                 "<p>Why it matters before a move: as the sections above say, the rules "
                 "for a skilled nursing stay differ in a Medicare Advantage plan (a "
                 "plan may waive the three-day hospital stay, and some plans charge "
