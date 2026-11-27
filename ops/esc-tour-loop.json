@@ -5856,8 +5856,9 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "",
-   "utc": ""
+   "holder": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
+   "utc": "2026-11-27T06:24Z",
+   "since_utc": "2026-11-27T06:24Z"
   },
   "monitor": {
    "last_utc": "2026-11-26T17:33Z"
