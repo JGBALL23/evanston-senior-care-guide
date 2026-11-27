@@ -5170,9 +5170,11 @@ def article_jsonld(g, canon):
             'Westminster Place website and receives no referral fees."\n'
             '  },\n'
             '  "publisher": { "@type": "Person", "name": "Joseph Gonzales" },\n'
-            '  "about": { "@type": "Thing", "name": "Senior care in Evanston, Illinois" }\n'
+            '  "about": { "@type": "Thing", "name": "Senior care in Evanston, Illinois" },\n'
+            '  "publishingPrinciples": %s\n'
             '}\n</script>') % (
-        js(unescape(g["title"])), js(unescape(strip_tags(g["desc"]))), js(canon), reviewed_iso(g))
+        js(unescape(g["title"])), js(unescape(strip_tags(g["desc"]))), js(canon), reviewed_iso(g),
+        js(SOURCING_URL))
 
 
 def js(s):
@@ -5434,7 +5436,9 @@ def sources_block(g):
             '<ul class="res__list">%s</ul>\n'
             '<p class="visit__fine">Every figure on this page was read from the '
             'source listed above on %s%s. Figures change; the review date tells you '
-            'how fresh this page is.</p>\n</section>'
+            'how fresh this page is.</p>\n'
+            '<p class="visit__fine"><a href="/sourcing/">How these guides are '
+            'sourced and checked</a></p>\n</section>'
             % (items, reviewed_human(g),
                # Optional (independent living, 2026-11-06): names any figures
                # that did NOT come from the listed sources. Without the key the
@@ -5896,6 +5900,93 @@ def build_index():
             + FOOT.replace("</body>", '<script src="/guides.js"></script>\n</body>'))
 
 
+# --------------------------------------------------------------------------
+# SOURCING PAGE (added 2026-11-27). /sourcing/ states the rules every guide
+# is held to, so a family can see how a figure got onto the page. It says
+# only what ROUTINE.md and the gates in check-guides.js and
+# check-citations.sh already enforce. Every guide's Sources block links to
+# it and its Article structured data names it as publishingPrinciples. It
+# is not a guide: no GUIDES entry, no card, and the sitemap is unchanged.
+# --------------------------------------------------------------------------
+SOURCING_URL = SITE + "/sourcing/"
+
+SOURCING_BODY = [
+    ("Where the facts come from", [
+        "<p>Every figure, deadline and eligibility rule in a guide comes from a "
+        "page that was opened and read, never from a search result or from "
+        "memory. The sources are the bodies that run the programme or set the "
+        "rule: Medicare.gov and the Centers for Medicare &amp; Medicaid "
+        "Services, Illinois state agencies, the U.S. Department of Veterans "
+        "Affairs, the Illinois statutes, the City of Evanston and the Housing "
+        "Authority of Cook County, plus the CareScout Cost of Care Survey for "
+        "typical prices. A check in the site&rsquo;s build refuses any other "
+        "website in a guide&rsquo;s list of sources.</p>",
+        "<p>One exception, and only in the cost guide: a community&rsquo;s own "
+        "website is used for that community&rsquo;s own advertised prices, "
+        "and the guide says so where the figures appear.</p>",
+    ]),
+    ("When a figure cannot be confirmed", [
+        "<p>If a figure cannot be read on one of those pages, it is left out. "
+        "The guide says who sets it and whom to ask instead. A published "
+        "maximum or standard is not presented as the amount a family will "
+        "receive.</p>",
+    ]),
+    ("Quotations and the people a rule applies to", [
+        "<p>Words inside quotation marks are copied exactly from the source "
+        "page. Before a new guide or a correction is published, every "
+        "quotation is matched word for word against the source page, and "
+        "every quotation, figure, deadline and eligibility rule is checked "
+        "again for whom it applies to: Original Medicare or a Medicare "
+        "Advantage plan, Medicaid, private pay or the VA; a hospital, a "
+        "nursing home, assisted living or home; Illinois or another state; and "
+        "the year. A sentence that is accurate for one of those cases is not "
+        "presented as the rule for all of them.</p>",
+        "<p>Every link in a guide&rsquo;s list of sources is checked to open "
+        "before the guide is published.</p>",
+    ]),
+    ("Dates and corrections", [
+        "<p>Each guide shows the date its figures were read from their sources "
+        "and the date it was last reviewed. Programmes change their figures, "
+        "so the date tells you how current the page is.</p>",
+        "<p>Guides already on the site are re-checked against their sources "
+        "one at a time. When a check finds a sentence that no longer matches "
+        "its source, the sentence is corrected and the guide&rsquo;s review "
+        "date changes.</p>",
+    ]),
+    ("What the guides do not do", [
+        "<p>The guides do not rank or recommend senior living communities. "
+        "They are educational and are "
+        "not medical, legal or financial advice: confirm anything that matters "
+        "with the agency, plan or provider directly.</p>",
+    ]),
+]
+
+
+def build_sourcing():
+    canon = SOURCING_URL
+    jsonld = ('<script type="application/ld+json">\n{\n'
+              '  "@context": "https://schema.org",\n'
+              '  "@type": "WebPage",\n'
+              '  "name": "How these guides are sourced and checked",\n'
+              '  "url": %s,\n'
+              '  "inLanguage": "en-US",\n'
+              '  "isAccessibleForFree": true\n}\n</script>') % js(canon)
+    parts = [HEAD.format(
+        title="How these guides are sourced and checked",
+        desc=("Where the figures in the Evanston Senior Care Guide come from, how "
+              "quotations and eligibility rules are checked, and what the dates "
+              "on each guide mean."),
+        canon=canon, site=SITE, jsonld=jsonld, wrapcls="narrow")]
+    parts.append('<p class="eyebrow"><a href="/guides/">Care Guides</a></p>\n')
+    parts.append('<h1 class="h2">How these guides are sourced and checked</h1>\n')
+    for heading, paras in SOURCING_BODY:
+        parts.append('<section class="res__block">\n<h2 class="res__h">%s</h2>\n%s\n</section>\n'
+                     % (heading, "\n".join(paras)))
+    parts.append('<p><a href="/guides/">Back to the care guides</a></p>\n')
+    parts.append(FOOT)
+    return "".join(parts)
+
+
 def build_sitemap():
     """Generated from the GUIDES list — adding a guide updates the sitemap."""
     # lastmod is PER URL. Stamping every page with today's date because one
@@ -6046,6 +6137,11 @@ def main():
         io.open(p, "w", encoding="utf-8", newline="").write(build_guide(g))
         print("  %-42s %6d bytes" % ("/guides/%s/" % g["slug"],
                                      os.path.getsize(p)))
+    d = os.path.join("_dist", "sourcing")
+    os.makedirs(d, exist_ok=True)
+    p = os.path.join(d, "index.html")
+    io.open(p, "w", encoding="utf-8", newline="").write(build_sourcing())
+    print("  %-42s %6d bytes" % ("/sourcing/", os.path.getsize(p)))
     p = os.path.join(OUT, "index.html")
     io.open(p, "w", encoding="utf-8", newline="").write(build_index())
     print("  %-42s %6d bytes" % ("/guides/", os.path.getsize(p)))
