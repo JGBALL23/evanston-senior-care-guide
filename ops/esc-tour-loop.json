@@ -206,6 +206,25 @@
    "done_when": "packet at ops/reviews/noticed-changes-in-parent-holiday-visit.md with its counts and verdict",
    "status": "ready",
    "found_utc": "2026-11-27T06:35Z"
+  },
+  {
+   "id": "ACQ-172",
+   "task": "Review pull request against main: add one sourced section to does-medicare-pay-for-senior-care on choosing or changing a Medicare plan when a move may be coming (Open Enrollment 15 Oct-7 Dec, Medicare Advantage Open Enrollment 1 Jan-31 Mar, the Special Enrollment Periods for a parent who lives in or moves out of a nursing home or moves to a new address), with a link to the SHIP guide; reader check; into the 28 Nov package",
+   "workstream": "search",
+   "lane": "search",
+   "source": "plan",
+   "key": "frontier-F02-medicare-plan-choice-before-move",
+   "priority": 1,
+   "evidence": "Medicare.gov joining-a-plan and special-enrollment-periods pages read 2026-11-27; Medicare.gov SNF coverage page (MA may waive the 3-day stay); does-medicare-pay-for-senior-care draws 781 of 1,242 impressions (Make Search Console read 2026-11-25) and says nothing about enrollment periods (checked on main and on #89 head 9d57bf0); deadline 7 Dec",
+   "expected_tour_acquisition_value": "the page most families find gains the one dated, actionable step they can take this fortnight, which earns trust before the tour path below it",
+   "impact": 4,
+   "confidence": 3,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "review pull request open with checks passing, a verify-live task finished by an independent reader, PR number in the search lane's open_prs",
+   "score": 6.0,
+   "status": "ready",
+   "found_utc": "2026-11-27T06:39Z"
   }
  ],
  "completed": [
@@ -5931,9 +5950,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
-   "utc": "2026-11-27T06:35Z",
+   "utc": "2026-11-27T06:40Z",
    "since_utc": "2026-11-27T06:24Z",
-   "productive_min": 7,
+   "productive_min": 9,
    "deliverables": [
     "publish_pr:#91 a523b5e",
     "guide:drafts e9241f2"
@@ -7285,6 +7304,17 @@
    "empty_streak": 0,
    "log": [
     {
+     "utc": "2026-11-27T06:40Z",
+     "run": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
+     "key": "frontier-f02",
+     "avenue": "frontier",
+     "lane": null,
+     "candidates": 1,
+     "added": 1,
+     "result": "Read 2026-11-27: Medicare.gov joining-a-plan (Open Enrollment Oct 15-Dec 7, coverage from Jan 1; MA Open Enrollment Jan 1-Mar 31 only for people already in MA), special-enrollment-periods (institution SEP lasts while living in the institution and 2 full months after moving out; new-address SEP), SNF coverage (MA may w…",
+     "verdict": "act"
+    },
+    {
      "utc": "2026-11-27T06:32Z",
      "run": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
      "key": "frontier-f01",
@@ -7587,9 +7617,14 @@
      "evidence": "Medicare.gov's pages on Open Enrollment, Medicare Advantage Open Enrollment and skilled nursing facility coverage as they read today; the live guides does-medicare-pay-for-senior-care and medicare-home-health-care; the queries of the newest Search Console read.",
      "output": "At most one sourced addition to a live page as a small review pull request, cut early enough to be in the package before 4 December; or the verdict that the pages already cover it.",
      "why": "781 of 1,242 weekly impressions sit on the Medicare page, and the deadline is dated and near.",
-     "status": "open",
+     "status": "explored",
      "added_utc": "2026-11-27T01:18Z",
-     "added_by": "supervisor"
+     "added_by": "supervisor",
+     "verdict": "act",
+     "explored_utc": "2026-11-27T06:40Z",
+     "run": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
+     "added": 1,
+     "result": "Read 2026-11-27: Medicare.gov joining-a-plan (Open Enrollment Oct 15-Dec 7, coverage from Jan 1; MA Open Enrollment Jan 1-Mar 31 only for people already in MA), special-enrollment-periods (institution SEP lasts while living in the institution and 2 full months after moving out; new-address SEP), SNF coverage (MA may waive the 3-day stay, copays days 1-20); live guides does-medicare-pay-for-senior-care and medicare-home-health-care on main and on #89 head 9d57bf0: neither mentions any enrollment period; Search Console read 25 Nov: Medicare page 781 impressions. Passed: one section added to the…"
     },
     {
      "id": "F03",
