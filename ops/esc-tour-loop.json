@@ -8341,6 +8341,17 @@
     {
      "utc": "2026-11-27T20:14Z",
      "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+     "key": "frontier-f18",
+     "avenue": "frontier",
+     "lane": null,
+     "candidates": 0,
+     "added": 0,
+     "result": "27 Nov 2026: Google's AI summaries cannot be read from the worker environment (google.com/search returns a JavaScript redirect stub to curl; WebSearch returns links without the summary); Bing's Copilot answer is a different engine from Search Console's Google data; no account-based assistant can be asked from a worker…",
+     "verdict": "watch"
+    },
+    {
+     "utc": "2026-11-27T20:14Z",
+     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
      "key": "frontier-f17",
      "avenue": "frontier",
      "lane": null,
@@ -9072,9 +9083,14 @@
      "evidence": "The AI summaries on the results pages of ten of our queries where one shows, and the pages they cite. No account-based assistant can be asked from a worker session: say so and do not guess.",
      "output": "A verdict; where a concrete, checkable gap shows (a direct dated answer, a source line, a question-and-answer block), tasks in lane search.",
      "why": "A growing share of answers is read without a click; being the cited source is the new first position.",
-     "status": "open",
+     "status": "explored",
      "added_utc": "2026-11-27T01:18Z",
-     "added_by": "supervisor"
+     "added_by": "supervisor",
+     "verdict": "watch",
+     "explored_utc": "2026-11-27T20:14Z",
+     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+     "added": 0,
+     "result": "27 Nov 2026: Google's AI summaries cannot be read from the worker environment (google.com/search returns a JavaScript redirect stub to curl; WebSearch returns links without the summary); Bing's Copilot answer is a different engine from Search Console's Google data; no account-based assistant can be asked from a worker session. Not guessed. Reopens when a session with a real browser can capture the AI summaries for ten of our queries (25 Nov read: the Medicare/assisted-living cluster on does-medicare-pay-for-senior-care, 781 impressions) with the pages they cite."
     },
     {
      "id": "F19",
