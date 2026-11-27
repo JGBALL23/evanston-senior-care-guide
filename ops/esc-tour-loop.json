@@ -6663,9 +6663,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeGWreJzfEyfVMTtWN",
-   "utc": "2026-11-27T20:14Z",
+   "utc": "2026-11-27T20:15Z",
    "since_utc": "2026-11-27T19:57Z",
-   "productive_min": 21,
+   "productive_min": 22,
    "deliverables": [
     "correction:drafts dad7c20",
     "verification:ops/reviews/illinois-medicaid-pending-nursing-home.md",
@@ -8341,6 +8341,17 @@
     {
      "utc": "2026-11-27T20:15Z",
      "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+     "key": "frontier-f14",
+     "avenue": "frontier",
+     "lane": null,
+     "candidates": 4,
+     "added": 0,
+     "result": "27 Nov 2026: candidates memory-care visit questions, two-community cost sheet, Illinois LTC Medicaid application documents, move-in week list. Only the documents list has an official source (HFS 3654 'Additional Financial Information for Long Term Care Applicants', HFS 3191, HFS LTC FAQ on hfs.illinois.gov) and no liv…",
+     "verdict": "watch"
+    },
+    {
+     "utc": "2026-11-27T20:15Z",
+     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
      "key": "frontier-f13",
      "avenue": "frontier",
      "lane": null,
@@ -9052,9 +9063,14 @@
      "evidence": "Public questions (kind of venue and date only); what local offices hand out; printables on the pages ranking above ours; checklist-open counts once they can be read.",
      "output": "At most one printable on drafts built like the tour checklist (no sign-up, nothing collected).",
      "why": "Printables are shared between siblings and carried to tours.",
-     "status": "open",
+     "status": "explored",
      "added_utc": "2026-11-27T01:18Z",
-     "added_by": "supervisor"
+     "added_by": "supervisor",
+     "verdict": "watch",
+     "explored_utc": "2026-11-27T20:15Z",
+     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+     "added": 0,
+     "result": "27 Nov 2026: candidates memory-care visit questions, two-community cost sheet, Illinois LTC Medicaid application documents, move-in week list. Only the documents list has an official source (HFS 3654 'Additional Financial Information for Long Term Care Applicants', HFS 3191, HFS LTC FAQ on hfs.illinois.gov) and no live or drafts guide lists the documents; but searches found no dated public family question asking for such a list and Search Console (25 Nov read) has no query for it, so gate (1) fails: no evidence of demand. The other three have neither demand evidence nor an official source. A …"
     },
     {
      "id": "F15",
