@@ -6381,7 +6381,7 @@
    "holder": "cse_014eaiSbgkYkmzevMK2yQoyV",
    "utc": "2026-11-27T18:31Z",
    "since_utc": "2026-11-27T18:24Z",
-   "productive_min": 5,
+   "productive_min": 6,
    "deliverables": [
     "pr:#94"
    ]
@@ -7684,10 +7684,10 @@
     "evidence": "ops/reviews/ packets; open pull requests; the asset on drafts and its absence from main.",
     "output": "One publish-batch task for this session (key publish-batch:<YYYYMMDD>-<n>) covering all of them: procedure step 7, Publish package.",
     "why": "Publishing is the step that turns drafts into visitors.",
-    "last_checked_utc": "2026-11-27T06:57Z",
-    "next_check_utc": "2026-11-27T18:57Z",
-    "last_result": "Of 11 worker pages on drafts not on main, 10 were already in batch #90 at their verified text; the holiday-visit guide qualified after its corrections were verified and was ported (ACQ-180, #90 eea57b7).",
-    "last_added": 1
+    "last_checked_utc": "2026-11-27T18:31Z",
+    "next_check_utc": "2026-11-28T06:31Z",
+    "last_result": "11 worker pages on drafts not on main; all 11 qualify and all 11 are in open batch #90 (head eea57b7). Body text, h1 and short answer identical between batch and drafts (12e63bd); title/description differ only where the port shortened them to main's 160-character limit (ported deliberately, not a l…",
+    "last_added": 0
    },
    {
     "id": "draft-review",
@@ -7856,6 +7856,7 @@
    }
   ],
   "sweep_log": [
+   "2026-11-27T18:31Z publish-ready +0: 11 worker pages on drafts not on main; all 11 qualify and all 11 are in open batch #90 (head eea57b7). Body text, h1 and short answer identical between batch a…",
    "2026-11-27T18:26Z draft-review +0: drafts 12e63bd vs main: 11 worker pages not on main, all 11 have packets in ops/reviews with the counts line; newest commit 12e63bd already reader-verified; th…",
    "2026-11-27T07:09Z live-accuracy +1: 27 Nov 07:10Z: 30/32 live guides have packets. quotecheck on main: assisted-living-cost-illinois 0 quotations, 10 cited pages, 4 unreadable (ilga.gov); check-i…",
    "2026-11-27T07:06Z demand-questions +0: Public questions read 27 Nov for holiday-visit warning signs (built) and adult day care in Evanston (covered); DEMAND.md Open at one worker topic waiting on il…",
