@@ -191,6 +191,27 @@
    "waiting_for": "PR #91 (or #90) merged, so that a card change no longer collides with the open publish batch in the built /guides/ index",
    "not_before_utc": "2026-11-28T06:30Z",
    "note": "2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 1: #91 and #90 still open (checked 06:27Z), so the card change would still collide with the publish batch."
+  },
+  {
+   "id": "ACQ-201",
+   "task": "When HFS posts its 2027 spousal impoverishment standards (provider notice; the 2026 one is prn260122a, dated 22 January 2026): prepare a review pull request against main (claude/hfs-spousal-2027) moving csra_2026 ($143,172) and csmna_2026 ($4,066.50) in illinois-medicaid-long-term-care (and any other live page using those generator figures) to the 2027 standards, each with the HFS notice sentence, and the guide's 'for 2026, effective 1 January 2026' wording to the new year; keep the library date rule (listed).",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "technical:hfs-spousal-2027",
+   "evidence": "build-guides.py on main read 27 Nov 2026: F['csra_2026'] $143,172 and F['csmna_2026'] $4,066.50, cited to HFS Provider Notice 22 Jan 2026 (prn260122a), labelled 'for 2026, effective 1 January 2026' in illinois-medicaid-long-term-care; HFS resets the standards each January (the 2026 notice came 22 Jan). HFS provider notices list read 27 Nov 2026: no 2027 standards notice yet. Found by the 27 Nov check of figures that change on 1 Jan 2027 (retroactive-coverage correction ACQ-198).",
+   "expected_tour_acquisition_value": "spouses weighing how a nursing-home or Medicaid move affects the one at home read the current allowance; a 2026 figure shown in February 2027 costs trust on the page families use to plan payment",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "a tested review PR against main with the 2027 figures and their HFS sentences, or a verdict that HFS has not posted them yet (postpone)",
+   "status": "waiting_on_data",
+   "not_before_utc": "2027-01-20T15:00Z",
+   "not_before": "HFS provider notices list shows the 2027 spousal impoverishment standards",
+   "priority": 2,
+   "score": 6.0,
+   "found_utc": "2026-11-27T20:17Z"
   }
  ],
  "completed": [
@@ -6663,9 +6684,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeGWreJzfEyfVMTtWN",
-   "utc": "2026-11-27T20:16Z",
+   "utc": "2026-11-27T20:17Z",
    "since_utc": "2026-11-27T19:57Z",
-   "productive_min": 24,
+   "productive_min": 25,
    "deliverables": [
     "correction:drafts dad7c20",
     "verification:ops/reviews/illinois-medicaid-pending-nursing-home.md",
@@ -8338,6 +8359,16 @@
    "exhausted_until_utc": "",
    "empty_streak": 0,
    "log": [
+    {
+     "utc": "2026-11-27T20:18Z",
+     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+     "key": "quality-hfs-figures-jan-2027",
+     "avenue": "quality",
+     "lane": null,
+     "candidates": 2,
+     "added": 1,
+     "result": "27 Nov 2026: which live-guide figures go stale on 1 Jan 2027? Medicare 2027 already queued (ACQ-043), VA pension 1 Dec (ACQ-076). HFS spousal impoverishment standards (csra/csmna, labelled 2026, notice prn260122a of 22 Jan 2026) reset each January; HFS notices list read today shows no 2027 notice: queued ACQ-201 (wait…"
+    },
     {
      "utc": "2026-11-27T20:16Z",
      "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
