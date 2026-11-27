@@ -6358,6 +6358,16 @@
     "checked_utc": "2026-11-27T20:00Z",
     "added_utc": "2026-11-27T20:00Z",
     "source": "frontier F11"
+   },
+   {
+    "id": "D15",
+    "lane": "distribution",
+    "class": "public Q&A venues outside Facebook: caregiving forums, city forums, question sites, local news comment sections",
+    "status": "watch",
+    "note": "27 Nov (frontier F09, worker cse_014eaiSeGWreJzfEyfVMTtWN), rules pages read 27 Nov 2026: AgingCare caregiver forum (agingcare.com/help: 'links to outside sources will be disabled or removed') DROP; City-Data Chicago forum (forum terms: 'Do not include links to your websites') DROP; Caring.com Q&A (guidelines page 403 here; run by a senior-living referral business, a competitor) DROP; national question sites (Quora) and national dementia forums: not local, DROP. Evanston Now and Evanston RoundTable comment sections: comments open to logged-in users, Evanston Now's policy asks for links to credible evidence; posting needs an account (Joseph's decision, D7) and the senior-care threads read (Albany Care, Medicaid, community sale stories) hold debate, not family questions: WATCH, reopen when a senior-care story's comments show a family asking what to do. Reddit stays D5, Nextdoor D6.",
+    "checked_utc": "2026-11-27T20:12Z",
+    "added_utc": "2026-11-27T20:12Z",
+    "source": "frontier F09"
    }
   ],
   "channel_yield": [
@@ -6643,9 +6653,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeGWreJzfEyfVMTtWN",
-   "utc": "2026-11-27T20:11Z",
+   "utc": "2026-11-27T20:12Z",
    "since_utc": "2026-11-27T19:57Z",
-   "productive_min": 15,
+   "productive_min": 17,
    "deliverables": [
     "correction:drafts dad7c20",
     "verification:ops/reviews/illinois-medicaid-pending-nursing-home.md",
@@ -8319,6 +8329,17 @@
    "empty_streak": 0,
    "log": [
     {
+     "utc": "2026-11-27T20:12Z",
+     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+     "key": "frontier-f09",
+     "avenue": "frontier",
+     "lane": null,
+     "candidates": 6,
+     "added": 0,
+     "result": "Read 27 Nov 2026: agingcare.com/help (outside links removed) DROP; city-data.com forum terms announcement (no links to own websites) DROP; caring.com community guidelines (403; referral-business venue) DROP; Quora/national dementia forums not local DROP; Evanston Now and RoundTable article comment sections (open to lo…",
+     "verdict": "watch"
+    },
+    {
      "utc": "2026-11-27T20:11Z",
      "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
      "key": "frontier-f07",
@@ -8881,9 +8902,14 @@
      "evidence": "Each venue's rules page and its recent public threads (kind of venue and date only); the opportunity map's distribution items, so that nothing dropped is examined again.",
      "output": "A verdict per venue in the map (ACT, WATCH or DROP); for an ACT venue one reply draft or post text prepared for the operator under step 8.",
      "why": "One channel carries nearly all local visitors today.",
-     "status": "open",
+     "status": "explored",
      "added_utc": "2026-11-27T01:18Z",
-     "added_by": "supervisor"
+     "added_by": "supervisor",
+     "verdict": "watch",
+     "explored_utc": "2026-11-27T20:12Z",
+     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+     "added": 0,
+     "result": "Read 27 Nov 2026: agingcare.com/help (outside links removed) DROP; city-data.com forum terms announcement (no links to own websites) DROP; caring.com community guidelines (403; referral-business venue) DROP; Quora/national dementia forums not local DROP; Evanston Now and RoundTable article comment sections (open to logged-in users; Evanston Now policy asks for links to evidence) WATCH: needs Joseph's account and no family questions seen in senior-care threads. Map item D15. Nothing prepared for the operator."
     },
     {
      "id": "F10",
