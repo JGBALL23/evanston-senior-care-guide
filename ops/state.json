@@ -2,7 +2,7 @@
   "schema": 1,
   "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
   "updated_utc": "2026-11-18T23:05Z",
-  "last_run_utc": "2026-11-26T23:29Z",
+  "last_run_utc": "2026-11-27T02:27Z",
   "facebook": {
     "access": {
       "value": "yes",
@@ -138,10 +138,11 @@
     {
       "tag": "fb-nsh-1126",
       "venue": "group:311248470375848",
-      "status": "pending",
+      "status": "live",
       "utc": "2026-11-26T15:08Z",
       "template": "C (assessment)",
-      "preview": "site card"
+      "preview": "site card",
+      "approved_seen_utc": "2026-11-27T02:27Z"
     }
   ],
   "venues": [
@@ -499,7 +500,6 @@
     ]
   },
   "log": [
-    "2026-11-21T16:16Z Sat 10:15 Chicago: Claude in Chrome extension still not connected (owner says Chrome is open; extension link is what's missing); Winnetka post waits; no replies",
     "2026-11-21T17:16Z Sat 11:15 Chicago: extension still not connected; no replies; Winnetka post waits",
     "2026-11-21T18:16Z Sat 12:15 Chicago: extension not linked; Winnetka text handed to Joseph to post manually; no replies; checks every 3h while unlinked, no routine messages to Joseph",
     "2026-11-21T21:11Z Sat 15:10 Chicago: extension not linked; no replies; no change",
@@ -538,7 +538,8 @@
     "2026-11-26T17:08Z check: fb-nsh-1126 still pending admin approval (this group approved the 15 Nov post after ~11h); no org replies",
     "2026-11-26T19:28Z afternoon lead scan 11 groups, 216 posts, 0 new leads; fb-nsh-1126 still pending; no org replies",
     "2026-11-26T22:21Z fb-nsh-1126 still pending (1 pending in group); no org replies; next: evening lead scan",
-    "2026-11-26T23:29Z evening lead scan 11 groups, 236 posts, 0 new leads; no org replies"
+    "2026-11-26T23:29Z evening lead scan 11 groups, 236 posts, 0 new leads; no org replies",
+    "2026-11-27T02:27Z fb-nsh-1126 APPROVED and live (seen); pushed Joseph; no org replies"
   ],
   "next_actions": [
     "17:05Z: check North Shore post approval (fb-nsh-1126) and engagement",
@@ -665,7 +666,7 @@
   },
   "due": {
     "post_next": "2026-11-27T15:00Z",
-    "fb_checks": "2026-11-27T02:25Z",
+    "fb_checks": "2026-11-27T15:00Z",
     "lead_scan": "2026-11-27T03:30Z",
     "metrics": "2026-11-19T00:05Z",
     "venues": "2026-11-25T15:00Z",
@@ -1194,7 +1195,8 @@
       "tag": "fb-nsh-1126",
       "kind": "template C (assessment, North Shore first line); new content for this venue (earlier posts: tour questions, checklist)",
       "result": "pending admin approval",
-      "by": "operator"
+      "by": "operator",
+      "outcome": "approved, live (seen 2026-11-27T02:27Z)"
     }
   ],
   "measurement_notes": [
