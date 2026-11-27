@@ -6437,15 +6437,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSah6rgKCpixbDvmA6L",
-   "utc": "2026-11-27T19:18Z",
+   "utc": "2026-11-27T19:21Z",
    "since_utc": "2026-11-27T19:12Z",
-   "current": {
-    "what": "plan:publish",
-    "since_utc": "2026-11-27T19:14Z"
-   },
    "deliverables": [
     "resource:drafts 73e991c"
-   ]
+   ],
+   "productive_min": 0
   },
   "monitor": {
    "last_utc": "2026-11-27T18:25Z"
@@ -7807,9 +7804,9 @@
     "evidence": "Public family questions, Search Console queries, search presence and competitor gaps already recorded in the sweep log, plus fresh searches; the guide index on main and drafts; DEMAND.md open and done.",
     "output": "Up to three BUILD tasks (lane build), each one asset with its evidence, never a topic in DEMAND.md's Open list. Deliverable of each task: guide, faq, checklist, resource or research_report on drafts.",
     "why": "Joseph wants assets built, not only opportunities reported.",
-    "last_checked_utc": "2026-11-27T07:06Z",
-    "next_check_utc": "2026-11-27T19:06Z",
-    "last_result": "Strongest current need without a page was the holiday-visit moment (F01), built this session; adult day services (needs avenue) and the Medicare plan-choice gap (F02, #93) also handled; Search Console queries all map to live guides. Nothing further.",
+    "last_checked_utc": "2026-11-27T19:21Z",
+    "next_check_utc": "2026-11-28T07:21Z",
+    "last_result": "Answered by this session's build plan pass minutes earlier on the same evidence (Search Console 25 Nov read, DEMAND.md, slugs on main and drafts, CareScout 2025 tables, caregiver Q&A, web results): home care vs assisted living comparison built as ACQ-191 (drafts 73e991c). Whom-to-call-first page le…",
     "last_added": 0
    },
    {
@@ -7852,10 +7849,10 @@
     "evidence": "python3 ops/quotecheck.py --site <clone of main> --all: every guide with a NOT FOUND or NEAR MATCH quotation; then, among guides without a packet in ops/reviews/live/, those with deadlines, dollar figures or eligibility rules. State on 25 Nov 2026 after two sessions: 32 live guides; 8 audited (packets in ops/reviews/live/: 4 hold, 4 corrected in pull request #89); the checker (corrected the same day: a link or a PDF line break inside a source sentence no longer reads as NOT FOUND) reports 249 of 252 quotations FOUND, 1 NOT FOUND (illinois-pace-program, corrected in #89) and 2 NEAR MATCH (illinois-nursing-home-preadmission-screening, corrected in #89; va-veteran-directed-care-program, a dropped hyphen inside quotation marks, audit queued). assisted-living-cost-illinois and check-illinois-inspection-records cite ilga.gov pages that neither the worker's environment nor the main chat's could read: audit them with a web fetch tool for those pages.",
     "output": "One audit task per live guide with a NOT FOUND quotation (all of them, key audit:<slug>), plus at most two more guides per check chosen by risk; each audit under procedure step 7 Improve, ACCURACY AUDIT. Corrections go into one rolling review pull request. When every live guide has a packet, record that and pass --recheck-hours 720.",
     "why": "Joseph, 24 Nov 2026: \"Correct the known content accuracy problems and strengthen the review process.\" Families act on these deadlines and figures.",
-    "last_checked_utc": "2026-11-27T07:09Z",
-    "next_check_utc": "2026-11-27T19:09Z",
-    "last_result": "27 Nov 07:10Z: 30/32 live guides have packets. quotecheck on main: assisted-living-cost-illinois 0 quotations, 10 cited pages, 4 unreadable (ilga.gov); check-illinois-inspection-records 0 quotations, 13 pages, 9 unreadable. ilga.gov still unreadable (WebFetch 503 on K90; a direct fetch was refused …",
-    "last_added": 1
+    "last_checked_utc": "2026-11-27T19:21Z",
+    "next_check_utc": "2026-11-28T07:21Z",
+    "last_result": "27 Nov 19:2xZ: 31/32 live guides have packets in ops/reviews/live/. The only one without, check-illinois-inspection-records, cites 9 ilga.gov pages: quotecheck HTTP 000 on all 9, WebFetch 503 on 210 ILCS 45/3-210; still unauditable from this environment. No new candidate.",
+    "last_added": 0
    },
    {
     "id": "demand-questions",
@@ -7994,6 +7991,8 @@
    }
   ],
   "sweep_log": [
+   "2026-11-27T19:21Z asset-gaps +0: Answered by this session's build plan pass minutes earlier on the same evidence (Search Console 25 Nov read, DEMAND.md, slugs on main and drafts, CareScout 202…",
+   "2026-11-27T19:21Z live-accuracy +0: 27 Nov 19:2xZ: 31/32 live guides have packets in ops/reviews/live/. The only one without, check-illinois-inspection-records, cites 9 ilga.gov pages: quotecheck…",
    "2026-11-27T18:31Z publish-ready +0: 11 worker pages on drafts not on main; all 11 qualify and all 11 are in open batch #90 (head eea57b7). Body text, h1 and short answer identical between batch a…",
    "2026-11-27T18:26Z draft-review +0: drafts 12e63bd vs main: 11 worker pages not on main, all 11 have packets in ops/reviews with the counts line; newest commit 12e63bd already reader-verified; th…",
    "2026-11-27T07:09Z live-accuracy +1: 27 Nov 07:10Z: 30/32 live guides have packets. quotecheck on main: assisted-living-cost-illinois 0 quotations, 10 cited pages, 4 unreadable (ilga.gov); check-i…",
