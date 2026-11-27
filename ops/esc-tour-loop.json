@@ -193,19 +193,19 @@
    "note": "2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 1: #91 and #90 still open (checked 06:27Z), so the card change would still collide with the publish batch."
   },
   {
-   "id": "ACQ-192",
-   "task": "Review home-care-or-assisted-living-illinois under the review rules",
+   "id": "ACQ-194",
+   "task": "Verify the corrections to home-care-or-assisted-living-illinois",
    "workstream": "build",
    "lane": "build",
    "source": "followup",
-   "key": "review:home-care-or-assisted-living-illinois",
+   "key": "verify:home-care-or-assisted-living-illinois:7dfe57f",
    "priority": 1,
-   "evidence": "build commit drafts 73e991c (cse_014eaiSah6rgKCpixbDvmA6L)",
+   "evidence": "drafts 7dfe57f",
    "expected_tour_acquisition_value": "quality gate before publication",
    "executor": "worker (research and preparation only)",
-   "done_when": "packet at ops/reviews/home-care-or-assisted-living-illinois.md with its counts and verdict",
+   "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
-   "found_utc": "2026-11-27T19:18Z"
+   "found_utc": "2026-11-27T19:24Z"
   }
  ],
  "completed": [
@@ -5745,6 +5745,52 @@
     "ref": "drafts 73e991c"
    },
    "done_utc": "2026-11-27T19:18Z"
+  },
+  {
+   "id": "ACQ-192",
+   "task": "Review home-care-or-assisted-living-illinois under the review rules",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "review:home-care-or-assisted-living-illinois",
+   "priority": 1,
+   "evidence": "build commit drafts 73e991c (cse_014eaiSah6rgKCpixbDvmA6L)",
+   "expected_tour_acquisition_value": "quality gate before publication",
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet at ops/reviews/home-care-or-assisted-living-illinois.md with its counts and verdict",
+   "status": "done",
+   "found_utc": "2026-11-27T19:18Z",
+   "result": "Independent reader (agent in cse_014eaiSah6rgKCpixbDvmA6L, fresh context, standard brief) reviewed home-care-or-assisted-living-illinois at drafts 73e991c: quotecheck 12/12 FOUND, 8/8 pages readable, figures match CareScout 2025 Illinois tables, links all on main. 8 scope defects (Medicare Advantage scope on 5 Medicare sentences; CCP and SLP eligibility shortened in the short answer; therapy condition dropped) needing 6 corrections; 6 recommended additions. Verdict: publish-ready after corrections. Packet: ops/reviews/home-care-or-assisted-living-illinois.md.",
+   "verdicts": {
+    "home-care-or-assisted-living-illinois": "publish-ready after corrections"
+   },
+   "deliverable": {
+    "type": "review_packet",
+    "ref": "ops/reviews/home-care-or-assisted-living-illinois.md"
+   },
+   "done_utc": "2026-11-27T19:22Z"
+  },
+  {
+   "id": "ACQ-193",
+   "task": "Correct home-care-or-assisted-living-illinois per ops/reviews/home-care-or-assisted-living-illinois.md (6 required corrections and the recommended additions)",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "correct:home-care-or-assisted-living-illinois:73e991c",
+   "priority": 1,
+   "evidence": "review packet 2026-11-27 (Reader: agent in cse_014eaiSah6rgKCpixbDvmA6L)",
+   "expected_tour_acquisition_value": "makes the page publish-ready so it can enter the publish batch",
+   "executor": "worker (research and preparation only)",
+   "done_when": "corrections committed on drafts with all checks passing and quotecheck all FOUND; Corrections applied line in the packet; verify task added",
+   "status": "done",
+   "found_utc": "2026-11-27T19:22Z",
+   "result": "Applied the packet's 6 required corrections and 6 recommended additions to home-care-or-assisted-living-illinois on drafts as 7dfe57f: Original Medicare (Part A/B) scope and Medicare Advantage check-with-plan in the short answer, cost, exclusions and night bullet; long-term care page scoped to Medicare and most insurance incl. Medigap, with Medicaid / LTC insurance; CCP and SLP eligibility in full; therapy conditions; 35-hour short-term allowance; Illinois pre-claim review demonstration; spouse as paid CCP caregiver; CCU map tool and Senior HelpLine; SLP SSI income and $120 rule and private-pay rate. Checks: build 47 URLs, test.js 669/669, check-guides 2860/0, citations 115 resolve, mobile-nav skipped, quotecheck 12/12. Verify task queued.",
+   "deliverable": {
+    "type": "correction",
+    "ref": "drafts 7dfe57f"
+   },
+   "done_utc": "2026-11-27T19:24Z",
+   "minutes": 2
   }
  ],
  "blocked": [],
@@ -5755,7 +5801,7 @@
   "picked": "ACQ-190 done",
   "why": "Worked: sourcing-page review PR #94 (frontier F04), North Shore town-page report (F06 watch), monitor clean; stopped: no-worthwhile-work; resume: 19:06Z planning and sweeps"
  },
- "last_verified_action": "ACQ-191 done 2026-11-27T19:18Z: Built home-care-or-assisted-living-illinois on drafts (73e991c): CareScout 2025 Illinois medians (in-home non-medical care $36/h, $6,864/month on 44 h/week; ad…",
+ "last_verified_action": "ACQ-193 done 2026-11-27T19:24Z: Applied the packet's 6 required corrections and 6 recommended additions to home-care-or-assisted-living-illinois on drafts as 7dfe57f: Original Medicare (Part …",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -6437,12 +6483,14 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSah6rgKCpixbDvmA6L",
-   "utc": "2026-11-27T19:22Z",
+   "utc": "2026-11-27T19:24Z",
    "since_utc": "2026-11-27T19:12Z",
    "deliverables": [
-    "resource:drafts 73e991c"
+    "resource:drafts 73e991c",
+    "review_packet:ops/reviews/home-care-or-assisted-living-illinois.md",
+    "correction:drafts 7dfe57f"
    ],
-   "productive_min": 0
+   "productive_min": 2
   },
   "monitor": {
    "last_utc": "2026-11-27T18:25Z"
