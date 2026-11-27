@@ -397,8 +397,14 @@ check("IL guide: a shared phone number is flagged as not the community's, on one
   ilEvLc.indexOf("the other two gave no number for any community") !== -1);
 check("IL guide: the sources footnote says the listing-website figures did not come from the listed sources",
   /Every figure on this page was read from the source listed above on 6 November 2026, except the listing-website figures under &ldquo;Looking in Evanston&rdquo;, which were read from those websites the same day\./.test(ilFlat));
-check("only the IL guide carries a footnote exception",
-  SLUGS.filter((s) => /read from the source listed above on [^.<]*, except /.test(flat(page[s]))).join(",") === "independent-living-evanston");
+/* Re-pinned 2026-11-27 (accuracy audit ops/reviews/live/assisted-living-cost-illinois.md C1):
+   the cost guide's Trulee Evanston prices were read on 12 Nov 2026, not on its
+   4 Nov review date, so its footnote now names that exception too. Still exact:
+   these two guides and no other. */
+check("only the IL guide and the cost guide carry a footnote exception",
+  SLUGS.filter((s) => /read from the source listed above on [^.<]*, except /.test(flat(page[s]))).sort().join(",") === "assisted-living-cost-illinois,independent-living-evanston");
+check("cost guide: the sources footnote dates the Trulee Evanston prices to 12 November 2026",
+  /Every figure on this page was read from the source listed above on 4 November 2026, except Trulee Evanston’s advertised prices, read on 12 November 2026\./.test(flat(page["assisted-living-cost-illinois"])));
 /* The only dollar figures allowed in the section are the City's own:
    the coupon price and the two income limits. */
 check("IL guide: no listing-site price is printed",
