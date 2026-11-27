@@ -44,3 +44,20 @@ None.
 Quotations checked: 20. Claims scope-checked: 14. Scope defects: 0. Corrections required: 0.
 
 Verdict: publish-ready
+
+## Scope check 2026-11-27 (new evidence)
+
+- Reviewer: ESCG worker, session cse_014eaiSeGWreJzfEyfVMTtWN (task ACQ-198, frontier F12); not the builder of this page (built by 4b5dca4).
+- Trigger: local reporting on federal Medicaid changes (Evanston Now 19 Jan and 2 Sep 2026; Evanston RoundTable 9 Jun 2026) led to a check of the retroactive-coverage claim against HFS as it reads today.
+
+| # | Guide's claim | Guide's scope | Source's scope with heading | Result |
+|---|---|---|---|---|
+| 15 | Short answer and "What your parent may owe while the application is pending": eligibility can reach back "up to three months before the month you apply" (HFS 3191, revised Feb 2015) | every application, no date limit | HFS "How will Federal changes impact Medicaid?", list under "IMPACT OF H.R. 1 ON ILLINOIS": "Effective January 1, 2027, retroactive coverage will be decreased from 3 months to 2 months for all Illinois Medicaid customers."; FAQ "Limits to retroactive coverage. What is chaning and when?": "Beginning January 2027, Medicaid will only provide two months of retroactive coverage to eligible people at application instead of three months." (CMS CIB 18 Nov 2026, section 71112, applies the change to applications made on or after 1 Jan 2027) | SCOPE DEFECT (year): the three-month rule holds only for applications made before 1 Jan 2027 |
+
+Required correction C1: keep the HFS 3191 quotation, and say in the short answer and in the body that HFS states the period falls to two months from 1 January 2027, quoting HFS's sentence, with the HFS page added to the sources (allowed host hfs.illinois.gov; medicaid.gov is not an allowed citation host, so the CMS bulletin is not cited).
+
+Quotations checked: 1. Claims scope-checked: 1. Scope defects: 1. Corrections required: 1.
+
+Verdict: publish-ready after corrections
+
+Corrections applied: drafts dad7c20, 2026-11-27, cse_014eaiSeGWreJzfEyfVMTtWN

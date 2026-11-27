@@ -210,6 +210,21 @@
    "score": 10.0,
    "status": "ready",
    "found_utc": "2026-11-27T20:04Z"
+  },
+  {
+   "id": "ACQ-199",
+   "task": "Verify the corrections to illinois-medicaid-pending-nursing-home",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "verify:illinois-medicaid-pending-nursing-home:dad7c20",
+   "priority": 1,
+   "evidence": "drafts dad7c20 (ACQ-198), packet ops/reviews/illinois-medicaid-pending-nursing-home.md scope check 2026-11-27",
+   "expected_tour_acquisition_value": "quality gate before publication",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "ready",
+   "found_utc": "2026-11-27T20:05Z"
   }
  ],
  "completed": [
@@ -6585,9 +6600,13 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeGWreJzfEyfVMTtWN",
-   "utc": "2026-11-27T20:04Z",
+   "utc": "2026-11-27T20:05Z",
    "since_utc": "2026-11-27T19:57Z",
-   "productive_min": 8
+   "productive_min": 8,
+   "current": {
+    "what": "ACQ-198",
+    "since_utc": "2026-11-27T20:04Z"
+   }
   },
   "monitor": {
    "last_utc": "2026-11-27T18:25Z"
