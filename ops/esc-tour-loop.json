@@ -193,21 +193,6 @@
    "note": "2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 1: #91 and #90 still open (checked 06:27Z), so the card change would still collide with the publish batch."
   },
   {
-   "id": "ACQ-174",
-   "task": "Verify the corrections to noticed-changes-in-parent-holiday-visit",
-   "workstream": "build",
-   "lane": "build",
-   "source": "followup",
-   "key": "verify:noticed-changes-in-parent-holiday-visit:5283618",
-   "priority": 1,
-   "evidence": "correction commit 5283618 on drafts (ACQ-173)",
-   "expected_tour_acquisition_value": "quality gate before publication",
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
-   "status": "ready",
-   "found_utc": "2026-11-27T06:42Z"
-  },
-  {
    "id": "ACQ-175",
    "task": "Verify the new section in does-medicare-pay-for-senior-care (PR #93, commit e4ad616)",
    "workstream": "search",
@@ -221,6 +206,21 @@
    "done_when": "each changed sentence re-read against its source; packet line added in ops/reviews/live/does-medicare-pay-for-senior-care.md",
    "status": "ready",
    "found_utc": "2026-11-27T06:45Z"
+  },
+  {
+   "id": "ACQ-177",
+   "task": "Verify the corrections to noticed-changes-in-parent-holiday-visit",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "verify:noticed-changes-in-parent-holiday-visit:d2cc9c4",
+   "priority": 1,
+   "evidence": "correction commit d2cc9c4 on drafts (ACQ-176)",
+   "expected_tour_acquisition_value": "quality gate before publication",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "ready",
+   "found_utc": "2026-11-27T06:47Z"
   }
  ],
  "completed": [
@@ -5339,6 +5339,49 @@
    },
    "done_utc": "2026-11-27T06:45Z",
    "minutes": 4
+  },
+  {
+   "id": "ACQ-174",
+   "task": "Verify the corrections to noticed-changes-in-parent-holiday-visit",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "verify:noticed-changes-in-parent-holiday-visit:5283618",
+   "priority": 1,
+   "evidence": "correction commit 5283618 on drafts (ACQ-173)",
+   "expected_tour_acquisition_value": "quality gate before publication",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-27T06:42Z",
+   "result": "Independent reader checked drafts 5283618: quotecheck 16/16, 8/8 pages readable; eight of nine changed sentences hold with the right scope. Reopened one: the HelpLine section's opening said the Department's pages do not say whom to call for a parent in another state, but the HelpLine page says 'To get information about services in another state, please visit the Eldercare Locator for helpful resources and contacts.' Re-correction queued.",
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/noticed-changes-in-parent-holiday-visit.md"
+   },
+   "done_utc": "2026-11-27T06:46Z"
+  },
+  {
+   "id": "ACQ-176",
+   "task": "Re-correct noticed-changes-in-parent-holiday-visit per the reader check of 5283618 (another-state sentence)",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "recorrect:noticed-changes-in-parent-holiday-visit:5283618",
+   "priority": 1,
+   "evidence": "reader check 2026-11-27 in ops/reviews/noticed-changes-in-parent-holiday-visit.md",
+   "expected_tour_acquisition_value": "quality gate before publication",
+   "executor": "worker (research and preparation only)",
+   "done_when": "one Correct commit on drafts with checks passing; verify task added",
+   "status": "done",
+   "found_utc": "2026-11-27T06:46Z",
+   "result": "Replaced the another-state sentence with the HelpLine page's own words ('To get information about services in another state, please visit the Eldercare Locator for helpful resources and contacts.') in drafts d2cc9c4. Checks: build 46 URLs; test.js 669/669; check-guides 2802/0; citations 114 resolve; mobile-nav SKIPPED; quotecheck 17/17. Verify task added.",
+   "deliverable": {
+    "type": "correction",
+    "ref": "drafts d2cc9c4"
+   },
+   "done_utc": "2026-11-27T06:47Z",
+   "minutes": 1
   }
  ],
  "blocked": [],
@@ -5349,7 +5392,7 @@
   "picked": "ACQ-150 done, ACQ-151 done, ACQ-152 done(reopened), ACQ-153 done, ACQ-154 done, ACQ-155 done, ACQ-156 done, ACQ-157 done, ACQ-158 done, ACQ-159 done, ACQ-160 done, ACQ-161 done, ACQ-162 done, ACQ-163 done(reopened), ACQ-164 waiting_on_data, ACQ-165 done, ACQ-166 done(reopened), ACQ-167 done, ACQ-168 done",
   "why": "Worked: 6 live-guide accuracy audits (4 corrected, incl. a wrong payer on hospice and home health; Access Evanston income limit), all reader-verified in #89; stopped: no-worthwhile-work; resume: package cut 27 Nov 05:00Z or #91 merge"
  },
- "last_verified_action": "ACQ-172 done 2026-11-27T06:45Z: Opened review PR #93 (branch claude/medicare-plan-choice-before-move, e4ad616, built on #89's verified head 9d57bf0 to avoid a sources-line conflict): one new …",
+ "last_verified_action": "ACQ-176 done 2026-11-27T06:47Z: Replaced the another-state sentence with the HelpLine page's own words ('To get information about services in another state, please visit the Eldercare Locator…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -6015,15 +6058,17 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
-   "utc": "2026-11-27T06:45Z",
+   "utc": "2026-11-27T06:47Z",
    "since_utc": "2026-11-27T06:24Z",
-   "productive_min": 14,
+   "productive_min": 15,
    "deliverables": [
     "publish_pr:#91 a523b5e",
     "guide:drafts e9241f2",
     "review_packet:ops/reviews/noticed-changes-in-parent-holiday-visit.md",
     "correction:drafts 5283618",
-    "pr:#93"
+    "pr:#93",
+    "verification:ops/reviews/noticed-changes-in-parent-holiday-visit.md",
+    "correction:drafts d2cc9c4"
    ]
   },
   "monitor": {
