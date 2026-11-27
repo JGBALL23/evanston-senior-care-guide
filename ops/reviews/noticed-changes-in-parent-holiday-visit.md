@@ -101,3 +101,13 @@ Commit checked: d2cc9c4 (branch drafts), read in /tmp/reader-noticed-changes-in-
 Corrections verified
 Reader: agent in cse_014eaiSeY3WV1Qzjy2ZNkkuN
 Corrections verified: 2026-11-27, agent in cse_014eaiSeY3WV1Qzjy2ZNkkuN (5283618 + d2cc9c4)
+
+## Reader check 2026-11-27 (12e63bd)
+
+Commit checked: 12e63bd (branch drafts), read in /tmp/reader2-noticed-changes-in-parent-holiday-visit. quotecheck: 17 quotations, 17 FOUND, 0 NEAR MATCH, 0 NOT FOUND; 2 short terms (0 not found); 8 cited pages, 0 unreadable. The commit changes one sentence only: the guide's "desc" in build-guides.py and the same string in the rendered page's meta description, og:description and JSON-LD description (all three match). It adds no links and no claims, and leaves the body and the guides-index card unchanged. It is 133 characters; check-guides.js on origin/main requires 60 to 160 ("description fits a search result (<= 160 chars)").
+
+- Description: "A first-week plan for Illinois families: what to write down, the Medicare Wellness visit and its memory check, and who to call first." Sources behind it: yearly-wellness-visits, "Coverage details": "Perform a cognitive assessment to look for signs of dementia, including Alzheimer's disease." (Part B Wellness visit, which the body names as Part B); helpline-main, "How Can We Help": "If you need assistance, call our Senior HelpLine at 1-800-252-8966 ..." (Illinois; the body scopes the HelpLine to a parent living in Illinois and gives the HelpLine page's Eldercare Locator sentence for another state). Same scope: the line says "Illinois families" and makes no payer, figure or deadline claim. The dropped clause "read off Medicare.gov and the Department on Aging" was only an attribution, so removing it changes no claim.
+
+Corrections verified
+Reader: agent in cse_014eaiSeY3WV1Qzjy2ZNkkuN
+Corrections verified: 2026-11-27, agent in cse_014eaiSeY3WV1Qzjy2ZNkkuN (12e63bd)

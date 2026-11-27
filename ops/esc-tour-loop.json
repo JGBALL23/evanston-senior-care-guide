@@ -193,19 +193,19 @@
    "note": "2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 1: #91 and #90 still open (checked 06:27Z), so the card change would still collide with the publish batch."
   },
   {
-   "id": "ACQ-179",
-   "task": "Verify the corrections to the plan-choice section of does-medicare-pay-for-senior-care (PR #93, commit 5490888)",
+   "id": "ACQ-183",
+   "task": "Verify the corrections to the plan-choice section of does-medicare-pay-for-senior-care (PR #93, commit 5eeca4f)",
    "workstream": "search",
    "lane": "search",
    "source": "followup",
-   "key": "verify-live:does-medicare-pay-for-senior-care:5490888",
+   "key": "verify-live:does-medicare-pay-for-senior-care:5eeca4f",
    "priority": 1,
-   "evidence": "PR #93 commit 5490888 (ACQ-178)",
+   "evidence": "PR #93 commit 5eeca4f (ACQ-182)",
    "expected_tour_acquisition_value": "quality gate before the package",
    "executor": "worker (research and preparation only)",
    "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
-   "found_utc": "2026-11-27T06:49Z"
+   "found_utc": "2026-11-27T06:57Z"
   }
  ],
  "completed": [
@@ -5430,6 +5430,91 @@
     "ref": "#93 5490888"
    },
    "done_utc": "2026-11-27T06:49Z"
+  },
+  {
+   "id": "ACQ-179",
+   "task": "Verify the corrections to the plan-choice section of does-medicare-pay-for-senior-care (PR #93, commit 5490888)",
+   "workstream": "search",
+   "lane": "search",
+   "source": "followup",
+   "key": "verify-live:does-medicare-pay-for-senior-care:5490888",
+   "priority": 1,
+   "evidence": "PR #93 commit 5490888 (ACQ-178)",
+   "expected_tour_acquisition_value": "quality gate before the package",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-27T06:49Z",
+   "result": "Independent reader checked #93 5490888: quotecheck 6/6, 8/8 pages readable; 7 of 8 changed sentences same scope. Reopened: 'list no window for a parent in Original Medicare with no plan who moves somewhere that is not an institution' is wider than Medicare.gov, which lists a window for a move back to the U.S.; should say 'no window tied to the move ... who moves within the U.S.'. Two recommended additions: the move-back-to-the-U.S. window; the Medicaid / Extra Help once-a-month change. Re-correction queued.",
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/live/does-medicare-pay-for-senior-care.md"
+   },
+   "done_utc": "2026-11-27T06:55Z"
+  },
+  {
+   "id": "ACQ-182",
+   "task": "Re-correct PR #93 per the reader check of 5490888 (within the U.S.; Medicaid and Extra Help window)",
+   "workstream": "search",
+   "lane": "search",
+   "source": "followup",
+   "key": "recorrect:does-medicare-pay-for-senior-care:5490888",
+   "priority": 1,
+   "evidence": "reader check 2026-11-27 in ops/reviews/live/does-medicare-pay-for-senior-care.md",
+   "expected_tour_acquisition_value": "quality gate before the package",
+   "executor": "worker (research and preparation only)",
+   "done_when": "one commit on claude/medicare-plan-choice-before-move with checks passing; verify-live task added",
+   "status": "done",
+   "found_utc": "2026-11-27T06:55Z",
+   "result": "Applied the reader's correction to #93 as 5eeca4f: 'no window tied to the move ... who moves within the U.S.'; added the move-back-to-the-U.S. window and the Special Enrollment Periods page's once-a-calendar-month change for a parent with Medicaid or Extra Help, with the two drug-coverage changes it lists. Rebuild clean; all suites pass; quotecheck 7/7.",
+   "deliverable": {
+    "type": "correction",
+    "ref": "#93 5eeca4f"
+   },
+   "done_utc": "2026-11-27T06:57Z",
+   "minutes": 2
+  },
+  {
+   "id": "ACQ-181",
+   "task": "Verify the corrections to noticed-changes-in-parent-holiday-visit",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "verify:noticed-changes-in-parent-holiday-visit:12e63bd",
+   "priority": 1,
+   "evidence": "description commit 12e63bd on drafts (ACQ-180)",
+   "expected_tour_acquisition_value": "quality gate before publication",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-27T06:54Z",
+   "result": "Independent reader checked drafts 12e63bd: the shortened description (133 characters) matches the body's scope and adds no claim; quotecheck 17/17, 8/8 pages readable. Corrections verified.",
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/noticed-changes-in-parent-holiday-visit.md"
+   },
+   "done_utc": "2026-11-27T06:57Z"
+  },
+  {
+   "id": "ACQ-180",
+   "task": "Port noticed-changes-in-parent-holiday-visit into the open publish batch #90 and refresh its title and body",
+   "workstream": "publish",
+   "lane": "publish",
+   "source": "followup",
+   "key": "publish:noticed-changes-in-parent-holiday-visit",
+   "priority": 1,
+   "evidence": "packet publish-ready after corrections with Corrections verified (ACQ-177), sweep publish-ready 2026-11-27",
+   "expected_tour_acquisition_value": "the holiday-visit page reaches the live site in the window when families act",
+   "executor": "worker (research and preparation only)",
+   "done_when": "page ported in #90 with all suites and quotecheck passing; #90 title and body rewritten; the drafts description change verified by a reader",
+   "status": "done",
+   "found_utc": "2026-11-27T06:54Z",
+   "result": "Ported noticed-changes-in-parent-holiday-visit into publish batch #90 (claude/publish-batch-20261125-1, eea57b7): guide dict, CARDS and four SRC entries copied from drafts; RELATED entry added (levels, CCP, elder abuse) and named from two batch pages (memory care, refuses to move) so the 2-inbound gate holds without touching a live page. Main's check-guides caught a 178-character description; shortened on drafts (12e63bd, reader-verified) and in the port. Suites: test.js 768/768; check-guides 3466/0; paying_nav 342/342; all tools tests pass; direct_inquiry 29/29; citations: only the 15 known ilga.gov/trulee failures; quotecheck all eleven batch pages 206/206. #90 retitled 'Publish batch: 11 guides' and body extended; it enters the 28 Nov package.",
+   "deliverable": {
+    "type": "publish_pr",
+    "ref": "#90 eea57b7"
+   },
+   "done_utc": "2026-11-27T06:57Z"
   }
  ],
  "blocked": [],
@@ -5440,7 +5525,7 @@
   "picked": "ACQ-150 done, ACQ-151 done, ACQ-152 done(reopened), ACQ-153 done, ACQ-154 done, ACQ-155 done, ACQ-156 done, ACQ-157 done, ACQ-158 done, ACQ-159 done, ACQ-160 done, ACQ-161 done, ACQ-162 done, ACQ-163 done(reopened), ACQ-164 waiting_on_data, ACQ-165 done, ACQ-166 done(reopened), ACQ-167 done, ACQ-168 done",
   "why": "Worked: 6 live-guide accuracy audits (4 corrected, incl. a wrong payer on hospice and home health; Access Evanston income limit), all reader-verified in #89; stopped: no-worthwhile-work; resume: package cut 27 Nov 05:00Z or #91 merge"
  },
- "last_verified_action": "ACQ-178 done 2026-11-27T06:49Z: Applied the reader's correction and four additions to PR #93 as 5490888: 'Some moves open their own window'; address-move windows scoped to someone already in …",
+ "last_verified_action": "ACQ-180 done 2026-11-27T06:57Z: Ported noticed-changes-in-parent-holiday-visit into publish batch #90 (claude/publish-batch-20261125-1, eea57b7): guide dict, CARDS and four SRC entries copied…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -6106,9 +6191,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeY3WV1Qzjy2ZNkkuN",
-   "utc": "2026-11-27T06:49Z",
+   "utc": "2026-11-27T06:57Z",
    "since_utc": "2026-11-27T06:24Z",
-   "productive_min": 15,
+   "productive_min": 18,
    "deliverables": [
     "publish_pr:#91 a523b5e",
     "guide:drafts e9241f2",
@@ -6119,12 +6204,12 @@
     "correction:drafts d2cc9c4",
     "verification:ops/reviews/noticed-changes-in-parent-holiday-visit.md",
     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
-    "correction:#93 5490888"
-   ],
-   "current": {
-    "what": "ACQ-179",
-    "since_utc": "2026-11-27T06:48Z"
-   }
+    "correction:#93 5490888",
+    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
+    "correction:#93 5eeca4f",
+    "verification:ops/reviews/noticed-changes-in-parent-holiday-visit.md",
+    "publish_pr:#90 eea57b7"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-27T06:26Z"
@@ -7261,10 +7346,10 @@
     "evidence": "ops/reviews/ packets; open pull requests; the asset on drafts and its absence from main.",
     "output": "One publish-batch task for this session (key publish-batch:<YYYYMMDD>-<n>) covering all of them: procedure step 7, Publish package.",
     "why": "Publishing is the step that turns drafts into visitors.",
-    "last_checked_utc": "2026-11-26T17:34Z",
-    "next_check_utc": "2026-11-27T05:34Z",
-    "last_result": "26 Nov 17:50Z: 10 drafts guides not on main, all with packets, all in publish batch #90 (in package #91); no drafts change since their ports. Nothing to package.",
-    "last_added": 0
+    "last_checked_utc": "2026-11-27T06:57Z",
+    "next_check_utc": "2026-11-27T18:57Z",
+    "last_result": "Of 11 worker pages on drafts not on main, 10 were already in batch #90 at their verified text; the holiday-visit guide qualified after its corrections were verified and was ported (ACQ-180, #90 eea57b7).",
+    "last_added": 1
    },
    {
     "id": "draft-review",
@@ -7427,6 +7512,7 @@
    }
   ],
   "sweep_log": [
+   "2026-11-27T06:57Z publish-ready +1: Of 11 worker pages on drafts not on main, 10 were already in batch #90 at their verified text; the holiday-visit guide qualified after its corrections were ver…",
    "2026-11-27T06:48Z draft-review +0: All 11 worker pages on drafts not on main have packets with the counts line; the newest (noticed-changes-in-parent-holiday-visit) was reviewed, corrected and v…",
    "2026-11-26T17:45Z asset-gaps +0: 26 Nov 17:50Z: guide index main 32 / drafts 42; DEMAND Open holds only ACQ-118. Fresh searches 26 Nov: listing sites only for Evanston/Skokie AL questions (no …",
    "2026-11-26T17:34Z draft-review +0: 26 Nov 17:50Z: drafts 42 slugs vs main 32: the 10 not on main all have packets in ops/reviews/. No unreviewed draft.",
