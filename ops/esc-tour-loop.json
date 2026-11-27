@@ -191,21 +191,6 @@
    "waiting_for": "PR #91 (or #90) merged, so that a card change no longer collides with the open publish batch in the built /guides/ index",
    "not_before_utc": "2026-11-28T06:30Z",
    "note": "2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 1: #91 and #90 still open (checked 06:27Z), so the card change would still collide with the publish batch."
-  },
-  {
-   "id": "ACQ-196",
-   "task": "Verify the corrections to home-care-or-assisted-living-illinois",
-   "workstream": "build",
-   "lane": "build",
-   "source": "followup",
-   "key": "verify:home-care-or-assisted-living-illinois:2dd30a6",
-   "priority": 1,
-   "evidence": "drafts 2dd30a6",
-   "expected_tour_acquisition_value": "quality gate before publication",
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
-   "status": "ready",
-   "found_utc": "2026-11-27T19:27Z"
   }
  ],
  "completed": [
@@ -5835,6 +5820,50 @@
    },
    "done_utc": "2026-11-27T19:27Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-196",
+   "task": "Verify the corrections to home-care-or-assisted-living-illinois",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "verify:home-care-or-assisted-living-illinois:2dd30a6",
+   "priority": 1,
+   "evidence": "drafts 2dd30a6",
+   "expected_tour_acquisition_value": "quality gate before publication",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-27T19:27Z",
+   "result": "Independent reader (agent in cse_014eaiSah6rgKCpixbDvmA6L) checked drafts 2dd30a6: quotecheck 12/12, 9/9 pages readable; the three changed sentences (Medicare Advantage or another Medicare health plan in short answer and night bullet; CCP citizenship condition) match Medicare.gov 'Costs' and IDoA 'Who Is Eligible?'. Corrections verified. Page now qualifies for the publish batch.",
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/home-care-or-assisted-living-illinois.md"
+   },
+   "done_utc": "2026-11-27T19:28Z",
+   "minutes": 1
+  },
+  {
+   "id": "ACQ-197",
+   "task": "Port home-care-or-assisted-living-illinois into the open publish batch #90 and refresh its title and body",
+   "workstream": "publish",
+   "lane": "publish",
+   "source": "followup",
+   "key": "publish:home-care-or-assisted-living-illinois",
+   "priority": 1,
+   "evidence": "ops/reviews/home-care-or-assisted-living-illinois.md: counts line, publish-ready after corrections, Corrections verified 2026-11-27 (drafts 2dd30a6)",
+   "expected_tour_acquisition_value": "a verified decision-stage page reaches Joseph's next package and families sooner",
+   "executor": "worker (research and preparation only)",
+   "done_when": "page ported into #90 with all suites and quotecheck passing; PR body updated",
+   "status": "done",
+   "found_utc": "2026-11-27T19:28Z",
+   "result": "Ported home-care-or-assisted-living-illinois into publish batch #90 (claude/publish-batch-20261125-1, 220233f): guide dict, CARDS and the new SRC entry medicare_ltc_cov copied from drafts 2dd30a6; RELATED entry (cost, CCP, Supportive Living) and named from long-term-care-insurance and hospital-discharge (both in the batch). Body identical to drafts apart from main's template. Checks: build 48 URLs; test.js 768/768; check-guides 3536/0; test_paying_nav 343/343; all tools/test_* pass; direct_inquiry_consistency 29/29; citations: only the 15 known dead URLs already on main (ilga.gov 000, truleeevanston 403); quotecheck on all 12 batch pages 218/218 FOUND. #90 retitled 'Publish batch: 12 guides', body updated. Outside the cut window: enters the 28 Nov package.",
+   "deliverable": {
+    "type": "publish_pr",
+    "ref": "#90 220233f"
+   },
+   "done_utc": "2026-11-27T19:33Z",
+   "minutes": 5
   }
  ],
  "blocked": [],
@@ -5845,7 +5874,7 @@
   "picked": "ACQ-190 done",
   "why": "Worked: sourcing-page review PR #94 (frontier F04), North Shore town-page report (F06 watch), monitor clean; stopped: no-worthwhile-work; resume: 19:06Z planning and sweeps"
  },
- "last_verified_action": "ACQ-195 done 2026-11-27T19:27Z: Applied the reader check's three corrections on drafts as 2dd30a6: short answer CCP sentence now includes 'is a U.S. citizen or an eligible non-citizen'; short…",
+ "last_verified_action": "ACQ-197 done 2026-11-27T19:33Z: Ported home-care-or-assisted-living-illinois into publish batch #90 (claude/publish-batch-20261125-1, 220233f): guide dict, CARDS and the new SRC entry medicar…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -6527,16 +6556,18 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSah6rgKCpixbDvmA6L",
-   "utc": "2026-11-27T19:27Z",
+   "utc": "2026-11-27T19:33Z",
    "since_utc": "2026-11-27T19:12Z",
    "deliverables": [
     "resource:drafts 73e991c",
     "review_packet:ops/reviews/home-care-or-assisted-living-illinois.md",
     "correction:drafts 7dfe57f",
     "verification:ops/reviews/home-care-or-assisted-living-illinois.md (Reader check 2026-11-27)",
-    "correction:drafts 2dd30a6"
+    "correction:drafts 2dd30a6",
+    "verification:ops/reviews/home-care-or-assisted-living-illinois.md",
+    "publish_pr:#90 220233f"
    ],
-   "productive_min": 5
+   "productive_min": 11
   },
   "monitor": {
    "last_utc": "2026-11-27T18:25Z"

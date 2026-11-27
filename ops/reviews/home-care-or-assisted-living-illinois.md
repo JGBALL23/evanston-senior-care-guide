@@ -109,3 +109,17 @@ Reopened: short answer CCP sentence omits the source's citizenship condition ("E
 Reader: agent in cse_014eaiSah6rgKCpixbDvmA6L
 
 Corrections applied: drafts 2dd30a6, 2026-11-27, cse_014eaiSah6rgKCpixbDvmA6L (the three sentences reopened by the reader check of 7dfe57f)
+
+## Reader check 2026-11-27 (2dd30a6)
+
+Read in a fresh clone of drafts at 2dd30a6 (/tmp/reader-home-care-or-assisted-living-illinois); no repository file changed. quotecheck output read in full: 12 quotations, 12 FOUND, 0 NEAR MATCH, 0 NOT FOUND; 9 cited pages, 0 unreadable. Reader fetched Medicare.gov Home health services and IDoA CCP on 2026-11-27 (both HTTP 200). The commit changes only the three sentences below (build-guides.py and the built page); no link was added or changed.
+
+- Short answer: "...; a parent in a Medicare Advantage Plan or another Medicare health plan should check with the plan about its home health benefits." Source: Medicare.gov Home health services, "Costs": "If you get your Medicare benefits through a Medicare Advantage Plan (Part C) or another Medicare health plan, check with your plan for more information about your home health benefits." Same scope.
+- Short answer: "For a parent aged 60 or older who lives in Illinois, is a U.S. citizen or an eligible non-citizen, has non-exempt assets of $17,500 or less, is assessed as at risk of nursing facility placement and applies for Medicaid, Illinois's Community Care Program can pay for help at home; ..." Source: IDoA CCP, "Who Is Eligible?": "60 years old or older / Either U.S. citizens or eligible non-citizens within the specific categories / Residents of Illinois / Have non-exempt assets of $17,500 or less ... / Have an assessed need for long-term care (to be at risk for nursing facility placement as measured by the Determination of Need (DON) assessment) / Apply for and, if eligible, enroll in Medicaid". Same scope: all six conditions now stated; $17,500 matches the page today.
+- Night bullet: "Medicare.gov says Original Medicare doesn't pay for 24-hour-a-day care at home, so overnight help at home is paid for some other way; a parent in a Medicare Advantage Plan or another Medicare health plan should ask the plan what its home health benefits include." Source: Medicare.gov Home health services, "Coverage details": "Medicare doesn't pay for: 24-hour-a-day care at your home"; "Costs": "If you get your Medicare benefits through a Medicare Advantage Plan (Part C) or another Medicare health plan, check with your plan ...". Same scope.
+
+Quotations checked: 12. Claims scope-checked: 3. Scope defects: 0. Corrections required: 0.
+Reader: agent in cse_014eaiSah6rgKCpixbDvmA6L
+Corrections verified
+Reader: agent in cse_014eaiSah6rgKCpixbDvmA6L
+Corrections verified: 2026-11-27, agent in cse_014eaiSah6rgKCpixbDvmA6L
