@@ -169,7 +169,7 @@
    "status": "waiting_on_data",
    "found_utc": "2026-11-26T01:19Z",
    "not_before_utc": "2026-11-28T06:30Z",
-   "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in 210 ILCS 9/90 (SRC ilcs_al_90 on main) and 77 Ill. Adm. Code 295 on ilga.gov; ilga.gov unreadable (curl TLS 000, WebFetch 503). 2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 2: ilga.gov still unreadable (curl exit 60 TLS, WebFetch 503 on fulltext.asp DocName=021000090K90). A third postponement goes into the package as a lettered decision."
+   "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in 210 ILCS 9/90 (SRC ilcs_al_90 on main) and 77 Ill. Adm. Code 295 on ilga.gov; ilga.gov unreadable (curl TLS 000, WebFetch 503). 2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 2: ilga.gov still unreadable (curl exit 60 TLS, WebFetch 503 on fulltext.asp DocName=021000090K90). A third postponement goes into the package as a lettered decision. 2026-11-27T18:36Z cse_014eaiSbgkYkmzevMK2yQoyV (early try, not a postponement): curl www.ilga.gov/ilga.gov exit 60 (TLS chain), beta.ilga.gov refused by the session's egress proxy (CONNECT 502), WebFetch 503 on Documents/legislation/ilcs/documents/021000090K90.htm. Not routed around."
   },
   {
    "id": "ACQ-164",
@@ -6387,7 +6387,7 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSbgkYkmzevMK2yQoyV",
-   "utc": "2026-11-27T18:34Z",
+   "utc": "2026-11-27T18:35Z",
    "since_utc": "2026-11-27T18:24Z",
    "productive_min": 10,
    "deliverables": [
