@@ -193,23 +193,19 @@
    "note": "2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 1: #91 and #90 still open (checked 06:27Z), so the card change would still collide with the publish batch."
   },
   {
-   "id": "ACQ-188",
-   "task": "Accuracy audit of the live guide assisted-living-cost-illinois against its readable cited sources as they read today (procedure step 7 Improve, ACCURACY AUDIT); claims cited only to ilga.gov are listed as not checked because ilga.gov is unreadable from this environment (WebFetch 503 on 27 Nov 2026; quotecheck: 4 of 10 cited pages unreadable).",
+   "id": "ACQ-189",
+   "task": "Verify the corrections to assisted-living-cost-illinois (PR #89 commit 166f2d1) under the review rules",
    "workstream": "technical",
    "lane": "technical",
-   "source": "plan",
-   "key": "audit:assisted-living-cost-illinois",
-   "evidence": "Sweep live-accuracy 27 Nov 2026 07:10Z: 30 of 32 live guides have packets in ops/reviews/live/; this one and check-illinois-inspection-records have none. quotecheck on main 27 Nov: 0 quotations, 6 short terms (2 not found), 10 cited pages, 4 unreadable. The guide states dollar figures and contract rules families act on.",
-   "expected_tour_acquisition_value": "A family pricing assisted living acts on the figures in the site's cost guide; a wrong figure costs trust in the page that leads to the tour checklist.",
-   "impact": 3,
-   "confidence": 3,
-   "effort": 2,
+   "source": "followup",
+   "key": "verify-live:assisted-living-cost-illinois:166f2d1",
+   "priority": 1,
+   "evidence": "claude/accuracy-20261125 166f2d1; ops/reviews/live/assisted-living-cost-illinois.md C1",
+   "expected_tour_acquisition_value": "quality gate before the correction enters the daily package",
    "executor": "worker (research and preparation only)",
-   "done_when": "ops/reviews/live/assisted-living-cost-illinois.md with one row per figure and rule checked against its readable source, the ilga.gov-only claims listed as not checked, counts line and a verdict (holds, or corrections with source sentences)",
-   "priority": 2,
-   "score": 4.5,
+   "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
-   "found_utc": "2026-11-27T07:09Z"
+   "found_utc": "2026-11-27T07:14Z"
   }
  ],
  "completed": [
@@ -5630,6 +5626,41 @@
    },
    "done_utc": "2026-11-27T07:06Z",
    "minutes": 2
+  },
+  {
+   "id": "ACQ-188",
+   "task": "Accuracy audit of the live guide assisted-living-cost-illinois against its readable cited sources as they read today (procedure step 7 Improve, ACCURACY AUDIT); claims cited only to ilga.gov are listed as not checked because ilga.gov is unreadable from this environment (WebFetch 503 on 27 Nov 2026; quotecheck: 4 of 10 cited pages unreadable).",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "plan",
+   "key": "audit:assisted-living-cost-illinois",
+   "evidence": "Sweep live-accuracy 27 Nov 2026 07:10Z: 30 of 32 live guides have packets in ops/reviews/live/; this one and check-illinois-inspection-records have none. quotecheck on main 27 Nov: 0 quotations, 6 short terms (2 not found), 10 cited pages, 4 unreadable. The guide states dollar figures and contract rules families act on.",
+   "expected_tour_acquisition_value": "A family pricing assisted living acts on the figures in the site's cost guide; a wrong figure costs trust in the page that leads to the tour checklist.",
+   "impact": 3,
+   "confidence": 3,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "ops/reviews/live/assisted-living-cost-illinois.md with one row per figure and rule checked against its readable source, the ilga.gov-only claims listed as not checked, counts line and a verdict (holds, or corrections with source sentences)",
+   "priority": 2,
+   "score": 4.5,
+   "status": "done",
+   "found_utc": "2026-11-27T07:09Z",
+   "result": "Audited live assisted-living-cost-illinois (main 4dc2468) against its readable sources as they read 27 Nov 2026: CareScout 2025 survey ($6,219 AL; $8,304/$9,216 NH) and methodology (one-bedroom, midpoint, July-Nov 2025, community-fee flag), Trulee floor plans ($9,475) and Your Choice ($1,850, all-inclusive, rent excluded), IDPH assisted living page, HFS SLP fact sheet: 11 claims hold. 1 defect: the sources footer said every figure was read on 4 Nov although the Trulee figures were read 12 Nov; corrected in #89 as 166f2d1 via figures_except, check-guides.js assertion re-pinned (strict), new check added, all suites pass. 2 statute claims (210 ILCS 9/15, 9/85, 9/90, PA 104-0589) not checked: ilga.gov unreadable (WebFetch 503; direct fetch refused by permission check, not retried).",
+   "deliverable": {
+    "type": "audit",
+    "ref": "ops/reviews/live/assisted-living-cost-illinois.md; #89 166f2d1"
+   },
+   "sources": [
+    "https://assets.carescout.com/x/5c90319b6a/298701.pdf",
+    "https://assets.carescout.com/x/e3933bfcf1/131168.pdf",
+    "https://truleeevanston.com/floor-plans/",
+    "https://truleeevanston.com/your-choice/",
+    "https://dph.illinois.gov/topics-services/health-care-regulation/assisted-living.html",
+    "https://hfs.illinois.gov/medicalprograms/slf/residentfactsheet.html"
+   ],
+   "lesson": "ilga.gov remains unreadable from worker sessions; statute claims on live guides need a reader that can open ilga.gov.",
+   "done_utc": "2026-11-27T07:14Z",
+   "minutes": 5
   }
  ],
  "blocked": [],
@@ -5640,7 +5671,7 @@
   "picked": "ACQ-169 done, ACQ-170 done, ACQ-171 done, ACQ-173 done, ACQ-174 done (reopened), ACQ-176 done, ACQ-177 done, ACQ-180 done, ACQ-181 done, ACQ-172 done, ACQ-175 done (reopened), ACQ-178 done, ACQ-179 done (reopened), ACQ-182 done, ACQ-183 done (reopened), ACQ-184 done, ACQ-185 done, ACQ-186 done, ACQ-187 done; ACQ-118 and ACQ-164 postponed to 28 Nov 06:30Z",
   "why": "Worked: package #91 re-cut with verified #89 commits; holiday-visit guide built, reviewed, corrected, verified and added to batch #90; PR #93 Medicare plan choice before 7 Dec verified; tour-path beacon read found. stopped: no-worthwhile-work; resume: 28 Nov package cut or a merge"
  },
- "last_verified_action": "ACQ-187 done 2026-11-27T07:06Z: Independent reader checked #93 3e601d0: 'Remember, not all D-SNPs are integrated.' is word for word from Medicare.gov's Special Enrollment Periods page, used f…",
+ "last_verified_action": "ACQ-188 done 2026-11-27T07:14Z: Audited live assisted-living-cost-illinois (main 4dc2468) against its readable sources as they read 27 Nov 2026: CareScout 2025 survey ($6,219 AL; $8,304/$9,21…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -6306,9 +6337,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSaU9VKyTkRhekq5VFJ",
-   "utc": "2026-11-27T07:09Z",
+   "utc": "2026-11-27T07:14Z",
    "since_utc": "2026-11-27T07:07Z",
-   "productive_min": 2
+   "productive_min": 7,
+   "deliverables": [
+    "audit:ops/reviews/live/assisted-living-cost-illinois.md; #89 166f2d1"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-27T06:26Z"
