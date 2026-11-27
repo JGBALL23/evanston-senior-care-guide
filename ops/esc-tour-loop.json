@@ -212,21 +212,6 @@
    "priority": 2,
    "score": 6.0,
    "found_utc": "2026-11-27T20:17Z"
-  },
-  {
-   "id": "ACQ-205",
-   "task": "Verify the correction to illinois-fide-snp-explained on accuracy PR #89 (commit faf855a)",
-   "workstream": "technical",
-   "lane": "technical",
-   "source": "followup",
-   "key": "verify-live:illinois-fide-snp-explained:{SHA}",
-   "priority": 1,
-   "evidence": "accuracy PR #89 commit {SHA} (ACQ-204), packet reader check 2026-11-27",
-   "expected_tour_acquisition_value": "quality gate before publication",
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
-   "status": "ready",
-   "found_utc": "2026-11-27T20:24Z"
   }
  ],
  "completed": [
@@ -6052,6 +6037,31 @@
    },
    "done_utc": "2026-11-27T20:24Z",
    "minutes": 2
+  },
+  {
+   "id": "ACQ-205",
+   "task": "Verify the correction to illinois-fide-snp-explained on accuracy PR #89 (commit faf855a)",
+   "workstream": "technical",
+   "lane": "technical",
+   "source": "followup",
+   "key": "verify-live:illinois-fide-snp-explained:{SHA}",
+   "priority": 1,
+   "evidence": "accuracy PR #89 commit {SHA} (ACQ-204), packet reader check 2026-11-27",
+   "expected_tour_acquisition_value": "quality gate before publication",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-27T20:24Z",
+   "result": "Independent reader agent re-read every sentence faf855a changed in illinois-fide-snp-explained (quotecheck 22/22 FOUND, 5/5 pages readable, HFS FAQ read whole): Medicare clause now limited to Medicare; 1 Oct 2026 Medicaid quotation word for word and same scope; FIDE SNP consequence, notice and 90-day period, four helpline numbers and Emergency Medicaid quotation match HFS; reviewed/read-on/dateModified/sitemap now 27 Nov with listed 17 Nov. Corrections verified (3d922fa + faf855a).",
+   "verdicts": [
+    "Corrections verified"
+   ],
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/live/illinois-fide-snp-explained.md"
+   },
+   "done_utc": "2026-11-27T20:25Z",
+   "minutes": 2
   }
  ],
  "blocked": [],
@@ -6062,7 +6072,7 @@
   "picked": "ACQ-191 done, ACQ-192 done, ACQ-193 done, ACQ-194 done (reopened 3 sentences), ACQ-195 done, ACQ-196 done (corrections verified), ACQ-197 done",
   "why": "Worked: built, reviewed, corrected and verified a home care vs assisted living Illinois comparison and ported it into batch #90; stopped: no-worthwhile-work; resume: channel-yield sweep 00:32Z or the 05:00Z package cut"
  },
- "last_verified_action": "ACQ-204 done 2026-11-27T20:24Z: Applied the reader check of 3d922fa on #89 as faf855a: the FIDE SNP clause now follows HFS: Medicare for noncitizens outside the three groups ends 4 Jan 2027, …",
+ "last_verified_action": "ACQ-205 done 2026-11-27T20:25Z: Independent reader agent re-read every sentence faf855a changed in illinois-fide-snp-explained (quotecheck 22/22 FOUND, 5/5 pages readable, HFS FAQ read whole)…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -6774,16 +6784,17 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeGWreJzfEyfVMTtWN",
-   "utc": "2026-11-27T20:24Z",
+   "utc": "2026-11-27T20:25Z",
    "since_utc": "2026-11-27T19:57Z",
-   "productive_min": 31,
+   "productive_min": 33,
    "deliverables": [
     "correction:drafts dad7c20",
     "verification:ops/reviews/illinois-medicaid-pending-nursing-home.md",
     "publish_pr:#90 4815ca1",
     "correction:#89 3d922fa",
     "verification:ops/reviews/live/illinois-fide-snp-explained.md",
-    "correction:#89 faf855a"
+    "correction:#89 faf855a",
+    "verification:ops/reviews/live/illinois-fide-snp-explained.md"
    ]
   },
   "monitor": {
