@@ -6368,6 +6368,16 @@
     "checked_utc": "2026-11-27T20:12Z",
     "added_utc": "2026-11-27T20:12Z",
     "source": "frontier F09"
+   },
+   {
+    "id": "S10",
+    "lane": "search",
+    "class": "IndexNow announcement after each automatic publish (Bing, Yandex and other IndexNow engines)",
+    "status": "owner",
+    "note": "27 Nov (frontier F17, worker cse_014eaiSeGWreJzfEyfVMTtWN): data/indexnow-ledger.json on main: 33 URLs, all 'submitted', last entry 2026-11-18T00:28Z; since then tools/publish.py is no longer the publish step, and on main 3 live URLs were never announced and 21 have changed since their last submission. Key file f7fdf3f8...txt is live in _dist. Netlify (24 h only, 26-27 Nov): bingbot 2 requests, Googlebot 2; visitor referrers bing.com 1, google.com 1; the window since 1 Nov cannot be read (Netlify keeps 24 h). IndexNow is free (POST of changed URLs with the key already published). PROPOSED LETTERED DECISION for the next package cut (new, at most one a day): 'Let the publish-after-merge task announce the changed pages to IndexNow after each publish, the way tools/publish.py did until 18 Nov (free, no account; the key is already on the site). Yes = the supervising session adds that step to the publish task and records each submission in data/indexnow-ledger.json. 1 minute.' The worker never announces to a search engine; a yes is carried out by the supervising session (owner_decisions for 'supervisor').",
+    "checked_utc": "2026-11-27T20:14Z",
+    "added_utc": "2026-11-27T20:14Z",
+    "source": "frontier F17"
    }
   ],
   "channel_yield": [
@@ -6653,9 +6663,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeGWreJzfEyfVMTtWN",
-   "utc": "2026-11-27T20:13Z",
+   "utc": "2026-11-27T20:14Z",
    "since_utc": "2026-11-27T19:57Z",
-   "productive_min": 18,
+   "productive_min": 19,
    "deliverables": [
     "correction:drafts dad7c20",
     "verification:ops/reviews/illinois-medicaid-pending-nursing-home.md",
@@ -8329,6 +8339,17 @@
    "empty_streak": 0,
    "log": [
     {
+     "utc": "2026-11-27T20:14Z",
+     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+     "key": "frontier-f17",
+     "avenue": "frontier",
+     "lane": null,
+     "candidates": 1,
+     "added": 0,
+     "result": "Read 27 Nov 2026: main data/indexnow-ledger.json (33 URLs submitted, last 18 Nov 00:28Z), tools/publish.py (submits changed URLs by page hash; no longer the publish path), _dist on main (3 URLs never announced, 21 changed since submission); Netlify 24 h: bingbot 2 req, Googlebot 2, referrers bing.com 1 and google.com …",
+     "verdict": "act"
+    },
+    {
      "utc": "2026-11-27T20:13Z",
      "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
      "key": "frontier-f16",
@@ -9034,9 +9055,14 @@
      "evidence": "Netlify's request counts by referrer and by crawler since 1 Nov; data/indexnow-ledger.json and tools/publish.py on main (read only).",
      "output": "One lettered decision for Joseph with the evidence and the exact step proposed. The worker never announces to a search engine.",
      "why": "Ten new guides go live with the next merge, and older searchers use Bing more than most.",
-     "status": "open",
+     "status": "explored",
      "added_utc": "2026-11-27T01:18Z",
-     "added_by": "supervisor"
+     "added_by": "supervisor",
+     "verdict": "act",
+     "explored_utc": "2026-11-27T20:14Z",
+     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
+     "added": 0,
+     "result": "Read 27 Nov 2026: main data/indexnow-ledger.json (33 URLs submitted, last 18 Nov 00:28Z), tools/publish.py (submits changed URLs by page hash; no longer the publish path), _dist on main (3 URLs never announced, 21 changed since submission); Netlify 24 h: bingbot 2 req, Googlebot 2, referrers bing.com 1 and google.com 1; since-1-Nov window not readable (24 h retention). Output: one lettered decision drafted on map item S10 for the next package cut (yes = supervising session adds IndexNow submission to the publish-after-merge task). Nothing announced."
     },
     {
      "id": "F18",
