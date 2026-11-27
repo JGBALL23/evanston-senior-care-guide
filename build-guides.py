@@ -167,7 +167,9 @@ SRC = {
     # was read that day. NITA is the RTA's new name; Reduced Fare covers
     # riders 65+, Ride Free covers Benefit Access enrollees. Access Evanston:
     # 65+ (or under 65 with a disability), income up to $35,000 for one person
-    # or $60,000 for two, a choice of $5 one-way taxi coupons within Evanston
+    # (2026-11-26 audit: the $60,000-for-two figure on the City's page belongs to
+    # the wheel-tax discount, not the transportation program; the program is for
+    # zip codes 60201 and 60202), a choice of $5 one-way taxi coupons within Evanston
     # or a City-matched transportation debit card, applications at the City's
     # community centers. HACC does not run the Evanston building; it
     # subsidizes rent there (62+, very low income; the resident pays 30% of
@@ -1813,34 +1815,37 @@ GUIDES = [
         "bridge": ("Hospice rules say what is covered once a doctor certifies six months "
                "or less to live. They say nothing about which kind of care your parent "
                "needs before that point is reached."),
-        "reviewed": "2026-10-25",
+        "reviewed": "2026-11-26",
+        "listed": "2026-10-25",
         "title": "Does Medicare Pay for Hospice Care at Home?",
         "h1": "Does Medicare pay for hospice care at home?",
-        "desc": ("Medicare pays " + F["hospice_zero"] + " for covered hospice care once a "
-                 "doctor certifies six months or less to live and comfort care is chosen "
-                 "over a cure. What is and is not covered."),
+        "desc": ("Your parent pays " + F["hospice_zero"] + " for covered care from a "
+                 "Medicare-approved hospice once a doctor certifies six months or less "
+                 "to live and comfort care is chosen over a cure."),
         "intent": "coverage question",
-        "answer": ("<strong>Yes, for the hospice benefit itself.</strong> Medicare pays "
+        "answer": ("<strong>Yes, for the hospice benefit itself.</strong> Your parent pays "
                    "<strong>" + F["hospice_zero"] + "</strong> for covered hospice care "
-                   "once a hospice doctor and your parent&rsquo;s own doctor (if they have "
+                   "from a Medicare-approved hospice provider once a hospice doctor and your parent&rsquo;s own doctor (if they have "
                    "one) certify a life expectancy of six months or less, and your parent "
                    "chooses comfort care instead of treatment to cure the illness. You may "
                    "still pay <strong>up to " + F["hospice_rx_copay"] + "</strong> per "
                    "prescription for pain and symptom drugs, and <strong>" +
                    F["hospice_respite_coins"] + "</strong> coinsurance for a short inpatient "
-                   "respite stay. What it does not pay is room and board if your parent "
-                   "lives in a facility, or anything meant to cure the terminal illness."),
+                   "respite stay. What Medicare does not pay is room and board if your parent "
+                   "lives in a facility (a short inpatient or respite stay the hospice team "
+                   "arranges is the exception), or anything meant to cure the terminal "
+                   "illness."),
         "sources": srcs("mhospice", "mcosts"),
         "body": [
             ("What the hospice benefit actually pays for", [
                 "<p>Medicare describes hospice as &ldquo;end-of-life care for people with "
-                "illnesses that can&rsquo;t be cured,&rdquo; delivered under Part A. It is "
+                "illnesses that can&rsquo;t be cured&rdquo;, delivered under Part A. It is "
                 "not a different, better version of regular treatment &mdash; it is a "
                 "different goal. Once your parent elects hospice, the aim shifts from "
                 "curing the terminal illness to managing pain and symptoms and being "
                 "comfortable.</p>",
                 "<p>For <strong>covered</strong> hospice care from a Medicare-approved "
-                "hospice provider, Medicare pays <strong>" + F["hospice_zero"] +
+                "hospice provider, your parent pays <strong>" + F["hospice_zero"] +
                 "</strong>. That is the headline figure, and it is real &mdash; but "
                 "&ldquo;covered hospice care&rdquo; is a narrower category than most "
                 "families assume, and the next two sections set out exactly where its "
@@ -1860,9 +1865,10 @@ GUIDES = [
                 "<li>Your parent <strong>signs a Hospice Election Statement</strong>, "
                 "which must be completed before any hospice services begin</li></ul>",
                 "<p>Six months is not a deadline on the care itself. If your parent is "
-                "still alive after six months, hospice continues as long as a hospice "
-                "doctor or nurse practitioner recertifies eligibility after a face-to-face "
-                "visit. People do come off hospice &mdash; because they improve, or "
+                "still alive after six months, hospice continues as long as the hospice "
+                "medical director or hospice doctor recertifies that your parent is still "
+                "terminally ill, after a face-to-face meeting with the hospice doctor or "
+                "hospice nurse practitioner. People do come off hospice &mdash; because they improve, or "
                 "because they or their family decide to go back to curative treatment "
                 "&mdash; and electing hospice does not forfeit that choice.</p>",
             ]),
@@ -1888,6 +1894,16 @@ GUIDES = [
                 "for everything else. Before any service outside what the hospice team has "
                 "arranged, ask the hospice team first &mdash; Medicare is explicit that it "
                 "will not pay for it otherwise.</p>",
+                "<p><strong>If your parent is in a Medicare Advantage Plan</strong> or "
+                "another Medicare health plan, Medicare says Original Medicare will cover "
+                "everything related to the terminal illness once the hospice benefit "
+                "starts, even if your parent stays in the plan. The plan must help your "
+                "parent find a Medicare-approved hospice provider in the area, and it can "
+                "still cover services that are not part of the terminal illness and "
+                "related conditions. Your parent can stay in the plan as long as they keep "
+                "paying its premiums, and what they pay for those other services depends "
+                "on the plan and on following its coverage rules, such as using "
+                "in-network providers.</p>",
             ]),
             ("What it costs", [
                 "<p>Four cost lines, all from Medicare&rsquo;s own cost pages for the "
@@ -1902,7 +1918,8 @@ GUIDES = [
                 F["hospice_respite_coins"] + "</strong> of the Medicare-approved amount"
                 "</li>"
                 "<li><strong>Room and board</strong> in a facility: not paid by the "
-                "hospice benefit at all</li></ul>",
+                "hospice benefit, except that Medicare covers the stay when the hospice "
+                "team arranges short-term inpatient or respite care</li></ul>",
                 "<p><strong>There is a ceiling on the respite copayment.</strong> "
                 "Medicare states that for inpatient respite care, <q>your copayment "
                 "can&rsquo;t be more than the inpatient deductible amount</q>. The Part A "
@@ -2138,10 +2155,11 @@ GUIDES = [
                 "the Northern Illinois Transit Authority, formerly the RTA. Those "
                 "enrolled in the state&rsquo;s Benefit Access program can ride free "
                 "instead, after applying to the authority&rsquo;s Ride Free "
-                "program. In Evanston, the City&rsquo;s Access Evanston program "
-                "helps residents 65 or older, or over 18 with a disability. Income "
-                "must be $35,000 or less for one person, or $60,000 or less for "
-                "two. Members choose between taxi coupons that cost $5 each, one "
+                "program. In Evanston, the City&rsquo;s Access Evanston program, "
+                "for residents of the 60201 and 60202 zip codes, helps residents 65 "
+                "or older, or over 18 with a disability. For its transportation help, "
+                "income must be $35,000 or less for a one-person household; the "
+                "City&rsquo;s page gives no figure for a larger household. Members choose between taxi coupons that cost $5 each, one "
                 "per one-way ride within Evanston, and a transportation debit card. "
                 "The City "
                 "matches money loaded onto the card, up to a monthly limit. "
@@ -2567,7 +2585,8 @@ GUIDES = [
         "bridge": ("Finding help for yourself as the caregiver is a different "
                "question from knowing whether your parent's needs have moved "
                "past what any amount of help at home can cover."),
-        "reviewed": "2026-10-29",
+        "reviewed": "2026-11-26",
+        "listed": "2026-10-29",
         "title": "Illinois Family Caregiver Support Program, Explained",
         "h1": "Is there help for the caregiver, not just the parent, in Illinois?",
         "desc": ("Illinois&rsquo;s Family Caregiver Support Program serves the person "
@@ -2651,11 +2670,14 @@ GUIDES = [
                 "cost to the caregiver, a cap on respite hours, or a formal "
                 "application form. The Resource Centers page lists services "
                 "and regional contacts and nothing about eligibility or fees "
-                "at all. The Department&rsquo;s own answer to &ldquo;Where can "
-                "I find out about services nearest to me?&rdquo; is to "
-                "&ldquo;inquire at your local Caregiver Resource Center or "
-                "your local Area Agency on Aging,&rdquo; or to call the "
-                "Senior HelpLine.</p>",
+                "at all. The Department&rsquo;s caregiver questions and answers "
+                "send families, again and again, to the local Caregiver "
+                "Resource Center or Area Agency on Aging; for help with "
+                "assistive or home modification devices, for example, the "
+                "answer is to &ldquo;Inquire at your local Caregiver Resource "
+                "Center or your local Area Agency on Aging&rdquo;, and for help "
+                "paying for services it points to the Community Care Program "
+                "and the local Caregiver Resource Center.</p>",
                 "<p>This guide will not guess at any of those figures on the "
                 "Department's behalf. If a cost, an income test or a waiting "
                 "list applies in your case, that answer lives with your local "
@@ -2670,16 +2692,19 @@ GUIDES = [
                 "Center or Area Agency on Aging that covers your parent's "
                 "address, since services are organised locally rather than "
                 "from one statewide office.</p>",
-                "<p>If your parent lives outside Illinois, the Department's "
-                "own guidance is to contact the Caregiver Resource Center "
-                "nearest to <em>your parent</em>, not to you &mdash; the "
-                "service follows the older adult's location.</p>",
+                "<p>If <em>you</em> live outside Illinois and your parent lives "
+                "here, the Department's own guidance is to contact a "
+                "Caregiver Resource Center near your parent's home, or the "
+                "Senior HelpLine &mdash; the service follows the older "
+                "adult's location.</p>",
             ]),
             ("Where this fits with the rest of this site", [
                 "<p>This programme supports the person doing the caring. It "
                 "is not the same thing as Illinois paying for help at home "
-                "for the older adult, which is a separate Medicaid-funded "
-                'programme covered in <a '
+                "for the older adult through the Community Care Program, which "
+                "the Department describes as helping frail older people who "
+                "might otherwise need nursing home care to remain in their "
+                'own homes, covered in <a '
                 'href="/guides/illinois-community-care-program/">Can my '
                 "parent get paid help at home in Illinois?</a> A family can "
                 "in principle use both at once; this guide found no "
@@ -2827,7 +2852,8 @@ GUIDES = [
         "bridge": ("Knowing what rights your parent has on paper is a "
                "different question from knowing whether the facility "
                "they are in is still the right level of care for them."),
-        "reviewed": "2026-11-17",
+        "reviewed": "2026-11-26",
+        "listed": "2026-11-17",
         "title": "What Rights Does Your Parent Have in an Illinois Care Facility?",
         "h1": "What rights does your parent have in an Illinois nursing home or care facility?",
         "desc": ("What an Illinois nursing home cannot take away: your parent&rsquo;s "
@@ -2837,13 +2863,15 @@ GUIDES = [
         "answer": ("Illinois residents of nursing homes and other long-term "
                    "care facilities keep legal rights that the facility cannot "
                    "override: a say in their own care, privacy, control of "
-                   "their own money, a written contract, and protection from "
-                   "being discharged except for one of four stated reasons. "
+                   "their own money, a written contract, and a written notice "
+                   "and a right to appeal if the facility asks them to leave. "
                    "The Illinois Department on Aging sets these out in a "
                    "brochure called <em>Residents&rsquo; Rights for People in "
                    "Long-Term Care Facilities</em>. It is a summary, not the "
                    "full statute &mdash; the brochure itself says to ask your "
-                   "ombudsman for the complete list."),
+                   "ombudsman for the complete list. It speaks of long-term care "
+                   "facilities and does not say which of these rights apply in "
+                   "assisted living, so ask the ombudsman about that too."),
         "sources": srcs("idoa_resident_rights_brochure", "idoa_ombudsman"),
         "body": [
             ("Where this list comes from", [
@@ -2908,12 +2936,16 @@ GUIDES = [
                 "receive Medicaid, the facility cannot make you pay for "
                 "anything for which Medicaid pays.&rdquo;</p>",
             ]),
-            ("Being asked to leave: the only four reasons, and the right to appeal", [
+            ("Being asked to leave: the reasons the brochure lists, and the right to appeal", [
                 "<p>The brochure states a resident has the right to keep "
                 "living in their facility, and that it &ldquo;can force you "
-                "to leave&rdquo; only because the bill has not been paid, "
+                "to leave&rdquo; because the bill has not been paid, "
                 "the resident is dangerous to themselves or others, their "
                 "medical needs cannot be met there, or the facility closes. "
+                "The brochure is a summary and does not say that these are "
+                "the only reasons the law allows; if a notice gives a "
+                "reason, ask the ombudsman whether it is one the law "
+                "allows. "
                 "A written notice is required, and it must state why the "
                 "resident is being asked to move, how to appeal, and include "
                 "a self-addressed envelope to the Illinois Department of "
@@ -2955,7 +2987,10 @@ GUIDES = [
                 "Aging describes elsewhere as a free, confidential, "
                 "<strong>resident-directed</strong> advocate &mdash; reach it "
                 "through the Senior HelpLine at <strong>1-800-252-8966 (711 "
-                "TRS)</strong>. The brochure separately names the Central "
+                "TRS)</strong>. If the problem concerns a person with a "
+                "developmental disability or mental illness, the brochure "
+                "adds that you may ask Equip for Equality for help at "
+                "<strong>800-537-2632</strong>. The brochure separately names the Central "
                 "Complaint Registry, <strong>800-252-4343</strong>, as the "
                 "Illinois Department of Public Health's channel for a formal "
                 "complaint. A full walk-through of both channels, including "
@@ -3803,15 +3838,17 @@ GUIDES = [
         "reviewed": "2026-11-17",
         "title": "Does Medicare Pay for a Home Health Aide or Nurse at Home?",
         "h1": "Does Medicare pay for a home health aide or nurse at home?",
-        "desc": ("Medicare pays $0 for covered home health visits, but only for "
-                 "skilled care while a parent is homebound. A home health aide on "
-                 "its own is not covered."),
+        "desc": ("With Original Medicare, your parent pays $0 for covered home health "
+                 "visits, only for skilled care while homebound. A home health aide "
+                 "alone is not covered."),
         "intent": "coverage question",
         "answer": ("<strong>Only for skilled care, and only while your parent is "
-                   "homebound.</strong> Medicare pays <strong>$0</strong> for a "
-                   "covered home health visit from a Medicare-certified agency, but it "
-                   "will only start one when a doctor who has examined your parent in "
-                   "person orders <em>intermittent, skilled</em> nursing or therapy "
+                   "homebound.</strong> With Original Medicare, your parent pays "
+                   "<strong>$0</strong> for a covered home health visit from a "
+                   "Medicare-certified agency (in a Medicare Advantage or other "
+                   "Medicare health plan, check with the plan), but Medicare "
+                   "covers one only when a doctor or other health care provider (like "
+                   "a nurse practitioner) who has seen your parent in person orders <em>intermittent, skilled</em> nursing or therapy "
                    "and confirms your parent is homebound. A home health aide for "
                    "bathing, feeding or help walking is covered only alongside that "
                    "skilled care &mdash; Medicare does not pay for an aide, or for "

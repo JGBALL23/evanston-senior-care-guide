@@ -403,14 +403,21 @@ check("only the IL guide carries a footnote exception",
    the coupon price and the two income limits. */
 check("IL guide: no listing-site price is printed",
   !/\$\s?\d/.test(ilEv.replace("taxi coupons that cost $5 each", "")
-    .replace("must be $35,000 or less for one person, or $60,000 or less for two", "")));
+    /* 2026-11-26 accuracy audit (ops/reviews/live/independent-living-evanston.md):
+       the City's page gives $35,000 for a one-person household for the
+       transportation help; its $60,000-for-two figure is the wheel-tax
+       discount's. Re-pinned to the corrected sentence. */
+    .replace("income must be $35,000 or less for a one-person household", "")));
 check("IL guide: no list can be complete, worded as this guide's own finding",
   ilEvLc.indexOf("this guide found no state licence for independent living as such, so no state register lists every community") !== -1);
 check("IL guide: transport help is stated as the agencies state it",
   ilEvLc.indexOf("riders 65 or older can get a reduced-fare permit for cta, metra and pace from the northern illinois transit authority, formerly the rta") !== -1 &&
   /* Second fact-check, 2026-11-06: Ride Free is not automatic. */
   ilEvLc.indexOf("benefit access program can ride free instead, after applying to the authority&rsquo;s ride free program") !== -1 &&
-  ilEvLc.indexOf("helps residents 65 or older, or over 18 with a disability. income must be $35,000 or less for one person, or $60,000 or less for two") !== -1 &&
+  /* 2026-11-26 accuracy audit: Access Evanston is for zip codes 60201 and
+     60202, and the $60,000-for-two limit was the wheel-tax discount's, not the
+     transportation program's. Re-pinned to the corrected sentence. */
+  ilEvLc.indexOf("access evanston program, for residents of the 60201 and 60202 zip codes, helps residents 65 or older, or over 18 with a disability. for its transportation help, income must be $35,000 or less for a one-person household; the city&rsquo;s page gives no figure for a larger household") !== -1 &&
   /* A coupon costs the rider $5; it is not a $5 coupon. */
   ilEvLc.indexOf("members choose between taxi coupons that cost $5 each, one per one-way ride within evanston, and a transportation debit card") !== -1 &&
   ilEvLc.indexOf("the city matches money loaded onto the card, up to a monthly limit") !== -1 &&
