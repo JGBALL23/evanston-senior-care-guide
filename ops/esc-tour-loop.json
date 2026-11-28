@@ -214,19 +214,19 @@
    "found_utc": "2026-11-27T20:17Z"
   },
   {
-   "id": "ACQ-209",
-   "task": "Verify the corrections commit df19b57 on claude/medicare-page-pj01 made to does-medicare-pay-for-senior-care",
+   "id": "ACQ-210",
+   "task": "Verify the corrections commit fbb5846 on claude/medicare-page-pj01 made to does-medicare-pay-for-senior-care",
    "workstream": "search",
    "lane": "search",
    "source": "followup",
-   "key": "verify-live:does-medicare-pay-for-senior-care:df19b57",
+   "key": "verify-live:does-medicare-pay-for-senior-care:fbb5846",
    "priority": 1,
-   "evidence": "commit df19b57 (reopened items of Reader check 7131536)",
+   "evidence": "commit fbb5846 (reopened SLP sentence of Reader check df19b57)",
    "expected_tour_acquisition_value": "quality gate before the Medicare page change enters the package",
    "executor": "worker (research and preparation only)",
    "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
-   "found_utc": "2026-11-28T00:47Z"
+   "found_utc": "2026-11-28T00:50Z"
   }
  ],
  "completed": [
@@ -6159,6 +6159,34 @@
     "ref": "ops/reviews/live/does-medicare-pay-for-senior-care.md"
    },
    "done_utc": "2026-11-28T00:47Z"
+  },
+  {
+   "id": "ACQ-209",
+   "task": "Verify the corrections commit df19b57 on claude/medicare-page-pj01 made to does-medicare-pay-for-senior-care",
+   "workstream": "search",
+   "lane": "search",
+   "source": "followup",
+   "key": "verify-live:does-medicare-pay-for-senior-care:df19b57",
+   "priority": 1,
+   "evidence": "commit df19b57 (reopened items of Reader check 7131536)",
+   "expected_tour_acquisition_value": "quality gate before the Medicare page change enters the package",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-28T00:47Z",
+   "result": "Independent reader (agent in this session) checked df19b57: description year, SLP personal needs allowance and PACE Evanston zip codes match their sources; reopened the SLP cost sentence (Medicaid's share stated for every resident; HFS scopes the patient liability to an individual covered under Medicaid and lets providers charge private-pay residents a different rate). Corrected in fbb5846 after re-reading the HFS SLP fact sheet; check queued.",
+   "verdicts": [
+    "Reopened"
+   ],
+   "sources": [
+    "ops/reviews/live/does-medicare-pay-for-senior-care.md"
+   ],
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/live/does-medicare-pay-for-senior-care.md"
+   },
+   "done_utc": "2026-11-28T00:50Z",
+   "minutes": 4
   }
  ],
  "blocked": [],
@@ -6169,7 +6197,7 @@
   "picked": "none (projects PJ01-PJ05 stepped; sweep channel-yield +0)",
   "why": "Worked: 4 growth projects advanced (PJ01 Medicare SERP study, PJ02 press plan, PJ03 FB calendar, PJ04 decision, PJ05 funnel); stopped: no-worthwhile-work; resume: package cut 05:00Z"
  },
- "last_verified_action": "ACQ-207 done 2026-11-28T00:47Z: Independent reader (agent in this session) checked 7131536: C1, C3, C4, C5, C6 eligibility and home-health cost addition match their sources; reopened three: d…",
+ "last_verified_action": "ACQ-209 done 2026-11-28T00:50Z: Independent reader (agent in this session) checked df19b57: description year, SLP personal needs allowance and PACE Evanston zip codes match their sources; reo…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -6881,18 +6909,15 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSauSkeGhjrd8SZfMJD",
-   "utc": "2026-11-28T00:47Z",
+   "utc": "2026-11-28T00:50Z",
    "since_utc": "2026-11-28T00:27Z",
-   "productive_min": 8,
+   "productive_min": 12,
    "deliverables": [
     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
     "verification:ops/reviews/live/illinois-medicaid-long-term-care.md",
+    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md"
-   ],
-   "current": {
-    "what": "project:PJ02",
-    "since_utc": "2026-11-28T00:43Z"
-   }
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-27T18:25Z"
