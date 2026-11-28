@@ -1078,10 +1078,12 @@ GUIDES = [
                 "<li><strong>Illinois Medicaid&rsquo;s Supportive Living Program</strong> "
                 "is for people 65 or older, or 22 to 64 with a physical disability, who "
                 "would otherwise need nursing facility care. HFS says every resident has a "
-                "monthly room and board charge, and most also pay a share of the cost of "
-                "care from their income (the group care credit or patient liability); "
-                "Medicaid pays the remainder. A Medicaid-eligible resident keeps " +
-                F["pna"] + " a month as a personal needs allowance. See "
+                "monthly room and board charge. A resident covered by Medicaid also has a "
+                "patient liability (group care credit) toward the cost of care, worked out "
+                "from their income, and Medicaid pays the remainder; a Medicaid-eligible "
+                "resident keeps " + F["pna"] + " a month as a personal needs allowance. "
+                "For a resident who pays privately, HFS says certified providers can "
+                "charge a different rate. See "
                 '<a href="/guides/illinois-supportive-living-program/">Illinois Supportive '
                 "Living Program, explained</a></li>"
                 "<li><strong>PACE</strong>, which Medicare.gov describes as a Medicare "
