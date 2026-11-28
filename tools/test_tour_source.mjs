@@ -198,6 +198,51 @@ for (const [query, want] of ARRIVALS) {
   await v.ctx.close();
 }
 
+/* 8. The tour-request click keeps the arrival tag. "Ask about a tour here"
+      is /?tour=form#plan-visit, a full reload; the second load must still
+      count under the arrival channel, not "direct". The exact P-1120-01
+      landing URL is used. Nothing is submitted. */
+async function clickTourAsk(query, opts) {
+  const v = await visit(query, opts);
+  const landings = [];
+  v.page.on("request", (r) => {
+    const u = new URL(r.url());
+    if (u.pathname === "/t/landed.txt") landings.push(u.searchParams.get("s"));
+  });
+  await settle(v.page);
+  await v.page.click("#tour .tour-ask a");
+  await v.page.waitForLoadState("load");
+  await settle(v.page);
+  const url = new URL(v.page.url());
+  return { v, url, landings };
+}
+{
+  const { v, url, landings } = await clickTourAsk("?ref=fb-wnk-1120#tour");
+  check("tour ask from tagged landing keeps ref",
+    url.searchParams.get("ref") === "fb-wnk-1120" && url.searchParams.get("tour") === "form" && url.hash === "#plan-visit", url.href);
+  check("tour form load counts under the arrival tag", landings.join() === "fb-wnk-1120", JSON.stringify(landings));
+  check("tour form renders after the tagged click",
+    await v.page.evaluate(() => !!document.getElementById("plan-visit")));
+  check("tagged tour click: no page errors", v.errors.length === 0, v.errors.join(" | "));
+  await v.ctx.close();
+}
+{
+  const { v, url } = await clickTourAsk("#tour");
+  check("direct arrival: tour ask link unchanged (no ref added)",
+    !url.searchParams.has("ref") && url.search === "?tour=form", url.href);
+  await v.ctx.close();
+}
+{
+  const { v, url } = await clickTourAsk("#tour", { referer: "https://www.example-referrer.org/p" });
+  check("referrer-derived channel carried as the same token", url.searchParams.get("ref") === "example-referrer", url.href);
+  await v.ctx.close();
+}
+{
+  const { v, url } = await clickTourAsk("?utm_source=" + encodeURIComponent("Face Book<x>") + "#tour");
+  check("carried tag is the sanitised token only", url.searchParams.get("ref") === "facebookx", url.href);
+  await v.ctx.close();
+}
+
 await browser.close();
 server.close();
 console.log(`\n${pass} passed, ${fail} failed`);
