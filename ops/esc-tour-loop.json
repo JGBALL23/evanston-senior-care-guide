@@ -6479,10 +6479,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-28T18:09Z",
-  "event": "Make controller: completion of cse_014eaiSeHRfvS7seeirHN4eT",
-  "picked": "none",
-  "why": "Worked: visitors-lens project discovery found no project (28 genuine visitors in 7 days; every landing guide has a next step); stopped: no-worthwhile-work; resume: next lens or 18:46Z cooldowns"
+  "utc": "2026-11-28T18:13Z",
+  "event": "Make controller: completion of cse_014eaiScuivKeRhjfyzjYVBX",
+  "picked": "ACQ-221 waiting_on_data (added); ACQ-212 note updated",
+  "why": "Worked: calendar-lens project discovery found no new project (every dated moment to 11 Feb has an asset or queued step); queued ACQ-221 Medigap caveat for the Jan-Mar MA window; stopped: no-worthwhile-work; resume: planner and publish-ready sweep at 18:46Z"
  },
  "last_verified_action": "ACQ-220 done 2026-11-28T17:56Z: Independent reader (agent in cse_014eaiSciSmPDNJW5sH6Zuua) checked commit 8cfea0f (recommended additions: supervisor 12-hour training, dementia program disclos…",
  "last_stop": {
@@ -6563,7 +6563,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Next: project discovery lens calendar (then assets, benchmarks); planner cooldown and publish-ready sweep at 18:46Z; daily package cut 29 Nov 05:00Z. Waiting on Joseph: package merge #91, ACQ-007 and ACQ-212 decisions.",
+ "next_discovery": "Next: project discovery lenses assets, then benchmarks; planner cooldown and publish-ready sweep at 18:46Z; daily package cut 29 Nov 05:00Z. Waiting on Joseph: package merge #91 (ACQ-221 Medigap caveat waits for it), ACQ-007 and ACQ-212 decisions (tax guide: a yes by about 10 Jan keeps it before tax season).",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -7204,18 +7204,83 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiSbq7aqFJ2cxiVJ6Ley",
-   "utc": "2026-11-28T18:13Z",
-   "since_utc": "2026-11-28T18:10Z",
-   "productive_min": 3,
-   "deliverables": [
-    "discovery:calendar no project"
-   ]
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-28T17:43Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSbq7aqFJ2cxiVJ6Ley",
+    "start_utc": "2026-11-28T18:10Z",
+    "end_utc": "2026-11-28T18:13Z",
+    "launch": "completion of cse_014eaiScuivKeRhjfyzjYVBX",
+    "outcome": "Worked: calendar-lens project discovery found no new project (every dated moment to 11 Feb has an asset or queued step); queued ACQ-221 Medigap caveat for the Jan-Mar MA window; stopped: no-worthwhile-work; resume: planner and publish-ready sweep at 18:46Z",
+    "done": 0,
+    "changed": 2,
+    "tasks": "ACQ-221 waiting_on_data (added); ACQ-212 note updated",
+    "next": "yes",
+    "wake_minutes": null,
+    "next_due_utc": "2026-11-28T18:46Z",
+    "plan_due": false,
+    "saturated": [
+     "demand"
+    ],
+    "budget_used_hours_24h": 2.7,
+    "budget_used_hours_7d": 9.1,
+    "productive_min": 3,
+    "deliverables": [
+     "discovery:calendar no project"
+    ],
+    "stop_reason": "no-worthwhile-work",
+    "considered": "project discovery lens calendar: recorded, no project (A queued as ACQ-221, B blocked on Joseph via ACQ-212, C queued ACQ-043/076/201/213); event waits ACQ-012/017/102 (PRs #81/#85/#89 still open), ACQ-007/212 waiting on Joseph; monitor not due (last 17:43Z); plan cooling until 18:46Z; sweep publish-ready 18:46Z, asset-gaps 19:28Z, search-presence 29 Nov 00:50Z; demand-questions and draft-review wait on Joseph; frontier list empty; no project step due; package cut done today, next 29 Nov 05:00Z; fallback replaced by the discovery assignment (addendum 28 Nov 16:30Z)",
+    "resume_when": "2026-11-28T18:46Z planner cooldown and publish-ready sweep; next discovery lenses assets and benchmarks; a merge of #91",
+    "sweep_due_left": [],
+    "sessions_24h": 16,
+    "handoff": null,
+    "make_ops": null,
+    "package": {
+     "due_at_close": false,
+     "recut_due_at_close": false,
+     "skipped": null,
+     "done_today": true
+    },
+    "backlog_discovery": {
+     "explorations": 0,
+     "avenue_classes": [],
+     "tasks_added": 0,
+     "concluded": {
+      "utc": "2026-11-28T18:13Z",
+      "run": "cse_014eaiSbq7aqFJ2cxiVJ6Ley",
+      "covered_by": "project discovery",
+      "rest_hours": 0
+     }
+    },
+    "frontier": {
+     "explored": [],
+     "open_left": 0
+    },
+    "project_discovery": {
+     "recorded": [
+      {
+       "lens": "calendar",
+       "project": null
+      }
+     ],
+     "lenses_due_left": [
+      "assets",
+      "benchmarks"
+     ],
+     "waiting_for": null
+    },
+    "projects_stepped": 0,
+    "next_work": [
+     "project discovery: lens assets, benchmarks",
+     "backlog discovery"
+    ],
+    "discovery_room": true
+   },
    {
     "run": "cse_014eaiScuivKeRhjfyzjYVBX",
     "start_utc": "2026-11-28T18:08Z",
@@ -9040,7 +9105,7 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-28T18:09Z",
+   "written_utc": "2026-11-28T18:13Z",
    "eligible_now": 2,
    "next_due": [
     {
@@ -9103,7 +9168,7 @@
    "note": "Cut twice on 25 Nov by the supervising chat; re-cut 26 Nov 06:31Z by the ESCG worker (cse_014eaiSe8SBqppdHD1M3fw41): #90 now 10 guides (40e9da0), #92 added; #89 through c964f99 by 06:47Z (6876bfd, 64feb14, c964f99 verified by independent readers in the same session). 26 Nov 10:03Z, supervising chat: one housekeeping commit 2d84762 on the package branch (the temporary file .cite-count of check-citations.sh, committed by accident in #89's d7724d0, removed and added to .gitignore; no page, test or script changes; rebuild clean and all eleven suites pass on 2d84762). #89 itself is unchanged at c964f99. 27 Nov 06:29Z re-cut by the ESCG worker (cse_014eaiSeY3WV1Qzjy2ZNkkuN, ACQ-169): #89's verified commits 99cc346..9d57bf0 merged (a523b5e); rebuild clean, all eleven suites pass; title and body rewritten (number unchanged). 27 Nov 2026-11-27T09:48Z second cut by the supervising chat (the worker had finished them after its 06:29Z cut and left them for the 28 Nov package, although the window was open): #90's eleventh guide (eea57b7, holiday visits), #89's commit 166f2d1 and #93 (Medicare plan choice before 7 Dec) merged (eca3b23). #93 collided with the batch in build-guides.py only where both add entries at the end of SRC; both sets kept unchanged. Rebuild clean, all eleven suites pass, the three touched pages compared with their verified branches; title and body rewritten (number unchanged). 28 Nov 2026-11-28T05:16Z cut by the ESCG worker (cse_014eaiSerKbhFgkHuQX9sSV1, ACQ-211): #90 head 4815ca1 (12th guide home-care-or-assisted-living-illinois; Medicaid-pending update), #89 to head faf855a (FIDE SNP, verified), #94 (sourcing page), #95 (Medicaid LTC 2027 retro), #96 (Medicare page PJ01, verified) merged (2b9e9cf). Two SOURCES-LIST UNIONs in SRC (#90, #96); #94 conflicted in _dist only, rebuilt. Rebuild clean, all eleven suites pass, touched pages compared with their branches; title and body rewritten (number unchanged).",
    "owner_actions": []
   },
-  "next_discovery": "Monitor due 17:58Z, then the publish-ready sweep and planner at 18:46Z and backlog discovery from 20:39Z. Waiting on Joseph: merge of package #91 (13 guides incl. the new moving-parent guide, second cut 08:39Z); ACQ-007 and ACQ-212 decisions.",
+  "next_discovery": "Next: project discovery lenses assets, then benchmarks; planner cooldown and publish-ready sweep at 18:46Z; daily package cut 29 Nov 05:00Z. Waiting on Joseph: package merge #91 (ACQ-221 Medigap caveat waits for it), ACQ-007 and ACQ-212 decisions (tax guide: a yes by about 10 Jan keeps it before tax season).",
   "addenda": [
    {
     "utc": "2026-11-27T18:55Z",
