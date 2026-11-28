@@ -168,8 +168,8 @@
    "score": 3.0,
    "status": "waiting_on_data",
    "found_utc": "2026-11-26T01:19Z",
-   "not_before_utc": "2026-11-28T06:30Z",
-   "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in 210 ILCS 9/90 (SRC ilcs_al_90 on main) and 77 Ill. Adm. Code 295 on ilga.gov; ilga.gov unreadable (curl TLS 000, WebFetch 503). 2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 2: ilga.gov still unreadable (curl exit 60 TLS, WebFetch 503 on fulltext.asp DocName=021000090K90). A third postponement goes into the package as a lettered decision. 2026-11-27T18:36Z cse_014eaiSbgkYkmzevMK2yQoyV (early try, not a postponement): curl www.ilga.gov/ilga.gov exit 60 (TLS chain), beta.ilga.gov refused by the session's egress proxy (CONNECT 502), WebFetch 503 on Documents/legislation/ilcs/documents/021000090K90.htm. Not routed around."
+   "not_before_utc": "2026-11-29T06:45Z",
+   "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in 210 ILCS 9/90 (SRC ilcs_al_90 on main) and 77 Ill. Adm. Code 295 on ilga.gov; ilga.gov unreadable (curl TLS 000, WebFetch 503). 2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 2: ilga.gov still unreadable (curl exit 60 TLS, WebFetch 503 on fulltext.asp DocName=021000090K90). A third postponement goes into the package as a lettered decision. 2026-11-27T18:36Z cse_014eaiSbgkYkmzevMK2yQoyV (early try, not a postponement): curl www.ilga.gov/ilga.gov exit 60 (TLS chain), beta.ilga.gov refused by the session's egress proxy (CONNECT 502), WebFetch 503 on Documents/legislation/ilcs/documents/021000090K90.htm. Not routed around. 2026-11-28T06:45Z cse_014eaiScD9A2D9TRc6UYLPwd: postponement 3: curl www.ilga.gov fulltext exit 60 (TLS), WebFetch 503. Third postponement: next package cut carries one lettered decision (ilga.gov unreadable from worker sessions; supervising session or operator can fetch 210 ILCS 9/90 and 77 Ill. Adm. Code 295)."
   },
   {
    "id": "ACQ-164",
@@ -189,8 +189,8 @@
    "status": "waiting_on_data",
    "found_utc": "2026-11-26T17:55Z",
    "waiting_for": "PR #91 (or #90) merged, so that a card change no longer collides with the open publish batch in the built /guides/ index",
-   "not_before_utc": "2026-11-28T06:30Z",
-   "note": "2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 1: #91 and #90 still open (checked 06:27Z), so the card change would still collide with the publish batch."
+   "not_before_utc": "2026-11-29T06:45Z",
+   "note": "2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 1: #91 and #90 still open (checked 06:27Z), so the card change would still collide with the publish batch. 2026-11-28T06:45Z cse_014eaiScD9A2D9TRc6UYLPwd: postponement 2: #91, #90 still open (gh api 06:44Z, mergeable clean)."
   },
   {
    "id": "ACQ-201",
