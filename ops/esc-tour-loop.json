@@ -6786,10 +6786,7 @@
    "holder": "cse_014eaiSeLUyuyJkYCTLw4xJi",
    "utc": "2026-11-28T00:20Z",
    "since_utc": "2026-11-28T00:12Z",
-   "current": {
-    "what": "project:PJ05",
-    "since_utc": "2026-11-28T00:20Z"
-   }
+   "productive_min": 1
   },
   "monitor": {
    "last_utc": "2026-11-27T18:25Z"
@@ -8371,9 +8368,9 @@
     "evidence": "cloud.json metrics (per_tag) and scoreboard; state.json actions (the operator's posting plan and cap); opportunity_map channel_yield.",
     "output": "The final post text for the operator's next slot in that channel (step 8b), a similar venue added to the map with its own evidence, or the verdict that the channel is at its cap. Deliverable type post_text or map_item.",
     "why": "Local posts are the only channel with measured visitors so far.",
-    "last_checked_utc": "2026-11-26T00:32Z",
-    "next_check_utc": "2026-11-28T00:32Z",
-    "last_result": "Last 7 days (cloud.json per_tag, scoreboard to 25 Nov): Facebook is the only channel with genuine visitors: fb-rp-1122 7, fb-evsk-1125 3 (25 Nov, Evanston/Skokie group, template C), fb-glv-1124 1 (declined by admins); email tags em-1118j/em-1120a/em-1125a/em-1125b 0 genuine (beacons at send time on…",
+    "last_checked_utc": "2026-11-28T00:20Z",
+    "next_check_utc": "2026-11-30T00:20Z",
+    "last_result": "cloud.json daily 21-27 Nov: facebook 17 of 28 genuine visitors (fb-rp-1122 7, fb-nsh-1126 5, fb-evsk-1125 3, fb-glv-1124 1), search 3-4, email 0 (em-1125a/b beacons were operator checks), referral 0; 0 tour-form views or inquiries from any channel. Next authorized step for the only producing channe…",
     "last_added": 0
    },
    {
@@ -8483,6 +8480,7 @@
    }
   ],
   "sweep_log": [
+   "2026-11-28T00:20Z channel-yield +0: cloud.json daily 21-27 Nov: facebook 17 of 28 genuine visitors (fb-rp-1122 7, fb-nsh-1126 5, fb-evsk-1125 3, fb-glv-1124 1), search 3-4, email 0 (em-1125a/b be…",
    "2026-11-27T19:21Z asset-gaps +0: Answered by this session's build plan pass minutes earlier on the same evidence (Search Console 25 Nov read, DEMAND.md, slugs on main and drafts, CareScout 202…",
    "2026-11-27T19:21Z live-accuracy +0: 27 Nov 19:2xZ: 31/32 live guides have packets in ops/reviews/live/. The only one without, check-illinois-inspection-records, cites 9 ilga.gov pages: quotecheck…",
    "2026-11-27T18:31Z publish-ready +0: 11 worker pages on drafts not on main; all 11 qualify and all 11 are in open batch #90 (head eea57b7). Body text, h1 and short answer identical between batch a…",
