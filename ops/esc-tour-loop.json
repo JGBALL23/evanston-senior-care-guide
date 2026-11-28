@@ -6227,10 +6227,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-28T00:52Z",
+  "utc": "2026-11-28T05:16Z",
   "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
-  "picked": "ACQ-206 done, ACQ-207 done, ACQ-208 done, ACQ-209 done, ACQ-210 done",
-  "why": "Worked: PJ01 Medicare page and PJ04 retro-Medicaid sentence built, reader-verified, review PRs #96 and #95; PJ02 tip A prepared; stopped: no-worthwhile-work; resume: package cut 05:00Z"
+  "picked": "ACQ-211 done",
+  "why": "Worked: cut the 28 Nov package on #91 (+#94 #95 #96, #90 and #89 to their heads; all suites pass); stopped: no-worthwhile-work; resume: monitor and due tasks at 06:25Z"
  },
  "last_verified_action": "ACQ-211 done 2026-11-28T05:16Z: Cut the 28 Nov package on the open #91 (number kept): merged #90 head 4815ca1 (12 guides), #89 to its head faf855a (every commit verified), #94 sourcing page, …",
  "last_stop": {
@@ -6311,7 +6311,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Next: the 28 Nov package cut at 05:00Z (PR #95 after #90, PR #96 Medicare page, both reader-verified), monitor 06:25Z, PJ02 tip B 06:30Z. Waiting on Joseph: package #91.",
+ "next_discovery": "Next due: monitor 06:25Z, sweep angles draft-review 06:26Z and publish-ready 06:31Z, ACQ-118 (build rate-increase guide) and ACQ-164 and a project step at 06:30Z; backlog discovery rests until 08:26Z; frontier list answered (20 in 24h). Waiting on Joseph: merge of package #91 (re-cut 28 Nov, 2b9e9cf), which unblocks ACQ-012, ACQ-017, ACQ-102, ACQ-164.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -6943,18 +6943,57 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiSerKbhFgkHuQX9sSV1",
-   "utc": "2026-11-28T05:16Z",
-   "since_utc": "2026-11-28T05:12Z",
-   "productive_min": 0,
-   "deliverables": [
-    "publish_pr:#91 2b9e9cf"
-   ]
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-27T18:25Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSerKbhFgkHuQX9sSV1",
+    "start_utc": "2026-11-28T05:12Z",
+    "end_utc": "2026-11-28T05:16Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: cut the 28 Nov package on #91 (+#94 #95 #96, #90 and #89 to their heads; all suites pass); stopped: no-worthwhile-work; resume: monitor and due tasks at 06:25Z",
+    "done": 1,
+    "changed": 2,
+    "tasks": "ACQ-211 done",
+    "next": "no",
+    "wake_minutes": 39,
+    "next_due_utc": "2026-11-28T06:25Z",
+    "plan_due": false,
+    "saturated": [],
+    "budget_used_hours_24h": 2.5,
+    "budget_used_hours_7d": 8.0,
+    "productive_min": 0,
+    "deliverables": [
+     "publish_pr:#91 2b9e9cf"
+    ],
+    "stop_reason": "no-worthwhile-work",
+    "considered": "package: cut (ACQ-211); ready tasks: none; monitor: not due until 06:25Z (last 18:25Z); Search Console read 2026-11-25T20:35Z in payload already recorded; plan: not due, no plannable lanes; sweep: none due (draft-review 06:26Z, publish-ready 06:31Z); projects: none due (next step 06:30Z); frontier: not due (20 answered in 24h, list empty); backlog fallback: resting until 08:26Z; ACQ-118, ACQ-164 not before 06:30Z; ACQ-012/017/102/164 wait on #91 merge",
+    "resume_when": "2026-11-28T06:25Z monitor, then the angles, tasks and project step due 06:26-06:31Z; or Joseph's merge of #91",
+    "sweep_due_left": [],
+    "sessions_24h": 8,
+    "handoff": null,
+    "make_ops": null,
+    "package": {
+     "due_at_close": false,
+     "recut_due_at_close": false,
+     "skipped": null,
+     "done_today": true
+    },
+    "backlog_discovery": {
+     "explorations": 0,
+     "avenue_classes": [],
+     "tasks_added": 0,
+     "concluded": null
+    },
+    "frontier": {
+     "explored": [],
+     "open_left": 0
+    }
+   },
    {
     "run": "cse_014eaiSauSkeGhjrd8SZfMJD",
     "start_utc": "2026-11-28T00:27Z",
@@ -8169,13 +8208,9 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-28T00:52Z",
+   "written_utc": "2026-11-28T05:16Z",
    "eligible_now": 0,
    "next_due": [
-    {
-     "utc": "2026-11-28T05:00Z",
-     "what": "daily package cut"
-    },
     {
      "utc": "2026-11-28T06:25Z",
      "what": "monitor"
@@ -8195,6 +8230,10 @@
     {
      "utc": "2026-11-28T06:30Z",
      "what": "project step"
+    },
+    {
+     "utc": "2026-11-28T06:31Z",
+     "what": "sweep angle publish-ready"
     }
    ]
   },
