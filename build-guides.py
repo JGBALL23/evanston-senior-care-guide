@@ -529,6 +529,8 @@ SRC = {
                'https://www.medicare.gov/what-medicare-covers/what-part-a-covers'),
     "mpartd": ("Medicare.gov — What's Medicare drug coverage (Part D)?",
                'https://www.medicare.gov/drug-coverage-part-d'),
+    "cms_bp7_hh": ('CMS — Medicare Benefit Policy Manual, Chapter 7, Home Health Services (section 30.1.2, Patient\'s Place of Residence)',
+                   'https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/bp102c07.pdf'),
     "mcompare_ma": ('Medicare.gov — Compare Original Medicare & Medicare Advantage',
                     'https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/your-coverage-options/compare-original-medicare-medicare-advantage'),
 }
@@ -760,21 +762,25 @@ GUIDES = [
                "care; it does not decide it."),
         "title": "Does Medicare Pay for Assisted Living or Nursing Home Care?",
         "h1": "Does Medicare pay for assisted living or nursing home care?",
-        "desc": ("Medicare pays $0 toward assisted living but still helps with medical "
-                 "care there. A qualifying skilled nursing stay is " + F["snf_coins"] +
-                 " a day for days 21 to 100 in 2026."),
+        "desc": ("Medicare pays $0 toward assisted living but helps with medical care "
+                 "there. Original Medicare charges " + F["snf_coins"] + " a day for days "
+                 "21-100 of a skilled nursing stay."),
         "intent": "coverage question",
         "answer": ("<strong>Medicare pays $0 toward assisted living</strong>, and it "
                    "does not pay for <strong>long-term custodial</strong> nursing home "
                    "care. It does still help pay for your parent&rsquo;s covered medical "
-                   "care while they live there. It pays only for short-term "
-                   "<em>skilled</em> nursing care after a qualifying hospital stay: days "
-                   "1&ndash;20 cost <strong>$0</strong>, days 21&ndash;100 cost "
-                   "<strong>" + F["snf_coins"] + " each day</strong> in 2026, and from "
-                   "day 101 you pay everything."),
+                   "care while they live there. For nursing home care, Original Medicare "
+                   "pays only for short-term <em>skilled</em> nursing care after a "
+                   "qualifying hospital stay: days 1&ndash;20 cost <strong>$0</strong> "
+                   "after the Part A deductible (" + F["partA_deductible"] + " in 2026, "
+                   "unless already paid in the same benefit period), days 21&ndash;100 "
+                   "cost <strong>" + F["snf_coins"] + " each day</strong> in 2026, and "
+                   "from day 101 you pay everything. A Medicare Advantage plan may charge "
+                   "a copayment during the first 20 days, so check with the plan."),
         "sources": srcs("mcosts", "msnf", "jimmo", "mltc", "mstatus", "mstatusfast",
                         "mjoin", "msep", "mpartb", "mparta", "mpartd", "mhha",
-                        "mhospice", "medicare_cog", "mcompare_ma", "mpace", "hfs_slf"),
+                        "mhospice", "medicare_cog", "mcompare_ma", "mpace", "hfs_slf",
+                        "cms_bp7_hh"),
         "body": [
             ("The distinction that decides everything", [
                 "<p>Medicare divides care into <em>skilled</em> and <em>custodial</em>, "
@@ -805,7 +811,8 @@ GUIDES = [
                 "&ldquo;including most long-term care&rdquo;, and that non-medical "
                 "long-term care can be given &ldquo;in an assisted living facility&rdquo;. "
                 "Your parent&rsquo;s medical care is a separate question. Under Original "
-                "Medicare, Medicare.gov lists:</p>",
+                "Medicare (Part A and Part B), and a Medicare drug plan if your parent has "
+                "one, Medicare.gov lists:</p>",
                 "<ul class=\"res__list\">"
                 "<li><strong>Doctor visits and other medical care (Part B).</strong> "
                 "Part B covers medically necessary services, meaning services or supplies "
@@ -821,7 +828,9 @@ GUIDES = [
                 "<li><strong>Prescriptions (Part D).</strong> Medicare drug coverage "
                 "&ldquo;helps pay for the brand-name and generic drugs you need.&rdquo; "
                 "It is optional and offered by private companies approved by Medicare, "
-                "and each plan decides which drugs and pharmacies it covers.</li>"
+                "and each plan decides which drugs and pharmacies it covers. With "
+                "Original Medicare, your parent joins a separate Medicare drug plan; "
+                "Medicare.gov says most Medicare Advantage plans include Part D.</li>"
                 "<li><strong>Home health (Parts A and B).</strong> Part-time or "
                 "intermittent skilled nursing and therapy for someone who is "
                 "&ldquo;homebound&rdquo; in Medicare&rsquo;s sense. The same page says "
@@ -830,7 +839,15 @@ GUIDES = [
                 "bathroom), when this is the only care you need&rdquo;. The conditions "
                 "are in "
                 '<a href="/guides/medicare-home-health-care/">Does Medicare pay for a '
-                "home health aide or nurse at home?</a></li>"
+                "home health aide or nurse at home?</a> Medicare.gov&rsquo;s page speaks "
+                "of care at home. CMS&rsquo;s Medicare Benefit Policy Manual says Medicare "
+                "will cover reasonable and necessary home health care for someone living "
+                "in an assisted living facility that is not primarily engaged in providing "
+                "medical or skilled nursing services, but it is not a substitute for "
+                "services the facility is required to provide by law or that are included "
+                "in its base contract. Under Original Medicare, Medicare.gov says you pay "
+                "nothing for covered home health services; a parent in a Medicare "
+                "Advantage plan should check with the plan.</li>"
                 "<li><strong>Hospice (Part A).</strong> Medicare.gov says: &ldquo;You can "
                 "usually get Medicare-approved hospice care in your home or other facility "
                 "where you live, like an assisted living facility or a nursing "
@@ -1048,8 +1065,9 @@ GUIDES = [
                 "separate visit to review a person&rsquo;s cognitive function: Medicare.gov "
                 "says it covers a visit with a health care provider to &ldquo;establish or "
                 "confirm a diagnosis like dementia or Alzheimer's disease, and develop a "
-                "care plan.&rdquo; Medicare.gov gives the cost as 20% of the "
-                "Medicare-approved amount, after the Part B deductible.</p>",
+                "care plan.&rdquo; Under Original Medicare, Medicare.gov gives the cost as "
+                "20% of the Medicare-approved amount, after the Part B deductible; a "
+                "Medicare Advantage plan may have different out-of-pocket costs.</p>",
             ]),
             ("Does Medicare pay for assisted living in Illinois?", [
                 "<p>No. Medicare.gov&rsquo;s long-term care page gives its answer with no "
@@ -1058,13 +1076,20 @@ GUIDES = [
                 "care insurance. In Illinois, these are the programmes to look at:</p>",
                 "<ul class=\"res__list\">"
                 "<li><strong>Illinois Medicaid&rsquo;s Supportive Living Program</strong> "
-                "pays for care in approved Supportive Living settings. See "
+                "is for people 65 or older, or 22 to 64 with a physical disability, who "
+                "would otherwise need nursing facility care. For a resident on Medicaid, "
+                "Medicaid pays for the services; HFS says every resident has a monthly "
+                "room and board charge, and a Medicaid-eligible resident contributes all "
+                "but " + F["pna"] + " a month of income to the provider for lodging and "
+                "meals. See "
                 '<a href="/guides/illinois-supportive-living-program/">Illinois Supportive '
                 "Living Program, explained</a></li>"
                 "<li><strong>PACE</strong>, which Medicare.gov describes as a Medicare "
-                "and/or Medicaid programme that helps eligible older adults who need "
-                "nursing home-level care meet their health care needs in the community. "
-                "See "
+                "and/or Medicaid programme, available in some states, that helps eligible "
+                "older adults who need nursing home-level care meet their health care "
+                "needs in the community. Your parent must live in the service area of a "
+                "PACE organisation, and not every Illinois zip code has one; the guide "
+                "shows how to check. See "
                 '<a href="/guides/illinois-pace-program/">What is PACE, and can a parent '
                 "in Evanston use it?</a></li>"
                 "<li><strong>Illinois Medicaid long-term care</strong>, for a parent who "
