@@ -6988,7 +6988,7 @@
    "holder": "cse_014eaiSatXS1q27vkUDbsXyD",
    "utc": "2026-11-28T08:15Z",
    "since_utc": "2026-11-28T08:12Z",
-   "productive_min": 1
+   "productive_min": 2
   },
   "monitor": {
    "last_utc": "2026-11-28T05:58Z"
@@ -9019,6 +9019,16 @@
    "exhausted_until_utc": "",
    "empty_streak": 0,
    "log": [
+    {
+     "utc": "2026-11-28T08:15Z",
+     "run": "cse_014eaiSatXS1q27vkUDbsXyD",
+     "key": "search-rung2-elder-abuse-msp-results",
+     "avenue": "search",
+     "lane": null,
+     "candidates": 3,
+     "added": 0,
+     "result": "Web results read 28 Nov 2026 for 'elderly abuse hotline illinois' (ilaging APS and abuse-reporting pages, Illinois Legal Aid, AG senior advocacy, Chicago FSS lead) and 'illinois medicare savings program qmb slmb income limits' (IDoA 2026 MSP chart, HFS 3757/3352, Illinois Legal Aid, NCOA 2026 MSP chart). Gap 1: SLP co…"
+    },
     {
      "utc": "2026-11-28T08:14Z",
      "run": "cse_014eaiSatXS1q27vkUDbsXyD",
