@@ -256,22 +256,22 @@
    "not_before": "Data: HFS 2027 SLP room-and-board notice (last year issued 26 Nov) and the 2027 Extra Help cap on medicare.gov/medicare-savings-programs; neither posted on 28 Nov 2026. Same December window as ACQ-043."
   },
   {
-   "id": "ACQ-215",
-   "task": "Review moving-parent-to-illinois-from-another-state under the review rules",
+   "id": "ACQ-216",
+   "task": "Apply recommended additions 1 and 2 of ops/reviews/moving-parent-to-illinois-from-another-state.md to the drafts page (AABD as the group an older parent applies under and the screening's household-and-income scope, HFS Introduction to Medicaid; federal Medigap guaranteed issue right when a parent leaves a Medicare Advantage Plan for Original Medicare after moving out of its area, Medicare.gov publication 02110), one commit under Build's checks; then a verify task for an independent reader. Additions 3 (ilga.gov, not an allowed host) and 4 (2014 backdating figure superseded for 2027) are not applied.",
    "workstream": "build",
    "lane": "build",
    "source": "followup",
-   "key": "review:moving-parent-to-illinois-from-another-state",
+   "key": "improve:moving-parent-to-illinois-from-another-state:additions",
    "priority": 1,
-   "evidence": "build commit drafts 779830c (cse_014eaiSatXS1q27vkUDbsXyD)",
-   "expected_tour_acquisition_value": "quality gate before publication",
-   "executor": "worker (research and preparation only)",
-   "done_when": "packet at ops/reviews/moving-parent-to-illinois-from-another-state.md with its counts and verdict",
+   "evidence": "review packet ops/reviews/moving-parent-to-illinois-from-another-state.md, 28 Nov 2026 (reader: agent in cse_014eaiSatXS1q27vkUDbsXyD)",
+   "expected_tour_acquisition_value": "a parent dropped to Original Medicare after a move keeps the right to a Medigap policy without medical questions; the page answers the next question a family has before publication",
    "impact": 3,
    "confidence": 5,
    "effort": 1,
+   "executor": "worker (research and preparation only)",
+   "done_when": "correction commit on drafts with five checks and quotecheck all FOUND; 'Corrections applied' line in the packet; verify task queued or done",
    "status": "ready",
-   "found_utc": "2026-11-28T08:22Z"
+   "found_utc": "2026-11-28T08:27Z"
   }
  ],
  "completed": [
@@ -6309,6 +6309,34 @@
    "lesson": "HFS's ABE long-term-care FAQ (2014) is the only allowed-host page found that answers Illinois residency for Medicaid; cite it with its date.",
    "done_utc": "2026-11-28T08:22Z",
    "minutes": 6
+  },
+  {
+   "id": "ACQ-215",
+   "task": "Review moving-parent-to-illinois-from-another-state under the review rules",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "review:moving-parent-to-illinois-from-another-state",
+   "priority": 1,
+   "evidence": "build commit drafts 779830c (cse_014eaiSatXS1q27vkUDbsXyD)",
+   "expected_tour_acquisition_value": "quality gate before publication",
+   "executor": "worker (research and preparation only)",
+   "done_when": "packet at ops/reviews/moving-parent-to-illinois-from-another-state.md with its counts and verdict",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 1,
+   "status": "done",
+   "found_utc": "2026-11-28T08:22Z",
+   "result": "Independent reader (agent in this session) reviewed drafts 779830c: quotecheck 18/18 FOUND, all 8 sources re-read, 33 claims scope-checked, 0 scope defects, 0 corrections, all 9 internal links on main. Verdict: publish-ready. Four recommended additions: (1) AABD group and screening asks only household/income; (2) federal Medigap guaranteed issue right after leaving MA for Original Medicare on a move (Medicare.gov 02110); (3) 89 Ill. Adm. Code 120.311 residence rule (ilga.gov, not an allowed citation host: not applied); (4) 2014 FAQ 3-month backdating (superseded for 2027 by the 2-month rule in HFS's federal-changes FAQ: not applied).",
+   "verdicts": {
+    "moving-parent-to-illinois-from-another-state": "publish-ready"
+   },
+   "deliverable": {
+    "type": "review_packet",
+    "ref": "ops/reviews/moving-parent-to-illinois-from-another-state.md"
+   },
+   "done_utc": "2026-11-28T08:27Z",
+   "minutes": 5
   }
  ],
  "blocked": [],
@@ -6319,7 +6347,7 @@
   "picked": "-",
   "why": "Worked: build plan and sweeps asset-gaps, live-accuracy found nothing new (same 25 Nov GSC read; ilga.gov still unreadable); stopped: no-worthwhile-work; resume: backlog discovery 08:26Z"
  },
- "last_verified_action": "ACQ-214 done 2026-11-28T08:22Z: Built moving-parent-to-illinois-from-another-state on drafts 779830c (Getting oriented). Sources read 28 Nov 2026: Medicare.gov compare OM/MA (any doctor anywh…",
+ "last_verified_action": "ACQ-215 done 2026-11-28T08:27Z: Independent reader (agent in this session) reviewed drafts 779830c: quotecheck 18/18 FOUND, all 8 sources re-read, 33 claims scope-checked, 0 scope defects, 0 …",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -7031,11 +7059,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSatXS1q27vkUDbsXyD",
-   "utc": "2026-11-28T08:22Z",
+   "utc": "2026-11-28T08:27Z",
    "since_utc": "2026-11-28T08:12Z",
-   "productive_min": 10,
+   "productive_min": 15,
    "deliverables": [
-    "guide:drafts 779830c"
+    "guide:drafts 779830c",
+    "review_packet:ops/reviews/moving-parent-to-illinois-from-another-state.md"
    ]
   },
   "monitor": {
