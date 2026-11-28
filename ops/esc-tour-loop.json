@@ -6458,10 +6458,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-28T08:39Z",
+  "utc": "2026-11-28T17:58Z",
   "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
-  "picked": "ACQ-213 waiting_on_data, ACQ-214 done, ACQ-215 done, ACQ-216 done, ACQ-217 done, ACQ-218 done",
-  "why": "Worked: new guide moving-parent-to-illinois built, reader-verified, ported into #90 and package #91 re-cut; stopped: no-worthwhile-work; resume: monitor 17:58Z or Joseph's merge of #91"
+  "picked": "ACQ-219 done, ACQ-220 done",
+  "why": "Worked: monitor (0 genuine visitors, 0 tour requests); discovery lens objectives -> PJ06 Evanston memory care; PR #97 verified by two readers; City follow-up draft held. stopped: no-worthwhile-work; resume: planner 18:46Z"
  },
  "last_verified_action": "ACQ-220 done 2026-11-28T17:56Z: Independent reader (agent in cse_014eaiSciSmPDNJW5sH6Zuua) checked commit 8cfea0f (recommended additions: supervisor 12-hour training, dementia program disclos…",
  "last_stop": {
@@ -6542,7 +6542,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "08:26Z backlog discovery (resting ends); 17:58Z monitor; 18:46Z publish-ready sweep; 19:28Z asset-gaps and build plan; live-accuracy rechecks 30 Nov (ilga.gov unreadable). Package #91 (28 Nov cut) waits on Joseph.",
+ "next_discovery": "Next: planner cooldown and sweep angle publish-ready at 18:46Z, asset-gaps 19:28Z, search-presence 29 Nov 00:50Z, daily package cut 29 Nov 05:00Z (it should take PR #97, verified, and the other open review PRs). Waiting on Joseph: package #91 merge (offered since 25 Nov); PJ06 measures from 3 Dec once #97 is live; em-1128c waits for #97 live.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -7174,22 +7174,92 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiSciSmPDNJW5sH6Zuua",
-   "utc": "2026-11-28T17:57Z",
-   "since_utc": "2026-11-28T17:42Z",
-   "productive_min": 12,
-   "deliverables": [
-    "project:PJ06 found (lens objectives)",
-    "verification:ops/reviews/live/assisted-living-evanston.md",
-    "pr:97",
-    "project:PJ06 execute",
-    "project:PJ06 measure"
-   ]
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-28T17:43Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSciSmPDNJW5sH6Zuua",
+    "start_utc": "2026-11-28T17:42Z",
+    "end_utc": "2026-11-28T17:58Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: monitor (0 genuine visitors, 0 tour requests); discovery lens objectives -> PJ06 Evanston memory care; PR #97 verified by two readers; City follow-up draft held. stopped: no-worthwhile-work; resume: planner 18:46Z",
+    "done": 2,
+    "changed": 7,
+    "tasks": "ACQ-219 done, ACQ-220 done",
+    "next": "yes",
+    "wake_minutes": null,
+    "next_due_utc": "2026-11-28T18:46Z",
+    "plan_due": false,
+    "saturated": [
+     "demand"
+    ],
+    "budget_used_hours_24h": 2.5,
+    "budget_used_hours_7d": 8.9,
+    "productive_min": 12,
+    "deliverables": [
+     "project:PJ06 found (lens objectives)",
+     "verification:ops/reviews/live/assisted-living-evanston.md",
+     "pr:97",
+     "project:PJ06 execute",
+     "project:PJ06 measure"
+    ],
+    "stop_reason": "no-worthwhile-work",
+    "considered": "monitor done (site OK, Netlify, Gmail, 15 PRs clean, no merges, GSC read 25 Nov already recorded); project discovery lens objectives: Q1-2 and Q1-5 had no project -> PJ06 (candidates B nursing homes in Evanston: covered/near-ranking; C whom-to-call: F08 watch; D towns: F06 watch); PJ06 stages 1 (PR #97) and 3 (em-1128c) done, measure from 3 Dec; frontier: none open (20 explored); plan: cooling until 18:46Z, demand saturated; sweeps: none due, demand-questions and draft-review waiting on Joseph; package: cut today 08:39Z, window closed, next 29 Nov 05:00Z; step 8: one item used (em-1128c); fallback avenues replaced by the discovery assignment (addendum 28 Nov 16:30Z)",
+    "resume_when": "planner cooldown and sweep angle publish-ready at 2026-11-28T18:46Z; next project-discovery lens; daily package cut 2026-11-29T05:00Z",
+    "sweep_due_left": [],
+    "sessions_24h": 11,
+    "handoff": null,
+    "make_ops": null,
+    "package": {
+     "due_at_close": false,
+     "recut_due_at_close": false,
+     "skipped": null,
+     "done_today": true
+    },
+    "backlog_discovery": {
+     "explorations": 0,
+     "avenue_classes": [],
+     "tasks_added": 0,
+     "concluded": {
+      "utc": "2026-11-28T17:58Z",
+      "run": "cse_014eaiSciSmPDNJW5sH6Zuua",
+      "covered_by": "project discovery",
+      "rest_hours": 0
+     }
+    },
+    "frontier": {
+     "explored": [],
+     "open_left": 0
+    },
+    "project_discovery": {
+     "recorded": [
+      {
+       "lens": "objectives",
+       "project": "PJ06"
+      }
+     ],
+     "lenses_due_left": [
+      "intermediaries",
+      "search-demand",
+      "local-intent",
+      "visitors",
+      "calendar",
+      "assets",
+      "benchmarks"
+     ],
+     "waiting_for": null
+    },
+    "projects_stepped": 2,
+    "next_work": [
+     "project discovery: lens intermediaries, search-demand, local-intent, visitors, calendar, assets, benchmarks",
+     "backlog discovery"
+    ],
+    "discovery_room": true
+   },
    {
     "run": "cse_014eaiSatXS1q27vkUDbsXyD",
     "start_utc": "2026-11-28T08:12Z",
@@ -8644,13 +8714,9 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-28T08:39Z",
-   "eligible_now": 0,
+   "written_utc": "2026-11-28T17:58Z",
+   "eligible_now": 2,
    "next_due": [
-    {
-     "utc": "2026-11-28T17:58Z",
-     "what": "monitor"
-    },
     {
      "utc": "2026-11-28T18:46Z",
      "what": "planner cooldown ends"
@@ -8664,12 +8730,16 @@
      "what": "sweep angle asset-gaps"
     },
     {
-     "utc": "2026-11-28T20:39Z",
-     "what": "backlog discovery"
-    },
-    {
      "utc": "2026-11-29T00:50Z",
      "what": "sweep angle search-presence"
+    },
+    {
+     "utc": "2026-11-29T05:00Z",
+     "what": "daily package cut"
+    },
+    {
+     "utc": "2026-11-29T05:43Z",
+     "what": "monitor"
     }
    ]
   },
@@ -10439,7 +10509,7 @@
      }
     ],
     "lens": "objectives",
-    "not_before_utc": null,
+    "not_before_utc": "2026-12-03T06:30Z",
     "updated_utc": "2026-11-28T17:57Z"
    }
   ],
