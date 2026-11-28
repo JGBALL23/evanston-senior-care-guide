@@ -6784,11 +6784,11 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeLUyuyJkYCTLw4xJi",
-   "utc": "2026-11-28T00:15Z",
+   "utc": "2026-11-28T00:18Z",
    "since_utc": "2026-11-28T00:12Z",
    "current": {
-    "what": "project:PJ01",
-    "since_utc": "2026-11-28T00:12Z"
+    "what": "project:PJ04",
+    "since_utc": "2026-11-28T00:18Z"
    }
   },
   "monitor": {
@@ -9458,13 +9458,22 @@
     "metric": "Mentions or links in local outlets (search and referral visitors with those referrers); replies to pitches.",
     "why": "Frontier F12 (27 Nov 2026): about 190 items in the last 12 months on senior-care terms in the two outlets' archives; recurring story types include state enforcement at a local long-term-care facility (7 stories Jan-Nov 2026) and benefit changes. The 2027 change to retroactive Medicaid found the same day is a fresh, checkable story.",
     "plan": "1 Investigate: which reporters cover these beats, how each outlet takes tips and community contributions (published routes only), what explainer readers lacked in the last stories. 2 Strategy: two or three story angles with the guide's sourced page behind each. 3 Build: the explainer pages (drafts, reader-reviewed) and short pitch drafts for the outreach operator to the outlets' published tip or newsroom addresses, with the standard disclosure. 4 Execute through the operator; follow up once; measure.",
-    "next_step": "Investigate the two outlets' published routes for tips and contributions and the reporters on these beats; pick the strongest two angles.",
+    "next_step": "Execute: when the angle's page is live with the right text (B after #91 merges; A after the package carrying 4815ca1), re-read page and HFS source, then prepare one Gmail draft per angle to the RoundTable tips route for the operator (step 8c, ref tag em-<MMDD><letter>), record in growth.json; follow up once after 14 days.",
     "kill_when": "Three well-founded pitches with no reply or use within 6 weeks.",
-    "stage": "investigate",
-    "status": "active",
+    "stage": "execute",
+    "status": "waiting",
     "added_utc": "2026-11-28T00:07Z",
     "added_by": "supervisor",
-    "log": []
+    "log": [
+     {
+      "utc": "2026-11-28T00:18Z",
+      "run": "cse_014eaiSeLUyuyJkYCTLw4xJi",
+      "result": "Investigate + strategy: research/local-press-pitch-plan.md on drafts (a7b4549, aaa7996). Read 28 Nov 2026: RoundTable contact-us (tips@, news@ routes) and submit-a-letter page (400 words, name+affiliation published, no links, 30-day rule, longer = guest essay); Evanston Now contact, got-news and guest-essays pages (form; essays must not be under consideration elsewhere, so Joseph's essay D7 keeps Evanston Now and RoundTable gets tips). No published beat lists. HFS federal-changes FAQ re-read: retroactive coverage 3->2 months from Jan 2027. Angles: A retro-Medicaid change (asset illinois-medicaid-pending-nursing-home, corrected text 4815ca1 in batch #90 is newer than package #91's cut, so live only via next package); B holiday-visit next steps (in #91). Watch: inspection-records angle (ilga.gov unreadable: curl TLS chain error, WebFetch 503; audit blocked). Drop for 2026: Open Enrollment (too late). Two tip texts prepared in the file; none sent.",
+      "stage": "execute"
+     }
+    ],
+    "not_before_utc": "2026-11-29T00:30Z",
+    "updated_utc": "2026-11-28T00:18Z"
    },
    {
     "id": "PJ03",
@@ -9490,13 +9499,22 @@
     "metric": "Search impressions for the change's queries; use by local outlets or agencies.",
     "why": "Frontier F12 act (27 Nov 2026): a federal change to retroactive Medicaid coverage takes effect in 2027 and the live guides need a correction; families who apply late for nursing-home Medicaid are the ones it affects.",
     "plan": "1 Investigate: the official rule text and Illinois HFS guidance, dates, who it affects. 2 Build: the correction (already queued) and a short dedicated page if searches exist; reader-reviewed. 3 Execute: hand it to PJ02 as an angle.",
-    "next_step": "Check the official sources and the state of the correction task; decide whether a dedicated page is warranted.",
+    "next_step": "Build: when the package carrying 4815ca1 is merged and illinois-medicaid-pending-nursing-home is live, open a small review PR (claude/medicaid-ltc-retro-2027) adding the sourced HFS 2027 sentence and a link to it in illinois-medicaid-long-term-care; reader-verified; next package.",
     "kill_when": "No official Illinois guidance by the time it takes effect and no searches: keep only the correction.",
-    "stage": "investigate",
-    "status": "active",
+    "stage": "build",
+    "status": "waiting",
     "added_utc": "2026-11-28T00:07Z",
     "added_by": "supervisor",
-    "log": []
+    "log": [
+     {
+      "utc": "2026-11-28T00:18Z",
+      "run": "cse_014eaiSeLUyuyJkYCTLw4xJi",
+      "result": "Investigate + decision: research/retroactive-medicaid-2027-decision.md on drafts. HFS federal-changes FAQ re-read 28 Nov 2026 (2 months from Jan 2027). Main 4dc2468: no live guide states a retroactive-months figure (only an unrelated lien sentence), so no live correction is needed; drafts guide illinois-medicaid-pending-nursing-home already carries both rules (dad7c20, reader-verified ACQ-199, ported as 4815ca1 into batch #90 after #91's cut). Make GSC read 25 Nov: no retroactive/backdating queries. Decision: no dedicated page; the pending guide is PJ02 angle A; one small live-page improvement to illinois-medicaid-long-term-care (sourced 2027 sentence + link) once the pending guide is live.",
+      "stage": "build"
+     }
+    ],
+    "not_before_utc": "2026-11-29T06:00Z",
+    "updated_utc": "2026-11-28T00:18Z"
    },
    {
     "id": "PJ05",
