@@ -6067,10 +6067,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-27T20:26Z",
+  "utc": "2026-11-28T00:21Z",
   "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
-  "picked": "ACQ-198 done, ACQ-199 done, ACQ-200 done, ACQ-201 waiting_on_data, ACQ-202 done, ACQ-203 done (reopened), ACQ-204 done, ACQ-205 done",
-  "why": "Worked: all 13 open frontier questions answered (F12 act: 2027 retroactive-Medicaid correction; F17 act: IndexNow decision drafted), 2 live/draft guides corrected and verified by independent readers; stopped: no-worthwhile-work; resume: channel-yield sweep 00:32Z, package cut 05:00Z"
+  "picked": "none (projects PJ01-PJ05 stepped; sweep channel-yield +0)",
+  "why": "Worked: 4 growth projects advanced (PJ01 Medicare SERP study, PJ02 press plan, PJ03 FB calendar, PJ04 decision, PJ05 funnel); stopped: no-worthwhile-work; resume: package cut 05:00Z"
  },
  "last_verified_action": "ACQ-205 done 2026-11-27T20:25Z: Independent reader agent re-read every sentence faf855a changed in illinois-fide-snp-explained (quotecheck 22/22 FOUND, 5/5 pages readable, HFS FAQ read whole)…",
  "last_stop": {
@@ -6151,7 +6151,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Next due: sweep angle channel-yield 00:32Z, daily package cut 05:00Z (it should carry batch #90 at 220233f with the new home-care guide), monitor and draft-review 06:2xZ, ACQ-118 and ACQ-164 rechecks 06:30Z. Waiting on Joseph: package #91 merge (holds #90, #89, #93 and others).",
+ "next_discovery": "Next: daily package cut 05:00Z 28 Nov (include batch #90 commits after the 27 Nov cut, e.g. 4815ca1 retro-Medicaid text), monitor 06:25Z. Projects wait on #91 merge (PJ01 Medicare page PR, PJ02 tips, PJ04 LTC link), the operator (PJ03 calendar from 30 Nov) and traffic (PJ05, 5 Dec).",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -6783,15 +6783,55 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiSeLUyuyJkYCTLw4xJi",
-   "utc": "2026-11-28T00:20Z",
-   "since_utc": "2026-11-28T00:12Z",
-   "productive_min": 1
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-27T18:25Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSeLUyuyJkYCTLw4xJi",
+    "start_utc": "2026-11-28T00:12Z",
+    "end_utc": "2026-11-28T00:21Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: 4 growth projects advanced (PJ01 Medicare SERP study, PJ02 press plan, PJ03 FB calendar, PJ04 decision, PJ05 funnel); stopped: no-worthwhile-work; resume: package cut 05:00Z",
+    "done": 0,
+    "changed": 7,
+    "tasks": "none (projects PJ01-PJ05 stepped; sweep channel-yield +0)",
+    "next": "no",
+    "wake_minutes": 279,
+    "next_due_utc": "2026-11-28T05:00Z",
+    "plan_due": false,
+    "saturated": [],
+    "budget_used_hours_24h": 2.0,
+    "budget_used_hours_7d": 7.5,
+    "productive_min": 1,
+    "deliverables": [],
+    "stop_reason": "no-worthwhile-work",
+    "considered": "Projects: PJ01 investigate+strategy done, build waits on #91 merge (page dict changed in #89/#93); PJ02 routes+angles done, execution waits on pages live; PJ03 calendar done, waits on operator scheduling; PJ04 decided no dedicated page, live improvement waits on pending guide live; PJ05 funnel recorded, wait to 5 Dec for 30 visitors. Sweep channel-yield +0 (FB only producing channel, step already prepared). Frontier: none open (20 answered in 24h). Backlog fallback resting until 08:26Z. Plan not due. Monitor next 06:25Z. GSC payload read 25 Nov already recorded. check-illinois-inspection-records audit still blocked (ilga.gov TLS chain/503).",
+    "resume_when": "daily package cut window 05:00Z 28 Nov; monitor 06:25Z; or #91 merge (unblocks PJ01/PJ02/PJ04 builds)",
+    "sweep_due_left": [],
+    "sessions_24h": 6,
+    "handoff": null,
+    "make_ops": null,
+    "package": {
+     "due_at_close": false,
+     "recut_due_at_close": false,
+     "skipped": null,
+     "done_today": false
+    },
+    "backlog_discovery": {
+     "explorations": 0,
+     "avenue_classes": [],
+     "tasks_added": 0,
+     "concluded": null
+    },
+    "frontier": {
+     "explored": [],
+     "open_left": 0
+    }
+   },
    {
     "run": "cse_014eaiSeGWreJzfEyfVMTtWN",
     "start_utc": "2026-11-27T19:57Z",
@@ -7914,13 +7954,9 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-27T20:26Z",
+   "written_utc": "2026-11-28T00:21Z",
    "eligible_now": 0,
    "next_due": [
-    {
-     "utc": "2026-11-28T00:32Z",
-     "what": "sweep angle channel-yield"
-    },
     {
      "utc": "2026-11-28T05:00Z",
      "what": "daily package cut"
@@ -7940,6 +7976,10 @@
     {
      "utc": "2026-11-28T06:30Z",
      "what": "ACQ-164"
+    },
+    {
+     "utc": "2026-11-28T06:31Z",
+     "what": "sweep angle publish-ready"
     }
    ]
   },
