@@ -76,7 +76,7 @@ Ranked by expected local reach times the chance that the outlet uses it, with th
 
 **B. Subject: A practical checklist for families after the holiday visit**
 
-> Holiday visits are often when adult children first notice a parent struggling: unopened mail, missed medications, a fall nobody mentioned. Our free, independent guide sets out next steps in order and points to official Illinois resources: the free Senior Health Insurance Program counselling line, the Department on Aging's services and what Medicare does and does not pay for. It names no community and sells nothing: <guide link with ref tag>. It may be useful for a seasonal service note.
+> Holiday visits are often when adult children first notice a parent struggling: unopened mail, missed medications, a fall nobody mentioned. Our free, independent guide gives a first-week plan for Illinois families: what to write down, the yearly Medicare Wellness visit and its memory check, and the one call to make first (the Illinois Department on Aging's Senior HelpLine), with the Adult Protective Services hotline for the cases that need it. It names no community and sells nothing: <guide link with ref tag>. It may be useful for a seasonal service note.
 > Disclosure: (standard text above)
 
 **Before either text is drafted into Gmail,** the session preparing it re-reads the live page and the cited source on that day. Any figure or quotation that differs is corrected first.
