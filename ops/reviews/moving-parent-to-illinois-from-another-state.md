@@ -64,3 +64,22 @@ Verdict: publish-ready
 Reader: agent in cse_014eaiSatXS1q27vkUDbsXyD
 
 Corrections applied: drafts 64665a7, 2026-11-28, cse_014eaiSatXS1q27vkUDbsXyD (recommended additions 1 and 2; 3 not applied: ilga.gov is not an allowed citation host; 4 not applied: the 2014 three-month backdating figure is superseded from January 2027 per HFS's federal-changes FAQ)
+
+## Reader check 2026-11-28
+
+Checked commit 64665a7 on `drafts` (clone /tmp/reader-moving-parent-to-illinois-from-another-state); no repository file changed. quotecheck: 21 quotations, 21 FOUND, 0 NEAR MATCH, 0 NOT FOUND; 9 cited pages, 0 unreadable. I fetched publication 02110 (PDF) and the HFS Introduction to Medicaid page myself today and read the passages in context.
+
+- "A parent who leaves a Medicare Advantage Plan for Original Medicare because of the move has a federal right to buy a Medigap policy." Source: 02110, Section 3 "Medigap guaranteed issue right situations" ("the most common situations under federal law"), table row "You have a Medicare Advantage Plan, and any of the following are true: ... You move out of the plan's service area". Same scope (MA enrollee, federal, out-of-area move; the next sentence names the service-area condition).
+- "Medicare.gov's guide Choosing a Medigap Policy lists, among the cases ... a parent with a Medicare Advantage Plan who moves out of the plan's service area, and says: "You only have this right if you switch to Original Medicare (rather than join another Medicare Advantage Plan)."" Source: same row, left column: "You only have this right if you switch to Original Medicare (rather than join another Medicare Advantage Plan)." FOUND exactly; same scope (MA enrollee; condition carried in the sentence).
+- "The right covers certain Medigap plans sold by an insurance company in your parent's state." Source: same row: "Medigap Plan A, B, C*, D*, F*, or G* that's sold by an insurance company in your state." Same scope.
+- "The guide gives the timing as 60 days before the date the Medicare Advantage Plan coverage ends, if your parent is choosing to leave the plan, and no more than 63 days after that coverage ends, and adds: "Medigap policies can't start until your Medicare Advantage Plan coverage ends."" Source: same row, column "You can/must apply for a Medigap policy...": "60 days before the date your Medicare Advantage Plan coverage ends (if you are choosing to leave the plan). OR ... No more than 63 days after your Medicare Advantage Plan coverage ends. Note: Medigap policies can't start until your Medicare Advantage Plan coverage ends." Figures match today; quotation FOUND; same scope (the omitted "termination notice" option applies to a plan leaving or stopping care, not to a move).
+- "For an older parent, the HFS coverage group is Aid to the Aged Blind or Disabled: "Aid to the Aged Blind or Disabled (AABD) provides health coverage to people who are age 65 or older, or are blind, or have a disability."" Source: HFS Introduction to Medicaid, heading "Aid to the Aged Blind or Disabled (AABD)", same words. FOUND; same scope (Illinois Medicaid; the quoted age 65 / blind / disability limits sit in the same sentence).
+- "HFS suggests a quick screening first, which asks for basic information about your household and income, but adds: ..." Source: same page, heading "Eligibility Screening Tool": "you can fill out a quick screening tool online or talk to someone over the phone and give them basic information about your household and income." Same scope (Illinois Medicaid applicant).
+- Sources list: new entry "Medicare.gov — Choosing a Medigap Policy (publication 02110)", https://www.medicare.gov/publications/02110-medigap-guide-health-insurance.pdf. Resolves (HTTP 301 to /publications/02110-choosing-a-medigap-policy.pdf, 200, the same publication). Not a defect; a later edit may cite the canonical URL. Internal links unchanged by this commit and all present on main.
+- Not applied by the worker: recommended additions 3 (ilga.gov not an allowed citation host) and 4 (2014 backdating figure superseded from January 2027). These were recommendations, not corrections; they stay open as recommendations and do not bar publication.
+
+Quotations checked: 21. Claims scope-checked: 36. Scope defects: 0. Corrections required: 0.
+Verdict: publish-ready
+Corrections verified
+Reader: agent in cse_014eaiSatXS1q27vkUDbsXyD
+Corrections verified: 2026-11-28, agent in cse_014eaiSatXS1q27vkUDbsXyD

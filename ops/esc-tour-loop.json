@@ -254,24 +254,6 @@
    "found_utc": "2026-11-28T08:14Z",
    "not_before_utc": "2026-12-08T15:00Z",
    "not_before": "Data: HFS 2027 SLP room-and-board notice (last year issued 26 Nov) and the 2027 Extra Help cap on medicare.gov/medicare-savings-programs; neither posted on 28 Nov 2026. Same December window as ACQ-043."
-  },
-  {
-   "id": "ACQ-217",
-   "task": "Verify the corrections to moving-parent-to-illinois-from-another-state",
-   "workstream": "build",
-   "lane": "build",
-   "source": "followup",
-   "key": "verify:moving-parent-to-illinois-from-another-state:64665a7",
-   "priority": 1,
-   "evidence": "correction commit drafts 64665a7 (cse_014eaiSatXS1q27vkUDbsXyD)",
-   "expected_tour_acquisition_value": "quality gate before publication",
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
-   "impact": 3,
-   "confidence": 5,
-   "effort": 1,
-   "status": "ready",
-   "found_utc": "2026-11-28T08:29Z"
   }
  ],
  "completed": [
@@ -6362,6 +6344,34 @@
    },
    "done_utc": "2026-11-28T08:29Z",
    "minutes": 2
+  },
+  {
+   "id": "ACQ-217",
+   "task": "Verify the corrections to moving-parent-to-illinois-from-another-state",
+   "workstream": "build",
+   "lane": "build",
+   "source": "followup",
+   "key": "verify:moving-parent-to-illinois-from-another-state:64665a7",
+   "priority": 1,
+   "evidence": "correction commit drafts 64665a7 (cse_014eaiSatXS1q27vkUDbsXyD)",
+   "expected_tour_acquisition_value": "quality gate before publication",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 1,
+   "status": "done",
+   "found_utc": "2026-11-28T08:29Z",
+   "result": "Independent reader (agent in this session) checked the sentences drafts 64665a7 changed: quotecheck 21/21 FOUND, 9 pages read; Medigap paragraph matches the 02110 guaranteed-issue table row for a move out of a Medicare Advantage plan's service area (federal; switch to Original Medicare only; 60/63-day timing); AABD quotation and screening scope match HFS. 36 claims scope-checked, 0 scope defects. Corrections verified; verdict publish-ready. Note: the 02110 URL 301-redirects to /publications/02110-choosing-a-medigap-policy.pdf (same publication).",
+   "verdicts": {
+    "moving-parent-to-illinois-from-another-state": "publish-ready, corrections verified"
+   },
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/moving-parent-to-illinois-from-another-state.md"
+   },
+   "done_utc": "2026-11-28T08:31Z",
+   "minutes": 2
   }
  ],
  "blocked": [],
@@ -6372,7 +6382,7 @@
   "picked": "-",
   "why": "Worked: build plan and sweeps asset-gaps, live-accuracy found nothing new (same 25 Nov GSC read; ilga.gov still unreadable); stopped: no-worthwhile-work; resume: backlog discovery 08:26Z"
  },
- "last_verified_action": "ACQ-216 done 2026-11-28T08:29Z: Applied additions 1 and 2 on drafts 64665a7: AABD quoted from HFS Introduction to Medicaid with the screening's household-and-income scope; federal right to bu…",
+ "last_verified_action": "ACQ-217 done 2026-11-28T08:31Z: Independent reader (agent in this session) checked the sentences drafts 64665a7 changed: quotecheck 21/21 FOUND, 9 pages read; Medigap paragraph matches the 02…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -7084,13 +7094,14 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSatXS1q27vkUDbsXyD",
-   "utc": "2026-11-28T08:29Z",
+   "utc": "2026-11-28T08:31Z",
    "since_utc": "2026-11-28T08:12Z",
-   "productive_min": 17,
+   "productive_min": 19,
    "deliverables": [
     "guide:drafts 779830c",
     "review_packet:ops/reviews/moving-parent-to-illinois-from-another-state.md",
-    "correction:drafts 64665a7"
+    "correction:drafts 64665a7",
+    "verification:ops/reviews/moving-parent-to-illinois-from-another-state.md"
    ]
   },
   "monitor": {
