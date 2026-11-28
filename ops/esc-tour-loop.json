@@ -6458,10 +6458,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-28T18:03Z",
-  "event": "Make controller: completion of cse_014eaiSciSmPDNJW5sH6Zuua",
-  "picked": "none (discovery assignment PJ07 found and prepared)",
-  "why": "Worked: project discovery (lens intermediaries) found PJ07, Edgewater Village Chicago Housing page listing, prepared; stopped: no-worthwhile-work; resume: next lens or PJ07 draft after 29 Nov 06:00Z"
+  "utc": "2026-11-28T18:04Z",
+  "event": "Make controller: completion of cse_014eaiSepzj1UCJVbtZmLbox",
+  "picked": "none",
+  "why": "Worked: search-demand project discovery found no project (25 Nov Search Console read already mined; 3 candidates dropped); stopped: no-worthwhile-work; resume: next lens or next Make Search Console read"
  },
  "last_verified_action": "ACQ-220 done 2026-11-28T17:56Z: Independent reader (agent in cse_014eaiSciSmPDNJW5sH6Zuua) checked commit 8cfea0f (recommended additions: supervisor 12-hour training, dementia program disclos…",
  "last_stop": {
@@ -6542,7 +6542,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Next: project-discovery lenses search-demand, local-intent, visitors, calendar, assets, benchmarks are due now; planner and sweep publish-ready at 18:46Z; PJ07 Gmail draft for Edgewater Village Chicago at the first session after 29 Nov 06:00Z. Waiting on Joseph: the 28 Nov package and demand lane.",
+ "next_discovery": "Next: project discovery lens local-intent (then visitors, calendar, assets, benchmarks); planner and publish-ready angle at 18:46Z, asset-gaps 19:28Z; search-demand lens reopens with the next weekly Make Search Console read. Waiting on Joseph: package (#92/#96/#97 merges), irs.gov citation host (ACQ-212), ACQ-007 checklist PDF.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -7183,14 +7183,86 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiSbLGzqqhWfy7gHtQH7",
-   "utc": "2026-11-28T18:03Z",
-   "since_utc": "2026-11-28T18:03Z"
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-28T17:43Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSbLGzqqhWfy7gHtQH7",
+    "start_utc": "2026-11-28T18:03Z",
+    "end_utc": "2026-11-28T18:04Z",
+    "launch": "completion of cse_014eaiSepzj1UCJVbtZmLbox",
+    "outcome": "Worked: search-demand project discovery found no project (25 Nov Search Console read already mined; 3 candidates dropped); stopped: no-worthwhile-work; resume: next lens or next Make Search Console read",
+    "done": 0,
+    "changed": 1,
+    "tasks": "none",
+    "next": "yes",
+    "wake_minutes": null,
+    "next_due_utc": "2026-11-28T18:46Z",
+    "plan_due": false,
+    "saturated": [
+     "demand"
+    ],
+    "budget_used_hours_24h": 2.6,
+    "budget_used_hours_7d": 9.0,
+    "productive_min": 2,
+    "deliverables": [
+     "discovery:search-demand no project"
+    ],
+    "stop_reason": "no-worthwhile-work",
+    "considered": "project discovery lens search-demand: no project (SLP pos 8 too small and covered, complaint page not decision-stage, benefit access off-topic, VA caregiver outside band and explored 26 Nov); projects PJ01-PJ07 none due; frontier none open; package done today; plan and sweeps cooling until 18:46Z (publish-ready, planner) and 19:28Z (asset-gaps); demand-questions and draft-review waiting on Joseph",
+    "resume_when": "next project-discovery lens (local-intent) in the next session; planner cooldown and publish-ready angle at 18:46Z; next Make Search Console read",
+    "sweep_due_left": [],
+    "sessions_24h": 13,
+    "handoff": null,
+    "make_ops": null,
+    "package": {
+     "due_at_close": false,
+     "recut_due_at_close": false,
+     "skipped": null,
+     "done_today": true
+    },
+    "backlog_discovery": {
+     "explorations": 0,
+     "avenue_classes": [],
+     "tasks_added": 0,
+     "concluded": {
+      "utc": "2026-11-28T18:04Z",
+      "run": "cse_014eaiSbLGzqqhWfy7gHtQH7",
+      "covered_by": "project discovery",
+      "rest_hours": 0
+     }
+    },
+    "frontier": {
+     "explored": [],
+     "open_left": 0
+    },
+    "project_discovery": {
+     "recorded": [
+      {
+       "lens": "search-demand",
+       "project": null
+      }
+     ],
+     "lenses_due_left": [
+      "local-intent",
+      "visitors",
+      "calendar",
+      "assets",
+      "benchmarks"
+     ],
+     "waiting_for": null
+    },
+    "projects_stepped": 0,
+    "next_work": [
+     "project discovery: lens local-intent, visitors, calendar, assets, benchmarks",
+     "backlog discovery"
+    ],
+    "discovery_room": true
+   },
    {
     "run": "cse_014eaiSepzj1UCJVbtZmLbox",
     "start_utc": "2026-11-28T17:58Z",
@@ -8799,7 +8871,7 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-28T18:03Z",
+   "written_utc": "2026-11-28T18:04Z",
    "eligible_now": 2,
    "next_due": [
     {
@@ -10643,9 +10715,24 @@
      "project": "PJ07",
      "result": "Read 28 Nov 2026: planner/projects PJ01-PJ06 and their logs; opportunity_map R1-R11, D7-D14 (R3/R7/R9/R10/R11/D9/D10/D12 drop, D11 watch to 2027-02-15, D14 watch on a D8 talk, R1 closed to new emails); frontier F10, F11, F20 (hospitals, professionals, employers: drop); growth.json ready (em-1128a/b/c) and state.json actions. Candidates: (A) City of Highland Park Dementia Friendly page (cityhpil.com, read 28 Nov): lists only national and agency links (dfamerica, alz.org, BACOA), no long-term-care or independent-guide section, no suggestion route except a named staff social worker: DROP. (B) To…",
      "marker": null
+    },
+    "search-demand": {
+     "last_utc": "2026-11-28T18:04Z",
+     "run": "cse_014eaiSbLGzqqhWfy7gHtQH7",
+     "project": null,
+     "result": "Read 28 Nov 2026: cloud.json Make Search Console read 25 Nov 20:35Z (only read; rows for 16-22 Nov only; 40 queries, 24 pages), planner/projects PJ01-PJ07, fallback log (search-va-caregiver 26 Nov, search-console-uncovered 26 Nov, search-advance-directive 27 Nov, search-rung2-elder-abuse-msp 28 Nov) and completed ACQ-084 (#92 page-one titles). Medicare cluster (781 impr) is PJ01; Evanston queries are PJ06; page-one zero-click pages (estate recovery 7.2, preadmission 8.5) already in #92 and queue serp-title task. Candidates in the 8-40 band no project covers, live titles and today's first resu…",
+     "marker": "2026-11-25T20:35Z"
     }
    },
    "log": [
+    {
+     "utc": "2026-11-28T18:04Z",
+     "run": "cse_014eaiSbLGzqqhWfy7gHtQH7",
+     "lens": "search-demand",
+     "added": 0,
+     "project": null,
+     "result": "Read 28 Nov 2026: cloud.json Make Search Console read 25 Nov 20:35Z (only read; rows for 16-22 Nov only; 40 queries, 24 pages), planner/projects PJ01-PJ07, fallback log (search-va-caregiver 26 Nov, search-console-uncovered 26 Nov, search-advance-directive 27 Nov, search-rung2-elder-abuse-msp 28 Nov) and completed ACQ-084 (#92 page-one titles). Medicare cluster (781 impr) is PJ01; Evanston queries are PJ06; page-one zero-click pages (estate recovery 7.2, preadmission 8.5) already in #92 and queue serp-title task. Candidates in the 8-40 band no project covers, live titles and today's first results page read: (A) illinois-supportive-living-program, 12 impr pos 8.0; SERP 28 Nov led by hfs.illinois.gov SLP pages and medicaidplanningassistance; title/description already answer-first; gain = clicks on ~12 impr/week; Jan 2027 figure refresh already queued: DROP (too small, covered). (B) illinois-care-facility-complaint, 17 impr pos 16.3; SERP 28 Nov led by IDPH complaint forms, ilaging ombudsman, Illinois Legal Aid; SLP complaint line already added 25 Nov; readers are past the move-in decision: DROP (reach not decision-stage). (C) illinois-benefit-access-program, 31 impr pos 13.8: transit and license-plate discount, not a senior-living decision: DROP. VA caregiver (84 impr, pos 51) is outside the band and was explored 26 Nov with no new evidence. None qualifies today; the lens reopens with the next weekly Make read (expected about 2 Dec), which will carry the first post-#92/#96 data."
+    },
     {
      "utc": "2026-11-28T18:02Z",
      "run": "cse_014eaiSepzj1UCJVbtZmLbox",
