@@ -169,7 +169,7 @@
    "status": "waiting_on_data",
    "found_utc": "2026-11-26T01:19Z",
    "not_before_utc": "2026-11-29T06:45Z",
-   "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in 210 ILCS 9/90 (SRC ilcs_al_90 on main) and 77 Ill. Adm. Code 295 on ilga.gov; ilga.gov unreadable (curl TLS 000, WebFetch 503). 2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 2: ilga.gov still unreadable (curl exit 60 TLS, WebFetch 503 on fulltext.asp DocName=021000090K90). A third postponement goes into the package as a lettered decision. 2026-11-27T18:36Z cse_014eaiSbgkYkmzevMK2yQoyV (early try, not a postponement): curl www.ilga.gov/ilga.gov exit 60 (TLS chain), beta.ilga.gov refused by the session's egress proxy (CONNECT 502), WebFetch 503 on Documents/legislation/ilcs/documents/021000090K90.htm. Not routed around. 2026-11-28T06:45Z cse_014eaiScD9A2D9TRc6UYLPwd: postponement 3: curl www.ilga.gov fulltext exit 60 (TLS), WebFetch 503. Third postponement: next package cut carries one lettered decision (ilga.gov unreadable from worker sessions; supervising session or operator can fetch 210 ILCS 9/90 and 77 Ill. Adm. Code 295)."
+   "note": "2026-11-26 cse_014eaiSdDK6VjczHrPrWrgM1: the rate-change and contract rules sit in 210 ILCS 9/90 (SRC ilcs_al_90 on main) and 77 Ill. Adm. Code 295 on ilga.gov; ilga.gov unreadable (curl TLS 000, WebFetch 503). 2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 2: ilga.gov still unreadable (curl exit 60 TLS, WebFetch 503 on fulltext.asp DocName=021000090K90). A third postponement goes into the package as a lettered decision. 2026-11-27T18:36Z cse_014eaiSbgkYkmzevMK2yQoyV (early try, not a postponement): curl www.ilga.gov/ilga.gov exit 60 (TLS chain), beta.ilga.gov refused by the session's egress proxy (CONNECT 502), WebFetch 503 on Documents/legislation/ilcs/documents/021000090K90.htm. Not routed around. 2026-11-28T06:43Z cse_014eaiScD9A2D9TRc6UYLPwd: postponement 3: curl www.ilga.gov fulltext exit 60 (TLS), WebFetch 503. Third postponement: next package cut carries one lettered decision (ilga.gov unreadable from worker sessions; supervising session or operator can fetch 210 ILCS 9/90 and 77 Ill. Adm. Code 295)."
   },
   {
    "id": "ACQ-164",
@@ -190,7 +190,7 @@
    "found_utc": "2026-11-26T17:55Z",
    "waiting_for": "PR #91 (or #90) merged, so that a card change no longer collides with the open publish batch in the built /guides/ index",
    "not_before_utc": "2026-11-29T06:45Z",
-   "note": "2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 1: #91 and #90 still open (checked 06:27Z), so the card change would still collide with the publish batch. 2026-11-28T06:45Z cse_014eaiScD9A2D9TRc6UYLPwd: postponement 2: #91, #90 still open (gh api 06:44Z, mergeable clean)."
+   "note": "2026-11-27T06:30Z cse_014eaiSeY3WV1Qzjy2ZNkkuN: postponement 1: #91 and #90 still open (checked 06:27Z), so the card change would still collide with the publish batch. 2026-11-28T06:43Z cse_014eaiScD9A2D9TRc6UYLPwd: postponement 2: #91, #90 still open (gh api 06:43Z, mergeable clean)."
   },
   {
    "id": "ACQ-201",
@@ -6248,10 +6248,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-28T05:59Z",
+  "utc": "2026-11-28T06:47Z",
   "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
-  "picked": "none",
-  "why": "Worked: monitor (site OK, 0 tour requests, 0 replies, no merges) and draft-review sweep (+0); stopped: no-worthwhile-work; resume: 06:30Z ACQ-118, ACQ-164 and a project step fall due"
+  "picked": "ACQ-118 waiting_on_data (3rd postponement), ACQ-164 waiting_on_data, ACQ-212 added then waiting_on_owner",
+  "why": "Worked: PJ02 tip B prepared for operator (held until #91 live); demand plan +1 (ACQ-212 tax-deduction guide, blocked: irs.gov not an allowed citation host); ACQ-118 3rd postponement; stopped: no-worthwhile-work; resume: sweeps due 07:21Z"
  },
  "last_verified_action": "ACQ-211 done 2026-11-28T05:16Z: Cut the 28 Nov package on the open #91 (number kept): merged #90 head 4815ca1 (12 guides), #89 to its head faf855a (every commit verified), #94 sourcing page, …",
  "last_stop": {
@@ -6964,15 +6964,57 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiScD9A2D9TRc6UYLPwd",
-   "utc": "2026-11-28T06:46Z",
-   "since_utc": "2026-11-28T06:42Z",
-   "productive_min": 2
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-28T05:58Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiScD9A2D9TRc6UYLPwd",
+    "start_utc": "2026-11-28T06:42Z",
+    "end_utc": "2026-11-28T06:47Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: PJ02 tip B prepared for operator (held until #91 live); demand plan +1 (ACQ-212 tax-deduction guide, blocked: irs.gov not an allowed citation host); ACQ-118 3rd postponement; stopped: no-worthwhile-work; resume: sweeps due 07:21Z",
+    "done": 0,
+    "changed": 4,
+    "tasks": "ACQ-118 waiting_on_data (3rd postponement), ACQ-164 waiting_on_data, ACQ-212 added then waiting_on_owner",
+    "next": "no",
+    "wake_minutes": 30,
+    "next_due_utc": "2026-11-28T07:21Z",
+    "plan_due": false,
+    "saturated": [
+     "demand"
+    ],
+    "budget_used_hours_24h": 2.2,
+    "budget_used_hours_7d": 8.1,
+    "productive_min": 2,
+    "deliverables": [],
+    "stop_reason": "no-worthwhile-work",
+    "considered": "recheck ACQ-118 (ilga.gov curl exit 60, WebFetch 503) and ACQ-164 (#91/#90 open); project PJ02 tip B prepared (em-1128b); plan demand +1 (tax-deduction topic; GSC read unchanged); ACQ-212 build stopped by citation-host gate; plan publish +0 and sweep publish-ready +0 (all 12 drafts pages in batch #90, unchanged); sweep search-console +0 (no new read); frontier not due (18 answered in 24h, none open); fallback resting until 08:26Z; package cut done today, no recut due; monitor not due (last 05:58Z); asset-gaps and live-accuracy cooling until 07:21Z; build lane plan cooling until 07:33Z",
+    "resume_when": "2026-11-28T07:21Z when sweeps asset-gaps and live-accuracy come due, or a merge of #91",
+    "sweep_due_left": [],
+    "sessions_24h": 10,
+    "handoff": null,
+    "make_ops": null,
+    "package": {
+     "due_at_close": false,
+     "recut_due_at_close": false,
+     "skipped": null,
+     "done_today": true
+    },
+    "backlog_discovery": {
+     "explorations": 0,
+     "avenue_classes": [],
+     "tasks_added": 0,
+     "concluded": null
+    },
+    "frontier": {
+     "explored": [],
+     "open_left": 0
+    }
+   },
    {
     "run": "cse_014eaiSdzfMyqt4Vbo7uFGvh",
     "start_utc": "2026-11-28T05:57Z",
@@ -8273,32 +8315,32 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-28T05:59Z",
+   "written_utc": "2026-11-28T06:47Z",
    "eligible_now": 0,
    "next_due": [
     {
-     "utc": "2026-11-28T06:30Z",
-     "what": "ACQ-118"
+     "utc": "2026-11-28T07:21Z",
+     "what": "sweep angle asset-gaps"
     },
     {
-     "utc": "2026-11-28T06:30Z",
-     "what": "ACQ-164"
+     "utc": "2026-11-28T07:21Z",
+     "what": "sweep angle live-accuracy"
     },
     {
-     "utc": "2026-11-28T06:30Z",
-     "what": "project step"
-    },
-    {
-     "utc": "2026-11-28T06:31Z",
-     "what": "sweep angle publish-ready"
-    },
-    {
-     "utc": "2026-11-28T06:47Z",
+     "utc": "2026-11-28T07:33Z",
      "what": "planner cooldown ends"
     },
     {
-     "utc": "2026-11-28T06:58Z",
-     "what": "sweep angle search-console"
+     "utc": "2026-11-28T08:26Z",
+     "what": "backlog discovery"
+    },
+    {
+     "utc": "2026-11-28T17:58Z",
+     "what": "monitor"
+    },
+    {
+     "utc": "2026-11-28T18:46Z",
+     "what": "sweep angle publish-ready"
     }
    ]
   },
@@ -8336,7 +8378,7 @@
    "note": "Cut twice on 25 Nov by the supervising chat; re-cut 26 Nov 06:31Z by the ESCG worker (cse_014eaiSe8SBqppdHD1M3fw41): #90 now 10 guides (40e9da0), #92 added; #89 through c964f99 by 06:47Z (6876bfd, 64feb14, c964f99 verified by independent readers in the same session). 26 Nov 10:03Z, supervising chat: one housekeeping commit 2d84762 on the package branch (the temporary file .cite-count of check-citations.sh, committed by accident in #89's d7724d0, removed and added to .gitignore; no page, test or script changes; rebuild clean and all eleven suites pass on 2d84762). #89 itself is unchanged at c964f99. 27 Nov 06:29Z re-cut by the ESCG worker (cse_014eaiSeY3WV1Qzjy2ZNkkuN, ACQ-169): #89's verified commits 99cc346..9d57bf0 merged (a523b5e); rebuild clean, all eleven suites pass; title and body rewritten (number unchanged). 27 Nov 2026-11-27T09:48Z second cut by the supervising chat (the worker had finished them after its 06:29Z cut and left them for the 28 Nov package, although the window was open): #90's eleventh guide (eea57b7, holiday visits), #89's commit 166f2d1 and #93 (Medicare plan choice before 7 Dec) merged (eca3b23). #93 collided with the batch in build-guides.py only where both add entries at the end of SRC; both sets kept unchanged. Rebuild clean, all eleven suites pass, the three touched pages compared with their verified branches; title and body rewritten (number unchanged). 28 Nov 2026-11-28T05:16Z cut by the ESCG worker (cse_014eaiSerKbhFgkHuQX9sSV1, ACQ-211): #90 head 4815ca1 (12th guide home-care-or-assisted-living-illinois; Medicaid-pending update), #89 to head faf855a (FIDE SNP, verified), #94 (sourcing page), #95 (Medicaid LTC 2027 retro), #96 (Medicare page PJ01, verified) merged (2b9e9cf). Two SOURCES-LIST UNIONs in SRC (#90, #96); #94 conflicted in _dist only, rebuilt. Rebuild clean, all eleven suites pass, touched pages compared with their branches; title and body rewritten (number unchanged).",
    "owner_actions": []
   },
-  "next_discovery": "Next: channel-yield sweep 28 Nov 00:32Z, then the daily package cut from 05:00Z: it should include #90 at 4815ca1 (Medicaid-pending guide corrected for the 1 Jan 2027 cut to 2 months of retroactive coverage) and #89 through faf855a (verified: 166f2d1, 3d922fa, faf855a), and offer the new lettered decision drafted on map item S10 (IndexNow announcement after each publish). Waits on Joseph: merge of #91.",
+  "next_discovery": "Due next: sweeps asset-gaps and live-accuracy at 07:21Z, build-lane planning after 07:33Z, backlog discovery after 08:26Z. Waiting on Joseph: package #91 (holds tips A/B go-conditions, ACQ-164); next package cut should carry one new lettered decision, either ilga.gov access for ACQ-118 (3rd postponement) or irs.gov as a citation host for ACQ-212.",
   "addenda": [
    {
     "utc": "2026-11-27T18:55Z",
