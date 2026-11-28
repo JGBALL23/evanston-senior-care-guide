@@ -7119,11 +7119,11 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSciSmPDNJW5sH6Zuua",
-   "utc": "2026-11-28T17:42Z",
+   "utc": "2026-11-28T17:43Z",
    "since_utc": "2026-11-28T17:42Z"
   },
   "monitor": {
-   "last_utc": "2026-11-28T05:58Z"
+   "last_utc": "2026-11-28T17:43Z"
   },
   "sessions": [
    {
