@@ -232,7 +232,7 @@
    "priority": 2,
    "found_utc": "2026-11-28T06:45Z",
    "waiting_for": "Joseph: allow irs.gov as a citation host for guides (yes/no). Today only medicare.gov, cms.gov, *.illinois.gov, *.va.gov and assets.carescout.com may be cited (ROUTINE.md Step 3; enforced by check-guides.js line 57 on drafts and main). A yes would be one line added to that allowlist and to ROUTINE.md, made in a review pull request by the supervising session or the next worker once applied; then the tax-deduction guide (IRS Publication 502) can be built. Tried: drafts ROUTINE.md and check-guides.js read 28 Nov 2026; no allowed host states the medical-expense deduction rules (Medicare.gov and Illinois pages are not tax authorities); stopped by: the worker may not edit gates, and the citation-host policy is the owner's rule.",
-   "note": "2026-11-28 cse_014eaiScD9A2D9TRc6UYLPwd: evidence holds (three public family questions 2020-03-05, 2023-03-01, 2024-06-16; IRS Pub 502 for 2025 returns read 28 Nov: nursing home medical care; meals and lodging only when medical care is a principal reason; qualified long-term care services for a chronically ill individual under a plan of care; 7.5% of AGI floor). Not built: irs.gov is not an allowed citation host. Next package cut: one lettered decision, weighed against ACQ-118's (ilga.gov) for the one new decision a day."
+   "note": "2026-11-28 cse_014eaiScD9A2D9TRc6UYLPwd: evidence holds (three public family questions 2020-03-05, 2023-03-01, 2024-06-16; IRS Pub 502 for 2025 returns read 28 Nov: nursing home medical care; meals and lodging only when medical care is a principal reason; qualified long-term care services for a chronically ill individual under a plan of care; 7.5% of AGI floor). Not built: irs.gov is not an allowed citation host. Next package cut: one lettered decision, weighed against ACQ-118's (ilga.gov) for the one new decision a day. | 2026-11-28 cse_014eaiSbq7aqFJ2cxiVJ6Ley (calendar lens): tax season runs late January to mid April (strategy/calendar); a build, an independent review and a package take about three days, so a yes by about 10 Jan 2027 still puts the guide live before the season; no lettered decision for this was in the 28 Nov package."
   },
   {
    "id": "ACQ-213",
@@ -254,6 +254,27 @@
    "found_utc": "2026-11-28T08:14Z",
    "not_before_utc": "2026-12-08T15:00Z",
    "not_before": "Data: HFS 2027 SLP room-and-board notice (last year issued 26 Nov) and the 2027 Extra Help cap on medicare.gov/medicare-savings-programs; neither posted on 28 Nov 2026. Same December window as ACQ-043."
+  },
+  {
+   "id": "ACQ-221",
+   "task": "After package #91 is merged: add to the plan-choice section of does-medicare-pay-for-senior-care (the section #93 added) Medicare.gov's caveat for families using the 1 January to 31 March Medicare Advantage Open Enrollment Period: a parent who drops a Medicare Advantage plan and returns to Original Medicare 'may not be able to get the same policy back, or in some cases, any Medigap policy unless you leave your Medicare Advantage Plan during your trial right period' (the single 12-month trial right after joining a Medicare Advantage plan for the first time), with the Illinois SHIP counseling route; a small tested review pull request against main from claude/ma-oep-medigap-caveat, checked by an independent reader, cut early enough to enter a package before 1 January 2027.",
+   "workstream": "search",
+   "lane": "search",
+   "source": "plan",
+   "key": "search:ma-oep-medigap-caveat",
+   "evidence": "Read 2026-11-28: medicare.gov/health-drug-plans/medigap/basics/how-medigap-works (heading 'Medigap & Medicare Advantage Plans' and box 'Important!': trial right 12 months; 'you may not be able to get the same policy back, or in some cases, any Medigap policy unless you leave your Medicare Advantage Plan during your trial right period'); the plan-choice section on package branch claude/package-20261125 (_dist does-medicare-pay-for-senior-care) tells families a parent can 'Drop your Medicare Advantage Plan and return to Original Medicare' from 1 January to 31 March with no word on Medigap; Illinois's 45-day birthday window (215 ILCS 5/363, per ilaging.illinois.gov Medicare Choices Guide 2026) applies only to people who already hold a Medigap policy. Search Console 25 Nov: this page holds 781 of 1,242 impressions. Calendar moment medicare-advantage-open-enrollment (strategy/calendar).",
+   "expected_tour_acquisition_value": "families deciding in January whether a parent moving toward assisted living should leave a Medicare Advantage plan learn the cost risk before acting, from the site's largest search page, which keeps that page trustworthy and on the cost and tour path",
+   "impact": 3,
+   "confidence": 4,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "review pull request against main with the added sentences and their Medicare.gov source sentence in its body, all suites pass, verify-live task finished by an independent reader; or the verdict that #91 or a later change already says it",
+   "priority": 2,
+   "status": "waiting_on_data",
+   "waiting_for": "package #91 merged (the plan-choice section is pending there; the procedure forbids a second change to an element pending in the package). If #91 is still open on 15 Dec 2026, put the addition to the next package as a commit on #93's branch only if the procedure then allows it; otherwise name the 1 January timing in the package line.",
+   "not_before_utc": "2026-11-29T06:45Z",
+   "score": 6.0,
+   "found_utc": "2026-11-28T18:12Z"
   }
  ],
  "completed": [
@@ -7184,8 +7205,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSbq7aqFJ2cxiVJ6Ley",
-   "utc": "2026-11-28T18:10Z",
-   "since_utc": "2026-11-28T18:10Z"
+   "utc": "2026-11-28T18:13Z",
+   "since_utc": "2026-11-28T18:10Z",
+   "productive_min": 3,
+   "deliverables": [
+    "discovery:calendar no project"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-28T17:43Z"
@@ -10880,9 +10905,24 @@
      "project": null,
      "result": "Read 28 Nov 2026 (18:10-18:25Z): cloud.json scoreboard.daily 22-28 Nov (28 genuine visitors in 7 days: 17 Facebook from fb-rp-1122/fb-nsh-1126/fb-evsk-1125/fb-glv-1124, about 4 Google, about 8 direct; 1 checklist open, 0 assessment starts, 0 tour-form views, 0 tour requests) and metrics through 17:42Z; Netlify observability 27 Nov 18:10Z-28 Nov 18:10Z, browser HTML by URL (home 40, /sourcing/ 14 = 404 bursts at worker check times, not visitors; single hits on 10 guides) and the /sourcing/ request log; planner/projects PJ03 and PJ05 and their next steps; live HTML of the three guides Google vi…",
      "marker": null
+    },
+    "calendar": {
+     "last_utc": "2026-11-28T18:13Z",
+     "run": "cse_014eaiSbq7aqFJ2cxiVJ6Ley",
+     "project": null,
+     "result": "Read 28 Nov 2026 (18:10-18:40Z): strategy/calendar (10 moments) and the 75-day window to 11 Feb 2027; planner/projects PJ01-PJ07 and project_discovery recent (visitors, local-intent, search-demand); frontier F01, F02 answers; queue ACQ-043/076/201/213 (1 Dec VA and 1 Jan Medicare, SLP, Extra Help, HFS figures, all queued with dates), ACQ-212 (tax season, waiting on Joseph: irs.gov host), PJ04 (2027 retroactive Medicaid); medicare.gov how-medigap-works (Medigap & Medicare Advantage Plans, Important! box: trial right; 'may not be able to get ... any Medigap policy'); the plan-choice section on …",
+     "marker": null
     }
    },
    "log": [
+    {
+     "utc": "2026-11-28T18:13Z",
+     "run": "cse_014eaiSbq7aqFJ2cxiVJ6Ley",
+     "lens": "calendar",
+     "added": 0,
+     "project": null,
+     "result": "Read 28 Nov 2026 (18:10-18:40Z): strategy/calendar (10 moments) and the 75-day window to 11 Feb 2027; planner/projects PJ01-PJ07 and project_discovery recent (visitors, local-intent, search-demand); frontier F01, F02 answers; queue ACQ-043/076/201/213 (1 Dec VA and 1 Jan Medicare, SLP, Extra Help, HFS figures, all queued with dates), ACQ-212 (tax season, waiting on Joseph: irs.gov host), PJ04 (2027 retroactive Medicaid); medicare.gov how-medigap-works (Medigap & Medicare Advantage Plans, Important! box: trial right; 'may not be able to get ... any Medigap policy'); the plan-choice section on package branch claude/package-20261125; ilaging.illinois.gov Medicare Choices Guide 2026 and the Illinois 45-day Medigap birthday rule (only for current Medigap holders); HFS Federal Resource Center (changes from 1 Oct 2026 and 1 Jan 2027; seniors outside work rules). Candidates: (A) Medicare Advantage Open Enrollment 1 Jan-31 Mar: the pending plan-choice section tells families a parent can drop MA and return to Original Medicare but not that Medigap may then be unavailable; real, official, timed, on the 781-impression page, but one addition, not a project, and the element is pending in package #91: queued as ACQ-221 (waits for the merge). (B) Tax season: three public family questions and IRS Pub 502 already recorded in ACQ-212; blocked only by the citation-host rule (irs.gov), which is Joseph's; timing noted on ACQ-212 (a yes by about 10 Jan keeps it before the season). (C) New-year fig…"
+    },
     {
      "utc": "2026-11-28T18:09Z",
      "run": "cse_014eaiScuivKeRhjfyzjYVBX",
