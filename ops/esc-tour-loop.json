@@ -6967,10 +6967,7 @@
    "holder": "cse_014eaiScD9A2D9TRc6UYLPwd",
    "utc": "2026-11-28T06:46Z",
    "since_utc": "2026-11-28T06:42Z",
-   "current": {
-    "what": "ACQ-212",
-    "since_utc": "2026-11-28T06:45Z"
-   }
+   "productive_min": 2
   },
   "monitor": {
    "last_utc": "2026-11-28T05:58Z"
@@ -8400,9 +8397,9 @@
      91
     ],
     "owner_open": 1,
-    "cooldown_until_utc": "2026-11-28T07:14Z",
-    "last_planned_utc": "2026-11-27T19:14Z",
-    "last_plan_result": "Batch #90 holds all 11 verified worker pages; no new packet with publish-ready verdict since the 07:06Z pass; nothing qualifies.",
+    "cooldown_until_utc": "2026-11-28T18:46Z",
+    "last_planned_utc": "2026-11-28T06:46Z",
+    "last_plan_result": "Same evidence as the publish-ready sweep 28 Nov 07:10Z: every qualifying drafts page is in batch #90 and unchanged since port; batch and package #91 clean and mergeable. Nothing to add.",
     "wip_note": "Limit 3 open publish pull requests since 24 Nov 2026 (was 2): batches are stacked, so the newest one publishes all of them with a single merge.",
     "note_open_prs": "#90 contains #87 and #88 (one decision for Joseph); when a batch is open, changed pages are added to its branch, not to a new pull request"
    },
@@ -8607,6 +8604,7 @@
    }
   ],
   "log": [
+   "2026-11-28T06:46Z publish +0: Same evidence as the publish-ready sweep 28 Nov 07:10Z: every qualifying drafts page is in batch #90 and unchanged since port; batch and package #91 clean and …",
    "2026-11-28T06:45Z demand +1: Search Console (25 Nov read, same as last pass): no new uncovered Illinois query. Public questions searched 28 Nov: deducting a parent's assisted living or mem…",
    "2026-11-27T19:33Z build +0: Second pass this session, no new evidence since 19:1xZ: the one qualifying need (home care vs assisted living) is built, verified and ported to #90; ACQ-118 wa…",
    "2026-11-27T19:14Z publish +0: Batch #90 holds all 11 verified worker pages; no new packet with publish-ready verdict since the 07:06Z pass; nothing qualifies.",
@@ -8645,8 +8643,7 @@
    "2026-11-23T06:28Z partnerships +0: 2026-11-23: no referral_partnerships map item has verdict ACT (R1 waiting, R8 waiting, the rest dropped); R1 class closed to new emails; one email draft alread…",
    "2026-11-23T06:28Z distribution +0: 2026-11-23: all distribution map items already have verdicts (D1 active within posting cap; P-1122-01 post text already ready for operator; D2/D11/D14 watch; D…",
    "2026-11-23T06:28Z technical +0: 2026-11-23: main clone checks pass (check-guides.js 2696/2696, test.js 768/768, checklist PDF test 0 failed; check-mobile-nav skipped, no websockets). Live cra…",
-   "2026-11-23T06:26Z search +0: Crawled live sitemap 2026-11-23 (36 URLs): all 200, canonical correct, one h1, JSON-LD on all but privacy. Gaps found are already tracked: guide titles 72-99 c…",
-   "2026-11-23T06:26Z demand +2: Searched public caregiver Q&A forums and legal Q&A (2026-11-23) for decision-stage Illinois questions; checked 49 slugs/h1 on main+drafts. Passed: assisted-liv…"
+   "2026-11-23T06:26Z search +0: Crawled live sitemap 2026-11-23 (36 URLs): all 200, canonical correct, one h1, JSON-LD on all but privacy. Gaps found are already tracked: guide titles 72-99 c…"
   ],
   "budget_hours_per_day": 6,
   "budget_hours_per_week": 28,
@@ -8676,9 +8673,9 @@
     "evidence": "ops/reviews/ packets; open pull requests; the asset on drafts and its absence from main.",
     "output": "One publish-batch task for this session (key publish-batch:<YYYYMMDD>-<n>) covering all of them: procedure step 7, Publish package.",
     "why": "Publishing is the step that turns drafts into visitors.",
-    "last_checked_utc": "2026-11-27T18:31Z",
-    "next_check_utc": "2026-11-28T06:31Z",
-    "last_result": "11 worker pages on drafts not on main; all 11 qualify and all 11 are in open batch #90 (head eea57b7). Body text, h1 and short answer identical between batch and drafts (12e63bd); title/description differ only where the port shortened them to main's 160-character limit (ported deliberately, not a l…",
+    "last_checked_utc": "2026-11-28T06:46Z",
+    "next_check_utc": "2026-11-28T18:46Z",
+    "last_result": "12 worker pages on drafts not on main; all 12 in open batch #90 (head 4815ca1). Field-by-field compare of GUIDES dicts (drafts vs batch): 8 identical; home-care-or-assisted-living-illinois identical; money-management, responsible-party, va-home-based differ only in title/desc shortened at port to m…",
     "last_added": 0
    },
    {
@@ -8751,9 +8748,9 @@
     "evidence": "The operator's Search Console record in state.json and scoreboard.search_console.",
     "output": "Demand topics for queries with no page; a title or description fix task for a low click-through page (search lane capacity permitting). No new read is a one-line result.",
     "why": "Real queries are the strongest demand evidence the site can get.",
-    "last_checked_utc": "2026-11-27T06:58Z",
-    "next_check_utc": "2026-11-28T06:58Z",
-    "last_result": "No Search Console read newer than 2026-11-25T20:35Z (the 27 Nov payload repeats it; already recorded 26 Nov). Its uncovered-query and low-CTR candidates were worked: Medicare page -> #93; estate recovery -> #92; preadmission -> ACQ-102. Next read expected Wednesday evening UTC.",
+    "last_checked_utc": "2026-11-28T06:46Z",
+    "next_check_utc": "2026-11-29T06:46Z",
+    "last_result": "No Search Console read newer than 2026-11-25T20:35Z (this session's Make payload repeats it; recorded 26 Nov). Its candidates were worked earlier (#93/#96 Medicare, #92 estate recovery, ACQ-102 preadmission). Next weekly read expected around 2 Dec.",
     "last_added": 0
    },
    {
@@ -8848,6 +8845,8 @@
    }
   ],
   "sweep_log": [
+   "2026-11-28T06:46Z search-console +0: No Search Console read newer than 2026-11-25T20:35Z (this session's Make payload repeats it; recorded 26 Nov). Its candidates were worked earlier (#93/#96 Medi…",
+   "2026-11-28T06:46Z publish-ready +0: 12 worker pages on drafts not on main; all 12 in open batch #90 (head 4815ca1). Field-by-field compare of GUIDES dicts (drafts vs batch): 8 identical; home-car…",
    "2026-11-28T05:59Z draft-review +0: drafts c808dca vs main: 12 worker pages not on main, all 12 have packets in ops/reviews with counts line; guide commits since 12e63bd (home-care-or-assisted-li…",
    "2026-11-28T00:20Z channel-yield +0: cloud.json daily 21-27 Nov: facebook 17 of 28 genuine visitors (fb-rp-1122 7, fb-nsh-1126 5, fb-evsk-1125 3, fb-glv-1124 1), search 3-4, email 0 (em-1125a/b be…",
    "2026-11-27T19:21Z asset-gaps +0: Answered by this session's build plan pass minutes earlier on the same evidence (Search Console 25 Nov read, DEMAND.md, slugs on main and drafts, CareScout 202…",
