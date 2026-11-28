@@ -6965,8 +6965,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSddUeMjnHqKdcHsnn4",
-   "utc": "2026-11-28T07:27Z",
-   "since_utc": "2026-11-28T07:27Z"
+   "utc": "2026-11-28T07:28Z",
+   "since_utc": "2026-11-28T07:27Z",
+   "productive_min": 0
   },
   "monitor": {
    "last_utc": "2026-11-28T05:58Z"
@@ -8421,9 +8422,9 @@
     "plan_cooldown_hours": 12,
     "open_prs": [],
     "owner_open": 8,
-    "cooldown_until_utc": "2026-11-28T07:33Z",
-    "last_planned_utc": "2026-11-27T19:33Z",
-    "last_plan_result": "Second pass this session, no new evidence since 19:1xZ: the one qualifying need (home care vs assisted living) is built, verified and ported to #90; ACQ-118 waits on ilga.gov; contract-disclosure and move-in-assessment topics need ilga.gov (unreachable); MA open enrollment covered by #93; whom-to-c…",
+    "cooldown_until_utc": "2026-11-28T19:28Z",
+    "last_planned_utc": "2026-11-28T07:28Z",
+    "last_plan_result": "28 Nov 07:3xZ: evidence unchanged since the 27 Nov 19:33Z pass. Make GSC read is still 25 Nov 20:35Z (recorded); every query with >=3 impressions maps to a live or drafts page (Medicare/assisted-living cluster -> does-medicare-pay-for-senior-care, PJ01 waiting on #96; VA caregiver, advance directiv…",
     "wip_note": "owner_open counts worker-built assets on drafts that are not on main yet. Limit 30 since 27 Nov 2026 (was 10): the assets wait inside the daily package, which is one decision for Joseph, and a pending approval does not stop evidence-backed building (his words of 24 and 26 Nov). The evidence rules decide what is built, not the count."
    },
    {
@@ -8647,6 +8648,7 @@
    }
   ],
   "log": [
+   "2026-11-28T07:28Z build +0: 28 Nov 07:3xZ: evidence unchanged since the 27 Nov 19:33Z pass. Make GSC read is still 25 Nov 20:35Z (recorded); every query with >=3 impressions maps to a liv…",
    "2026-11-28T06:46Z publish +0: Same evidence as the publish-ready sweep 28 Nov 07:10Z: every qualifying drafts page is in batch #90 and unchanged since port; batch and package #91 clean and …",
    "2026-11-28T06:45Z demand +1: Search Console (25 Nov read, same as last pass): no new uncovered Illinois query. Public questions searched 28 Nov: deducting a parent's assisted living or mem…",
    "2026-11-27T19:33Z build +0: Second pass this session, no new evidence since 19:1xZ: the one qualifying need (home care vs assisted living) is built, verified and ported to #90; ACQ-118 wa…",
@@ -8685,8 +8687,7 @@
    "2026-11-23T06:28Z demand +0: 2026-11-23 second pass: the two qualifying topics from this session's first pass are now in DEMAND.md Open (8888a72, 5fb913b); remaining candidates from the sa…",
    "2026-11-23T06:28Z partnerships +0: 2026-11-23: no referral_partnerships map item has verdict ACT (R1 waiting, R8 waiting, the rest dropped); R1 class closed to new emails; one email draft alread…",
    "2026-11-23T06:28Z distribution +0: 2026-11-23: all distribution map items already have verdicts (D1 active within posting cap; P-1122-01 post text already ready for operator; D2/D11/D14 watch; D…",
-   "2026-11-23T06:28Z technical +0: 2026-11-23: main clone checks pass (check-guides.js 2696/2696, test.js 768/768, checklist PDF test 0 failed; check-mobile-nav skipped, no websockets). Live cra…",
-   "2026-11-23T06:26Z search +0: Crawled live sitemap 2026-11-23 (36 URLs): all 200, canonical correct, one h1, JSON-LD on all but privacy. Gaps found are already tracked: guide titles 72-99 c…"
+   "2026-11-23T06:28Z technical +0: 2026-11-23: main clone checks pass (check-guides.js 2696/2696, test.js 768/768, checklist PDF test 0 failed; check-mobile-nav skipped, no websockets). Live cra…"
   ],
   "budget_hours_per_day": 6,
   "budget_hours_per_week": 28,
@@ -8701,9 +8702,9 @@
     "evidence": "Public family questions, Search Console queries, search presence and competitor gaps already recorded in the sweep log, plus fresh searches; the guide index on main and drafts; DEMAND.md open and done.",
     "output": "Up to three BUILD tasks (lane build), each one asset with its evidence, never a topic in DEMAND.md's Open list. Deliverable of each task: guide, faq, checklist, resource or research_report on drafts.",
     "why": "Joseph wants assets built, not only opportunities reported.",
-    "last_checked_utc": "2026-11-27T19:21Z",
-    "next_check_utc": "2026-11-28T07:21Z",
-    "last_result": "Answered by this session's build plan pass minutes earlier on the same evidence (Search Console 25 Nov read, DEMAND.md, slugs on main and drafts, CareScout 2025 tables, caregiver Q&A, web results): home care vs assisted living comparison built as ACQ-191 (drafts 73e991c). Whom-to-call-first page le…",
+    "last_checked_utc": "2026-11-28T07:28Z",
+    "next_check_utc": "2026-11-28T19:28Z",
+    "last_result": "28 Nov 07:3xZ: same evidence as the build plan pass minutes earlier (GSC 25 Nov read unchanged, DEMAND.md Open/Done, 44 drafts slugs, 32 main slugs, research/north-shore-town-pages.md WATCH). No decision-stage need without a page; ACQ-118 still blocked by ilga.gov. 0 added.",
     "last_added": 0
    },
    {
@@ -8746,9 +8747,9 @@
     "evidence": "python3 ops/quotecheck.py --site <clone of main> --all: every guide with a NOT FOUND or NEAR MATCH quotation; then, among guides without a packet in ops/reviews/live/, those with deadlines, dollar figures or eligibility rules. State on 25 Nov 2026 after two sessions: 32 live guides; 8 audited (packets in ops/reviews/live/: 4 hold, 4 corrected in pull request #89); the checker (corrected the same day: a link or a PDF line break inside a source sentence no longer reads as NOT FOUND) reports 249 of 252 quotations FOUND, 1 NOT FOUND (illinois-pace-program, corrected in #89) and 2 NEAR MATCH (illinois-nursing-home-preadmission-screening, corrected in #89; va-veteran-directed-care-program, a dropped hyphen inside quotation marks, audit queued). assisted-living-cost-illinois and check-illinois-inspection-records cite ilga.gov pages that neither the worker's environment nor the main chat's could read: audit them with a web fetch tool for those pages.",
     "output": "One audit task per live guide with a NOT FOUND quotation (all of them, key audit:<slug>), plus at most two more guides per check chosen by risk; each audit under procedure step 7 Improve, ACCURACY AUDIT. Corrections go into one rolling review pull request. When every live guide has a packet, record that and pass --recheck-hours 720.",
     "why": "Joseph, 24 Nov 2026: \"Correct the known content accuracy problems and strengthen the review process.\" Families act on these deadlines and figures.",
-    "last_checked_utc": "2026-11-27T19:21Z",
-    "next_check_utc": "2026-11-28T07:21Z",
-    "last_result": "27 Nov 19:2xZ: 31/32 live guides have packets in ops/reviews/live/. The only one without, check-illinois-inspection-records, cites 9 ilga.gov pages: quotecheck HTTP 000 on all 9, WebFetch 503 on 210 ILCS 45/3-210; still unauditable from this environment. No new candidate.",
+    "last_checked_utc": "2026-11-28T07:28Z",
+    "next_check_utc": "2026-11-30T07:28Z",
+    "last_result": "28 Nov 07:3xZ: 31/32 live guides have packets. Only check-illinois-inspection-records remains; its 9 ilga.gov sources are still unreadable (curl: SSL 'unable to get local issuer certificate' on www.ilga.gov; WebFetch HTTP 503 on ilga.gov 210 ILCS 45/3-210). No new NOT FOUND evidence. 0 added.",
     "last_added": 0
    },
    {
@@ -8888,6 +8889,8 @@
    }
   ],
   "sweep_log": [
+   "2026-11-28T07:28Z live-accuracy +0: 28 Nov 07:3xZ: 31/32 live guides have packets. Only check-illinois-inspection-records remains; its 9 ilga.gov sources are still unreadable (curl: SSL 'unable t…",
+   "2026-11-28T07:28Z asset-gaps +0: 28 Nov 07:3xZ: same evidence as the build plan pass minutes earlier (GSC 25 Nov read unchanged, DEMAND.md Open/Done, 44 drafts slugs, 32 main slugs, research/n…",
    "2026-11-28T06:46Z search-console +0: No Search Console read newer than 2026-11-25T20:35Z (this session's Make payload repeats it; recorded 26 Nov). Its candidates were worked earlier (#93/#96 Medi…",
    "2026-11-28T06:46Z publish-ready +0: 12 worker pages on drafts not on main; all 12 in open batch #90 (head 4815ca1). Field-by-field compare of GUIDES dicts (drafts vs batch): 8 identical; home-car…",
    "2026-11-28T05:59Z draft-review +0: drafts c808dca vs main: 12 worker pages not on main, all 12 have packets in ops/reviews with counts line; guide commits since 12e63bd (home-care-or-assisted-li…",
