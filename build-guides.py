@@ -1488,7 +1488,7 @@ GUIDES = [
                    "&ldquo;a little like an insurance deductible,&rdquo; where medical "
                    "bills above a set monthly amount count toward eligibility."),
         "sources": srcs("hfs_ltc_clients", "hfs_ltc_providers", "hfs_spenddown",
-                        "hfs_spousal2026", "hfs_pna2024", "hfs_elderly"),
+                        "hfs_spousal2026", "hfs_pna2024", "hfs_elderly", "hfs_fed_medicaid_faq"),
         "body": [
             ("What Illinois Medicaid actually pays for", [
                 "<p>Medicaid is not one single long-term-care benefit. The Illinois "
@@ -1521,6 +1521,15 @@ GUIDES = [
                 "fill in once and forget. Expect to provide income and asset "
                 "documentation, and expect a caseworker, not a website, to tell you "
                 "exactly what is required in your parent's case.</p>",
+                "<p>Do not wait to apply. HFS says retroactive coverage lets medical "
+                "care be paid for up to a certain amount of time before the application "
+                "date, and that &ldquo;Effective January 1, 2027, retroactive coverage "
+                "will be decreased from 3 months to 2 months for all Illinois Medicaid "
+                "customers.&rdquo; If your parent is already in a nursing home while "
+                "the application is decided, see "
+                '<a href="/guides/illinois-medicaid-pending-nursing-home/">My parent is '
+                "in an Illinois nursing home and Medicaid is still pending. What happens "
+                "now?</a></p>",
             ]),
             ("What &ldquo;spend-down&rdquo; actually means", [
                 "<p>Spend-down exists for people who would otherwise be turned away for "
