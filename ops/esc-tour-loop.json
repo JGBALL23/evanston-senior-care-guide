@@ -6944,8 +6944,9 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSdzfMyqt4Vbo7uFGvh",
-   "utc": "2026-11-28T05:58Z",
-   "since_utc": "2026-11-28T05:57Z"
+   "utc": "2026-11-28T05:59Z",
+   "since_utc": "2026-11-28T05:57Z",
+   "productive_min": 1
   },
   "monitor": {
    "last_utc": "2026-11-28T05:58Z"
@@ -8623,9 +8624,9 @@
     "evidence": "git diff of main...drafts for new guide slugs; each draft's own cited sources, fetched and read now.",
     "output": "One review task per page (key review:<slug>), worked under the review rules of procedure step 7: quotation checker, wording, the scope rule, figures, links, advice; packet at ops/reviews/<slug>.md with its table, counts line and verdict. Never a page this session built. Deliverable type review_packet.",
     "why": "A draft only helps families once Joseph publishes it; a verified packet turns that into a few-minute decision.",
-    "last_checked_utc": "2026-11-27T18:26Z",
-    "next_check_utc": "2026-11-28T06:26Z",
-    "last_result": "drafts 12e63bd vs main: 11 worker pages not on main, all 11 have packets in ops/reviews with the counts line; newest commit 12e63bd already reader-verified; the 6 AM routine wrote nothing new today. Nothing to add.",
+    "last_checked_utc": "2026-11-28T05:59Z",
+    "next_check_utc": "2026-11-28T17:59Z",
+    "last_result": "drafts c808dca vs main: 12 worker pages not on main, all 12 have packets in ops/reviews with counts line; guide commits since 12e63bd (home-care-or-assisted-living 73e991c/7dfe57f/2dd30a6, medicaid-pending dad7c20) all carry 'Corrections verified' by reader agents; later commits are research report…",
     "last_added": 0
    },
    {
@@ -8780,6 +8781,7 @@
    }
   ],
   "sweep_log": [
+   "2026-11-28T05:59Z draft-review +0: drafts c808dca vs main: 12 worker pages not on main, all 12 have packets in ops/reviews with counts line; guide commits since 12e63bd (home-care-or-assisted-li…",
    "2026-11-28T00:20Z channel-yield +0: cloud.json daily 21-27 Nov: facebook 17 of 28 genuine visitors (fb-rp-1122 7, fb-nsh-1126 5, fb-evsk-1125 3, fb-glv-1124 1), search 3-4, email 0 (em-1125a/b be…",
    "2026-11-27T19:21Z asset-gaps +0: Answered by this session's build plan pass minutes earlier on the same evidence (Search Console 25 Nov read, DEMAND.md, slugs on main and drafts, CareScout 202…",
    "2026-11-27T19:21Z live-accuracy +0: 27 Nov 19:2xZ: 31/32 live guides have packets in ops/reviews/live/. The only one without, check-illinois-inspection-records, cites 9 ilga.gov pages: quotecheck…",
