@@ -6227,10 +6227,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-28T05:16Z",
+  "utc": "2026-11-28T05:59Z",
   "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
-  "picked": "ACQ-211 done",
-  "why": "Worked: cut the 28 Nov package on #91 (+#94 #95 #96, #90 and #89 to their heads; all suites pass); stopped: no-worthwhile-work; resume: monitor and due tasks at 06:25Z"
+  "picked": "none",
+  "why": "Worked: monitor (site OK, 0 tour requests, 0 replies, no merges) and draft-review sweep (+0); stopped: no-worthwhile-work; resume: 06:30Z ACQ-118, ACQ-164 and a project step fall due"
  },
  "last_verified_action": "ACQ-211 done 2026-11-28T05:16Z: Cut the 28 Nov package on the open #91 (number kept): merged #90 head 4815ca1 (12 guides), #89 to its head faf855a (every commit verified), #94 sourcing page, …",
  "last_stop": {
@@ -6311,7 +6311,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Next due: monitor 06:25Z, sweep angles draft-review 06:26Z and publish-ready 06:31Z, ACQ-118 (build rate-increase guide) and ACQ-164 and a project step at 06:30Z; backlog discovery rests until 08:26Z; frontier list answered (20 in 24h). Waiting on Joseph: merge of package #91 (re-cut 28 Nov, 2b9e9cf), which unblocks ACQ-012, ACQ-017, ACQ-102, ACQ-164.",
+ "next_discovery": "06:30Z: ACQ-118 (Illinois assisted living rate-increase guide, third ilga.gov try), ACQ-164 and a project step fall due; 06:47Z planner cooldown ends. Package #91 (28 Nov cut) waits on Joseph.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -6943,15 +6943,55 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiSdzfMyqt4Vbo7uFGvh",
-   "utc": "2026-11-28T05:59Z",
-   "since_utc": "2026-11-28T05:57Z",
-   "productive_min": 1
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-28T05:58Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSdzfMyqt4Vbo7uFGvh",
+    "start_utc": "2026-11-28T05:57Z",
+    "end_utc": "2026-11-28T05:59Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: monitor (site OK, 0 tour requests, 0 replies, no merges) and draft-review sweep (+0); stopped: no-worthwhile-work; resume: 06:30Z ACQ-118, ACQ-164 and a project step fall due",
+    "done": 0,
+    "changed": 2,
+    "tasks": "none",
+    "next": "no",
+    "wake_minutes": 30,
+    "next_due_utc": "2026-11-28T06:30Z",
+    "plan_due": false,
+    "saturated": [],
+    "budget_used_hours_24h": 2.6,
+    "budget_used_hours_7d": 8.1,
+    "productive_min": 1,
+    "deliverables": [],
+    "stop_reason": "no-worthwhile-work",
+    "considered": "monitor: done (Search Console read 25 Nov already recorded); event waits ACQ-012/017/102 (PRs #81/#85/#89 still open), ACQ-007 owner; no unapplied owner decisions; draft-review sweep: 12 drafts all with verified packets, +0; plan not due (planner cooldown until 06:47Z); frontier not due (20 answered in 24h, list empty); backlog fallback resting until 08:26Z; projects none due until 06:30Z; package for 28 Nov already cut 05:16Z, recut not due; ACQ-118 and ACQ-164 not_before 06:30Z (outside 30-min grace)",
+    "resume_when": "2026-11-28T06:30Z: ACQ-118 (ilga.gov recheck), ACQ-164 and a project step due; 06:31Z publish-ready sweep; 06:47Z planner cooldown ends",
+    "sweep_due_left": [],
+    "sessions_24h": 9,
+    "handoff": null,
+    "make_ops": null,
+    "package": {
+     "due_at_close": false,
+     "recut_due_at_close": false,
+     "skipped": null,
+     "done_today": true
+    },
+    "backlog_discovery": {
+     "explorations": 0,
+     "avenue_classes": [],
+     "tasks_added": 0,
+     "concluded": null
+    },
+    "frontier": {
+     "explored": [],
+     "open_left": 0
+    }
+   },
    {
     "run": "cse_014eaiSerKbhFgkHuQX9sSV1",
     "start_utc": "2026-11-28T05:12Z",
@@ -8210,17 +8250,9 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-28T05:16Z",
+   "written_utc": "2026-11-28T05:59Z",
    "eligible_now": 0,
    "next_due": [
-    {
-     "utc": "2026-11-28T06:25Z",
-     "what": "monitor"
-    },
-    {
-     "utc": "2026-11-28T06:26Z",
-     "what": "sweep angle draft-review"
-    },
     {
      "utc": "2026-11-28T06:30Z",
      "what": "ACQ-118"
@@ -8236,6 +8268,14 @@
     {
      "utc": "2026-11-28T06:31Z",
      "what": "sweep angle publish-ready"
+    },
+    {
+     "utc": "2026-11-28T06:47Z",
+     "what": "planner cooldown ends"
+    },
+    {
+     "utc": "2026-11-28T06:58Z",
+     "what": "sweep angle search-console"
     }
    ]
   },

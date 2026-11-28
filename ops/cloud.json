@@ -114,7 +114,7 @@
  "site": {
   "fail_count": 0,
   "down_since_utc": null,
-  "last_check_utc": "2026-11-28T06:05Z",
+  "last_check_utc": "2026-11-28T05:58Z",
   "last_check_method": "curl (loop worker): home 200, ?tour=form 200, /assisted-living-evanston/ 200, checklist PDF 200 application/pdf, #assessment present; Netlify 18:25Z 27 Nov-05:57Z 28 Nov: 428 req (172 browser, 156 page-preview, 55 ai-agent, 16 other, 15 crawler, 14 tooling), 280x200, 89x304, 35x301, 23x404, 1x206, no 5xx"
  },
  "recovery": {
@@ -211,7 +211,7 @@
  },
  "demand_candidates": [],
  "log": [
-  "2026-11-28T06:05Z worker monitor: site OK (no 5xx); 1 genuine visitor (returning Google client, already counted 27 Nov); 0 tour requests; 0 org replies; no merges (#78-#96 open, all clean; package #91 waiting); Search Console read 25 Nov 20:35Z already recorded; operator last run 03:34Z",
+  "2026-11-28T05:58Z worker monitor: site OK (no 5xx); 1 genuine visitor (returning Google client, already counted 27 Nov); 0 tour requests; 0 org replies; no merges (#78-#96 open, all clean; package #91 waiting); Search Console read 25 Nov 20:35Z already recorded; operator last run 03:34Z",
   "2026-11-27T18:25Z worker monitor: site OK (no 5xx; scanner 404s); 1 genuine visitor (Google, returning, SHIP guide); 0 tour requests; 0 org replies; no merges (#78-#93 open, all clean; package #91 waiting); Search Console read 25 Nov 20:35Z already recorded",
   "2026-11-27T06:58Z worker: tour-path beacon read found (Netlify urls_with_query filtered by /t/<event>.txt); 26 Nov row filled: 0 assessment starts, 0 tour-form views; convention in metrics/tour_path_read",
   "2026-11-27T06:27Z worker monitor: site OK (no 5xx); 2 genuine visitors (1 returning direct, 1 Facebook checklist open); 0 tour requests; 0 org replies; no merges (#78-#92 open, all clean; package #91 waiting); Search Console read 25 Nov 20:35Z already recorded; operator last run 03:34Z",
@@ -297,7 +297,7 @@
  "outreach_watch": {
   "alerted": [],
   "replies_alerted": [],
-  "last_utc": "2026-11-28T06:05Z",
+  "last_utc": "2026-11-28T05:58Z",
   "note": "no org replies (inbox 3d: 19 threads, none in the 13 sent outreach threads)"
  },
  "facebook_interruption": {
@@ -325,7 +325,7 @@
     "assessment_starts": 0,
     "tour_form_views": 0,
     "tour_requests": 0,
-    "note": "00:25-12:25 Chicago 27 Nov: 1 Google visitor (4 landed s=google beacons from one client, home and SHIP guide); tour-path beacons: 0 checklist-click, 0 assessment-started, 0 tour-form views, 0 inquiry-submitted; Meta preview at 06:21 Chicago not counted; 12:25-23:57 Chicago: same returning Google visitor (not counted again), 0 checklist, 0 assessment, 0 tour-form views, 0 tour requests (worker 28 Nov 06:05Z)"
+    "note": "00:25-12:25 Chicago 27 Nov: 1 Google visitor (4 landed s=google beacons from one client, home and SHIP guide); tour-path beacons: 0 checklist-click, 0 assessment-started, 0 tour-form views, 0 inquiry-submitted; Meta preview at 06:21 Chicago not counted; 12:25-23:57 Chicago: same returning Google visitor (not counted again), 0 checklist, 0 assessment, 0 tour-form views, 0 tour requests (worker 28 Nov 05:58Z)"
    },
    {
     "date_chicago": "2026-11-26",
