@@ -62,3 +62,5 @@ None. Every quotation is FOUND character for character, and every claim's scope 
 Quotations checked: 18. Claims scope-checked: 33. Scope defects: 0. Corrections required: 0.
 Verdict: publish-ready
 Reader: agent in cse_014eaiSatXS1q27vkUDbsXyD
+
+Corrections applied: drafts 64665a7, 2026-11-28, cse_014eaiSatXS1q27vkUDbsXyD (recommended additions 1 and 2; 3 not applied: ilga.gov is not an allowed citation host; 4 not applied: the 2014 three-month backdating figure is superseded from January 2027 per HFS's federal-changes FAQ)
