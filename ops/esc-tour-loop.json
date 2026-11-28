@@ -6372,6 +6372,31 @@
    },
    "done_utc": "2026-11-28T08:31Z",
    "minutes": 2
+  },
+  {
+   "id": "ACQ-218",
+   "task": "Port moving-parent-to-illinois-from-another-state (packet publish-ready, corrections verified) into the open publish batch #90 and re-cut the 28 Nov package (second cut) so it reaches Joseph today",
+   "workstream": "publish",
+   "lane": "publish",
+   "source": "followup",
+   "key": "publish:port:moving-parent-to-illinois-from-another-state",
+   "priority": 1,
+   "evidence": "ops/reviews/moving-parent-to-illinois-from-another-state.md: Verdict publish-ready; Corrections verified 2026-11-28",
+   "expected_tour_acquisition_value": "a finished decision-stage page reaches the one merge Joseph makes today instead of tomorrow",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 2,
+   "executor": "worker (research and preparation only)",
+   "done_when": "commit on the batch branch with every suite run, #90 body updated, package #91 re-cut with controller/package and owner_review_needed rewritten",
+   "status": "done",
+   "found_utc": "2026-11-28T08:35Z",
+   "result": "Ported moving-parent-to-illinois-from-another-state into batch #90 as effa23b (named from the Medicaid-pending and holiday-visit batch guides; RELATED entry to Medicaid LTC, pre-admission screening, SHIP). All suites pass on the batch; quotecheck 240/240 across its 13 pages; #90 retitled 'Publish batch: 13 guides' with body updated. Second cut: #90 merged into package branch as 31ea78b (SOURCES-LIST UNION in SRC, both sides only added entries; no duplicate keys; parses); rebuild leaves no diff; all eleven suites pass; #91 title/body rewritten (same number), mergeable clean. controller/package head and cut_utc rewritten; owner_review_needed line 1 updated to 13 guides.",
+   "deliverable": {
+    "type": "publish_pr",
+    "ref": "#90 effa23b; package #91 31ea78b"
+   },
+   "done_utc": "2026-11-28T08:39Z",
+   "minutes": 5
   }
  ],
  "blocked": [],
@@ -6382,7 +6407,7 @@
   "picked": "-",
   "why": "Worked: build plan and sweeps asset-gaps, live-accuracy found nothing new (same 25 Nov GSC read; ilga.gov still unreadable); stopped: no-worthwhile-work; resume: backlog discovery 08:26Z"
  },
- "last_verified_action": "ACQ-217 done 2026-11-28T08:31Z: Independent reader (agent in this session) checked the sentences drafts 64665a7 changed: quotecheck 21/21 FOUND, 9 pages read; Medigap paragraph matches the 02…",
+ "last_verified_action": "ACQ-218 done 2026-11-28T08:39Z: Ported moving-parent-to-illinois-from-another-state into batch #90 as effa23b (named from the Medicaid-pending and holiday-visit batch guides; RELATED entry to…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -6417,7 +6442,7 @@
   "confirmation": "Claude Scheduled Tasks screenshot: ESCG Tour Acquisition Loop active, Pull request: Commits pushed on matching repository. Previous setup screenshot: head branch automation/esc-tour-loop."
  },
  "owner_review_needed": [
-  "PACKAGE 28 Nov (one merge, about 25 minutes to skim): merge #91. It holds 12 new guides (new since yesterday: home care or assisted living in Illinois, costs and who pays), corrections to 22 live guides, the Medicare guide reworked for what people search (#96: a plain $0 answer, what Medicare still pays in assisted living, four question sections; the page has 781 of the site's 1,242 search impressions and 0 clicks), its plan-choice section before Open Enrollment closes on 7 December (#93), the 2027 Medicaid retroactive-coverage change (#95), a page on how the guides are sourced and checked (#94) and search-title, link and tour-path changes, tested together: the rebuild changes nothing and all eleven test suites pass. Two items touch things you reserved and are quoted at the top of the pull request: #86 adds the tour line you asked for on 22 Nov to the checklist PDF ('Want a tour of Westminster Place, where the author works? Ask online.'), and #84 with #79 keep a visitor's arrival channel through the tour click (no new data). Offered since 25 Nov; every day it waits, the new guides, the corrections and the 7 December section stay off the live site. After the merge nothing else is needed: it is published automatically within about an hour and one notification tells you it is live, or why it is not. To leave something out: 'package without #<n>'.",
+  "PACKAGE 28 Nov (one merge, about 25 minutes to skim): merge #91. It holds 13 new guides (new since yesterday: home care or assisted living in Illinois, costs and who pays; and, added this morning, moving a parent to Illinois from another state), corrections to 22 live guides, the Medicare guide reworked for what people search (#96: a plain $0 answer, what Medicare still pays in assisted living, four question sections; the page has 781 of the site's 1,242 search impressions and 0 clicks), its plan-choice section before Open Enrollment closes on 7 December (#93), the 2027 Medicaid retroactive-coverage change (#95), a page on how the guides are sourced and checked (#94) and search-title, link and tour-path changes, tested together: the rebuild changes nothing and all eleven test suites pass. Two items touch things you reserved and are quoted at the top of the pull request: #86 adds the tour line you asked for on 22 Nov to the checklist PDF ('Want a tour of Westminster Place, where the author works? Ask online.'), and #84 with #79 keep a visitor's arrival channel through the tour click (no new data). Offered since 25 Nov; every day it waits, the new guides, the corrections and the 7 December section stay off the live site. After the merge nothing else is needed: it is published automatically within about an hour and one notification tells you it is live, or why it is not. To leave something out: 'package without #<n>'.",
   "ONLY YOU: When you have time: the Evanston Now essay (the draft is in your Claude chat; submit through their contact form by about 10 Dec); two optional calls to offices that publish no email address: New Trier Township social services 847-446-8202 and Village of Northbrook 847-272-5050 about its Senior Housing Resources directory.",
   "FOR THE OPERATOR (nothing for you to do): an indexing request for /assisted-living-evanston/ in Search Console once #91 is live."
  ],
@@ -7094,14 +7119,15 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSatXS1q27vkUDbsXyD",
-   "utc": "2026-11-28T08:31Z",
+   "utc": "2026-11-28T08:39Z",
    "since_utc": "2026-11-28T08:12Z",
-   "productive_min": 19,
+   "productive_min": 24,
    "deliverables": [
     "guide:drafts 779830c",
     "review_packet:ops/reviews/moving-parent-to-illinois-from-another-state.md",
     "correction:drafts 64665a7",
-    "verification:ops/reviews/moving-parent-to-illinois-from-another-state.md"
+    "verification:ops/reviews/moving-parent-to-illinois-from-another-state.md",
+    "publish_pr:#90 effa23b; package #91 31ea78b"
    ]
   },
   "monitor": {
@@ -8529,8 +8555,8 @@
   "package": {
    "pr": 91,
    "branch": "claude/package-20261125",
-   "head": "2b9e9cf",
-   "cut_utc": "2026-11-28T05:16Z",
+   "head": "31ea78b",
+   "cut_utc": "2026-11-28T08:39Z",
    "contains": [
     90,
     89,
