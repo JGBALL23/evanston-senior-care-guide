@@ -7184,8 +7184,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeHRfvS7seeirHN4eT",
-   "utc": "2026-11-28T18:05Z",
-   "since_utc": "2026-11-28T18:05Z"
+   "utc": "2026-11-28T18:07Z",
+   "since_utc": "2026-11-28T18:05Z",
+   "productive_min": 2,
+   "deliverables": [
+    "discovery:local-intent no project"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-28T17:43Z"
@@ -10723,9 +10727,24 @@
      "project": null,
      "result": "Read 28 Nov 2026: cloud.json Make Search Console read 25 Nov 20:35Z (only read; rows for 16-22 Nov only; 40 queries, 24 pages), planner/projects PJ01-PJ07, fallback log (search-va-caregiver 26 Nov, search-console-uncovered 26 Nov, search-advance-directive 27 Nov, search-rung2-elder-abuse-msp 28 Nov) and completed ACQ-084 (#92 page-one titles). Medicare cluster (781 impr) is PJ01; Evanston queries are PJ06; page-one zero-click pages (estate recovery 7.2, preadmission 8.5) already in #92 and queue serp-title task. Candidates in the 8-40 band no project covers, live titles and today's first resu…",
      "marker": "2026-11-25T20:35Z"
+    },
+    "local-intent": {
+     "last_utc": "2026-11-28T18:07Z",
+     "run": "cse_014eaiSeHRfvS7seeirHN4eT",
+     "project": null,
+     "result": "Read 28 Nov 2026 (18:05-18:20Z): planner/projects PJ01-PJ07, project_discovery state (objectives, intermediaries, search-demand), frontier F06/F08/F13/F15; today's web results for nursing-home Medicaid Skokie/Evanston, respite Wilmette/Glenview/Northbrook, supportive living Evanston/Skokie, Evanston senior housing how to choose, CareScout Chicago metro cost; hfs.illinois.gov/medicalprograms/slf/cook.html; assets.carescout.com 131168/282102/298701 (dated 03/2026). Candidates: (A) North Shore respite: results are all home-care agency pages and care.com; the official route (Family Caregiver Supp…",
+     "marker": null
     }
    },
    "log": [
+    {
+     "utc": "2026-11-28T18:07Z",
+     "run": "cse_014eaiSeHRfvS7seeirHN4eT",
+     "lens": "local-intent",
+     "added": 0,
+     "project": null,
+     "result": "Read 28 Nov 2026 (18:05-18:20Z): planner/projects PJ01-PJ07, project_discovery state (objectives, intermediaries, search-demand), frontier F06/F08/F13/F15; today's web results for nursing-home Medicaid Skokie/Evanston, respite Wilmette/Glenview/Northbrook, supportive living Evanston/Skokie, Evanston senior housing how to choose, CareScout Chicago metro cost; hfs.illinois.gov/medicalprograms/slf/cook.html; assets.carescout.com 131168/282102/298701 (dated 03/2026). Candidates: (A) North Shore respite: results are all home-care agency pages and care.com; the official route (Family Caregiver Support Program) is live on illinois-family-caregiver-support-program; respite explored 26 Nov (0); a town page would be a keyword variant: DROP. (B) Supportive Living near Evanston/Skokie: a dated 2023 HFS list in results names Skokie sites, but cook.html read today shows none in Evanston, Skokie, Wilmette, Niles, Morton Grove, Lincolnwood, Glenview or Park Ridge (nearest: two in 60640, Asbury Court Des Plaines), so the live guide's sentence holds and the need is covered: DROP. (C) Local cost for the one Evanston SC query (assisted living cost evanston il): directories disagree (about 2,300 to 5,900 a month, caring.com substitutes Chicago/Rockford data); CareScout's Chicago-Naperville-Elgin figures exist only in the carescout.com calculator, the assets.carescout.com PDFs carry state level only, and carescout.com is not an allowed citation host; 5 impressions do not justify an owner decision…"
+    },
     {
      "utc": "2026-11-28T18:04Z",
      "run": "cse_014eaiSbLGzqqhWfy7gHtQH7",
