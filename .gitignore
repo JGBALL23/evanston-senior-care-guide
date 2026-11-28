@@ -39,6 +39,9 @@ in
 
 # --- scratch files from one-off investigations ---
 .cites*
+# check-citations.sh writes this and removes it at the end; an interrupted run left it behind and it
+# was committed by accident in d7724d0 (26 Nov 2026)
+.cite-count
 .wm.json
 .patch_*.py
 .audit_*.py
