@@ -257,6 +257,21 @@
    "text": "From 1 January 2027, Illinois Medicaid will look back at most two months before an application instead of three. Illinois HFS says so in its federal-changes FAQ: \"Effective January 1, 2027, retroactive coverage will be decreased from 3 months to 2 months for all Illinois Medicaid customers.\" For an Evanston family whose parent is already in a nursing home when the application goes in, that is one month less that Medicaid can pay for after the fact. A plain-language explainer of what \"Medicaid pending\" means, who pays meanwhile and what changes in January, sourced to HFS, is here: https://evanstonseniorcareguide.com/guides/illinois-medicaid-pending-nursing-home/?ref=em-1128a\n\nHappy to point you to the official sources.\n\nDisclosure: I work at Westminster Place in Evanston. The guide is my own independent project, it includes an optional way to request a tour there, and I receive no referral fees.\n\nJoseph Gonzales",
    "checks": "HFS quotation re-read word for word on hfs.illinois.gov/info/fedresctr/faqshowwillfedchimpactmedicaid.html on 2026-11-28; route is the outlet's published tips address (contact-us page, read 28 Nov per the pitch plan); before drafting into Gmail: re-read the live guide and the HFS page that day, Gmail in:sent to the outlet's domain (duplicate check), at most one pitch per outlet per angle; angle B (holiday visit) is the second item, prepared in a later session (one outreach item per session).",
    "words": 140
+  },
+  {
+   "type": "email_draft",
+   "org": "Evanston RoundTable (published news-tips route on its contact-us page)",
+   "for": "operator",
+   "status": "ready",
+   "source": "PJ02 angle B (research/local-press-pitch-plan.md on drafts)",
+   "ref": "em-1128b",
+   "created_utc": "2026-11-28T06:55Z",
+   "not_before_utc": "2026-11-30T15:00Z",
+   "go_condition": "Send only once https://evanstonseniorcareguide.com/guides/noticed-changes-in-parent-holiday-visit/ is live (package #91 merged and published). Until then hold, even after not_before_utc. Seasonal: worthless after early January 2027. Send tip A and tip B at least a few days apart, not together.",
+   "subject": "A practical checklist for families after the holiday visit",
+   "text": "Holiday visits are often when adult children first notice a parent struggling: unopened mail, missed medications, a fall nobody mentioned. Our free, independent guide gives Illinois families a first-week plan: what to write down, the yearly Medicare Wellness visit and its memory check, and the one call to make first, the Illinois Department on Aging's Senior HelpLine (1-800-252-8966), with the statewide Adult Protective Services Hotline (1-866-800-1409) for the cases that need it. It names no community and sells nothing: https://evanstonseniorcareguide.com/guides/noticed-changes-in-parent-holiday-visit/?ref=em-1128b\n\nIt may be useful for a seasonal service note.\n\nDisclosure: I work at Westminster Place in Evanston. The guide is my own independent project, it includes an optional way to request a tour there, and I receive no referral fees.\n\nJoseph Gonzales",
+   "checks": "Re-read 2026-11-28 06:50Z: the guide on package branch claude/package-20261125 (head 2b9e9cf) states the HelpLine number, the Wellness-visit cognitive assessment and the APS hotline as the tip does; sources re-read the same day by web fetch: ilaging.illinois.gov helpline-main (1-800-252-8966, Mon-Fri 8:30-5:00), adult-protective-services page (1-866-800-1409; adults 60+ and 18-59 with disabilities living in the community), medicare.gov yearly-wellness-visits ('Perform a cognitive assessment to look for signs of dementia, including Alzheimer's disease.'). Duplicate check Gmail in:sent to:evanstonroundtable.com: one earlier thread, a guest essay submission to the letters route (tour-questions topic); no tip sent; different route and angle, so not a duplicate, but the operator should know the RoundTable already has an essay from this project under consideration (the pitch plan assumed the essay went to Evanston Now). Before sending: re-read the live page and the three sources that day. Second of at most three proposals in this class before a response is seen (A, B, and at most one more).",
+   "words": 122
   }
  ]
 }

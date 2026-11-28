@@ -6944,7 +6944,7 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiScD9A2D9TRc6UYLPwd",
-   "utc": "2026-11-28T06:42Z",
+   "utc": "2026-11-28T06:44Z",
    "since_utc": "2026-11-28T06:42Z"
   },
   "monitor": {
@@ -9817,9 +9817,9 @@
     "metric": "Mentions or links in local outlets (search and referral visitors with those referrers); replies to pitches.",
     "why": "Frontier F12 (27 Nov 2026): about 190 items in the last 12 months on senior-care terms in the two outlets' archives; recurring story types include state enforcement at a local long-term-care facility (7 stories Jan-Nov 2026) and benefit changes. The 2027 change to retroactive Medicaid found the same day is a fresh, checkable story.",
     "plan": "1 Investigate: which reporters cover these beats, how each outlet takes tips and community contributions (published routes only), what explainer readers lacked in the last stories. 2 Strategy: two or three story angles with the guide's sourced page behind each. 3 Build: the explainer pages (drafts, reader-reviewed) and short pitch drafts for the outreach operator to the outlets' published tip or newsroom addresses, with the standard disclosure. 4 Execute through the operator; follow up once; measure.",
-    "next_step": "Prepare tip B (holiday-visit guide, in package #91) as the second growth.json ready item after re-reading the guide and its sources.",
+    "next_step": "Execute and measure: at the first session after 1 Dec 15:00Z, check whether each tip's page is live (curl the live guide against the go_condition) and whether the operator sent it (state.json actions); record per_tag em-1128a/em-1128b and evanstonroundtable.com referrers from the monitor; one follow-up 14 days after a send; angle C (inspection records) only once ilga.gov is readable and check-illinois-inspection-records is audited 'holds'.",
     "kill_when": "Three well-founded pitches with no reply or use within 6 weeks.",
-    "stage": "build",
+    "stage": "execute",
     "status": "active",
     "added_utc": "2026-11-28T00:07Z",
     "added_by": "supervisor",
@@ -9847,10 +9847,16 @@
       "run": "cse_014eaiSauSkeGhjrd8SZfMJD",
       "result": "Tip A prepared this session; tip B waits for the next session (one outreach item per session, step 8).",
       "stage": "build"
+     },
+     {
+      "utc": "2026-11-28T06:44Z",
+      "run": "cse_014eaiScD9A2D9TRc6UYLPwd",
+      "result": "Tip B (holiday-visit next steps) prepared as growth.json ready item em-1128b for the operator, RoundTable published tips route, 122 words, standard disclosure, ref tag on the guide link; held by go_condition until noticed-changes-in-parent-holiday-visit is live (package #91). Re-read 28 Nov 2026: the guide on claude/package-20261125 @2b9e9cf; ilaging.illinois.gov helpline-main (1-800-252-8966, Mon-Fri 8:30-5:00) and adult-protective-services page (1-866-800-1409); medicare.gov yearly-wellness-visits (cognitive assessment sentence and cost sentence). All hold as the tip states. Duplicate check in:sent to the RoundTable domain: one earlier guest-essay submission to its letters route, no tip; noted for the operator (the pitch plan assumed the essay went to Evanston Now). Both prepared tips (A em-1128a, B em-1128b) now wait in growth.json; nothing sent.",
+      "stage": "execute"
      }
     ],
-    "not_before_utc": "2026-11-28T06:30Z",
-    "updated_utc": "2026-11-28T00:52Z"
+    "not_before_utc": "2026-12-01T15:00Z",
+    "updated_utc": "2026-11-28T06:44Z"
    },
    {
     "id": "PJ03",
