@@ -188,7 +188,8 @@
   "2026-11-22T00:07Z tour engine: no org replies (inbox: account notices, Nextdoor digests); 0 genuine visitors in latest metrics window; both post texts already ready (P-1120-01 still pending); township senior-services search (New Trier, Northfield) found no page with a general address; no action",
   "2026-11-22T12:08Z tour engine: no org replies (inbox: app notices, promos); 0 genuine visitors in latest metrics; both post texts already ready; referral sources already searched produced no fit; brief set; no action",
   "2026-11-22T18:10Z tour engine: no org replies (inbox: Nextdoor digests, app notices); 0 genuine visitors 16:25-17:25Z; P-1120-01 marked shipped, P-1122-01 already ready (now Mon 15:00Z); Morton Grove and Niles senior services already contacted; no action",
-  "2026-11-23T00:26Z loop worker: Open Communities email draft (em-1122a) ready for operator, from ACQ-027 ACT; not sent"
+  "2026-11-23T00:26Z loop worker: Open Communities email draft (em-1122a) ready for operator, from ACQ-027 ACT; not sent",
+  "2026-11-28T00:25Z worker cse_014eaiSeLUyuyJkYCTLw4xJi: PJ03 four-week Facebook calendar (30 Nov-26 Dec, 15 posts, cap-checked) with per-post results and two prepared texts at research/facebook-four-week-calendar.md on drafts c808dca; first slot Mon 30 Nov Rogers Park News (Medicare topic, sources). For the operator to schedule; nothing posted."
  ],
  "ready": [
   {

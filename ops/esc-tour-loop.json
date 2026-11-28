@@ -6784,10 +6784,10 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeLUyuyJkYCTLw4xJi",
-   "utc": "2026-11-28T00:18Z",
+   "utc": "2026-11-28T00:20Z",
    "since_utc": "2026-11-28T00:12Z",
    "current": {
-    "what": "project:PJ04",
+    "what": "project:PJ03",
     "since_utc": "2026-11-28T00:18Z"
    }
   },
@@ -9483,13 +9483,22 @@
     "metric": "Genuine visitors per post by ref tag, checklist opens and tour-form views from them; posts removed or declined.",
     "why": "Scoreboard 23-26 Nov 2026: Facebook brought 16 of 25 genuine visitors; no other channel has produced a measured visitor. Frontier F05 left it on watch for operator supply.",
     "plan": "1 Investigate: which group posts brought visitors (ref tags), what each group's rules allow, which questions families ask there. 2 Strategy: a four-week calendar per town of genuinely useful posts answering real questions, each pointing to one sourced guide, within group rules. 3 Build: the post texts as prepared items for the outreach operator. 4 Execute only through the operator; measure each post; drop what does not work.",
-    "next_step": "Investigate: per-tag results so far and each group's rules; write the four-week calendar.",
+    "next_step": "Execute: when state.json shows the operator's facebook_post action for a calendar slot due within 48 h, write its final post_text (step 8b) from the calendar; after each post measure by tag at +24h/+48h; at 4 weeks apply the kill rule (fewer than 10 genuine visitors) and drop topics with <2 visitors in two groups.",
     "kill_when": "Four weeks of calendar with fewer than 10 genuine visitors in total, or group rules that forbid it.",
-    "stage": "investigate",
+    "stage": "execute",
     "status": "active",
     "added_utc": "2026-11-28T00:07Z",
     "added_by": "supervisor",
-    "log": []
+    "log": [
+     {
+      "utc": "2026-11-28T00:20Z",
+      "run": "cse_014eaiSeLUyuyJkYCTLw4xJi",
+      "result": "Investigate + strategy: research/facebook-four-week-calendar.md on drafts c808dca. Per-post results from cloud.json daily notes 16-27 Nov: ~18 genuine visitors from 7 posts (Rogers Park 49.5K group with sources 7; North Shore assessment 5; Evanston/Skokie 2 and 3; Glenview 1 declined; Wilmette costs 0 removed; Winnetka 0), 0 tour-form views, 0 requests. Rules and gaps from state.json venues/posting_cap. Calendar 30 Nov-26 Dec: 15 posts in 6 eligible venues, <=4 per 7 days, 7-day group gaps; topics by evidence: Medicare-assisted-living (579 GSC impressions), holiday-visit (after #91 live), Medicaid 2-month change (after the package with 4815ca1). Two post texts prepared (Medicare text checked against the live page and its Medicare.gov URLs 28 Nov). Found metrics.per_tag not written back (all 0 while daily notes credit posts). Logged in growth.json for the operator.",
+      "stage": "execute"
+     }
+    ],
+    "not_before_utc": null,
+    "updated_utc": "2026-11-28T00:20Z"
    },
    {
     "id": "PJ04",
