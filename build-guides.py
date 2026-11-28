@@ -763,8 +763,8 @@ GUIDES = [
         "title": "Does Medicare Pay for Assisted Living or Nursing Home Care?",
         "h1": "Does Medicare pay for assisted living or nursing home care?",
         "desc": ("Medicare pays $0 toward assisted living but helps with medical care "
-                 "there. Original Medicare charges " + F["snf_coins"] + " a day for days "
-                 "21-100 of a skilled nursing stay."),
+                 "there. In 2026, Original Medicare charges " + F["snf_coins"] + " a day "
+                 "for skilled nursing days 21-100."),
         "intent": "coverage question",
         "answer": ("<strong>Medicare pays $0 toward assisted living</strong>, and it "
                    "does not pay for <strong>long-term custodial</strong> nursing home "
@@ -780,7 +780,7 @@ GUIDES = [
         "sources": srcs("mcosts", "msnf", "jimmo", "mltc", "mstatus", "mstatusfast",
                         "mjoin", "msep", "mpartb", "mparta", "mpartd", "mhha",
                         "mhospice", "medicare_cog", "mcompare_ma", "mpace", "hfs_slf",
-                        "cms_bp7_hh"),
+                        "cms_bp7_hh", "hfs_pace_zip"),
         "body": [
             ("The distinction that decides everything", [
                 "<p>Medicare divides care into <em>skilled</em> and <em>custodial</em>, "
@@ -1077,19 +1077,21 @@ GUIDES = [
                 "<ul class=\"res__list\">"
                 "<li><strong>Illinois Medicaid&rsquo;s Supportive Living Program</strong> "
                 "is for people 65 or older, or 22 to 64 with a physical disability, who "
-                "would otherwise need nursing facility care. For a resident on Medicaid, "
-                "Medicaid pays for the services; HFS says every resident has a monthly "
-                "room and board charge, and a Medicaid-eligible resident contributes all "
-                "but " + F["pna"] + " a month of income to the provider for lodging and "
-                "meals. See "
+                "would otherwise need nursing facility care. HFS says every resident has a "
+                "monthly room and board charge, and most also pay a share of the cost of "
+                "care from their income (the group care credit or patient liability); "
+                "Medicaid pays the remainder. A Medicaid-eligible resident keeps " +
+                F["pna"] + " a month as a personal needs allowance. See "
                 '<a href="/guides/illinois-supportive-living-program/">Illinois Supportive '
                 "Living Program, explained</a></li>"
                 "<li><strong>PACE</strong>, which Medicare.gov describes as a Medicare "
                 "and/or Medicaid programme, available in some states, that helps eligible "
                 "older adults who need nursing home-level care meet their health care "
                 "needs in the community. Your parent must live in the service area of a "
-                "PACE organisation, and not every Illinois zip code has one; the guide "
-                "shows how to check. See "
+                "PACE organisation, and HFS&rsquo;s PACE zip code list, read on 28 "
+                "November 2026, includes none of Evanston&rsquo;s residential zip codes "
+                "(60201, 60202, 60203, 60208), so a parent living in Evanston cannot "
+                "join yet. See "
                 '<a href="/guides/illinois-pace-program/">What is PACE, and can a parent '
                 "in Evanston use it?</a></li>"
                 "<li><strong>Illinois Medicaid long-term care</strong>, for a parent who "
