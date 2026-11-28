@@ -189,7 +189,8 @@
   "2026-11-22T12:08Z tour engine: no org replies (inbox: app notices, promos); 0 genuine visitors in latest metrics; both post texts already ready; referral sources already searched produced no fit; brief set; no action",
   "2026-11-22T18:10Z tour engine: no org replies (inbox: Nextdoor digests, app notices); 0 genuine visitors 16:25-17:25Z; P-1120-01 marked shipped, P-1122-01 already ready (now Mon 15:00Z); Morton Grove and Niles senior services already contacted; no action",
   "2026-11-23T00:26Z loop worker: Open Communities email draft (em-1122a) ready for operator, from ACQ-027 ACT; not sent",
-  "2026-11-28T00:25Z worker cse_014eaiSeLUyuyJkYCTLw4xJi: PJ03 four-week Facebook calendar (30 Nov-26 Dec, 15 posts, cap-checked) with per-post results and two prepared texts at research/facebook-four-week-calendar.md on drafts c808dca; first slot Mon 30 Nov Rogers Park News (Medicare topic, sources). For the operator to schedule; nothing posted."
+  "2026-11-28T00:25Z worker cse_014eaiSeLUyuyJkYCTLw4xJi: PJ03 four-week Facebook calendar (30 Nov-26 Dec, 15 posts, cap-checked) with per-post results and two prepared texts at research/facebook-four-week-calendar.md on drafts c808dca; first slot Mon 30 Nov Rogers Park News (Medicare topic, sources). For the operator to schedule; nothing posted.",
+  "2026-11-28T00:55Z worker cse_014eaiSauSkeGhjrd8SZfMJD: PJ02 tip A (retroactive Medicaid, RoundTable tips route) prepared, status ready, held until the pending-nursing-home guide is live"
  ],
  "ready": [
   {
@@ -241,6 +242,21 @@
    "checks": "Gmail sent to domain: none; no existing draft; domain hash not in state.json; not DROP in growth.json; published general address and 'no housing location services' line re-verified on its own pages 2026-11-23T00:26Z",
    "note": "Gmail draft created by loop worker, not sent; send with the 25 Nov+ batch if Joseph accepts; one email, no follow-up before 7 days",
    "shipped_note": "state.json E-1125-01 completed 25 Nov 15:03Z (the operator sent a fresh text to the same published address; the older Gmail draft was left untouched)"
+  },
+  {
+   "type": "email_draft",
+   "org": "Evanston RoundTable (published news-tips route on its contact-us page)",
+   "for": "operator",
+   "status": "ready",
+   "source": "PJ02 angle A (research/local-press-pitch-plan.md on drafts); PJ04 asset",
+   "ref": "em-1128a",
+   "created_utc": "2026-11-28T00:55Z",
+   "not_before_utc": "2026-12-01T15:00Z",
+   "go_condition": "Send only once https://evanstonseniorcareguide.com/guides/illinois-medicaid-pending-nursing-home/ is live and states the two-month rule from 1 January 2027 (package with batch #90 head 4815ca1 merged and published). Until then hold, even after not_before_utc. Time-critical: worthless after mid-January 2027.",
+   "subject": "Illinois Medicaid's retroactive coverage drops to two months on Jan. 1",
+   "text": "From 1 January 2027, Illinois Medicaid will look back at most two months before an application instead of three. Illinois HFS says so in its federal-changes FAQ: \"Effective January 1, 2027, retroactive coverage will be decreased from 3 months to 2 months for all Illinois Medicaid customers.\" For an Evanston family whose parent is already in a nursing home when the application goes in, that is one month less that Medicaid can pay for after the fact. A plain-language explainer of what \"Medicaid pending\" means, who pays meanwhile and what changes in January, sourced to HFS, is here: https://evanstonseniorcareguide.com/guides/illinois-medicaid-pending-nursing-home/?ref=em-1128a\n\nHappy to point you to the official sources.\n\nDisclosure: I work at Westminster Place in Evanston. The guide is my own independent project, it includes an optional way to request a tour there, and I receive no referral fees.\n\nJoseph Gonzales",
+   "checks": "HFS quotation re-read word for word on hfs.illinois.gov/info/fedresctr/faqshowwillfedchimpactmedicaid.html on 2026-11-28; route is the outlet's published tips address (contact-us page, read 28 Nov per the pitch plan); before drafting into Gmail: re-read the live guide and the HFS page that day, Gmail in:sent to the outlet's domain (duplicate check), at most one pitch per outlet per angle; angle B (holiday visit) is the second item, prepared in a later session (one outreach item per session).",
+   "words": 140
   }
  ]
 }

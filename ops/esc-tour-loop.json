@@ -6842,12 +6842,16 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSauSkeGhjrd8SZfMJD",
-   "utc": "2026-11-28T00:42Z",
+   "utc": "2026-11-28T00:43Z",
    "since_utc": "2026-11-28T00:27Z",
    "productive_min": 8,
    "deliverables": [
     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md"
-   ]
+   ],
+   "current": {
+    "what": "project:PJ02",
+    "since_utc": "2026-11-28T00:43Z"
+   }
   },
   "monitor": {
    "last_utc": "2026-11-27T18:25Z"
@@ -9565,7 +9569,7 @@
     "metric": "Mentions or links in local outlets (search and referral visitors with those referrers); replies to pitches.",
     "why": "Frontier F12 (27 Nov 2026): about 190 items in the last 12 months on senior-care terms in the two outlets' archives; recurring story types include state enforcement at a local long-term-care facility (7 stories Jan-Nov 2026) and benefit changes. The 2027 change to retroactive Medicaid found the same day is a fresh, checkable story.",
     "plan": "1 Investigate: which reporters cover these beats, how each outlet takes tips and community contributions (published routes only), what explainer readers lacked in the last stories. 2 Strategy: two or three story angles with the guide's sourced page behind each. 3 Build: the explainer pages (drafts, reader-reviewed) and short pitch drafts for the outreach operator to the outlets' published tip or newsroom addresses, with the standard disclosure. 4 Execute through the operator; follow up once; measure.",
-    "next_step": "Build now: write the two pitch drafts as prepared items for the outreach operator (growth.json, status ready, not_before after the angle's page is live), each pointing to the page that will carry the angle, with the standard disclosure; the angle pages themselves enter through the package.",
+    "next_step": "Prepare tip B (holiday-visit next steps, guide noticed-changes-in-parent-holiday-visit in package #91) as the second growth.json ready item after re-reading the guide and its sources; then measure: replies via outreach_watch, referrers from roundtable/evanstonnow in metrics.",
     "kill_when": "Three well-founded pitches with no reply or use within 6 weeks.",
     "stage": "build",
     "status": "active",
@@ -9583,10 +9587,16 @@
       "run": "supervisor",
       "result": "Reopened by the supervising session: the worker set this project to wait for Joseph's merge of #91, which his rule of 24 Nov 2026 does not allow (a pending approval blocks only the affected action). The build goes on a branch from the package branch now.",
       "stage": "build"
+     },
+     {
+      "utc": "2026-11-28T00:43Z",
+      "run": "cse_014eaiSauSkeGhjrd8SZfMJD",
+      "result": "Tip A (2027 retroactive Medicaid, HFS quotation re-read 28 Nov 2026 on the federal-changes FAQ) prepared as growth.json ready item em-1128a for the operator: RoundTable published tips route, standard disclosure, link to illinois-medicaid-pending-nursing-home with ref tag; held by go_condition until that guide is live with the two-month rule (batch #90 head 4815ca1, next package). Tip B (holiday visit) left for a later session: one outreach item per session (procedure step 8).",
+      "stage": "build"
      }
     ],
     "not_before_utc": null,
-    "updated_utc": "2026-11-28T00:18Z"
+    "updated_utc": "2026-11-28T00:43Z"
    },
    {
     "id": "PJ03",
