@@ -41,6 +41,18 @@ Write commands (edit the working copy only; committing and pushing is the caller
                                     (KEY frontier:<id>, --verdict required) and marks it explored
   frontier-add --from FILE          add a genuinely new opportunity question (question, lever, evidence,
                                     output, why); exit 5 for a repeat or a rewording of an existing one
+  project-add --from FILE           start a growth project (name, goal, metric, why = the dated evidence, plan,
+                                    next_step, kill_when); exit 5 when a project already covers it
+  project-step ID --run RUN --result TEXT --new-evidence NEXT [--resume-when UTC] [--lane STAGE]
+               [--verdict waiting|won|failed|parked]
+                                    record one step of a project and its next step (start project:ID before
+                                    the work, so that its minutes count as productive time)
+  project-discover LENS --result TEXT [--from FILE]
+                                    record the session's one project-discovery assignment (status shows it
+                                    under project_discovery when no project step is due and no frontier
+                                    question is open): with --from it starts the project found, without it
+                                    it records why this evidence holds none. Exit 5 for a second one in the
+                                    same session or for a lens examined inside its cadence
   close RUN --done N --changed M --outcome TEXT [--launch TEXT] [--tasks TEXT] [--monitor-hours N]
             [--stop-reason R --considered TEXT --resume-when TEXT] [--fallback-skipped TEXT]
             [--package-skipped TEXT]
@@ -57,6 +69,11 @@ Write commands (edit the working copy only; committing and pushing is the caller
                                     Exit 6 likewise while status shows frontier.due (an open frontier question
                                     and none answered in this session): an empty queue, a cooldown or a pending
                                     approval does not end the search for genuinely new opportunities
+                                    Exit 6 likewise while status shows project_discovery.due (every project
+                                    waits, no frontier question is open and this session has not done its
+                                    discovery assignment).
+                                    A rest of backlog discovery follows only a conclusion that found nothing:
+                                    a session whose explorations added tasks leaves it due (28 Nov 2026).
 
 Due times have a grace (30 minutes): what falls due within it counts as due now, so that one session takes
 what comes due close together. The wake time is the first moment at which a session would really find work
@@ -248,16 +265,25 @@ def grace(d):
     return dt.timedelta(minutes=v if ok else DUE_GRACE_MIN)
 
 
-def fallback_view(d, now, soon, pipeline, plan):
+def fallback_view(d, now, soon, pipeline, plan, room=True):
     """Independent backlog discovery (procedure step 7). It is due while the pipeline is below the low-water
     mark, some enabled lane can still take work, and no session has just concluded that the avenues are
-    exhausted (planner/fallback/exhausted_until_utc). Read only."""
+    exhausted (planner/fallback/exhausted_until_utc). Read only.
+    SINCE 28 NOV 2026 a rest follows only a conclusion that found NOTHING. Until then close set the base
+    rest (12 hours) after every conclusion: the session that ended at 08:39 UTC that day had found two tasks
+    and was rested until 20:39 UTC all the same. A rest left by such a productive conclusion is ignored here.
+    Because nothing else would now end a productive chain before it used the hours kept for monitoring and
+    the daily package, backlog discovery counts as due only while the usage reserve has room, like the
+    frontier and the projects (discovery_room)."""
     pl = d.get("planner") or {}
     fb = pl.get("fallback") or {}
     enabled = bool(fb.get("enabled")) and bool(pl.get("enabled", True))
     open_lanes = [x["id"] for x in plan["lanes"] if x.get("enabled", True) and not x["saturated"]]
     until = parse_ts(fb.get("exhausted_until_utc"))
-    resting = until is not None and until > soon
+    lc = fb.get("last_conclusion") if isinstance(fb.get("last_conclusion"), dict) else {}
+    lc_added = lc.get("tasks_added")
+    productive_last = isinstance(lc_added, int) and not isinstance(lc_added, bool) and lc_added > 0
+    resting = until is not None and until > soon and not productive_last
     wanted = enabled and pipeline < plan["low_water"] and bool(open_lanes)
     days = fb.get("explore_recheck_days", FB_RECHECK_DAYS)
     days = days if isinstance(days, (int, float)) and not isinstance(days, bool) and days > 0 else FB_RECHECK_DAYS
@@ -265,7 +291,7 @@ def fallback_view(d, now, soon, pipeline, plan):
     recent = [e for e in (fb.get("log") or []) if isinstance(e, dict) and (parse_ts(e.get("utc")) or since) > since]
     need = fb.get("min_avenues", FB_MIN_AVENUES)
     need = need if isinstance(need, int) and not isinstance(need, bool) and 1 <= need <= len(FB_AVENUES) else FB_MIN_AVENUES
-    return {"enabled": enabled, "due": wanted and not resting, "wanted": wanted,
+    return {"enabled": enabled, "due": wanted and not resting and bool(room), "wanted": wanted, "room": bool(room),
             "resting_until": fmt(until) if resting else None, "open_lanes": open_lanes,
             "min_avenues": need, "recheck_days": days,
             "recent": [{"key": e.get("key"), "avenue": e.get("avenue"), "utc": e.get("utc"), "added": e.get("added")}
@@ -280,11 +306,57 @@ def discovery_room(bud):
     """True while the worker's usage reserve has room for discovery: below FR_ROOM_SHARE of its limit for
     24 hours and for 7 days. The last quarter stays for what must not wait: monitoring, the daily package,
     ready tasks."""
-    for used_key, lim_key in (("used_hours_24h", "limit_hours_per_day"), ("used_hours_7d", "limit_hours_per_week")):
+    for used_key, min_key, lim_key in (("used_hours_24h", "used_minutes_24h", "limit_hours_per_day"),
+                                       ("used_hours_7d", "used_minutes_7d", "limit_hours_per_week")):
         lim = bud.get(lim_key)
-        if lim and (bud.get(used_key) or 0) >= FR_ROOM_SHARE * lim:
+        if not lim:
+            continue
+        used = bud[min_key] / 60.0 if isinstance(bud.get(min_key), (int, float)) else (bud.get(used_key) or 0)
+        if used >= FR_ROOM_SHARE * lim:
             return False
     return True
+
+
+def session_spans(d, now, extra_start=None, extra_end=None):
+    """(start, end) of every recorded worker session, plus the session that is closing now if given."""
+    spans = []
+    for s in (d.get("controller") or {}).get("sessions") or []:
+        a, b = parse_ts(s.get("start_utc")), parse_ts(s.get("end_utc"))
+        if a and b and b >= a:
+            spans.append((a, b))
+    if extra_start and extra_start < now:
+        spans.append((extra_start, min(extra_end or now, now)))
+    return spans
+
+
+def room_free_at(d, now, extra_start=None, extra_end=None):
+    """The moment at which the usage reserve has room for discovery again (below FR_ROOM_SHARE of both limits),
+    if no further session runs; None when it has room now. It lets a session wake for discovery, project steps
+    and frontier questions as soon as capacity allows (Joseph, 26 Nov 2026: "Automatically resume meaningful
+    work whenever resources permit")."""
+    pl = d.get("planner") or {}
+    spans_all = session_spans(d, now, extra_start, extra_end)
+    when = None
+    for key, days in (("budget_hours_per_day", 1), ("budget_hours_per_week", 7)):
+        limit = pl.get(key)
+        if not (isinstance(limit, (int, float)) and not isinstance(limit, bool) and limit > 0):
+            continue
+        since = now - dt.timedelta(days=days)
+        spans = sorted((max(a, since), b) for a, b in spans_all if b > since)
+        need = sum((b - a).total_seconds() for a, b in spans) - FR_ROOM_SHARE * limit * 3600
+        if need < 0:
+            continue
+        free = None
+        for a, b in spans:
+            dur = (b - a).total_seconds()
+            if dur > need:
+                free = a + dt.timedelta(days=days, seconds=need + 120)
+                break
+            need -= dur
+        if free is None:
+            free = (spans[-1][1] if spans else now) + dt.timedelta(days=days, seconds=120)
+        when = free if when is None else max(when, free)
+    return when
 
 
 def frontier_view(d, now, run=None, room=True):
@@ -353,6 +425,181 @@ def projects_view(d, now, run=None, room=True):
             "starts_sessions": bool(pl.get("projects_enabled", True)) and bool(due) and bool(room),
             "this_session": len(steps), "_next": min(nxt) if nxt else None,
             "won": sum(1 for p in pj if p.get("status") == "won"), "failed": sum(1 for p in pj if p.get("status") == "failed")}
+
+
+# PROJECT DISCOVERY (28 Nov 2026). Joseph: "When all frontier questions are exhausted and existing projects are
+# waiting, there is no guaranteed independent project-discovery assignment. Implement a bounded, evidence-based
+# discovery assignment that remains eligible independently of existing project and lane cooldowns, within our
+# usage reserve." A lens is one kind of evidence in which the next growth project is looked for. Its cadence is
+# how often that evidence changes: reading the same evidence again sooner would repeat exhausted research.
+# A lens with a marker is also due as soon as its evidence HAS changed: the search lens when ops/cloud.json holds
+# a newer Search Console read than the one it examined (EVIDENCE is filled once in main).
+PD_RESULT_MIN, PD_LOG_KEEP, PD_CADENCE_H = 300, 60, 168
+EVIDENCE = {}
+PD_HOW = (
+    "PROJECT DISCOVERY: one assignment per session, worked deeply. Its result is a growth project, or a documented "
+    "reason why this evidence holds none today. (1) python3 ops/loopctl.py start discover:<lens id>. (2) Read the "
+    "lens's evidence yourself, today. First read planner/projects (live, won and failed, with their logs), "
+    "project_discovery.recent and the frontier answers on the same subject, and build on them: never repeat what "
+    "they established. (3) Develop two or three candidate opportunities. For each: whom it reaches (Evanston and "
+    "North Shore families at or near a senior-living decision) and roughly how many; the dated evidence; what can "
+    "be executed inside ROLE AND LIMITS; which results wait for Joseph's merge and which do not; the effort; how "
+    "success would be measured. (4) Choose at most one: the strongest evidence of qualified local reach and, "
+    "between equals, the one whose first results do not wait for his merge. (5) If one qualifies, write the project "
+    "file (name, goal, metric, why = the dated evidence, plan with its stages, next_step, kill_when) and record it: "
+    "project-discover <lens id> --from FILE --result \"<sources read with dates; the candidates; why this one>\". "
+    "Then develop it in this same session: start project:<id> before each step, project-step after it; a new "
+    "project waits only for a named event outside your control. If none qualifies: project-discover <lens id> "
+    "--result \"<sources read with dates; each candidate and why it failed>\". That is a complete result: never "
+    "stretch a weak finding into a project. Legitimate waits stay as they are: a measurement that needs time, a "
+    "decision that is Joseph's, a source you cannot read.")
+PD_LENSES = (
+    {"id": "objectives", "cadence_hours": 168, "name": "Objectives of the quarter without a project",
+     "evidence": "strategy (north_star, baseline, the current quarter's objectives and the programs) against "
+                 "planner/projects and the measured scoreboard in ops/cloud.json (daily rows, totals, search_console).",
+     "question": "Which objective of the current quarter has no live project behind it and no measured movement? "
+                 "What is the strongest project that would move it within this quarter?"},
+    {"id": "intermediaries", "cadence_hours": 168, "name": "Who already meets these families",
+     "evidence": "opportunity_map (items with their verdicts, channel_yield), ops/growth.json (prepared, shipped, "
+                 "answered), ops/state.json (the operator's results, read only), the frontier answers on hospitals, "
+                 "professionals, employers and congregations, and the public pages of every institution you consider.",
+     "question": "Which class of intermediary that meets Evanston and North Shore families at the decision point "
+                 "shows evidence of reach and has a published route that has not been developed into a project? Has "
+                 "the event that reopens a watch verdict happened? A class with eight or more shipped actions and "
+                 "no response stays closed."},
+    {"id": "search-demand", "cadence_hours": 168, "marker": "search_console_read",
+     "name": "Search demand the site already touches",
+     "evidence": "The newest Search Console read in ops/cloud.json (scoreboard.search_console_queries and "
+                 "search_console_pages; Make reads weekly) and, for the two or three clusters you consider, today's "
+                 "first results page, read by you.",
+     "question": "Which cluster of queries or which page that no live project covers has real impressions and a "
+                 "reachable gain (a page ranking 8 to 40, or a page inside the top 10 without clicks)? A cluster "
+                 "that names Evanston or a North Shore town outweighs a national one of the same size."},
+    {"id": "local-intent", "cadence_hours": 336, "name": "What families near Evanston search and find",
+     "evidence": "For Evanston, Skokie, Wilmette, Winnetka, Glenview and Northbrook: today's first results page and "
+                 "its related questions for the decisions the guide covers (cost, how to choose, paying, Medicaid and "
+                 "supportive living, memory care, respite, moving a parent), read by you; the public pages of the "
+                 "city, township and county agencies those results send families to.",
+     "question": "Which local question has no independent, sourced answer in those results that this guide could "
+                 "give inside its rules (never ranking or recommending communities, no Westminster Place prices)? "
+                 "Which one would bring the most families who could actually tour?"},
+    {"id": "visitors", "cadence_hours": 168, "name": "Who actually came",
+     "evidence": "ops/cloud.json scoreboard.daily and metrics (sources, ref tags, landing pages, checklist opens, "
+                 "assessment starts, tour-form views) since this lens was last examined, and the Netlify "
+                 "observability tool for the last 24 hours.",
+     "question": "Which source or page already brings genuine local visitors and deserves a project that multiplies "
+                 "it? Which page receives visitors and offers them no next step toward the tour path? A conversion "
+                 "change waits until 30 genuine visitors have reached the step; measuring it does not."},
+    {"id": "calendar", "cadence_hours": 336, "name": "Dated moments in the next 75 days",
+     "evidence": "strategy/calendar and the official pages that set dates in the next 75 days (enrollment periods, "
+                 "benefit and rule changes on 1 January, tax season, winter and holiday patterns), read by you today.",
+     "question": "Which dated moment will send local families looking for help, has no asset or outreach plan of "
+                 "ours yet, and leaves enough time to build, review and hand it to the operator or the package?"},
+    {"id": "assets", "cadence_hours": 336, "name": "What is already built",
+     "evidence": "The live guides and those waiting in the package (build-guides.py on main and on the package "
+                 "branch), the checklist PDF and the research reports on drafts (research/), each with its measured "
+                 "search and visitor numbers.",
+     "question": "Which existing asset could reach families through a new format or route without new research (a "
+                 "printable, a one-page summary an intermediary can hand out, a bundle of guides for one decision), "
+                 "and who would distribute it? Which pages inside Google's top 10 get no clicks because of their "
+                 "title or description?"},
+    {"id": "benchmarks", "cadence_hours": 672, "name": "What works for those who win these searches and referrals",
+     "evidence": "Five sites that win the local searches or referrals this guide wants (national directories, local "
+                 "agencies, hospital and city resource pages), read by you today: what they offer a family at the "
+                 "decision point, how they are found and who links to them.",
+     "question": "What do they do that works and that this guide can do inside its rules and without paid placement? "
+                 "Name the one practice with the best evidence and the first test of it."},
+)
+
+
+def pd_lenses(pdc):
+    custom = [dict(l) for l in (pdc.get("lenses") or []) if isinstance(l, dict) and l.get("id")] if isinstance(pdc, dict) else []
+    return custom or [dict(l) for l in PD_LENSES]
+
+
+def project_discovery_view(d, now, run=None, room=True, projects_due=False, frontier_waits=False):
+    """The guaranteed discovery assignment. It is eligible (starts_sessions) while some lens is due, no project
+    step is due (development comes before discovery), no frontier question is open and the usage reserve has
+    room. It does not look at lanes, lane cooldowns, owner limits or the waits of existing projects.
+    BOUNDS: one lens per cadence (the evidence has to have had time to change); one assignment per session
+    (due is false for the run that recorded one, so that it develops what it found; the next session takes
+    the next lens at once). A failed project reopens the lens examined longest ago for its replacement.
+    Read only."""
+    pl = d.get("planner") or {}
+    pdc = pl.get("project_discovery") if isinstance(pl.get("project_discovery"), dict) else {}
+    enabled = bool(pl.get("enabled", True)) and bool(pl.get("projects_enabled", True)) and bool(pdc.get("enabled", True))
+    state = pdc.get("state") if isinstance(pdc.get("state"), dict) else {}
+    log = [e for e in (pdc.get("log") or []) if isinstance(e, dict)]
+    due_l, later, seen = [], [], []
+    for l in pd_lenses(pdc):
+        s = state.get(l["id"]) if isinstance(state.get(l["id"]), dict) else {}
+        last = parse_ts(s.get("last_utc"))
+        cad = l.get("cadence_hours")
+        cad = cad if isinstance(cad, (int, float)) and not isinstance(cad, bool) and cad > 0 else PD_CADENCE_H
+        mark = EVIDENCE.get(l.get("marker")) if l.get("marker") else None
+        if last is None or last + dt.timedelta(hours=cad) <= now or (mark and s.get("marker") and mark != s.get("marker")):
+            due_l.append(l)
+        else:
+            later.append((last + dt.timedelta(hours=cad), l["id"]))
+            seen.append((last, l))
+    rf = pdc.get("replace_failed") if isinstance(pdc.get("replace_failed"), dict) else None
+    if rf and not due_l and seen:
+        oldest = min(seen, key=lambda x: x[0])[1]
+        due_l.append(oldest)
+        later = [x for x in later if x[1] != oldest["id"]]
+    mine = [e for e in log if run and e.get("run") == run]
+    wanted = enabled and bool(due_l)
+    why_not = None
+    if wanted:
+        if projects_due:
+            why_not = "a project step is due: develop what exists before looking for more"
+        elif frontier_waits:
+            why_not = "open frontier questions come first"
+        elif not room:
+            why_not = "the usage reserve is in its last quarter (kept for monitoring, the daily package and ready tasks)"
+    starts = wanted and why_not is None
+    first = due_l[0] if due_l else None
+    for_me = starts and not mine
+    return {"enabled": enabled, "due": for_me, "starts_sessions": starts, "waiting_for": why_not,
+            "this_session": len(mine),
+            "lens": ({"id": first["id"], "name": first.get("name"), "evidence": first.get("evidence"),
+                      "question": first.get("question")} if (for_me and first) else None),
+            "how": PD_HOW if for_me else None,
+            "lenses_due": [l["id"] for l in due_l],
+            "replaces_failed": (rf or {}).get("project") if rf else None,
+            "recent": [{"utc": e.get("utc"), "lens": e.get("lens"), "project": e.get("project"),
+                        "result": short(e.get("result") or "", 240 if not for_me else 700)} for e in log[:3]],
+            "_later": later}
+
+
+def eligible_work(st):
+    """What a new session would find to do, in the order it is taken: for the session record and the report."""
+    w = []
+    if st["package"]["due"]:
+        w.append("daily package cut")
+    if st.get("ready"):
+        w.append("ready tasks: " + ", ".join(str(t.get("id")) for t in st["ready"][:6]))
+    if st.get("recheck_due"):
+        w.append("rechecks: " + ", ".join(str(t.get("id")) for t in st["recheck_due"][:6]))
+    if st.get("open_items"):
+        w.append("open map items: %d" % len(st["open_items"]))
+    if st.get("scouts_due"):
+        w.append("scouts: " + ", ".join(str(s.get("id")) for s in st["scouts_due"][:4]))
+    if st["projects"]["starts_sessions"]:
+        w.append("project steps: " + ", ".join(str(p.get("id")) for p in st["projects"]["due"]))
+    if st["frontier"].get("starts_sessions"):
+        w.append("frontier questions: %s" % st["frontier"]["open"])
+    if st["project_discovery"]["starts_sessions"]:
+        w.append("project discovery: lens " + ", ".join(st["project_discovery"]["lenses_due"][:8]))
+    if st["plan"]["due"]:
+        w.append("planning: " + ", ".join(str(x) for x in (st["plan"].get("plannable") or [])[:4]))
+    if st["sweep"]["due"]:
+        w.append("sweep angles: " + ", ".join(str(x.get("id")) for x in st["sweep"]["due"][:6]))
+    if st["fallback"]["due"]:
+        w.append("backlog discovery")
+    if st["monitor"]["due"]:
+        w.append("monitoring pass")
+    return w
 
 
 def strategy_view(d, now):
@@ -478,7 +725,7 @@ def end_current(c, what, now, deliverable=None):
     return minutes
 
 
-def compute(d, now, monitor_hours, run=None, _probe=False):
+def compute(d, now, monitor_hours, run=None, _probe=False, closing=None):
     c = d.get("controller") or {}
     lock = c.get("lock") or {}
     lock_t = parse_ts(lock.get("utc"))
@@ -544,10 +791,20 @@ def compute(d, now, monitor_hours, run=None, _probe=False):
     plan.pop("_wake", None)
     sweep = sweep_view(d, soon, plan["lanes"])
     future.extend(sweep.pop("_later"))
-    fbv = fallback_view(d, now, soon, pipeline, plan)
-    bud_now = budget_view(d, now)
-    frv = frontier_view(d, now, run, discovery_room(bud_now))
-    pjv = projects_view(d, now, run, discovery_room(bud_now))
+    # closing = (start, end) of the session that is closing now: its time counts against the reserve at once,
+    # so that a chain is not continued into a reserve that this very session has used up.
+    bud_now = budget_view(d, now, *(closing or ()))
+    room = discovery_room(bud_now)
+    fbv = fallback_view(d, now, soon, pipeline, plan, room)
+    frv = frontier_view(d, now, run, room)
+    pjv = projects_view(d, now, run, room)
+    pdv = project_discovery_view(d, now, run, room, bool(pjv["due"]), bool(frv["starts_sessions"]))
+    for when_, lens_id in pdv.pop("_later"):
+        future.append((when_, "project discovery: lens " + lens_id))
+    if not room and (fbv["wanted"] or frv["more"] or pjv["due"] or pdv["lenses_due"]):
+        free = room_free_at(d, now, *(closing or ()))
+        if free is not None and free > now:
+            future.append((free, "usage reserve has room for discovery again"))
     if pjv["_next"] is not None:
         future.append((pjv["_next"], "project step"))
     pjv.pop("_next", None)
@@ -565,7 +822,8 @@ def compute(d, now, monitor_hours, run=None, _probe=False):
     future.sort(key=lambda x: x[0])
     next_due = future[0][0] if future else None
     eligible = (pipeline + len(handoff) + (1 if plan["due"] else 0) + len(sweep["due"]) + (1 if fbv["due"] else 0)
-                + (1 if pkv["due"] else 0) + (1 if frv["starts_sessions"] else 0) + len(pjv["due"] if pjv["starts_sessions"] else []))
+                + (1 if pkv["due"] else 0) + (1 if frv["starts_sessions"] else 0) + len(pjv["due"] if pjv["starts_sessions"] else [])
+                + (1 if pdv["starts_sessions"] else 0))
     # The wake time is the first moment at which a session would really find work. Since 27 Nov 2026 Make's
     # timer looks every 15 minutes (Core plan), so a wake set one grace before something that has no grace
     # (the package window) would start a session that finds nothing due. Candidates: every due time and
@@ -576,7 +834,7 @@ def compute(d, now, monitor_hours, run=None, _probe=False):
         for w in sorted({x - g for x, _ in future} | {x for x, _ in future}):
             if w <= now:
                 continue
-            if compute(d, w, monitor_hours, run, _probe=True)["work_now"]:
+            if compute(d, w, monitor_hours, run, _probe=True, closing=closing)["work_now"]:
                 wake_m, wake_t = wake_minutes(fmt(w), now), w
                 break
 
@@ -602,6 +860,7 @@ def compute(d, now, monitor_hours, run=None, _probe=False):
         "sweep": sweep,
         "fallback": fbv,
         "projects": pjv,
+        "project_discovery": pdv,
         "frontier": frv,
         "strategy": strategy_view(d, now),
         "package": pkv,
@@ -677,18 +936,12 @@ def outcomes_view(cloud, now, days):
             "note": "Counts come only from the monitor's scoreboard rows; a date without a row is unmeasured, not zero."}
 
 
-def budget_view(d, now, extra_start=None):
+def budget_view(d, now, extra_start=None, extra_end=None):
     """Worker session time against the usage reserve in planner: budget_hours_per_day (rolling 24 hours)
     and budget_hours_per_week (rolling 7 days); a missing or zero value means no limit for that window.
-    extra_start: start time of the session that is closing now, counted up to now."""
+    extra_start: start time of the session that is closing now, counted up to extra_end (default: now)."""
     pl = d.get("planner") or {}
-    spans_all = []
-    for s in (d.get("controller") or {}).get("sessions") or []:
-        a, b = parse_ts(s.get("start_utc")), parse_ts(s.get("end_utc"))
-        if a and b and b >= a:
-            spans_all.append((a, b))
-    if extra_start and extra_start < now:
-        spans_all.append((extra_start, now))
+    spans_all = session_spans(d, now, extra_start, extra_end)
     res = {"over": False, "resume_utc": None, "wake_minutes": None}
     resume = None
     for key, days in (("budget_hours_per_day", 1), ("budget_hours_per_week", 7)):
@@ -700,6 +953,7 @@ def budget_view(d, now, extra_start=None):
         tag = "day" if days == 1 else "week"
         res["limit_hours_per_" + tag] = limit
         res["used_hours_" + ("24h" if days == 1 else "7d")] = round(used, 1)
+        res["used_minutes_" + ("24h" if days == 1 else "7d")] = round(used * 60, 1)
         if limit is not None and used >= limit:
             res["over"] = True
             need = (used - limit) * 3600
@@ -820,6 +1074,13 @@ def main():
         fail("bad --now")
     target = a.file or a.loop
     d = load(target)
+    try:
+        with open(a.cloud, encoding="utf-8") as fh:
+            rows_ = ((json.load(fh).get("scoreboard") or {}).get("search_console") or [])
+        reads_ = sorted(str(r.get("read_utc")) for r in rows_ if isinstance(r, dict) and r.get("read_utc"))
+        EVIDENCE["search_console_read"] = reads_[-1] if reads_ else None
+    except Exception:
+        pass
     cmd, args = a.cmd, a.args
 
     if cmd == "status":
@@ -971,6 +1232,18 @@ def main():
                             problems.append("planner/frontier/questions repeats the id " + str(q["id"]))
                             break
                         seen.add(norm_key(q["id"]))
+            pdk = pl.get("project_discovery")
+            if pdk is not None:
+                if not isinstance(pdk, dict) or not isinstance(pdk.get("state", {}), dict) or not isinstance(pdk.get("log", []), list):
+                    problems.append("planner/project_discovery is not an object with a state object and a log list")
+                else:
+                    ids = [norm_key(l.get("id")) for l in pd_lenses(pdk)]
+                    if len(ids) != len(set(ids)):
+                        problems.append("planner/project_discovery/lenses repeats an id")
+                    for k, s_ in pdk.get("state", {}).items():
+                        if not isinstance(s_, dict) or (s_.get("last_utc") and parse_ts(s_["last_utc"]) is None):
+                            problems.append("planner/project_discovery/state/%s is malformed" % k)
+                            break
         for t in d.get("queue") or []:
             if t.get("not_run") is not None and not (isinstance(t["not_run"], list) and all(isinstance(x, str) for x in t["not_run"])):
                 problems.append("task %s: not_run must be a list of run ids" % t.get("id"))
@@ -1196,26 +1469,90 @@ def main():
              "frontier": ({k: v for k, v in frontier_view(d, now, run, discovery_room(budget_view(d, now))).items()
                            if k != "_slot"} if avenue == "frontier" else None)})
 
+    def new_project(pj, new, added_by, lens=None):
+        """Checks a project file and appends it. The cap of eight live projects (v4.7) is gone: it counted
+        projects that legitimately wait for a measurement, so that waiting projects blocked new ones. What
+        bounds new projects now: development comes first (discovery is due only when no project step is due),
+        one discovery per session and per lens cadence, the dated evidence each project needs, and this
+        duplicate check."""
+        need = ("name", "goal", "metric", "why", "plan", "next_step", "kill_when")
+        if not isinstance(new, dict) or not all(str(new.get(k) or "").strip() for k in need):
+            fail("the project file needs " + ", ".join(need) + " (why = the dated evidence)")
+        words = set(re.findall(r"[a-z]{4,}", (str(new["name"]) + " " + str(new["goal"])).lower()))
+        for p in pj:
+            w2 = set(re.findall(r"[a-z]{4,}", (str(p.get("name")) + " " + str(p.get("goal"))).lower()))
+            if words and len(words & w2) / max(1, len(words)) >= 0.6:
+                out({"rejected": True, "reason": "project %s already covers this (%s: %s). Develop that project "
+                     "instead (project-step); if this was a discovery assignment, record the lens without --from "
+                     "and name it in the result." % (p.get("id"), p.get("status"), short(p.get("name") or "", 80))}, 5)
+        taken = {str(p.get("id")) for p in pj}
+        n = len(pj) + 1
+        while "PJ%02d" % n in taken:
+            n += 1
+        new.update({"id": "PJ%02d" % n, "status": "active", "stage": new.get("stage") or "investigate",
+                    "added_utc": fmt(now), "added_by": added_by or "worker", "log": []})
+        if lens:
+            new["lens"] = lens
+        pj.append(new)
+        return new["id"]
+
+    if cmd == "project-discover":
+        pl = d.setdefault("planner", {})
+        c = controller(d)
+        run = c["lock"].get("holder")
+        if not run:
+            fail("no session holds the lock")
+        pdc = pl.setdefault("project_discovery", {})
+        lenses = pd_lenses(pdc)
+        if not args:
+            fail("usage: project-discover LENS --result TEXT [--from FILE]; lenses: " + ", ".join(l["id"] for l in lenses))
+        lens = next((l for l in lenses if norm_key(l["id"]) == norm_key(args[0])), None)
+        if lens is None:
+            fail("unknown lens %s; the lenses are: %s" % (args[0], ", ".join(l["id"] for l in lenses)))
+        room = discovery_room(budget_view(d, now))
+        pdv = project_discovery_view(d, now, run, room)
+        if pdv["this_session"] > 0:
+            out({"rejected": True, "reason": "this session has recorded its discovery assignment. One per session, so "
+                 "that it is worked deeply (27 Nov 2026: thirteen questions were answered in 29 minutes when the "
+                 "list was open-ended). Develop the project you found; the next session takes the next lens at once.",
+                 "lenses_due": pdv["lenses_due"]}, 5)
+        if lens["id"] not in pdv["lenses_due"]:
+            last = ((pdc.get("state") or {}).get(lens["id"]) or {}).get("last_utc")
+            out({"rejected": True, "reason": "lens %s was examined at %s and its evidence has not had time to change "
+                 "(cadence %s hours). Take a lens that is due." % (lens["id"], last, lens.get("cadence_hours") or PD_CADENCE_H),
+                 "lenses_due": pdv["lenses_due"]}, 5)
+        if len(a.result.strip()) < PD_RESULT_MIN:
+            fail("--result needs the sources you read with their dates, the candidates you compared and why each was "
+                 "chosen or rejected (at least %d characters): it is what the next discovery builds on" % PD_RESULT_MIN)
+        new_id = new_project(pl.setdefault("projects", []), load(a.src), run, lens["id"]) if a.src else None
+        entry = {"utc": fmt(now), "run": run, "lens": lens["id"], "added": 1 if new_id else 0, "project": new_id,
+                 "result": short(a.result, 1500)}
+        pdc.setdefault("state", {})[lens["id"]] = {"last_utc": fmt(now), "run": run, "project": new_id,
+                                                   "result": short(a.result, 600),
+                                                   "marker": EVIDENCE.get(lens.get("marker")) if lens.get("marker") else None}
+        log = pdc.setdefault("log", [])
+        log.insert(0, entry)
+        del log[PD_LOG_KEEP:]
+        pdc.pop("replace_failed", None)
+        deliverable = ("project:%s found (lens %s)" % (new_id, lens["id"])) if new_id else ("discovery:%s no project" % lens["id"])
+        mins = end_current(c, "discover:" + args[0], now, deliverable)
+        if mins is None:
+            mins = end_current(c, "discover:" + lens["id"], now)
+        save(target, d)
+        left = project_discovery_view(d, now, run, room)["lenses_due"]
+        out({"ok": True, "lens": lens["id"], "project": new_id, "minutes": mins, "lenses_due_left": left,
+             "now": ("develop %s in this session: start project:%s, do its first step, project-step %s --run %s --result ... "
+                     "--new-evidence \"<next step>\"" % (new_id, new_id, new_id, run)) if new_id else
+                    "recorded: this evidence holds no project today. Do not start another discovery in this session; "
+                    "close when nothing else is due for you, and the next session takes the next lens."})
+
     if cmd in ("project-step", "project-add"):
         pl = d.setdefault("planner", {})
         pj = pl.setdefault("projects", [])
         if cmd == "project-add":
-            new = load(a.src) if a.src else None
-            need = ("name", "goal", "metric", "why", "plan", "next_step", "kill_when")
-            if not isinstance(new, dict) or not all(str(new.get(k) or "").strip() for k in need):
-                fail("project-add --from FILE needs " + ", ".join(need) + " (why = the dated evidence)")
-            if len([p for p in pj if p.get("status") in ("active", "waiting")]) >= 8:
-                fail("eight projects are live: finish, fail or park one before starting another", 5)
-            words = set(re.findall(r"[a-z]{4,}", (new["name"] + " " + new["goal"]).lower()))
-            for p in pj:
-                w2 = set(re.findall(r"[a-z]{4,}", (str(p.get("name")) + " " + str(p.get("goal"))).lower()))
-                if words and len(words & w2) / max(1, len(words)) >= 0.6:
-                    fail("project %s already covers this (%s)" % (p.get("id"), p.get("status")), 5)
-            new.update({"id": new.get("id") or "PJ%02d" % (len(pj) + 1), "status": "active", "stage": new.get("stage") or "investigate",
-                        "added_utc": fmt(now), "added_by": a.run or "worker", "log": []})
-            pj.append(new)
+            new_id = new_project(pj, load(a.src) if a.src else None, a.run or (controller(d)["lock"].get("holder") or "worker"))
             save(a.loop, d)
-            out({"ok": True, "added": new["id"]})
+            out({"ok": True, "added": new_id})
         pid = args[0] if args else ""
         p = next((x for x in pj if x.get("id") == pid), None)
         if p is None:
@@ -1243,6 +1580,15 @@ def main():
         p["next_step"] = a.new_evidence.strip() or None
         p["not_before_utc"] = a.resume_when.strip() or None
         p["updated_utc"] = fmt(now)
+        if st_ == "failed":
+            # "When an opportunity genuinely fails, document why and discover another" (Joseph, 27 Nov 2026):
+            # the replacement is looked for at once, in the evidence examined longest ago.
+            pl.setdefault("project_discovery", {})["replace_failed"] = {"utc": fmt(now), "project": pid}
+        c_ = controller(d)
+        if c_["lock"].get("holder"):
+            cur = str((c_["lock"].get("current") or {}).get("what") or "")
+            end_current(c_, cur if pid.lower() in cur.lower() else "\0", now,
+                        "project:%s %s" % (pid, a.lane or p.get("stage") or "step"))
         save(a.loop, d)
         out({"ok": True, "project": pid, "status": st_, "stage": p.get("stage"), "next_step": p.get("next_step"), "not_before_utc": p.get("not_before_utc")})
 
@@ -1358,7 +1704,9 @@ def main():
     if cmd == "close":
         run = args[0]
         c = controller(d)
-        st = compute(d, now, a.monitor_hours, run)
+        start0 = parse_ts((c["lock"].get("since_utc") or c["lock"].get("utc")) if c["lock"].get("holder") == run else None)
+        closing = (start0, now) if start0 else None
+        st = compute(d, now, a.monitor_hours, run, closing=closing)
         pl = d.get("planner") if isinstance(d.get("planner"), dict) else {}
         fb = pl.get("fallback") if isinstance(pl.get("fallback"), dict) else {}
         mine = [e for e in (fb.get("log") or []) if isinstance(e, dict) and e.get("run") == run]
@@ -1400,7 +1748,23 @@ def main():
                            "close with --fallback-skipped \"<the reason>\"; if the session is out of time, close with "
                            "--stop-reason time instead." % a.stop_reason,
                  "next": st["frontier"]["next"]}, 6)
-        if a.stop_reason in NO_WORK_REASONS and st["fallback"]["due"]:
+        if a.stop_reason in NO_WORK_REASONS and st["project_discovery"]["due"] and not a.fallback_skipped.strip():
+            out({"refused": True, "wrote": "nothing",
+                 "reason": "PROJECT DISCOVERY is due: every project waits, no frontier question is open and this "
+                           "session has not looked for the next growth project (Joseph, 28 Nov 2026: a guaranteed, "
+                           "bounded, evidence-based discovery assignment, independent of project and lane cooldowns). "
+                           "Before closing with %s, do the assignment for the lens below as project_discovery.how "
+                           "says and record it with project-discover. If time, a usage limit, a store error or a "
+                           "refused permission prevents it, repeat close with --fallback-skipped \"<the reason>\"; "
+                           "if the session is out of time, close with --stop-reason time instead." % a.stop_reason,
+                 "lens": st["project_discovery"]["lens"], "how": st["project_discovery"]["how"],
+                 "recent": st["project_discovery"]["recent"]}, 6)
+        pd_done = st["project_discovery"]["this_session"] > 0
+        if a.stop_reason in NO_WORK_REASONS and st["fallback"]["due"] and pd_done:
+            # the session did the deeper form of discovery: three avenue classes are not asked of it as well,
+            # and backlog discovery neither rests nor counts an empty conclusion
+            fb_note = {"utc": fmt(now), "run": run, "covered_by": "project discovery", "rest_hours": 0}
+        elif a.stop_reason in NO_WORK_REASONS and st["fallback"]["due"]:
             need = st["fallback"]["min_avenues"]
             skipped = a.fallback_skipped.strip()
             if len(classes) < need and not skipped:
@@ -1421,18 +1785,23 @@ def main():
             base = base if isinstance(base, (int, float)) and not isinstance(base, bool) and base >= 1 else FB_BASE_H
             top = fb.get("exhausted_max_hours", FB_MAX_H)
             top = top if isinstance(top, (int, float)) and not isinstance(top, bool) and top >= base else FB_MAX_H
-            hours = base if added > 0 else min(top, base * (2 ** min(streak, 6)))
+            # 28 NOV 2026: the rest is the answer to a conclusion that found NOTHING (12 hours, doubling with each
+            # further empty conclusion). Until v4.7.1 this line read "hours = base if added > 0 else ...": the
+            # session that closed at 08:39 UTC on 28 Nov had found two tasks and was rested for 12 hours.
+            hours = 0 if added > 0 else min(top, base * (2 ** min(streak, 6)))
             fb = pl.setdefault("fallback", fb)
-            fb["exhausted_until_utc"] = fmt(now + dt.timedelta(hours=hours))
+            fb["exhausted_until_utc"] = fmt(now + dt.timedelta(hours=hours)) if hours else ""
             fb["empty_streak"] = 0 if added > 0 else streak + 1
             fb["last_conclusion"] = {"utc": fmt(now), "run": run, "explorations": len(mine), "avenue_classes": classes,
                                      "tasks_added": added, "skipped": short(skipped, 200) if skipped else None,
                                      "rest_hours": hours}
             fb_note = fb["last_conclusion"]
-            st = compute(d, now, a.monitor_hours, run)
+            st = compute(d, now, a.monitor_hours, run, closing=closing)
         # an answered frontier question or another recorded exploration is progress too (a watch or a drop adds
         # no task and no change, and must not break the chain or cause a retry wait)
-        progress = (a.done + a.changed) > 0 or bool(mine) or st["projects"]["this_session"] > 0
+        progress = ((a.done + a.changed) > 0 or bool(mine) or st["projects"]["this_session"] > 0
+                    or st["project_discovery"]["this_session"] > 0)
+        next_work = eligible_work(st)
         start = (c["lock"].get("since_utc") or c["lock"].get("utc")) if c["lock"].get("holder") == run else None
         bud = budget_view(d, now, parse_ts(start) if start else None)
         # Work that only a different session may do (not_run names this run). Joseph, 25 Nov 2026: "If those
@@ -1557,7 +1926,16 @@ def main():
                                                        "tasks_added": sum(int(e.get("added") or 0) for e in mine),
                                                        "concluded": fb_note},
                                  "frontier": {"explored": [e.get("key") for e in mine if e.get("avenue") == "frontier"],
-                                              "open_left": st["frontier"]["open"]} if st["frontier"]["enabled"] else None})
+                                              "open_left": st["frontier"]["open"]} if st["frontier"]["enabled"] else None,
+                                 "project_discovery": {"recorded": [{"lens": e.get("lens"), "project": e.get("project")}
+                                                                    for e in ((pl.get("project_discovery") or {}).get("log") or [])
+                                                                    if isinstance(e, dict) and e.get("run") == run],
+                                                       "lenses_due_left": st["project_discovery"]["lenses_due"],
+                                                       "waiting_for": st["project_discovery"]["waiting_for"]}
+                                 if st["project_discovery"]["enabled"] else None,
+                                 "projects_stepped": st["projects"]["this_session"],
+                                 "next_work": next_work,
+                                 "discovery_room": bool(st["fallback"]["room"])})
         del c["sessions"][80:]
         if c["lock"].get("holder") in ("", run):
             c["lock"] = {"holder": "", "utc": ""}
@@ -1566,6 +1944,9 @@ def main():
                          "picked": a.tasks or "none", "why": a.outcome}
         save(target, d)
         out({"next": nxt, "wake_minutes": wake, "done": a.done, "eligible_left": st["eligible"],
+             "next_work": next_work, "wake_utc": st.get("wake_utc"),
+             "project_discovery": {k: st["project_discovery"][k] for k in ("lenses_due", "waiting_for", "this_session")},
+             "discovery_room": bool(st["fallback"]["room"]),
              "next_due_utc": st["next_due_utc"], "budget": bud, "sessions_24h": sessions_24h,
              "handoff_tasks_for_next_session": [t.get("id") for t in blocked_here],
              "handoff_waits_for_next_due_session": handoff_wait, "handoff_why": handoff_why,
