@@ -171,6 +171,7 @@
   ]
  },
  "log": [
+  "2026-11-28T18:00Z worker: em-1128c follow-up draft to City of Evanston Senior Services (PJ06), held until PR #97 is live",
   "2026-11-18T16:28Z session operator (daytime loop): channel verdicts for Facebook caregiver groups, national groups, Reddit, Nextdoor, library events; 6 organizations assessed, 2 Gmail drafts created (City of Evanston Senior Services, North Shore Senior Center); search baseline done (site not visible in the research index)",
   "2026-11-18T16:33Z Search Console: key pages indexed; 1 indexing request (caregiver background check guide); 16 Nov performance 38 impressions, 0 clicks, Medicare cost queries",
   "2026-11-18T16:41Z session operator: G1 and G2 done (verdicts above); added G4 for tonight",
@@ -272,6 +273,20 @@
    "text": "Holiday visits are often when adult children first notice a parent struggling: unopened mail, missed medications, a fall nobody mentioned. Our free, independent guide gives Illinois families a first-week plan: what to write down, the yearly Medicare Wellness visit and its memory check, and the one call to make first, the Illinois Department on Aging's Senior HelpLine (1-800-252-8966), with the statewide Adult Protective Services Hotline (1-866-800-1409) for the cases that need it. It names no community and sells nothing: https://evanstonseniorcareguide.com/guides/noticed-changes-in-parent-holiday-visit/?ref=em-1128b\n\nIt may be useful for a seasonal service note.\n\nDisclosure: I work at Westminster Place in Evanston. The guide is my own independent project, it includes an optional way to request a tour there, and I receive no referral fees.\n\nJoseph Gonzales",
    "checks": "Re-read 2026-11-28 (this session): the guide on package branch claude/package-20261125 (head 2b9e9cf) states the HelpLine number, the Wellness-visit cognitive assessment and the APS hotline as the tip does; sources re-read the same day by web fetch: ilaging.illinois.gov helpline-main (1-800-252-8966, Mon-Fri 8:30-5:00), adult-protective-services page (1-866-800-1409; adults 60+ and 18-59 with disabilities living in the community), medicare.gov yearly-wellness-visits ('Perform a cognitive assessment to look for signs of dementia, including Alzheimer's disease.'). Duplicate check Gmail in:sent to:evanstonroundtable.com: one earlier thread, a guest essay submission to the letters route (tour-questions topic); no tip sent; different route and angle, so not a duplicate, but the operator should know the RoundTable already has an essay from this project under consideration (the pitch plan assumed the essay went to Evanston Now). Before sending: re-read the live page and the three sources that day. Second of at most three proposals in this class before a response is seen (A, B, and at most one more).",
    "words": 122
+  },
+  {
+   "type": "email_draft",
+   "org": "City of Evanston Senior Services (Dementia Friendly Evanston resources page)",
+   "for": "operator",
+   "status": "ready",
+   "source": "PJ06 stage 3 (verdict ACT, 28 Nov 2026); the one follow-up P-OUT-FOLLOWUP allows (its note: revisit when a new verified resource ships)",
+   "ref": "em-1128c",
+   "created_utc": "2026-11-28T18:00Z",
+   "not_before_utc": "2026-11-30T15:00Z",
+   "domain_sha256": "412e2fc2c04346ee",
+   "go_condition": "Send only once https://evanstonseniorcareguide.com/assisted-living-evanston/ shows the section 'If your parent may need memory care in Evanston' (review PR #97 merged and published). Until then hold, even after not_before_utc. This is the single follow-up to E-1118-01 in the same thread; never a second one.",
+   "checks": "Gmail Sent to the domain: E-1118-01 (aging@, 18 Nov, no reply) and E-1118-09 (library, same parent domain); no reply or decline in either thread; no other draft for the domain; the City page lists outside non-government resources under Long-term care and dementia (read 28 Nov 2026)",
+   "note": "Gmail draft created by the loop worker in the E-1118-01 thread, under 150 words, standard disclosure, link with ?ref=em-1128c to the memory care section; not sent."
   }
  ]
 }

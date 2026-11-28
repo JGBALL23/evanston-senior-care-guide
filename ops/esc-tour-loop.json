@@ -6729,7 +6729,7 @@
     "lane": "referral_partnerships",
     "class": "municipal and township senior services",
     "status": "waiting",
-    "note": "Gmail Sent 17-22 Nov: 11 organizational emails in all, 6 of them to municipal senior services or a municipal library (E-1118-01/07/08/09/10, E-1120-01); 0 replies, 2 auto-replies across all sends. Closed to new emails of this kind; at most one follow-up per organization after 7+ days if useful (P-OUT-FOLLOWUP, not before 25 Nov); phone-only offices are on Joseph's call list (incl. B-SKOKIE-HS) | ACQ-025 (22 Nov): in the Evanston senior-services and Family Service of Glencoe follow-ups, name the specific dementia-resources page as the placement asked for (cityofevanston.org ...dementia_friendly_evanston_resources.php; villageofglencoe.org Dementia Friendly Glencoe).",
+    "note": "Gmail Sent 17-22 Nov: 11 organizational emails in all, 6 of them to municipal senior services or a municipal library (E-1118-01/07/08/09/10, E-1120-01); 0 replies, 2 auto-replies across all sends. Closed to new emails of this kind; at most one follow-up per organization after 7+ days if useful (P-OUT-FOLLOWUP, not before 25 Nov); phone-only offices are on Joseph's call list (incl. B-SKOKIE-HS) | ACQ-025 (22 Nov): in the Evanston senior-services and Family Service of Glencoe follow-ups, name the specific dementia-resources page as the placement asked for (cityofevanston.org ...dementia_friendly_evanston_resources.php; villageofglencoe.org Dementia Friendly Glencoe). | 28 Nov 2026 (PJ06): the City's Dementia Friendly Evanston page is ACT for its one follow-up: new verified asset = memory care section (PR #97); draft em-1128c in the E-1118-01 thread, held until #97 is live.",
     "checked_utc": "2026-11-22T17:40Z"
    },
    {
@@ -7175,14 +7175,15 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSciSmPDNJW5sH6Zuua",
-   "utc": "2026-11-28T17:56Z",
+   "utc": "2026-11-28T17:57Z",
    "since_utc": "2026-11-28T17:42Z",
-   "productive_min": 10,
+   "productive_min": 12,
    "deliverables": [
     "project:PJ06 found (lens objectives)",
     "verification:ops/reviews/live/assisted-living-evanston.md",
     "pr:97",
-    "project:PJ06 execute"
+    "project:PJ06 execute",
+    "project:PJ06 measure"
    ]
   },
   "monitor": {
@@ -10416,9 +10417,9 @@
     "metric": "Search Console (weekly Make read): impressions, clicks and position for queries naming Evanston plus memory care, dementia or the care type; genuine visitors landing on the page (landed beacons); tour-path steps from it; outside pages that list it (scoreboard placements_live).",
     "why": "Read 28 Nov 2026: (1) Make's Search Console read of 25 Nov (period 26 Oct-22 Nov): one Evanston query (assisted living cost evanston il, 5 impressions, position 78.2), and /assisted-living-evanston/ has no row in the pages list, so local intent, objective Q1-2 (300 local-intent impressions a week by February), has no project and no measured movement. (2) Google autocomplete 28 Nov for Evanston stems returns 'memory care evanston il', 'memory care facilities evanston', 'dementia care evanston' -> memory care, 'nursing home evanston il', 'skilled nursing facility evanston il', 'senior housing evanston il'. (3) The results for 'memory care Evanston IL' (28 Nov) are referral directories (A Place for Mom, Seniorly, Caring, seniors.fyi, memorycarefind, alzheimers.net) whose counts (3 to 148 communities) and prices disagree, plus one official page: the City of Evanston's Dementia Friendly Evanston Resources, which lists memory cafes, adult day services, support groups and outside long-term-care links (level of care, facility-visit checklist, comparing options, paying), so an official-source local explainer can rank and the city's page is a natural listing for one. (4) Coverage: main has /assisted-living-evanston/ and independent-living-evanston; drafts/batch #90 has illinois-memory-care-assisted-living (state rules, verified 26 Nov, no Evanston content); nothing local on memory care. cityofevanston.org and illinois.gov are allowed citation hosts. F06 (27 Nov) closed per-town copies for other towns; this is Evanston itself by care type, not a town clone.",
     "plan": "1 Build: one page on drafts, 'Memory care in Evanston' (how to check whether an Evanston community is licensed for dementia care with IDPH, what Illinois requires, the City's local dementia supports, paying), under ROUTINE.md, quotation checker, independent reader. 2 Publish: into the publish batch when its packet is verified; a review PR linking /assisted-living-evanston/ and the page to each other. 3 Listing: once live, one prepared, asset-led suggestion for the operator to the City's Dementia Friendly Evanston resources page (step 8c only after an ACT verdict on that target). 4 Measure: weekly Make reads for Evanston memory-care queries; 5 next care type (nursing homes and short-term rehab in Evanston) only if the first page gains impressions or a Search Console query names it.",
-    "next_step": "Stage 3 prep, no merge needed: a map verdict on the City of Evanston's Dementia Friendly Evanston Resources page as a listing target (from its own page: what it lists under Long-term care/residential care, whether it lists independent guides, the published contact route, Gmail Sent duplicate check); ACT means one prepared, asset-led handoff for the operator that names the memory care section, to go out once #97 is live.",
+    "next_step": "Measure: after #97 is live (published-after-merge record in ops/live.json), confirm the section on the live page and that the operator can release em-1128c; then from the first Make Search Console read after publication record Evanston memory-care/dementia query impressions and landed beacons on /assisted-living-evanston/; stage 5 (next Evanston care type) only on a Search Console query or measured impressions.",
     "kill_when": "Eight weeks after the page is live with fewer than 20 impressions a week for Evanston memory-care or dementia queries and no outside listing: record why and stop adding Evanston care-type pages.",
-    "stage": "execute",
+    "stage": "measure",
     "id": "PJ06",
     "status": "active",
     "added_utc": "2026-11-28T17:45Z",
@@ -10429,11 +10430,17 @@
       "run": "cse_014eaiSciSmPDNJW5sH6Zuua",
       "result": "Stage 1 built as an Improve of the live local page (drafts gate allows only medicare/cms/illinois/va/carescout in Sources, so a drafts page could not cite the City and would have been a keyword variant; main's gate allows cityofevanston.org): review PR #97 (claude/al-evanston-memory-care, 5161afa + 8cfea0f) adds 'If your parent may need memory care in Evanston' to /assisted-living-evanston/: IDPH Alzheimer's plan 2026-2029 (state licensing, staff 6+3 h and supervisor 12 h dementia training, disclosure act, 20 SLP dementia settings statewide) and the City's Dementia Friendly Evanston Resources (memory cafes, adult day, support groups). 7 quotations matched; two independent reader agents: publish-ready, then Corrections verified; all suites pass. #97 enters the next package (cut 29 Nov 05:00Z).",
       "stage": "execute"
+     },
+     {
+      "utc": "2026-11-28T17:57Z",
+      "run": "cse_014eaiSciSmPDNJW5sH6Zuua",
+      "result": "Stage 3 prepared: listing target verdict ACT for the City of Evanston's Dementia Friendly Evanston Resources page (read 28 Nov 2026: lists outside non-government resources under long-term care and dementia, published address aging@cityofevanston.org; duplicate check: E-1118-01 sent 18 Nov, no reply, P-OUT-FOLLOWUP allows one follow-up when a new verified resource ships). Follow-up draft em-1128c created in that thread for the operator (growth.json ready, go_condition: #97 live).",
+      "stage": "measure"
      }
     ],
     "lens": "objectives",
     "not_before_utc": null,
-    "updated_utc": "2026-11-28T17:56Z"
+    "updated_utc": "2026-11-28T17:57Z"
    }
   ],
   "projects_about": "Since 2026-11-28T00:07Z, on Joseph's words of 27 Nov 2026 18:05 Chicago: \"Treat growth opportunities as projects worth developing, not checkboxes to complete.\" \"Stop optimizing for finishing the queue and start optimizing for growing the business.\" Projects are the main work; frontier questions feed new projects.",
