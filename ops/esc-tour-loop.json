@@ -6890,6 +6890,15 @@
     "checked_utc": "2026-11-27T20:14Z",
     "added_utc": "2026-11-27T20:14Z",
     "source": "frontier F17"
+   },
+   {
+    "id": "R12",
+    "lane": "referral_partnerships",
+    "class": "free aging-in-place village resource pages on Evanston's south border (Edgewater Village Chicago; The Village Chicago)",
+    "status": "act",
+    "note": "28 Nov 2026 (project discovery, lens intermediaries, PJ07): evchicago.org /housing read today lists CHA senior housing, Jane Addams Senior Caucus and building lists for Edgewater, Rogers Park and Uptown, nothing on assisted living or paying; its other resource pages link outside informational sites (soa.org Solo-Agers, AgeRight, BenefitsCheckUp, WebMD, AARP); published general address. Gmail Sent: none; domain hash 4411ded0c91f1cf3 not in state/growth. ACT: one disclosed proposal offering /guides/illinois-supportive-living-program/ and /guides/levels-of-senior-care-explained/ for the Housing page (text in planner/projects PJ07 plan), Gmail draft at the first session on 29 Nov Chicago (28 Nov holds the two-draft cap). The Village Chicago: no resources page (/resources/ 404): WATCH, reopen on an EVC reply or listing.",
+    "checked_utc": "2026-11-28T18:03Z",
+    "source": "project discovery intermediaries, PJ07"
    }
   ],
   "channel_yield": [
@@ -7175,8 +7184,13 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSepzj1UCJVbtZmLbox",
-   "utc": "2026-11-28T17:58Z",
-   "since_utc": "2026-11-28T17:58Z"
+   "utc": "2026-11-28T18:02Z",
+   "since_utc": "2026-11-28T17:58Z",
+   "productive_min": 6,
+   "deliverables": [
+    "project:PJ07 found (lens intermediaries)",
+    "project:PJ07 execute"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-28T17:43Z"
@@ -10512,6 +10526,33 @@
     "lens": "objectives",
     "not_before_utc": "2026-12-03T06:30Z",
     "updated_utc": "2026-11-28T17:57Z"
+   },
+   {
+    "priority": 3,
+    "name": "Aging-in-place villages on Evanston's south border as listing partners",
+    "objective": "Q1-5 (outside listings) with Q1-4 (channels)",
+    "goal": "Earn a listing of the guide's Illinois paying-for-care pages on the resource pages of the free aging-in-place village that serves Edgewater and Rogers Park (the Chicago neighbourhoods on Evanston's border, where the Rogers Park Facebook group already brought the most measured visitors), then on the next village with a public resource list if the first one answers.",
+    "metric": "Listing live on evchicago.org (curl of /housing or /social-services-support shows an evanstonseniorcareguide.com link: scoreboard placements_live); genuine visitors with the em- tag of the draft and referrers from evchicago.org (Netlify monitor); a reply recorded by hash in outreach_watch.",
+    "why": "Read 28 Nov 2026: (1) evchicago.org/resources, /housing and /social-services-support (Edgewater Village Chicago, a volunteer-led 501(c)(3) aging-in-place village, free, open to any Chicago resident, office at the Edgewater senior satellite center): the Housing page lists CHA senior housing, the Jane Addams Senior Caucus and Google-doc lists of senior and affordable buildings in Edgewater, Rogers Park and Uptown, and nothing on assisted living, supportive living or paying for care; the Social Services page and the Health page link outside informational sites (Solo-Agers guides from soa.org, AgeRight.org, BenefitsCheckUp, WebMD 'Medicare parts explained', AARP), so a free informational guide fits its listing practice; published general address info@evchicago.org ('Website questions'). (2) Gmail in:sent evchicago.org: none; sha256 domain 4411ded0c91f1cf3 not in state.json or growth.json; no map item names it. (3) R8 (aging-in-place villages and housing counselors) has two shipped proposals (North Shore Village Network 18 Nov, Open Communities 25 Nov) and no reply: under the three-before-a-response rule one more is allowed; it is not a closed class. (4) cloud.json/state.json: Rogers Park News (49.5K) post fb-rp-1122 brought the best measured yield (7 genuine visitors); Edgewater and Rogers Park border Evanston and its communities. (5) Live on main and checked 28 Nov (HTTP 200): /guides/illinois-supportive-living-program/ (reviewed 18 Oct 2026) and /guides/levels-of-senior-care-explained/ (reviewed 18 Oct 2026), so nothing waits for Joseph's merge.",
+    "plan": "1 Prepare (28 Nov, done in discovery): verdict ACT for evchicago.org Housing page, proposal text below. 2 Execute: at the first session on 29 Nov Chicago (after 06:00Z; 28 Nov already holds two drafts, the daily cap), step 8c: re-run the Gmail in:sent duplicate check, create one Gmail draft to the published address with the text below and tag em-<MMDD><letter>, add the growth.json ready item (type email_draft, for operator, status ready, ref the tag, domain_sha256 4411ded0c91f1cf3). 3 Measure: monitor per_tag for the tag and evchicago.org referrers for 21 days after the operator ships; curl evchicago.org/housing weekly for a link. 4 Extend: only on a reply or a listing, look for the next village with a public resource list (The Village Chicago has no resources page today: /resources/ 404 on 28 Nov). Proposal text (operator replaces <TAG>):\nHello Edgewater Village Chicago team,\n\nYour Resources page on Housing lists CHA senior housing, the Jane Addams Senior Caucus and senior buildings in Edgewater, Rogers Park and Uptown. When a member needs more help than an apartment gives, families ask what assisted living costs and whether Illinois Medicaid can pay. Two free pages may help there:\n\nIllinois Supportive Living Program explained (Medicaid-funded assisted living and what a resident still pays): https://evanstonseniorcareguide.com/guides/illinois-supportive-living-program/?ref=<TAG>\nAssisted living, memory care, skilled nursing and rehab, side by side: https://evanstonseniorcareguide.com/guides/levels-of-senior-care-explained/?ref=<TAG>\n\nEach figure links to its Illinois or federal source; no sign-up and no ads. Home page: https://evanstonseniorcareguide.com/?ref=<TAG>\n\nDisclosure: I work at Westminster Place in Evanston. The guide is my own independent project, it includes an optional way to request a tour there, and I receive no referral fees.\nJoseph Gonzales\n",
+    "next_step": "Execute at the first session on or after 2026-11-29T06:00Z: step 8c for Edgewater Village Chicago (re-run in:sent duplicate check, one Gmail draft to the published general address with the PJ07 plan text, tag em-1129<letter>, growth.json ready item with domain_sha256 4411ded0c91f1cf3); then measure the tag and evchicago.org referrers for 21 days after the operator ships.",
+    "kill_when": "No reply, no listing and no tagged visitor 21 days after the operator ships the proposal: record it, count R8 at three proposals without response, and send nothing more of this kind.",
+    "stage": "execute",
+    "id": "PJ07",
+    "status": "active",
+    "added_utc": "2026-11-28T18:02Z",
+    "added_by": "cse_014eaiSepzj1UCJVbtZmLbox",
+    "log": [
+     {
+      "utc": "2026-11-28T18:02Z",
+      "run": "cse_014eaiSepzj1UCJVbtZmLbox",
+      "result": "Prepare done 28 Nov 2026: verdict ACT for Edgewater Village Chicago's Housing page written to opportunity_map R12 (evchicago.org /resources, /housing, /social-services-support, /health-wellness read today; duplicate checks clear: Gmail in:sent, domain hash in state/growth); live target pages confirmed HTTP 200 on the site today; 133-word disclosed proposal text stored in PJ07 plan. Artifact: map item R12 and the prepared text. Gmail draft not created today: two drafts already dated 28 Nov Chicago (em-1128b, em-1128c), the step 8c daily cap.",
+      "stage": "execute"
+     }
+    ],
+    "lens": "intermediaries",
+    "not_before_utc": "2026-11-29T06:00Z",
+    "updated_utc": "2026-11-28T18:02Z"
    }
   ],
   "projects_about": "Since 2026-11-28T00:07Z, on Joseph's words of 27 Nov 2026 18:05 Chicago: \"Treat growth opportunities as projects worth developing, not checkboxes to complete.\" \"Stop optimizing for finishing the queue and start optimizing for growing the business.\" Projects are the main work; frontier questions feed new projects.",
@@ -10525,9 +10566,24 @@
      "project": "PJ06",
      "result": "Read 28 Nov 2026: strategy Q1 objectives vs planner/projects PJ01-PJ05 (Q1-1 PJ05, Q1-3 PJ01 + ladder angle, Q1-4 PJ02/PJ03, Q1-6 #94, Q1-7 all); Q1-2 local intent and Q1-5 listings have no project. Make SC read 25 Nov: 1 Evanston query (5 impr, pos 78), /assisted-living-evanston/ absent from pages. Autocomplete 28 Nov: memory care / nursing home / senior housing + evanston il. SERP 'memory care Evanston IL': directories only plus cityofevanston.org Dementia Friendly Evanston Resources (allowed host; lists outside LTC links). Candidates: (A) Evanston memory-care page, then listing on the City…",
      "marker": null
+    },
+    "intermediaries": {
+     "last_utc": "2026-11-28T18:02Z",
+     "run": "cse_014eaiSepzj1UCJVbtZmLbox",
+     "project": "PJ07",
+     "result": "Read 28 Nov 2026: planner/projects PJ01-PJ06 and their logs; opportunity_map R1-R11, D7-D14 (R3/R7/R9/R10/R11/D9/D10/D12 drop, D11 watch to 2027-02-15, D14 watch on a D8 talk, R1 closed to new emails); frontier F10, F11, F20 (hospitals, professionals, employers: drop); growth.json ready (em-1128a/b/c) and state.json actions. Candidates: (A) City of Highland Park Dementia Friendly page (cityhpil.com, read 28 Nov): lists only national and agency links (dfamerica, alz.org, BACOA), no long-term-care or independent-guide section, no suggestion route except a named staff social worker: DROP. (B) To…",
+     "marker": null
     }
    },
    "log": [
+    {
+     "utc": "2026-11-28T18:02Z",
+     "run": "cse_014eaiSepzj1UCJVbtZmLbox",
+     "lens": "intermediaries",
+     "added": 1,
+     "project": "PJ07",
+     "result": "Read 28 Nov 2026: planner/projects PJ01-PJ06 and their logs; opportunity_map R1-R11, D7-D14 (R3/R7/R9/R10/R11/D9/D10/D12 drop, D11 watch to 2027-02-15, D14 watch on a D8 talk, R1 closed to new emails); frontier F10, F11, F20 (hospitals, professionals, employers: drop); growth.json ready (em-1128a/b/c) and state.json actions. Candidates: (A) City of Highland Park Dementia Friendly page (cityhpil.com, read 28 Nov): lists only national and agency links (dfamerica, alz.org, BACOA), no long-term-care or independent-guide section, no suggestion route except a named staff social worker: DROP. (B) Township printed senior resource directories (New Trier, Northfield, Niles): no current 2026 guide found, only Des Plaines (outside area); municipal class R1 is closed to new emails: DROP. (C) Edgewater Village Chicago (evchicago.org /resources, /housing, /social-services-support, /health-wellness read 28 Nov): free aging-in-place village on Evanston's border; Housing page has no assisted-living or paying content; it already links outside informational sites; published general address; no earlier contact; R8 allows one more proposal; guides live on main, so nothing waits for a merge. The Village Chicago (thevillagechicago.org) has no resources page (404): watch. Chose C."
+    },
     {
      "utc": "2026-11-28T17:45Z",
      "run": "cse_014eaiSciSmPDNJW5sH6Zuua",
