@@ -212,6 +212,21 @@
    "priority": 2,
    "score": 6.0,
    "found_utc": "2026-11-27T20:17Z"
+  },
+  {
+   "id": "ACQ-206",
+   "task": "Verify the sentences commit 22d2fd5 on claude/medicare-page-pj01 changed in does-medicare-pay-for-senior-care (PJ01 build)",
+   "workstream": "search",
+   "lane": "search",
+   "source": "followup",
+   "key": "verify-live:does-medicare-pay-for-senior-care:22d2fd5",
+   "priority": 1,
+   "evidence": "commit 22d2fd5 on claude/medicare-page-pj01 (PJ01, research/medicare-page-serp-study.md)",
+   "expected_tour_acquisition_value": "quality gate before the Medicare page change enters the package",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "ready",
+   "found_utc": "2026-11-28T00:34Z"
   }
  ],
  "completed": [
@@ -6784,8 +6799,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSauSkeGhjrd8SZfMJD",
-   "utc": "2026-11-28T00:27Z",
-   "since_utc": "2026-11-28T00:27Z"
+   "utc": "2026-11-28T00:37Z",
+   "since_utc": "2026-11-28T00:27Z",
+   "current": {
+    "what": "ACQ-206",
+    "since_utc": "2026-11-28T00:35Z"
+   }
   },
   "monitor": {
    "last_utc": "2026-11-27T18:25Z"
