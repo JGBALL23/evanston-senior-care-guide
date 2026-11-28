@@ -212,6 +212,25 @@
    "priority": 2,
    "score": 6.0,
    "found_utc": "2026-11-27T20:17Z"
+  },
+  {
+   "id": "ACQ-212",
+   "task": "Build a guide on drafts: can we deduct our parent's assisted living or memory care costs as a medical expense on federal taxes, and who claims it (the parent or the child who pays)?",
+   "workstream": "demand",
+   "lane": "demand",
+   "source": "plan",
+   "key": "demand:assisted-living-tax-deduction",
+   "evidence": "Questions families asked in public: national tax-software community forum 2020-03-05 (memory care for a spouse's mother, cost shared by siblings) and 2024-06-16 (mother in assisted living); national retiree community forum 2023-03-01 (what portion of assisted living fees is deductible). Official source read 2026-11-28: IRS Publication 502 (2025 returns): nursing home medical care, qualified long-term care services for a chronically ill individual under a plan of care, 7.5% of AGI floor. Not covered by any slug on main or drafts (build-guides.py read 2026-11-28) nor DEMAND.md Open/Done.",
+   "expected_tour_acquisition_value": "families already budgeting for assisted living or memory care learn what part of the cost is deductible, which lowers the net cost of a move and keeps them on the site's cost and tour path",
+   "impact": 3,
+   "confidence": 3,
+   "effort": 3,
+   "executor": "worker (research and preparation only)",
+   "done_when": "guide built with build-guides.py on drafts under ROUTINE.md (or the topic entered in DEMAND.md Open when the session cannot finish a build), five checks and quotecheck pass, DEMAND line in Done in the build commit, review:<slug> task added",
+   "score": 3.0,
+   "status": "ready",
+   "priority": 2,
+   "found_utc": "2026-11-28T06:45Z"
   }
  ],
  "completed": [
@@ -6944,8 +6963,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiScD9A2D9TRc6UYLPwd",
-   "utc": "2026-11-28T06:44Z",
-   "since_utc": "2026-11-28T06:42Z"
+   "utc": "2026-11-28T06:45Z",
+   "since_utc": "2026-11-28T06:42Z",
+   "current": {
+    "what": "plan:demand",
+    "since_utc": "2026-11-28T06:44Z"
+   }
   },
   "monitor": {
    "last_utc": "2026-11-28T05:58Z"
@@ -8393,9 +8416,9 @@
     "plan_cooldown_hours": 24,
     "open_prs": [],
     "owner_open": 0,
-    "cooldown_until_utc": "2026-11-28T06:47Z",
-    "last_planned_utc": "2026-11-27T06:47Z",
-    "last_plan_result": "Search Console queries (25 Nov read): every Medicare/assisted living, nursing home, VA caregiver, advance directive, QMB, home-delivered-meals and MSP query maps to a live guide; 'what is a uai screening' (Virginia's instrument) and 'eps reporting' are not Illinois needs; DEMAND.md Open holds one w…"
+    "cooldown_until_utc": "",
+    "last_planned_utc": "2026-11-28T06:45Z",
+    "last_plan_result": "Search Console (25 Nov read, same as last pass): no new uncovered Illinois query. Public questions searched 28 Nov: deducting a parent's assisted living or memory care costs (national tax-software forum 2020-03-05, 2024-06-16; national retiree forum 2023-03-01) is uncovered on main, drafts and DEMA…"
    },
    {
     "id": "search",
@@ -8582,6 +8605,7 @@
    }
   ],
   "log": [
+   "2026-11-28T06:45Z demand +1: Search Console (25 Nov read, same as last pass): no new uncovered Illinois query. Public questions searched 28 Nov: deducting a parent's assisted living or mem…",
    "2026-11-27T19:33Z build +0: Second pass this session, no new evidence since 19:1xZ: the one qualifying need (home care vs assisted living) is built, verified and ported to #90; ACQ-118 wa…",
    "2026-11-27T19:14Z publish +0: Batch #90 holds all 11 verified worker pages; no new packet with publish-ready verdict since the 07:06Z pass; nothing qualifies.",
    "2026-11-27T19:14Z build +1: Read Search Console 25 Nov read (home-help coverage queries), DEMAND.md Open/Done, slugs on main and drafts, CareScout 2025 Illinois tables, public caregiver Q…",
