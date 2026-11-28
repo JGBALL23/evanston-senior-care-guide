@@ -7983,6 +7983,11 @@
     "utc": "2026-11-27T19:52Z",
     "by": "supervisor",
     "rule": "On Joseph's word of 27 Nov 2026 (\"Make productive use of the refreshed capacity. Prioritize customer acquisition, SEO, business development, conversion improvements and discovering new growth opportunities.\"): open frontier questions are eligible work while the usage reserve has room (STATUS.frontier.starts_sessions). They wake a session and keep the chain going, and frontier.due stays true in a session until the list is done, the day's count is reached or time is up; so \"it never starts a session by itself\" and \"at least one\" no longer describe it. Answer them in the order of frontier.next, each to the full standard: read every source yourself; act, watch or drop. A question whose sources you cannot read from here gets the verdict watch naming what blocks it; never skip one and leave it open. Close with --stop-reason time at SESSION_MINUTES minus 15; the next session continues."
+   },
+   {
+    "utc": "2026-11-28T00:07Z",
+    "by": "supervisor",
+    "rule": "THE PROJECTS (Joseph, 27 Nov 2026: \"Treat growth opportunities as projects worth developing, not checkboxes to complete.\"). STATUS.projects.due lists growth projects (planner/projects) whose next step is due: they come before frontier questions, sweeps and planning, right after the package and ready tasks. Work the first one deeply for most of the session: investigate with sources, write the strategy, build the asset, prepare the execution. Every step ends in an artifact (research file, branch, pull request, prepared handoff), recorded with project-step ID --run RUN --result TEXT --new-evidence NEXT [--resume-when UTC] [--lane STAGE] [--verdict waiting|won|failed|parked]. A failed project needs its evidence; then add a better one with project-add. A frontier act becomes a project, not one task."
    }
   ]
  },
@@ -9066,7 +9071,7 @@
   "frontier": {
    "enabled": true,
    "min_per_session": 1,
-   "per_day": 24,
+   "per_day": 6,
    "why": "Joseph, 26 Nov 2026 19:00 Chicago: \"My goal is to build a reliable, autonomous AI workforce that continuously grows Evanston Senior Care Guide over the next 12 months.\" \"Proactively discover and execute high-value business opportunities.\" \"Continuously replenish your own backlog instead of waiting for instructions.\" \"Prioritize qualified traffic, customer acquisition, inquiries, tours, and revenue.\" \"Build upon previous work so improvements compound over time.\" \"Do not create meaningless work just to remain active. However, an empty queue, discovery cooldown, or pending approval should not prevent you from exploring genuinely new opportunities.\" \"Think about what 365 consecutive days of meaningful business improvements could accomplish.\"",
    "how": "Procedure step 7, FRONTIER. Status shows frontier.due and frontier.next. Each question is a genuinely new kind of opportunity with the evidence to read and the output allowed. Answer it once: start explore:frontier:<id>, do the research, put every candidate through the gate, add what passes, then explore frontier:<id> --avenue frontier --verdict act|watch|drop --candidates N --added N --result TEXT. A drop or a watch is a complete result. Add a new question with frontier-add only when evidence found on the way points to a kind of opportunity that is neither in this list nor on the opportunity map; a rewording is refused. close refuses no-worthwhile-work while frontier.due holds.",
    "questions": [
@@ -9411,9 +9416,92 @@
      "result": "Read 27 Nov 2026: northwestern.edu/hr/benefits/work-life (Caregiving Resources with a 'Senior & Adult Care' page; university excluded since E-1118-03, emailed 18 Nov, no reply); endeavorhealth.org careers benefits (404; staff caregiver support is vendor/EAP per D9); district65.net (school-family caregiver councils only, no elder-care list). Employers (D9, 22 Nov: 5 employers, 0 ACT) and congregational care ministries (D12, members-only care teams) were examined and dropped; no new evidence found, so neither is reopened. 0 proposals."
     }
    ],
-   "per_day_note": "24 since 2026-11-27T19:52Z (was 4, then 6): Joseph refreshed the Claude allowance and ordered 'Make productive use of the refreshed capacity ... discovering new growth opportunities'. Since then open questions are eligible work while the usage reserve has room (helper v4.6: below three quarters of budget_hours_per_day and budget_hours_per_week); the last quarter stays for monitoring, the daily package and ready tasks. The count per day only stops a runaway. Depth still comes before count: every answer names the sources read and their dates, and watch or drop is a complete result.",
+   "per_day_note": "6 again since 2026-11-28T00:07Z: questions now feed projects; depth on projects matters more than the count of answers (Joseph 27 Nov 18:05 Chicago).",
    "order_note": "Order set 2026-11-27T19:52Z: first the questions whose results do not wait for Joseph's merge and bring new qualified reach or relationships (F10 hospital discharge, F11 local professionals, F12 local press), then search and measurement questions that are cheap to act on (F07, F09, F16, F17, F18), then assets that need a build and a merge (F13, F14, F15), then F19."
-  }
+  },
+  "projects": [
+   {
+    "id": "PJ01",
+    "priority": 1,
+    "name": "Medicare page to Google's first page",
+    "goal": "Move /guides/does-medicare-pay-for-senior-care/ from average position 32.5 to the top 10 for its assisted-living and nursing-home Medicare queries, and turn the visits into tour-path entries.",
+    "metric": "Search Console: position and clicks of that page and of its 20 biggest queries (weekly Make read); genuine search visitors to it; checklist opens from it.",
+    "why": "Search Console read of 25 Nov 2026 (28 days): this page had 781 of the site's 1,242 impressions at position 32.5 and 0 clicks; 'does medicare cover assisted living' alone 87 impressions. It is the site's largest search asset by far.",
+    "plan": "1 Investigate: read the top 5 results for the 10 biggest queries; what they answer that this page does not, how they are structured, their titles and opening lines. 2 Strategy: one written plan (title, description, the first 100 words answering the question directly, sections that match the searches, internal links from the 32 live guides, a related cluster page only if a query group has no answer). 3 Build: one review pull request with the restructured page, sourced to the review rules, independent reader. 4 After his merge: watch position weekly; second iteration from what moved.",
+    "next_step": "Investigate: read the top results for the 10 biggest queries and write research/medicare-page-serp-study.md.",
+    "kill_when": "Two iterations live for 6 weeks each with no position gain on the main queries: write down why and move effort elsewhere.",
+    "stage": "investigate",
+    "status": "active",
+    "added_utc": "2026-11-28T00:07Z",
+    "added_by": "supervisor",
+    "log": []
+   },
+   {
+    "id": "PJ02",
+    "priority": 1,
+    "name": "Local press as an acquisition channel",
+    "goal": "Earn mentions or links in Evanston RoundTable and Evanston Now by giving reporters something useful: sourced explainers tied to stories they already run.",
+    "metric": "Mentions or links in local outlets (search and referral visitors with those referrers); replies to pitches.",
+    "why": "Frontier F12 (27 Nov 2026): about 190 items in the last 12 months on senior-care terms in the two outlets' archives; recurring story types include state enforcement at a local long-term-care facility (7 stories Jan-Nov 2026) and benefit changes. The 2027 change to retroactive Medicaid found the same day is a fresh, checkable story.",
+    "plan": "1 Investigate: which reporters cover these beats, how each outlet takes tips and community contributions (published routes only), what explainer readers lacked in the last stories. 2 Strategy: two or three story angles with the guide's sourced page behind each. 3 Build: the explainer pages (drafts, reader-reviewed) and short pitch drafts for the outreach operator to the outlets' published tip or newsroom addresses, with the standard disclosure. 4 Execute through the operator; follow up once; measure.",
+    "next_step": "Investigate the two outlets' published routes for tips and contributions and the reporters on these beats; pick the strongest two angles.",
+    "kill_when": "Three well-founded pitches with no reply or use within 6 weeks.",
+    "stage": "investigate",
+    "status": "active",
+    "added_utc": "2026-11-28T00:07Z",
+    "added_by": "supervisor",
+    "log": []
+   },
+   {
+    "id": "PJ03",
+    "priority": 1,
+    "name": "Facebook community groups, done properly",
+    "goal": "Turn the only channel with measured visitors into a steady, useful presence in Evanston and North Shore community groups, measured per post.",
+    "metric": "Genuine visitors per post by ref tag, checklist opens and tour-form views from them; posts removed or declined.",
+    "why": "Scoreboard 23-26 Nov 2026: Facebook brought 16 of 25 genuine visitors; no other channel has produced a measured visitor. Frontier F05 left it on watch for operator supply.",
+    "plan": "1 Investigate: which group posts brought visitors (ref tags), what each group's rules allow, which questions families ask there. 2 Strategy: a four-week calendar per town of genuinely useful posts answering real questions, each pointing to one sourced guide, within group rules. 3 Build: the post texts as prepared items for the outreach operator. 4 Execute only through the operator; measure each post; drop what does not work.",
+    "next_step": "Investigate: per-tag results so far and each group's rules; write the four-week calendar.",
+    "kill_when": "Four weeks of calendar with fewer than 10 genuine visitors in total, or group rules that forbid it.",
+    "stage": "investigate",
+    "status": "active",
+    "added_utc": "2026-11-28T00:07Z",
+    "added_by": "supervisor",
+    "log": []
+   },
+   {
+    "id": "PJ04",
+    "priority": 2,
+    "name": "2027 retroactive Medicaid change: be the local source",
+    "goal": "Own the local explanation of the 2027 change to retroactive Medicaid coverage before families are hit by it, as a page and as material for PJ02.",
+    "metric": "Search impressions for the change's queries; use by local outlets or agencies.",
+    "why": "Frontier F12 act (27 Nov 2026): a federal change to retroactive Medicaid coverage takes effect in 2027 and the live guides need a correction; families who apply late for nursing-home Medicaid are the ones it affects.",
+    "plan": "1 Investigate: the official rule text and Illinois HFS guidance, dates, who it affects. 2 Build: the correction (already queued) and a short dedicated page if searches exist; reader-reviewed. 3 Execute: hand it to PJ02 as an angle.",
+    "next_step": "Check the official sources and the state of the correction task; decide whether a dedicated page is warranted.",
+    "kill_when": "No official Illinois guidance by the time it takes effect and no searches: keep only the correction.",
+    "stage": "investigate",
+    "status": "active",
+    "added_utc": "2026-11-28T00:07Z",
+    "added_by": "supervisor",
+    "log": []
+   },
+   {
+    "id": "PJ05",
+    "priority": 2,
+    "name": "Tour path that converts",
+    "goal": "Find out where visitors leave between arriving and requesting a tour, and fix the biggest leak once there is enough traffic to see it.",
+    "metric": "Checklist opens, assessment starts, tour-form views and tour requests per genuine visitor (scoreboard, recorded since F03).",
+    "why": "North star = tour requests; 0 so far. Counts became readable on 27 Nov (F03 act). The conversion rule needs 30 genuine visitors at a step before a change.",
+    "plan": "1 Measure: daily funnel per landing page as traffic grows. 2 When a step has 30 visitors: one written hypothesis with evidence. 3 One small review pull request (never the form, consent text or privacy notice). 4 Measure again.",
+    "next_step": "Record the funnel for the last 7 days and the steps' visitor counts; set not_before to when a step will plausibly reach 30 visitors.",
+    "kill_when": "Never killed; parked while traffic is too low to measure.",
+    "stage": "measure",
+    "status": "active",
+    "added_utc": "2026-11-28T00:07Z",
+    "added_by": "supervisor",
+    "log": []
+   }
+  ],
+  "projects_about": "Since 2026-11-28T00:07Z, on Joseph's words of 27 Nov 2026 18:05 Chicago: \"Treat growth opportunities as projects worth developing, not checkboxes to complete.\" \"Stop optimizing for finishing the queue and start optimizing for growing the business.\" Projects are the main work; frontier questions feed new projects."
  },
  "owner_decisions": [
   {
@@ -9478,6 +9566,13 @@
    "heard_in": "supervising chat",
    "for": "supervisor",
    "applied": "2026-11-27T19:52Z: open frontier questions are eligible work while the usage reserve has room (helper v4.6), per_day 24, order of the open questions set, F20 added; allowances unchanged (6 hours a day, 28 a week); see controller/addenda."
+  },
+  {
+   "utc": "2026-11-28T00:05Z",
+   "said": "I upgraded Make because I want consistent, meaningful business development, not faster completion of shallow research questions. Treat growth opportunities as projects worth developing, not checkboxes to complete. Investigate promising opportunities thoroughly, develop actionable strategies, build useful assets, and pursue authorized execution. When an opportunity genuinely fails, document why and discover another. Use our available capacity to maximize business value without generating filler. I want an independent business development partner, not a task completion machine. Stop optimizing for finishing the queue and start optimizing for growing the business.",
+   "heard_in": "supervising chat",
+   "for": "supervisor",
+   "applied": "2026-11-28T00:07Z: helper v4.7 growth projects (planner/projects, project-add, project-step); five projects seeded from measured evidence; frontier back to 6 a day; addendum 3."
   }
  ],
  "strategy": {
