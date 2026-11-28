@@ -6458,10 +6458,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-28T17:58Z",
-  "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
-  "picked": "ACQ-219 done, ACQ-220 done",
-  "why": "Worked: monitor (0 genuine visitors, 0 tour requests); discovery lens objectives -> PJ06 Evanston memory care; PR #97 verified by two readers; City follow-up draft held. stopped: no-worthwhile-work; resume: planner 18:46Z"
+  "utc": "2026-11-28T18:03Z",
+  "event": "Make controller: completion of cse_014eaiSciSmPDNJW5sH6Zuua",
+  "picked": "none (discovery assignment PJ07 found and prepared)",
+  "why": "Worked: project discovery (lens intermediaries) found PJ07, Edgewater Village Chicago Housing page listing, prepared; stopped: no-worthwhile-work; resume: next lens or PJ07 draft after 29 Nov 06:00Z"
  },
  "last_verified_action": "ACQ-220 done 2026-11-28T17:56Z: Independent reader (agent in cse_014eaiSciSmPDNJW5sH6Zuua) checked commit 8cfea0f (recommended additions: supervisor 12-hour training, dementia program disclos…",
  "last_stop": {
@@ -6542,7 +6542,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Next: planner cooldown and sweep angle publish-ready at 18:46Z, asset-gaps 19:28Z, search-presence 29 Nov 00:50Z, daily package cut 29 Nov 05:00Z (it should take PR #97, verified, and the other open review PRs). Waiting on Joseph: package #91 merge (offered since 25 Nov); PJ06 measures from 3 Dec once #97 is live; em-1128c waits for #97 live.",
+ "next_discovery": "Next: project-discovery lenses search-demand, local-intent, visitors, calendar, assets, benchmarks are due now; planner and sweep publish-ready at 18:46Z; PJ07 Gmail draft for Edgewater Village Chicago at the first session after 29 Nov 06:00Z. Waiting on Joseph: the 28 Nov package and demand lane.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -7183,19 +7183,88 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiSepzj1UCJVbtZmLbox",
-   "utc": "2026-11-28T18:02Z",
-   "since_utc": "2026-11-28T17:58Z",
-   "productive_min": 6,
-   "deliverables": [
-    "project:PJ07 found (lens intermediaries)",
-    "project:PJ07 execute"
-   ]
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-28T17:43Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSepzj1UCJVbtZmLbox",
+    "start_utc": "2026-11-28T17:58Z",
+    "end_utc": "2026-11-28T18:03Z",
+    "launch": "completion of cse_014eaiSciSmPDNJW5sH6Zuua",
+    "outcome": "Worked: project discovery (lens intermediaries) found PJ07, Edgewater Village Chicago Housing page listing, prepared; stopped: no-worthwhile-work; resume: next lens or PJ07 draft after 29 Nov 06:00Z",
+    "done": 0,
+    "changed": 2,
+    "tasks": "none (discovery assignment PJ07 found and prepared)",
+    "next": "yes",
+    "wake_minutes": null,
+    "next_due_utc": "2026-11-28T18:46Z",
+    "plan_due": false,
+    "saturated": [
+     "demand"
+    ],
+    "budget_used_hours_24h": 2.6,
+    "budget_used_hours_7d": 9.0,
+    "productive_min": 6,
+    "deliverables": [
+     "project:PJ07 found (lens intermediaries)",
+     "project:PJ07 execute"
+    ],
+    "stop_reason": "no-worthwhile-work",
+    "considered": "Project discovery lens intermediaries: Highland Park Dementia Friendly page DROP, township senior directories DROP, Edgewater Village Chicago ACT -> PJ07, The Village Chicago WATCH (no resources page). Ready tasks: none. Plan: not due (demand saturated; cooldown to 18:46Z). Sweep: none due (publish-ready 18:46Z, asset-gaps 19:28Z; demand-questions and draft-review wait on Joseph). Frontier: none open. Projects: none due. Package: cut done today, next window 29 Nov 05:00Z. Monitor: not due (last 17:43Z). Step 8 outreach prep: PJ07 draft held, 28 Nov Chicago already has two drafts (cap). Fallback avenues replaced by the discovery assignment per addendum 28 Nov 16:30Z.",
+    "resume_when": "Next project-discovery lens (search-demand and others due) at once; planner and sweep angle publish-ready at 18:46Z; PJ07 Gmail draft at the first session after 2026-11-29T06:00Z",
+    "sweep_due_left": [],
+    "sessions_24h": 12,
+    "handoff": null,
+    "make_ops": null,
+    "package": {
+     "due_at_close": false,
+     "recut_due_at_close": false,
+     "skipped": null,
+     "done_today": true
+    },
+    "backlog_discovery": {
+     "explorations": 0,
+     "avenue_classes": [],
+     "tasks_added": 0,
+     "concluded": {
+      "utc": "2026-11-28T18:03Z",
+      "run": "cse_014eaiSepzj1UCJVbtZmLbox",
+      "covered_by": "project discovery",
+      "rest_hours": 0
+     }
+    },
+    "frontier": {
+     "explored": [],
+     "open_left": 0
+    },
+    "project_discovery": {
+     "recorded": [
+      {
+       "lens": "intermediaries",
+       "project": "PJ07"
+      }
+     ],
+     "lenses_due_left": [
+      "search-demand",
+      "local-intent",
+      "visitors",
+      "calendar",
+      "assets",
+      "benchmarks"
+     ],
+     "waiting_for": null
+    },
+    "projects_stepped": 1,
+    "next_work": [
+     "project discovery: lens search-demand, local-intent, visitors, calendar, assets, benchmarks",
+     "backlog discovery"
+    ],
+    "discovery_room": true
+   },
    {
     "run": "cse_014eaiSciSmPDNJW5sH6Zuua",
     "start_utc": "2026-11-28T17:42Z",
@@ -8729,7 +8798,7 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-28T17:58Z",
+   "written_utc": "2026-11-28T18:03Z",
    "eligible_now": 2,
    "next_due": [
     {
