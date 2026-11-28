@@ -324,6 +324,37 @@ def frontier_view(d, now, run=None, room=True):
                      for q in open_q[:3]]}
 
 
+PJ_STATUSES = ("active", "waiting", "won", "failed", "parked")
+
+
+def projects_view(d, now, run=None, room=True):
+    """Growth projects (planner/projects). Joseph, 27 Nov 2026: "Treat growth opportunities as projects worth
+    developing, not checkboxes to complete." "Investigate promising opportunities thoroughly, develop actionable
+    strategies, build useful assets, and pursue authorized execution. When an opportunity genuinely fails,
+    document why and discover another." "Stop optimizing for finishing the queue and start optimizing for
+    growing the business."
+    A project is active until it is won or failed. Its next step is due when its not_before_utc has passed; a
+    waiting project names the event it waits for and is due again when that time passes. Due projects are
+    eligible work while the usage reserve has room, before frontier questions. Read only."""
+    pl = d.get("planner") or {}
+    pj = [p for p in (pl.get("projects") or []) if isinstance(p, dict)]
+    live = [p for p in pj if p.get("status") in ("active", "waiting")]
+    due = []
+    for p in live:
+        nb = parse_ts(p.get("not_before_utc"))
+        if nb is None or nb <= now:
+            due.append(p)
+    due.sort(key=lambda p: (p.get("priority") if isinstance(p.get("priority"), int) else 9, str(p.get("id"))))
+    nxt = [parse_ts(p.get("not_before_utc")) for p in live if parse_ts(p.get("not_before_utc")) and parse_ts(p.get("not_before_utc")) > now]
+    steps = [s for p in pj for s in (p.get("log") or []) if isinstance(s, dict) and run and s.get("run") == run]
+    return {"enabled": bool(pl.get("projects_enabled", True)), "active": len(live), "due": [
+                {"id": p.get("id"), "name": p.get("name"), "stage": p.get("stage"), "next_step": short(p.get("next_step") or "", 300)}
+                for p in due[:4]],
+            "starts_sessions": bool(pl.get("projects_enabled", True)) and bool(due) and bool(room),
+            "this_session": len(steps), "_next": min(nxt) if nxt else None,
+            "won": sum(1 for p in pj if p.get("status") == "won"), "failed": sum(1 for p in pj if p.get("status") == "failed")}
+
+
 def strategy_view(d, now):
     """The 12-month plan (strategy). Its monthly review is due from reviews/first_due_utc on, in every month
     that has no task keyed strategy-review:YYYYMM in the queue or among the completed tasks. Read only."""
@@ -516,6 +547,10 @@ def compute(d, now, monitor_hours, run=None, _probe=False):
     fbv = fallback_view(d, now, soon, pipeline, plan)
     bud_now = budget_view(d, now)
     frv = frontier_view(d, now, run, discovery_room(bud_now))
+    pjv = projects_view(d, now, run, discovery_room(bud_now))
+    if pjv["_next"] is not None:
+        future.append((pjv["_next"], "project step"))
+    pjv.pop("_next", None)
     if frv["_slot"] is not None:
         future.append((frv["_slot"], "frontier: next question"))
     frv.pop("_slot", None)
@@ -530,7 +565,7 @@ def compute(d, now, monitor_hours, run=None, _probe=False):
     future.sort(key=lambda x: x[0])
     next_due = future[0][0] if future else None
     eligible = (pipeline + len(handoff) + (1 if plan["due"] else 0) + len(sweep["due"]) + (1 if fbv["due"] else 0)
-                + (1 if pkv["due"] else 0) + (1 if frv["starts_sessions"] else 0))
+                + (1 if pkv["due"] else 0) + (1 if frv["starts_sessions"] else 0) + len(pjv["due"] if pjv["starts_sessions"] else []))
     # The wake time is the first moment at which a session would really find work. Since 27 Nov 2026 Make's
     # timer looks every 15 minutes (Core plan), so a wake set one grace before something that has no grace
     # (the package window) would start a session that finds nothing due. Candidates: every due time and
@@ -566,6 +601,7 @@ def compute(d, now, monitor_hours, run=None, _probe=False):
         "handoff_waiting": len(handoff),
         "sweep": sweep,
         "fallback": fbv,
+        "projects": pjv,
         "frontier": frv,
         "strategy": strategy_view(d, now),
         "package": pkv,
@@ -1160,6 +1196,51 @@ def main():
              "frontier": ({k: v for k, v in frontier_view(d, now, run, discovery_room(budget_view(d, now))).items()
                            if k != "_slot"} if avenue == "frontier" else None)})
 
+    if cmd in ("project-step", "project-add"):
+        pl = d.setdefault("planner", {})
+        pj = pl.setdefault("projects", [])
+        if cmd == "project-add":
+            new = load(a.src) if a.src else None
+            need = ("name", "goal", "metric", "why", "plan", "next_step", "kill_when")
+            if not isinstance(new, dict) or not all(str(new.get(k) or "").strip() for k in need):
+                fail("project-add --from FILE needs " + ", ".join(need) + " (why = the dated evidence)")
+            if len([p for p in pj if p.get("status") in ("active", "waiting")]) >= 8:
+                fail("eight projects are live: finish, fail or park one before starting another", 5)
+            words = set(re.findall(r"[a-z]{4,}", (new["name"] + " " + new["goal"]).lower()))
+            for p in pj:
+                w2 = set(re.findall(r"[a-z]{4,}", (str(p.get("name")) + " " + str(p.get("goal"))).lower()))
+                if words and len(words & w2) / max(1, len(words)) >= 0.6:
+                    fail("project %s already covers this (%s)" % (p.get("id"), p.get("status")), 5)
+            new.update({"id": new.get("id") or "PJ%02d" % (len(pj) + 1), "status": "active", "stage": new.get("stage") or "investigate",
+                        "added_utc": fmt(now), "added_by": a.run or "worker", "log": []})
+            pj.append(new)
+            save(a.loop, d)
+            out({"ok": True, "added": new["id"]})
+        pid = args[0] if args else ""
+        p = next((x for x in pj if x.get("id") == pid), None)
+        if p is None:
+            fail("no project %s" % pid)
+        if not a.result.strip():
+            fail("project-step needs --result: what was done, with the sources read and their dates, and the artifact (commit, file, pull request, prepared handoff)")
+        st_ = (a.verdict or p.get("status") or "active").strip()
+        if st_ not in PJ_STATUSES:
+            fail("--verdict must be one of " + ", ".join(PJ_STATUSES))
+        if st_ in ("active", "waiting") and not a.new_evidence.strip():
+            fail("a live project needs its next step: --new-evidence \"<the next concrete step>\" (and --resume-when \"<UTC time>\" when it waits)")
+        if st_ == "failed" and len(a.result) < 200:
+            fail("a failed project needs the evidence of why it failed (at least a few sentences with sources): document why, then discover another")
+        p.setdefault("log", []).append({"utc": fmt(now), "run": a.run or (args[1] if len(args) > 1 else ""), "result": short(a.result, 1500),
+                                        "stage": a.lane or p.get("stage")})
+        p["log"] = p["log"][-30:]
+        p["status"] = st_
+        if a.lane:
+            p["stage"] = a.lane
+        p["next_step"] = a.new_evidence.strip() or None
+        p["not_before_utc"] = a.resume_when.strip() or None
+        p["updated_utc"] = fmt(now)
+        save(a.loop, d)
+        out({"ok": True, "project": pid, "status": st_, "stage": p.get("stage"), "next_step": p.get("next_step"), "not_before_utc": p.get("not_before_utc")})
+
     if cmd == "frontier-add":
         pl = d.get("planner")
         if not a.src or not isinstance(pl, dict):
@@ -1298,6 +1379,11 @@ def main():
                            "usage limit, a store error or a refused permission prevents it, repeat close with "
                            "--package-skipped \"<the reason>\"." % ", ".join(str(x) for x in st["package"]["recut_for"]),
                  "package": st["package"]}, 6)
+        if a.stop_reason in NO_WORK_REASONS and st["projects"]["due"] and st["projects"]["starts_sessions"] and not a.fallback_skipped.strip():
+            out({"refused": True, "wrote": "nothing",
+                 "reason": "growth projects have a due next step (%s): work it (THE PROJECTS rule in controller/addenda), record it with "
+                           "project-step, then close; or close with --stop-reason time when out of time." % ", ".join(str(x["id"]) for x in st["projects"]["due"]),
+                 "projects": st["projects"]}, 6)
         if a.stop_reason in NO_WORK_REASONS and st["frontier"]["due"] and not a.fallback_skipped.strip():
             out({"refused": True, "wrote": "nothing",
                  "reason": "open frontier questions wait (planner/frontier): an empty queue, a cooldown or a pending "
@@ -1341,7 +1427,7 @@ def main():
             st = compute(d, now, a.monitor_hours, run)
         # an answered frontier question or another recorded exploration is progress too (a watch or a drop adds
         # no task and no change, and must not break the chain or cause a retry wait)
-        progress = (a.done + a.changed) > 0 or bool(mine)
+        progress = (a.done + a.changed) > 0 or bool(mine) or st["projects"]["this_session"] > 0
         start = (c["lock"].get("since_utc") or c["lock"].get("utc")) if c["lock"].get("holder") == run else None
         bud = budget_view(d, now, parse_ts(start) if start else None)
         # Work that only a different session may do (not_run names this run). Joseph, 25 Nov 2026: "If those
