@@ -212,21 +212,6 @@
    "priority": 2,
    "score": 6.0,
    "found_utc": "2026-11-27T20:17Z"
-  },
-  {
-   "id": "ACQ-210",
-   "task": "Verify the corrections commit fbb5846 on claude/medicare-page-pj01 made to does-medicare-pay-for-senior-care",
-   "workstream": "search",
-   "lane": "search",
-   "source": "followup",
-   "key": "verify-live:does-medicare-pay-for-senior-care:fbb5846",
-   "priority": 1,
-   "evidence": "commit fbb5846 (reopened SLP sentence of Reader check df19b57)",
-   "expected_tour_acquisition_value": "quality gate before the Medicare page change enters the package",
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
-   "status": "ready",
-   "found_utc": "2026-11-28T00:50Z"
   }
  ],
  "completed": [
@@ -6187,6 +6172,34 @@
    },
    "done_utc": "2026-11-28T00:50Z",
    "minutes": 4
+  },
+  {
+   "id": "ACQ-210",
+   "task": "Verify the corrections commit fbb5846 on claude/medicare-page-pj01 made to does-medicare-pay-for-senior-care",
+   "workstream": "search",
+   "lane": "search",
+   "source": "followup",
+   "key": "verify-live:does-medicare-pay-for-senior-care:fbb5846",
+   "priority": 1,
+   "evidence": "commit fbb5846 (reopened SLP sentence of Reader check df19b57)",
+   "expected_tour_acquisition_value": "quality gate before the Medicare page change enters the package",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-28T00:50Z",
+   "result": "Independent reader (agent in this session) checked fbb5846: the SLP sentences now match the HFS Resident Fact Sheet in scope (room and board for every resident; patient liability and Medicaid's remainder for a resident covered by Medicaid; $120 PNA; private-pay rate). 20/20 quotations FOUND; link on main. Corrections verified. The PJ01 change (22d2fd5, 7131536, df19b57, fbb5846) is reader-verified end to end.",
+   "verdicts": [
+    "Corrections verified"
+   ],
+   "sources": [
+    "ops/reviews/live/does-medicare-pay-for-senior-care.md"
+   ],
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/live/does-medicare-pay-for-senior-care.md"
+   },
+   "done_utc": "2026-11-28T00:52Z",
+   "minutes": 1
   }
  ],
  "blocked": [],
@@ -6197,7 +6210,7 @@
   "picked": "none (projects PJ01-PJ05 stepped; sweep channel-yield +0)",
   "why": "Worked: 4 growth projects advanced (PJ01 Medicare SERP study, PJ02 press plan, PJ03 FB calendar, PJ04 decision, PJ05 funnel); stopped: no-worthwhile-work; resume: package cut 05:00Z"
  },
- "last_verified_action": "ACQ-209 done 2026-11-28T00:50Z: Independent reader (agent in this session) checked df19b57: description year, SLP personal needs allowance and PACE Evanston zip codes match their sources; reo…",
+ "last_verified_action": "ACQ-210 done 2026-11-28T00:52Z: Independent reader (agent in this session) checked fbb5846: the SLP sentences now match the HFS Resident Fact Sheet in scope (room and board for every resident…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -6909,12 +6922,13 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSauSkeGhjrd8SZfMJD",
-   "utc": "2026-11-28T00:50Z",
+   "utc": "2026-11-28T00:52Z",
    "since_utc": "2026-11-28T00:27Z",
-   "productive_min": 12,
+   "productive_min": 13,
    "deliverables": [
     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
     "verification:ops/reviews/live/illinois-medicaid-long-term-care.md",
+    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md"
    ]
@@ -8245,9 +8259,10 @@
      92,
      93,
      94,
-     95
+     95,
+     96
     ],
-    "owner_open": 6,
+    "owner_open": 7,
     "cooldown_until_utc": "2026-11-29T06:47Z",
     "last_planned_utc": "2026-11-27T06:47Z",
     "last_plan_result": "Search Console read 25 Nov (pages and queries in the 27 Nov payload, same read): Medicare page 781 imp pos 32.5 -> new section PR #93 (frontier F02) and title/body corrections already in #89; estate recovery pos 7.2 -> #92; preadmission screening 42 imp pos 8.5 0 clicks -> already queued as ACQ-102…"
@@ -9605,9 +9620,9 @@
     "metric": "Search Console: position and clicks of that page and of its 20 biggest queries (weekly Make read); genuine search visitors to it; checklist opens from it.",
     "why": "Search Console read of 25 Nov 2026 (28 days): this page had 781 of the site's 1,242 impressions at position 32.5 and 0 clicks; 'does medicare cover assisted living' alone 87 impressions. It is the site's largest search asset by far.",
     "plan": "1 Investigate: read the top 5 results for the 10 biggest queries; what they answer that this page does not, how they are structured, their titles and opening lines. 2 Strategy: one written plan (title, description, the first 100 words answering the question directly, sections that match the searches, internal links from the 32 live guides, a related cluster page only if a query group has no answer). 3 Build: one review pull request with the restructured page, sourced to the review rules, independent reader. 4 After his merge: watch position weekly; second iteration from what moved.",
-    "next_step": "Build now, without waiting for the merge: branch claude/medicare-page-pj01 from the open package branch claude/package-20261125, apply research/medicare-page-serp-study.md Recommendations 1-4 to /guides/does-medicare-pay-for-senior-care/ under the review rules (every claim sourced, quotation checker, independent reader), run every suite, open the review pull request against main; it enters the next package. This can take more than one session: commit and push at each stage and record the stage reached.",
+    "next_step": "PR #96 enters the 28 Nov package. Then measure against the 25 Nov baseline (781 impr, pos 32.5, 0 clicks) in Make's weekly reads after deploy; Rec 4 internal links (PACE and VA nursing-home guides do not link this page) as the second iteration after two reads.",
     "kill_when": "Two iterations live for 6 weeks each with no position gain on the main queries: write down why and move effort elsewhere.",
-    "stage": "build",
+    "stage": "measure",
     "status": "active",
     "added_utc": "2026-11-28T00:07Z",
     "added_by": "supervisor",
@@ -9623,10 +9638,16 @@
       "run": "supervisor",
       "result": "Reopened by the supervising session: the worker set this project to wait for Joseph's merge of #91, which his rule of 24 Nov 2026 does not allow (a pending approval blocks only the affected action). The build goes on a branch from the package branch now.",
       "stage": "build"
+     },
+     {
+      "utc": "2026-11-28T00:52Z",
+      "run": "cse_014eaiSauSkeGhjrd8SZfMJD",
+      "result": "Build done: review PR #96 (claude/medicare-page-pj01, cut from package branch claude/package-20261125) applies research/medicare-page-serp-study.md Recs 1-3 to /guides/does-medicare-pay-for-senior-care/: $0 description and short answer (Original Medicare scoped, Part A deductible, MA copay), new section on what Medicare still pays in assisted living (Part B, DME, Part D, home health per CMS BPM ch.7 30.1.2.A, hospice, Part A), four question sections (Part B, MA, dementia, Illinois with SLP/PACE/Medicaid LTC/VA). Sources read 28 Nov 2026 (Medicare.gov Part A/B/D, LTC, hospice, home health, cognitive assessment, compare, PACE; CMS BPM ch.7; HFS SLP fact sheet, PACE zip list). Four in-session reader checks: 7 scope defects, then 3, then 1, all corrected (7131536, df19b57, fbb5846); final 'Corrections verified'. 20/20 quotations; all suites pass. Rec 4 (internal links) held back so effects do not mix.",
+      "stage": "measure"
      }
     ],
     "not_before_utc": null,
-    "updated_utc": "2026-11-28T00:15Z"
+    "updated_utc": "2026-11-28T00:52Z"
    },
    {
     "id": "PJ02",

@@ -358,3 +358,21 @@ Reopened: SLP item now says "Medicaid pays the remainder" for every resident; HF
 Reader: agent in cse_014eaiSauSkeGhjrd8SZfMJD
 
 Corrections applied: claude/medicare-page-pj01 fbb5846, 2026-11-28, cse_014eaiSauSkeGhjrd8SZfMJD (the reopened SLP sentence of Reader check 2026-11-28 (df19b57))
+
+## Reader check 2026-11-28 (fbb5846)
+
+Independent reader, branch claude/medicare-page-pj01 at fbb5846, read in /tmp/reader-does-medicare-pay-for-senior-care. quotecheck: 20/20 FOUND, 0 NEAR MATCH, 0 NOT FOUND; the commit adds no quotation. Source re-read today (28 Nov 2026): HFS SLP Resident Fact Sheet (https://hfs.illinois.gov/medicalprograms/slf/residentfactsheet.html, 200, cited as hfs_slf). Internal link in the changed lines (/guides/illinois-supportive-living-program/) exists on main under _dist/guides/. build-guides.py and _dist agree. Only the SLP item changed.
+
+- "HFS says every resident has a monthly room and board charge." Source: Resident Fact Sheet, Resident's Cost of Care Liability: "All SLP residents will have a monthly room and board charge." Same scope (every resident).
+- "A resident covered by Medicaid also has a patient liability (group care credit) toward the cost of care, worked out from their income, and Medicaid pays the remainder;" Source: Resident's Cost of Care Liability: "An individual covered under Medicaid living in a Supportive Living Provider (SLP) will have a patient liability/group care credit (GCC)." / "All countable income minus allowable deductions ... will be used to calculate the patient liability/group care credit." / "This is what is owed to the SLP every month to pay for the cost of care. This is an addition to the monthly room and board charge. Medicaid will pay the remainder." Same scope (payer Medicaid restored; resident). (Fact sheet also counts excess resources toward the cost of care and says there is no GCC when income equals SSI; "worked out from their income" allows a zero amount; not a scope defect.)
+- "a Medicaid-eligible resident keeps $120 a month as a personal needs allowance." Source: Rates: "Each Medicaid-eligible resident must have income equal to or greater than the current SSI and must contribute all but $120 (PNA) each month to the provider for lodging and meals." Same scope (Medicaid-eligible resident, $120, monthly).
+- "For a resident who pays privately, HFS says certified providers can charge a different rate." Source: Rates: "Certified providers can charge a different rate for private pay residents and must accept the Department's rate for services rendered on behalf of Medicaid-eligible persons." Same scope (private-pay resident).
+
+Recommended addition carried (not a defect; Improve): Rates: "Each Medicaid-eligible resident must have income equal to or greater than the current SSI". Scope: Medicaid-eligible SLP resident in Illinois.
+Note (carried): footer still says "Last reviewed 26 November 2026".
+
+Reader: agent in cse_014eaiSauSkeGhjrd8SZfMJD
+
+Corrections verified
+
+Reader: agent in cse_014eaiSauSkeGhjrd8SZfMJD
