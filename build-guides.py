@@ -539,6 +539,18 @@ SRC = {
                    'https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/bp102c07.pdf'),
     "mcompare_ma": ('Medicare.gov — Compare Original Medicare & Medicare Advantage',
                     'https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/your-coverage-options/compare-original-medicare-medicare-advantage'),
+    "medicare_compare_om_ma": ('Medicare.gov — Compare Original Medicare & Medicare Advantage',
+                               'https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/your-coverage-options/compare-original-medicare-medicare-advantage'),
+    "medicare_sep": ('Medicare.gov — Special Enrollment Periods',
+                     'https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan/special-enrollment-periods'),
+    "medigap_switch": ('Medicare.gov — Can I switch or drop my Medigap policy?',
+                       'https://www.medicare.gov/health-drug-plans/medigap/ready-to-buy/change-policies/switch-drop'),
+    "medigap_guide_02110": ('Medicare.gov — Choosing a Medigap Policy (publication 02110)',
+                            'https://www.medicare.gov/publications/02110-medigap-guide-health-insurance.pdf'),
+    "medicare_address": ('Medicare.gov — How do I change my address with Medicare?',
+                         'https://www.medicare.gov/basics/change-address'),
+    "hfs_medicaid_intro": ('Illinois HFS — Introduction to Medicaid',
+                           'https://hfs.illinois.gov/medicalclients/medicaidguide/introtomedicaid.html'),
 }
 
 
@@ -7639,6 +7651,191 @@ GUIDES = [
             ]),
         ],
     },
+    {
+        "slug": "moving-parent-to-illinois-from-another-state",
+        "bridge": ("Sorting out coverage for a move is a different question from "
+                   "knowing what kind of care your parent will need once they "
+                   "are here."),
+        "reviewed": "2026-11-28",
+        "title": "Moving a Parent to Illinois: Medicare and Medicaid First Steps",
+        "h1": "Moving a parent to Illinois from another state: what happens to Medicare and Medicaid?",
+        "desc": ("Medicare goes with your parent; Medicaid does not. The plan "
+                 "deadline after a move, applying for Illinois Medicaid, and the "
+                 "nursing home screening."),
+        "intent": "moving a parent into Illinois from another state",
+        "answer": ("<strong>Original Medicare moves with your parent; another "
+                   "state&rsquo;s Medicaid does not, and Illinois Medicaid needs "
+                   "its own application.</strong> Medicare.gov says that with "
+                   "Original Medicare your parent can use &ldquo;any doctor or "
+                   "hospital that takes Medicare, anywhere in the U.S.&rdquo; A "
+                   "Medicare Advantage Plan or a Medicare drug plan is tied to a "
+                   "service area: after a move out of it, Medicare.gov says "
+                   "&ldquo;Your chance to switch begins when you move and continues "
+                   "for 2 full months after you move.&rdquo; Illinois HFS says "
+                   "&ldquo;Medicaid provides health coverage for Illinois residents "
+                   "who meet certain eligibility criteria including income limits "
+                   "and immigration status.&rdquo; If your parent will need the "
+                   "state to pay for a nursing home, HFS says they must apply for "
+                   "medical benefits through the Department of Human Services and "
+                   "obtain a needs screening."),
+        "sources": srcs("medicare_compare_om_ma", "medicare_sep", "medigap_switch",
+                        "medigap_guide_02110", "medicare_address", "hfs_medicaid_intro", "hfs_abe_ltc_faq",
+                        "hfs_ltc_clients", "msp_extra_help_link"),
+        "body": [
+            ("Medicare goes with your parent", [
+                "<p>Medicare.gov&rsquo;s comparison of the two ways to get "
+                "Medicare says that with Original Medicare &ldquo;You can use any "
+                "doctor or hospital that takes Medicare, anywhere in the U.S.&rdquo; "
+                "It adds: &ldquo;You may pay more if your doctor doesn&rsquo;t accept "
+                "assignment.&rdquo; A Medicare Advantage Plan works differently: the "
+                "same page says &ldquo;You may need to use doctors and other providers "
+                "who are in the plan&rsquo;s network and service area&rdquo; for "
+                "non-emergency care.</p>",
+                "<p>Your parent&rsquo;s address with Medicare is kept by Social "
+                "Security. Medicare.gov says: &ldquo;To change your official address "
+                "with Medicare, you have to contact Social Security (SSA).&rdquo; It "
+                "adds that this applies &ldquo;even if you don&rsquo;t get Social "
+                "Security benefits&rdquo;.</p>",
+            ]),
+            ("A Medicare Advantage or drug plan: the two-month window", [
+                "<p>If your parent has a Medicare Advantage Plan or a stand-alone "
+                "Medicare drug plan, check whether the plan serves the place in "
+                "Illinois they are moving to. Medicare.gov&rsquo;s page on Special "
+                "Enrollment Periods covers two cases. If the new address is not in "
+                "the plan&rsquo;s service area, your parent can switch to a new "
+                "Medicare Advantage Plan or Medicare drug plan, and a parent in a "
+                "Medicare Advantage Plan can also go back to Original Medicare. If "
+                "the new address is still in the plan&rsquo;s service area but there "
+                "are new plan options there, your parent can switch to a new plan "
+                "too.</p>",
+                "<p>The timing is the same in both cases: &ldquo;Your chance to switch "
+                "begins when you move and continues for 2 full months after you "
+                "move.&rdquo; Telling the plan early gives a little more room: "
+                "&ldquo;If you tell your plan before you move, your chance to switch "
+                "plans begins the month before the month you move and continues for "
+                "2 full months after you move.&rdquo;</p>",
+                "<p>Doing nothing has a consequence for a parent in a Medicare "
+                "Advantage Plan who moves out of its area: &ldquo;If you move outside "
+                "your old plan&rsquo;s service area and don&rsquo;t join a new "
+                "Medicare Advantage Plan during this Special Enrollment Period, "
+                "you&rsquo;ll be enrolled in Original Medicare when you&rsquo;re "
+                "dropped from your old Medicare Advantage Plan.&rdquo;</p>",
+                "<p>A move into a nursing home has its own window on the same page. "
+                "For someone who lives in, or recently moved out of, an institution "
+                "such as a nursing home or rehabilitation hospital, Medicare.gov "
+                "says: &ldquo;Your chance to join, switch, or drop coverage lasts as "
+                "long as you live in the institution and for 2 full months after the "
+                "month you move out of the institution.&rdquo;</p>",
+                "<p>Questions can go to 1-800-MEDICARE (1-800-633-4227; TTY "
+                "1-877-486-2048), the number the Special Enrollment Periods page "
+                "gives. Once your parent lives in Illinois, "
+                '<a href="/guides/illinois-senior-health-insurance-program/">the '
+                "guide to SHIP, Illinois&rsquo;s free Medicare counselling</a> "
+                "explains where to get unbiased help comparing plans.</p>",
+            ]),
+            ("A Medigap policy", [
+                "<p>For a parent with Original Medicare and a Medigap (Medicare "
+                "Supplement) policy who is moving out of state, Medicare.gov&rsquo;s "
+                "page on switching or dropping a Medigap policy says: &ldquo;You can "
+                "keep your current Medigap policy no matter where you live, as long "
+                "as you still have Original Medicare.&rdquo; Switching to another "
+                "policy is a different matter: the same page warns that your parent "
+                "&ldquo;may have to pay more for your new Medigap policy and answer "
+                "some medical questions if you decide to switch your Medigap policy "
+                "outside of your Medigap Open Enrollment Period.&rdquo; A Medicare "
+                "SELECT policy has its own options on that page, and Medicare.gov "
+                "says the answers cover federal rights only, so it points readers to "
+                "their State Insurance Department about rights under state law.</p>",
+                "<p>A parent who leaves a Medicare Advantage Plan for Original Medicare "
+                "because of the move has a federal right to buy a Medigap policy. "
+                "Medicare.gov&rsquo;s guide <em>Choosing a Medigap Policy</em> lists, "
+                "among the cases in which someone may buy a policy outside the "
+                "Medigap Open Enrollment Period, a parent with a "
+                "Medicare Advantage Plan who moves out of the plan&rsquo;s service "
+                "area, and says: &ldquo;You only have this right if you switch to "
+                "Original Medicare (rather than join another Medicare Advantage "
+                "Plan).&rdquo; The right covers certain Medigap plans sold by an "
+                "insurance company in your parent&rsquo;s state. The guide gives the "
+                "timing as 60 days before the date the Medicare Advantage Plan "
+                "coverage ends, if your parent is choosing to leave the plan, and no "
+                "more than 63 days after that coverage ends, and adds: &ldquo;Medigap "
+                "policies can&rsquo;t start until your Medicare Advantage Plan "
+                "coverage ends.&rdquo;</p>",
+            ]),
+            ("Medicaid does not move: Illinois needs its own application", [
+                "<p>HFS describes Medicaid as the health coverage programmes managed "
+                "by the State of Illinois, and says: &ldquo;Medicaid "
+                "provides health coverage for Illinois residents who meet certain "
+                "eligibility criteria including income limits and immigration "
+                "status.&rdquo; For an older parent, the HFS coverage group is Aid to "
+                "the Aged Blind or Disabled: &ldquo;Aid to the Aged Blind or Disabled "
+                "(AABD) provides health coverage to people who are age 65 or older, "
+                "or are blind, or have a disability.&rdquo; HFS suggests a quick "
+                "screening first, which asks for basic information about your "
+                "household and income, but adds: "
+                "&ldquo;Even if the screening tool says you may qualify for Medicaid, "
+                "you must still complete a full application to apply.&rdquo; The same "
+                "page says: &ldquo;There is no penalty for applying, even if you are "
+                "not found eligible.&rdquo;</p>",
+                "<p>How long must your parent have lived in Illinois? HFS&rsquo;s "
+                "question-and-answer sheet on Medicaid applications for long-term "
+                "care, dated 6 November 2014, answers that question for a nursing "
+                "home: &ldquo;An individual in a nursing home is considered a "
+                "resident of Illinois unless they are placed in an Illinois facility "
+                "and covered by another state&rsquo;s Medicaid program.&rdquo; The "
+                "same sheet says the Department of Human Services can verify Illinois "
+                "residence electronically for people who have Social Security "
+                "numbers. This guide found no HFS page that sets a minimum length of "
+                "residence for other settings, and none that explains how to end "
+                "coverage in the state your parent is leaving: ask that state&rsquo;s "
+                "Medicaid agency, and ask Illinois when you apply.</p>",
+                "<p>Help with Medicare costs works the same way. Medicare.gov says of "
+                "the Medicare Savings Programs: &ldquo;You&rsquo;ll apply for Medicare "
+                "Savings Programs through your state.&rdquo; A parent who had one "
+                "of these programs in another state applies in Illinois; "
+                '<a href="/guides/illinois-medicare-savings-program/">the guide to '
+                "Illinois&rsquo;s Medicare Savings Programs</a> sets out the Illinois "
+                "limits and how to apply.</p>",
+            ]),
+            ("If your parent is moving into a nursing home", [
+                "<p>HFS&rsquo;s long-term care page says: &ldquo;If you want the "
+                "state to pay for your nursing home care, you must:&rdquo; apply for "
+                "medical benefits through the Department of Human Services (DHS), "
+                "and obtain a needs screening through the Department on Aging (DoA) "
+                "or the Department of Human Services (DHS). "
+                '<a href="/guides/illinois-nursing-home-preadmission-screening/">The '
+                "guide to Illinois&rsquo;s nursing home pre-admission screening</a> "
+                "explains the screening, and "
+                '<a href="/guides/illinois-medicaid-long-term-care/">the guide to how '
+                "Illinois Medicaid pays for long-term care</a> covers the income and "
+                "asset rules, including what a spouse who stays at home may keep. "
+                '<a href="/guides/illinois-medicaid-look-back-period/">The guide to '
+                "the look-back period</a> explains how gifts and transfers made "
+                "before an application are treated.</p>",
+                "<p>Illinois also has a Medicaid-funded alternative to a nursing home "
+                "for some people. HFS says its Supportive Living Program offers "
+                "individuals age 65 and older, or individuals with physical "
+                "disabilities ages 22 to 64, services to remain in a community "
+                "setting; "
+                '<a href="/guides/illinois-supportive-living-program/">the guide to '
+                "the Supportive Living Program</a> explains how it works.</p>",
+            ]),
+            ("Where this fits with the rest of this site", [
+                "<p>Sorting out Medicare and Medicaid is one part of a move; choosing "
+                "where your parent will live is the other. "
+                '<a href="/guides/levels-of-senior-care-explained/">Assisted living, '
+                "memory care, skilled nursing and rehabilitation &mdash; what is the "
+                "difference?</a> sets out what each kind of care provides, and "
+                '<a href="/guides/does-medicare-pay-for-senior-care/">the guide to '
+                "what Medicare pays for</a> explains what Medicare does and does not "
+                "pay for when a parent needs care. If you are still working out which "
+                'level of care fits, the free <a href="/">six-question assessment</a> '
+                "on this site walks through that question. It asks for no name, no "
+                "email and no phone number, and your answers never leave your "
+                "device.</p>",
+            ]),
+        ],
+    },
 ]
 
 
@@ -7997,7 +8194,7 @@ RELATED = {
         "illinois-medicaid-pending-nursing-home"],
     "illinois-medicaid-pending-nursing-home": [
         "illinois-medicaid-long-term-care",
-        "illinois-medicaid-look-back-period",
+        "moving-parent-to-illinois-from-another-state",
         "illinois-nursing-home-preadmission-screening"],
     "illinois-money-management-program": [
         "illinois-advance-directive-power-of-attorney",
@@ -8029,12 +8226,16 @@ RELATED = {
         "home-care-or-assisted-living-illinois"],
     "noticed-changes-in-parent-holiday-visit": [
         "levels-of-senior-care-explained",
-        "illinois-community-care-program",
+        "moving-parent-to-illinois-from-another-state",
         "illinois-elder-abuse-reporting"],
     "home-care-or-assisted-living-illinois": [
         "assisted-living-cost-illinois",
         "illinois-community-care-program",
         "illinois-supportive-living-program"],
+    "moving-parent-to-illinois-from-another-state": [
+        "illinois-medicaid-long-term-care",
+        "illinois-nursing-home-preadmission-screening",
+        "illinois-senior-health-insurance-program"],
 }
 
 RELATED_MIN_INBOUND = 2
@@ -8507,6 +8708,11 @@ CARDS = {
         "Home care or assisted living in Illinois?",
         "Illinois medians for in-home care, adult day and assisted living, and "
         "what Medicare, the Community Care Program and Supportive Living pay for."),
+    "moving-parent-to-illinois-from-another-state": (
+        "Getting oriented",
+        "Moving a parent to Illinois from another state",
+        "What happens to Medicare, a Medicare plan, Medigap and Medicaid when a "
+        "parent moves to Illinois, read off Medicare.gov and HFS."),
 }
 
 
