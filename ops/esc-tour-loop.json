@@ -6458,10 +6458,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-28T18:04Z",
-  "event": "Make controller: completion of cse_014eaiSepzj1UCJVbtZmLbox",
-  "picked": "none",
-  "why": "Worked: search-demand project discovery found no project (25 Nov Search Console read already mined; 3 candidates dropped); stopped: no-worthwhile-work; resume: next lens or next Make Search Console read"
+  "utc": "2026-11-28T18:07Z",
+  "event": "Make controller: completion of cse_014eaiSbLGzqqhWfy7gHtQH7",
+  "picked": "-",
+  "why": "Worked: project discovery local-intent recorded, no project qualifies (4 candidates: respite, supportive living, local cost, nursing-home Medicaid); stopped: no-worthwhile-work; resume: next lens (visitors) or 18:46Z sweep"
  },
  "last_verified_action": "ACQ-220 done 2026-11-28T17:56Z: Independent reader (agent in cse_014eaiSciSmPDNJW5sH6Zuua) checked commit 8cfea0f (recommended additions: supervisor 12-hour training, dementia program disclos…",
  "last_stop": {
@@ -6542,7 +6542,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Next: project-discovery lenses local-intent, visitors, calendar, assets, benchmarks are due now (search-demand done 28 Nov 18:05Z, reopens with the next Make Search Console read); planner and sweep publish-ready at 18:46Z; PJ07 Gmail draft for Edgewater Village Chicago at the first session after 29 Nov 06:00Z. Waiting on Joseph: the 28 Nov package and demand lane.",
+ "next_discovery": "Next: project discovery lens visitors (then calendar, assets, benchmarks); planner cooldown and publish-ready sweep at 18:46Z; daily package cut 29 Nov 05:00Z. Waiting on Joseph: package merge, ACQ-007 and ACQ-212 decisions.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -7183,18 +7183,85 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiSeHRfvS7seeirHN4eT",
-   "utc": "2026-11-28T18:07Z",
-   "since_utc": "2026-11-28T18:05Z",
-   "productive_min": 2,
-   "deliverables": [
-    "discovery:local-intent no project"
-   ]
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-28T17:43Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSeHRfvS7seeirHN4eT",
+    "start_utc": "2026-11-28T18:05Z",
+    "end_utc": "2026-11-28T18:07Z",
+    "launch": "completion of cse_014eaiSbLGzqqhWfy7gHtQH7",
+    "outcome": "Worked: project discovery local-intent recorded, no project qualifies (4 candidates: respite, supportive living, local cost, nursing-home Medicaid); stopped: no-worthwhile-work; resume: next lens (visitors) or 18:46Z sweep",
+    "done": 0,
+    "changed": 1,
+    "tasks": "-",
+    "next": "yes",
+    "wake_minutes": null,
+    "next_due_utc": "2026-11-28T18:46Z",
+    "plan_due": false,
+    "saturated": [
+     "demand"
+    ],
+    "budget_used_hours_24h": 2.6,
+    "budget_used_hours_7d": 9.0,
+    "productive_min": 2,
+    "deliverables": [
+     "discovery:local-intent no project"
+    ],
+    "stop_reason": "no-worthwhile-work",
+    "considered": "ready: none; projects: none due (PJ01-PJ07 waiting on merge/measure or 29 Nov steps); frontier: none open; plan: not due (cooling to 18:46Z, demand saturated); sweep: none due (publish-ready 18:46Z, asset-gaps 19:28Z, search-presence 29 Nov 00:50Z; demand-questions and draft-review wait on Joseph); package: cut today, next 29 Nov 05:00Z; monitor: done 17:43Z; project discovery: local-intent done (no project), one assignment per session; live supportive-living sentence re-checked against HFS cook.html: holds",
+    "resume_when": "next project-discovery lens (visitors) in a new session, planner cooldown and publish-ready sweep at 18:46Z, or the next Make Search Console read",
+    "sweep_due_left": [],
+    "sessions_24h": 14,
+    "handoff": null,
+    "make_ops": null,
+    "package": {
+     "due_at_close": false,
+     "recut_due_at_close": false,
+     "skipped": null,
+     "done_today": true
+    },
+    "backlog_discovery": {
+     "explorations": 0,
+     "avenue_classes": [],
+     "tasks_added": 0,
+     "concluded": {
+      "utc": "2026-11-28T18:07Z",
+      "run": "cse_014eaiSeHRfvS7seeirHN4eT",
+      "covered_by": "project discovery",
+      "rest_hours": 0
+     }
+    },
+    "frontier": {
+     "explored": [],
+     "open_left": 0
+    },
+    "project_discovery": {
+     "recorded": [
+      {
+       "lens": "local-intent",
+       "project": null
+      }
+     ],
+     "lenses_due_left": [
+      "visitors",
+      "calendar",
+      "assets",
+      "benchmarks"
+     ],
+     "waiting_for": null
+    },
+    "projects_stepped": 0,
+    "next_work": [
+     "project discovery: lens visitors, calendar, assets, benchmarks",
+     "backlog discovery"
+    ],
+    "discovery_room": true
+   },
    {
     "run": "cse_014eaiSbLGzqqhWfy7gHtQH7",
     "start_utc": "2026-11-28T18:03Z",
@@ -8876,7 +8943,7 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-28T18:04Z",
+   "written_utc": "2026-11-28T18:07Z",
    "eligible_now": 2,
    "next_due": [
     {
