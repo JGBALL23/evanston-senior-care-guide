@@ -1227,6 +1227,11 @@ def main():
             fail("--verdict must be one of " + ", ".join(PJ_STATUSES))
         if st_ in ("active", "waiting") and not a.new_evidence.strip():
             fail("a live project needs its next step: --new-evidence \"<the next concrete step>\" (and --resume-when \"<UTC time>\" when it waits)")
+        nxt_txt = (a.new_evidence or "").lower()
+        if st_ == "waiting" and re.search(r"\bmerge[sd]?\b|\bmerging\b|package (#?\d+ )?(is |gets )?(merged|live)", nxt_txt) and (a.lane or p.get("stage")) != "measure":
+            fail("Joseph's merge is not a reason to wait (owner rule of 24 Nov 2026: a pending approval blocks only the "
+                 "affected action). Build now on a branch cut from the open package branch (or from main), open the "
+                 "review pull request, and let it enter the next package; keep the project active with that as its next step.", 5)
         if st_ == "failed" and len(a.result) < 200:
             fail("a failed project needs the evidence of why it failed (at least a few sentences with sources): document why, then discover another")
         p.setdefault("log", []).append({"utc": fmt(now), "run": a.run or (args[1] if len(args) > 1 else ""), "result": short(a.result, 1500),
