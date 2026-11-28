@@ -6248,10 +6248,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-28T06:47Z",
+  "utc": "2026-11-28T07:28Z",
   "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
-  "picked": "ACQ-118 waiting_on_data (3rd postponement), ACQ-164 waiting_on_data, ACQ-212 added then waiting_on_owner",
-  "why": "Worked: PJ02 tip B prepared for operator (held until #91 live); demand plan +1 (ACQ-212 tax-deduction guide, blocked: irs.gov not an allowed citation host); ACQ-118 3rd postponement; stopped: no-worthwhile-work; resume: sweeps due 07:21Z"
+  "picked": "-",
+  "why": "Worked: build plan and sweeps asset-gaps, live-accuracy found nothing new (same 25 Nov GSC read; ilga.gov still unreadable); stopped: no-worthwhile-work; resume: backlog discovery 08:26Z"
  },
  "last_verified_action": "ACQ-211 done 2026-11-28T05:16Z: Cut the 28 Nov package on the open #91 (number kept): merged #90 head 4815ca1 (12 guides), #89 to its head faf855a (every commit verified), #94 sourcing page, …",
  "last_stop": {
@@ -6332,7 +6332,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "06:30Z: ACQ-118 (Illinois assisted living rate-increase guide, third ilga.gov try), ACQ-164 and a project step fall due; 06:47Z planner cooldown ends. Package #91 (28 Nov cut) waits on Joseph.",
+ "next_discovery": "08:26Z backlog discovery (resting ends); 17:58Z monitor; 18:46Z publish-ready sweep; 19:28Z asset-gaps and build plan; live-accuracy rechecks 30 Nov (ilga.gov unreadable). Package #91 (28 Nov cut) waits on Joseph.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -6964,15 +6964,57 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiSddUeMjnHqKdcHsnn4",
-   "utc": "2026-11-28T07:28Z",
-   "since_utc": "2026-11-28T07:27Z",
-   "productive_min": 0
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-28T05:58Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSddUeMjnHqKdcHsnn4",
+    "start_utc": "2026-11-28T07:27Z",
+    "end_utc": "2026-11-28T07:28Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: build plan and sweeps asset-gaps, live-accuracy found nothing new (same 25 Nov GSC read; ilga.gov still unreadable); stopped: no-worthwhile-work; resume: backlog discovery 08:26Z",
+    "done": 0,
+    "changed": 3,
+    "tasks": "-",
+    "next": "no",
+    "wake_minutes": 30,
+    "next_due_utc": "2026-11-28T08:26Z",
+    "plan_due": false,
+    "saturated": [
+     "demand"
+    ],
+    "budget_used_hours_24h": 1.8,
+    "budget_used_hours_7d": 8.2,
+    "productive_min": 0,
+    "deliverables": [],
+    "stop_reason": "no-worthwhile-work",
+    "considered": "plan build: 0 (evidence unchanged, cooling until 19:28Z); sweep asset-gaps: 0; sweep live-accuracy: 0 (check-illinois-inspection-records blocked by ilga.gov TLS/503), recheck 30 Nov; frontier: list empty (20 explored, open 0); backlog fallback resting until 08:26Z after the last session's exhausted conclusion; projects: none due (PJ01 waits on #96 live); publish cooling until 18:46Z; search and technical cooling until 29 Nov 06:3xZ; demand saturated (ACQ-118 open); package cut done today; GSC payload 25 Nov read already recorded; monitor not due (last 05:58Z)",
+    "resume_when": "backlog discovery due 2026-11-28T08:26Z; monitor 17:58Z; a new Make Search Console read; Joseph merging #91",
+    "sweep_due_left": [],
+    "sessions_24h": 9,
+    "handoff": null,
+    "make_ops": null,
+    "package": {
+     "due_at_close": false,
+     "recut_due_at_close": false,
+     "skipped": null,
+     "done_today": true
+    },
+    "backlog_discovery": {
+     "explorations": 0,
+     "avenue_classes": [],
+     "tasks_added": 0,
+     "concluded": null
+    },
+    "frontier": {
+     "explored": [],
+     "open_left": 0
+    }
+   },
    {
     "run": "cse_014eaiScD9A2D9TRc6UYLPwd",
     "start_utc": "2026-11-28T06:42Z",
@@ -8317,21 +8359,9 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-28T06:47Z",
+   "written_utc": "2026-11-28T07:28Z",
    "eligible_now": 0,
    "next_due": [
-    {
-     "utc": "2026-11-28T07:21Z",
-     "what": "sweep angle asset-gaps"
-    },
-    {
-     "utc": "2026-11-28T07:21Z",
-     "what": "sweep angle live-accuracy"
-    },
-    {
-     "utc": "2026-11-28T07:33Z",
-     "what": "planner cooldown ends"
-    },
     {
      "utc": "2026-11-28T08:26Z",
      "what": "backlog discovery"
@@ -8342,7 +8372,19 @@
     },
     {
      "utc": "2026-11-28T18:46Z",
+     "what": "planner cooldown ends"
+    },
+    {
+     "utc": "2026-11-28T18:46Z",
      "what": "sweep angle publish-ready"
+    },
+    {
+     "utc": "2026-11-28T19:28Z",
+     "what": "sweep angle asset-gaps"
+    },
+    {
+     "utc": "2026-11-29T00:50Z",
+     "what": "sweep angle search-presence"
     }
    ]
   },
