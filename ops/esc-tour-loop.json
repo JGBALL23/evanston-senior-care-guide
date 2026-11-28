@@ -256,23 +256,22 @@
    "not_before": "Data: HFS 2027 SLP room-and-board notice (last year issued 26 Nov) and the 2027 Extra Help cap on medicare.gov/medicare-savings-programs; neither posted on 28 Nov 2026. Same December window as ACQ-043."
   },
   {
-   "id": "ACQ-214",
-   "task": "Build a guide on drafts: we want to move our parent from another state to be near us in Illinois; what happens to their Medicare and Medicaid, and what should we do first (Illinois residency for Medicaid, a new Illinois application, Medicare plan changes after a move, screening before a Medicaid nursing-home admission)?",
+   "id": "ACQ-215",
+   "task": "Review moving-parent-to-illinois-from-another-state under the review rules",
    "workstream": "build",
    "lane": "build",
-   "source": "plan",
-   "key": "build:moving-parent-to-illinois-from-another-state",
-   "evidence": "Questions families asked in public, national caregiver Q&A forum: Feb 2018 (moving a parent from a Texas nursing home to the Chicago area and applying for Illinois Medicaid), Oct 2024 (moving a loved one on Medicaid to another state), Jul 2017 (Illinois: would a move cost a parent Medicare, Medicaid, SNAP); pages read 28 Nov 2026. No guide on main or drafts covers a move into Illinois (grep of _dist 28 Nov 2026: only the holiday-visit guide mentions another state); not in DEMAND.md Open or Done.",
-   "expected_tour_acquisition_value": "Adult children in Evanston moving a parent near them are at the decision stage by definition; the guide answers the first practical question and leads to the tour path and the levels-of-care assessment.",
-   "impact": 4,
-   "confidence": 3,
-   "effort": 3,
+   "source": "followup",
+   "key": "review:moving-parent-to-illinois-from-another-state",
+   "priority": 1,
+   "evidence": "build commit drafts 779830c (cse_014eaiSatXS1q27vkUDbsXyD)",
+   "expected_tour_acquisition_value": "quality gate before publication",
    "executor": "worker (research and preparation only)",
-   "done_when": "Guide built on drafts under ROUTINE.md with the five checks passing and every quotation FOUND, DEMAND.md Done line, and a review task for an independent reader; or a recorded verdict that official allowed-host sources cannot support it.",
-   "priority": 2,
-   "score": 4.0,
+   "done_when": "packet at ops/reviews/moving-parent-to-illinois-from-another-state.md with its counts and verdict",
+   "impact": 3,
+   "confidence": 5,
+   "effort": 1,
    "status": "ready",
-   "found_utc": "2026-11-28T08:17Z"
+   "found_utc": "2026-11-28T08:22Z"
   }
  ],
  "completed": [
@@ -6283,6 +6282,33 @@
    },
    "done_utc": "2026-11-28T05:16Z",
    "minutes": 0
+  },
+  {
+   "id": "ACQ-214",
+   "task": "Build a guide on drafts: we want to move our parent from another state to be near us in Illinois; what happens to their Medicare and Medicaid, and what should we do first (Illinois residency for Medicaid, a new Illinois application, Medicare plan changes after a move, screening before a Medicaid nursing-home admission)?",
+   "workstream": "build",
+   "lane": "build",
+   "source": "plan",
+   "key": "build:moving-parent-to-illinois-from-another-state",
+   "evidence": "Questions families asked in public, national caregiver Q&A forum: Feb 2018 (moving a parent from a Texas nursing home to the Chicago area and applying for Illinois Medicaid), Oct 2024 (moving a loved one on Medicaid to another state), Jul 2017 (Illinois: would a move cost a parent Medicare, Medicaid, SNAP); pages read 28 Nov 2026. No guide on main or drafts covers a move into Illinois (grep of _dist 28 Nov 2026: only the holiday-visit guide mentions another state); not in DEMAND.md Open or Done.",
+   "expected_tour_acquisition_value": "Adult children in Evanston moving a parent near them are at the decision stage by definition; the guide answers the first practical question and leads to the tour path and the levels-of-care assessment.",
+   "impact": 4,
+   "confidence": 3,
+   "effort": 3,
+   "executor": "worker (research and preparation only)",
+   "done_when": "Guide built on drafts under ROUTINE.md with the five checks passing and every quotation FOUND, DEMAND.md Done line, and a review task for an independent reader; or a recorded verdict that official allowed-host sources cannot support it.",
+   "priority": 2,
+   "score": 4.0,
+   "status": "done",
+   "found_utc": "2026-11-28T08:17Z",
+   "result": "Built moving-parent-to-illinois-from-another-state on drafts 779830c (Getting oriented). Sources read 28 Nov 2026: Medicare.gov compare OM/MA (any doctor anywhere in the U.S.), Special Enrollment Periods (move: 2 full months; tell plan early: month before; MA dropped -> Original Medicare; institution SEP), Medigap switch/drop (keep policy no matter where you live with Original Medicare), change address (via SSA), MSP (apply through your state); HFS Introduction to Medicaid (Illinois residents; full application; no penalty), HFS LTC page (DHS application + needs screening), HFS ABE LTC FAQ dated 6 Nov 2014 (nursing-home residency answer). Refused: the FAQ's 3-month backdating (outdated by the 2027 change) and its 12-month bank statement line (facility-scoped); no minimum-residence claim beyond the FAQ. Five checks pass (mobile-nav skipped: no websockets); quotecheck 18/18 FOUND. DEMAND.md Done line added. Review queued for an independent reader.",
+   "deliverable": {
+    "type": "guide",
+    "ref": "drafts 779830c"
+   },
+   "lesson": "HFS's ABE long-term-care FAQ (2014) is the only allowed-host page found that answers Illinois residency for Medicaid; cite it with its date.",
+   "done_utc": "2026-11-28T08:22Z",
+   "minutes": 6
   }
  ],
  "blocked": [],
@@ -6293,7 +6319,7 @@
   "picked": "-",
   "why": "Worked: build plan and sweeps asset-gaps, live-accuracy found nothing new (same 25 Nov GSC read; ilga.gov still unreadable); stopped: no-worthwhile-work; resume: backlog discovery 08:26Z"
  },
- "last_verified_action": "ACQ-211 done 2026-11-28T05:16Z: Cut the 28 Nov package on the open #91 (number kept): merged #90 head 4815ca1 (12 guides), #89 to its head faf855a (every commit verified), #94 sourcing page, …",
+ "last_verified_action": "ACQ-214 done 2026-11-28T08:22Z: Built moving-parent-to-illinois-from-another-state on drafts 779830c (Getting oriented). Sources read 28 Nov 2026: Medicare.gov compare OM/MA (any doctor anywh…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -7005,9 +7031,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSatXS1q27vkUDbsXyD",
-   "utc": "2026-11-28T08:17Z",
+   "utc": "2026-11-28T08:22Z",
    "since_utc": "2026-11-28T08:12Z",
-   "productive_min": 4
+   "productive_min": 10,
+   "deliverables": [
+    "guide:drafts 779830c"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-28T05:58Z"
@@ -8505,7 +8534,7 @@
     "owner_wip_limit": 30,
     "plan_cooldown_hours": 12,
     "open_prs": [],
-    "owner_open": 8,
+    "owner_open": 9,
     "cooldown_until_utc": "2026-11-28T19:28Z",
     "last_planned_utc": "2026-11-28T07:28Z",
     "last_plan_result": "28 Nov 07:3xZ: evidence unchanged since the 27 Nov 19:33Z pass. Make GSC read is still 25 Nov 20:35Z (recorded); every query with >=3 impressions maps to a live or drafts page (Medicare/assisted-living cluster -> does-medicare-pay-for-senior-care, PJ01 waiting on #96; VA caregiver, advance directiv…",
