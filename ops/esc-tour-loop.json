@@ -8658,6 +8658,11 @@
     "utc": "2026-11-28T00:07Z",
     "by": "supervisor",
     "rule": "THE PROJECTS (Joseph, 27 Nov 2026: \"Treat growth opportunities as projects worth developing, not checkboxes to complete.\"). STATUS.projects.due lists growth projects (planner/projects) whose next step is due: they come before frontier questions, sweeps and planning, right after the package and ready tasks. Work the first one deeply for most of the session: investigate with sources, write the strategy, build the asset, prepare the execution. Every step ends in an artifact (research file, branch, pull request, prepared handoff), recorded with project-step ID --run RUN --result TEXT --new-evidence NEXT [--resume-when UTC] [--lane STAGE] [--verdict waiting|won|failed|parked]. A failed project needs its evidence; then add a better one with project-add. A frontier act becomes a project, not one task."
+   },
+   {
+    "utc": "2026-11-28T16:30Z",
+    "by": "supervisor",
+    "rule": "PROJECT DISCOVERY (Joseph, 28 Nov 2026: \"a bounded, evidence-based discovery assignment that remains eligible independently of existing project and lane cooldowns, within our usage reserve\"). When STATUS.project_discovery.due is true (no project step due, no frontier question open), do what project_discovery.how says for the lens in project_discovery.lens: ONE assignment per session, worked deeply, recorded with project-discover. It takes the place of the three fallback avenues in that session. Then develop the project you found in the same session (start project:<id> before each step, project-step after it). When your assignment is recorded and nothing else is due for you, close with no-worthwhile-work: while lenses or steps remain the helper answers NEXT yes and Make starts the next session at once. Backlog discovery that added tasks no longer rests."
    }
   ]
  },
@@ -10321,7 +10326,13 @@
     "updated_utc": "2026-11-28T00:20Z"
    }
   ],
-  "projects_about": "Since 2026-11-28T00:07Z, on Joseph's words of 27 Nov 2026 18:05 Chicago: \"Treat growth opportunities as projects worth developing, not checkboxes to complete.\" \"Stop optimizing for finishing the queue and start optimizing for growing the business.\" Projects are the main work; frontier questions feed new projects."
+  "projects_about": "Since 2026-11-28T00:07Z, on Joseph's words of 27 Nov 2026 18:05 Chicago: \"Treat growth opportunities as projects worth developing, not checkboxes to complete.\" \"Stop optimizing for finishing the queue and start optimizing for growing the business.\" Projects are the main work; frontier questions feed new projects.",
+  "project_discovery": {
+   "enabled": true,
+   "about": "PROJECT DISCOVERY since 2026-11-28T16:30Z, on Joseph's words of 28 Nov 2026: \"When all frontier questions are exhausted and existing projects are waiting, there is no guaranteed independent project-discovery assignment. Implement a bounded, evidence-based discovery assignment that remains eligible independently of existing project and lane cooldowns, within our usage reserve.\" The helper holds the lenses (PD_LENSES in ops/loopctl.py: objectives, intermediaries, search-demand, local-intent, visitors, calendar, assets, benchmarks) and the method (status prints both under project_discovery when the assignment is due). Eligible when a lens is due, no project step is due, no frontier question is open and the usage reserve has room; it looks at no lane, cooldown or owner limit. Bounds: one lens per cadence (7, 14 or 28 days: how often that evidence changes; the search lens also as soon as a newer Search Console read is recorded), one assignment per session, and a failed project reopens one lens for its replacement. state and log are written by project-discover only.",
+   "state": {},
+   "log": []
+  }
  },
  "owner_decisions": [
   {
@@ -10393,6 +10404,13 @@
    "heard_in": "supervising chat",
    "for": "supervisor",
    "applied": "2026-11-28T00:07Z: helper v4.7 growth projects (planner/projects, project-add, project-step); five projects seeded from measured evidence; frontier back to 6 a day; addendum 3."
+  },
+  {
+   "utc": "2026-11-28T16:11Z",
+   "said": "I had the actual GitHub controller code and execution records independently inspected. We identified specific problems, not hypothetical ones. 1. In loopctl.py, line 1424, successful backlog discovery still imposes the base 12-hour cooldown. The latest session found two tasks and nevertheless received this cooldown. Correct this so productive discovery does not trigger an exhaustion penalty. 2. When all frontier questions are exhausted and existing projects are waiting, there is no guaranteed independent project-discovery assignment. Implement a bounded, evidence-based discovery assignment that remains eligible independently of existing project and lane cooldowns, within our usage reserve. 3. Preserve legitimate measurement waits, publication approvals, source verification, spending limits, duplicate protection and emergency switches. Before deploying changes, reproduce the current failure using the actual state from November 28 at 08:39 UTC. Test the corrected behavior against that same state. Then perform a live end-to-end test [...]. Do not introduce another arbitrary restriction or rebuild the architecture without demonstrating why it is necessary.",
+   "heard_in": "supervising chat",
+   "for": "supervisor",
+   "applied": "2026-11-28T16:30Z: both faults reproduced on the state of commits 72659f65 and ba961bf4 (the close of 08:39Z re-run: tasks_added 2, rest_hours 12, next no; nothing eligible from 08:40Z to 17:28Z). Helper v4.8: a rest of backlog discovery follows only a conclusion that found nothing; project discovery (planner/project_discovery, command project-discover); the cap of eight live projects removed because it counted projects that wait for a measurement. 36 checks pass against the same state (supervisor's test record). Addendum 4 tells the worker."
   }
  ],
  "strategy": {
