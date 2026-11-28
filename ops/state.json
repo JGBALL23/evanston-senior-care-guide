@@ -2,7 +2,7 @@
   "schema": 1,
   "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
   "updated_utc": "2026-11-18T23:05Z",
-  "last_run_utc": "2026-11-28T03:34Z",
+  "last_run_utc": "2026-11-28T15:07Z",
   "facebook": {
     "access": {
       "value": "yes",
@@ -500,7 +500,6 @@
     ]
   },
   "log": [
-    "2026-11-22T23:30Z evening lead scan 181 posts, 0 new leads; no org replies; next: Mon 9:00 Chicago Rogers Park post, one-off North Shore 7-day result, lead scan, Monday outreach",
     "2026-11-23T15:14Z Rogers Park post P-1122-01 submitted (fb-rp-1122, template A with sources, site preview card chosen); pending admin approval; 5 posts in 7 days (cap reached until 24 Nov 00:41Z)",
     "2026-11-23T15:16Z one-off sent: North Shore checklist post 7-day result (2 visitors incl. possibly owner phone, 2 checklist opens, all day 1; 0 assessments, 0 tour-form views, 0 tour requests) - done",
     "2026-11-23T15:30Z morning lead scan 11 groups, 399 posts, 0 new leads (Glenview-Northbrook caregiver request already alerted; 1 false positive)",
@@ -539,7 +538,8 @@
     "2026-11-27T22:16Z check: no org replies; evening scan at 23:25Z",
     "2026-11-27T23:30Z evening lead scan 11 groups 242 posts 0 leads; no org replies",
     "2026-11-28T02:26Z check: no org replies; late scan 03:30Z",
-    "2026-11-28T03:34Z late lead scan 11 groups 195 posts 0 leads; sleeping to Sat 15:00Z"
+    "2026-11-28T03:34Z late lead scan 11 groups 195 posts 0 leads; sleeping to Sat 15:00Z",
+    "2026-11-28T15:07Z Sat morning lead scan 11 groups 389 posts 0 leads; fb-nsh-1126 and fb-evsk-1125 0/0; no org replies; no post (cap to 29 Nov 15:08Z)"
   ],
   "next_actions": [
     "Fri 19:20Z afternoon lead scan; ~23:30Z evening scan",
@@ -666,8 +666,8 @@
   },
   "due": {
     "post_next": "2026-11-29T15:10Z",
-    "fb_checks": "2026-11-28T15:00Z",
-    "lead_scan": "2026-11-28T15:00Z",
+    "fb_checks": "2026-11-28T21:05Z",
+    "lead_scan": "2026-11-28T19:10Z",
     "metrics": "2026-11-19T00:05Z",
     "venues": "2026-12-04T15:00Z",
     "evanston_join_status": "2026-11-19T15:00Z",
