@@ -163,11 +163,11 @@
  ],
  "limits": [],
  "brief": {
-  "date_chicago": "2026-11-27",
-  "ready": "no reply drafts or post text due; no ACT referral target waiting",
+  "date_chicago": "2026-11-28",
+  "ready": "no reply drafts or post text due; 2 email drafts queued for the operator (not before 30 Nov and 1 Dec); no new ACT referral target",
   "learned": [
-   "27 Nov to 12:25 Chicago: 1 genuine visitor (Google, returning), 0 tour requests; no Facebook-tagged visits since the 26 Nov North Shore post",
-   "still 0 organization replies to 11 outreach emails; SRAL LIFE Center lists checked: government forms and providers only, no route for a guide (DROP)"
+   "28 Nov to 11:42 Chicago: 0 genuine visitors (only Meta crawler beacons), 0 tour requests; 7-day total 28 qualified visitors, 17 from Facebook, 3 from search",
+   "still 0 organization replies to 11 outreach emails"
   ]
  },
  "log": [
