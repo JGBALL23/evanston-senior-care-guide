@@ -7119,8 +7119,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSciSmPDNJW5sH6Zuua",
-   "utc": "2026-11-28T17:43Z",
-   "since_utc": "2026-11-28T17:42Z"
+   "utc": "2026-11-28T17:45Z",
+   "since_utc": "2026-11-28T17:42Z",
+   "productive_min": 3,
+   "deliverables": [
+    "project:PJ06 found (lens objectives)"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-28T17:43Z"
@@ -10343,14 +10347,49 @@
     ],
     "not_before_utc": "2026-12-05T06:30Z",
     "updated_utc": "2026-11-28T00:20Z"
+   },
+   {
+    "priority": 2,
+    "name": "Evanston local-intent pages, memory care first",
+    "objective": "Q1-2 (with Q1-5 as the listing stage)",
+    "goal": "Give Evanston families who search a care type plus Evanston (memory care first, then the next care type the evidence supports) one independent, officially sourced page that answers the decision-stage question on its first screen, cross-linked with /assisted-living-evanston/, and use it as the asset that earns the first outside listing.",
+    "metric": "Search Console (weekly Make read): impressions, clicks and position for queries naming Evanston plus memory care, dementia or the care type; genuine visitors landing on the page (landed beacons); tour-path steps from it; outside pages that list it (scoreboard placements_live).",
+    "why": "Read 28 Nov 2026: (1) Make's Search Console read of 25 Nov (period 26 Oct-22 Nov): one Evanston query (assisted living cost evanston il, 5 impressions, position 78.2), and /assisted-living-evanston/ has no row in the pages list, so local intent, objective Q1-2 (300 local-intent impressions a week by February), has no project and no measured movement. (2) Google autocomplete 28 Nov for Evanston stems returns 'memory care evanston il', 'memory care facilities evanston', 'dementia care evanston' -> memory care, 'nursing home evanston il', 'skilled nursing facility evanston il', 'senior housing evanston il'. (3) The results for 'memory care Evanston IL' (28 Nov) are referral directories (A Place for Mom, Seniorly, Caring, seniors.fyi, memorycarefind, alzheimers.net) whose counts (3 to 148 communities) and prices disagree, plus one official page: the City of Evanston's Dementia Friendly Evanston Resources, which lists memory cafes, adult day services, support groups and outside long-term-care links (level of care, facility-visit checklist, comparing options, paying), so an official-source local explainer can rank and the city's page is a natural listing for one. (4) Coverage: main has /assisted-living-evanston/ and independent-living-evanston; drafts/batch #90 has illinois-memory-care-assisted-living (state rules, verified 26 Nov, no Evanston content); nothing local on memory care. cityofevanston.org and illinois.gov are allowed citation hosts. F06 (27 Nov) closed per-town copies for other towns; this is Evanston itself by care type, not a town clone.",
+    "plan": "1 Build: one page on drafts, 'Memory care in Evanston' (how to check whether an Evanston community is licensed for dementia care with IDPH, what Illinois requires, the City's local dementia supports, paying), under ROUTINE.md, quotation checker, independent reader. 2 Publish: into the publish batch when its packet is verified; a review PR linking /assisted-living-evanston/ and the page to each other. 3 Listing: once live, one prepared, asset-led suggestion for the operator to the City's Dementia Friendly Evanston resources page (step 8c only after an ACT verdict on that target). 4 Measure: weekly Make reads for Evanston memory-care queries; 5 next care type (nursing homes and short-term rehab in Evanston) only if the first page gains impressions or a Search Console query names it.",
+    "next_step": "Build stage 1 on drafts in this session (lane build): the page, its five checks, the quotation checker and an independent reader's review packet.",
+    "kill_when": "Eight weeks after the page is live with fewer than 20 impressions a week for Evanston memory-care or dementia queries and no outside listing: record why and stop adding Evanston care-type pages.",
+    "stage": "build",
+    "id": "PJ06",
+    "status": "active",
+    "added_utc": "2026-11-28T17:45Z",
+    "added_by": "cse_014eaiSciSmPDNJW5sH6Zuua",
+    "log": [],
+    "lens": "objectives"
    }
   ],
   "projects_about": "Since 2026-11-28T00:07Z, on Joseph's words of 27 Nov 2026 18:05 Chicago: \"Treat growth opportunities as projects worth developing, not checkboxes to complete.\" \"Stop optimizing for finishing the queue and start optimizing for growing the business.\" Projects are the main work; frontier questions feed new projects.",
   "project_discovery": {
    "enabled": true,
    "about": "PROJECT DISCOVERY since 2026-11-28T16:30Z, on Joseph's words of 28 Nov 2026: \"When all frontier questions are exhausted and existing projects are waiting, there is no guaranteed independent project-discovery assignment. Implement a bounded, evidence-based discovery assignment that remains eligible independently of existing project and lane cooldowns, within our usage reserve.\" The helper holds the lenses (PD_LENSES in ops/loopctl.py: objectives, intermediaries, search-demand, local-intent, visitors, calendar, assets, benchmarks) and the method (status prints both under project_discovery when the assignment is due). Eligible when a lens is due, no project step is due, no frontier question is open and the usage reserve has room; it looks at no lane, cooldown or owner limit. Bounds: one lens per cadence (7, 14 or 28 days: how often that evidence changes; the search lens also as soon as a newer Search Console read is recorded), one assignment per session, and a failed project reopens one lens for its replacement. state and log are written by project-discover only.",
-   "state": {},
-   "log": []
+   "state": {
+    "objectives": {
+     "last_utc": "2026-11-28T17:45Z",
+     "run": "cse_014eaiSciSmPDNJW5sH6Zuua",
+     "project": "PJ06",
+     "result": "Read 28 Nov 2026: strategy Q1 objectives vs planner/projects PJ01-PJ05 (Q1-1 PJ05, Q1-3 PJ01 + ladder angle, Q1-4 PJ02/PJ03, Q1-6 #94, Q1-7 all); Q1-2 local intent and Q1-5 listings have no project. Make SC read 25 Nov: 1 Evanston query (5 impr, pos 78), /assisted-living-evanston/ absent from pages. Autocomplete 28 Nov: memory care / nursing home / senior housing + evanston il. SERP 'memory care Evanston IL': directories only plus cityofevanston.org Dementia Friendly Evanston Resources (allowed host; lists outside LTC links). Candidates: (A) Evanston memory-care page, then listing on the City…",
+     "marker": null
+    }
+   },
+   "log": [
+    {
+     "utc": "2026-11-28T17:45Z",
+     "run": "cse_014eaiSciSmPDNJW5sH6Zuua",
+     "lens": "objectives",
+     "added": 1,
+     "project": "PJ06",
+     "result": "Read 28 Nov 2026: strategy Q1 objectives vs planner/projects PJ01-PJ05 (Q1-1 PJ05, Q1-3 PJ01 + ladder angle, Q1-4 PJ02/PJ03, Q1-6 #94, Q1-7 all); Q1-2 local intent and Q1-5 listings have no project. Make SC read 25 Nov: 1 Evanston query (5 impr, pos 78), /assisted-living-evanston/ absent from pages. Autocomplete 28 Nov: memory care / nursing home / senior housing + evanston il. SERP 'memory care Evanston IL': directories only plus cityofevanston.org Dementia Friendly Evanston Resources (allowed host; lists outside LTC links). Candidates: (A) Evanston memory-care page, then listing on the City's dementia page: chosen, local reach + allowed sources + build not waiting on merge; (B) nursing homes in Evanston: covered by check-illinois-inspection-records, close to ranking facilities, later stage only on evidence; (C) Evanston senior services/whom to call: F08 (27 Nov) watch, holiday draft covers state layer; (D) town pages: F06 watch, not repeated."
+    }
+   ]
   }
  },
  "owner_decisions": [
