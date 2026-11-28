@@ -6458,10 +6458,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-28T18:07Z",
-  "event": "Make controller: completion of cse_014eaiSbLGzqqhWfy7gHtQH7",
-  "picked": "-",
-  "why": "Worked: project discovery local-intent recorded, no project qualifies (4 candidates: respite, supportive living, local cost, nursing-home Medicaid); stopped: no-worthwhile-work; resume: next lens (visitors) or 18:46Z sweep"
+  "utc": "2026-11-28T18:09Z",
+  "event": "Make controller: completion of cse_014eaiSeHRfvS7seeirHN4eT",
+  "picked": "none",
+  "why": "Worked: visitors-lens project discovery found no project (28 genuine visitors in 7 days; every landing guide has a next step); stopped: no-worthwhile-work; resume: next lens or 18:46Z cooldowns"
  },
  "last_verified_action": "ACQ-220 done 2026-11-28T17:56Z: Independent reader (agent in cse_014eaiSciSmPDNJW5sH6Zuua) checked commit 8cfea0f (recommended additions: supervisor 12-hour training, dementia program disclos…",
  "last_stop": {
@@ -6542,7 +6542,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Next: project discovery lens visitors (then calendar, assets, benchmarks); planner cooldown and publish-ready sweep at 18:46Z; daily package cut 29 Nov 05:00Z. Waiting on Joseph: package merge, ACQ-007 and ACQ-212 decisions.",
+ "next_discovery": "Next: project discovery lens calendar (then assets, benchmarks); planner cooldown and publish-ready sweep at 18:46Z; daily package cut 29 Nov 05:00Z. Waiting on Joseph: package merge #91, ACQ-007 and ACQ-212 decisions.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -7183,14 +7183,84 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiScuivKeRhjfyzjYVBX",
-   "utc": "2026-11-28T18:08Z",
-   "since_utc": "2026-11-28T18:08Z"
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-28T17:43Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiScuivKeRhjfyzjYVBX",
+    "start_utc": "2026-11-28T18:08Z",
+    "end_utc": "2026-11-28T18:09Z",
+    "launch": "completion of cse_014eaiSeHRfvS7seeirHN4eT",
+    "outcome": "Worked: visitors-lens project discovery found no project (28 genuine visitors in 7 days; every landing guide has a next step); stopped: no-worthwhile-work; resume: next lens or 18:46Z cooldowns",
+    "done": 0,
+    "changed": 1,
+    "tasks": "none",
+    "next": "yes",
+    "wake_minutes": null,
+    "next_due_utc": "2026-11-28T18:46Z",
+    "plan_due": false,
+    "saturated": [
+     "demand"
+    ],
+    "budget_used_hours_24h": 2.7,
+    "budget_used_hours_7d": 9.0,
+    "productive_min": 0,
+    "deliverables": [
+     "discovery:visitors no project"
+    ],
+    "stop_reason": "no-worthwhile-work",
+    "considered": "event waits ACQ-012/017/102 (#81/#85/#89 still open, unchanged), ACQ-007/ACQ-212 waiting on Joseph; monitor not due (17:43Z); plan cooling until 18:46Z; sweep publish-ready 18:46Z, asset-gaps 19:28Z, search-presence 29 Nov 00:50Z; frontier list empty; package cut done today (next 29 Nov 05:00Z); projects PJ01-PJ07 no step due; project discovery lens visitors answered (no project); demand-questions and draft-review angles waiting on Joseph",
+    "resume_when": "next project-discovery lens (calendar, assets, benchmarks) in a new session, or 18:46Z when the planner cooldown and publish-ready sweep come due",
+    "sweep_due_left": [],
+    "sessions_24h": 15,
+    "handoff": null,
+    "make_ops": null,
+    "package": {
+     "due_at_close": false,
+     "recut_due_at_close": false,
+     "skipped": null,
+     "done_today": true
+    },
+    "backlog_discovery": {
+     "explorations": 0,
+     "avenue_classes": [],
+     "tasks_added": 0,
+     "concluded": {
+      "utc": "2026-11-28T18:09Z",
+      "run": "cse_014eaiScuivKeRhjfyzjYVBX",
+      "covered_by": "project discovery",
+      "rest_hours": 0
+     }
+    },
+    "frontier": {
+     "explored": [],
+     "open_left": 0
+    },
+    "project_discovery": {
+     "recorded": [
+      {
+       "lens": "visitors",
+       "project": null
+      }
+     ],
+     "lenses_due_left": [
+      "calendar",
+      "assets",
+      "benchmarks"
+     ],
+     "waiting_for": null
+    },
+    "projects_stepped": 0,
+    "next_work": [
+     "project discovery: lens calendar, assets, benchmarks",
+     "backlog discovery"
+    ],
+    "discovery_room": true
+   },
    {
     "run": "cse_014eaiSeHRfvS7seeirHN4eT",
     "start_utc": "2026-11-28T18:05Z",
@@ -8944,7 +9014,7 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-28T18:07Z",
+   "written_utc": "2026-11-28T18:09Z",
    "eligible_now": 2,
    "next_due": [
     {
@@ -10802,9 +10872,24 @@
      "project": null,
      "result": "Read 28 Nov 2026 (18:05-18:20Z): planner/projects PJ01-PJ07, project_discovery state (objectives, intermediaries, search-demand), frontier F06/F08/F13/F15; today's web results for nursing-home Medicaid Skokie/Evanston, respite Wilmette/Glenview/Northbrook, supportive living Evanston/Skokie, Evanston senior housing how to choose, CareScout Chicago metro cost; hfs.illinois.gov/medicalprograms/slf/cook.html; assets.carescout.com 131168/282102/298701 (dated 03/2026). Candidates: (A) North Shore respite: results are all home-care agency pages and care.com; the official route (Family Caregiver Supp…",
      "marker": null
+    },
+    "visitors": {
+     "last_utc": "2026-11-28T18:09Z",
+     "run": "cse_014eaiScuivKeRhjfyzjYVBX",
+     "project": null,
+     "result": "Read 28 Nov 2026 (18:10-18:25Z): cloud.json scoreboard.daily 22-28 Nov (28 genuine visitors in 7 days: 17 Facebook from fb-rp-1122/fb-nsh-1126/fb-evsk-1125/fb-glv-1124, about 4 Google, about 8 direct; 1 checklist open, 0 assessment starts, 0 tour-form views, 0 tour requests) and metrics through 17:42Z; Netlify observability 27 Nov 18:10Z-28 Nov 18:10Z, browser HTML by URL (home 40, /sourcing/ 14 = 404 bursts at worker check times, not visitors; single hits on 10 guides) and the /sourcing/ request log; planner/projects PJ03 and PJ05 and their next steps; live HTML of the three guides Google vi…",
+     "marker": null
     }
    },
    "log": [
+    {
+     "utc": "2026-11-28T18:09Z",
+     "run": "cse_014eaiScuivKeRhjfyzjYVBX",
+     "lens": "visitors",
+     "added": 0,
+     "project": null,
+     "result": "Read 28 Nov 2026 (18:10-18:25Z): cloud.json scoreboard.daily 22-28 Nov (28 genuine visitors in 7 days: 17 Facebook from fb-rp-1122/fb-nsh-1126/fb-evsk-1125/fb-glv-1124, about 4 Google, about 8 direct; 1 checklist open, 0 assessment starts, 0 tour-form views, 0 tour requests) and metrics through 17:42Z; Netlify observability 27 Nov 18:10Z-28 Nov 18:10Z, browser HTML by URL (home 40, /sourcing/ 14 = 404 bursts at worker check times, not visitors; single hits on 10 guides) and the /sourcing/ request log; planner/projects PJ03 and PJ05 and their next steps; live HTML of the three guides Google visitors landed on (benefit-access, preadmission-screening, care-facility-complaint). Candidates: (A) multiply the Facebook posts, the only source with volume (3-7 visitors a post): already PJ03, waiting on the operator's next post slot; nothing new to add. (B) a landing page with no next step toward the tour path: DROP, every landing guide read today carries the assessment link twice plus related guides, and the complaint guide also the checklist and tour link. (C) the returning Google/direct visitors: 1-2 people, no pattern to build on. No landing step is near 30 genuine visitors, so conversion work waits for PJ05's 5 Dec measurement. None qualifies today; reopen when a source or landing page passes 30 genuine visitors or PJ05 measures."
+    },
     {
      "utc": "2026-11-28T18:07Z",
      "run": "cse_014eaiSeHRfvS7seeirHN4eT",
