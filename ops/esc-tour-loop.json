@@ -6784,8 +6784,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSeLUyuyJkYCTLw4xJi",
-   "utc": "2026-11-28T00:12Z",
-   "since_utc": "2026-11-28T00:12Z"
+   "utc": "2026-11-28T00:15Z",
+   "since_utc": "2026-11-28T00:12Z",
+   "current": {
+    "what": "project:PJ01",
+    "since_utc": "2026-11-28T00:12Z"
+   }
   },
   "monitor": {
    "last_utc": "2026-11-27T18:25Z"
@@ -9429,13 +9433,22 @@
     "metric": "Search Console: position and clicks of that page and of its 20 biggest queries (weekly Make read); genuine search visitors to it; checklist opens from it.",
     "why": "Search Console read of 25 Nov 2026 (28 days): this page had 781 of the site's 1,242 impressions at position 32.5 and 0 clicks; 'does medicare cover assisted living' alone 87 impressions. It is the site's largest search asset by far.",
     "plan": "1 Investigate: read the top 5 results for the 10 biggest queries; what they answer that this page does not, how they are structured, their titles and opening lines. 2 Strategy: one written plan (title, description, the first 100 words answering the question directly, sections that match the searches, internal links from the 32 live guides, a related cluster page only if a query group has no answer). 3 Build: one review pull request with the restructured page, sourced to the review rules, independent reader. 4 After his merge: watch position weekly; second iteration from what moved.",
-    "next_step": "Investigate: read the top results for the 10 biggest queries and write research/medicare-page-serp-study.md.",
+    "next_step": "Build: after package #91 merges, branch claude/medicare-page-pj01 from main and make the review PR per research/medicare-page-serp-study.md (Recommendation 1-4), Medicare.gov-sourced, reviewer agent, all suites; it enters the next package.",
     "kill_when": "Two iterations live for 6 weeks each with no position gain on the main queries: write down why and move effort elsewhere.",
-    "stage": "investigate",
-    "status": "active",
+    "stage": "build",
+    "status": "waiting",
     "added_utc": "2026-11-28T00:07Z",
     "added_by": "supervisor",
-    "log": []
+    "log": [
+     {
+      "utc": "2026-11-28T00:15Z",
+      "run": "cse_014eaiSeLUyuyJkYCTLw4xJi",
+      "result": "Investigate + strategy done: research/medicare-page-serp-study.md on drafts 7a2c1a8. Read 28 Nov 2026: web results for 5 of the 10 biggest queries (AARP, NCOA, Healthline, Humana, NerdWallet, Medicare.gov lead), NCOA (7 Apr 2026) and Healthline (1 Jul 2025) pages in full, Medicare.gov nursing home care page; AARP refused (403). Make GSC read 25 Nov: page 781 impr pos 32.5, 0 clicks; site daily impressions 38->397 and position 47->28 over 16-22 Nov. Gaps: no section on what Medicare still pays while living in assisted living (Part B, D, DME, home health, hospice); no $0 answer for 208 impressions of cost-worded queries (worst ranked, 45.7/61.4); no question headings (Part B, Medicare Advantage, dementia, Illinois); payment sources not linked to live PACE/VA/Medicaid guides. Plan: one review PR after #91 merges (page dict is changed inside #91 by #89/#93): description + first line with $0, new covered-while-in-assisted-living section, 4-question FAQ incl. Illinois answer, internal links; keep title; no FAQ schema.",
+      "stage": "build"
+     }
+    ],
+    "not_before_utc": "2026-11-29T00:15Z",
+    "updated_utc": "2026-11-28T00:15Z"
    },
    {
     "id": "PJ02",
