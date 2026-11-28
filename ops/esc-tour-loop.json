@@ -6205,10 +6205,10 @@
  "blocked": [],
  "next_work_source": "Use discovery-first hourly compounding backlog: existing ESCG cloud operator reviews about 10 candidate actions each hour, adds up to 10 genuinely new ready/waiting/delegated tasks with evidence, carries forward unfinished tasks and commits only meaningful changes to automation/esc-tour-loop. Event-driven loop executes highest-value ready items. Prior idle gate is historical and does not ban genuine new, verified opportunity research.",
  "last_run": {
-  "utc": "2026-11-28T00:21Z",
+  "utc": "2026-11-28T00:52Z",
   "event": "Make controller: timer start: recovery, waiting work, wake time or pickup",
-  "picked": "none (projects PJ01-PJ05 stepped; sweep channel-yield +0)",
-  "why": "Worked: 4 growth projects advanced (PJ01 Medicare SERP study, PJ02 press plan, PJ03 FB calendar, PJ04 decision, PJ05 funnel); stopped: no-worthwhile-work; resume: package cut 05:00Z"
+  "picked": "ACQ-206 done, ACQ-207 done, ACQ-208 done, ACQ-209 done, ACQ-210 done",
+  "why": "Worked: PJ01 Medicare page and PJ04 retro-Medicaid sentence built, reader-verified, review PRs #96 and #95; PJ02 tip A prepared; stopped: no-worthwhile-work; resume: package cut 05:00Z"
  },
  "last_verified_action": "ACQ-210 done 2026-11-28T00:52Z: Independent reader (agent in this session) checked fbb5846: the SLP sentences now match the HFS Resident Fact Sheet in scope (room and board for every resident…",
  "last_stop": {
@@ -6289,7 +6289,7 @@
   "primary_metric": "qualified voluntary tour inquiries; track visitors and intermediate steps separately",
   "caution": "Never invent tasks just to reach 10, duplicate outreach, perform sends from the queue builder, or create artificial heartbeat commits."
  },
- "next_discovery": "Next: daily package cut 05:00Z 28 Nov (include batch #90 commits after the 27 Nov cut, e.g. 4815ca1 retro-Medicaid text), monitor 06:25Z. Projects wait on #91 merge (PJ01 Medicare page PR, PJ02 tips, PJ04 LTC link), the operator (PJ03 calendar from 30 Nov) and traffic (PJ05, 5 Dec).",
+ "next_discovery": "Next: the 28 Nov package cut at 05:00Z (PR #95 after #90, PR #96 Medicare page, both reader-verified), monitor 06:25Z, PJ02 tip B 06:30Z. Waiting on Joseph: package #91.",
  "opportunity_map": {
   "version": 1,
   "added_utc": "2026-11-22T17:40Z",
@@ -6921,22 +6921,63 @@
   "system": "Make.com: ESCG Loop Controller v3 (scenario 7147057) and ESCG Loop Timer v3 (scenario 7147062)",
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
-   "holder": "cse_014eaiSauSkeGhjrd8SZfMJD",
-   "utc": "2026-11-28T00:52Z",
-   "since_utc": "2026-11-28T00:27Z",
-   "productive_min": 13,
-   "deliverables": [
-    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
-    "verification:ops/reviews/live/illinois-medicaid-long-term-care.md",
-    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
-    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
-    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md"
-   ]
+   "holder": "",
+   "utc": ""
   },
   "monitor": {
    "last_utc": "2026-11-27T18:25Z"
   },
   "sessions": [
+   {
+    "run": "cse_014eaiSauSkeGhjrd8SZfMJD",
+    "start_utc": "2026-11-28T00:27Z",
+    "end_utc": "2026-11-28T00:52Z",
+    "launch": "timer start: recovery, waiting work, wake time or pickup",
+    "outcome": "Worked: PJ01 Medicare page and PJ04 retro-Medicaid sentence built, reader-verified, review PRs #96 and #95; PJ02 tip A prepared; stopped: no-worthwhile-work; resume: package cut 05:00Z",
+    "done": 5,
+    "changed": 9,
+    "tasks": "ACQ-206 done, ACQ-207 done, ACQ-208 done, ACQ-209 done, ACQ-210 done",
+    "next": "no",
+    "wake_minutes": 248,
+    "next_due_utc": "2026-11-28T05:00Z",
+    "plan_due": false,
+    "saturated": [
+     "search"
+    ],
+    "budget_used_hours_24h": 2.5,
+    "budget_used_hours_7d": 8.0,
+    "productive_min": 13,
+    "deliverables": [
+     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
+     "verification:ops/reviews/live/illinois-medicaid-long-term-care.md",
+     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
+     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
+     "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md"
+    ],
+    "stop_reason": "no-worthwhile-work",
+    "considered": "Projects PJ01 (built, PR #96, now measuring until 2 Dec), PJ04 (PR #95, measuring), PJ02 (tip A prepared; tip B next session per one-outreach-item rule), PJ03 waiting on operator calendar; no ready tasks; plan not due; sweep angles none due (draft-review and publish-ready 06:26Z/06:31Z); frontier not due (20 answered in 24h); backlog fallback resting until 08:26Z; package not due until 05:00Z; monitor not due until 06:25Z (GSC read 25 Nov already recorded by an earlier monitor).",
+    "resume_when": "2026-11-28T05:00Z daily package cut",
+    "sweep_due_left": [],
+    "sessions_24h": 7,
+    "handoff": null,
+    "make_ops": null,
+    "package": {
+     "due_at_close": false,
+     "recut_due_at_close": false,
+     "skipped": null,
+     "done_today": false
+    },
+    "backlog_discovery": {
+     "explorations": 0,
+     "avenue_classes": [],
+     "tasks_added": 0,
+     "concluded": null
+    },
+    "frontier": {
+     "explored": [],
+     "open_left": 0
+    }
+   },
    {
     "run": "cse_014eaiSeLUyuyJkYCTLw4xJi",
     "start_utc": "2026-11-28T00:12Z",
@@ -8101,7 +8142,7 @@
    }
   ],
   "next": {
-   "written_utc": "2026-11-28T00:21Z",
+   "written_utc": "2026-11-28T00:52Z",
    "eligible_now": 0,
    "next_due": [
     {
@@ -8125,8 +8166,8 @@
      "what": "ACQ-164"
     },
     {
-     "utc": "2026-11-28T06:31Z",
-     "what": "sweep angle publish-ready"
+     "utc": "2026-11-28T06:30Z",
+     "what": "project step"
     }
    ]
   },
@@ -9620,10 +9661,10 @@
     "metric": "Search Console: position and clicks of that page and of its 20 biggest queries (weekly Make read); genuine search visitors to it; checklist opens from it.",
     "why": "Search Console read of 25 Nov 2026 (28 days): this page had 781 of the site's 1,242 impressions at position 32.5 and 0 clicks; 'does medicare cover assisted living' alone 87 impressions. It is the site's largest search asset by far.",
     "plan": "1 Investigate: read the top 5 results for the 10 biggest queries; what they answer that this page does not, how they are structured, their titles and opening lines. 2 Strategy: one written plan (title, description, the first 100 words answering the question directly, sections that match the searches, internal links from the 32 live guides, a related cluster page only if a query group has no answer). 3 Build: one review pull request with the restructured page, sourced to the review rules, independent reader. 4 After his merge: watch position weekly; second iteration from what moved.",
-    "next_step": "PR #96 enters the 28 Nov package. Then measure against the 25 Nov baseline (781 impr, pos 32.5, 0 clicks) in Make's weekly reads after deploy; Rec 4 internal links (PACE and VA nursing-home guides do not link this page) as the second iteration after two reads.",
+    "next_step": "When PR #96 is live, compare Make's weekly Search Console reads with the 25 Nov baseline; then Rec 4 internal links as iteration 2.",
     "kill_when": "Two iterations live for 6 weeks each with no position gain on the main queries: write down why and move effort elsewhere.",
     "stage": "measure",
-    "status": "active",
+    "status": "waiting",
     "added_utc": "2026-11-28T00:07Z",
     "added_by": "supervisor",
     "log": [
@@ -9644,9 +9685,15 @@
       "run": "cse_014eaiSauSkeGhjrd8SZfMJD",
       "result": "Build done: review PR #96 (claude/medicare-page-pj01, cut from package branch claude/package-20261125) applies research/medicare-page-serp-study.md Recs 1-3 to /guides/does-medicare-pay-for-senior-care/: $0 description and short answer (Original Medicare scoped, Part A deductible, MA copay), new section on what Medicare still pays in assisted living (Part B, DME, Part D, home health per CMS BPM ch.7 30.1.2.A, hospice, Part A), four question sections (Part B, MA, dementia, Illinois with SLP/PACE/Medicaid LTC/VA). Sources read 28 Nov 2026 (Medicare.gov Part A/B/D, LTC, hospice, home health, cognitive assessment, compare, PACE; CMS BPM ch.7; HFS SLP fact sheet, PACE zip list). Four in-session reader checks: 7 scope defects, then 3, then 1, all corrected (7131536, df19b57, fbb5846); final 'Corrections verified'. 20/20 quotations; all suites pass. Rec 4 (internal links) held back so effects do not mix.",
       "stage": "measure"
+     },
+     {
+      "utc": "2026-11-28T00:52Z",
+      "run": "cse_014eaiSauSkeGhjrd8SZfMJD",
+      "result": "Waiting to measure: PR #96 open; the next Make Search Console read after a deploy is the evidence.",
+      "stage": "measure"
      }
     ],
-    "not_before_utc": null,
+    "not_before_utc": "2026-12-02T12:00Z",
     "updated_utc": "2026-11-28T00:52Z"
    },
    {
@@ -9657,7 +9704,7 @@
     "metric": "Mentions or links in local outlets (search and referral visitors with those referrers); replies to pitches.",
     "why": "Frontier F12 (27 Nov 2026): about 190 items in the last 12 months on senior-care terms in the two outlets' archives; recurring story types include state enforcement at a local long-term-care facility (7 stories Jan-Nov 2026) and benefit changes. The 2027 change to retroactive Medicaid found the same day is a fresh, checkable story.",
     "plan": "1 Investigate: which reporters cover these beats, how each outlet takes tips and community contributions (published routes only), what explainer readers lacked in the last stories. 2 Strategy: two or three story angles with the guide's sourced page behind each. 3 Build: the explainer pages (drafts, reader-reviewed) and short pitch drafts for the outreach operator to the outlets' published tip or newsroom addresses, with the standard disclosure. 4 Execute through the operator; follow up once; measure.",
-    "next_step": "Prepare tip B (holiday-visit next steps, guide noticed-changes-in-parent-holiday-visit in package #91) as the second growth.json ready item after re-reading the guide and its sources; then measure: replies via outreach_watch, referrers from roundtable/evanstonnow in metrics.",
+    "next_step": "Prepare tip B (holiday-visit guide, in package #91) as the second growth.json ready item after re-reading the guide and its sources.",
     "kill_when": "Three well-founded pitches with no reply or use within 6 weeks.",
     "stage": "build",
     "status": "active",
@@ -9681,10 +9728,16 @@
       "run": "cse_014eaiSauSkeGhjrd8SZfMJD",
       "result": "Tip A (2027 retroactive Medicaid, HFS quotation re-read 28 Nov 2026 on the federal-changes FAQ) prepared as growth.json ready item em-1128a for the operator: RoundTable published tips route, standard disclosure, link to illinois-medicaid-pending-nursing-home with ref tag; held by go_condition until that guide is live with the two-month rule (batch #90 head 4815ca1, next package). Tip B (holiday visit) left for a later session: one outreach item per session (procedure step 8).",
       "stage": "build"
+     },
+     {
+      "utc": "2026-11-28T00:52Z",
+      "run": "cse_014eaiSauSkeGhjrd8SZfMJD",
+      "result": "Tip A prepared this session; tip B waits for the next session (one outreach item per session, step 8).",
+      "stage": "build"
      }
     ],
-    "not_before_utc": null,
-    "updated_utc": "2026-11-28T00:43Z"
+    "not_before_utc": "2026-11-28T06:30Z",
+    "updated_utc": "2026-11-28T00:52Z"
    },
    {
     "id": "PJ03",
@@ -9725,10 +9778,10 @@
     "metric": "Search impressions for the change's queries; use by local outlets or agencies.",
     "why": "Frontier F12 act (27 Nov 2026): a federal change to retroactive Medicaid coverage takes effect in 2027 and the live guides need a correction; families who apply late for nursing-home Medicaid are the ones it affects.",
     "plan": "1 Investigate: the official rule text and Illinois HFS guidance, dates, who it affects. 2 Build: the correction (already queued) and a short dedicated page if searches exist; reader-reviewed. 3 Execute: hand it to PJ02 as an angle.",
-    "next_step": "PR #95 enters the 28 Nov package (after #90). Then measure: Make Search Console reads for retroactive/backdating queries; hand the pending guide to PJ02 as angle A once live (tip em-1128a held for that).",
+    "next_step": "When #95 is live, check Make reads for retroactive/backdating queries; hand the pending guide to PJ02 (tip em-1128a).",
     "kill_when": "No official Illinois guidance by the time it takes effect and no searches: keep only the correction.",
     "stage": "measure",
-    "status": "active",
+    "status": "waiting",
     "added_utc": "2026-11-28T00:07Z",
     "added_by": "supervisor",
     "log": [
@@ -9749,10 +9802,16 @@
       "run": "cse_014eaiSauSkeGhjrd8SZfMJD",
       "result": "Built and verified: one sourced paragraph in illinois-medicaid-long-term-care (How to apply) quoting HFS 'How will Federal changes impact Medicaid?' (read 28 Nov 2026): retroactive coverage 3 -> 2 months from 1 Jan 2027, with a link to illinois-medicaid-pending-nursing-home. Branch claude/medicaid-ltc-retro-2027 from package branch plus #90 head 4815ca1 (SOURCES-LIST UNION in SRC); commit b92b171; independent reader: Corrections verified (ops/reviews/live/illinois-medicaid-long-term-care.md); all suites pass. Review PR #95 opened against main; it enters the next package after #90.",
       "stage": "measure"
+     },
+     {
+      "utc": "2026-11-28T00:52Z",
+      "run": "cse_014eaiSauSkeGhjrd8SZfMJD",
+      "result": "Waiting to measure: PR #95 open (after #90).",
+      "stage": "measure"
      }
     ],
-    "not_before_utc": null,
-    "updated_utc": "2026-11-28T00:44Z"
+    "not_before_utc": "2026-12-02T12:00Z",
+    "updated_utc": "2026-11-28T00:52Z"
    },
    {
     "id": "PJ05",
