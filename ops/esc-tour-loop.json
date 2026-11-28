@@ -228,9 +228,11 @@
    "executor": "worker (research and preparation only)",
    "done_when": "guide built with build-guides.py on drafts under ROUTINE.md (or the topic entered in DEMAND.md Open when the session cannot finish a build), five checks and quotecheck pass, DEMAND line in Done in the build commit, review:<slug> task added",
    "score": 3.0,
-   "status": "ready",
+   "status": "waiting_on_owner",
    "priority": 2,
-   "found_utc": "2026-11-28T06:45Z"
+   "found_utc": "2026-11-28T06:45Z",
+   "waiting_for": "Joseph: allow irs.gov as a citation host for guides (yes/no). Today only medicare.gov, cms.gov, *.illinois.gov, *.va.gov and assets.carescout.com may be cited (ROUTINE.md Step 3; enforced by check-guides.js line 57 on drafts and main). A yes would be one line added to that allowlist and to ROUTINE.md, made in a review pull request by the supervising session or the next worker once applied; then the tax-deduction guide (IRS Publication 502) can be built. Tried: drafts ROUTINE.md and check-guides.js read 28 Nov 2026; no allowed host states the medical-expense deduction rules (Medicare.gov and Illinois pages are not tax authorities); stopped by: the worker may not edit gates, and the citation-host policy is the owner's rule.",
+   "note": "2026-11-28 cse_014eaiScD9A2D9TRc6UYLPwd: evidence holds (three public family questions 2020-03-05, 2023-03-01, 2024-06-16; IRS Pub 502 for 2025 returns read 28 Nov: nursing home medical care; meals and lodging only when medical care is a principal reason; qualified long-term care services for a chronically ill individual under a plan of care; 7.5% of AGI floor). Not built: irs.gov is not an allowed citation host. Next package cut: one lettered decision, weighed against ACQ-118's (ilga.gov) for the one new decision a day."
   }
  ],
  "completed": [
@@ -6963,11 +6965,11 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiScD9A2D9TRc6UYLPwd",
-   "utc": "2026-11-28T06:45Z",
+   "utc": "2026-11-28T06:46Z",
    "since_utc": "2026-11-28T06:42Z",
    "current": {
-    "what": "plan:demand",
-    "since_utc": "2026-11-28T06:44Z"
+    "what": "ACQ-212",
+    "since_utc": "2026-11-28T06:45Z"
    }
   },
   "monitor": {
