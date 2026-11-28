@@ -7205,8 +7205,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiScQoNnzT7YjNGcmn7R",
-   "utc": "2026-11-28T18:14Z",
-   "since_utc": "2026-11-28T18:14Z"
+   "utc": "2026-11-28T18:15Z",
+   "since_utc": "2026-11-28T18:14Z",
+   "productive_min": 2,
+   "deliverables": [
+    "discovery:assets no project"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-28T17:43Z"
@@ -10978,9 +10982,24 @@
      "project": null,
      "result": "Read 28 Nov 2026 (18:10-18:40Z): strategy/calendar (10 moments) and the 75-day window to 11 Feb 2027; planner/projects PJ01-PJ07 and project_discovery recent (visitors, local-intent, search-demand); frontier F01, F02 answers; queue ACQ-043/076/201/213 (1 Dec VA and 1 Jan Medicare, SLP, Extra Help, HFS figures, all queued with dates), ACQ-212 (tax season, waiting on Joseph: irs.gov host), PJ04 (2027 retroactive Medicaid); medicare.gov how-medigap-works (Medigap & Medicare Advantage Plans, Important! box: trial right; 'may not be able to get ... any Medigap policy'); the plan-choice section on …",
      "marker": null
+    },
+    "assets": {
+     "last_utc": "2026-11-28T18:15Z",
+     "run": "cse_014eaiScQoNnzT7YjNGcmn7R",
+     "project": null,
+     "result": "Read 28 Nov 2026 (18:14-18:15Z): main _dist (33 guides, /guides/ index grouped into 8 topics with a 'Not sure which guide applies?' helper, Paying-for-care nav, the tour checklist PDF as the only printable); package #91 contents (13 new guides incl. #90 batch, waiting on Joseph's merge); drafts research/ (6 reports: facebook calendar, local-news stories, press plan, medicare SERP study, north-shore town pages, retroactive Medicaid: each already drives PJ01-PJ04 or ended watch); cloud.json Make Search Console read 25 Nov (24 pages, 40 queries); scoreboard 22-28 Nov (1 checklist open in 7 days)…",
+     "marker": null
     }
    },
    "log": [
+    {
+     "utc": "2026-11-28T18:15Z",
+     "run": "cse_014eaiScQoNnzT7YjNGcmn7R",
+     "lens": "assets",
+     "added": 0,
+     "project": null,
+     "result": "Read 28 Nov 2026 (18:14-18:15Z): main _dist (33 guides, /guides/ index grouped into 8 topics with a 'Not sure which guide applies?' helper, Paying-for-care nav, the tour checklist PDF as the only printable); package #91 contents (13 new guides incl. #90 batch, waiting on Joseph's merge); drafts research/ (6 reports: facebook calendar, local-news stories, press plan, medicare SERP study, north-shore town pages, retroactive Medicaid: each already drives PJ01-PJ04 or ended watch); cloud.json Make Search Console read 25 Nov (24 pages, 40 queries); scoreboard 22-28 Nov (1 checklist open in 7 days); PR #92 body; frontier F08, F14, F19 answers (27 Nov). Candidates: (A) a one-page printable from an existing guide (Medicare /bin/bash answer or Illinois paying-for-care at a glance) for senior centers and villages to hand out: F14 found no dated demand for any printable beyond the checklist, the checklist itself had 1 open in 7 days, and the hand-out route (D8 libraries and senior centers) needs Joseph's time (map status owner); PJ07 already carries the guides to the Edgewater village by link: DROP, no new evidence since F14. (B) a decision bundle 'parent going from hospital to a nursing home in Illinois' (preadmission screening 42 impr pos 8.5, Medicare SNF, Medicaid LTC, look-back, resident rights): the /guides/ index already groups these under Paying with Medicaid and Checking a community; a hub page has no query of its own (only 'what is a uai screening', 6 impr) and would be a key…"
+    },
     {
      "utc": "2026-11-28T18:13Z",
      "run": "cse_014eaiSbq7aqFJ2cxiVJ6Ley",
