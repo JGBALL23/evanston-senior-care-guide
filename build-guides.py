@@ -382,6 +382,8 @@ SRC = {
                      'https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan/special-enrollment-periods'),
     "medigap_switch": ('Medicare.gov — Can I switch or drop my Medigap policy?',
                        'https://www.medicare.gov/health-drug-plans/medigap/ready-to-buy/change-policies/switch-drop'),
+    "medigap_guide_02110": ('Medicare.gov — Choosing a Medigap Policy (publication 02110)',
+                            'https://www.medicare.gov/publications/02110-medigap-guide-health-insurance.pdf'),
     "medicare_address": ('Medicare.gov — How do I change my address with Medicare?',
                          'https://www.medicare.gov/basics/change-address'),
     "hfs_medicaid_intro": ('Illinois HFS — Introduction to Medicaid',
@@ -6924,7 +6926,7 @@ GUIDES = [
                    "medical benefits through the Department of Human Services and "
                    "obtain a needs screening."),
         "sources": srcs("medicare_compare_om_ma", "medicare_sep", "medigap_switch",
-                        "medicare_address", "hfs_medicaid_intro", "hfs_abe_ltc_faq",
+                        "medigap_guide_02110", "medicare_address", "hfs_medicaid_intro", "hfs_abe_ltc_faq",
                         "hfs_ltc_clients", "msp_extra_help_link"),
         "body": [
             ("Medicare goes with your parent", [
@@ -6991,13 +6993,33 @@ GUIDES = [
                 "SELECT policy has its own options on that page, and Medicare.gov "
                 "says the answers cover federal rights only, so it points readers to "
                 "their State Insurance Department about rights under state law.</p>",
+                "<p>A parent who leaves a Medicare Advantage Plan for Original Medicare "
+                "because of the move has a federal right to buy a Medigap policy. "
+                "Medicare.gov&rsquo;s guide <em>Choosing a Medigap Policy</em> lists, "
+                "among the cases in which someone may buy a policy outside the "
+                "Medigap Open Enrollment Period, a parent with a "
+                "Medicare Advantage Plan who moves out of the plan&rsquo;s service "
+                "area, and says: &ldquo;You only have this right if you switch to "
+                "Original Medicare (rather than join another Medicare Advantage "
+                "Plan).&rdquo; The right covers certain Medigap plans sold by an "
+                "insurance company in your parent&rsquo;s state. The guide gives the "
+                "timing as 60 days before the date the Medicare Advantage Plan "
+                "coverage ends, if your parent is choosing to leave the plan, and no "
+                "more than 63 days after that coverage ends, and adds: &ldquo;Medigap "
+                "policies can&rsquo;t start until your Medicare Advantage Plan "
+                "coverage ends.&rdquo;</p>",
             ]),
             ("Medicaid does not move: Illinois needs its own application", [
                 "<p>HFS describes Medicaid as the health coverage programmes managed "
                 "by the State of Illinois, and says: &ldquo;Medicaid "
                 "provides health coverage for Illinois residents who meet certain "
                 "eligibility criteria including income limits and immigration "
-                "status.&rdquo; HFS suggests a quick screening first, but adds: "
+                "status.&rdquo; For an older parent, the HFS coverage group is Aid to "
+                "the Aged Blind or Disabled: &ldquo;Aid to the Aged Blind or Disabled "
+                "(AABD) provides health coverage to people who are age 65 or older, "
+                "or are blind, or have a disability.&rdquo; HFS suggests a quick "
+                "screening first, which asks for basic information about your "
+                "household and income, but adds: "
                 "&ldquo;Even if the screening tool says you may qualify for Medicaid, "
                 "you must still complete a full application to apply.&rdquo; The same "
                 "page says: &ldquo;There is no penalty for applying, even if you are "
