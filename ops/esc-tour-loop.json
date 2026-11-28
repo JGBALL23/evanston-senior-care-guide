@@ -214,19 +214,34 @@
    "found_utc": "2026-11-27T20:17Z"
   },
   {
-   "id": "ACQ-206",
-   "task": "Verify the sentences commit 22d2fd5 on claude/medicare-page-pj01 changed in does-medicare-pay-for-senior-care (PJ01 build)",
+   "id": "ACQ-207",
+   "task": "Verify the corrections commit 7131536 on claude/medicare-page-pj01 made to does-medicare-pay-for-senior-care",
    "workstream": "search",
    "lane": "search",
    "source": "followup",
-   "key": "verify-live:does-medicare-pay-for-senior-care:22d2fd5",
+   "key": "verify-live:does-medicare-pay-for-senior-care:7131536",
    "priority": 1,
-   "evidence": "commit 22d2fd5 on claude/medicare-page-pj01 (PJ01, research/medicare-page-serp-study.md)",
+   "evidence": "commit 7131536 (C1-C7 of Review 2026-11-28)",
    "expected_tour_acquisition_value": "quality gate before the Medicare page change enters the package",
    "executor": "worker (research and preparation only)",
    "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
-   "found_utc": "2026-11-28T00:34Z"
+   "found_utc": "2026-11-28T00:42Z"
+  },
+  {
+   "id": "ACQ-208",
+   "task": "Verify the sentence commit b92b171 on claude/medicaid-ltc-retro-2027 added to illinois-medicaid-long-term-care (PJ04)",
+   "workstream": "search",
+   "lane": "search",
+   "source": "followup",
+   "key": "verify-live:illinois-medicaid-long-term-care:b92b171",
+   "priority": 1,
+   "evidence": "commit b92b171 (PJ04, research/retroactive-medicaid-2027-decision.md)",
+   "expected_tour_acquisition_value": "quality gate before the 2027 retroactive-coverage sentence enters the package",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "ready",
+   "found_utc": "2026-11-28T00:42Z"
   }
  ],
  "completed": [
@@ -6077,6 +6092,34 @@
    },
    "done_utc": "2026-11-27T20:25Z",
    "minutes": 2
+  },
+  {
+   "id": "ACQ-206",
+   "task": "Verify the sentences commit 22d2fd5 on claude/medicare-page-pj01 changed in does-medicare-pay-for-senior-care (PJ01 build)",
+   "workstream": "search",
+   "lane": "search",
+   "source": "followup",
+   "key": "verify-live:does-medicare-pay-for-senior-care:22d2fd5",
+   "priority": 1,
+   "evidence": "commit 22d2fd5 on claude/medicare-page-pj01 (PJ01, research/medicare-page-serp-study.md)",
+   "expected_tour_acquisition_value": "quality gate before the Medicare page change enters the package",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-28T00:34Z",
+   "result": "Independent reader (agent in this session) checked the sentences 22d2fd5 changed on claude/medicare-page-pj01: 20/20 quotations FOUND, 26 claims scope-checked, 7 scope defects (Part D listed under Original Medicare; $217 and SNF $0 stated for everyone; home health in assisted living beyond the cited Medicare.gov page; SLP eligibility/cost missing; PACE service area missing; memory-care 20% scoped). Verdict publish-ready after corrections. All seven applied in 7131536 (CMS Benefit Policy Manual ch.7 30.1.2.A read and cited for C4); correction check queued.",
+   "verdicts": [
+    "publish-ready after corrections"
+   ],
+   "sources": [
+    "ops/reviews/live/does-medicare-pay-for-senior-care.md"
+   ],
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/live/does-medicare-pay-for-senior-care.md"
+   },
+   "done_utc": "2026-11-28T00:42Z",
+   "minutes": 8
   }
  ],
  "blocked": [],
@@ -6087,7 +6130,7 @@
   "picked": "none (projects PJ01-PJ05 stepped; sweep channel-yield +0)",
   "why": "Worked: 4 growth projects advanced (PJ01 Medicare SERP study, PJ02 press plan, PJ03 FB calendar, PJ04 decision, PJ05 funnel); stopped: no-worthwhile-work; resume: package cut 05:00Z"
  },
- "last_verified_action": "ACQ-205 done 2026-11-27T20:25Z: Independent reader agent re-read every sentence faf855a changed in illinois-fide-snp-explained (quotecheck 22/22 FOUND, 5/5 pages readable, HFS FAQ read whole)…",
+ "last_verified_action": "ACQ-206 done 2026-11-28T00:42Z: Independent reader (agent in this session) checked the sentences 22d2fd5 changed on claude/medicare-page-pj01: 20/20 quotations FOUND, 26 claims scope-checked,…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -6799,12 +6842,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSauSkeGhjrd8SZfMJD",
-   "utc": "2026-11-28T00:37Z",
+   "utc": "2026-11-28T00:42Z",
    "since_utc": "2026-11-28T00:27Z",
-   "current": {
-    "what": "ACQ-206",
-    "since_utc": "2026-11-28T00:35Z"
-   }
+   "productive_min": 8,
+   "deliverables": [
+    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-27T18:25Z"
