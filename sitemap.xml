@@ -4,13 +4,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://evanstonseniorcareguide.com/</loc>
-    <lastmod>2026-11-17</lastmod>
+    <lastmod>2026-11-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://evanstonseniorcareguide.com/guides/</loc>
-    <lastmod>2026-11-17</lastmod>
+    <lastmod>2026-11-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -207,6 +207,84 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://evanstonseniorcareguide.com/guides/illinois-assisted-living-involuntary-move-out/</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://evanstonseniorcareguide.com/guides/illinois-nursing-home-responsible-party/</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://evanstonseniorcareguide.com/guides/illinois-medicaid-pending-nursing-home/</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://evanstonseniorcareguide.com/guides/illinois-money-management-program/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://evanstonseniorcareguide.com/guides/illinois-parent-refuses-to-move-guardianship/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://evanstonseniorcareguide.com/guides/medicare-fast-appeal-hospital-rehab-discharge/</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://evanstonseniorcareguide.com/guides/va-home-based-primary-care-and-aide/</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://evanstonseniorcareguide.com/guides/long-term-care-insurance-assisted-living-illinois/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://evanstonseniorcareguide.com/guides/illinois-memory-care-assisted-living/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://evanstonseniorcareguide.com/guides/hospital-discharge-not-safe-to-go-home/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://evanstonseniorcareguide.com/guides/noticed-changes-in-parent-holiday-visit/</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://evanstonseniorcareguide.com/guides/home-care-or-assisted-living-illinois/</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://evanstonseniorcareguide.com/guides/moving-parent-to-illinois-from-another-state/</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://evanstonseniorcareguide.com/assisted-living-evanston/</loc>
     <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -214,7 +292,7 @@
   </url>
   <url>
     <loc>https://evanstonseniorcareguide.com/privacy.html</loc>
-    <lastmod>2026-11-17</lastmod>
+    <lastmod>2026-11-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
