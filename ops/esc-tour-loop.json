@@ -227,21 +227,6 @@
    "done_when": "each changed sentence re-read against its source; packet line added",
    "status": "ready",
    "found_utc": "2026-11-28T00:42Z"
-  },
-  {
-   "id": "ACQ-208",
-   "task": "Verify the sentence commit b92b171 on claude/medicaid-ltc-retro-2027 added to illinois-medicaid-long-term-care (PJ04)",
-   "workstream": "search",
-   "lane": "search",
-   "source": "followup",
-   "key": "verify-live:illinois-medicaid-long-term-care:b92b171",
-   "priority": 1,
-   "evidence": "commit b92b171 (PJ04, research/retroactive-medicaid-2027-decision.md)",
-   "expected_tour_acquisition_value": "quality gate before the 2027 retroactive-coverage sentence enters the package",
-   "executor": "worker (research and preparation only)",
-   "done_when": "each changed sentence re-read against its source; packet line added",
-   "status": "ready",
-   "found_utc": "2026-11-28T00:42Z"
   }
  ],
  "completed": [
@@ -6120,6 +6105,33 @@
    },
    "done_utc": "2026-11-28T00:42Z",
    "minutes": 8
+  },
+  {
+   "id": "ACQ-208",
+   "task": "Verify the sentence commit b92b171 on claude/medicaid-ltc-retro-2027 added to illinois-medicaid-long-term-care (PJ04)",
+   "workstream": "search",
+   "lane": "search",
+   "source": "followup",
+   "key": "verify-live:illinois-medicaid-long-term-care:b92b171",
+   "priority": 1,
+   "evidence": "commit b92b171 (PJ04, research/retroactive-medicaid-2027-decision.md)",
+   "expected_tour_acquisition_value": "quality gate before the 2027 retroactive-coverage sentence enters the package",
+   "executor": "worker (research and preparation only)",
+   "done_when": "each changed sentence re-read against its source; packet line added",
+   "status": "done",
+   "found_utc": "2026-11-28T00:42Z",
+   "result": "Independent reader (agent in this session) checked b92b171 on claude/medicaid-ltc-retro-2027: 6/6 quotations FOUND; the HFS 2027 retroactive-coverage quotation matches word for word with the same scope (all Illinois Medicaid customers, from 1 Jan 2027); paraphrase of what retroactive coverage does matches; link to illinois-medicaid-pending-nursing-home valid only with or after #90 (branch contains #90 head 4815ca1). Corrections verified. Optional addition noted (eligibility in each back month).",
+   "verdicts": [
+    "Corrections verified"
+   ],
+   "sources": [
+    "ops/reviews/live/illinois-medicaid-long-term-care.md"
+   ],
+   "deliverable": {
+    "type": "verification",
+    "ref": "ops/reviews/live/illinois-medicaid-long-term-care.md"
+   },
+   "done_utc": "2026-11-28T00:44Z"
   }
  ],
  "blocked": [],
@@ -6130,7 +6142,7 @@
   "picked": "none (projects PJ01-PJ05 stepped; sweep channel-yield +0)",
   "why": "Worked: 4 growth projects advanced (PJ01 Medicare SERP study, PJ02 press plan, PJ03 FB calendar, PJ04 decision, PJ05 funnel); stopped: no-worthwhile-work; resume: package cut 05:00Z"
  },
- "last_verified_action": "ACQ-206 done 2026-11-28T00:42Z: Independent reader (agent in this session) checked the sentences 22d2fd5 changed on claude/medicare-page-pj01: 20/20 quotations FOUND, 26 claims scope-checked,…",
+ "last_verified_action": "ACQ-208 done 2026-11-28T00:44Z: Independent reader (agent in this session) checked b92b171 on claude/medicaid-ltc-retro-2027: 6/6 quotations FOUND; the HFS 2027 retroactive-coverage quotation…",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -6842,11 +6854,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSauSkeGhjrd8SZfMJD",
-   "utc": "2026-11-28T00:43Z",
+   "utc": "2026-11-28T00:44Z",
    "since_utc": "2026-11-28T00:27Z",
    "productive_min": 8,
    "deliverables": [
-    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md"
+    "verification:ops/reviews/live/does-medicare-pay-for-senior-care.md",
+    "verification:ops/reviews/live/illinois-medicaid-long-term-care.md"
    ],
    "current": {
     "what": "project:PJ02",
@@ -8178,9 +8191,10 @@
      85,
      92,
      93,
-     94
+     94,
+     95
     ],
-    "owner_open": 5,
+    "owner_open": 6,
     "cooldown_until_utc": "2026-11-29T06:47Z",
     "last_planned_utc": "2026-11-27T06:47Z",
     "last_plan_result": "Search Console read 25 Nov (pages and queries in the 27 Nov payload, same read): Medicare page 781 imp pos 32.5 -> new section PR #93 (frontier F02) and title/body corrections already in #89; estate recovery pos 7.2 -> #92; preadmission screening 42 imp pos 8.5 0 clicks -> already queued as ACQ-102…"
@@ -9637,9 +9651,9 @@
     "metric": "Search impressions for the change's queries; use by local outlets or agencies.",
     "why": "Frontier F12 act (27 Nov 2026): a federal change to retroactive Medicaid coverage takes effect in 2027 and the live guides need a correction; families who apply late for nursing-home Medicaid are the ones it affects.",
     "plan": "1 Investigate: the official rule text and Illinois HFS guidance, dates, who it affects. 2 Build: the correction (already queued) and a short dedicated page if searches exist; reader-reviewed. 3 Execute: hand it to PJ02 as an angle.",
-    "next_step": "Build now: the correction or dedicated page per research/retroactive-medicaid-2027-decision.md on a branch cut from the open package branch, reader-verified, as a review pull request; it enters the next package.",
+    "next_step": "PR #95 enters the 28 Nov package (after #90). Then measure: Make Search Console reads for retroactive/backdating queries; hand the pending guide to PJ02 as angle A once live (tip em-1128a held for that).",
     "kill_when": "No official Illinois guidance by the time it takes effect and no searches: keep only the correction.",
-    "stage": "build",
+    "stage": "measure",
     "status": "active",
     "added_utc": "2026-11-28T00:07Z",
     "added_by": "supervisor",
@@ -9655,10 +9669,16 @@
       "run": "supervisor",
       "result": "Reopened by the supervising session: the worker set this project to wait for Joseph's merge of #91, which his rule of 24 Nov 2026 does not allow (a pending approval blocks only the affected action). The build goes on a branch from the package branch now.",
       "stage": "build"
+     },
+     {
+      "utc": "2026-11-28T00:44Z",
+      "run": "cse_014eaiSauSkeGhjrd8SZfMJD",
+      "result": "Built and verified: one sourced paragraph in illinois-medicaid-long-term-care (How to apply) quoting HFS 'How will Federal changes impact Medicaid?' (read 28 Nov 2026): retroactive coverage 3 -> 2 months from 1 Jan 2027, with a link to illinois-medicaid-pending-nursing-home. Branch claude/medicaid-ltc-retro-2027 from package branch plus #90 head 4815ca1 (SOURCES-LIST UNION in SRC); commit b92b171; independent reader: Corrections verified (ops/reviews/live/illinois-medicaid-long-term-care.md); all suites pass. Review PR #95 opened against main; it enters the next package after #90.",
+      "stage": "measure"
      }
     ],
     "not_before_utc": null,
-    "updated_utc": "2026-11-28T00:18Z"
+    "updated_utc": "2026-11-28T00:44Z"
    },
    {
     "id": "PJ05",
