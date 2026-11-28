@@ -2,7 +2,7 @@
   "schema": 1,
   "about": "State for Claude's hourly Evanston Senior Care Guide operator. Public: statuses, venue IDs, tags, times and counts only.",
   "updated_utc": "2026-11-18T23:05Z",
-  "last_run_utc": "2026-11-28T15:07Z",
+  "last_run_utc": "2026-11-28T18:06Z",
   "facebook": {
     "access": {
       "value": "yes",
@@ -500,7 +500,6 @@
     ]
   },
   "log": [
-    "2026-11-23T15:14Z Rogers Park post P-1122-01 submitted (fb-rp-1122, template A with sources, site preview card chosen); pending admin approval; 5 posts in 7 days (cap reached until 24 Nov 00:41Z)",
     "2026-11-23T15:16Z one-off sent: North Shore checklist post 7-day result (2 visitors incl. possibly owner phone, 2 checklist opens, all day 1; 0 assessments, 0 tour-form views, 0 tour requests) - done",
     "2026-11-23T15:30Z morning lead scan 11 groups, 399 posts, 0 new leads (Glenview-Northbrook caregiver request already alerted; 1 false positive)",
     "2026-11-23T15:40Z inbox: no org replies, no tour requests; outreach: Wilmette checked (senior services run by police social services, Wellmette is a mental-health campaign: no fit); no new verified email target today; Open Communities draft stays for 25 Nov batch",
@@ -539,7 +538,8 @@
     "2026-11-27T23:30Z evening lead scan 11 groups 242 posts 0 leads; no org replies",
     "2026-11-28T02:26Z check: no org replies; late scan 03:30Z",
     "2026-11-28T03:34Z late lead scan 11 groups 195 posts 0 leads; sleeping to Sat 15:00Z",
-    "2026-11-28T15:07Z Sat morning lead scan 11 groups 389 posts 0 leads; fb-nsh-1126 and fb-evsk-1125 0/0; no org replies; no post (cap to 29 Nov 15:08Z)"
+    "2026-11-28T15:07Z Sat morning lead scan 11 groups 389 posts 0 leads; fb-nsh-1126 and fb-evsk-1125 0/0; no org replies; no post (cap to 29 Nov 15:08Z)",
+    "2026-11-28T18:06Z Sat light check: no org replies; cloud 28 Nov 0 genuine visitors, 0 tour requests; scan due 19:10Z"
   ],
   "next_actions": [
     "Fri 19:20Z afternoon lead scan; ~23:30Z evening scan",
