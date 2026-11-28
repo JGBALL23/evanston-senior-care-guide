@@ -6200,6 +6200,28 @@
    },
    "done_utc": "2026-11-28T00:52Z",
    "minutes": 1
+  },
+  {
+   "id": "ACQ-211",
+   "task": "Cut the daily package",
+   "workstream": "publish",
+   "lane": "publish",
+   "source": "followup",
+   "key": "package:20261128",
+   "priority": 1,
+   "evidence": "daily package rule",
+   "expected_tour_acquisition_value": "one approval a day puts finished work in front of families",
+   "executor": "worker (research and preparation only)",
+   "done_when": "controller/package and owner_review_needed rewritten; the pull request opened, updated or not needed",
+   "status": "done",
+   "found_utc": "2026-11-28T05:12Z",
+   "result": "Cut the 28 Nov package on the open #91 (number kept): merged #90 head 4815ca1 (12 guides), #89 to its head faf855a (every commit verified), #94 sourcing page, #95 Medicaid LTC 2027 retro (verified), #96 Medicare page PJ01 (verified) into claude/package-20261125 -> 2b9e9cf. SOURCES-LIST UNION in SRC twice (#90, #96; parses, no duplicate keys); #94 conflicted in _dist only, rebuilt. Rebuild clean (48 URLs); all eleven suites pass (test.js 768/768, check-guides 3584/0, paying_nav 343/343, others pass); quotecheck 20/20, 6/6, 22/22, 12/12, 21/21 on the touched pages; built pages differ from their branches only by #94's sourcing line. Title and body rewritten; owner_review_needed line 1 rewritten; controller/package recorded. OUT: none.",
+   "deliverable": {
+    "type": "publish_pr",
+    "ref": "#91 2b9e9cf"
+   },
+   "done_utc": "2026-11-28T05:16Z",
+   "minutes": 0
   }
  ],
  "blocked": [],
@@ -6210,7 +6232,7 @@
   "picked": "ACQ-206 done, ACQ-207 done, ACQ-208 done, ACQ-209 done, ACQ-210 done",
   "why": "Worked: PJ01 Medicare page and PJ04 retro-Medicaid sentence built, reader-verified, review PRs #96 and #95; PJ02 tip A prepared; stopped: no-worthwhile-work; resume: package cut 05:00Z"
  },
- "last_verified_action": "ACQ-210 done 2026-11-28T00:52Z: Independent reader (agent in this session) checked fbb5846: the SLP sentences now match the HFS Resident Fact Sheet in scope (room and board for every resident…",
+ "last_verified_action": "ACQ-211 done 2026-11-28T05:16Z: Cut the 28 Nov package on the open #91 (number kept): merged #90 head 4815ca1 (12 guides), #89 to its head faf855a (every commit verified), #94 sourcing page, …",
  "last_stop": {
   "utc": "2026-11-20T02:45Z",
   "reason": "idle gate: no authorized action is worth doing until new evidence arrives. The next run should stop WITHOUT a commit unless one of these has happened.",
@@ -6245,7 +6267,7 @@
   "confirmation": "Claude Scheduled Tasks screenshot: ESCG Tour Acquisition Loop active, Pull request: Commits pushed on matching repository. Previous setup screenshot: head branch automation/esc-tour-loop."
  },
  "owner_review_needed": [
-  "PACKAGE 27 Nov (one merge, about 20 minutes to skim): merge #91. It holds 11 new guides (new today, in time for the holiday weeks: what to do when a visit shows changes in a parent), corrections to 22 live guides (four new since yesterday: Medicare hospice, nursing home resident rights, family caregiver support, independent living in Evanston, plus further fixes to Medicare home health and the cost guide), one new section in the Medicare guide on choosing or changing a plan before a move (#93; Open Enrollment closes on 7 December) and search-title, link and tour-path changes (#90, #89, #93, #92, #85, #81, #78, #84, #79, #86), tested together: the rebuild changes nothing and all eleven test suites pass. Two items touch things you reserved and are quoted at the top of the pull request: #86 adds the tour line you asked for on 22 Nov to the checklist PDF ('Want a tour of Westminster Place, where the author works? Ask online.'), and #84 with #79 keep a visitor's arrival channel through the tour click (no new data). Offered since 25 Nov; every day it waits, the new guides and the corrections stay off the live site. After the merge nothing else is needed: it is published automatically within about an hour (the publish task looks every hour from 06:27 to 23:27 Chicago time) and one notification tells you it is live, or why it is not. To leave something out: 'package without #<n>'.",
+  "PACKAGE 28 Nov (one merge, about 25 minutes to skim): merge #91. It holds 12 new guides (new since yesterday: home care or assisted living in Illinois, costs and who pays), corrections to 22 live guides, the Medicare guide reworked for what people search (#96: a plain $0 answer, what Medicare still pays in assisted living, four question sections; the page has 781 of the site's 1,242 search impressions and 0 clicks), its plan-choice section before Open Enrollment closes on 7 December (#93), the 2027 Medicaid retroactive-coverage change (#95), a page on how the guides are sourced and checked (#94) and search-title, link and tour-path changes, tested together: the rebuild changes nothing and all eleven test suites pass. Two items touch things you reserved and are quoted at the top of the pull request: #86 adds the tour line you asked for on 22 Nov to the checklist PDF ('Want a tour of Westminster Place, where the author works? Ask online.'), and #84 with #79 keep a visitor's arrival channel through the tour click (no new data). Offered since 25 Nov; every day it waits, the new guides, the corrections and the 7 December section stay off the live site. After the merge nothing else is needed: it is published automatically within about an hour and one notification tells you it is live, or why it is not. To leave something out: 'package without #<n>'.",
   "ONLY YOU: When you have time: the Evanston Now essay (the draft is in your Claude chat; submit through their contact form by about 10 Dec); two optional calls to offices that publish no email address: New Trier Township social services 847-446-8202 and Village of Northbrook 847-272-5050 about its Senior Housing Resources directory.",
   "FOR THE OPERATOR (nothing for you to do): an indexing request for /assisted-living-evanston/ in Search Console once #91 is live."
  ],
@@ -6922,8 +6944,12 @@
   "since_utc": "2026-11-23T00:24Z",
   "lock": {
    "holder": "cse_014eaiSerKbhFgkHuQX9sSV1",
-   "utc": "2026-11-28T05:12Z",
-   "since_utc": "2026-11-28T05:12Z"
+   "utc": "2026-11-28T05:16Z",
+   "since_utc": "2026-11-28T05:12Z",
+   "productive_min": 0,
+   "deliverables": [
+    "publish_pr:#91 2b9e9cf"
+   ]
   },
   "monitor": {
    "last_utc": "2026-11-27T18:25Z"
@@ -8176,12 +8202,15 @@
   "package": {
    "pr": 91,
    "branch": "claude/package-20261125",
-   "head": "eca3b23",
-   "cut_utc": "2026-11-27T09:48Z",
+   "head": "2b9e9cf",
+   "cut_utc": "2026-11-28T05:16Z",
    "contains": [
     90,
     89,
     93,
+    96,
+    95,
+    94,
     92,
     84,
     80,
@@ -8200,7 +8229,7 @@
    "superseded": [],
    "after_merge": "After the merge nothing else is needed. The merged commit is published automatically by the Claude task \"ESCG publish after merge\" (it looks every hour from 06:27 to 23:27 Chicago time): it checks that the commit is your merge, rebuilds the site, runs every test suite, publishes through Netlify as before, compares every changed page with what you merged, and sends you one notification: live, or not live and why.",
    "about": "The daily approval package (procedure step 7, DAILY PACKAGE). One pull request for Joseph to merge; the worker re-cuts it once a day. after_merge is changed only by a session that heard Joseph say how the site gets deployed.",
-   "note": "Cut twice on 25 Nov by the supervising chat; re-cut 26 Nov 06:31Z by the ESCG worker (cse_014eaiSe8SBqppdHD1M3fw41): #90 now 10 guides (40e9da0), #92 added; #89 through c964f99 by 06:47Z (6876bfd, 64feb14, c964f99 verified by independent readers in the same session). 26 Nov 10:03Z, supervising chat: one housekeeping commit 2d84762 on the package branch (the temporary file .cite-count of check-citations.sh, committed by accident in #89's d7724d0, removed and added to .gitignore; no page, test or script changes; rebuild clean and all eleven suites pass on 2d84762). #89 itself is unchanged at c964f99. 27 Nov 06:29Z re-cut by the ESCG worker (cse_014eaiSeY3WV1Qzjy2ZNkkuN, ACQ-169): #89's verified commits 99cc346..9d57bf0 merged (a523b5e); rebuild clean, all eleven suites pass; title and body rewritten (number unchanged). 27 Nov 2026-11-27T09:48Z second cut by the supervising chat (the worker had finished them after its 06:29Z cut and left them for the 28 Nov package, although the window was open): #90's eleventh guide (eea57b7, holiday visits), #89's commit 166f2d1 and #93 (Medicare plan choice before 7 Dec) merged (eca3b23). #93 collided with the batch in build-guides.py only where both add entries at the end of SRC; both sets kept unchanged. Rebuild clean, all eleven suites pass, the three touched pages compared with their verified branches; title and body rewritten (number unchanged).",
+   "note": "Cut twice on 25 Nov by the supervising chat; re-cut 26 Nov 06:31Z by the ESCG worker (cse_014eaiSe8SBqppdHD1M3fw41): #90 now 10 guides (40e9da0), #92 added; #89 through c964f99 by 06:47Z (6876bfd, 64feb14, c964f99 verified by independent readers in the same session). 26 Nov 10:03Z, supervising chat: one housekeeping commit 2d84762 on the package branch (the temporary file .cite-count of check-citations.sh, committed by accident in #89's d7724d0, removed and added to .gitignore; no page, test or script changes; rebuild clean and all eleven suites pass on 2d84762). #89 itself is unchanged at c964f99. 27 Nov 06:29Z re-cut by the ESCG worker (cse_014eaiSeY3WV1Qzjy2ZNkkuN, ACQ-169): #89's verified commits 99cc346..9d57bf0 merged (a523b5e); rebuild clean, all eleven suites pass; title and body rewritten (number unchanged). 27 Nov 2026-11-27T09:48Z second cut by the supervising chat (the worker had finished them after its 06:29Z cut and left them for the 28 Nov package, although the window was open): #90's eleventh guide (eea57b7, holiday visits), #89's commit 166f2d1 and #93 (Medicare plan choice before 7 Dec) merged (eca3b23). #93 collided with the batch in build-guides.py only where both add entries at the end of SRC; both sets kept unchanged. Rebuild clean, all eleven suites pass, the three touched pages compared with their verified branches; title and body rewritten (number unchanged). 28 Nov 2026-11-28T05:16Z cut by the ESCG worker (cse_014eaiSerKbhFgkHuQX9sSV1, ACQ-211): #90 head 4815ca1 (12th guide home-care-or-assisted-living-illinois; Medicaid-pending update), #89 to head faf855a (FIDE SNP, verified), #94 (sourcing page), #95 (Medicaid LTC 2027 retro), #96 (Medicare page PJ01, verified) merged (2b9e9cf). Two SOURCES-LIST UNIONs in SRC (#90, #96); #94 conflicted in _dist only, rebuilt. Rebuild clean, all eleven suites pass, touched pages compared with their branches; title and body rewritten (number unchanged).",
    "owner_actions": []
   },
   "next_discovery": "Next: channel-yield sweep 28 Nov 00:32Z, then the daily package cut from 05:00Z: it should include #90 at 4815ca1 (Medicaid-pending guide corrected for the 1 Jan 2027 cut to 2 months of retroactive coverage) and #89 through faf855a (verified: 166f2d1, 3d922fa, faf855a), and offer the new lettered decision drafted on map item S10 (IndexNow announcement after each publish). Waits on Joseph: merge of #91.",
